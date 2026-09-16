@@ -68,7 +68,7 @@ export const Scene: React.FC<{index: number}> = ({index}) => {
     <div style={{position: 'absolute', left: 70, top: 30, color: accent, fontFamily: 'Orbitron', fontSize: 22}}>{topic.brand}</div>
     <div style={{position: 'absolute', right: 70, top: 30, fontFamily: 'Orbitron', fontSize: 22, color: '#b6bdb9'}}>0{index + 1} / 06</div>
     <div style={{position: 'absolute', left: 70, top: 89, right: 60, fontSize: 49, fontWeight: 700, lineHeight: 1.2}}>{scene.title}</div>
-    <svg width="1100" height="380" viewBox="0 0 1100 380" style={{position: 'absolute', left: 90, top: 205, transform: `scale(${1 + motion * 0.025})`}}>
+    <svg width="1100" height="380" viewBox="0 0 1100 380" style={{position: 'absolute', left: 90, top: 205, transform: `scale(${1 + motion * 0.05})`}}>
       {scene.kind === 'field' ? <>
         <path d="M40 310L130 35H650L740 310Z" fill="#15281a" stroke={accent} strokeWidth="3"/>
         {Array.from({length: 8}, (_, column) => <g key={column}>
@@ -83,8 +83,9 @@ export const Scene: React.FC<{index: number}> = ({index}) => {
         {scene.labels.slice(0, -1).map((_, node) => {
           const step = 860 / (scene.labels.length - 1);
           const startX = 120 + node * step;
-          return <g key={node}><path d={`M${startX + 105} 140H${startX + step - 105}`} stroke="#57706c" strokeWidth="3"/>
-            <circle cx={startX + 105 + ((frame * 2.1 + node * 17) % Math.max(1, step - 210))} cy="140" r="5" fill={accent}/></g>;
+          const trackWidth = step - 210;
+          return <g key={node}><path d={`M${startX + 105} 140H${startX + step - 105}`} stroke={accent} strokeWidth="4" strokeDasharray="18 12" strokeDashoffset={-frame * 3}/>
+            {[0, 1, 2].map((packet) => <rect key={packet} x={startX + 105 + ((frame * 3 + packet * trackWidth / 3) % (trackWidth - 16))} y={126 + packet * 12} width="16" height="8" fill={accent}/>)}</g>;
         })}
         {scene.labels.map((text, node) => {
           const center = 120 + node * 860 / (scene.labels.length - 1);
