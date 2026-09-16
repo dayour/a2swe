@@ -1,0 +1,11 @@
+edge-tts==7.2.8
+numpy==2.5.3
+Pillow==12.3.0
+scipy==1.18.1
+piper-tts==1.8.0
+./vendor/wheels/misaki-0.9.4+py314.1-py3-none-any.whl
+misaki[en]==0.9.4+py314.1
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+./vendor/wheels/kokoro-0.9.4-py3-none-any.whl
+./vendor/wheels/kokoro_onnx-0.6.1-py3-none-any.whl
+soundfile==0.14.0

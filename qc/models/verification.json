@@ -1,0 +1,87 @@
+{
+  "python": "3.14.7",
+  "packages": {
+    "kokoro": "0.9.4",
+    "kokoro-onnx": "0.6.1",
+    "misaki": "0.9.4+py314.1",
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "spacy": "3.8.16",
+    "en-core-web-sm": "3.8.0"
+  },
+  "device": "cpu",
+  "parameter_count": 81810022,
+  "models": {
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+  },
+  "results": [
+    {
+      "topic": "john-deere",
+      "text": "A field is not one uniform surface. John Deere connects positioning, machine displays, and field data to help farmers work more precisely. StarFire positioning helps align passes. JDLink sends equipment data to Operations Center, where farmers can review performance and plan the next job. The point is not just a smarter tractor. It is a connected operation, guided by better information.",
+      "misaki_phonemes": "\u0250 f\u02c8ild \u026az n\u02cc\u0251t w\u02c8\u028cn j\u02c8un\u0259f\u02cc\u0254\u0279m s\u02c8\u025c\u0279f\u0259s. \u02a4\u02c8\u0251n d\u02c8\u026a\u0279 k\u0259n\u02c8\u025bkts p\u0259z\u02c8\u026a\u0283\u0259n\u026a\u014b, m\u0259\u0283\u02c8in d\u0259spl\u02c8Az, \u00e6nd f\u02c8ild d\u02c8AT\u0259 t\u0259 h\u02c8\u025blp f\u02c8\u0251\u0279m\u0259\u0279z w\u02c8\u025c\u0279k m\u02c8\u0254\u0279 p\u0279is\u02c8Isli. st\u02cc\u0251\u0279f\u02c8I\u0259\u0279 p\u0259z\u02c8\u026a\u0283\u0259n\u026a\u014b h\u02c8\u025blps \u0259l\u02c8In p\u02c8\u00e6s\u1d7bz. \u02a4\u02c8il\u02cc\u026a\u014bk s\u02c8\u025bndz \u0259kw\u02c8\u026apm\u0259nt d\u02c8AT\u0259 t\u028a \u02cc\u0251p\u0259\u0279\u02c8A\u0283\u0259nz s\u02c8\u025bnt\u0259\u0279, w\u02cc\u025b\u0279 f\u02c8\u0251\u0279m\u0259\u0279z k\u00e6n \u0279\u0259vj\u02c8u p\u0259\u0279f\u02c8\u0254\u0279m\u0259ns \u00e6nd pl\u02c8\u00e6n \u00f0\u0259 n\u02c8\u025bkst \u02a4\u02c8\u0251b. \u00f0\u0259 p\u02c8Ynt \u026az n\u02cc\u0251t \u02a4\u02c8\u028cst \u0250 sm\u02c8\u0251\u0279T\u0259\u0279 t\u0279\u02c8\u00e6kt\u0259\u0279. \u02cc\u026at \u026az \u0250 k\u0259n\u02c8\u025bkt\u1d7bd \u02cc\u0251p\u0259\u0279\u02c8A\u0283\u0259n, \u0261\u02c8Id\u1d7bd bI b\u02c8\u025bT\u0259\u0279 \u02cc\u026anf\u0259\u0279m\u02c8A\u0283\u0259n.",
+      "misaki_token_count": 71,
+      "kokoro": {
+        "file": "john-deere-kokoro.wav",
+        "seconds": 21.1,
+        "sample_rate": 24000,
+        "peak": 0.45488011837005615,
+        "rms": 0.05365245665150227,
+        "sha256": "c60f3649e3bf2d2482be6b50ca18a657b2de96f3cd25db253c74f4b8aaa48195"
+      },
+      "kokoro_onnx": {
+        "file": "john-deere-kokoro-onnx.wav",
+        "seconds": 26.559333333333335,
+        "sample_rate": 24000,
+        "peak": 0.5012220740318298,
+        "rms": 0.04708162446031249,
+        "sha256": "837157c00d5ca1a387de3143c850518650797ab482e6188b8fa0db8309ee80ea"
+      }
+    },
+    {
+      "topic": "copilot",
+      "text": "Copilot is a family of AI experiences, not one interchangeable tool. Copilot Chat helps people research and draft. Microsoft 365 Copilot brings assistance into work apps and, with the right access, organizational information. GitHub Copilot supports coding. Copilot Studio helps teams build agents connected to their own knowledge and tools. Choose by the job, then check permissions, licensing, and the output.",
+      "misaki_phonemes": "k\u02c8Op\u02ccIl\u0259t \u026az \u0250 f\u02c8\u00e6m\u1d4ali \u028cv \u02c8A\u02ccI \u026aksp\u02c8\u026a\u0279i\u0259ns\u1d7bz, n\u02cc\u0251t w\u02c8\u028cn \u02cc\u026ant\u0259\u0279\u02a7\u02c8An\u02a4\u0259b\u1d4al t\u02c8ul. k\u02c8Op\u02ccIl\u0259t \u02a7\u02c8\u00e6t h\u02c8\u025blps p\u02c8ip\u1d4al \u0279\u02c8is\u02cc\u025c\u0279\u02a7 \u00e6nd d\u0279\u02c8\u00e6ft. m\u02c8Ik\u0279Os\u02cc\u0254ft \u03b8\u0279\u02c8i h\u02c8\u028cnd\u0279\u0259d s\u02c8\u026aksti f\u02c8Iv k\u02c8Op\u02ccIl\u0259t b\u0279\u02c8\u026a\u014bz \u0259s\u02c8\u026ast\u1d4ans \u02c8\u026antu w\u02c8\u025c\u0279k \u02c8\u00e6ps \u00e6nd, w\u026a\u00f0 \u00f0\u0259 \u0279\u02c8It \u02c8\u00e6ks\u02cc\u025bs, \u02cc\u0254\u0279\u0261\u0259n\u0259z\u02c8A\u0283\u0259n\u1d4al \u02cc\u026anf\u0259\u0279m\u02c8A\u0283\u0259n. \u0261\u02cc\u026ath\u02c8\u028cb k\u02c8Op\u02ccIl\u0259t s\u0259p\u02c8\u0254\u0279ts k\u02c8Od\u026a\u014b. k\u02c8Op\u02ccIl\u0259t st\u02c8udiO h\u02c8\u025blps t\u02c8imz b\u02c8\u026ald \u02c8A\u02a4\u1d4ants k\u0259n\u02c8\u025bkt\u1d7bd t\u0259 \u00f0\u025b\u0279 \u02c8On n\u02c8\u0251l\u0259\u02a4 \u00e6nd t\u02c8ulz. \u02a7\u02c8uz bI \u00f0\u0259 \u02a4\u02c8\u0251b, \u00f0\u02c8\u025bn \u02a7\u02c8\u025bk p\u0259\u0279m\u02c8\u026a\u0283\u0259nz, l\u02c8Is\u1d4ans\u026a\u014b, \u00e6nd \u00f0i \u02c8Wtp\u02cc\u028at.",
+      "misaki_token_count": 73,
+      "kokoro": {
+        "file": "copilot-kokoro.wav",
+        "seconds": 22.9,
+        "sample_rate": 24000,
+        "peak": 0.5820242166519165,
+        "rms": 0.053534711437005236,
+        "sha256": "6a9754fa2941c3809fee9d58e4f8bac8b5a4690cfbda6acd340fd6ed8e72cb6a"
+      },
+      "kokoro_onnx": {
+        "file": "copilot-kokoro-onnx.wav",
+        "seconds": 29.634,
+        "sample_rate": 24000,
+        "peak": 0.45629626512527466,
+        "rms": 0.047181118949811245,
+        "sha256": "a0d57da903523919bc31c1d31b8defaa40a207c39909e82f2818e8612677a6e0"
+      }
+    },
+    {
+      "topic": "microsoft",
+      "text": "Microsoft spans the computer on your desk and the services behind your work. Windows runs the PC experience. Microsoft 365 supports documents, communication, and collaboration. Azure supplies cloud computing, storage, and AI services for applications. Copilot adds AI assistance across selected workflows. These are connected products, not a single system: what you can use depends on the product, configuration, and subscription.",
+      "misaki_phonemes": "m\u02c8Ik\u0279Os\u02cc\u0254ft sp\u02c8\u00e6nz \u00f0\u0259 k\u0259mpj\u02c8uT\u0259\u0279 \u02cc\u0254n j\u028a\u0279 d\u02c8\u025bsk \u00e6nd \u00f0\u0259 s\u02c8\u025c\u0279v\u0259s\u1d7bz b\u0259h\u02c8Ind j\u028a\u0279 w\u02c8\u025c\u0279k. w\u02c8\u026andOz \u0279\u02c8\u028cnz \u00f0\u0259 p\u02ccis\u02c8i \u026aksp\u02c8\u026a\u0279i\u0259ns. m\u02c8Ik\u0279Os\u02cc\u0254ft \u03b8\u0279\u02c8i h\u02c8\u028cnd\u0279\u0259d s\u02c8\u026aksti f\u02c8Iv s\u0259p\u02c8\u0254\u0279ts d\u02c8\u0251kj\u0259m\u0259nts, k\u0259mj\u02ccun\u0259k\u02c8A\u0283\u0259n, \u00e6nd k\u0259l\u02cc\u00e6b\u0259\u0279\u02c8A\u0283\u0259n. \u02c8\u00e6\u0292\u0259\u0279 s\u0259pl\u02c8Iz kl\u02c8Wd k\u0259mpj\u02c8uT\u026a\u014b, st\u02c8\u0254\u0279\u026a\u02a4, \u00e6nd \u02c8A\u02ccI s\u02c8\u025c\u0279v\u0259s\u1d7bz f\u0254\u0279 \u02cc\u00e6pl\u0259k\u02c8A\u0283\u0259nz. k\u02c8Op\u02ccIl\u0259t \u02c8\u00e6dz \u02c8A\u02ccI \u0259s\u02c8\u026ast\u1d4ans \u0259k\u0279\u02c8\u0254s s\u0259l\u02c8\u025bkt\u1d7bd w\u02c8\u025c\u0279kfl\u02ccOz. \u00f0\u02cciz \u0251\u0279 k\u0259n\u02c8\u025bkt\u1d7bd p\u0279\u02c8\u0251d\u02cc\u028ckts, n\u02cc\u0251t \u0250 s\u02c8\u026a\u014b\u0261\u1d4al s\u02c8\u026ast\u0259m: w\u02cc\u028ct ju k\u00e6n j\u02c8uz d\u0259p\u02c8\u025bndz \u02cc\u0254n \u00f0\u0259 p\u0279\u02c8\u0251d\u02cc\u028ckt, k\u0259nf\u02cc\u026a\u0261j\u0259\u0279\u02c8A\u0283\u0259n, \u00e6nd s\u0259bsk\u0279\u02c8\u026ap\u0283\u0259n.",
+      "misaki_token_count": 75,
+      "kokoro": {
+        "file": "microsoft-kokoro.wav",
+        "seconds": 23.925,
+        "sample_rate": 24000,
+        "peak": 0.5840569734573364,
+        "rms": 0.05369721795312009,
+        "sha256": "38155cef7d45dceb5cfe459ea7e640b21a8fcd15392505c111e62af18dd3e4b8"
+      },
+      "kokoro_onnx": {
+        "file": "microsoft-kokoro-onnx.wav",
+        "seconds": 33.556666666666665,
+        "sample_rate": 24000,
+        "peak": 0.4374708831310272,
+        "rms": 0.047926198049573585,
+        "sha256": "18bb749a4570fbb50d48041352b2a9790a2135f19caa431f0c12abc46787c0d0"
+      }
+    }
+  ]
+}

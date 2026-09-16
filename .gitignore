@@ -1,0 +1,20 @@
+.DS_Store
+*.log
+
+# Generated project outputs
+node_modules/
+template/build*/
+template/renders/
+template/fin_frames/
+template/stills/
+template/audio/
+template/public/assets/*/audio.wav
+template/script/timeline.json
+template/script/timeline.md
+template/storyboard.md
+template/render.done
+template/fin_count.txt
+.synapse/
+
+__pycache__/
+.venv/

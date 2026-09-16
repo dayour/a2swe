@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use a2swe in your work, please cite it as below."
+title: "a2swe: Anything to SWE Agent Orchestrated Explainer Videos"
+type: software
+authors:
+    alias: dayour
+repository-code: "https://github.com/dayour/a2swe"
+url: "https://github.com/dayour/a2swe"
+abstract: >-
+  A Claude Code / Codex skill that turns topics or source material into narrated
+  motion-graphics explainer videos in English. A parallel domain-expert
+  software-engineering agent track manages the full pipeline and ships with each video's
+  project as a reusable artifact for revisions and follow-up videos. Every frame is drawn in code
+  with Remotion (React + TypeScript). Ships a compilable template, primitives and lighting
+  library, voiceover / storyboard / render / QC tooling, written style and motion specs,
+  a multi-agent build protocol and an English production quality contract.
+keywords:
+  - claude-code
+  - codex
+  - agent-skill
+  - remotion
+  - explainer-video
+  - motion-graphics
+  - text-to-video
+  - tts
+  - multi-agent
+license: PolyForm-Noncommercial-1.0.0
+date-released: "2026-09-09"

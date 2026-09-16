@@ -1,0 +1,24 @@
+{
+  "name": "a2swe-remotion-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts Video",
+    "still": "remotion still src/index.ts",
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.522",
+    "@remotion/media": "4.0.522",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.522"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "typescript": "7.0.2"
+  }
+}
