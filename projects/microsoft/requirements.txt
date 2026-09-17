@@ -3,9 +3,8 @@ numpy==2.5.3
 Pillow==12.3.0
 scipy==1.18.1
 piper-tts==1.8.0
-./vendor/wheels/misaki-0.9.4+py314.1-py3-none-any.whl
-misaki[en]==0.9.4+py314.1
+misaki[en] @ https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl#sha256=931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
-./vendor/wheels/kokoro-0.9.4-py3-none-any.whl
-./vendor/wheels/kokoro_onnx-0.6.1-py3-none-any.whl
+kokoro @ https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl#sha256=f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f
+kokoro-onnx @ https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl#sha256=398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d
 soundfile==0.14.0

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """See reference/production-rules.md for the pipeline contract."""
-import asyncio, hashlib, json, os, re, subprocess, sys
+import asyncio, hashlib, json, os, re, subprocess, sys, tempfile
+from functools import lru_cache
+from importlib.metadata import PackageNotFoundError, distribution
 from pathlib import Path
 import numpy as np
 
@@ -81,9 +83,33 @@ def parse(path):
     return items
 
 
+@lru_cache(maxsize=None)
+def runtime_fingerprint(engine):
+    packages = {
+        'kokoro': ('kokoro', 'misaki', 'torch', 'transformers', 'phonemizer'),
+        'kokoro_onnx': ('kokoro-onnx', 'onnxruntime', 'onnxruntime-gpu', 'phonemizer'),
+        'piper': ('piper-tts', 'onnxruntime'),
+        'edge': ('edge-tts',),
+    }[resolve_engine(engine)]
+    identity = {}
+    for name in (*packages, 'numpy', 'soundfile', 'scipy'):
+        try:
+            package = distribution(name)
+        except PackageNotFoundError:
+            identity[name] = 'not-installed'
+        else:
+            identity[name] = {
+                'version': package.version,
+                'source': package.read_text('direct_url.json'),
+            }
+    identity['pipeline'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    return hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
+
+
 def cache_path(text, ext):
-    
-    sig = f'{ENGINE}|{VOICE}|{RATE}|{KOKORO_VOICE}|{KOKORO_ONNX_VOICE}|{KOKORO_ONNX_LANG}|{KOKORO_ONNX_FP}|{PIPER_FP}|{KOKORO_LANG}|{KOKORO_SPEED}|{text}'
+    runtime = runtime_fingerprint(ENGINE)
+    provider = os.environ.get('ONNX_PROVIDER', '')
+    sig = f'{runtime}|{provider}|{ENGINE}|{VOICE}|{RATE}|{KOKORO_VOICE}|{KOKORO_ONNX_VOICE}|{KOKORO_ONNX_LANG}|{KOKORO_ONNX_FP}|{PIPER_FP}|{KOKORO_LANG}|{KOKORO_SPEED}|{text}'
     return f'{CACHE}/{hashlib.sha1(sig.encode()).hexdigest()[:16]}{ext}'
 
 
@@ -121,10 +147,25 @@ def write_wav(path, x, sr):
     """See reference/production-rules.md for the pipeline contract."""
     import wave
     a = np.asarray(x, dtype=np.float32)
+    if a.ndim not in (1, 2) or a.size == 0 or (a.ndim == 2 and a.shape[1] not in (1, 2)):
+        raise ValueError('Speech audio must be non-empty mono or stereo samples')
+    if not np.isfinite(a).all():
+        raise ValueError('Speech audio contains non-finite samples')
+    if not np.any(a):
+        raise ValueError('Speech engine returned entirely silent audio')
+    if not isinstance(sr, (int, np.integer)) or sr <= 0:
+        raise ValueError(f'Invalid speech sample rate: {sr}')
     pcm = (np.clip(a, -1.0, 1.0) * 32767).astype(np.int16)
-    with wave.open(path, 'wb') as w:
-        w.setnchannels(1 if a.ndim == 1 else a.shape[1]); w.setsampwidth(2); w.setframerate(sr)
-        w.writeframes(pcm.tobytes())
+    target = Path(path)
+    with tempfile.NamedTemporaryFile(dir=target.parent, suffix='.wav', delete=False) as stream:
+        temporary = Path(stream.name)
+    try:
+        with wave.open(str(temporary), 'wb') as w:
+            w.setnchannels(1 if a.ndim == 1 else a.shape[1]); w.setsampwidth(2); w.setframerate(sr)
+            w.writeframes(pcm.tobytes())
+        os.replace(temporary, target)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 async def synth_edge(text):
@@ -184,8 +225,8 @@ def synth_kokoro(text):
         try:
             from kokoro import KPipeline
         except ImportError:
-            raise SystemExit('TTS_ENGINE=kokoro requires pip install kokoro soundfile, plus espeak-ng. '
-                             'On ARM or unsupported Python versions, try kokoro_onnx or piper.')
+            raise SystemExit('TTS_ENGINE=kokoro requires the pinned Python 3.14 fork releases. '
+                             'Install requirements.lock.txt; see reference/speech-stack.md.')
         _kokoro = KPipeline(lang_code=KOKORO_LANG)
     parts = []
     for r in _kokoro(text, voice=KOKORO_VOICE, speed=KOKORO_SPEED):
@@ -233,7 +274,7 @@ def synth_kokoro_onnx(text):
     global _kokoro_onnx
     if not (KOKORO_ONNX_MODEL and KOKORO_ONNX_VOICES):
         raise SystemExit('TTS_ENGINE=kokoro_onnx requires KOKORO_ONNX_MODEL and KOKORO_ONNX_VOICES'
-                         ' (pip install kokoro-onnx; see github.com/thewh1teagle/kokoro-onnx releases)')
+                         ' (see https://dayour.github.io/kokoro-onnx/onnx/installation/)')
     au = cache_path(text, '.wav')
     if os.path.exists(au):
         return au
@@ -241,7 +282,7 @@ def synth_kokoro_onnx(text):
         try:
             from kokoro_onnx import Kokoro
         except ImportError:
-            raise SystemExit('TTS_ENGINE=kokoro_onnx requires kokoro-onnx: pip install kokoro-onnx')
+            raise SystemExit('TTS_ENGINE=kokoro_onnx requires the pinned fork release in requirements.lock.txt')
         _kokoro_onnx = Kokoro(KOKORO_ONNX_MODEL, KOKORO_ONNX_VOICES)
     s, sr = _kokoro_onnx.create(text, voice=KOKORO_ONNX_VOICE, speed=KOKORO_SPEED, lang=KOKORO_ONNX_LANG)
     write_wav(au, np.asarray(s, dtype=np.float32).reshape(-1), sr)
@@ -253,6 +294,8 @@ def decode(mp3):
     import soundfile as sf
     from scipy.signal import resample_poly
     audio, sample_rate = sf.read(mp3, dtype='float32', always_2d=True)
+    if not audio.size or not np.isfinite(audio).all() or sample_rate <= 0:
+        raise ValueError(f'Invalid decoded narration audio: {mp3}')
     audio = audio.mean(axis=1)
     if sample_rate != SR:
         divisor = math.gcd(sample_rate, SR)
@@ -402,6 +445,7 @@ async def main(narr):
             print(f"    f{sb['from']} ({w:.0f}px{'; wraps to two lines' if w > SUB_MAX_W * 1.3 else ''}) {sb['text']}")
     
     tl = {'fps': FPS, 'total_frames': total, 'engine': ENGINE,
+          'runtime_fingerprint': runtime_fingerprint(ENGINE),
           'voice': {'edge': VOICE, 'piper': PIPER_VOICE_NAME, 'kokoro_onnx': KOKORO_ONNX_VOICE}.get(ENGINE, KOKORO_VOICE),
           'rate': RATE if ENGINE == 'edge' else KOKORO_SPEED,
           'gap': GAP, 'chapter_gap': CHAPTER_GAP, 'lead': LEAD, 'tail': TAIL,
