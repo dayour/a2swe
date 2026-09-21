@@ -1,0 +1,61 @@
+name: Agent Core Validation
+
+on:
+  push:
+    paths:
+      - 'packages/core/**'
+      - 'tests/core/**'
+      - 'scripts/generate-contracts.mjs'
+      - 'scripts/asset-proof.mjs'
+      - 'integrations/copilot/**'
+      - 'template/public/fonts/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.github/workflows/core-validate.yml'
+  pull_request:
+    paths:
+      - 'packages/core/**'
+      - 'tests/core/**'
+      - 'scripts/generate-contracts.mjs'
+      - 'scripts/asset-proof.mjs'
+      - 'integrations/copilot/**'
+      - 'template/public/fonts/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.github/workflows/core-validate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.8.0'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run contracts:check
+      - run: npm run build
+      - run: npm test
+      - run: npm --prefix integrations/copilot ci --omit=optional --ignore-scripts
+      - run: npm --prefix integrations/copilot run typecheck
+      - run: npm --prefix integrations/copilot test
+      - run: npm run assets:proof -- --out .a2swe/ci-asset-proof
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-asset-proof-${{ matrix.os }}
+          include-hidden-files: true
+          retention-days: 7
+          path: |
+            .a2swe/ci-asset-proof/contact-sheet.png
+            .a2swe/ci-asset-proof/proof.json
+            .a2swe/ci-asset-proof/*/asset.png

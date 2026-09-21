@@ -4,7 +4,7 @@
 
 | Shot | Frames | Beats | Visual | Motion | Hero | Light |
 | --- | --- | --- | --- | --- | --- | --- |
-| SC01 | 1-167 | 31 | From your desk to the cloud. Your PC; your work; cloud services. | Moving connections; 1.025x push; five-frame fades | 200px diagrams | Gold signals |
+| SC01 | 1-167 | 31 | From your desk to the cloud. Your PC; your work; cloud services. | Moving connections; 1.05x push; five-frame fades | 200px diagrams | Gold signals |
 | SC02 | 168-233 | 168 | Windows: the PC experience. Schematic PC desktop. | Slow push, five-frame fades | 680x325 desktop | Gold window shape |
 | SC03 | 234-396 | 234 | Microsoft 365: work together. Documents; communication; collaboration. | Moving connections; slow push | 200px diagrams | Gold signals |
 | SC04 | 397-549 | 397 | Azure: services for applications. Compute; storage; AI services; applications. | Moving connections; slow push | 200px diagrams | Gold signals |

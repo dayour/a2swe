@@ -4,7 +4,7 @@
 
 | Shot | Frames | Beats | Visual | Motion | Hero | Light |
 | --- | --- | --- | --- | --- | --- | --- |
-| SC01 | 1-99 | 31 | One field. Different conditions. Variable field; illustrative map. | Tractor traverses field; 1.025x push; five-frame fades | 700x275 field | Green crop strips |
+| SC01 | 1-99 | 31 | One field. Different conditions. Variable field; illustrative map. | Tractor traverses field; 1.05x push; five-frame fades | 700x275 field | Green crop strips |
 | SC02 | 100-282 | 100 | Precision needs connected information. Positioning, machine display, field data. | Signals connect nodes; slow push; five-frame fades | 200px diagrams | Green active signals |
 | SC03 | 283-359 | 283 | StarFire helps align each pass. Aligned passes; illustrative guidance pattern. | Parallel guidance tracks move; tractor advances | 700x275 field | Green guidance lines |
 | SC04 | 360-568 | 360 | Machine data becomes the next plan. Equipment, JDLink, Operations Center, next job. | Data moves left to right; slow push | 200px diagrams | Green active signals |

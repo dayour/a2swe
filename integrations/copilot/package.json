@@ -1,0 +1,9 @@
+{
+  "name": "a2swe-copilot-integration",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.8.0 <25" },
+  "scripts": { "query": "node query.ts", "session": "node session.ts", "cli": "node cli.ts", "test": "node --test profile.test.ts", "typecheck": "tsc --project tsconfig.json" },
+  "dependencies": { "@github/copilot-sdk": "1.0.14" }
+}

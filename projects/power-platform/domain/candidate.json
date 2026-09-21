@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "power-platform",
+  "kind": "framework",
+  "canonicalName": "Microsoft Power Platform",
+  "asOf": "2026-09-17",
+  "windowStart": "2025-12-17",
+  "timezone": "UTC",
+  "state": "draft",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-alm",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm",
+      "publisher": "Microsoft Learn",
+      "title": "Application lifecycle management with Microsoft Power Platform",
+      "publicationDate": null,
+      "modifiedDate": "2025-01-29",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2025-01-29; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "1e66a0faa8a61eb72a88a8d093d518f67ae186aeb43579ce4aff41a385fff1c9"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-solutions",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm",
+      "publisher": "Microsoft Learn",
+      "title": "Solution concepts with Power Platform",
+      "publicationDate": null,
+      "modifiedDate": "2025-01-29",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2025-01-29; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "d363355e47352eea3be7c2bbd34e97f51d8bb052c559b1e60619ad211d011858"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-pipelines",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+      "publisher": "Microsoft Learn",
+      "title": "Overview of pipelines in Power Platform",
+      "publicationDate": null,
+      "modifiedDate": "2026-01-12",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2026-01-12; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-plugins",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/plug-ins",
+      "publisher": "Microsoft Learn",
+      "title": "Use plug-ins to extend business processes",
+      "publicationDate": null,
+      "modifiedDate": "2026-03-30",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2026-03-30; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-data-policy",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+      "publisher": "Microsoft Learn",
+      "title": "Data policies",
+      "publicationDate": null,
+      "modifiedDate": "2026-04-07",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2026-04-07; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "9d5331caf0861d37a70c9f54c8d7631b1b2b8506fa430cf147a5b1ee0a4732c0"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-icons",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/guidance/icons",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft Power Platform icons",
+      "publicationDate": null,
+      "modifiedDate": "2025-12-18",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2025-12-18; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "9a1745ae5f696123f2ad66b88243d35e7d0933b90ab6e0f6addf3855eebc6fea"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "pp-roadmap",
+      "domainId": "power-platform",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft Power Platform 2026 release wave 1 plan overview",
+      "publicationDate": null,
+      "modifiedDate": "2026-09-03",
+      "retrievedAt": "2026-09-17T00:00:00Z",
+      "dateEvidence": "ms.date=2026-09-03; retrievedAt is day-normalized from observedOn, not a recorded time of day; updated_at is not treated as publication. See research/sources.json.",
+      "contentHash": "22c80d08e8a78ade5c9898895cbfbaf7225e0dd0f6080254cdead42a6785fdf3"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "pp-alm-source-control",
+      "sourceId": "pp-alm",
+      "sourceDigest": "1e66a0faa8a61eb72a88a8d093d518f67ae186aeb43579ce4aff41a385fff1c9",
+      "locator": "ALM for Power Apps, Power Automate, Microsoft Copilot Studio, and Dataverse",
+      "quote": "Source control should be your source of truth for storing and collaborating on your components.",
+      "quoteDigest": "787749b777c3f794d3284e98301c7e131f3685143b2c7ebd8b15169230b006b0"
+    },
+    {
+      "evidenceId": "pp-alm-dataverse",
+      "sourceId": "pp-alm",
+      "sourceDigest": "1e66a0faa8a61eb72a88a8d093d518f67ae186aeb43579ce4aff41a385fff1c9",
+      "locator": "ALM for Power Apps, Power Automate, Microsoft Copilot Studio, and Dataverse",
+      "quote": "To use the Power Platform features and tools available to manage ALM, all environments that participate in ALM must include a Dataverse database.",
+      "quoteDigest": "a7859da5e1a6a59c315821727dfe656d14f34e40a0ac8561c3f5dea487533c0f"
+    },
+    {
+      "evidenceId": "pp-solutions-development",
+      "sourceId": "pp-solutions",
+      "sourceDigest": "d363355e47352eea3be7c2bbd34e97f51d8bb052c559b1e60619ad211d011858",
+      "locator": "Managed and unmanaged solutions",
+      "quote": "Unmanaged solutions are used in development environments while you make changes to your application.",
+      "quoteDigest": "397089c8d71a280cc17586e26c8c33940a5f8f36b31e502cce2dc561f5254db8"
+    },
+    {
+      "evidenceId": "pp-solutions-artifact",
+      "sourceId": "pp-solutions",
+      "sourceDigest": "d363355e47352eea3be7c2bbd34e97f51d8bb052c559b1e60619ad211d011858",
+      "locator": "Managed and unmanaged solutions",
+      "quote": "As an ALM best practice, managed solutions should be generated by exporting an unmanaged solution as managed and considered a build artifact.",
+      "quoteDigest": "78df6bcec88dd71e0b2b7ab9d48f5c9aa7dcfe864237d64ff0631033059d3ec2"
+    },
+    {
+      "evidenceId": "pp-solutions-data-loss",
+      "sourceId": "pp-solutions",
+      "sourceDigest": "d363355e47352eea3be7c2bbd34e97f51d8bb052c559b1e60619ad211d011858",
+      "locator": "Managed and unmanaged solutions / Important",
+      "quote": "When you delete a managed solution, the following data is lost: data stored in custom tables that are part of the managed solution and data stored in custom columns that are part of the managed solution on other tables that aren't part of the managed solution.",
+      "quoteDigest": "6331ddcc03d5b453332c928bd2663c9acc7f9c975648358fd212d6d26c26c2b0"
+    },
+    {
+      "evidenceId": "pp-pipelines-config",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Frequently asked questions / What do pipelines deploy?",
+      "quote": "Pipelines deploy solutions as well as configuration for the target environment such as connections, connection references, and environment variables.",
+      "quoteDigest": "2d6c078bcd15bd829e5c737ab84fca6a1192f2aeedb170996ced1f9a4677b5d7"
+    },
+    {
+      "evidenceId": "pp-pipelines-no-data",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Frequently asked questions / What do pipelines deploy?",
+      "quote": "Pipelines, or solutions in general, don't contain data stored within Dataverse tables.",
+      "quoteDigest": "b89c20e82e9e3c7acc30553e5ba6feca626fa0eaf4052925b896c0f620dd2ff7"
+    },
+    {
+      "evidenceId": "pp-pipelines-validation",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Makers run preconfigured pipelines",
+      "quote": "Connections and environment variables are provided upfront and validated before the deployment begins.",
+      "quoteDigest": "68d145871c8afc804ec4690c1d0b58a7d2c5868b11f5435165e2082a47999c8a"
+    },
+    {
+      "evidenceId": "pp-pipelines-sequence",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Frequently asked questions / Can customization bypass a deployment stage such as QA?",
+      "quote": "The same solution artifact must pass through pipeline stages in sequential order.",
+      "quoteDigest": "44fbc1fbce02f136582aff7d420ccb98b41cb079d43194ba5f5583ed9202b152"
+    },
+    {
+      "evidenceId": "pp-pipelines-tenant",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Frequently asked questions / Can pipelines deploy to a different tenant?",
+      "quote": "No. We recommend using Azure DevOps or GitHub for this scenario.",
+      "quoteDigest": "f74d5d4f04a538447d2f2091ca234dc7e4b003715fdae46cb395580342aa18b1"
+    },
+    {
+      "evidenceId": "pp-pipelines-license",
+      "sourceId": "pp-pipelines",
+      "sourceDigest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "locator": "Frequently asked questions / Are standalone licenses required to use pipelines?",
+      "quote": "Licenses granting premium use rights are required for all managed environments.",
+      "quoteDigest": "ef5c36d436b0152788910d4e27acbec79846d97ec099d30e4817d65885ebf944"
+    },
+    {
+      "evidenceId": "pp-plugins-choice",
+      "sourceId": "pp-plugins",
+      "sourceDigest": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f",
+      "locator": "Tip",
+      "quote": "Use plug-ins when a declarative process doesn't meet your requirement.",
+      "quoteDigest": "4ad75c4aadbb497a51c860793042c12a49c7f82d3403ba49ad69a3e3c41f4594"
+    },
+    {
+      "evidenceId": "pp-plugins-contract",
+      "sourceId": "pp-plugins",
+      "sourceDigest": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f",
+      "locator": "More details about plug-ins",
+      "quote": "This interface exposes a single method called Execute.",
+      "quoteDigest": "0d11bf0cb73f6b8b175d5f0bc9095ca96d39f2a5d32571798c3b480a6f93104f"
+    },
+    {
+      "evidenceId": "pp-plugins-sync",
+      "sourceId": "pp-plugins",
+      "sourceDigest": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f",
+      "locator": "More details about plug-ins",
+      "quote": "A synchronous plug-in causes the data operation to wait until the code in the plug-in finishes.",
+      "quoteDigest": "207675fe37c2b8b4d200abc71840b79ce96adadf40a7ff91842765c2da54e85e"
+    },
+    {
+      "evidenceId": "pp-plugins-async",
+      "sourceId": "pp-plugins",
+      "sourceDigest": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f",
+      "locator": "More details about plug-ins",
+      "quote": "Asynchronous plug-in execution is queued and runs after the data operation finishes.",
+      "quoteDigest": "3d41b269c5e381ab0e492d4da288c24d020d64fde3878862a7453fa0e5daddd6"
+    },
+    {
+      "evidenceId": "pp-data-policy-controls",
+      "sourceId": "pp-data-policy",
+      "sourceDigest": "9d5331caf0861d37a70c9f54c8d7631b1b2b8506fa430cf147a5b1ee0a4732c0",
+      "locator": "Introduction",
+      "quote": "Power Platform admin center data policies allow administrators to control access to these connectors in various ways to help reduce risk in your organization.",
+      "quoteDigest": "fd96282d50664ea96d53f1213aa6cd2e1c686ab5c56e69ee7e44f8cf7651cbd5"
+    },
+    {
+      "evidenceId": "pp-data-policy-latency",
+      "sourceId": "pp-data-policy",
+      "sourceDigest": "9d5331caf0861d37a70c9f54c8d7631b1b2b8506fa430cf147a5b1ee0a4732c0",
+      "locator": "Latency considerations",
+      "quote": "For the most extreme cases, the latency for full enforcement is 24 hours. In most cases, it's within an hour.",
+      "quoteDigest": "b84acbbdaf0d40a78f668f9444af8708875a90fe389218b3b3b1dae2d5596615"
+    },
+    {
+      "evidenceId": "pp-icons-use",
+      "sourceId": "pp-icons",
+      "sourceDigest": "9a1745ae5f696123f2ad66b88243d35e7d0933b90ab6e0f6addf3855eebc6fea",
+      "locator": "Terms",
+      "quote": "Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation.",
+      "quoteDigest": "e6ec9746dbfae026cb164b0d17366e6bf9fcbf0fd5360d360d84c586a2542ece"
+    },
+    {
+      "evidenceId": "pp-icons-transform",
+      "sourceId": "pp-icons",
+      "sourceDigest": "9a1745ae5f696123f2ad66b88243d35e7d0933b90ab6e0f6addf3855eebc6fea",
+      "locator": "Don'ts",
+      "quote": "Don’t crop, flip, or rotate icons",
+      "quoteDigest": "7c6fb517b9a466873ebab8b331936fdb45e7f659c50258e85ed691b77e8d3a44"
+    },
+    {
+      "evidenceId": "pp-roadmap-caveat",
+      "sourceId": "pp-roadmap",
+      "sourceDigest": "22c80d08e8a78ade5c9898895cbfbaf7225e0dd0f6080254cdead42a6785fdf3",
+      "locator": "Key dates for the 2026 release wave 1",
+      "quote": "These release plans describe functionality that may not have been released yet.",
+      "quoteDigest": "33d3a7196fb2cff339eebb6f9996c2b9988733a1a02d17d8c8daae5adec5397d"
+    },
+    {
+      "evidenceId": "pp-roadmap-transition",
+      "sourceId": "pp-roadmap",
+      "sourceDigest": "22c80d08e8a78ade5c9898895cbfbaf7225e0dd0f6080254cdead42a6785fdf3",
+      "locator": "Important notice",
+      "quote": "New Dynamics 365, Power Platform, and Dataverse capabilities will be published to the AI at Work roadmap beginning in September 2026.",
+      "quoteDigest": "d90d3378cb6cccf1aaf5a68ebf55370290194ff264dc4e644f6081ad7a379a0e"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "pp-c01",
+      "wording": "Use source control as the source of truth for solution components.",
+      "evidenceIds": [
+        "pp-alm-source-control"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c02",
+      "wording": "The documented Power Platform ALM tooling requires participating environments to include a Dataverse database; this is not a claim that every Power Apps application requires Dataverse.",
+      "evidenceIds": [
+        "pp-alm-dataverse"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c03",
+      "wording": "Use unmanaged solutions for development changes.",
+      "evidenceIds": [
+        "pp-solutions-development"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c04",
+      "wording": "Treat the managed solution exported from development as a build artifact for downstream deployment.",
+      "evidenceIds": [
+        "pp-solutions-artifact"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c05",
+      "wording": "Uninstalling managed solutions can lose data; it is not a generally safe rollback strategy.",
+      "evidenceIds": [
+        "pp-solutions-data-loss"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c06",
+      "wording": "Pipelines deploy solutions and target-environment configuration, including connection references and environment variables.",
+      "evidenceIds": [
+        "pp-pipelines-config"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c07",
+      "wording": "A solution deployment does not migrate Dataverse table records; plan data migration separately.",
+      "evidenceIds": [
+        "pp-pipelines-no-data"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c08",
+      "wording": "Resolve target connections and environment variables before deployment; this prevalidation does not prove business correctness.",
+      "evidenceIds": [
+        "pp-pipelines-validation"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c09",
+      "wording": "The documented pipeline promotes the same solution artifact through sequential stages.",
+      "evidenceIds": [
+        "pp-pipelines-sequence"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c10",
+      "wording": "Built-in pipelines do not provide cross-tenant deployment in the cited documentation; assess another CI/CD path.",
+      "evidenceIds": [
+        "pp-pipelines-tenant"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c11",
+      "wording": "Validate environment licensing and actual entitlements; do not promise universally free pipeline usage.",
+      "evidenceIds": [
+        "pp-pipelines-license"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c12",
+      "wording": "Evaluate declarative options first; use plug-ins when the requirement warrants code.",
+      "evidenceIds": [
+        "pp-plugins-choice"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c13",
+      "wording": "The documented IPlugin interface exposes Execute; exact implementation signatures and registration steps need the linked SDK reference before writing code.",
+      "evidenceIds": [
+        "pp-plugins-contract"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c14",
+      "wording": "Synchronous plug-ins delay the data operation; keep work bounded and assess latency.",
+      "evidenceIds": [
+        "pp-plugins-sync"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c15",
+      "wording": "Asynchronous plug-ins run after the data operation, so they are not interchangeable with synchronous validation.",
+      "evidenceIds": [
+        "pp-plugins-async"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c16",
+      "wording": "Data policies provide connector guardrails; this is not a guarantee against all data leakage or a substitute for application security.",
+      "evidenceIds": [
+        "pp-data-policy-controls"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c17",
+      "wording": "Do not assume policy changes take effect instantly; validate enforcement in the target environment.",
+      "evidenceIds": [
+        "pp-data-policy-latency"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c18",
+      "wording": "Official icons have stated permitted diagram, training, and documentation uses; this is not a general trademark or marketing license.",
+      "evidenceIds": [
+        "pp-icons-use"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c19",
+      "wording": "Preserve official icon orientation, shape, and proportions; do not use them as the a2swe logo.",
+      "evidenceIds": [
+        "pp-icons-transform"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c20",
+      "wording": "A release-plan entry alone does not establish GA, tenant availability, or entitlement.",
+      "evidenceIds": [
+        "pp-roadmap-caveat"
+      ],
+      "disposition": "unreviewed"
+    },
+    {
+      "claimId": "pp-c21",
+      "wording": "The inspected release-plan page directs new capability discovery to the AI at Work roadmap from September 2026; individual feature status still needs checking.",
+      "evidenceIds": [
+        "pp-roadmap-transition"
+      ],
+      "disposition": "unreviewed"
+    }
+  ],
+  "knownGaps": [
+    "Two foundational source exceptions require user approval; recent ms.date values are documentation dates, not feature GA evidence.",
+    "Excerpts were inspected using the assistant fetch tool, not a completed a2swe ingestion service; full remote snapshots and exact retrieval instants are absent.",
+    "Public repository code, PCF/Power Fx and detailed API signatures remain outside this candidate pack.",
+    "Official icon source/terms inspected; no asset archive extracted, sanitized or rendered; no approved brand pack.",
+    "Native VS Code profile created, but host invocation and engineering execution are not proven by file validation.",
+    "Instruction replay was reviewed, but native-host evaluation, user approval and all production/content/voice/style gates remain pending.",
+    "Copilot SDK runner, ACP/MCP and DomainReady certification remain unimplemented."
+  ]
+}

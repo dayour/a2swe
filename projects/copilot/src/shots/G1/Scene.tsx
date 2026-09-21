@@ -40,7 +40,7 @@ const Glyph: React.FC<{kind: string; accent: string}> = ({kind, accent}) => {
       kind === 'display' ? <><rect x="10" y="30" width="180" height="115" rx="6"/><path d="M100 145V172M60 172H140"/><path d="M30 110L65 86L100 105L145 60L170 75" stroke={accent}/></> :
       kind === 'code' ? <><path d="M65 55L20 100L65 145M135 55L180 100L135 145"/><path d="M120 35L80 165" stroke={accent}/></> :
       kind === 'chat' ? <><path d="M20 30H180V140H100L60 175V140H20Z"/><path d="M45 65H150M45 90H130M45 115H105" stroke={accent}/></> :
-      kind === 'lock' ? <><rect x="40" y="85" width="120" height="95" rx="5"/><path d="M65 85V55A35 35 0 0 1 70 0V85"/><circle cx="100" cy="125" r="8" fill={accent}/><path d="M100 130V151"/></> :
+      kind === 'lock' ? <><rect x="40" y="85" width="120" height="95" rx="5"/><path d="M65 85V55A35 35 0 0 1 135 55V85"/><circle cx="100" cy="125" r="8" fill={accent}/><path d="M100 130V151"/></> :
       kind === 'cloud' ? <><path d="M45 145C0 145 0 78 48 78C55 15 145 15 153 78C199 78 210 145 160 145Z"/><path d="M100 155V190M60 172H140" stroke={accent}/></> :
       kind === 'database' ? <><ellipse cx="100" cy="40" rx="70" ry="25"/><path d="M30 40V150C30 185 170 185 170 150V40M30 95C30 130 170 130 170 95"/><path d="M45 135C60 148 140 148 155 135" stroke={accent}/></> :
       kind === 'server' ? <>{[35, 85, 135].map((top) => <g key={top}><rect x="20" y={top} width="160" height="35"/><circle cx="45" cy={top + 17} r="5" fill={accent}/><path d={`M75 ${top + 17}H155`}/></g>)}</> :
@@ -97,7 +97,7 @@ export const Scene: React.FC<{index: number}> = ({index}) => {
         <path d="M65 54H745" stroke="#60706a" strokeWidth="2"/>
         {[90, 110, 130].map((center) => <circle key={center} cx={center} cy="33" r="5" fill={accent}/>)}
         {scene.kind === 'code' ? <>
-          {['function explain(topic) {', '  const sources = research(topic);', '  const draft = createDraft(sources);', '  return review(draft);', '}'].map((line, row) => <text key={line} x="95" y={103 + row * 44} fontFamily="monospace" fontSize="25" fill={row === 2 ? accent : '#e7ece9'} opacity={row <= Math.floor(frame / 18) ? 1 : 0.18}>{line}</text>)}
+          {['function explain(topic) {', '  const sources = research(topic);', '  const draft = createDraft(sources);', '  return review(draft);', '}'].map((line, row) => <text key={line} x="95" y={103 + row * 44} fontFamily="monospace" fontSize="25" fill={row === 2 ? accent : '#e7ece9'} opacity={row <= Math.floor(frame / Math.max(1, duration / 8)) ? 1 : 0.18}>{line}</text>)}
         </> : scene.kind === 'desktop' ? <>
           <path d="M280 110H365V190H280ZM380 110H465V190H380ZM280 205H365V285H280ZM380 205H465V285H380Z" fill={accent}/>
           <path d="M100 310H710" stroke="#71837b" strokeWidth="6"/>

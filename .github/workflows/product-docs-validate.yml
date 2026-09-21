@@ -1,0 +1,64 @@
+name: Product Documentation Validation
+
+on:
+  push:
+    paths:
+      - 'README.md'
+      - 'SKILL.md'
+      - 'BRAND_CONTENT_SPEC.md'
+      - 'reference/**'
+      - 'docs/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.github/workflows/product-docs-validate.yml'
+      - '.github/workflows/docs-pages.yml'
+      - '.github/workflows/core-validate.yml'
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'SKILL.md'
+      - 'BRAND_CONTENT_SPEC.md'
+      - 'reference/**'
+      - 'docs/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.github/workflows/product-docs-validate.yml'
+      - '.github/workflows/docs-pages.yml'
+      - '.github/workflows/core-validate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.8.0'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            docs/package-lock.json
+      - name: Install root dependencies
+        run: npm ci --ignore-scripts
+      - name: Install documentation dependencies
+        working-directory: docs
+        run: npm ci
+      - name: Typecheck documentation
+        working-directory: docs
+        run: npm run typecheck
+      - name: Build documentation
+        working-directory: docs
+        run: npm run build
+      - name: Validate product documentation anchors
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -R "agent-first core" README.md docs/content/overview.md
+          grep -R "evaluation-only asset proof" README.md docs/content/overview.md
+          grep -R "legacy 720p video profile" README.md docs/content/overview.md docs/content/specifications/system-contract.md
+          grep -R ".a2swe" docs/content/architecture/system-overview.md docs/content/architecture/data-flow.md

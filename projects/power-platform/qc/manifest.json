@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainDigest": "c5866658b89eba5a0e7a4c3ffc036302ecfd952a28b472825982190bd8820fc7",
+  "sources": [
+    {
+      "sourceId": "pp-alm",
+      "digest": "1e66a0faa8a61eb72a88a8d093d518f67ae186aeb43579ce4aff41a385fff1c9",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2025-01-29",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "foundation_exception_pending"
+    },
+    {
+      "sourceId": "pp-solutions",
+      "digest": "d363355e47352eea3be7c2bbd34e97f51d8bb052c559b1e60619ad211d011858",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2025-01-29",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "foundation_exception_pending"
+    },
+    {
+      "sourceId": "pp-pipelines",
+      "digest": "31a3c809bf1fcba05a6e56ceb2d2ee66c8a542ffcab2490d78fc9f03cd5ffaaf",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2026-01-12",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "recent_documentation_date"
+    },
+    {
+      "sourceId": "pp-plugins",
+      "digest": "e3a7c56efff7c43d012da49a3016e7c3d01ec4e72cbc945cc5e88dc55bd38f3f",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2026-03-30",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "recent_documentation_date"
+    },
+    {
+      "sourceId": "pp-data-policy",
+      "digest": "9d5331caf0861d37a70c9f54c8d7631b1b2b8506fa430cf147a5b1ee0a4732c0",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2026-04-07",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "recent_documentation_date"
+    },
+    {
+      "sourceId": "pp-icons",
+      "digest": "9a1745ae5f696123f2ad66b88243d35e7d0933b90ab6e0f6addf3855eebc6fea",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2025-12-18",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "recent_documentation_date"
+    },
+    {
+      "sourceId": "pp-roadmap",
+      "digest": "22c80d08e8a78ade5c9898895cbfbaf7225e0dd0f6080254cdead42a6785fdf3",
+      "hashScope": "local excerpt record; not full page",
+      "publicationDate": null,
+      "documentationDate": "2026-09-03",
+      "dateEvidence": "Microsoft Learn ms.date metadata",
+      "substantiveUpdateVerified": false,
+      "disposition": "recent_documentation_date"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".github/agents/power-platform-swe.agent.md",
+      "sha256": "d4ee706d88908971cedeb54f6af625ef0c93c6b86340189f7b89c0602716b094",
+      "byteSize": 6893
+    },
+    {
+      "path": "projects/power-platform/domain/draft.json",
+      "sha256": "3ac0137d42f06c1eb1f6b6cb9b7d657ca0e452d3000c59d487066a36d1391cb3",
+      "byteSize": 544
+    },
+    {
+      "path": "projects/power-platform/domain/candidate.json",
+      "sha256": "3f1eb3160703ecb20ef3cf360e97aeb553f3f35a0d4e784b99a6dfcd5d06f4b3",
+      "byteSize": 21120
+    },
+    {
+      "path": "projects/power-platform/research/sources.json",
+      "sha256": "c673cb107933b336bf20523a720bd4bb4f9935d75338b4e2b06625c2a08725d9",
+      "byteSize": 13400
+    },
+    {
+      "path": "projects/power-platform/brief.md",
+      "sha256": "d4929eedc7808f7382ccb54aba2912b5b323fa30a61c4d69eaf544cfa3eafed6",
+      "byteSize": 5334
+    },
+    {
+      "path": "projects/power-platform/qc/evaluation-cases.json",
+      "sha256": "7b4a749c66f070b14b9c0bf18a703c90ae8a4736d45f2b654faf44a86e919e76",
+      "byteSize": 6314
+    },
+    {
+      "path": "projects/power-platform/build-review.mjs",
+      "sha256": "d60b76ecff90e59dcaeb3de6e80391f9334ba3339e887feffaee6d44d584daaf",
+      "byteSize": 8838
+    },
+    {
+      "path": "projects/power-platform/delivery.md",
+      "sha256": "8a1f2dd0a8ca96733234cd38acf51913a9fe240974f9af58a0c394d8d07ddf3b",
+      "byteSize": 4164
+    },
+    {
+      "path": "projects/power-platform/qc/comparison.md",
+      "sha256": "2fa60cef7ab6296f62541f3c4e590d6f7c9ac9fe83fff1c6b70b09cc3919be16",
+      "byteSize": 11077
+    },
+    {
+      "path": "projects/power-platform/qc/instruction-replay-initial.txt",
+      "sha256": "5b52f9b1d13d4bef800520e2e1f755377fd2466e8cf023b8b48bd1299d5dbaeb",
+      "byteSize": 36878
+    },
+    {
+      "path": "projects/power-platform/qc/instruction-replay-refined.txt",
+      "sha256": "7b07b20adae729ff681ea9258b3deef56b334f561b730ab7deecab670e1718a7",
+      "byteSize": 11968
+    }
+  ],
+  "checks": {
+    "contract": "passed",
+    "sourceAndClaimReferences": "passed",
+    "declaredAgentToolBoundary": "passed",
+    "baselineUnchanged": "passed",
+    "unauthorizedReadyTransition": "rejected_as_expected",
+    "instructionReplay": {
+      "initialCases": 31,
+      "initialBlanketPassRejected": true,
+      "refinedCases": 12,
+      "mode": "assisted_instruction_replay_not_native_host",
+      "adjudication": "projects/power-platform/qc/comparison.md"
+    },
+    "evaluationCaseCount": 31,
+    "liveAgentEvaluation": "not_run",
+    "mediaRender": "not_run",
+    "humanApproval": "pending"
+  },
+  "narration": {
+    "status": "proposal_not_approved",
+    "wordCount": 115,
+    "estimatedSecondsAt125To150Wpm": [
+      46,
+      55.2
+    ],
+    "actualAudioDuration": null
+  },
+  "limitations": [
+    "Structural checks are not factual certification or live agent tests.",
+    "No rendered Power Platform movie exists.",
+    "HMAC/local hashes are not human approval."
+  ]
+}

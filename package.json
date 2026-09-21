@@ -1,0 +1,39 @@
+{
+  "name": "a2swe",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.8.0 <25"
+  },
+  "workspaces": [
+    "packages/core"
+  ],
+  "scripts": {
+    "test": "node --test tests/core/*.test.ts",
+    "test:all": "npm test && npm --prefix integrations/copilot test",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck",
+    "build:all": "npm run build && npm --prefix integrations/copilot run typecheck && npm --prefix docs run typecheck && npm --prefix docs run build",
+    "validate:all": "npm run contracts:check && npm run build:all && npm run test:all && npm run assets:proof",
+    "a2swe": "node packages/core/src/cli.ts",
+    "copilot": "node integrations/copilot/cli.ts",
+    "agency:copilot": "node integrations/copilot/cli.ts --runtime agency",
+    "copilot:sdk": "node integrations/copilot/session.ts",
+    "contracts:generate": "node scripts/generate-contracts.mjs",
+    "contracts:check": "node scripts/generate-contracts.mjs --check",
+    "assets:proof": "node scripts/asset-proof.mjs"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ipaddr.js": "2.2.0",
+    "lucide-static": "1.45.0",
+    "sharp": "0.35.4",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "json-schema-to-typescript": "15.0.4",
+    "typescript": "5.9.2"
+  }
+}

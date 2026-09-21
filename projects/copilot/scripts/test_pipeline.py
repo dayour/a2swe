@@ -22,7 +22,7 @@ class PipelineTests(unittest.TestCase):
         (self.root / 'src/common').mkdir(parents=True)
         (self.root / 'src/shots/G1').mkdir(parents=True)
         (self.root / 'src/config.ts').write_text("export const VIDEO = {slug: 'test', lang: 'en'};", encoding='utf-8')
-        for name in ('tts_build.py', 'selfcheck.py', 'render_storyboard.py', 'motion_check.py'):
+        for name in ('tts_build.py', 'selfcheck.py', 'render_storyboard.py', 'motion_check.py', 'pipeline_media.py'):
             shutil.copy2(Path(__file__).with_name(name), self.root / 'scripts' / name)
         self.timeline = {
             'total_frames': 60,
@@ -38,6 +38,12 @@ class PipelineTests(unittest.TestCase):
 
     def load_tts(self):
         spec = importlib.util.spec_from_file_location('test_tts', self.root / 'scripts/tts_build.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def load_media(self):
+        spec = importlib.util.spec_from_file_location('test_media', self.root / 'scripts/pipeline_media.py')
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         return module
@@ -113,6 +119,34 @@ class PipelineTests(unittest.TestCase):
         module = self.load_tts()
         with patch.object(module.sys, 'version_info', (3, 12, 0)):
             self.assertEqual(module.resolve_engine('auto'), 'kokoro')
+
+    def test_media_helpers_refuse_overwrite_and_validate_coverage(self):
+        module = self.load_media()
+        existing = self.root / 'existing.mp4'
+        existing.write_text('keep', encoding='utf-8')
+        with self.assertRaisesRegex(SystemExit, 'already exists'):
+            module.ensure_new_file(existing, 'output')
+        shots = [('SC01', 1, 30, 'G1'), ('SC02', 31, 60, 'G1')]
+        self.assertEqual(module.validate_shot_coverage(shots, 60), shots)
+        with self.assertRaisesRegex(SystemExit, 'gap/overlap'):
+            module.validate_shot_coverage([('SC01', 1, 20, 'G1'), ('SC02', 25, 60, 'G1')], 60)
+
+    def test_frame_dir_prefers_versioned_then_legacy(self):
+        module = self.load_media()
+        legacy = self.root / 'fin_frames'
+        legacy.mkdir()
+        self.assertEqual(module.resolve_frames_dir(self.root, 'v9'), legacy.resolve())
+        versioned = self.root / 'fin_frames_v9'
+        versioned.mkdir()
+        self.assertEqual(module.resolve_frames_dir(self.root, 'v9'), versioned.resolve())
+
+    def test_explicit_frame_dir_must_exist(self):
+        module = self.load_media()
+        explicit = self.root / 'custom_frames'
+        explicit.mkdir()
+        self.assertEqual(module.resolve_frames_dir(self.root, 'v9', Path('custom_frames')), explicit.resolve())
+        with self.assertRaisesRegex(SystemExit, 'Frame directory not found'):
+            module.resolve_frames_dir(self.root, 'v9', Path('missing_frames'))
 
 
 if __name__ == '__main__':

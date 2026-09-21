@@ -1,0 +1,70 @@
+{
+  "assets": [
+    {
+      "sha256": "6A9AAE867848C8A93B39C4EA24E69A64D81E1258CD58055881AB53F10F8051B6",
+      "bytes": 5760044,
+      "path": "public/assets/john-deere/audio.wav"
+    },
+    {
+      "sha256": "C7C0F2B0F6FAD8C623E31772CE79F94A4EDB9321FFCE9FCE978EA892D20AE730",
+      "bytes": 69916,
+      "path": "public/fonts/Audiowide-Regular.ttf"
+    },
+    {
+      "sha256": "BAD568CEA9ED23D6AE4AEA41AD3F7747752952AABDD85D7F01474AF392A21B32",
+      "bytes": 302556,
+      "path": "public/fonts/Exo2-Italic.ttf"
+    },
+    {
+      "sha256": "0B3A097AB2F0B7CDD3E63B38C4143BB51A52ED30831A4354ED901A73AAA17AD5",
+      "bytes": 5508,
+      "path": "public/fonts/LICENSE.md"
+    },
+    {
+      "sha256": "A3041811A78C361B1DE50F953C805E0244951C21C5BD412F7232EF0D899AF0DA",
+      "bytes": 17772300,
+      "path": "public/fonts/NotoSansSC.ttf"
+    },
+    {
+      "sha256": null,
+      "bytes": 38576,
+      "path": "public/fonts/Orbitron[wght].ttf"
+    },
+    {
+      "sha256": "684888C0EBB17F374298B65EE2807526C066094C701BCC7EBBE1C1095F494FC1",
+      "bytes": 1,
+      "path": "vendor/wheels/.gitignore"
+    },
+    {
+      "sha256": "E09D7C22F6D644618FBA639FD04785553B1D71E0B85FA7DC3D0F38C818075F35",
+      "bytes": 27100,
+      "path": "vendor/wheels/kokoro_onnx-0.6.1-py3-none-any.whl"
+    },
+    {
+      "sha256": "D07AAF5BB2B2DD9E6FF7E17FFDD691F050AD3861733C28E237C0CE1C9CCF02AC",
+      "bytes": 34016,
+      "path": "vendor/wheels/kokoro-0.9.4-py3-none-any.whl"
+    },
+    {
+      "sha256": "3A3407DF7CD87B8BEE31FB00FADF622AF5F014F0E2DF8706ADFDEFF12A5E32EE",
+      "bytes": 3800002,
+      "path": "vendor/wheels/misaki-0.9.4+py314.1-py3-none-any.whl"
+    },
+    {
+      "sha256": "837157C00D5CA1A387DE3143C850518650797AB482E6188B8FA0DB8309EE80EA",
+      "bytes": 1274892,
+      "path": "qc/models/john-deere-kokoro-onnx.wav"
+    },
+    {
+      "sha256": "C60F3649E3BF2D2482BE6B50CA18A657B2DE96F3CD25DB253C74F4B8AAA48195",
+      "bytes": 1012844,
+      "path": "qc/models/john-deere-kokoro.wav"
+    },
+    {
+      "sha256": "1CCB278E4A12EA6149F9D48025D96C6D34AD7E6976082D9368DAE10EC0782E73",
+      "bytes": 2539,
+      "path": "qc/models/verification.json"
+    }
+  ],
+  "provenance": "Original code diagrams; approved Edge speech; retained real local-model samples; upgraded local package wheels. Font licenses: public/fonts/LICENSE.md. Toolkit licensing unresolved."
+}

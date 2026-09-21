@@ -1,0 +1,138 @@
+{
+ "fps": 30,
+ "total_frames": 1004,
+ "engine": "kokoro_onnx",
+ "voice": "am_michael",
+ "rate": 1.0,
+ "gap": 10,
+ "chapter_gap": 45,
+ "lead": 40,
+ "tail": 90,
+ "lang": "en",
+ "chapters": [
+  {
+   "n": 1,
+   "title": "Connected farming",
+   "from": 86
+  }
+ ],
+ "sentences": [
+  {
+   "id": "S01",
+   "chapter": 1,
+   "from": 86,
+   "to": 166,
+   "text": "A field is not one uniform surface.",
+   "subs": [
+    {
+     "from": 86,
+     "to": 166,
+     "text": "A field is not one uniform surface."
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "chapter": 1,
+   "from": 177,
+   "to": 368,
+   "text": "John Deere connects positioning, machine displays, and field data to help farmers work more precisely.",
+   "subs": [
+    {
+     "from": 177,
+     "to": 235,
+     "text": "John Deere connects positioning,"
+    },
+    {
+     "from": 236,
+     "to": 300,
+     "text": "machine displays, and field data"
+    },
+    {
+     "from": 301,
+     "to": 368,
+     "text": "to help farmers work more precisely."
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "chapter": 1,
+   "from": 379,
+   "to": 462,
+   "text": "StarFire positioning helps align passes.",
+   "subs": [
+    {
+     "from": 379,
+     "to": 462,
+     "text": "StarFire positioning helps align passes."
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "chapter": 1,
+   "from": 473,
+   "to": 690,
+   "text": "JDLink sends equipment data to Operations Center, where farmers can review performance and plan the next job.",
+   "subs": [
+    {
+     "from": 473,
+     "to": 537,
+     "text": "JDLink sends equipment data"
+    },
+    {
+     "from": 538,
+     "to": 584,
+     "text": "to Operations Center,"
+    },
+    {
+     "from": 585,
+     "to": 647,
+     "text": "where farmers can review performance"
+    },
+    {
+     "from": 648,
+     "to": 690,
+     "text": "and plan the next job."
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "chapter": 1,
+   "from": 701,
+   "to": 778,
+   "text": "The point is not just a smarter tractor.",
+   "subs": [
+    {
+     "from": 701,
+     "to": 778,
+     "text": "The point is not just a smarter tractor."
+    }
+   ]
+  },
+  {
+   "id": "S06",
+   "chapter": 1,
+   "from": 789,
+   "to": 904,
+   "text": "It is a connected operation, guided by better information.",
+   "subs": [
+    {
+     "from": 789,
+     "to": 845,
+     "text": "It is a connected operation,"
+    },
+    {
+     "from": 846,
+     "to": 904,
+     "text": "guided by better information."
+    }
+   ]
+  }
+ ],
+ "chars": 319,
+ "words": 61,
+ "speech_sec": 25.62
+}

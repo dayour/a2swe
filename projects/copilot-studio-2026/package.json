@@ -1,0 +1,26 @@
+{
+  "name": "a2swe-copilot-studio-2026",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check:inputs": "python scripts/check_inputs.py",
+    "audio": "npm run check:inputs && python scripts/tts_build.py script/narration.txt",
+    "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
+    "typecheck": "tsc --noEmit",
+    "render": "npm run check:inputs && remotion render src/index.ts Video renders/copilot-studio-2026-v1.mp4",
+    "still": "remotion still src/index.ts Video qc/still-v1.png",
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.523",
+    "@remotion/media": "4.0.523",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.523"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}

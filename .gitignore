@@ -3,10 +3,18 @@
 
 # Generated project outputs
 node_modules/
+docs/build/
+docs/.docusaurus/
 template/build*/
 template/renders/
 template/fin_frames/
+template/fin_frames_*/
+template/fin_count_*.txt
+template/render_*.done
 template/stills/
+projects/*/fin_frames_*/
+projects/*/fin_count_*.txt
+projects/*/render_*.done
 template/audio/
 template/public/assets/*/audio.wav
 template/script/timeline.json
@@ -18,3 +26,6 @@ template/fin_count.txt
 
 __pycache__/
 .venv/
+
+# Local agent state, source maps, keys, and non-distributable evidence
+.a2swe/

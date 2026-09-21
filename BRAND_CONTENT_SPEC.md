@@ -4,15 +4,28 @@
 
 - Name and skill identifier: **a2swe**.
 - Expansion: **Anything to SWE Agent: Expert Explainers.**
-- Promise: **Topic in, narrated explainer video out.**
+- Promise: **Grounded domain SWE agent first, then executive explainers.**
 - Package: `a2swe-remotion-template`.
-- Output: English narrated 1280x720, 30fps H.264 video plus editable project,
-  research, narration, timing, storyboard, QC, and a persistent companion artifact.
+- Target outputs: independently evaluated domain agent plus narrated MP4, editable
+   PPTX, searchable PDF, responsive HTML/AdaptiveDeck, and DOCX. The local adapter
+   foundation now uses shared ContentIR/RenderSpec for release candidates; the
+   established video architecture remains the active, approval-gated
+   Remotion/Python 1280x720, 30fps production video adapter.
+- Current surfaces: agent-first core state in `.a2swe/` SQLite, evaluation-only
+   synthetic asset proof, local release-candidate adapters, and established 720p
+   Remotion/Python production video architecture. None is production-ready without
+   the required approvals and rights records.
 
-The parallel SWE expert track manages the full pipeline; it does not replace
-the movie. The project companion stores role, domain facts, decisions, approvals,
-stage ownership, evidence, limitations, and resume instructions. It is not a
-trained model, automatic IDE registration, or continuously running service.
+The domain agent must be useful before media production. Public engineering and
+brand evidence, source freshness, rights, independent evaluation, and human approval
+are prerequisites, not post-production paperwork. The project companion is a readable
+view, not the authoritative runtime database. See the implementation status in
+[docs/AGENT_FIRST_BUILD_SPEC.md](docs/AGENT_FIRST_BUILD_SPEC.md).
+
+Verified subject identity takes precedence over any house theme. Do not describe
+generic stars, glow, ClippyFlow presets, or original editorial artwork as official
+customer branding. Review three representative video frames and two slides before
+full production. Metrics cannot confer human visual or voice approval.
 
 ## Language Policy
 
@@ -24,9 +37,11 @@ names, source provenance, and authoritative license terms.
 Use UTF-8. English subtitle blocks have a 48-character budget, a 1160px safe
 width at 44px, and spaces between narration chunks. Default typography has no
 horizontal squeeze or alternate-language baseline adjustment. English TTS
-defaults on Python 3.14 are local Piper with a supplied English voice model,
-or explicit Edge `en-US-AndrewNeural` at +0%. Kokoro and Kokoro ONNX are legacy
-adapters incompatible with Python 3.14; they are not in the dependency lock.
+defaults on Python 3.14 use the upgraded local Kokoro/Misaki stack, or explicit
+Edge `en-US-AndrewNeural` at +0%. The dependency lock includes local upgraded
+Misaki, Kokoro and Kokoro ONNX wheels and the English spaCy model. Full English
+inference is verified on Python 3.14.7; ONNX uses supplied model/voice-bank paths.
+Piper remains optional. Do not substitute model imports for real inference evidence.
 
 ## Image Inventory and Disposition
 
@@ -50,6 +65,13 @@ Every external image or clip needs a manifest containing path, source URL,
 license/permission, SHA-256, purpose, and required attribution. Logos must not
 imply endorsement. Do not copy frames from existing videos.
 
+Core evaluation bundles may also include optional asset quality metadata for
+dimensions, contrast, label readability, overlap, visual-review notes, and pending
+human disposition. These fields are review evidence only. They do not prove brand
+authenticity, rights, subject approval, or production readiness. Verify exported
+bundle `manifest.json` tamper status with the core verifier before reusing an
+evaluation asset proof.
+
 Bundled font copyright notices and SIL OFL text remain authoritative. A font's
 historical family name is asset metadata, not a language option. Existing Noto
 Sans SC Latin glyphs are retained for calibrated English text metrics; no CJK
@@ -58,12 +80,14 @@ TypeScript and TTS text-width estimates and checking rendered text.
 
 ## Companion Lifecycle
 
-Copy `template/agent/SWE_AGENT.md` per project. One owner maintains it through
-stages 0-8; workers return bounded evidence. Retain duration/scope, narration,
-voiceover, and pilot gates. Update paths and actual verification results before
-delivery. New sessions verify recorded artifacts, refresh facts, and resume the
-earliest affected stage. Follow-up projects inherit sourced knowledge, not prior
-approvals, and never overwrite released originals.
+Copy `template/agent/SWE_AGENT.md` per established video architecture project. One owner maintains
+that projection through stages 0-8; workers return bounded evidence. The
+authoritative runtime state for the agent-first core is `.a2swe/` SQLite, including
+durable job receipts and verified artifact records. Retain duration/scope,
+narration, voiceover, and pilot gates in the projection. Update paths and actual
+verification results before delivery. New sessions verify recorded artifacts,
+refresh facts, and resume the earliest affected stage. Follow-up projects inherit
+sourced knowledge, not prior approvals, and never overwrite released originals.
 
 ## Acceptance
 

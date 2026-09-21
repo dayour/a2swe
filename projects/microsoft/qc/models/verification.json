@@ -1,0 +1,43 @@
+{
+  "python": "3.14.7",
+  "packages": {
+    "kokoro": "0.9.4",
+    "kokoro-onnx": "0.6.1",
+    "misaki": "0.9.4+py314.1",
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "spacy": "3.8.16",
+    "en-core-web-sm": "3.8.0"
+  },
+  "device": "cpu",
+  "parameter_count": 81810022,
+  "models": {
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+  },
+  "results": [
+    {
+      "topic": "microsoft",
+      "text": "Microsoft spans the computer on your desk and the services behind your work. Windows runs the PC experience. Microsoft 365 supports documents, communication, and collaboration. Azure supplies cloud computing, storage, and AI services for applications. Copilot adds AI assistance across selected workflows. These are connected products, not a single system: what you can use depends on the product, configuration, and subscription.",
+      "misaki_phonemes": "mˈIkɹOsˌɔft spˈænz ðə kəmpjˈuTəɹ ˌɔn jʊɹ dˈɛsk ænd ðə sˈɜɹvəsᵻz bəhˈInd jʊɹ wˈɜɹk. wˈɪndOz ɹˈʌnz ðə pˌisˈi ɪkspˈɪɹiəns. mˈIkɹOsˌɔft θɹˈi hˈʌndɹəd sˈɪksti fˈIv səpˈɔɹts dˈɑkjəmənts, kəmjˌunəkˈAʃən, ænd kəlˌæbəɹˈAʃən. ˈæʒəɹ səplˈIz klˈWd kəmpjˈuTɪŋ, stˈɔɹɪʤ, ænd ˈAˌI sˈɜɹvəsᵻz fɔɹ ˌæpləkˈAʃənz. kˈOpˌIlət ˈædz ˈAˌI əsˈɪstᵊns əkɹˈɔs səlˈɛktᵻd wˈɜɹkflˌOz. ðˌiz ɑɹ kənˈɛktᵻd pɹˈɑdˌʌkts, nˌɑt ɐ sˈɪŋɡᵊl sˈɪstəm: wˌʌt ju kæn jˈuz dəpˈɛndz ˌɔn ðə pɹˈɑdˌʌkt, kənfˌɪɡjəɹˈAʃən, ænd səbskɹˈɪpʃən.",
+      "misaki_token_count": 75,
+      "kokoro": {
+        "file": "microsoft-kokoro.wav",
+        "seconds": 23.925,
+        "sample_rate": 24000,
+        "peak": 0.5840569734573364,
+        "rms": 0.05369721795312009,
+        "sha256": "38155cef7d45dceb5cfe459ea7e640b21a8fcd15392505c111e62af18dd3e4b8"
+      },
+      "kokoro_onnx": {
+        "file": "microsoft-kokoro-onnx.wav",
+        "seconds": 33.556666666666665,
+        "sample_rate": 24000,
+        "peak": 0.4374708831310272,
+        "rms": 0.047926198049573585,
+        "sha256": "18bb749a4570fbb50d48041352b2a9790a2135f19caa431f0c12abc46787c0d0"
+      }
+    }
+  ]
+}
