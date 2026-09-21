@@ -66,6 +66,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Platform',
+      items: [
+        'platform/video-library',
+        'platform/templates',
+        'platform/tagging',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Governance',
       items: [
         'governance/brand-content-and-assets',
