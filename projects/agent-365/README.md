@@ -11,8 +11,8 @@ design, **not an official Microsoft template**.
 | [Agent 365 SWE](agent/README.md) | Native Copilot profile; expanded adversarial evaluation candidate |
 | [Evidence pack](research/sources.json) | Ten dated Microsoft sources, nineteen scoped claims |
 | [Video narration](script/narration-review.txt) | Text accepted; synthesis blocked by rejected evidence/agent snapshot |
-| Eight-slide editable presentation | In preparation |
-| Approximately 60-second 1080p video | In preparation |
+| Eight-slide editable presentation | `renders/agent-365-presentation-candidate.pptx`; PowerPoint-rendered and visually inspected candidate |
+| Approximately 60-second 1080p video | `renders/agent-365-candidate.mp4`; 62.68-second H.264/AAC candidate |
 
 See [the accepted brief](brief.md) and [review gates](REVIEW.md). Local agent
 execution does not mean that Microsoft Agent 365 is connected to a tenant or that
@@ -46,6 +46,13 @@ Speech is a separate local-only pipeline.
 `gate:media` and fail closed until the evidence snapshot and revised SWE-agent
 behavior are explicitly accepted. A passing evaluation cannot grant that
 acceptance, DomainReady certification, or live-tenant verification.
+
+The presentation and video deliberately share the same restrained white/ink/blue
+composition system. The deck is generated through HTML-to-PPTX with editable
+text and shapes, then rendered through installed Microsoft PowerPoint for visual
+inspection. The video is 1920 x 1080 at 30fps with locally synthesized Kokoro
+audio. Both remain review candidates pending listening, visual, rights, and
+release acceptance.
 
 The presentation authoring workflow uses HTML-to-PPTX with the locally installed
 skill converter (`A2SWE_HTML2PPTX` can identify its path). The converter's configurable

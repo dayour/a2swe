@@ -1,0 +1,289 @@
+{
+ "fps": 30,
+ "total_frames": 1879,
+ "engine": "kokoro",
+ "runtime_fingerprint": "aac15035776ce61d3b7dcff15e9fb0d2856586a0e987faa1fa8e37ebb03c1cf8",
+ "models": {
+  "config": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json",
+   "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
+  },
+  "weights": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth",
+   "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
+  },
+  "voice": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\voices\\am_liam.pt",
+   "sha256": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518"
+  }
+ },
+ "forks": {
+  "kokoro": {
+   "version": "0.9.4",
+   "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+   "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+   "installed_source": {
+    "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+    "archive_info": {}
+   }
+  },
+  "misaki": {
+   "version": "0.9.4+py314.1",
+   "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+   "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+   "installed_source": {
+    "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+    "archive_info": {}
+   }
+  }
+ },
+ "caption_timing": "model-token-timestamps",
+ "voice": "am_liam",
+ "rate": 1.0,
+ "gap": 10,
+ "chapter_gap": 45,
+ "lead": 40,
+ "tail": 90,
+ "lang": "en",
+ "chapters": [
+  {
+   "n": 1,
+   "title": "One agent. Three questions.",
+   "from": 86
+  },
+  {
+   "n": 2,
+   "title": "The control plane",
+   "from": 345
+  },
+  {
+   "n": 3,
+   "title": "Observe",
+   "from": 663
+  },
+  {
+   "n": 4,
+   "title": "Govern",
+   "from": 877
+  },
+  {
+   "n": 5,
+   "title": "Secure",
+   "from": 1057
+  },
+  {
+   "n": 6,
+   "title": "Extend what you built",
+   "from": 1271
+  },
+  {
+   "n": 7,
+   "title": "Start with evidence",
+   "from": 1554
+  }
+ ],
+ "sentences": [
+  {
+   "id": "S01",
+   "chapter": 1,
+   "from": 86,
+   "to": 184,
+   "text": "An operations agent can answer questions and call tools.",
+   "subs": [
+    {
+     "from": 86,
+     "to": 154,
+     "text": "An operations agent can answer questions"
+    },
+    {
+     "from": 155,
+     "to": 184,
+     "text": "and call tools."
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "chapter": 1,
+   "from": 195,
+   "to": 289,
+   "text": "But who owns it, what can it access, and how do you trace its actions?",
+   "subs": [
+    {
+     "from": 195,
+     "to": 242,
+     "text": "But who owns it, what can it access,"
+    },
+    {
+     "from": 243,
+     "to": 289,
+     "text": "and how do you trace its actions?"
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "chapter": 2,
+   "from": 345,
+   "to": 526,
+   "text": "Microsoft Agent 365 is the control plane for observing, governing, and securing agents.",
+   "subs": [
+    {
+     "from": 345,
+     "to": 451,
+     "text": "Microsoft Agent 365 is the control plane"
+    },
+    {
+     "from": 452,
+     "to": 526,
+     "text": "for observing, governing, and securing agents."
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "chapter": 2,
+   "from": 537,
+   "to": 607,
+   "text": "It is not the agent builder or runtime.",
+   "subs": [
+    {
+     "from": 537,
+     "to": 607,
+     "text": "It is not the agent builder or runtime."
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "chapter": 3,
+   "from": 663,
+   "to": 821,
+   "text": "Observe: bring inventory and activity into view, then trace agent invocations and tool calls.",
+   "subs": [
+    {
+     "from": 663,
+     "to": 744,
+     "text": "Observe: bring inventory and activity into view,"
+    },
+    {
+     "from": 745,
+     "to": 821,
+     "text": "then trace agent invocations and tool calls."
+    }
+   ]
+  },
+  {
+   "id": "S06",
+   "chapter": 4,
+   "from": 877,
+   "to": 1001,
+   "text": "Govern: establish ownership, identities, permissions, and lifecycle controls.",
+   "subs": [
+    {
+     "from": 877,
+     "to": 941,
+     "text": "Govern: establish ownership, identities,"
+    },
+    {
+     "from": 942,
+     "to": 1001,
+     "text": "permissions, and lifecycle controls."
+    }
+   ]
+  },
+  {
+   "id": "S07",
+   "chapter": 5,
+   "from": 1057,
+   "to": 1215,
+   "text": "Secure: connect identity, data protection, and threat detection through Entra, Purview, and Defender.",
+   "subs": [
+    {
+     "from": 1057,
+     "to": 1131,
+     "text": "Secure: connect identity, data protection,"
+    },
+    {
+     "from": 1132,
+     "to": 1178,
+     "text": "and threat detection through Entra,"
+    },
+    {
+     "from": 1179,
+     "to": 1215,
+     "text": "Purview, and Defender."
+    }
+   ]
+  },
+  {
+   "id": "S08",
+   "chapter": 6,
+   "from": 1271,
+   "to": 1421,
+   "text": "When code-level integration is needed, add only the SDK capabilities required.",
+   "subs": [
+    {
+     "from": 1271,
+     "to": 1337,
+     "text": "When code-level integration is needed,"
+    },
+    {
+     "from": 1338,
+     "to": 1421,
+     "text": "add only the SDK capabilities required."
+    }
+   ]
+  },
+  {
+   "id": "S09",
+   "chapter": 6,
+   "from": 1432,
+   "to": 1498,
+   "text": "Keep your existing framework and hosting.",
+   "subs": [
+    {
+     "from": 1432,
+     "to": 1498,
+     "text": "Keep your existing framework and hosting."
+    }
+   ]
+  },
+  {
+   "id": "S10",
+   "chapter": 7,
+   "from": 1554,
+   "to": 1613,
+   "text": "Start with one accountable pilot.",
+   "subs": [
+    {
+     "from": 1554,
+     "to": 1613,
+     "text": "Start with one accountable pilot."
+    }
+   ]
+  },
+  {
+   "id": "S11",
+   "chapter": 7,
+   "from": 1624,
+   "to": 1778,
+   "text": "Verify licensing and preview limitations, test the controls, then expand with evidence.",
+   "subs": [
+    {
+     "from": 1624,
+     "to": 1696,
+     "text": "Verify licensing and preview limitations,"
+    },
+    {
+     "from": 1697,
+     "to": 1778,
+     "text": "test the controls, then expand with evidence."
+    }
+   ]
+  }
+ ],
+ "chars": 629,
+ "words": 114,
+ "speech_sec": 44.1
+}

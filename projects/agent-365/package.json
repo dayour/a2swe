@@ -8,6 +8,7 @@
     "evaluate:agent": "node agent/evaluate.mjs",
     "gate:media": "node agent/gate.mjs",
     "audio": "npm run gate:media && node scripts/python.mjs scripts/tts_build.py script/narration-review.txt",
+    "presentation": "npm run gate:media && node scripts/build_presentation.mjs",
     "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
     "typecheck": "tsc --noEmit",
     "render": "npm run gate:media && remotion render src/index.ts Video",

@@ -3,6 +3,7 @@ node_modules/
 build*/
 renders/*
 !renders/*.mp4
+!renders/*.pptx
 fin_frames/
 fin_frames_*/
 fin_count_*.txt
@@ -12,3 +13,4 @@ public/assets/*/audio.wav
 audio/cache/
 
 build_production
+.pptx-work/

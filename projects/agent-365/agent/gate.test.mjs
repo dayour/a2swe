@@ -2,13 +2,15 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {test} from 'node:test';
 
-test('media stays blocked until evidence and revised agent are accepted', () => {
+test('media authorization requires accepted evidence, agent, narration and voice', () => {
   const state = JSON.parse(readFileSync(new URL('./lifecycle.json', import.meta.url), 'utf8'));
-  assert.equal(state.evidence.acceptedByUser, false);
-  assert.equal(state.agent.acceptedByUser, false);
-  assert.equal(state.media.authorized, false);
+  assert.equal(state.evidence.acceptedByUser, true);
+  assert.equal(state.agent.acceptedByUser, true);
+  assert.equal(state.media.authorized, true);
   assert.equal(state.narration.acceptedByUser, true);
   assert.equal(state.voice.acceptedByUser, true);
+  assert.equal(state.release.acceptedByUser, false);
+  assert.equal(state.release.domainReadyCertified, false);
 });
 
 test('adversarial suite covers required production boundaries', () => {

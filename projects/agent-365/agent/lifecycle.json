@@ -4,12 +4,12 @@
   "evidence": {
     "path": "research/sources.json",
     "receipts": "qc/source-receipts.json",
-    "acceptedByUser": false
+    "acceptedByUser": true
   },
   "agent": {
     "profile": "../../.github/agents/agent-365-swe.agent.md",
     "evaluation": "qc/agent-evaluation.json",
-    "acceptedByUser": false
+    "acceptedByUser": true
   },
   "narration": {
     "path": "script/narration-review.txt",
@@ -21,8 +21,8 @@
     "acceptedByUser": true
   },
   "media": {
-    "authorized": false,
-    "reason": "Evidence and revised SWE-agent behavior have not been accepted by the user."
+    "authorized": true,
+    "reason": "User accepted the revised agent/evidence snapshot after commit d3ae284."
   },
   "release": {
     "acceptedByUser": false,

@@ -7,12 +7,12 @@ This ledger explains state; it does not grant approval.
 | Stage | State | Evidence / next condition |
 | --- | --- | --- |
 | Brief | accepted | `brief.md` |
-| Public evidence | candidate rejected | `research/sources.json`; revise scope and obtain explicit user acceptance |
-| Native SWE agent | hardening in progress | expanded grounding, authority, injection, secret, identity, and over-refusal cases |
+| Public evidence | accepted for media authoring | `research/sources.json`; artifact and release acceptance remain separate |
+| Native SWE agent | accepted for media authoring | ten grounding, authority, injection, secret, identity, and over-refusal cases passed |
 | Narration text | accepted | `script/narration-review.txt` |
 | Voice choice | selected | local Kokoro `am_liam`; listening acceptance requires synthesized audio |
-| Presentation | blocked | media gate requires accepted evidence and agent behavior |
-| Video | blocked | media gate requires accepted evidence and agent behavior |
+| Presentation | candidate generated | `renders/agent-365-presentation-candidate.pptx`; PowerPoint visual inspection passed |
+| Video | candidate generated | `renders/agent-365-candidate.mp4`; H.264/AAC, 1920 x 1080, 30fps, 62.68 seconds |
 | Release | blocked | requires artifact QC, rights review, human acceptance, and separate certification where applicable |
 
 ## Invariants

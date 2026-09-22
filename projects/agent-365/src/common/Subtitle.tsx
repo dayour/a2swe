@@ -4,7 +4,7 @@ import {SUBS} from './subs';
 import {fitSize, textW} from './textfit';
 
 
-export const SUB_STYLE = {fontSize: 44, weight: 700, top: 637, color: '#FFFFFF', stroke: 4, strokeColor: '#000000'};
+export const SUB_STYLE = {fontSize: 27, weight: 700, top: 682, color: '#101828', stroke: 0, strokeColor: '#FFFFFF'};
 export const SUB_MAX_W = 1160; 
 const ring = (r: number, k: number, col: string) => Array.from({length: k}, (_, i) => {
   const a = (i / k) * Math.PI * 2;
@@ -18,7 +18,7 @@ export const SubtitleLine: React.FC<{text: string; top?: number; left?: number; 
   
   const size = fitSize(text, SUB_MAX_W, SUB_STYLE.fontSize, 34);
   const lh = 1.2;
-  const font: React.CSSProperties = {fontFamily: `'Noto Sans SC', 'PingFang SC', sans-serif`, fontWeight: SUB_STYLE.weight, fontSize: size, lineHeight: lh, color, textShadow: strokeShadow(stroke)};
+  const font: React.CSSProperties = {fontFamily: 'Arial, sans-serif', fontWeight: SUB_STYLE.weight, fontSize: size, lineHeight: lh, color, textShadow: stroke ? strokeShadow(stroke) : undefined};
   if (textW(text, size) <= SUB_MAX_W) {
     return <div style={{position: 'absolute', left, top, transform: 'translateX(-50%)', whiteSpace: 'nowrap', ...font}}>{text}</div>;
   }

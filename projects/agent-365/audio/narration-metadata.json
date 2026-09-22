@@ -1,0 +1,61 @@
+{
+  "engine": "kokoro",
+  "voice": "am_liam",
+  "rate": 1.0,
+  "runtime_fingerprint": "aac15035776ce61d3b7dcff15e9fb0d2856586a0e987faa1fa8e37ebb03c1cf8",
+  "models": {
+    "config": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json",
+      "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth",
+      "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
+    },
+    "voice": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\voices\\am_liam.pt",
+      "sha256": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518"
+    }
+  },
+  "forks": {
+    "kokoro": {
+      "version": "0.9.4",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "installed_source": {
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+        "archive_info": {}
+      }
+    },
+    "misaki": {
+      "version": "0.9.4+py314.1",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "installed_source": {
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+        "archive_info": {}
+      }
+    }
+  },
+  "caption_timing": "model-token-timestamps",
+  "python": "3.14.7",
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "language": "en",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 62.63333333333333,
+  "audio_file": "public\\assets\\agent-365\\audio.wav",
+  "audio_sha256": "7179a4f0e3390233d16a106b140a48a4f330b801bd85d3f1828b4deec31f987f",
+  "narration_sha256": "4fc0e3cfb0db4584f6228ebaa69e8307a14684151994f1a21819f41397fe3fa3",
+  "timeline_sha256": "26ac6dfbaf622e2a1b1e91b73f955008f81590e1114d63dec653460ca4ef3feb",
+  "profile_sha256": null,
+  "generated_files": {
+    "src/common/timeline.ts": "40c14e93971b97552af6730883b164810511115f112a526895f6e2a287d51dfc",
+    "src/common/subs.ts": "bfe9c7f56678c11a5600d01e36cc083506553c3208402d37295798ee6cad3036"
+  },
+  "producer_files": {
+    "scripts/tts_build.py": "6b9ad7145ef63aa63a470990eae4b3d0a95fe009e82137ea7034c6e970a7b02f",
+    "scripts/speech_runtime.py": "28133af3309824fa83ef05f28dc8dcaba067ba0fe9c920016bb4f7d2ae6ab81a"
+  },
+  "human_listening_review": "pending"
+}
