@@ -6,10 +6,11 @@
     "agent": "node agent/run.mjs",
     "test:agent": "node --test agent/*.test.mjs",
     "evaluate:agent": "node agent/evaluate.mjs",
-    "audio": "node scripts/python.mjs scripts/tts_build.py script/narration.txt",
+    "gate:media": "node agent/gate.mjs",
+    "audio": "npm run gate:media && node scripts/python.mjs scripts/tts_build.py script/narration-review.txt",
     "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
     "typecheck": "tsc --noEmit",
-    "render": "remotion render src/index.ts Video",
+    "render": "npm run gate:media && remotion render src/index.ts Video",
     "still": "remotion still src/index.ts",
     "studio": "remotion studio src/index.ts"
   },

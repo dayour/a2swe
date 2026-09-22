@@ -8,9 +8,9 @@ design, **not an official Microsoft template**.
 
 | Surface | State |
 | --- | --- |
-| [Agent 365 SWE](agent/README.md) | Native Copilot profile and local runner; evaluation candidate |
+| [Agent 365 SWE](agent/README.md) | Native Copilot profile; expanded adversarial evaluation candidate |
 | [Evidence pack](research/sources.json) | Ten dated Microsoft sources, nineteen scoped claims |
-| [Video narration](script/narration-review.txt) | Draft; synthesis awaits user approval |
+| [Video narration](script/narration-review.txt) | Text accepted; synthesis blocked by rejected evidence/agent snapshot |
 | Eight-slide editable presentation | In preparation |
 | Approximately 60-second 1080p video | In preparation |
 
@@ -32,6 +32,7 @@ From this project:
 ```powershell
 npm ci
 npm run evaluate:agent
+npm run gate:media
 node scripts\verify_sources.mjs
 ```
 
@@ -40,6 +41,11 @@ not install a runtime, choose a model, authorize private connectors, or register
 an Agent 365 service. Evaluation uses the configured Copilot backend; evidence and
 the engineering questions are sent to that host, not to a local language model.
 Speech is a separate local-only pipeline.
+
+`agent/lifecycle.json` binds the current human decisions. Media commands invoke
+`gate:media` and fail closed until the evidence snapshot and revised SWE-agent
+behavior are explicitly accepted. A passing evaluation cannot grant that
+acceptance, DomainReady certification, or live-tenant verification.
 
 The presentation authoring workflow uses HTML-to-PPTX with the locally installed
 skill converter (`A2SWE_HTML2PPTX` can identify its path). The converter's configurable

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "project": "agent-365",
+  "evidence": {
+    "path": "research/sources.json",
+    "receipts": "qc/source-receipts.json",
+    "acceptedByUser": false
+  },
+  "agent": {
+    "profile": "../../.github/agents/agent-365-swe.agent.md",
+    "evaluation": "qc/agent-evaluation.json",
+    "acceptedByUser": false
+  },
+  "narration": {
+    "path": "script/narration-review.txt",
+    "acceptedByUser": true
+  },
+  "voice": {
+    "engine": "kokoro",
+    "name": "am_liam",
+    "acceptedByUser": true
+  },
+  "media": {
+    "authorized": false,
+    "reason": "Evidence and revised SWE-agent behavior have not been accepted by the user."
+  },
+  "release": {
+    "acceptedByUser": false,
+    "domainReadyCertified": false
+  }
+}
