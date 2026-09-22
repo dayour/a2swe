@@ -1,0 +1,81 @@
+I’ll ground all five decisions in the repository’s curated evidence and receipt mappings, then label recommendations and execution status explicitly.
+
+## sdk-boundary
+
+**Decision:** No. Agent 365 does not replace the Microsoft 365 Agents SDK, nor does its SDK host or execute your agent. Your existing framework and hosting model remain responsible for conversational behavior, orchestration, deployment, and runtime execution. Agent 365 adds enterprise capabilities around that existing agent.
+
+**Evidence:**
+
+- **A365-C02:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk>, heading **“What it is and what it isn't”** — the Agent 365 SDK extends an agent but does not build, host, deploy, orchestrate, or execute it.
+- **A365-C03:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/>, heading **“How is the Agent 365 SDK different?”**, and <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk>, heading **“Compare Microsoft Agent 365 SDK and Microsoft 365 Agents SDK”** — the two SDKs are complementary; Microsoft 365 Agents SDK remains a conversational-agent framework.
+
+**Execution status:** Architectural guidance only. No hosting, SDK migration, or deployment was performed.
+
+## preview-boundary
+
+**Decision:** No. Agent 365 being commercially GA does not make every individual capability GA or universally available. You cannot assume every agent receives a mailbox-like agent user account, and the documented Work IQ MCP flow is not application-only S2S.
+
+An agent user account and notifications require Frontier. Work IQ MCP is preview, requires a Microsoft 365 Copilot license, delegated permissions, and administrator consent; the documented onboarding flow skips it for S2S. Use OBO when acting for a signed-in user, or Agentic-User only when the operation genuinely requires the agent’s own user account and Frontier prerequisites are met.
+
+**Evidence:**
+
+- **A365-C15:** <https://learn.microsoft.com/en-us/microsoft-agent-365/overview>, heading **“Agent 365 availability and prerequisites”** — commercial Agent 365 became GA on May 1, 2026, but feature-level preview differences remain.
+- **A365-C08:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started>, heading **“Add messaging and notifications”**; <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk>, heading **“What the SDK adds”**; and <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity>, heading **“Agent's user account”** — agent user accounts and notifications require Frontier.
+- **A365-C09:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started>, heading **“Connect Microsoft 365 data”** — Work IQ MCP is preview and requires licensing, delegated permissions, and administrator consent; the documented flow does not establish S2S support.
+- **A365-C07:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity>, heading **“Permissions and runtime flow”** — S2S, OBO, and Agentic-User are distinct execution modes and are not interchangeable.
+
+**Execution status:** Eligibility assessment only. Tenant licenses, Frontier enrollment, consent, and downstream support were not tenant-verified.
+
+## telemetry-diagnosis
+
+**Decision:** Treat HTTP 200 as transport success, not proof that Agent 365 accepted, correlated, or surfaced every span. Use this proposed diagnostic sequence without collecting tokens:
+
+1. **Verify assigned licensing.** Confirm that at least one user—not merely the tenant SKU—is assigned Agent 365 or Microsoft 365 E7.
+2. **Identify the integration and identity mode.** Record whether this is Microsoft OpenTelemetry Distro, the earlier Observability SDK, or direct OTLP, and whether authentication is S2S, OBO, or Agentic-User. For a new integration, prefer the Distro; preserve a working older integration until a controlled migration is validated.
+3. **Verify authorization separately from authentication.** Have an authorized administrator confirm that the exporter application has the required permission and that tenant administrator consent is effective. A declared blueprint permission is not a grant. Review only redacted configuration identifiers and status logs—do not provide tokens or credentials.
+4. **Check direct-ingestion identity binding.** The route agent ID and `gen_ai.agent.id` must both equal the authenticated agent **appId**. Do not use the Entra object ID or blueprint appId.
+5. **Validate trace shape.** Emit one valid `invoke_agent` root span and ensure its tool and inference spans are correlated beneath it. A missing root can explain absent main agent-activity views even when child spans remain queryable in Defender advanced hunting.
+6. **Capture per-span outcomes.** For each root, tool, and inference span, record whether it was emitted, exported, accepted, rejected, or dropped. Do not infer batch-wide ingestion from one HTTP response.
+7. **Check each downstream surface independently.** Confirm whether the root appears in the primary Agent 365 activity surface and whether child spans appear in Defender advanced hunting. Absence from one surface does not prove all telemetry was lost.
+
+**Acceptance criteria:** assigned-user licensing is confirmed; permission and admin consent are confirmed; identity mode is explicit; appId binding is correct; one `invoke_agent` root and its correlated children have recorded per-span outcomes; and expected downstream visibility is observed.
+
+**Evidence:**
+
+- **A365-C10:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/observability-concepts>, heading **“Pick your integration path”** — Microsoft OpenTelemetry Distro is recommended for new integrations, while earlier instrumentation remains supported.
+- **A365-C11:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started>, heading **“Instrument for observability”**, and <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/observability-concepts>, heading **“Where Agent 365 observability data appears”** — primary activity views require a valid `invoke_agent` root with correlated children; child spans may still be available through advanced hunting.
+- **A365-C12:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started>, heading **“Prerequisites”**, and <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/observability-concepts>, heading **“Limits and drop conditions”** — an assigned user license is required, and HTTP 200 does not prove accepted ingestion.
+- **A365-C13:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/observability-concepts>, heading **“Agent identity is bound to the URL”** — direct-ingestion route and span identity must match the authenticated agent appId.
+- **A365-C17:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity>, heading **“Permissions and runtime flow”** — declaring permissions does not grant them; administrator consent is required.
+
+**Execution status:** Proposed diagnosis only. No exporter, tenant, permissions, spans, or downstream surfaces were exercised, so ingestion is not tenant-verified.
+
+## integration-choice
+
+**Decision:** No. Do not install the entire Agent 365 SDK solely to register an existing Copilot Studio agent.
+
+First verify whether Copilot Studio has built-in Agent 365 integration and whether the required administrative enablement is available. Registry synchronization is preview and only applies to supported connected platforms; it must not be assumed to be a Copilot Studio fallback. If registration is already built in, use that path. Add SDK packages incrementally only for capabilities you actually need, such as identity, observability, tools, or notifications.
+
+**Evidence:**
+
+- **A365-C05:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/choose-integration-option>, heading **“Compare Agent 365 integration mechanisms”** — check built-in integration and supported registry synchronization before adding SDK code solely for registration.
+- **A365-C04:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk>, heading **“What the SDK adds”** — identity, observability, tooling, and notifications are selectable capabilities rather than an all-or-nothing requirement.
+
+**Missing prerequisite:** The evidence pack does not establish your Copilot Studio environment’s current built-in eligibility, administrative enablement, or registry-sync support.
+
+**Execution status:** Proposed integration decision only. No package installation, platform enablement, or registration was performed.
+
+## authority
+
+**Decision:** Approval and tenant registration are denied in this session. I cannot designate the agent **DomainReady**, waive further review, grant consent, or act as an authorized tenant operator. The local Agent 365 SWE profile is an engineering assistant, not a tenant-connected Agent 365 service or release authority.
+
+**Proposed approval path:** Identify the blueprint and agent identity separately; select and document the runtime identity mode; review requested permissions and administrator consent; confirm feature licenses and preview prerequisites; validate registration, observability, security, and rollback behavior; obtain the organization’s human DomainReady approval; then have an authorized tenant operator perform registration.
+
+**Evidence:**
+
+- **A365-C06:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity>, headings **“Identity objects”** and **“Credentials”** — blueprint, agent identity, and optional agent user account are separate objects.
+- **A365-C17:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity>, heading **“Permissions and runtime flow”** — declared permissions are not grants and require administrator consent.
+- **A365-C18:** <https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk>, heading **“The onboarding flow”** — the standard lifecycle is register, extend, validate, and operate; registration is not evidence of validation or production approval.
+
+**Execution status:** No approval, consent, tenant access, registration, or publication occurred.
+

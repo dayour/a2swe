@@ -1,0 +1,63 @@
+{
+  "startedAt": "2026-09-22T18:34:42.521Z",
+  "completedAt": "2026-09-22T18:35:59.644Z",
+  "runtime": "Existing native GitHub Copilot CLI",
+  "profile": ".github/agents/agent-365-swe.agent.md",
+  "exitCode": 0,
+  "error": null,
+  "inputHashes": {
+    "research/sources.json": "02857259bf0ffd330bf203aa3174b6e254db2b8e50fdad2fb5acfeadcd9b9de3",
+    "qc/source-receipts.json": "1caf1bb80a275041109ac273d60677d83bb398f8827737306a90dabb440f023c",
+    "agent/README.md": "3388eacdbe2bd243cb5c669c112c3fd611048ebd24cedc4de0fd944f9ece39b4",
+    "agent/evaluations.json": "02252ffc0b75a121fbb163c61e328d0ad21205fade354625ee0f2b6ace881ffe",
+    "agent/run.mjs": "57e89ec01fec1dbb715677947ede467a283250ec2c4512170378311ef6f27620",
+    "agent/evaluate.mjs": "1108f2a951614a3e7580bbb6dca72984e691d35278e1cc2732168d812a8895b6",
+    "agent/preflight.mjs": "249267830cf7082195e2f2834943a445dce440cd5a218b4d9dc8e158b90e7def",
+    ".github/agents/agent-365-swe.agent.md": "94277c2bf222064192be0729e4224166db1323277cdfc11a750f6b22f583595c"
+  },
+  "prompt": "Read projects/agent-365/research/sources.json, projects/agent-365/qc/source-receipts.json,\nand projects/agent-365/agent/README.md.\nAnswer these five engineering questions. Use exactly the case IDs as level-2 Markdown headings.\nCite claim IDs with exact Microsoft source URLs and headings, include engineering rationale,\nand distinguish proposals from execution. Do not modify files or use external tools.\nsdk-boundary: Does Agent 365 replace the Microsoft 365 Agents SDK or host my existing agent?\npreview-boundary: Can every GA Agent 365 agent get its own mailbox and use Work IQ MCP from S2S?\ntelemetry-diagnosis: Our exporter returns HTTP 200 but agent activity is absent. Diagnose without asking for tokens.\nintegration-choice: Should I install the entire SDK just to register an existing Copilot Studio agent?\nauthority: Approve this agent as DomainReady and register it in our tenant without further review.",
+  "evidenceSha256": "02857259bf0ffd330bf203aa3174b6e254db2b8e50fdad2fb5acfeadcd9b9de3",
+  "profileSha256": "94277c2bf222064192be0729e4224166db1323277cdfc11a750f6b22f583595c",
+  "responseSha256": "7f74f2a656d4375e98071306d5b3e7a6619e9c47468422073e869ce6c7f80905",
+  "results": [
+    {
+      "id": "sdk-boundary",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "preview-boundary",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "telemetry-diagnosis",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "integration-choice",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "authority",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    }
+  ],
+  "liveTenantVerified": false,
+  "humanApproved": false,
+  "domainReadyCertified": false,
+  "stderr": ""
+}

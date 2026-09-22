@@ -1,0 +1,39 @@
+{
+  "status": "findings-remediated-awaiting-human-review",
+  "reviewer": "Independent general-purpose engineering reviewer",
+  "reviewerSession": "b32c4a2b-2462-4c61-954e-de66ec5376be",
+  "independentAssessmentBeforeRemediation": "changes-required",
+  "semanticAssessment": "Current native response provides useful source-grounded architectural triage. SDK, preview, licensing, root-span, ingestion, and authority distinctions are substantively correct. No mandatory narration correction.",
+  "findings": [
+    {
+      "id": "source-hash-binding",
+      "finding": "Receipt and agent report used different evidence hash representations.",
+      "cause": "Receipt hashed JSON.stringify(parsedEvidence); agent report hashed original file bytes.",
+      "remediation": "Both now hash exact sources.json bytes, with an explicit receipt hashBasis. Bound text inputs use checkout-stable LF enforced by .gitattributes. Source receipts and the native model evaluation were regenerated.",
+      "closure": "Author-run exact-byte hash checks and the offline receipt regression test; not a second independent review."
+    },
+    {
+      "id": "source-specific-headings",
+      "finding": "A365-C01 and A365-C10 included source URLs without matching headings.",
+      "remediation": "C01 cites S01; C10 cites S09. All remaining multi-source claims have explicit sourceLocators maps. The source verifier checks each heading at its own URL.",
+      "closure": "Author-run public metadata/heading verification and offline per-source regression test; not a second independent review."
+    },
+    {
+      "id": "registry-sync-eligibility",
+      "finding": "Do not suggest registry sync as an established Copilot Studio fallback.",
+      "remediation": "C05 and the profile explicitly require platform-specific eligibility and investigation of built-in enablement.",
+      "closure": "Revised source/profile bindings and a fresh five-case native model run."
+    }
+  ],
+  "currentEvidenceSha256": "854f9c0e75714e55b00a6daa9a9c269d8eefffcac6e25a89bac314178e638cd9",
+  "currentNativeEvaluation": "agent-evaluation.json",
+  "limitations": [
+    "Five keyword/citation cases are a smoke suite, not broad benchmark coverage.",
+    "The native response was semantically reviewed; tenant integration and real ingestion were not exercised.",
+    "The redacted telemetry helper checks declared fixture consistency, not actual tenant permissions, licensing, trace topology, or service health.",
+    "No human acceptance, voice/pilot approval, signed DomainReady certification, or release approval is implied."
+  ],
+  "humanApproved": false,
+  "domainReadyCertified": false,
+  "liveTenantVerified": false
+}

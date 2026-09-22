@@ -1,0 +1,779 @@
+{
+  "evidenceSha256": "854f9c0e75714e55b00a6daa9a9c269d8eefffcac6e25a89bac314178e638cd9",
+  "hashBasis": "Exact sources.json file bytes",
+  "method": "Public Microsoft Learn HTML; exact revision, date, and per-source heading matching; no article redistribution",
+  "receipts": [
+    {
+      "sourceId": "S01",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "retrievedAt": "2026-09-22T18:41:22.013Z",
+      "revision": "7104712e8695c5f915357920637239ee0c6708c9",
+      "documentDate": "2026-08-19",
+      "modifiedDate": "2026-08-20",
+      "responseSha256": "e7c40bcf2f20902d4727115ec2511580a3e8d2326abf5a6cea1fa335ba596dd8",
+      "responseBytes": 51368,
+      "headings": [
+        {
+          "title": "Overview of Microsoft Agent 365",
+          "fragment": "overview-of-microsoft-agent-365"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Observe",
+          "fragment": "observe"
+        },
+        {
+          "title": "Govern",
+          "fragment": "govern"
+        },
+        {
+          "title": "Secure",
+          "fragment": "secure"
+        },
+        {
+          "title": "Agent 365 availability and prerequisites",
+          "fragment": "agent-365-availability-and-prerequisites"
+        },
+        {
+          "title": "Plans and licensing",
+          "fragment": "plans-and-licensing"
+        },
+        {
+          "title": "Next step",
+          "fragment": "next-step"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S02",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/",
+      "retrievedAt": "2026-09-22T18:41:22.073Z",
+      "revision": "521b86a942f40af35ddafa180248ad5519006484",
+      "documentDate": "2026-08-10",
+      "modifiedDate": "2026-08-13",
+      "responseSha256": "89e105ba860d14a5a6537767249e287d3df2b51a938b4f8022fcefe1c3d62844",
+      "responseBytes": 54787,
+      "headings": [
+        {
+          "title": "Microsoft Agent 365 SDK and CLI",
+          "fragment": "microsoft-agent-365-sdk-and-cli"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "New to Agent 365?",
+          "fragment": "new-to-agent-365"
+        },
+        {
+          "title": "Agent 365 SDK",
+          "fragment": "agent-365-sdk"
+        },
+        {
+          "title": "Agent 365 CLI",
+          "fragment": "agent-365-cli"
+        },
+        {
+          "title": "Agent 365 Agent Development lifecycle",
+          "fragment": "agent-365-agent-development-lifecycle"
+        },
+        {
+          "title": "Agent 365 agent blueprint",
+          "fragment": "agent-365-agent-blueprint"
+        },
+        {
+          "title": "How is the Agent 365 SDK different?",
+          "fragment": "how-is-the-agent-365-sdk-different"
+        },
+        {
+          "title": "Agent 365 SDK and the agent ecosystem",
+          "fragment": "agent-365-sdk-and-the-agent-ecosystem"
+        },
+        {
+          "title": "Next steps",
+          "fragment": "next-steps"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S03",
+      "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-agent-365/microsoft-agent-365",
+      "retrievedAt": "2026-09-22T18:41:22.101Z",
+      "revision": "16bcbb4ff0807cff0784bd82819f91a79648c07c",
+      "documentDate": "2026-09-14",
+      "modifiedDate": "2026-09-15",
+      "responseSha256": "6ab4cd44f9385ca95e21be50d9fa111eca6de4cb17a9ade9707e963b08e8ea76",
+      "responseBytes": 54619,
+      "headings": [
+        {
+          "title": "Microsoft Agent 365",
+          "fragment": "microsoft-agent-365"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Available plans",
+          "fragment": "available-plans"
+        },
+        {
+          "title": "Feature availability",
+          "fragment": "feature-availability"
+        },
+        {
+          "title": "Learn more",
+          "fragment": "learn-more"
+        },
+        {
+          "title": "Messaging",
+          "fragment": "messaging"
+        },
+        {
+          "title": "Licensing terms",
+          "fragment": "licensing-terms"
+        },
+        {
+          "title": "Accessibility",
+          "fragment": "accessibility"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S04",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started",
+      "retrievedAt": "2026-09-22T18:41:22.135Z",
+      "revision": "90bdcef7eb2b4a52c0abbf55d79c0b7f4c6129db",
+      "documentDate": "2026-09-17",
+      "modifiedDate": "2026-09-17",
+      "responseSha256": "995325c431b989e40d5f26ab6930f17696843c55ee1e5ee0f9a6272ae8bf0b9f",
+      "responseBytes": 59003,
+      "headings": [
+        {
+          "title": "Quickstart: Connect an existing agent to Agent 365",
+          "fragment": "quickstart-connect-an-existing-agent-to-agent-365"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Prerequisites",
+          "fragment": "prerequisites"
+        },
+        {
+          "title": "Install the skills",
+          "fragment": "install-the-skills"
+        },
+        {
+          "title": "Set up and detect the project",
+          "fragment": "set-up-and-detect-the-project"
+        },
+        {
+          "title": "Register the agent",
+          "fragment": "register-the-agent"
+        },
+        {
+          "title": "Add messaging and notifications",
+          "fragment": "add-messaging-and-notifications"
+        },
+        {
+          "title": "Instrument for observability",
+          "fragment": "instrument-for-observability"
+        },
+        {
+          "title": "Connect Microsoft 365 data",
+          "fragment": "connect-microsoft-365-data"
+        },
+        {
+          "title": "Add data loss prevention",
+          "fragment": "add-data-loss-prevention"
+        },
+        {
+          "title": "Test locally",
+          "fragment": "test-locally"
+        },
+        {
+          "title": "Validate the result",
+          "fragment": "validate-the-result"
+        },
+        {
+          "title": "Troubleshoot",
+          "fragment": "troubleshoot"
+        },
+        {
+          "title": "Related content",
+          "fragment": "related-content"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S05",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk",
+      "retrievedAt": "2026-09-22T18:41:22.160Z",
+      "revision": "de5acf2724ca07d22c8645c2c138d4366382b804",
+      "documentDate": "2026-08-10",
+      "modifiedDate": "2026-08-13",
+      "responseSha256": "9e81d7ff0e9008442b90b35e18660485598549fa2d505b3afe33e0ac1a6d4039",
+      "responseBytes": 66911,
+      "headings": [
+        {
+          "title": "Microsoft Agent 365 SDK overview",
+          "fragment": "microsoft-agent-365-sdk-overview"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Where the SDK fits",
+          "fragment": "where-the-sdk-fits"
+        },
+        {
+          "title": "What the SDK adds",
+          "fragment": "what-the-sdk-adds"
+        },
+        {
+          "title": "Compare Microsoft Agent 365 SDK and Microsoft 365 Agents SDK",
+          "fragment": "compare-microsoft-agent-365-sdk-and-microsoft-365-agents-sdk"
+        },
+        {
+          "title": "What it is and what it isn't",
+          "fragment": "what-it-is-and-what-it-isnt"
+        },
+        {
+          "title": "The onboarding flow",
+          "fragment": "the-onboarding-flow"
+        },
+        {
+          "title": "How a request flows",
+          "fragment": "how-a-request-flows"
+        },
+        {
+          "title": "Agent 365 SDK packages",
+          "fragment": "agent-365-sdk-packages"
+        },
+        {
+          "title": "Related content",
+          "fragment": "related-content"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S06",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/identity",
+      "retrievedAt": "2026-09-22T18:41:22.206Z",
+      "revision": "39763697df913b4338fce32ae3c7df57be9bca7e",
+      "documentDate": "2026-08-10",
+      "modifiedDate": "2026-08-13",
+      "responseSha256": "48dc4ac1b8ba40b320c70f577977be3f308fcc31d82e01ecf633f09a69bcf2dd",
+      "responseBytes": 57057,
+      "headings": [
+        {
+          "title": "Agent 365 identity",
+          "fragment": "agent-365-identity"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Identity objects",
+          "fragment": "identity-objects"
+        },
+        {
+          "title": "Blueprint-to-agent relationship",
+          "fragment": "blueprint-to-agent-relationship"
+        },
+        {
+          "title": "Credentials",
+          "fragment": "credentials"
+        },
+        {
+          "title": "Agent's user account",
+          "fragment": "agents-user-account"
+        },
+        {
+          "title": "Permissions and runtime flow",
+          "fragment": "permissions-and-runtime-flow"
+        },
+        {
+          "title": "Sponsor and auditing",
+          "fragment": "sponsor-and-auditing"
+        },
+        {
+          "title": "What you configure",
+          "fragment": "what-you-configure"
+        },
+        {
+          "title": "Related content",
+          "fragment": "related-content"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S07",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/choose-integration-option",
+      "retrievedAt": "2026-09-22T18:41:22.241Z",
+      "revision": "f9e15ad72024c9ac4a43c14976a52e06bfc57e4e",
+      "documentDate": "2026-08-10",
+      "modifiedDate": "2026-08-13",
+      "responseSha256": "895ab0dc2c36ea079ac64d72138f0c9bbf347a04ea0c53c1436e8cedf75c358c",
+      "responseBytes": 51472,
+      "headings": [
+        {
+          "title": "Choose an Agent 365 integration option",
+          "fragment": "choose-an-agent-365-integration-option"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Compare Agent 365 integration mechanisms",
+          "fragment": "compare-agent-365-integration-mechanisms"
+        },
+        {
+          "title": "When to use the Agent 365 SDK",
+          "fragment": "when-to-use-the-agent-365-sdk"
+        },
+        {
+          "title": "Related content",
+          "fragment": "related-content"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S08",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/microsoft-opentelemetry",
+      "retrievedAt": "2026-09-22T18:41:22.265Z",
+      "revision": "5925f3ca5ec04248978bbd3b47f2f83561ee039e",
+      "documentDate": "2026-06-15",
+      "modifiedDate": "2026-07-08",
+      "responseSha256": "5afae5e1119b7cca396bceb6e96ceab231127d57b928f849fdd2360187a533f2",
+      "responseBytes": 135497,
+      "headings": [
+        {
+          "title": "Microsoft OpenTelemetry Distro",
+          "fragment": "microsoft-opentelemetry-distro"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Key benefits",
+          "fragment": "key-benefits"
+        },
+        {
+          "title": "Installation and configuration",
+          "fragment": "installation-and-configuration"
+        },
+        {
+          "title": "Install library",
+          "fragment": "install-library"
+        },
+        {
+          "title": "Configuration",
+          "fragment": "configuration"
+        },
+        {
+          "title": "Propagate context",
+          "fragment": "propagate-context"
+        },
+        {
+          "title": "Baggage attributes",
+          "fragment": "baggage-attributes"
+        },
+        {
+          "title": "Baggage middleware",
+          "fragment": "baggage-middleware"
+        },
+        {
+          "title": "Validate data is flowing in product",
+          "fragment": "validate-data-is-flowing-in-product"
+        },
+        {
+          "title": "Automatic instrumentation",
+          "fragment": "automatic-instrumentation"
+        },
+        {
+          "title": "Instrumentation coverage",
+          "fragment": "instrumentation-coverage"
+        },
+        {
+          "title": "Built-in instrumentation libraries",
+          "fragment": "built-in-instrumentation-libraries"
+        },
+        {
+          "title": "Semantic Kernel",
+          "fragment": "semantic-kernel"
+        },
+        {
+          "title": "OpenAI",
+          "fragment": "openai"
+        },
+        {
+          "title": "Agent Framework",
+          "fragment": "agent-framework"
+        },
+        {
+          "title": "LangChain",
+          "fragment": "langchain"
+        },
+        {
+          "title": "Manual instrumentation",
+          "fragment": "manual-instrumentation"
+        },
+        {
+          "title": "Agent invocation",
+          "fragment": "agent-invocation"
+        },
+        {
+          "title": "Tool execution",
+          "fragment": "tool-execution"
+        },
+        {
+          "title": "Inference",
+          "fragment": "inference"
+        },
+        {
+          "title": "Output",
+          "fragment": "output"
+        },
+        {
+          "title": "Local validation",
+          "fragment": "local-validation"
+        },
+        {
+          "title": "Validate with a local OTLP endpoint",
+          "fragment": "validate-with-a-local-otlp-endpoint"
+        },
+        {
+          "title": "Validate with local output",
+          "fragment": "validate-with-local-output"
+        },
+        {
+          "title": "Manually set up authentication",
+          "fragment": "manually-set-up-authentication"
+        },
+        {
+          "title": "Manual token resolver",
+          "fragment": "manual-token-resolver"
+        },
+        {
+          "title": "Agentic token cache with Agent Framework apps",
+          "fragment": "agentic-token-cache-with-agent-framework-apps"
+        },
+        {
+          "title": "Store validation attributes",
+          "fragment": "store-validation-attributes"
+        },
+        {
+          "title": "Test your agent with observability",
+          "fragment": "test-your-agent-with-observability"
+        },
+        {
+          "title": "Sample applications and advanced configuration",
+          "fragment": "sample-applications-and-advanced-configuration"
+        },
+        {
+          "title": "Programming reference",
+          "fragment": "programming-reference"
+        },
+        {
+          "title": "Troubleshooting",
+          "fragment": "troubleshooting"
+        },
+        {
+          "title": "Observability data doesn't appear",
+          "fragment": "observability-data-doesnt-appear"
+        },
+        {
+          "title": "Missing tenant ID or agent ID — spans skipped",
+          "fragment": "missing-tenant-id-or-agent-id--spans-skipped"
+        },
+        {
+          "title": "Token resolution failure — export skipped or unauthorized",
+          "fragment": "token-resolution-failure--export-skipped-or-unauthorized"
+        },
+        {
+          "title": "HTTP 401 Unauthorized",
+          "fragment": "http-401-unauthorized"
+        },
+        {
+          "title": "HTTP 403 Forbidden",
+          "fragment": "http-403-forbidden"
+        },
+        {
+          "title": "Grant the permission",
+          "fragment": "grant-the-permission"
+        },
+        {
+          "title": "HTTP 403 Forbidden — Agent ID mismatch",
+          "fragment": "http-403-forbidden--agent-id-mismatch"
+        },
+        {
+          "title": "HTTP 429 or 5xx errors - Transient errors",
+          "fragment": "http-429-or-5xx-errors---transient-errors"
+        },
+        {
+          "title": "Export timeout",
+          "fragment": "export-timeout"
+        },
+        {
+          "title": "Export succeeds but telemetry doesn't appear in Defender or Purview",
+          "fragment": "export-succeeds-but-telemetry-doesnt-appear-in-defender-or-purview"
+        },
+        {
+          "title": "Related content",
+          "fragment": "related-content"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S09",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/observability-concepts",
+      "retrievedAt": "2026-09-22T18:41:22.376Z",
+      "revision": "aa14e013eaaf68a1c18b068bafe95430a30a0360",
+      "documentDate": "2026-09-02",
+      "modifiedDate": "2026-09-02",
+      "responseSha256": "262f8a4c883b4df214010683120ab872b9c23b7ef4f9b24c5d3c1f6a045726aa",
+      "responseBytes": 63471,
+      "headings": [
+        {
+          "title": "Agent 365 observability concepts",
+          "fragment": "agent-365-observability-concepts"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Pick your integration path",
+          "fragment": "pick-your-integration-path"
+        },
+        {
+          "title": "Agent 365 observability glossary",
+          "fragment": "agent-365-observability-glossary"
+        },
+        {
+          "title": "How Agent 365 observability works",
+          "fragment": "how-agent-365-observability-works"
+        },
+        {
+          "title": "Agent 365 observability data flow",
+          "fragment": "agent-365-observability-data-flow"
+        },
+        {
+          "title": "Identity models",
+          "fragment": "identity-models"
+        },
+        {
+          "title": "Authentication",
+          "fragment": "authentication"
+        },
+        {
+          "title": "Agent identity is bound to the URL",
+          "fragment": "agent-identity-is-bound-to-the-url"
+        },
+        {
+          "title": "Scopes and consent",
+          "fragment": "scopes-and-consent"
+        },
+        {
+          "title": "Add the permission to your app",
+          "fragment": "add-the-permission-to-your-app"
+        },
+        {
+          "title": "Tenant consent",
+          "fragment": "tenant-consent"
+        },
+        {
+          "title": "Limits and drop conditions",
+          "fragment": "limits-and-drop-conditions"
+        },
+        {
+          "title": "Where Agent 365 observability data appears",
+          "fragment": "where-agent-365-observability-data-appears"
+        },
+        {
+          "title": "Next steps",
+          "fragment": "next-steps"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "S10",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli",
+      "retrievedAt": "2026-09-22T18:41:22.392Z",
+      "revision": "9abe942d4199498ce284e2def9a7168bf639941b",
+      "documentDate": "2026-08-31",
+      "modifiedDate": "2026-09-01",
+      "responseSha256": "587381b7732893d871ee2e4c2aaa23796727e0124c399012a032adf21c2028e8",
+      "responseBytes": 59059,
+      "headings": [
+        {
+          "title": "Install and use the Agent 365 CLI",
+          "fragment": "install-and-use-the-agent-365-cli"
+        },
+        {
+          "title": "In this article",
+          "fragment": "ms--in-this-article"
+        },
+        {
+          "title": "Prerequisites",
+          "fragment": "prerequisites"
+        },
+        {
+          "title": "Microsoft Entra authentication",
+          "fragment": "microsoft-entra-authentication"
+        },
+        {
+          "title": "Install the Agent 365 CLI",
+          "fragment": "install-the-agent-365-cli"
+        },
+        {
+          "title": "Prerequisites",
+          "fragment": "prerequisites-1"
+        },
+        {
+          "title": "Use dotnet tool install",
+          "fragment": "use-dotnet-tool-install"
+        },
+        {
+          "title": "Verify installation",
+          "fragment": "verify-installation"
+        },
+        {
+          "title": "Update the Agent 365 CLI",
+          "fragment": "update-the-agent-365-cli"
+        },
+        {
+          "title": "Uninstall the Agent 365 CLI",
+          "fragment": "uninstall-the-agent-365-cli"
+        },
+        {
+          "title": "Agent 365 CLI file locations",
+          "fragment": "agent-365-cli-file-locations"
+        },
+        {
+          "title": "Agent 365 CLI commands",
+          "fragment": "agent-365-cli-commands"
+        },
+        {
+          "title": "Troubleshooting",
+          "fragment": "troubleshooting"
+        },
+        {
+          "title": "Microsoft-managed Agent 365 CLI application isn't available",
+          "fragment": "microsoft-managed-agent-365-cli-application-isnt-available"
+        },
+        {
+          "title": "Device code authentication is blocked",
+          "fragment": "device-code-authentication-is-blocked"
+        },
+        {
+          "title": "Authentication fails with AADSTS70007",
+          "fragment": "authentication-fails-with-aadsts70007"
+        },
+        {
+          "title": "Required delegated scopes are missing",
+          "fragment": "required-delegated-scopes-are-missing"
+        },
+        {
+          "title": "Agent doesn't appear in Teams",
+          "fragment": "agent-doesnt-appear-in-teams"
+        },
+        {
+          "title": "Can't create agent instance in Teams",
+          "fragment": "cant-create-agent-instance-in-teams"
+        },
+        {
+          "title": "Feedback",
+          "fragment": "ms--feedback"
+        },
+        {
+          "title": "Additional resources",
+          "fragment": "ms--additional-resources-mobile-heading"
+        }
+      ]
+    }
+  ]
+}

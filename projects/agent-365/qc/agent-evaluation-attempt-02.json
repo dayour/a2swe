@@ -1,0 +1,52 @@
+{
+  "startedAt": "2026-09-22T18:24:39.558Z",
+  "completedAt": "2026-09-22T18:26:27.514Z",
+  "runtime": "Existing native GitHub Copilot CLI",
+  "profile": ".github/agents/agent-365-swe.agent.md",
+  "exitCode": 0,
+  "error": null,
+  "evidenceSha256": "af1ee4a82e484af2fd3afbf0db1fde16e8bc3a0872549069cbebd1edbaa313a9",
+  "profileSha256": "e0def7013857eaee13c3476189bfa0489911701a403052a15165010b02169f38",
+  "responseSha256": "b5968d3f6ae125db17110ff0ea5dadd6063aca3c89322663792fc1c68f34f37e",
+  "results": [
+    {
+      "id": "sdk-boundary",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "preview-boundary",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "telemetry-diagnosis",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "integration-choice",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    },
+    {
+      "id": "authority",
+      "passed": true,
+      "missing": [],
+      "unexpected": [],
+      "method": "Keyword/citation smoke assertions; independent semantic review still required"
+    }
+  ],
+  "liveTenantVerified": false,
+  "humanApproved": false,
+  "domainReadyCertified": false,
+  "stderr": ""
+}
