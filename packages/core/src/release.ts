@@ -71,6 +71,21 @@ async function writeJson(filename: string, value: unknown): Promise<void> {
   await writeFile(filename, `${JSON.stringify(value, null, 2)}\n`, { flag: 'wx', mode: 0o600 });
 }
 
+function visibleReviewContent(content: ContentIR): ContentIR {
+  const prefix = 'UNAPPROVED REVIEW CANDIDATE';
+  return validate('ContentIR', {
+    ...content,
+    title: `${prefix} - ${content.title}`.slice(0, 160).replace(/\s+\S*$/, ''),
+    decision: `${prefix}. ${content.decision}`.slice(0, 1000),
+    summary: `${prefix}. Not signed, not approved, and not for production release. ${content.summary}`.slice(0, 4000),
+    sections: content.sections.map((section) => ({
+      ...section,
+      body: `${prefix}. ${section.body}`.slice(0, 8000),
+      speakerNotes: `${prefix}. ${section.speakerNotes}`.slice(0, 4000)
+    }))
+  });
+}
+
 function destination(root: string, relative: string): string {
   const resolved = path.resolve(root, ...relative.split('/'));
   const base = path.resolve(root);
@@ -105,6 +120,49 @@ export async function writeReleaseCandidate(directory: string, contentInput: unk
     await writeJson(path.join(root, 'approval-bundle.json'), approvals);
     await writeJson(path.join(root, 'release-plan.json'), plan);
     await writeJson(path.join(root, 'parity-manifest.json'), parity);
+    return parity;
+  } catch (error) {
+    await rm(root, { recursive: true, force: true });
+    throw error;
+  }
+}
+
+export async function writePreApprovalReviewCandidate(directory: string, contentInput: unknown, renderInput: unknown, rightsInput: unknown): Promise<FormatParityManifest> {
+  const content = visibleReviewContent(validate('ContentIR', contentInput));
+  const originalRenderSpec = validate('RenderSpec', renderInput);
+  const rights = validate('RightsManifest', rightsInput);
+  const contentDigest = digest(content);
+  const renderSpec = validate('RenderSpec', { ...originalRenderSpec, contentDigest });
+  const reviewRights = validate('RightsManifest', { ...rights, contentDigest });
+  const plan = createReleasePlan(content, renderSpec, reviewRights);
+  const files = renderFiles(content, renderSpec, { reviewCandidate: true });
+  const root = path.resolve(directory);
+  await mkdir(root, { recursive: false, mode: 0o700 });
+  try {
+    for (const file of files) {
+      const target = destination(root, file.path);
+      await mkdir(path.dirname(target), { recursive: true });
+      await writeFile(target, file.bytes, { flag: 'wx', mode: 0o600 });
+    }
+    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
+      renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest,
+      outputs: files.map((file) => ({ format: file.format, path: file.path, digest: sha256(file.bytes), mediaType: file.mediaType,
+        byteSize: file.bytes.length, contentDigest: plan.contentDigest, adapter: file.adapter })) });
+    await writeJson(path.join(root, 'content-ir.json'), content);
+    await writeJson(path.join(root, 'render-spec.json'), renderSpec);
+    await writeJson(path.join(root, 'rights-manifest.json'), reviewRights);
+    await writeJson(path.join(root, 'release-plan.json'), plan);
+    await writeJson(path.join(root, 'parity-manifest.json'), parity);
+    await writeJson(path.join(root, 'review-candidate-manifest.json'), {
+      schemaVersion: '1.0.0',
+      approvalState: 'unapproved',
+      productionEligible: false,
+      warning: 'UNAPPROVED REVIEW CANDIDATE. Do not publish, ship, or treat as a signed release.',
+      originalContentDigest: digest(validate('ContentIR', contentInput)),
+      reviewContentDigest: plan.contentDigest,
+      releaseDigest: plan.releaseDigest,
+      generatedBy: 'a2swe release-review-candidate'
+    });
     return parity;
   } catch (error) {
     await rm(root, { recursive: true, force: true });

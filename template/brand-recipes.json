@@ -1,0 +1,74 @@
+[
+  {
+    "id": "opening-question",
+    "title": "Opening question",
+    "description": "Light-density title and decision, with generous whitespace and a clear narrative promise.",
+    "intent": "title",
+    "density": "light",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "Where does a request go?", "box": {"x": 80, "y": 160, "width": 1120, "height": 110}, "clearance": 16, "themeRole": "heading"},
+      {"id": "promise", "type": "body", "sample": "Follow one maintenance request from intake to resolution.", "box": {"x": 80, "y": 330, "width": 920, "height": 140}, "clearance": 16, "themeRole": "body"}
+    ]
+  },
+  {
+    "id": "three-part-agenda",
+    "title": "Three-part agenda",
+    "description": "A cohesive agenda that sets up a single example rather than a disconnected feature list.",
+    "intent": "agenda",
+    "density": "medium",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "A request, a route, a result", "box": {"x": 64, "y": 64, "width": 1152, "height": 100}, "clearance": 12, "themeRole": "heading"},
+      {"id": "context", "type": "body", "sample": "1. Capture the issue", "box": {"x": 64, "y": 230, "width": 352, "height": 280}, "clearance": 12, "themeRole": "body"},
+      {"id": "mechanism", "type": "body", "sample": "2. Route to the right team", "box": {"x": 464, "y": 230, "width": 352, "height": 280}, "clearance": 12, "themeRole": "body"},
+      {"id": "result", "type": "body", "sample": "3. Confirm the resolution", "box": {"x": 864, "y": 230, "width": 352, "height": 280}, "clearance": 12, "themeRole": "body"}
+    ]
+  },
+  {
+    "id": "context-and-image",
+    "title": "Context and image",
+    "description": "Medium-density text beside an inset picture placeholder. Select a rights-cleared photo with subject space toward the text.",
+    "intent": "content",
+    "density": "medium",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "Capture the issue once", "box": {"x": 64, "y": 64, "width": 1152, "height": 100}, "clearance": 12, "themeRole": "heading"},
+      {"id": "explanation", "type": "body", "sample": "A technician records the equipment, symptoms, and urgency in one request.", "box": {"x": 64, "y": 220, "width": 512, "height": 360}, "clearance": 12, "themeRole": "body"},
+      {"id": "photo", "type": "picture", "sample": "Technician inspecting equipment", "box": {"x": 640, "y": 220, "width": 576, "height": 360}, "clearance": 12, "themeRole": "image"}
+    ]
+  },
+  {
+    "id": "routing-process",
+    "title": "Routing process",
+    "description": "A complete process composition. Animate its stages without moving labels through reserved video bands.",
+    "intent": "process",
+    "density": "medium",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "Make ownership visible", "box": {"x": 64, "y": 64, "width": 1152, "height": 100}, "clearance": 12, "themeRole": "heading"},
+      {"id": "flow", "type": "diagram", "sample": "Intake > Triage > Assign > Resolve", "box": {"x": 64, "y": 220, "width": 1152, "height": 250}, "clearance": 12, "themeRole": "data"},
+      {"id": "takeaway", "type": "body", "sample": "Each handoff has an owner and an explicit completion condition.", "box": {"x": 64, "y": 520, "width": 1152, "height": 64}, "clearance": 12, "themeRole": "body"}
+    ]
+  },
+  {
+    "id": "illustrative-dashboard",
+    "title": "Illustrative dashboard",
+    "description": "Heavy-density chart, table, and takeaway. The sample numbers are explicitly illustrative, not research claims.",
+    "intent": "data-visualization",
+    "density": "heavy",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "See the work in progress", "box": {"x": 64, "y": 64, "width": 1152, "height": 100}, "clearance": 12, "themeRole": "heading"},
+      {"id": "chart", "type": "chart", "sample": "Illustrative requests: Open 12 / Closed 28", "box": {"x": 64, "y": 220, "width": 552, "height": 260}, "clearance": 12, "themeRole": "data"},
+      {"id": "table", "type": "table", "sample": "Illustrative queue: Team A 7 / Team B 5", "box": {"x": 664, "y": 220, "width": 552, "height": 260}, "clearance": 12, "themeRole": "data"},
+      {"id": "takeaway", "type": "body", "sample": "Illustrative open queue: Team A holds 7 of 12 requests.", "box": {"x": 64, "y": 530, "width": 1152, "height": 54}, "clearance": 12, "themeRole": "body"}
+    ]
+  },
+  {
+    "id": "decision-and-next-step",
+    "title": "Decision and next step",
+    "description": "A light-density closing slide linking the opening problem to a concrete owner and next action.",
+    "intent": "next-steps",
+    "density": "light",
+    "objects": [
+      {"id": "title", "type": "title", "sample": "Start with one request", "box": {"x": 80, "y": 120, "width": 1120, "height": 110}, "clearance": 16, "themeRole": "heading"},
+      {"id": "action", "type": "body", "sample": "Choose a team. Agree on the handoffs. Review one real pilot together.", "box": {"x": 80, "y": 310, "width": 1040, "height": 210}, "clearance": 16, "themeRole": "body"}
+    ]
+  }
+]

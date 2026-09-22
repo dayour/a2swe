@@ -1,0 +1,8 @@
+shot     len  still%  longest  verdict   longest-run  fullres-changed-px  class
+SC01    3.7s      0%     0.0s  OK
+SC02    5.8s      0%     0.0s  OK
+SC03    7.2s      0%     0.0s  OK
+SC04    8.4s     28%     1.4s   ✗ hold>1s   709-751     896  small-area motion
+SC05    9.6s     63%     3.6s  ✗ still>40% ✗ hold>1s   829-937       1  static
+SC06    5.8s      0%     0.0s  OK
+shots failing: 2

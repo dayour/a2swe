@@ -1,0 +1,79 @@
+AUDIO QC - volumedetect
+
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'renders\copilot-studio-2026-v4.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+    comment         : Made with Remotion 4.0.523
+  Duration: 00:00:40.53, start: 0.000000, bitrate: 3875 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 3677 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Side data:
+      ICC Profile: (456 bytes)
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 189 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+[Parsed_volumedetect_0 @ 0000020c7231aec0] n_samples: 0
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'NUL':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Made with Remotion 4.0.523
+    encoder         : Lavf63.1.101
+  Stream #0:0(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+    Metadata:
+      encoder         : Lavc63.1.101 pcm_s16le
+      handler_name    : SoundHandler
+[Parsed_volumedetect_0 @ 0000020c703119c0] n_samples: 3891200
+[Parsed_volumedetect_0 @ 0000020c703119c0] mean_volume: -22.0 dB
+[Parsed_volumedetect_0 @ 0000020c703119c0] max_volume: -1.1 dB
+[Parsed_volumedetect_0 @ 0000020c703119c0] histogram_1db: 286
+[Parsed_volumedetect_0 @ 0000020c703119c0] histogram_2db: 1292
+[Parsed_volumedetect_0 @ 0000020c703119c0] histogram_3db: 2024
+[Parsed_volumedetect_0 @ 0000020c703119c0] histogram_4db: 3140
+[out#0/null @ 0000020c7025da40] video:0KiB audio:7600KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:40.53 bitrate=N/A speed= 425x elapsed=0:00:00.09    
+
+AUDIO QC - silencedetect (-45 dB, >=1.0s)
+
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'renders\copilot-studio-2026-v4.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.101
+    comment         : Made with Remotion 4.0.523
+  Duration: 00:00:40.53, start: 0.000000, bitrate: 3875 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 3677 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Side data:
+      ICC Profile: (456 bytes)
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 189 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'NUL':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Made with Remotion 4.0.523
+    encoder         : Lavf63.1.101
+  Stream #0:0(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+    Metadata:
+      encoder         : Lavc63.1.101 pcm_s16le
+      handler_name    : SoundHandler
+[Parsed_silencedetect_0 @ 000001b689832f40] silence_start: 38.912229
+[Parsed_silencedetect_0 @ 000001b689832f40] silence_end: 40.533333 | silence_duration: 1.621104
+[out#0/null @ 000001b68722e600] video:0KiB audio:7600KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:40.53 bitrate=N/A speed= 612x elapsed=0:00:00.06    

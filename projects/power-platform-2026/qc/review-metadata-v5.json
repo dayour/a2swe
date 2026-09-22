@@ -1,0 +1,46 @@
+{
+  "project": "power-platform-2026",
+  "version": "v5",
+  "state": "review-candidate",
+  "supersedes": "v4",
+  "reason": "Correct encoded narration alignment so verify_video.py passes its unchanged default maximum lag of 1024 samples.",
+  "video": {
+    "path": "renders/power-platform-2026-v5.mp4",
+    "sha256": "b6587dba649502f69e4547c007fd5bcdc1cc9d00b313a04e23163b603c475a70",
+    "bytes": 16881942,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 1264,
+    "duration_seconds": 42.133333,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "alignment_fix": {
+    "implementation": "Remotion Audio begins from source frame 1 to compensate for AAC encoder delay.",
+    "verify_command_used_default_threshold": true,
+    "default_max_lag_samples": 1024,
+    "measured_lag_samples": 448,
+    "audio_similarity": 0.9999516010284424
+  },
+  "qc": {
+    "media_report": "qc/media-v5.json",
+    "contact_sheet": "qc/overview-v5.jpg",
+    "scene_contact_sheets": ["qc/SC01-v5.jpg", "qc/SC02-v5.jpg", "qc/SC03-v5.jpg", "qc/SC04-v5.jpg", "qc/SC05-v5.jpg", "qc/SC06-v5.jpg"],
+    "frame_metrics": "qc/frame-metrics-v5.md",
+    "motion_report": "qc/motion-v5.txt",
+    "dependency_report": "qc/dependency-report-v8.json",
+    "decoded_frames": 1264,
+    "motion_shots_failed": 0,
+    "pipeline_tests": "13 passed"
+  },
+  "approvals": {
+    "human_content": "pending",
+    "human_style": "pending",
+    "human_voice_listening": "pending",
+    "human_release": "pending"
+  },
+  "rights": "Original code-drawn visuals only; see RIGHTS.md."
+}

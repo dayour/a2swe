@@ -62,6 +62,7 @@ const sidebars: SidebarsConfig = {
         'specifications/storyboard-format',
         'specifications/timing-and-subtitles',
         'specifications/quality-gates',
+        'specifications/brand-templates',
       ],
     },
     {

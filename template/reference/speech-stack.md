@@ -30,10 +30,40 @@ global or unrelated environment.
 
 ## Cache and audio correctness
 
+The template's `npm run audio` uses `scripts/python.mjs`, selecting the nearest
+ancestor `.venv` or the absolute `A2SWE_PYTHON` override. It checks Python 3.14
+before starting the producer and never silently substitutes a global interpreter.
+An optional `script/speech.json` can persist `TTS_ENGINE`, `KOKORO_VOICE`,
+`KOKORO_SPEED`, `LEAD`, `GAP`, `CHAPTER_GAP`, and `TAIL`; explicit environment
+variables override those defaults. A project-specific render gate should enforce
+its approved engine/voice/speed.
+
 Narration cache keys include package versions, direct wheel provenance, pipeline
 source, model fingerprints, and the requested ONNX provider. Upgrading a fork
 build invalidates old cache identities even if its version string is unchanged.
 Timeline output records the runtime fingerprint.
+
+The updated template and Power Platform 2026 producer pin the full Kokoro model,
+configuration, and selected voice to revision
+`f3ff3571791e39611d31c381e3a41a3af07b4987` and record full-file SHA-256 fingerprints.
+They verify installed custom fork source URLs against the requirements lock
+before using narration caches. Installed `direct_url.json` provenance and the
+lock's wheel hashes are recorded separately: an installed source URL is not proof
+that installed package contents have been independently wheel-hash verified.
+
+Full Kokoro synthesizes each complete narration line before splitting captions.
+English token timestamps, including offsets across multiple model results,
+determine subtitle starts. Missing or unmatched alignment fails explicitly;
+it is not silently replaced by proportional text timing. The WAV and timestamp
+sidecar form a hash-checked cache pair. Caption `|` markers do not restart prosody.
+Explicit ONNX/Piper paths retain their per-caption synthesis contract; the new
+model-token alignment applies to full Kokoro, not those engines.
+
+The producer writes `audio/narration-metadata.json` alongside the timeline, with
+engine, voice, rate, Python interpreter, model/fork identity, and SHA-256 of
+narration, WAV, profile, timing, and producer files. The Power Platform render
+gate validates these before rendering, regenerates scene/QC ranges from chapters,
+and measures/remuxes encoder delay instead of trimming source narration.
 
 Kokoro/ONNX WAV writes reject empty, non-finite, entirely silent, or invalid-channel
 audio and use atomic replacement. An interrupted write does not become a valid

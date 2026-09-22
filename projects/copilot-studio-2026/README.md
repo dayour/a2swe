@@ -1,6 +1,6 @@
 # Copilot Studio 2026 production video
 
-Fresh isolated Remotion/Python project scaffolded from the improved `template` package.
+Completed source-grounded Remotion production for a 40.53-second English explainer.
 
 ## Contract
 
@@ -11,24 +11,27 @@ Fresh isolated Remotion/Python project scaffolded from the improved `template` p
 - QC: timeline-driven media verification through `scripts/verify_video.py` after rendering.
 - Approvals: do not fabricate or imply human approval. `human_listening_review` and `pilot_approval` remain pending unless a human explicitly supplies them.
 
-## Required external inputs
-
-Another agent may provide these files before production can continue:
-
-- `research/research.md` or `research/sources.json` with verified Copilot Studio 2026 claims and source traceability.
-- `script/narration.txt` replaced with final English narration, not the placeholder comments in this scaffold.
-- Optional `script/storyboard_src.md` if beat-specific visuals are supplied.
-
-Run:
+## Production inputs and build
 
 ```powershell
 npm run check:inputs
-```
-
-If inputs are missing, the command writes a versioned dependency report under `qc/` and exits non-zero. Only after the inputs exist should production proceed with:
-
-```powershell
 npm run audio
-npm run build
-npm run render
+npm run typecheck
+npx remotion bundle src/index.ts --out-dir build_production_next
 ```
+
+- Grounding packet: `research/content-packet-2026-09-18/`
+- Normalized narration/storyboard/timing: `script/`, `storyboard.md`
+- Local narration engine: Windows System.Speech (`Microsoft Mark`, rate 3)
+- Scene implementation: `src/ProductionVideo.tsx`
+
+## Current review candidate
+
+- Movie: `renders/copilot-studio-2026-v4.mp4`
+- Candidate metadata: `qc/review-candidate-v4.json`
+- Media verification: `qc/media-v4.json`
+- Motion verification: `qc/motion-v4.txt`
+- Frame metrics: `qc/frame-metrics-v4.md`
+- Contact sheets: `qc/overview-v4.jpg`, `qc/SC01-v4.jpg` through `qc/SC06-v4.jpg`, and `renders/sheet_v4.html`
+
+This is a review candidate only. Human listening review and pilot approval remain pending.

@@ -17,6 +17,71 @@ const run = (args: string[]) => spawnSync(process.execPath, [cli, ...args], { en
 const domainDigest = sha256('domain');
 const assetDigest = sha256('asset');
 
+function zipEntries(bytes: Buffer): Map<string, string> {
+  const entries = new Map<string, string>();
+  const crcTable = new Uint32Array(256);
+  for (let i = 0; i < 256; i += 1) {
+    let c = i;
+    for (let bit = 0; bit < 8; bit += 1) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+    crcTable[i] = c >>> 0;
+  }
+  const crc32 = (value: Buffer) => {
+    let crc = 0xffffffff;
+    for (const byte of value) crc = crcTable[(crc ^ byte) & 0xff] ^ (crc >>> 8);
+    return (crc ^ 0xffffffff) >>> 0;
+  };
+  let eocd = -1;
+  for (let offset = bytes.length - 22; offset >= Math.max(0, bytes.length - 65558); offset -= 1) {
+    if (bytes.readUInt32LE(offset) === 0x06054b50) {
+      eocd = offset;
+      break;
+    }
+  }
+  assert.notEqual(eocd, -1, 'zip end-of-central-directory record must be present');
+  const entryCount = bytes.readUInt16LE(eocd + 10);
+  const centralSize = bytes.readUInt32LE(eocd + 12);
+  const centralOffset = bytes.readUInt32LE(eocd + 16);
+  assert.ok(centralOffset + centralSize <= eocd, 'central directory must be inside the archive');
+  let offset = centralOffset;
+  for (let i = 0; i < entryCount; i += 1) {
+    assert.equal(bytes.readUInt32LE(offset), 0x02014b50, 'central directory entry signature must be valid');
+    const method = bytes.readUInt16LE(offset + 10);
+    const expectedCrc = bytes.readUInt32LE(offset + 16);
+    const compressedSize = bytes.readUInt32LE(offset + 20);
+    const uncompressedSize = bytes.readUInt32LE(offset + 24);
+    const nameLength = bytes.readUInt16LE(offset + 28);
+    const extraLength = bytes.readUInt16LE(offset + 30);
+    const commentLength = bytes.readUInt16LE(offset + 32);
+    const localOffset = bytes.readUInt32LE(offset + 42);
+    const name = bytes.subarray(offset + 46, offset + 46 + nameLength).toString('utf8');
+    assert.equal(method, 0, `${name} must use stored ZIP entries for deterministic package validation`);
+    assert.equal(bytes.readUInt32LE(localOffset), 0x04034b50, `${name} local header signature must be valid`);
+    const localCrc = bytes.readUInt32LE(localOffset + 14);
+    const localCompressedSize = bytes.readUInt32LE(localOffset + 18);
+    const localUncompressedSize = bytes.readUInt32LE(localOffset + 22);
+    const localNameLength = bytes.readUInt16LE(localOffset + 26);
+    const localExtraLength = bytes.readUInt16LE(localOffset + 28);
+    const localName = bytes.subarray(localOffset + 30, localOffset + 30 + localNameLength).toString('utf8');
+    const start = localOffset + 30 + localNameLength + localExtraLength;
+    const payload = bytes.subarray(start, start + compressedSize);
+    assert.equal(localName, name, `${name} central and local names must match`);
+    assert.equal(localCrc, expectedCrc, `${name} local and central CRC must match`);
+    assert.equal(localCompressedSize, compressedSize, `${name} compressed size must match`);
+    assert.equal(localUncompressedSize, uncompressedSize, `${name} uncompressed size must match`);
+    assert.equal(payload.length, compressedSize, `${name} payload size must match central directory`);
+    assert.equal(payload.length, uncompressedSize, `${name} stored size must match uncompressed size`);
+    assert.equal(crc32(payload), expectedCrc, `${name} payload CRC must verify`);
+    entries.set(name, payload.toString('utf8'));
+    offset += 46 + nameLength + extraLength + commentLength;
+  }
+  assert.equal(offset, centralOffset + centralSize, 'central directory size must match parsed entries');
+  return entries;
+}
+
+function pdfPageCount(pdf: string): number {
+  return (pdf.match(/\/Type \/Page\b/g) ?? []).length;
+}
+
 function content() {
   return {
     schemaVersion: '1.0.0', contentId: 'release-fixture', domainDigest, title: 'Verified release fixture',
@@ -28,6 +93,24 @@ function content() {
     sections: [{ sectionId: 'section-1', title: 'Shared facts', body: 'Adapters preserve the same claim, citation and note text.',
       claimIds: ['claim-1'], assetIds: ['diagram-1'], speakerNotes: 'Narrate the shared digest and cite the fixture source.' }],
     voice: { style: 'clear executive narration', narration: 'Every output is generated from the same approved ContentIR.', externalTransfer: false }
+  };
+}
+
+function longContent() {
+  const base = content();
+  return {
+    ...base,
+    contentId: 'long-release-fixture',
+    title: 'Verified long release fixture',
+    summary: 'A longer deterministic ContentIR used to verify that PDF pagination is driven by real content volume.',
+    sections: Array.from({ length: 12 }, (_, index) => ({
+      sectionId: `long-section-${index + 1}`,
+      title: `Detailed evidence section ${index + 1}`,
+      body: `This section contains enough real narrative content to require natural pagination in the PDF adapter. It explains adapter behavior, preserves searchable text, and keeps the generated page count tied to actual available page height instead of synthetic filler. Section ${index + 1} repeats implementation-specific validation language for visual QA and text extraction checks.`,
+      claimIds: ['claim-1'],
+      assetIds: index === 0 ? ['diagram-1'] : [],
+      speakerNotes: `Speaker notes for detailed evidence section ${index + 1} describe what the reviewer should inspect on this page, including citation continuity, readable hierarchy, and absence of artificial continuation text.`
+    }))
   };
 }
 
@@ -83,11 +166,186 @@ test('adapters deterministically produce editable/searchable/self-contained foun
   const files = renderFiles(content(), renderSpec());
   assert.deepEqual(files.map((file) => file.path), ['outputs/index.html', 'outputs/deck.deck.json', 'outputs/deck.pptx',
     'outputs/document.docx', 'outputs/document.pdf', 'outputs/remotion/render-plan.json', 'outputs/remotion/package.json',
-    'outputs/remotion/src/content.json', 'outputs/remotion/src/Root.tsx']);
+    'outputs/remotion/timeline.json', 'outputs/remotion/tsconfig.json', 'outputs/remotion/remotion.config.ts',
+    'outputs/remotion/src/content.json', 'outputs/remotion/src/index.tsx', 'outputs/remotion/src/Root.tsx']);
   assert.deepEqual(files.map((file) => sha256(file.bytes)), renderFiles(content(), renderSpec()).map((file) => sha256(file.bytes)));
   assert.match(files.find((file) => file.format === 'html')!.bytes.toString('utf8'), /<meta name="viewport"/);
   assert.match(files.find((file) => file.format === 'pdf')!.bytes.toString('utf8'), /Every format is generated/);
   assert.match(files.find((file) => file.path.endsWith('render-plan.json'))!.bytes.toString('utf8'), /"encodedMp4": false/);
+});
+
+test('production output adapters meet canonical schema, OOXML, PDF, accessibility and neutral Remotion gates', () => {
+  const files = renderFiles(content(), renderSpec());
+  const adaptive = JSON.parse(files.find((file) => file.format === 'adaptiveDeck')!.bytes.toString('utf8'));
+  assert.equal(adaptive.$schema, 'https://darbotlm.github.io/adaptive-slide/schemas/deck.schema.json');
+  assert.equal(adaptive.type, 'AdaptiveDeck');
+  assert.equal(adaptive.version, '1.0');
+  assert.equal(adaptive.slides[0].type, 'AdaptiveSlide');
+  assert.equal(adaptive.slides[0].body[0].type, 'Tile.Text');
+  assert.equal(adaptive.slides.at(-1).id, 'citations');
+  assert.deepEqual(adaptive.metadata.tags, ['a2swe', 'canonical']);
+  const adaptiveText = JSON.stringify(adaptive);
+  assert.match(adaptiveText, /Fixture source/);
+  assert.match(adaptiveText, /https:\/\/example\.com\/source/);
+  assert.doesNotMatch(adaptiveText, /\[[^\]]+\]\(https:\/\/[^)]+\)/);
+  assert.doesNotMatch(adaptiveText, /\]\(/);
+
+  const pptxEntries = zipEntries(files.find((file) => file.format === 'pptx')!.bytes);
+  assert.match(pptxEntries.get('[Content_Types].xml')!, /presentationml\.presentation\.main\+xml/);
+  assert.match(pptxEntries.get('[Content_Types].xml')!, /presentationml\.presProps\+xml/);
+  assert.match(pptxEntries.get('[Content_Types].xml')!, /presentationml\.viewProps\+xml/);
+  assert.match(pptxEntries.get('[Content_Types].xml')!, /presentationml\.tableStyles\+xml/);
+  assert.match(pptxEntries.get('ppt\/_rels\/presentation.xml.rels')!, /relationships\/theme/);
+  assert.match(pptxEntries.get('ppt\/_rels\/presentation.xml.rels')!, /relationships\/presProps/);
+  assert.match(pptxEntries.get('ppt\/theme\/theme1.xml')!, /<a:fillStyleLst>[\s\S]*<a:gradFill/);
+  assert.match(pptxEntries.get('ppt\/theme\/theme1.xml')!, /<a:lnStyleLst>[\s\S]*<a:ln /);
+  assert.match(pptxEntries.get('ppt\/theme\/theme1.xml')!, /<a:effectStyleLst>[\s\S]*<a:effectStyle>/);
+  assert.match(pptxEntries.get('ppt\/slides\/_rels\/slide1.xml.rels')!, /notesSlide/);
+  assert.match(pptxEntries.get('ppt\/notesSlides\/notesSlide2.xml')!, /Narrate the shared digest/);
+  assert.match(pptxEntries.get('ppt\/theme\/theme1.xml')!, /fixture/);
+  assert.match(pptxEntries.get('ppt\/slides\/slide1.xml')!, /<a:rPr\b[^>]*><a:solidFill><a:srgbClr val="111111"\/><\/a:solidFill><\/a:rPr>/);
+
+  const docxEntries = zipEntries(files.find((file) => file.format === 'docx')!.bytes);
+  assert.match(docxEntries.get('word\/document.xml')!, /TOC \\o/);
+  assert.match(docxEntries.get('word\/document.xml')!, /Diagram showing one verified release flow/);
+  assert.match(docxEntries.get('word\/document.xml')!, /<w:pgMar\b(?=[^>]*w:top="1440")(?=[^>]*w:right="1440")(?=[^>]*w:bottom="1440")(?=[^>]*w:left="1440")(?=[^>]*w:header="720")(?=[^>]*w:footer="720")(?=[^>]*w:gutter="0")/);
+  assert.match(docxEntries.get('word\/_rels\/document.xml.rels')!, /TargetMode="External"/);
+  assert.match(docxEntries.get('word\/styles.xml')!, /Heading1/);
+
+  const pdf = files.find((file) => file.format === 'pdf')!.bytes.toString('binary');
+  assert.equal(pdfPageCount(pdf), 1);
+  assert.match(pdf, /Fixture source https:\/\/example.com\/source/);
+  assert.doesNotMatch(pdf, /Continuation for|intentionally preserves searchable multipage validation structure/);
+
+  const html = files.find((file) => file.format === 'html')!.bytes.toString('utf8');
+  assert.match(html, /<a class="skip" href="#content">Skip to content/);
+  assert.match(html, /aria-labelledby="section-1-title"/);
+  assert.match(html, /Diagram showing one verified release flow/);
+  assert.match(html, /--card:color-mix\(in srgb,var\(--bg\) 88%,var\(--fg\) 12%\)/);
+  assert.match(html, /overflow-wrap:anywhere/);
+  assert.match(html, /word-break:break-word/);
+  assert.match(html, /grid-template-columns:repeat\(auto-fit,minmax\(min\(280px,100%\),1fr\)\)/);
+
+  const remotionPlan = JSON.parse(files.find((file) => file.path.endsWith('render-plan.json'))!.bytes.toString('utf8'));
+  assert.equal(remotionPlan.template, 'a2swe-production-template-v2');
+  assert.equal('approvalState' in remotionPlan, false);
+  assert.equal('watermark' in remotionPlan, false);
+  assert.equal(remotionPlan.encodedMp4, false);
+  assert.deepEqual(remotionPlan.commands, { preview: 'npm run preview', render: 'npm run render', qc: 'npm run qc' });
+  assert.equal(remotionPlan.paths.entryPoint, 'src/index.tsx');
+  assert.equal(remotionPlan.paths.rootComponent, 'src/Root.tsx');
+  assert.equal(remotionPlan.paths.timeline, 'timeline.json');
+  const remotionPackage = JSON.parse(files.find((file) => file.path.endsWith('package.json'))!.bytes.toString('utf8'));
+  assert.equal(remotionPackage.dependencies['@remotion/cli'], '4.0.523');
+  assert.equal(remotionPackage.dependencies.remotion, '4.0.523');
+  assert.equal(remotionPackage.dependencies.react, '19.3.0');
+  assert.equal(remotionPackage.dependencies['react-dom'], '19.3.0');
+  assert.equal(remotionPackage.devDependencies.typescript, '7.0.2');
+  assert.equal(remotionPackage.devDependencies['@types/react'], '19.3.0');
+  assert.equal(remotionPackage.devDependencies['@types/react-dom'], '19.3.0');
+  assert.match(remotionPackage.scripts.preview, /^remotion preview src\/index\.tsx$/);
+  assert.match(remotionPackage.scripts.render, /^remotion render src\/index\.tsx release-fixture dist\/render\.mp4$/);
+  assert.equal(remotionPackage.scripts.typecheck, 'tsc --noEmit');
+  assert.match(remotionPackage.scripts.qc, /timeline\.json/);
+  const remotionTimeline = JSON.parse(files.find((file) => file.path.endsWith('timeline.json'))!.bytes.toString('utf8'));
+  assert.equal(remotionTimeline.durationInFrames, renderSpec().video.durationSeconds * renderSpec().video.fps);
+  assert.equal(remotionTimeline.scenes.length, 1 + content().sections.length);
+  assert.equal(remotionTimeline.scenes[0].startFrame, 0);
+  assert.equal(remotionTimeline.scenes.at(-1).endFrame, remotionTimeline.durationInFrames);
+  for (let i = 1; i < remotionTimeline.scenes.length; i += 1) {
+    assert.equal(remotionTimeline.scenes[i].startFrame, remotionTimeline.scenes[i - 1].endFrame);
+  }
+  assert.equal(remotionTimeline.scenes[0].durationInFrames, 450);
+  assert.equal(remotionTimeline.scenes[1].durationInFrames, 450);
+  assert.match(remotionTimeline.scenes[0].decision, /Adopt the verified/);
+  assert.match(remotionTimeline.scenes[1].citations[0].canonicalUrl, /https:\/\/example.com\/source/);
+  assert.match(files.find((file) => file.path.endsWith('tsconfig.json'))!.bytes.toString('utf8'), /"resolveJsonModule": true/);
+  assert.match(files.find((file) => file.path.endsWith('remotion.config.ts'))!.bytes.toString('utf8'), /Config\.setOverwriteOutput\(true\)/);
+  const remotionRoot = files.find((file) => file.path.endsWith('Root.tsx'))!.bytes.toString('utf8');
+  assert.match(remotionRoot, /SceneView/);
+  assert.match(remotionRoot, /Decision/);
+  assert.match(remotionRoot, /Claims and citations/);
+  assert.doesNotMatch(remotionRoot, /Math\.floor\(frame \/ \(fps \* 5\)\)|slides\[index\]/);
+  assert.match(files.find((file) => file.path.endsWith('index.tsx'))!.bytes.toString('utf8'), /registerRoot\(Root\)/);
+  assert.doesNotMatch(remotionRoot, /UNAPPROVED REVIEW CANDIDATE|review_candidate_unapproved|review-candidate/i);
+  for (const file of files) assert.doesNotMatch(file.bytes.toString('utf8'), /UNAPPROVED REVIEW CANDIDATE|review_candidate_unapproved|review-candidate/i);
+});
+
+test('PPTX uses explicit readable run colors and bounded slide layout on dark themes', () => {
+  const longTitle = 'Executive readiness review candidate with a deliberately long title that previously overflowed into the slide body on dark navy backgrounds';
+  const longBody = 'This body contains a long review narrative that must remain canonical in speaker notes while the visible slide receives deterministic wrapping and clipping safeguards. The slide should use the requested foreground color for every text run so PowerPoint does not fall back to unreadable black text on a dark navy background.';
+  const darkContent = {
+    ...content(),
+    contentId: 'dark-pptx-fixture',
+    title: longTitle,
+    sections: [{ ...content().sections[0], title: longTitle, body: longBody }]
+  };
+  const darkSpec = {
+    ...renderSpec(digest(darkContent)),
+    formats: ['pptx'],
+    theme: { name: 'dark-fixture', background: '#0D1B2A', foreground: '#F7FAFC', accent: '#00B4D8', fontFamily: 'Arial' }
+  };
+  const pptxFile = renderFiles(darkContent, darkSpec).find((file) => file.format === 'pptx')!;
+  const entries = zipEntries(pptxFile.bytes);
+  const slide1 = entries.get('ppt\/slides\/slide1.xml')!;
+  const slide2 = entries.get('ppt\/slides\/slide2.xml')!;
+  assert.match(slide1, /<a:srgbClr val="0D1B2A"\/>/);
+  assert.match(slide1, /<a:srgbClr val="00B4D8"\/>/);
+  assert.match(slide1, /<a:rPr\b[^>]*><a:solidFill><a:srgbClr val="F7FAFC"\/><\/a:solidFill><\/a:rPr>/);
+  assert.match(slide2, /<a:rPr\b[^>]*><a:solidFill><a:srgbClr val="F7FAFC"\/><\/a:solidFill><\/a:rPr>/);
+  assert.doesNotMatch(slide1, /<a:rPr\b[^>]*\/>/);
+  assert.doesNotMatch(slide2, /<a:rPr\b[^>]*\/>/);
+  assert.match(slide2, /vertOverflow="clip" horzOverflow="clip"/);
+  assert.match(slide2, /<a:off x="685800" y="571500"\/><a:ext cx="10668000" cy="960000"\/>/);
+  assert.match(slide2, /<a:off x="685800" y="1660000"\/><a:ext cx="7315200" cy="2580000"\/>/);
+  assert.ok((slide2.match(/<a:p>/g) ?? []).length <= 24, 'visible slide text should be bounded to prevent overlap');
+  assert.doesNotMatch(slide2, new RegExp(longBody.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  const notes2 = entries.get('ppt\/notesSlides\/notesSlide2.xml')!;
+  assert.match(notes2, new RegExp(longTitle.slice(0, 60).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.match(notes2, new RegExp(longBody.slice(0, 80).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+});
+
+test('HTML cards and long headings remain readable and responsive on dark themes', () => {
+  const item = {
+    ...content(),
+    title: 'VerifiedReleaseFixtureWithAnExtremelyLongUnbrokenHeadingThatMustWrapInsideTheHeroCardOnMobile'
+  };
+  const files = renderFiles(item, {
+    ...renderSpec(digest(item)),
+    formats: ['html'],
+    theme: { name: 'dark-fixture', background: '#0D1B2A', foreground: '#ffffff', accent: '#66D9EF', fontFamily: 'Arial' }
+  });
+  const html = files.find((file) => file.format === 'html')!.bytes.toString('utf8');
+  assert.match(html, /color-scheme:dark/);
+  assert.match(html, /--bg:#0D1B2A/);
+  assert.match(html, /--fg:#ffffff/);
+  assert.match(html, /--card:color-mix\(in srgb,var\(--bg\) 88%,var\(--fg\) 12%\)/);
+  assert.doesNotMatch(html, /--card:rgba\(255,255,255,\s*\.88\)/);
+  assert.match(html, /h1\{[^}]*overflow-wrap:anywhere;word-break:break-word;max-width:100%/);
+  assert.match(html, /\.hero,.card,.manifest\{[^}]*max-width:100%;overflow-wrap:anywhere/);
+  assert.match(html, /\*\{box-sizing:border-box;min-width:0\}/);
+  assert.match(html, /VerifiedReleaseFixtureWithAnExtremelyLongUnbrokenHeadingThatMustWrapInsideTheHeroCardOnMobile/);
+});
+
+test('PDF pagination is content-driven and preserves long content without synthetic filler', () => {
+  const item = longContent();
+  const files = renderFiles(item, { ...renderSpec(digest(item)), formats: ['pdf'] });
+  const pdf = files.find((file) => file.format === 'pdf')!.bytes.toString('binary');
+  assert.ok(pdfPageCount(pdf) > 1);
+  assert.match(pdf, /Detailed evidence section 12/);
+  assert.match(pdf, /Speaker notes for detailed evidence section 12/);
+  assert.match(pdf, /Fixture source https:\/\/example.com\/source retrieved 2026-09-18T00:00:00Z/);
+  assert.doesNotMatch(pdf, /Continuation for|intentionally preserves searchable multipage validation structure/);
+});
+
+test('explicit review adapter mode adds review-only AdaptiveDeck and Remotion markers', () => {
+  const files = renderFiles(content(), renderSpec(), { reviewCandidate: true });
+  const adaptive = JSON.parse(files.find((file) => file.format === 'adaptiveDeck')!.bytes.toString('utf8'));
+  assert.deepEqual(adaptive.metadata.tags, ['a2swe', 'canonical', 'review-candidate']);
+  const remotionPlan = JSON.parse(files.find((file) => file.path.endsWith('render-plan.json'))!.bytes.toString('utf8'));
+  assert.equal(remotionPlan.approvalState, 'review_candidate_unapproved');
+  assert.equal(remotionPlan.watermark, 'UNAPPROVED REVIEW CANDIDATE');
+  assert.match(files.find((file) => file.path.endsWith('Root.tsx'))!.bytes.toString('utf8'), /UNAPPROVED REVIEW CANDIDATE/);
 });
 
 test('release candidate fails closed on rights and approvals, then verifies exact output digests', async () => {
@@ -103,7 +361,7 @@ test('release candidate fails closed on rights and approvals, then verifies exac
   await assert.rejects(() => writeReleaseCandidate(root, content(), renderSpec(), rights(), selfCertified, policy), /untrusted|independent/);
   const parity = await writeReleaseCandidate(root, content(), renderSpec(), rights(), bundle, policy);
   assert.equal(parity.releaseDigest, plan.releaseDigest);
-  assert.equal((await verifyReleaseCandidate(root, policy)).outputs.length, 9);
+  assert.equal((await verifyReleaseCandidate(root, policy)).outputs.length, 13);
   writeFileSync(path.join(root, 'outputs', 'index.html'), 'tampered');
   await assert.rejects(() => verifyReleaseCandidate(root, policy), /output_mismatch/);
   rmSync(root, { recursive: true, force: true });
@@ -131,9 +389,44 @@ test('CLI plans, produces and verifies release candidates without claiming MP4 e
     const produced = run(['release-produce', '--content', contentFile, '--render', renderFile, '--rights', rightsFile,
       '--approvals', approvalsFile, '--trust', trustFile, '--out', out]);
     assert.equal(produced.status, 0, produced.stderr);
-    assert.match(readFileSync(path.join(out, 'outputs', 'remotion', 'render-plan.json'), 'utf8'), /"encodedMp4": false/);
+    const productionArtifacts = [
+      path.join(out, 'outputs', 'index.html'),
+      path.join(out, 'outputs', 'deck.deck.json'),
+      path.join(out, 'outputs', 'document.pdf'),
+      path.join(out, 'outputs', 'remotion', 'render-plan.json'),
+      path.join(out, 'outputs', 'remotion', 'src', 'Root.tsx')
+    ].map((file) => readFileSync(file, 'utf8')).join('\n');
+    assert.match(productionArtifacts, /"encodedMp4": false/);
+    assert.doesNotMatch(productionArtifacts, /UNAPPROVED REVIEW CANDIDATE|review_candidate_unapproved|review-candidate/i);
     const verified = run(['release-verify', '--root', out, '--trust', trustFile]);
     assert.equal(verified.status, 0, verified.stderr);
-    assert.equal(JSON.parse(verified.stdout).outputs, 9);
+    assert.equal(JSON.parse(verified.stdout).outputs, 13);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});
+
+test('CLI emits visibly unapproved pre-approval review candidates without accepting fabricated signatures', () => {
+  const root = mkdtempSync(path.join(os.tmpdir(), 'a2swe-cli-review-candidate-'));
+  try {
+    const contentFile = path.join(root, 'content.json');
+    const renderFile = path.join(root, 'render.json');
+    const rightsFile = path.join(root, 'rights.json');
+    const out = path.join(root, 'review-candidate');
+    writeFileSync(contentFile, JSON.stringify(content()));
+    writeFileSync(renderFile, JSON.stringify(renderSpec()));
+    writeFileSync(rightsFile, JSON.stringify({ ...rights(), selectedAssets: [{ ...rights().selectedAssets[0], status: 'pending' }] }));
+    const produced = run(['release-review-candidate', '--content', contentFile, '--render', renderFile, '--rights', rightsFile, '--out', out]);
+    assert.equal(produced.status, 0, produced.stderr);
+    const response = JSON.parse(produced.stdout);
+    assert.equal(response.approvalState, 'unapproved');
+    assert.equal(response.productionEligible, false);
+    const manifest = JSON.parse(readFileSync(path.join(out, 'review-candidate-manifest.json'), 'utf8'));
+    assert.equal(manifest.productionEligible, false);
+    const reviewDeck = JSON.parse(readFileSync(path.join(out, 'outputs', 'deck.deck.json'), 'utf8'));
+    assert.ok(reviewDeck.metadata.tags.includes('review-candidate'));
+    assert.match(readFileSync(path.join(out, 'outputs', 'remotion', 'render-plan.json'), 'utf8'), /review_candidate_unapproved/);
+    assert.match(readFileSync(path.join(out, 'outputs', 'remotion', 'src', 'Root.tsx'), 'utf8'), /UNAPPROVED REVIEW CANDIDATE/);
+    assert.match(readFileSync(path.join(out, 'outputs', 'index.html'), 'utf8'), /UNAPPROVED REVIEW CANDIDATE/);
+    assert.match(readFileSync(path.join(out, 'outputs', 'document.pdf'), 'utf8'), /UNAPPROVED REVIEW CANDIDATE/);
+    assert.equal(run(['release-verify', '--root', out]).status, 1);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });

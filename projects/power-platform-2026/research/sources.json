@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "power-platform-2026",
+  "observedOn": "2026-09-21",
+  "method": "Official Microsoft Learn search and full-page fetch; prior bounded evidence inventory rechecked.",
+  "sources": [
+    {"id": "power-apps", "title": "What is Power Apps?", "url": "https://learn.microsoft.com/en-us/power-apps/powerapps-overview"},
+    {"id": "power-automate", "title": "Explore Power Automate", "url": "https://learn.microsoft.com/en-us/power-automate/getting-started"},
+    {"id": "power-pages", "title": "What is Power Pages?", "url": "https://learn.microsoft.com/en-us/power-pages/introduction"},
+    {"id": "copilot-studio", "title": "Copilot Studio overview", "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"},
+    {"id": "dataverse", "title": "What is Microsoft Dataverse?", "url": "https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intro"},
+    {"id": "alm", "title": "Overview of application lifecycle management with Microsoft Power Platform", "url": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"},
+    {"id": "solutions", "title": "Solution concepts with Power Platform", "url": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"},
+    {"id": "pipelines", "title": "Overview of pipelines in Power Platform", "url": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"},
+    {"id": "github-actions", "title": "GitHub Actions for Microsoft Power Platform", "url": "https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions"},
+    {"id": "ado-build-tools", "title": "Microsoft Power Platform Build Tools for Azure DevOps", "url": "https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools"},
+    {"id": "data-policies", "title": "Data policies", "url": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention"}
+  ],
+  "qualifications": [
+    "2026 is the production edition and review date, not a claim of universal feature availability.",
+    "Licensing, region, environment type, tenant policy, and rollout state must be checked before release.",
+    "Data policies reduce connector risk but do not replace application security.",
+    "Solutions do not migrate Dataverse table records.",
+    "Automated validation does not replace human content, style, voice, or release approval."
+  ]
+}

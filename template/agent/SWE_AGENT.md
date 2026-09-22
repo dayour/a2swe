@@ -18,6 +18,8 @@ Keep facts tied to source URLs and dates, assets tied to provenance and licenses
 - Parent project / release (for follow-ups): none
 - Pipeline owner and worker assignments: pending
 - Applicable workflow and visual rules (project-relative copies or versioned source references): pending
+- Brand sample deck/source hashes, sample slide numbers, intent/density coverage: pending
+- Theme/font/placeholder mapping and slide-to-scene composition plan: pending
 
 ## Approval Record
 
@@ -27,6 +29,7 @@ Keep facts tied to source URLs and dates, assets tied to provenance and licenses
 | Narration sign-off | Pending | Not yet requested |
 | Voiceover choice | Pending | Not yet requested |
 | First 30 seconds | Pending | Not yet requested |
+| Brand examples and two slides / three frames | Pending | No brand approval inferred from recipes |
 
 ## Stage Ledger
 
@@ -64,6 +67,7 @@ Paths are relative to the project root (the parent of this file's directory). Re
 | Voiceover and timing | Pending | Pending |
 | Storyboard | Pending | Pending |
 | Config, shots, and reusable primitives | Pending | Pending |
+| Brand plan and complete example references | Pending | Run scripts/check_brand_plan.ts; review real output separately |
 | Dependency/tool versions and build commands | Pending | Pending |
 | Final video and QC reports | Pending | Pending |
 | Delivery notes and asset manifests | Pending | Pending |

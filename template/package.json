@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "audio": "node scripts/python.mjs scripts/tts_build.py script/narration.txt",
     "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
     "typecheck": "tsc --noEmit",
     "render": "remotion render src/index.ts Video",

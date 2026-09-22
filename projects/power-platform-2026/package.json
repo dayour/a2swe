@@ -1,0 +1,26 @@
+{
+  "name": "a2swe-power-platform-2026",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check:inputs": "node scripts/python.mjs scripts/check_inputs.py && node scripts/python.mjs scripts/sync_scenes.py --check",
+    "audio": "node scripts/python.mjs scripts/check_inputs.py --before-audio && node scripts/python.mjs scripts/tts_build.py script/narration.txt && node scripts/python.mjs scripts/sync_scenes.py && npm run check:inputs",
+    "build": "npm run typecheck && remotion bundle src/index.ts --out-dir build_production",
+    "typecheck": "tsc --noEmit",
+    "render": "npm run typecheck && node scripts/python.mjs scripts/render_video.py --version v6",
+    "still": "remotion still src/index.ts Video qc/still-v1.png",
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.523",
+    "@remotion/media": "4.0.523",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.523"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}

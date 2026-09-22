@@ -58,7 +58,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -R "agent-first core" README.md docs/content/overview.md
+          grep -R "agent-first source toolkit" README.md docs/content/overview.md
           grep -R "evaluation-only asset proof" README.md docs/content/overview.md
-          grep -R "legacy 720p video profile" README.md docs/content/overview.md docs/content/specifications/system-contract.md
+          grep -R "Active 720p Remotion/Python video adapter" README.md
+          grep -R "active 720p Remotion/Python video profile" docs/content/specifications/system-contract.md
+          ! grep -RiE "legacy renderer|legacy video|legacy 720p" README.md SKILL.md BRAND_CONTENT_SPEC.md reference docs/content
           grep -R ".a2swe" docs/content/architecture/system-overview.md docs/content/architecture/data-flow.md

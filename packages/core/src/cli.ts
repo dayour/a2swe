@@ -61,6 +61,7 @@ async function main(): Promise<void> {
       '  asset-fetch --file REQUEST --url HTTPS_RASTER --out NEW_DIRECTORY',
       '  asset-verify --root DIRECTORY',
       '  release-plan --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --out NEW_FILE',
+      '  release-review-candidate --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --out NEW_DIRECTORY',
       '  release-produce --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --approvals APPROVAL_BUNDLE --trust POLICY --out NEW_DIRECTORY',
       '  release-verify --root DIRECTORY [--trust POLICY]',
       '  asset-job-submit --file REQUEST --domain DOMAIN [--state DIRECTORY]',
@@ -108,7 +109,8 @@ async function main(): Promise<void> {
       implemented: ['passive_inventory', 'contract_validation', 'draft_intake', 'local_job_receipts', 'leases', 'checkpoints', 'artifact_hashes',
         'evaluation_asset_contracts', 'raster_normalization', 'semantic_diagram_generation', 'comfyui_loopback_adapter', 'asset_bundle_verification',
         'rights_manifest_contracts', 'approval_bundle_verification', 'content_ir_contracts', 'render_spec_contracts',
-        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_render_plan_adapter', 'release_candidate_verification'],
+        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_render_plan_adapter',
+        'pre_approval_review_candidate', 'release_candidate_verification'],
       partial: ['bounded_public_raster_fetch', 'local_signed_domain_certification', 'durable_diagram_worker', 'optional_restricted_copilot_sdk_query'],
       unavailable: ['public_fetch', 'archive_import', 'copilot_reasoning', 'domain_ready', 'acp', 'mcp', 'media_approval', 'mp4_encoding'],
       trustBoundary: 'Trusted local OS user only; no network authentication or sandbox', sqlite: 'Node built-in experimental API' }, null, 2));
@@ -148,7 +150,7 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ valid: true, schema: name, digest: digest(data) }));
     return;
   }
-  if (['release-plan', 'release-produce', 'release-verify'].includes(command)) {
+  if (['release-plan', 'release-review-candidate', 'release-produce', 'release-verify'].includes(command)) {
     const release = await import('./release.ts');
     if (command === 'release-verify') {
       const policy = values.trust ? JSON.parse(await readFile(values.trust, 'utf8')) : undefined;
@@ -163,6 +165,13 @@ async function main(): Promise<void> {
       const plan = release.createReleasePlan(content, render, rights);
       await writeJson(required('out'), plan, true);
       console.log(JSON.stringify({ releaseDigest: plan.releaseDigest, contentDigest: plan.contentDigest, output: required('out'), ready: false }));
+      return;
+    }
+    if (command === 'release-review-candidate') {
+      const parity = await release.writePreApprovalReviewCandidate(required('out'), content, render, rights);
+      console.log(JSON.stringify({ releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, output: required('out'),
+        outputs: parity.outputs.length, approvalState: 'unapproved', productionEligible: false,
+        warning: 'UNAPPROVED REVIEW CANDIDATE. No approval signatures were fabricated or accepted.' }));
       return;
     }
     const approvals = JSON.parse(await readFile(required('approvals'), 'utf8'));

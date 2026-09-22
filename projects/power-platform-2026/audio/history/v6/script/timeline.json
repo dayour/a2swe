@@ -1,0 +1,238 @@
+{
+ "fps": 30,
+ "total_frames": 1090,
+ "engine": "kokoro",
+ "runtime_fingerprint": "aac15035776ce61d3b7dcff15e9fb0d2856586a0e987faa1fa8e37ebb03c1cf8",
+ "models": {
+  "config": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json",
+   "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
+  },
+  "weights": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth",
+   "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
+  },
+  "voice": {
+   "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\voices\\am_liam.pt",
+   "sha256": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518"
+  }
+ },
+ "forks": {
+  "kokoro": {
+   "version": "0.9.4",
+   "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+   "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+   "installed_source": {
+    "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+    "archive_info": {}
+   }
+  },
+  "misaki": {
+   "version": "0.9.4+py314.1",
+   "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+   "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+   "installed_source": {
+    "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+    "archive_info": {}
+   }
+  }
+ },
+ "caption_timing": "model-token-timestamps",
+ "voice": "am_liam",
+ "rate": 1.0,
+ "gap": 6,
+ "chapter_gap": 0,
+ "lead": 24,
+ "tail": 36,
+ "lang": "en",
+ "chapters": [
+  {
+   "n": 1,
+   "title": "One platform",
+   "from": 25
+  },
+  {
+   "n": 2,
+   "title": "Shared foundation",
+   "from": 149
+  },
+  {
+   "n": 3,
+   "title": "Production delivery",
+   "from": 261
+  },
+  {
+   "n": 4,
+   "title": "Configuration and data",
+   "from": 453
+  },
+  {
+   "n": 5,
+   "title": "CI/CD",
+   "from": 615
+  },
+  {
+   "n": 6,
+   "title": "Governed release",
+   "from": 792
+  }
+ ],
+ "sentences": [
+  {
+   "id": "S01",
+   "chapter": 1,
+   "from": 25,
+   "to": 142,
+   "text": "Power Platform connects business apps, automation, websites, and agents.",
+   "subs": [
+    {
+     "from": 25,
+     "to": 84,
+     "text": "Power Platform connects business apps,"
+    },
+    {
+     "from": 85,
+     "to": 142,
+     "text": "automation, websites, and agents."
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "chapter": 2,
+   "from": 149,
+   "to": 254,
+   "text": "Dataverse gives them shared tables, relationships, and security.",
+   "subs": [
+    {
+     "from": 149,
+     "to": 204,
+     "text": "Dataverse gives them shared tables,"
+    },
+    {
+     "from": 205,
+     "to": 254,
+     "text": "relationships, and security."
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "chapter": 3,
+   "from": 261,
+   "to": 446,
+   "text": "Develop an unmanaged solution in source control, then promote the same managed artifact through test and production.",
+   "subs": [
+    {
+     "from": 261,
+     "to": 346,
+     "text": "Develop an unmanaged solution in source control,"
+    },
+    {
+     "from": 347,
+     "to": 404,
+     "text": "then promote the same managed artifact"
+    },
+    {
+     "from": 405,
+     "to": 446,
+     "text": "through test and production."
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "chapter": 4,
+   "from": 453,
+   "to": 608,
+   "text": "Configure each environment's connections and variables; migrate table records separately.",
+   "subs": [
+    {
+     "from": 453,
+     "to": 495,
+     "text": "Configure each environment's"
+    },
+    {
+     "from": 496,
+     "to": 547,
+     "text": "connections and variables;"
+    },
+    {
+     "from": 548,
+     "to": 608,
+     "text": "migrate table records separately."
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "chapter": 5,
+   "from": 615,
+   "to": 785,
+   "text": "Use Power Platform pipelines, GitHub Actions, or Azure DevOps Build Tools to automate delivery.",
+   "subs": [
+    {
+     "from": 615,
+     "to": 698,
+     "text": "Use Power Platform pipelines, GitHub Actions,"
+    },
+    {
+     "from": 699,
+     "to": 748,
+     "text": "or Azure DevOps Build Tools"
+    },
+    {
+     "from": 749,
+     "to": 785,
+     "text": "to automate delivery."
+    }
+   ]
+  },
+  {
+   "id": "S06",
+   "chapter": 6,
+   "from": 792,
+   "to": 947,
+   "text": "Before release, check connector policies, tests, monitoring, licensing, and feature availability.",
+   "subs": [
+    {
+     "from": 792,
+     "to": 851,
+     "text": "Before release, check connector policies,"
+    },
+    {
+     "from": 852,
+     "to": 909,
+     "text": "tests, monitoring, licensing,"
+    },
+    {
+     "from": 910,
+     "to": 947,
+     "text": "and feature availability."
+    }
+   ]
+  },
+  {
+   "id": "S07",
+   "chapter": 6,
+   "from": 954,
+   "to": 1048,
+   "text": "Low code makes delivery faster, not governance optional.",
+   "subs": [
+    {
+     "from": 954,
+     "to": 1007,
+     "text": "Low code makes delivery faster,"
+    },
+    {
+     "from": 1008,
+     "to": 1048,
+     "text": "not governance optional."
+    }
+   ]
+  }
+ ],
+ "chars": 497,
+ "words": 77,
+ "speech_sec": 32.93
+}

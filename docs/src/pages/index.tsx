@@ -40,7 +40,8 @@ export default function Home(): ReactNode {
           </p>
           <div className="docs-home__actions">
             <Link className="button button--primary" to="/docs/overview">Read the documentation</Link>
-            <Link className="button button--secondary" to="/docs/reference/command-line">Command reference</Link>
+            <Link className="button button--secondary" to="/video-library">Watch the video library</Link>
+            <Link className="button button--secondary" to="/templates">Build your scenario</Link>
           </div>
         </header>
         <section className="docs-home__grid" aria-label="Documentation paths">

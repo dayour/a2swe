@@ -1,0 +1,19 @@
+# Power Platform 2026 storyboard
+
+| Shot | Frames | Time | Visual | Narration focus | Citation |
+|---|---:|---:|---|---|---|
+| SC01 | 1–268 | 0.0–8.9s | Four original product cards orbit a business-solution core. | Apps, automation, sites, and agents. | Product overview pages |
+| SC02 | 269–381 | 9.0–12.7s | Layered Dataverse foundation stack. | Shared tables, relationships, security, solutions. | Dataverse overview |
+| SC03 | 382–579 | 12.7–19.3s | Unmanaged → source → managed artifact → test → production. | Source control and managed artifacts. | ALM overview; solution concepts |
+| SC04 | 580–741 | 19.3–24.7s | Split path for deployable configuration and table records. | Configuration resolves per target; records migrate separately. | Pipelines FAQ |
+| SC05 | 742–941 | 24.7–31.4s | Three CI/CD lanes with build/test/package/deploy stages. | Pipelines, GitHub Actions, Azure DevOps. | CI/CD documentation |
+| SC06 | 942–1264 | 31.4–42.1s | Governance checklist surrounding a pending approval seal. | Policy, testing, monitoring, availability, human approval. | Data policies; ALM |
+
+## Alt text
+
+1. Four colored cards labeled Power Apps, Power Automate, Power Pages, and Copilot Studio surround a central business-solution circle.
+2. Four offset layers labeled experiences, logic and process, security and data, and solutions form a shared Dataverse stack.
+3. A horizontal release rail moves from an unmanaged development solution through source control and a managed artifact to test and production.
+4. A split panel shows components, connection references, and environment variables in the solution artifact, while Dataverse records follow a separate data path.
+5. Parallel lanes compare Power Platform pipelines, GitHub Actions, and Azure DevOps Build Tools across build, test, package, and deploy.
+6. A governance checklist sits beside a large review-candidate badge stating that human approval is pending.

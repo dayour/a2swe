@@ -27,6 +27,19 @@ generic stars, glow, ClippyFlow presets, or original editorial artwork as offici
 customer branding. Review three representative video frames and two slides before
 full production. Metrics cannot confer human visual or voice approval.
 
+For PPT and video assets, prioritize representative complete sample slides,
+then layouts, then Slide Master fallback. Preserve explicit intent, realistic
+content density, theme colors/fonts, typed placeholders, image composition,
+data styles, and approved voice/tone. Placeholder text is not an instruction
+channel. Keep negative space clear and split/recompose overflow rather than
+shrinking text or stretching geometry. Carry exact source, digest, rights,
+crop/placement, and generation provenance into both output formats.
+
+The [brand-template specification](docs/content/specifications/brand-templates.md)
+defines the gallery's authoring sidecar and scaffolded geometry preflight.
+Generic recipes are not brand-approved PowerPoint files. The basic core PPTX
+adapter does not yet import sample decks; no Brand kit upload is automated.
+
 ## Language Policy
 
 English is the only authoring and output language. Remove language-selection

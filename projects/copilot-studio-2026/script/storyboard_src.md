@@ -5,7 +5,7 @@ All visuals are original code-drawn SVG/CSS primitives. No external logos, scree
 
 | Shot | Frames | Visual direction | On-screen text | Evidence |
 | --- | --- | --- | --- | --- |
-| SC01 | {S01.from}-{S02.from-1} | Speech bubble splits into Agent, Workflow, Governance lanes. | Beyond chatbot | S1, S11 |
+| SC01 | 1-{S02.from-1} | Speech bubble splits into Agent, Workflow, Governance lanes. | Beyond chatbot | S1, S11 |
 | SC02 | {S02.from}-{S03.from-1} | Abstract low-code canvas connects Business data to Agents, Workflows, Agent flows, and channel cards. | Build agents + workflows | S1 |
 | SC03 | {S03.from}-{S04.from-1} | Request enters generative orchestration ring and routes to Topic, Tool, Knowledge, Agent. | Generative orchestration | S2 |
 | SC04 | {S04.from}-{S05.from-1} | Connector, flow, prompt, REST, MCP, and computer-use icons feed an action arrow. | Intent becomes action | S3, S4, S5 |

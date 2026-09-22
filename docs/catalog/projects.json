@@ -1,0 +1,50 @@
+{
+  "copilot": {
+    "title": "Copilot",
+    "description": "A six-scene tour of Copilot Chat, Microsoft 365 Copilot, GitHub Copilot, and Copilot Studio. This is the earlier Copilot-family pilot, separate from Copilot Studio 2026.",
+    "note": "Review candidates. Human listening, pacing, and pilot acceptance remain pending. Earlier revisions are iteration evidence, not approved releases.",
+    "evidence": ["delivery.md", "storyboard.md", "research/research.md", "asset-manifest.json"],
+    "blockers": []
+  },
+  "john-deere": {
+    "title": "John Deere",
+    "description": "A narrated, code-drawn explainer pilot with three retained production revisions.",
+    "note": "Review candidates, not approved releases. See the delivery and QC records for the review state of each revision.",
+    "evidence": ["delivery.md", "storyboard.md", "research/research.md", "asset-manifest.json"],
+    "blockers": []
+  },
+  "microsoft": {
+    "title": "Microsoft",
+    "description": "A narrated Microsoft explainer pilot with three retained production revisions.",
+    "note": "Review candidates, not approved releases. See the delivery and QC records for the review state of each revision.",
+    "evidence": ["delivery.md", "storyboard.md", "research/research.md", "asset-manifest.json"],
+    "blockers": []
+  },
+  "copilot-studio-2026": {
+    "title": "Copilot Studio 2026",
+    "description": "A separate 1920 x 1080, 30-45 second project with researched narration and a code-drawn production scaffold.",
+    "note": "Rendered revisions and timing now exist. They are review candidates; the project explicitly keeps human listening and pilot approval separate from automated checks.",
+    "evidence": ["README.md", "script/timeline.json", "script/narration.txt", "storyboard.md", "agent/SWE_AGENT.md"],
+    "blockers": [
+      "Human review and release gates are not granted by a rendered movie or an automated QC report."
+    ]
+  },
+  "power-platform-2026": {
+    "title": "Power Platform 2026",
+    "description": "A separate narrated Power Platform engineering explainer with rendered review candidates, research, and storyboard.",
+    "note": "v6 restores the custom local Kokoro am_liam voice at speed 1.0 with approved shorter narration and model-token captions. Python 3.14 and both Kokoro model paths are verified. This is distinct from the earlier power-platform review package.",
+    "evidence": ["REVIEW.md", "research/research.md", "storyboard.md", "audio/narration-v6.metadata.json", "qc/media-v6.json"],
+    "blockers": ["Narration text and voice selection are approved; rendered-candidate listening, style/brand, pilot, and release approvals remain pending."]
+  },
+  "power-platform": {
+    "title": "Power Platform",
+    "description": "An engineering-agent and explainer review package: domain research, proposed 60-second narration, and evaluation evidence.",
+    "note": "The delivery record explicitly calls the missing MP4 an unmet deliverable. This review package is not a substitute for the video.",
+    "evidence": ["delivery.md", "brief.md", "qc/comparison.md"],
+    "blockers": [
+      "No TTS, timeline, stills, or MP4 was produced.",
+      "Content and local voice selection remain proposed, not approved.",
+      "Domain readiness, selected-component rights, and release gates remain unresolved in the delivery record."
+    ]
+  }
+}

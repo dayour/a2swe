@@ -5,6 +5,14 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'projects/**'
+      - 'template/src/**'
+      - 'template/agent/**'
+      - 'template/scripts/brand-plan.ts'
+      - 'template/scripts/check_brand_plan.ts'
+      - 'template/brand-recipes.json'
+      - 'library/**'
+      - '.github/agents/**'
       - '.github/workflows/docs-pages.yml'
   workflow_dispatch:
 
@@ -33,6 +41,9 @@ jobs:
       - name: Typecheck documentation
         working-directory: docs
         run: npm run typecheck
+      - name: Test library integrity and feedback validation
+        working-directory: docs
+        run: npm test
       - name: Build documentation
         working-directory: docs
         run: npm run build

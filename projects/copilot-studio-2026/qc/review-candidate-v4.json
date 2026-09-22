@@ -1,0 +1,95 @@
+{
+  "project": "copilot-studio-2026",
+  "candidate": "v4",
+  "status": "review_candidate",
+  "created_at": "2026-09-21T18:55:11.110725+00:00",
+  "release": {
+    "file": "renders\\copilot-studio-2026-v4.mp4",
+    "bytes": 19638301,
+    "sha256": "2cfa39441a8f4240efe3f42420c35229e54c4ea3faae2b4ec88611a7c2220544",
+    "duration_seconds": 40.533333,
+    "frames": 1216,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 30,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "grounding": {
+    "access_date": "2026-09-18",
+    "research": [
+      "research/research.md",
+      "research/content-packet-2026-09-18/source-inventory.md",
+      "research/content-packet-2026-09-18/evidence-claims.md",
+      "research/content-packet-2026-09-18/qualifications.md"
+    ],
+    "normalized_content": [
+      "script/narration.txt",
+      "script/storyboard_src.md",
+      "storyboard.md",
+      "script/timeline.json",
+      "script/timeline.md"
+    ],
+    "media_policy": "Original code-drawn SVG/CSS visuals only; no downloaded logos, screenshots, stock media, or product marks."
+  },
+  "narration": {
+    "file": "public\\assets\\copilot-studio-2026\\audio.wav",
+    "sha256": "be40699bc6085a85e91f33c19f01e43cede8a35144aafeb163c59ae878a9191b",
+    "metadata": "audio/narration-metadata.json",
+    "engine": "Windows System.Speech (local/offline)",
+    "language": "en-US",
+    "audio_similarity": 0.9999208450317383,
+    "audio_lag_samples": 0,
+    "peak": 0.884429931640625
+  },
+  "validation": {
+    "timeline_coverage": "pass",
+    "typecheck": "pass",
+    "production_bundle": "build_production_v5",
+    "motion_qc": {
+      "status": "pass",
+      "report": "qc/motion-v4.txt",
+      "shots_failing": 0
+    },
+    "frame_qc": {
+      "status": "pass_with_informational_style_flags",
+      "report": "qc/frame-metrics-v4.md",
+      "high": 0,
+      "medium": 0,
+      "low": 4,
+      "note": "Low-only purple-fragment heuristic flags; no empty, hero-size, or still-run failures."
+    },
+    "media_qc": {
+      "status": "pass",
+      "report": "qc/media-v4.json",
+      "decoded_frames": 1216
+    },
+    "audio_qc": {
+      "status": "pass",
+      "report": "qc/audio-v4.txt",
+      "mean_volume_db": -22.0,
+      "max_volume_db": -1.1,
+      "detected_silence": "38.912-40.533s intentional tail only"
+    }
+  },
+  "review_artifacts": {
+    "overview": "qc/overview-v4.jpg",
+    "scene_contact_sheets": [
+      "qc/SC01-v4.jpg",
+      "qc/SC02-v4.jpg",
+      "qc/SC03-v4.jpg",
+      "qc/SC04-v4.jpg",
+      "qc/SC05-v4.jpg",
+      "qc/SC06-v4.jpg"
+    ],
+    "html_contact_sheet": "renders/sheet_v4.html",
+    "decoded_frames": "fin_frames_v4"
+  },
+  "human_listening_review": "pending",
+  "pilot_approval": "pending",
+  "approval_note": "No human approval, endorsement, or listening sign-off has been fabricated."
+}

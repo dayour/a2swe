@@ -1,0 +1,67 @@
+{
+  "project": "power-platform-2026",
+  "candidate": "v6",
+  "status": "review_candidate",
+  "movie": {
+    "file": "renders/power-platform-2026-v6.mp4",
+    "sha256": "f2d09f4cdcd308d788bb3d11012f5a889ab295f8b5365322426f948233a900de",
+    "bytes": 14614439,
+    "frames": 1090,
+    "fps": 30,
+    "video_duration_seconds": 36.333333,
+    "container_duration_seconds": 36.352,
+    "resolution": [1920, 1080],
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "narration": {
+    "file": "audio/narration-v6.wav",
+    "sha256": "af84e7edf179237bff2d0c6cb612906d4a0c4d1ccbfc4f795816dd59090ff9c1",
+    "metadata": "audio/narration-v6.metadata.json",
+    "input_snapshot": "audio/history/v6",
+    "engine": "kokoro",
+    "voice": "am_liam",
+    "speed": 1.0,
+    "python": "3.14.7",
+    "sample_rate": 48000,
+    "channels": 2,
+    "synthesis": "offline; complete sentences; model-token caption timing",
+    "audio_similarity": 0.9999673962593079,
+    "audio_lag_samples": 0,
+    "decoded_peak": 0.88836669921875,
+    "integrated_loudness_lufs": -17.5,
+    "loudness_range_lu": 1.3,
+    "true_peak_dbfs": -1.0
+  },
+  "validation": {
+    "template_regression_tests": 21,
+    "project_regression_tests": 22,
+    "library_tests": 12,
+    "typecheck": "passed: template and project",
+    "production_bundle": "passed",
+    "cached_regeneration": "byte-identical WAV, timeline and metadata",
+    "overwrite_guard": "existing v6 rejected",
+    "media_report": "qc/media-v6.json",
+    "decoded_frames": 1090,
+    "motion_report": "qc/motion-v6.txt",
+    "motion_shots_failing": 0,
+    "composition_report": "qc/frame-metrics-v6.md",
+    "composition_flags": {"high": 0, "medium": 0, "low": 5},
+    "real_model_checks": "qc/model-verification-v6/verification.json",
+    "onnx_check_voice": "am_michael",
+    "onnx_note": "Separate custom ONNX verification; not the delivered movie voice."
+  },
+  "prior_movie": {
+    "file": "renders/power-platform-2026-v5.mp4",
+    "sha256": "b6587dba649502f69e4547c007fd5bcdc1cc9d00b313a04e23163b603c475a70",
+    "preserved_unchanged": true
+  },
+  "approvals": {
+    "revised_script_and_voice_selection": "approved by user in conversation",
+    "human_listening": "pending",
+    "style_brand": "pending",
+    "pilot": "pending",
+    "release": "pending"
+  },
+  "visual_review_note": "Retained scene-six title/badge spacing needs review; automated composition heuristics do not establish layout or style approval."
+}

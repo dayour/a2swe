@@ -1,0 +1,3806 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {
+      "id": "copilot",
+      "title": "Copilot",
+      "description": "A six-scene tour of Copilot Chat, Microsoft 365 Copilot, GitHub Copilot, and Copilot Studio. This is the earlier Copilot-family pilot, separate from Copilot Studio 2026.",
+      "note": "Review candidates. Human listening, pacing, and pilot acceptance remain pending. Earlier revisions are iteration evidence, not approved releases.",
+      "evidence": [
+        "projects/copilot/delivery.md",
+        "projects/copilot/storyboard.md",
+        "projects/copilot/research/research.md",
+        "projects/copilot/asset-manifest.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "copilot/copilot-v6.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v6",
+          "revision": "v6",
+          "source": "projects/copilot/renders/copilot-v6.mp4",
+          "movie": "library/videos/copilot/copilot-v6.mp4",
+          "poster": "library/posters/copilot-copilot-v6.mp4.jpg",
+          "captions": "library/captions/copilot.vtt",
+          "digest": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+          "bytes": 5563277,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/copilot/qc/media-v6.json",
+          "state": "Review candidate"
+        },
+        {
+          "id": "copilot/copilot-v5.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v5",
+          "revision": "v5",
+          "source": "projects/copilot/renders/copilot-v5.mp4",
+          "movie": "library/videos/copilot/copilot-v5.mp4",
+          "poster": "library/posters/copilot-copilot-v5.mp4.jpg",
+          "captions": null,
+          "digest": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+          "bytes": 5563277,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot/copilot-v4.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v4",
+          "revision": "v4",
+          "source": "projects/copilot/renders/copilot-v4.mp4",
+          "movie": "library/videos/copilot/copilot-v4.mp4",
+          "poster": "library/posters/copilot-copilot-v4.mp4.jpg",
+          "captions": null,
+          "digest": "4196c5ed4afabc42beef0d2589c894ed7440e66d25ac76edb35ba76e8fb61ca1",
+          "bytes": 5563261,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot/copilot-v3.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v3",
+          "revision": "v3",
+          "source": "projects/copilot/renders/copilot-v3.mp4",
+          "movie": "library/videos/copilot/copilot-v3.mp4",
+          "poster": "library/posters/copilot-copilot-v3.mp4.jpg",
+          "captions": null,
+          "digest": "068307a89c276fff17798c33864c4b193a3ffdb6be8ddeb13a41d3330ebeef27",
+          "bytes": 5494975,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/copilot/qc/media-v3.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot/copilot-v2.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v2",
+          "revision": "v2",
+          "source": "projects/copilot/renders/copilot-v2.mp4",
+          "movie": "library/videos/copilot/copilot-v2.mp4",
+          "poster": "library/posters/copilot-copilot-v2.mp4.jpg",
+          "captions": null,
+          "digest": "6e4689341be3471385695dc46b4bab1d8fede843443919325268b9ae5682100b",
+          "bytes": 5494959,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot/copilot-v1.mp4",
+          "projectId": "copilot",
+          "title": "Copilot v1",
+          "revision": "v1",
+          "source": "projects/copilot/renders/copilot-v1.mp4",
+          "movie": "library/videos/copilot/copilot-v1.mp4",
+          "poster": "library/posters/copilot-copilot-v1.mp4.jpg",
+          "captions": null,
+          "digest": "3bea52dedf94bb628e5f84decd90728c488a21afb986af8d1cf8969746e5933f",
+          "bytes": 4699867,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Review candidates"
+    },
+    {
+      "id": "copilot-studio-2026",
+      "title": "Copilot Studio 2026",
+      "description": "A separate 1920 x 1080, 30-45 second project with researched narration and a code-drawn production scaffold.",
+      "note": "Rendered revisions and timing now exist. They are review candidates; the project explicitly keeps human listening and pilot approval separate from automated checks.",
+      "evidence": [
+        "projects/copilot-studio-2026/README.md",
+        "projects/copilot-studio-2026/script/timeline.json",
+        "projects/copilot-studio-2026/script/narration.txt",
+        "projects/copilot-studio-2026/storyboard.md",
+        "projects/copilot-studio-2026/agent/SWE_AGENT.md"
+      ],
+      "blockers": [
+        "Human review and release gates are not granted by a rendered movie or an automated QC report."
+      ],
+      "revisions": [
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v4.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 v4",
+          "revision": "v4",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v4.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v4.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v4.mp4.jpg",
+          "captions": "library/captions/copilot-studio-2026.vtt",
+          "digest": "2cfa39441a8f4240efe3f42420c35229e54c4ea3faae2b4ec88611a7c2220544",
+          "bytes": 19638301,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/copilot-studio-2026/qc/media-v4.json",
+          "state": "Review candidate"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v4-raw.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 copilot-studio-2026-v4-raw",
+          "revision": "copilot-studio-2026-v4-raw",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v4-raw.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v4-raw.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v4-raw.mp4.jpg",
+          "captions": null,
+          "digest": "2f2fd43417e33113559ad455b6c831077ce506ece59b4de7ebf89b6ebb0fd9f8",
+          "bytes": 19638285,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v3.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 v3",
+          "revision": "v3",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v3.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v3.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v3.mp4.jpg",
+          "captions": null,
+          "digest": "8eb021c0d2d447d43645d488691a9c44f5c26f7a7bdb514fc3fe03b15bb62f9c",
+          "bytes": 14963835,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/copilot-studio-2026/qc/media-v3.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v3-raw.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 copilot-studio-2026-v3-raw",
+          "revision": "copilot-studio-2026-v3-raw",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v3-raw.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v3-raw.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v3-raw.mp4.jpg",
+          "captions": null,
+          "digest": "fe8eae6c6dd1cfad1413f22efd982ba612502bc23339a86646129df00d32a296",
+          "bytes": 14963819,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v2.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 v2",
+          "revision": "v2",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v2.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v2.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v2.mp4.jpg",
+          "captions": null,
+          "digest": "19b57954da8d512d6ba0bc56a22d4b76ebdf0960199bc7f295b8816bc0bd6eb6",
+          "bytes": 14294015,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v2-raw.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 copilot-studio-2026-v2-raw",
+          "revision": "copilot-studio-2026-v2-raw",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v2-raw.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v2-raw.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v2-raw.mp4.jpg",
+          "captions": null,
+          "digest": "3742fff9e14ce13df6217291d9606feb5bf966980c2482d2cc0a8f2b7fbc0384",
+          "bytes": 14293999,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "copilot-studio-2026/copilot-studio-2026-v1.mp4",
+          "projectId": "copilot-studio-2026",
+          "title": "Copilot Studio 2026 v1",
+          "revision": "v1",
+          "source": "projects/copilot-studio-2026/renders/copilot-studio-2026-v1.mp4",
+          "movie": "library/videos/copilot-studio-2026/copilot-studio-2026-v1.mp4",
+          "poster": "library/posters/copilot-studio-2026-copilot-studio-2026-v1.mp4.jpg",
+          "captions": null,
+          "digest": "8b218655072b9f9041d1028801a0f53de6ed36a8617e0f4454d2e19c9a48ebef",
+          "bytes": 9127220,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 40.533333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Review candidates"
+    },
+    {
+      "id": "john-deere",
+      "title": "John Deere",
+      "description": "A narrated, code-drawn explainer pilot with three retained production revisions.",
+      "note": "Review candidates, not approved releases. See the delivery and QC records for the review state of each revision.",
+      "evidence": [
+        "projects/john-deere/delivery.md",
+        "projects/john-deere/storyboard.md",
+        "projects/john-deere/research/research.md",
+        "projects/john-deere/asset-manifest.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "john-deere/john-deere-v3.mp4",
+          "projectId": "john-deere",
+          "title": "John Deere v3",
+          "revision": "v3",
+          "source": "projects/john-deere/renders/john-deere-v3.mp4",
+          "movie": "library/videos/john-deere/john-deere-v3.mp4",
+          "poster": "library/posters/john-deere-john-deere-v3.mp4.jpg",
+          "captions": "library/captions/john-deere.vtt",
+          "digest": "3f74c6e4a8442776732ccd0b83aaf0532c791fd12dcd33773732fbe97a479764",
+          "bytes": 6312722,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/john-deere/qc/media-v3.json",
+          "state": "Review candidate"
+        },
+        {
+          "id": "john-deere/john-deere-v2.mp4",
+          "projectId": "john-deere",
+          "title": "John Deere v2",
+          "revision": "v2",
+          "source": "projects/john-deere/renders/john-deere-v2.mp4",
+          "movie": "library/videos/john-deere/john-deere-v2.mp4",
+          "poster": "library/posters/john-deere-john-deere-v2.mp4.jpg",
+          "captions": null,
+          "digest": "e7390c763dc7c05f6f4d5846b3c0712472612ac57f7c299a2566e8312d4d7476",
+          "bytes": 6312706,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "john-deere/john-deere-v1.mp4",
+          "projectId": "john-deere",
+          "title": "John Deere v1",
+          "revision": "v1",
+          "source": "projects/john-deere/renders/john-deere-v1.mp4",
+          "movie": "library/videos/john-deere/john-deere-v1.mp4",
+          "poster": "library/posters/john-deere-john-deere-v1.mp4.jpg",
+          "captions": null,
+          "digest": "89fd2700f3a080f10908a21121f516803384a5e66c82accb53caed32b7eecdfe",
+          "bytes": 5488176,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Review candidates"
+    },
+    {
+      "id": "microsoft",
+      "title": "Microsoft",
+      "description": "A narrated Microsoft explainer pilot with three retained production revisions.",
+      "note": "Review candidates, not approved releases. See the delivery and QC records for the review state of each revision.",
+      "evidence": [
+        "projects/microsoft/delivery.md",
+        "projects/microsoft/storyboard.md",
+        "projects/microsoft/research/research.md",
+        "projects/microsoft/asset-manifest.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "microsoft/microsoft-v3.mp4",
+          "projectId": "microsoft",
+          "title": "Microsoft v3",
+          "revision": "v3",
+          "source": "projects/microsoft/renders/microsoft-v3.mp4",
+          "movie": "library/videos/microsoft/microsoft-v3.mp4",
+          "poster": "library/posters/microsoft-microsoft-v3.mp4.jpg",
+          "captions": "library/captions/microsoft.vtt",
+          "digest": "b5454ced9636c2912c4564a95ffd52c28c909ef508ecbbd39bf3a1407c8ba850",
+          "bytes": 5573168,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/microsoft/qc/media-v3.json",
+          "state": "Review candidate"
+        },
+        {
+          "id": "microsoft/microsoft-v2.mp4",
+          "projectId": "microsoft",
+          "title": "Microsoft v2",
+          "revision": "v2",
+          "source": "projects/microsoft/renders/microsoft-v2.mp4",
+          "movie": "library/videos/microsoft/microsoft-v2.mp4",
+          "poster": "library/posters/microsoft-microsoft-v2.mp4.jpg",
+          "captions": null,
+          "digest": "4a55bc2c2403598d7ada480eb5e03d59e16cf037f0448d2e63bc1bdf43ed2afe",
+          "bytes": 5573152,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        },
+        {
+          "id": "microsoft/microsoft-v1.mp4",
+          "projectId": "microsoft",
+          "title": "Microsoft v1",
+          "revision": "v1",
+          "source": "projects/microsoft/renders/microsoft-v1.mp4",
+          "movie": "library/videos/microsoft/microsoft-v1.mp4",
+          "poster": "library/posters/microsoft-microsoft-v1.mp4.jpg",
+          "captions": null,
+          "digest": "bdfa6c6ce647de2cabc42b14c332941b96fecbb797b45f169d16186cd3e9e148",
+          "bytes": 4658304,
+          "width": 1280,
+          "height": 720,
+          "fps": 30,
+          "duration": 30,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Review candidates"
+    },
+    {
+      "id": "power-platform",
+      "title": "Power Platform",
+      "description": "An engineering-agent and explainer review package: domain research, proposed 60-second narration, and evaluation evidence.",
+      "note": "The delivery record explicitly calls the missing MP4 an unmet deliverable. This review package is not a substitute for the video.",
+      "evidence": [
+        "projects/power-platform/delivery.md",
+        "projects/power-platform/brief.md",
+        "projects/power-platform/qc/comparison.md"
+      ],
+      "blockers": [
+        "No TTS, timeline, stills, or MP4 was produced.",
+        "Content and local voice selection remain proposed, not approved.",
+        "Domain readiness, selected-component rights, and release gates remain unresolved in the delivery record."
+      ],
+      "revisions": [],
+      "state": "Not rendered"
+    },
+    {
+      "id": "power-platform-2026",
+      "title": "Power Platform 2026",
+      "description": "A separate narrated Power Platform engineering explainer with rendered review candidates, research, and storyboard.",
+      "note": "v6 restores the custom local Kokoro am_liam voice at speed 1.0 with approved shorter narration and model-token captions. Python 3.14 and both Kokoro model paths are verified. This is distinct from the earlier power-platform review package.",
+      "evidence": [
+        "projects/power-platform-2026/REVIEW.md",
+        "projects/power-platform-2026/research/research.md",
+        "projects/power-platform-2026/storyboard.md",
+        "projects/power-platform-2026/audio/narration-v6.metadata.json",
+        "projects/power-platform-2026/qc/media-v6.json"
+      ],
+      "blockers": [
+        "Narration text and voice selection are approved; rendered-candidate listening, style/brand, pilot, and release approvals remain pending."
+      ],
+      "revisions": [
+        {
+          "id": "power-platform-2026/power-platform-2026-v6.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v6",
+          "revision": "v6",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v6.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v6.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v6.mp4.jpg",
+          "captions": "library/captions/power-platform-2026.vtt",
+          "digest": "f2d09f4cdcd308d788bb3d11012f5a889ab295f8b5365322426f948233a900de",
+          "bytes": 14614439,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 36.333333,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/power-platform-2026/qc/media-v6.json",
+          "state": "Review candidate"
+        },
+        {
+          "id": "power-platform-2026/power-platform-2026-v5.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v5",
+          "revision": "v5",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v5.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v5.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v5.mp4.jpg",
+          "captions": null,
+          "digest": "b6587dba649502f69e4547c007fd5bcdc1cc9d00b313a04e23163b603c475a70",
+          "bytes": 16881942,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 42.133333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/power-platform-2026/qc/media-v5.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "power-platform-2026/power-platform-2026-v4.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v4",
+          "revision": "v4",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v4.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v4.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v4.mp4.jpg",
+          "captions": null,
+          "digest": "32250c0180255790bdaea6212e188e4cc012e90008a4ab939d14f83910c5cfc2",
+          "bytes": 16881942,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 42.133333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/power-platform-2026/qc/media-v4.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "power-platform-2026/power-platform-2026-v3.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v3",
+          "revision": "v3",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v3.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v3.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v3.mp4.jpg",
+          "captions": null,
+          "digest": "1ed79ed70a101041a1017d047f60924d18c3b0028139c002fa757ceea69df9b8",
+          "bytes": 15732220,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 42.133333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/power-platform-2026/qc/media-v3.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "power-platform-2026/power-platform-2026-v2.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v2",
+          "revision": "v2",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v2.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v2.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v2.mp4.jpg",
+          "captions": null,
+          "digest": "56ede5e58c67124ae4a26856e1895557437d6c6fa11358e0297c9c3b1cb4067f",
+          "bytes": 15163731,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 42.133333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/power-platform-2026/qc/media-v2.json",
+          "state": "Historical revision"
+        },
+        {
+          "id": "power-platform-2026/power-platform-2026-v1.mp4",
+          "projectId": "power-platform-2026",
+          "title": "Power Platform 2026 v1",
+          "revision": "v1",
+          "source": "projects/power-platform-2026/renders/power-platform-2026-v1.mp4",
+          "movie": "library/videos/power-platform-2026/power-platform-2026-v1.mp4",
+          "poster": "library/posters/power-platform-2026-power-platform-2026-v1.mp4.jpg",
+          "captions": null,
+          "digest": "13da6cafdd6bc17b8afd1ecd4f3601a679c0143900c3c87c150ac1b88eeb2e62",
+          "bytes": 11136575,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 42.133333,
+          "codec": "h264",
+          "latest": false,
+          "qc": null,
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Review candidates"
+    }
+  ],
+  "templates": [
+    {
+      "id": "projects/copilot/agent/SWE_AGENT.md",
+      "title": "Copilot companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Review pending gates before reuse.",
+      "preview": "agent",
+      "source": "projects/copilot/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "copilot"
+      ],
+      "recipe": null,
+      "digest": "579b5bf49edbe98df3c7d609446e7dd5607f91f2597b2e968ebd949b321679b6"
+    },
+    {
+      "id": "projects/copilot-studio-2026/agent/SWE_AGENT.md",
+      "title": "Copilot Studio 2026 companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Review pending gates before reuse.",
+      "preview": "agent",
+      "source": "projects/copilot-studio-2026/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio-2026"
+      ],
+      "recipe": null,
+      "digest": "f4bd9ac0aa04f3fc10a6cc7c16f4a8ed18dca2f7e58790175c204c7b087a68f0"
+    },
+    {
+      "id": "projects/john-deere/agent/SWE_AGENT.md",
+      "title": "John Deere companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Review pending gates before reuse.",
+      "preview": "agent",
+      "source": "projects/john-deere/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "john-deere"
+      ],
+      "recipe": null,
+      "digest": "579b5bf49edbe98df3c7d609446e7dd5607f91f2597b2e968ebd949b321679b6"
+    },
+    {
+      "id": "projects/microsoft/agent/SWE_AGENT.md",
+      "title": "Microsoft companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Review pending gates before reuse.",
+      "preview": "agent",
+      "source": "projects/microsoft/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "microsoft"
+      ],
+      "recipe": null,
+      "digest": "579b5bf49edbe98df3c7d609446e7dd5607f91f2597b2e968ebd949b321679b6"
+    },
+    {
+      "id": ".github/agents/power-platform-swe.agent.md",
+      "title": "Power Platform SWE (candidate)",
+      "category": "Agents",
+      "description": "Read/search-only architecture and test-planning agent. Not certified domain expertise or a media producer.",
+      "preview": "agent",
+      "source": ".github/agents/power-platform-swe.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "d4ee706d88908971cedeb54f6af625ef0c93c6b86340189f7b89c0602716b094"
+    },
+    {
+      "id": "template/agent/SWE_AGENT.md",
+      "title": "Production companion",
+      "category": "Agents",
+      "description": "Start a portable, evidence-led production ledger with scope, narration, voice, and pilot approval gates.",
+      "preview": "agent",
+      "source": "template/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "5c6b0525633ec469ee5f30a5dfd8e9bf692c08b1edb4e26c8fb3b5b609351799"
+    },
+    {
+      "id": "template/src/ui.tsx#ArrowH",
+      "title": "ArrowH",
+      "category": "Graphics",
+      "description": "ArrowH is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "ArrowH",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/common/StarField.tsx#BgTrack",
+      "title": "BgTrack",
+      "category": "Graphics",
+      "description": "BgTrack is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/StarField.tsx",
+      "symbol": "BgTrack",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "b2f3b2d826c8f383782f4a208376e388e4ae9b5dbe6b293b00811009190fc50e"
+    },
+    {
+      "id": "template/src/fx.tsx#BigNumber",
+      "title": "BigNumber",
+      "category": "Graphics",
+      "description": "BigNumber is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "BigNumber",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/ui.tsx#Box",
+      "title": "Box",
+      "category": "Graphics",
+      "description": "Box is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Box",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#CameraRig",
+      "title": "CameraRig",
+      "category": "Graphics",
+      "description": "CameraRig is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "CameraRig",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/ui.tsx#Check",
+      "title": "Check",
+      "category": "Graphics",
+      "description": "Check is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Check",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#ChunkCard",
+      "title": "ChunkCard",
+      "category": "Graphics",
+      "description": "ChunkCard is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "ChunkCard",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#ClusterGrid",
+      "title": "ClusterGrid",
+      "category": "Graphics",
+      "description": "ClusterGrid is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "ClusterGrid",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#CodeCard",
+      "title": "CodeCard",
+      "category": "Graphics",
+      "description": "CodeCard is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "CodeCard",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#Counter",
+      "title": "Counter",
+      "category": "Graphics",
+      "description": "Counter is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Counter",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#Cross",
+      "title": "Cross",
+      "category": "Graphics",
+      "description": "Cross is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Cross",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#CText",
+      "title": "CText",
+      "category": "Graphics",
+      "description": "CText is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "CText",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/common/Footage.tsx#DarkGrade",
+      "title": "DarkGrade",
+      "category": "Graphics",
+      "description": "DarkGrade is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Footage.tsx",
+      "symbol": "DarkGrade",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "670e816ad192e47c09f33b3151ae8f28a77d6113fe59923a789f29149fd5cfcc"
+    },
+    {
+      "id": "template/src/ui.tsx#DBIcon",
+      "title": "DBIcon",
+      "category": "Graphics",
+      "description": "DBIcon is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "DBIcon",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#DocIcon",
+      "title": "DocIcon",
+      "category": "Graphics",
+      "description": "DocIcon is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "DocIcon",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/common/DotFieldBg.tsx#DotFieldBg",
+      "title": "DotFieldBg",
+      "category": "Graphics",
+      "description": "DotFieldBg is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/DotFieldBg.tsx",
+      "symbol": "DotFieldBg",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "f0911801fb3ca4d93f243753940fd35394141a8f3ddb9cb27785cdf28a9962c7"
+    },
+    {
+      "id": "template/src/common/Fog.tsx#Fog",
+      "title": "Fog",
+      "category": "Graphics",
+      "description": "Fog is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Fog.tsx",
+      "symbol": "Fog",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "90bf7e7f7fb388eb533cc86f7b2320c3c1f942b79ec0f82610fb89b86e3563e6"
+    },
+    {
+      "id": "template/src/common/Footage.tsx#FootageClip",
+      "title": "FootageClip",
+      "category": "Graphics",
+      "description": "FootageClip is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Footage.tsx",
+      "symbol": "FootageClip",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "670e816ad192e47c09f33b3151ae8f28a77d6113fe59923a789f29149fd5cfcc"
+    },
+    {
+      "id": "template/src/common/Footage.tsx#FootageTrack",
+      "title": "FootageTrack",
+      "category": "Graphics",
+      "description": "FootageTrack is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Footage.tsx",
+      "symbol": "FootageTrack",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "670e816ad192e47c09f33b3151ae8f28a77d6113fe59923a789f29149fd5cfcc"
+    },
+    {
+      "id": "template/src/ui.tsx#Gauge",
+      "title": "Gauge",
+      "category": "Graphics",
+      "description": "Gauge is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Gauge",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#GhostText",
+      "title": "GhostText",
+      "category": "Graphics",
+      "description": "GhostText is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "GhostText",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/common/Glitch.tsx#GlitchIn",
+      "title": "GlitchIn",
+      "category": "Graphics",
+      "description": "GlitchIn is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Glitch.tsx",
+      "symbol": "GlitchIn",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "3c1d9281e5cb0150b24f1803d77d53497fc70e76b239ea2335e22fc42a63bdd4"
+    },
+    {
+      "id": "template/src/fx.tsx#GlowBlob",
+      "title": "GlowBlob",
+      "category": "Graphics",
+      "description": "GlowBlob is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "GlowBlob",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/ui.tsx#GPUChip",
+      "title": "GPUChip",
+      "category": "Graphics",
+      "description": "GPUChip is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "GPUChip",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#GradBall",
+      "title": "GradBall",
+      "category": "Graphics",
+      "description": "GradBall is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "GradBall",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/fx.tsx#HaloRing",
+      "title": "HaloRing",
+      "category": "Graphics",
+      "description": "HaloRing is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "HaloRing",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/fx.tsx#HeroGlow",
+      "title": "HeroGlow",
+      "category": "Graphics",
+      "description": "HeroGlow is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "HeroGlow",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/fx.tsx#LightBar",
+      "title": "LightBar",
+      "category": "Graphics",
+      "description": "LightBar is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "LightBar",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/fx.tsx#LightSweep",
+      "title": "LightSweep",
+      "category": "Graphics",
+      "description": "LightSweep is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "LightSweep",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/ui.tsx#LineArrow",
+      "title": "LineArrow",
+      "category": "Graphics",
+      "description": "LineArrow is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "LineArrow",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#LLMIcon",
+      "title": "LLMIcon",
+      "category": "Graphics",
+      "description": "LLMIcon is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "LLMIcon",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#MonoText",
+      "title": "MonoText",
+      "category": "Graphics",
+      "description": "MonoText is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "MonoText",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#PersonIcon",
+      "title": "PersonIcon",
+      "category": "Graphics",
+      "description": "PersonIcon is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "PersonIcon",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#Pill",
+      "title": "Pill",
+      "category": "Graphics",
+      "description": "Pill is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Pill",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/common/ProgressBar.tsx#ProgressBar",
+      "title": "ProgressBar",
+      "category": "Graphics",
+      "description": "ProgressBar is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/ProgressBar.tsx",
+      "symbol": "ProgressBar",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "a6b0c80809b936fa3ab6307243da2e73d961bc314f51a77c1440dd6b8125c81a"
+    },
+    {
+      "id": "template/src/ui.tsx#RackIcon",
+      "title": "RackIcon",
+      "category": "Graphics",
+      "description": "RackIcon is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "RackIcon",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#RepoCard",
+      "title": "RepoCard",
+      "category": "Graphics",
+      "description": "RepoCard is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "RepoCard",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#SoftIn",
+      "title": "SoftIn",
+      "category": "Graphics",
+      "description": "SoftIn is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "SoftIn",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#Sparkle",
+      "title": "Sparkle",
+      "category": "Graphics",
+      "description": "Sparkle is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "Sparkle",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/fx.tsx#StageLine",
+      "title": "StageLine",
+      "category": "Graphics",
+      "description": "StageLine is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "StageLine",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/common/StarField.tsx#StarField",
+      "title": "StarField",
+      "category": "Graphics",
+      "description": "StarField is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/StarField.tsx",
+      "symbol": "StarField",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "b2f3b2d826c8f383782f4a208376e388e4ae9b5dbe6b293b00811009190fc50e"
+    },
+    {
+      "id": "template/src/common/Subtitle.tsx#SubtitleLine",
+      "title": "SubtitleLine",
+      "category": "Graphics",
+      "description": "SubtitleLine is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Subtitle.tsx",
+      "symbol": "SubtitleLine",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "72a75def2e11700e746182d30d91be66c7a7568952765a77fe455c13c8073e3e"
+    },
+    {
+      "id": "template/src/common/Subtitle.tsx#Subtitles",
+      "title": "Subtitles",
+      "category": "Graphics",
+      "description": "Subtitles is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/common/Subtitle.tsx",
+      "symbol": "Subtitles",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "72a75def2e11700e746182d30d91be66c7a7568952765a77fe455c13c8073e3e"
+    },
+    {
+      "id": "template/src/ui.tsx#Svg",
+      "title": "Svg",
+      "category": "Graphics",
+      "description": "Svg is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Svg",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#TagBlock",
+      "title": "TagBlock",
+      "category": "Graphics",
+      "description": "TagBlock is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "TagBlock",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#TechText",
+      "title": "TechText",
+      "category": "Graphics",
+      "description": "TechText is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "TechText",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#TiltPlane",
+      "title": "TiltPlane",
+      "category": "Graphics",
+      "description": "TiltPlane is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "TiltPlane",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/ui.tsx#TimelineBar",
+      "title": "TimelineBar",
+      "category": "Graphics",
+      "description": "TimelineBar is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "TimelineBar",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#TopCapsule",
+      "title": "TopCapsule",
+      "category": "Graphics",
+      "description": "TopCapsule is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "TopCapsule",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/ui.tsx#Trap",
+      "title": "Trap",
+      "category": "Graphics",
+      "description": "Trap is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/ui.tsx",
+      "symbol": "Trap",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "bdd1729cdaa8ac17f33c71df39152079673637ac1874ee309a92c4df1aa2e0c4"
+    },
+    {
+      "id": "template/src/fx.tsx#Vignette",
+      "title": "Vignette",
+      "category": "Graphics",
+      "description": "Vignette is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "graphic",
+      "source": "template/src/fx.tsx",
+      "symbol": "Vignette",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "e97b18709a421b585718c1a6d0bda5c2fae54dc8a1e72c48c5bde10535145f1a"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#ChapterCard",
+      "title": "ChapterCard",
+      "category": "Layouts",
+      "description": "ChapterCard is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "ChapterCard",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#EndCredit",
+      "title": "EndCredit",
+      "category": "Layouts",
+      "description": "EndCredit is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "EndCredit",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#Ending",
+      "title": "Ending",
+      "category": "Layouts",
+      "description": "Ending is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "Ending",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#EndingTop",
+      "title": "EndingTop",
+      "category": "Layouts",
+      "description": "EndingTop is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "EndingTop",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#Hud",
+      "title": "Hud",
+      "category": "Layouts",
+      "description": "Hud is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "Hud",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#Rail",
+      "title": "Rail",
+      "category": "Layouts",
+      "description": "Rail is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "Rail",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "template/src/overlay/Overlay.tsx#Title",
+      "title": "Title",
+      "category": "Layouts",
+      "description": "Title is a reusable frame-driven React component. Inspect its props and required assets before adapting it to your scene.",
+      "preview": "layout",
+      "source": "template/src/overlay/Overlay.tsx",
+      "symbol": "Title",
+      "tags": [
+        "React",
+        "Remotion"
+      ],
+      "recipe": null,
+      "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
+    },
+    {
+      "id": "library/plugins/templates/learn-tech-advisor/README.md",
+      "title": "Learn Tech Advisor",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/templates/learn-tech-advisor/README.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "e3e43f0f31372b7c7bc1b508980a0aabecee82465631ded5ec0e520500b03620"
+    },
+    {
+      "id": "library/plugins/templates/microsoft-learn-mcp/README.md",
+      "title": "Microsoft Learn Mcp",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/templates/microsoft-learn-mcp/README.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "6e732b43e6f90f4a2a6f9f796ba5be15ef3b1b76e0c9de81ea9709c0415c138a"
+    },
+    {
+      "id": "library/plugins/templates/plugin-portability/README.md",
+      "title": "Plugin Portability",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/templates/plugin-portability/README.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "f450c17d9150484ae2452610e80bf200096610cc69b3f67fc8f415432cc3855d"
+    },
+    {
+      "id": "library/plugins/templates/recipe.md",
+      "title": "Templates",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/templates/recipe.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "3b74237dd00273171b329378f4baf5d46927997ef50e931f858110a99ab44752"
+    },
+    {
+      "id": "template/package.json",
+      "title": "Remotion project scaffold",
+      "category": "Projects",
+      "description": "Create a separate editable project with locked dependencies, shared visuals, shot groups, and production scripts.",
+      "preview": "layout",
+      "source": "template/package.json",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "8f5cbe447dfbca6a275ad80f08702cec8dff83be4c229eed33e18026b6193d6c"
+    },
+    {
+      "id": "library/skills/agent-evaluation-designer/SKILL.md",
+      "title": "Agent Evaluation Designer",
+      "category": "Skills",
+      "description": "Design a rigorous, platform-aware evaluation for an AI agent - define what good looks like, pick the right grading method, build a test set, and turn results into a defensible go/no-go decision.",
+      "preview": "skill",
+      "source": "library/skills/agent-evaluation-designer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "evaluation",
+        "testing",
+        "quality-assurance",
+        "go-live",
+        "decision-making"
+      ],
+      "recipe": null,
+      "digest": "11850d009e42293e1b7247bf1ad932c5479b6ca14df2f55b7cfc616cc524ed1a"
+    },
+    {
+      "id": "library/skills/agent-harness-explorer/SKILL.md",
+      "title": "Agent Harness Explorer",
+      "category": "Skills",
+      "description": "Discover, document, and monitor what the agent harness can do — Python libraries, tools, MCP servers, and runtime capabilities — with repeatable, comparable snapshots.",
+      "preview": "skill",
+      "source": "library/skills/agent-harness-explorer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "diagnostics",
+        "runtime",
+        "python",
+        "capabilities",
+        "snapshots",
+        "scripts"
+      ],
+      "recipe": null,
+      "digest": "9d84369899c4e6d4b1e2b9a19b39a5de046e9f00beb4bb0999d944e83732e7f0"
+    },
+    {
+      "id": "library/skills/agent-performance-triage/SKILL.md",
+      "title": "Agent Performance Triage",
+      "category": "Skills",
+      "description": "Turn a live agent's analytics and transcripts into a diagnosis and a prioritized improvement backlog.",
+      "preview": "skill",
+      "source": "library/skills/agent-performance-triage/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "analytics",
+        "optimization",
+        "operations",
+        "post-launch",
+        "backlog",
+        "assessment",
+        "monitoring"
+      ],
+      "recipe": null,
+      "digest": "254239bf6f6b20900929c203d9af516b8358ae98618da7fcaa73a201904d979a"
+    },
+    {
+      "id": "library/skills/agent-red-team/SKILL.md",
+      "title": "Agent Red Team",
+      "category": "Skills",
+      "description": "Adversarial assurance review for agents you own: prompt injection, oversharing, leakage and tool misuse, mapped to fixes.",
+      "preview": "skill",
+      "source": "library/skills/agent-red-team/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "security",
+        "prompt-injection",
+        "governance",
+        "responsible-ai",
+        "testing",
+        "risk",
+        "assessment"
+      ],
+      "recipe": null,
+      "digest": "b288f302500223e622524d54d75a29fa438c632713e9538bd21395b0053f9e7d"
+    },
+    {
+      "id": "library/skills/ai-demo-assistant/SKILL.md",
+      "title": "AI Demo Assistant",
+      "category": "Skills",
+      "description": "Turns a customer name, line of business, and personas into a ready-to-seed Microsoft 365 Copilot demo — fictional Word/PowerPoint/Excel example files plus a full delivery and provisioning plan, with optional one-click seeding to OneDrive and Teams.",
+      "preview": "skill",
+      "source": "library/skills/ai-demo-assistant/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "demo",
+        "copilot",
+        "microsoft-365",
+        "sales-enablement",
+        "content",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "c28f0d56884974dcc6ee5ebff01c261e3790aadb1c38146e60428041941c8bb0"
+    },
+    {
+      "id": "library/skills/ai-usecase-assessment/SKILL.md",
+      "title": "AI Use Case Assessment",
+      "category": "Skills",
+      "description": "Turn any AI/agentic use case idea (chat, uploaded doc, or attached file) into an evidence-grounded, rubric-scored assessment with a customer-branded HTML report. Guides the user question-by-question through intake, categorisation, strengthening, scoring, and reporting — grounded in the Agentic Use Case Assessment Rubric v2. Runs in Microsoft Scout and Microsoft 365 Copilot Cowork.",
+      "preview": "skill",
+      "source": "library/skills/ai-usecase-assessment/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "assessment",
+        "ai",
+        "agent",
+        "use-case",
+        "scoring",
+        "report",
+        "html",
+        "intake"
+      ],
+      "recipe": null,
+      "digest": "9405867f164be0cc9efa98c04366aaa157204642d53883f9cebf3c349f2f1164"
+    },
+    {
+      "id": "library/skills/ai-first-process-redesign/SKILL.md",
+      "title": "AI-First Process Redesign",
+      "category": "Skills",
+      "description": "Redesign your existing processes with AI-first thinking",
+      "preview": "skill",
+      "source": "library/skills/ai-first-process-redesign/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "process-improvement",
+        "agentic-workflow"
+      ],
+      "recipe": null,
+      "digest": "e89743c5afa7ecb7f12979c1c0cae8157d29fceed7c10851e51663d471137688"
+    },
+    {
+      "id": "library/skills/anonymised-case-study-writer/SKILL.md",
+      "title": "Anonymised Case Study Writer",
+      "category": "Skills",
+      "description": "Turn engagement notes into anonymised, publishable case studies without exposing client-confidential details.",
+      "preview": "skill",
+      "source": "library/skills/anonymised-case-study-writer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "case-study",
+        "marketing",
+        "documents",
+        "content",
+        "privacy"
+      ],
+      "recipe": null,
+      "digest": "31272d2020465f54489686e5eabb76c8eacfe2244bceb6124b18e57933ed334f"
+    },
+    {
+      "id": "library/skills/clt-hr-assistant/SKILL.md",
+      "title": "Assistente CLT para RH",
+      "category": "Skills",
+      "description": "Assistente de legislação trabalhista brasileira (CLT) para equipes de RH e Departamento Pessoal. Responde dúvidas sobre férias, 13º salário, aviso prévio, jornada e tipos de rescisão, e calcula verbas rescisórias com memória de cálculo completa usando as tabelas oficiais vigentes de 2026 (salário mínimo, INSS e IRRF, incluindo a Lei 15.270/2025).",
+      "preview": "skill",
+      "source": "library/skills/clt-hr-assistant/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "rh",
+        "folha",
+        "clt",
+        "brasil",
+        "trabalhista",
+        "rescisao",
+        "inss",
+        "irrf",
+        "verbas-rescisorias",
+        "departamento-pessoal"
+      ],
+      "recipe": null,
+      "digest": "b62e9e0713495a935ac1de5d15c79bfc20c6e6bc3805c4de11401a3efb26594c"
+    },
+    {
+      "id": "library/skills/b2b-outreach-suite/SKILL.md",
+      "title": "B2B Outreach Suite",
+      "category": "Skills",
+      "description": "A six-playbook toolkit for agentic B2B sales outreach: prospect research briefings, cold emails, LinkedIn/social DMs, follow-up cadences, ad copywriting, and objection handling. Configurable via a company profile template, works for any industry, market, and language.",
+      "preview": "skill",
+      "source": "library/skills/b2b-outreach-suite/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "sales-enablement",
+        "email",
+        "linkedin",
+        "writing",
+        "marketing",
+        "content"
+      ],
+      "recipe": null,
+      "digest": "ad951b67da1278ed94e346de7a82ec05f116dc10a587a479da9f059fb167ebf2"
+    },
+    {
+      "id": "library/skills/blog-content-auditor/SKILL.md",
+      "title": "Blog Content Auditor",
+      "category": "Skills",
+      "description": "Audit blog posts or a blog library for clarity, structure, evidence, audience fit, and improvement priority.",
+      "preview": "skill",
+      "source": "library/skills/blog-content-auditor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "blog",
+        "content",
+        "audit",
+        "writing",
+        "seo",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "79f6d33272dc82a0e2d976b72c632b7ba46ef167a4b9b243691ffea9ffa0d3c5"
+    },
+    {
+      "id": "library/skills/blog-post-structure-pass/SKILL.md",
+      "title": "Blog Post Structure Pass",
+      "category": "Skills",
+      "description": "Restructure draft or existing blog posts into a stronger narrative without inventing new claims.",
+      "preview": "skill",
+      "source": "library/skills/blog-post-structure-pass/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "blog",
+        "writing",
+        "authoring",
+        "content",
+        "structure",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "3aa70ac05cc396d194825db12c5ceb5bf3fba324a346835684236ce93bf36b12"
+    },
+    {
+      "id": "library/skills/booth-loop-video/SKILL.md",
+      "title": "Booth Loop Video",
+      "category": "Skills",
+      "description": "Generate a silent, looping 1920x1080 MP4 for a conference booth, kiosk, or lobby screen — rendered frame-by-frame in Python (Pillow + ffmpeg), with previews before the full render.",
+      "preview": "skill",
+      "source": "library/skills/booth-loop-video/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "video",
+        "animation",
+        "python",
+        "marketing",
+        "events",
+        "design",
+        "ffmpeg"
+      ],
+      "recipe": null,
+      "digest": "290e2dd2a885ab7fbdd7e477c2b271ed1fb5e92dbde32ba0a57ec2ce49941758"
+    },
+    {
+      "id": "library/skills/brand-template-enforcer/SKILL.md",
+      "title": "Brand Template Enforcer",
+      "category": "Skills",
+      "description": "Ensure every generated PowerPoint deck or Word document starts from the correct bundled or SharePoint-hosted brand template.",
+      "preview": "skill",
+      "source": "library/skills/brand-template-enforcer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "branding",
+        "powerpoint",
+        "word",
+        "templates",
+        "documents",
+        "presentations"
+      ],
+      "recipe": null,
+      "digest": "0408c45eeb258c00f54b51c8ac69023f2e94e795d1752ef489e29212beda8937"
+    },
+    {
+      "id": "library/skills/brand-voice-pass/SKILL.md",
+      "title": "Brand Voice Pass",
+      "category": "Skills",
+      "description": "Rewrite drafts into a configurable house style, preserving meaning while removing generic AI phrasing.",
+      "preview": "skill",
+      "source": "library/skills/brand-voice-pass/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "content",
+        "voice",
+        "authoring",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "75a924270b0fff204f24d4c7c8e83b83e8b9d44d2d35e5b6ead9d08e61cca576"
+    },
+    {
+      "id": "library/skills/breathing-room/SKILL.md",
+      "title": "Breathing Room",
+      "category": "Skills",
+      "description": "Shows where your own week has room to breathe and where it does not, from your calendar and what you send: meeting density, back-to-back runs, deep-work blocks, evenings and weekends, and the load already building three to ten days out. When a day or a coming week is overloaded it points to the most movable meetings, and it recognises time off rather than reading it as a quiet week. Reports on you only, never on anyone else.",
+      "preview": "skill",
+      "source": "library/skills/breathing-room/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "calendar",
+        "workload",
+        "focus",
+        "work-life-balance",
+        "meetings",
+        "deep-work",
+        "self-service"
+      ],
+      "recipe": null,
+      "digest": "692edf889e646e7f443ff931a7c8d3665c469019be0116e88f1bbe970ef0d870"
+    },
+    {
+      "id": "library/skills/browser-uat-analyst/SKILL.md",
+      "title": "Browser UAT Analyst",
+      "category": "Skills",
+      "description": "Run evidence-driven UAT on any browser-based app — Copilot Studio, Power Platform, Dataverse, Dynamics 365, admin centres, or a custom web app — with Playwright execution, a screenshot evidence ledger, and failure classification that separates product defects from tenant config.",
+      "preview": "skill",
+      "source": "library/skills/browser-uat-analyst/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "testing",
+        "uat",
+        "playwright",
+        "quality",
+        "copilot-studio",
+        "power-platform",
+        "automation"
+      ],
+      "recipe": null,
+      "digest": "5941684a743833b43ae759511901fbdc6ab089dad043060d7036f642f2f7c7e3"
+    },
+    {
+      "id": "library/skills/business-os/SKILL.md",
+      "title": "Business OS",
+      "category": "Skills",
+      "description": "A practical operating system for Copilot Studio that gives agents a consistent way to clarify outcomes, choose the right approach, solve problems, make decisions, plan projects, improve processes, handle incidents, and turn repeatable work into reusable skills. Unlike a standard Copilot experience that relies mainly on the prompt and available context, Business OS adds a structured way of working so responses are more consistent, actionable, and easier to reuse across real business tasks.",
+      "preview": "skill",
+      "source": "library/skills/business-os/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "business",
+        "decision-making",
+        "problem-solving",
+        "project-planning",
+        "process-improvement",
+        "governance",
+        "skill-generation"
+      ],
+      "recipe": null,
+      "digest": "9aac26e17f58a98edc127a236fa975446602ef534cb247a73190682139987f4c"
+    },
+    {
+      "id": "library/skills/call-for-speakers-digest/SKILL.md",
+      "title": "Call for Speakers Digest",
+      "category": "Skills",
+      "description": "Weekly HTML email digest of open conference Call for Speakers (CFP) opportunities matching your topics of interest. Pulls from confs.tech, Papercall, AdatoSystems' CFP tracker, CFP Radar, Sessionize's public user-groups directory, community-specific hubs (like communitydays.org for the Microsoft ecosystem), targeted search of standalone Sessionize conferences and run.events, and general web search. Filters to genuinely open CFPs only, and includes close dates, event dates, format (virtual/in-person), and speaker benefits when stated. Won't repeat a listing week to week unless its deadline is closing soon.",
+      "preview": "skill",
+      "source": "library/skills/call-for-speakers-digest/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "speaking",
+        "conference",
+        "automation"
+      ],
+      "recipe": null,
+      "digest": "e1a30bb58b68dda3c5b2a14e2737a16ca07b52ac9b52eebe16a7f3b3c5489ca7"
+    },
+    {
+      "id": "library/skills/campaign-deck-builder/SKILL.md",
+      "title": "Campaign Deck Builder",
+      "category": "Skills",
+      "description": "Turn a short interview into a charming, vibrant 3-slide marketing-campaign deck by filling a bundled PowerPoint template.",
+      "preview": "skill",
+      "source": "library/skills/campaign-deck-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "marketing",
+        "presentations",
+        "powerpoint",
+        "automation",
+        "scripts"
+      ],
+      "recipe": null,
+      "digest": "4a4641a6ade1d3369780583ca7f51eb9d66285d505c6638485936eab0b1ec742"
+    },
+    {
+      "id": "library/skills/chart-builder/SKILL.md",
+      "title": "Chart Builder",
+      "category": "Skills",
+      "description": "Generate clean, consistently-styled matplotlib charts (bar, line, scatter, histogram, pie) from a DataFrame or CSV with one call.",
+      "preview": "skill",
+      "source": "library/skills/chart-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "data",
+        "charts",
+        "matplotlib",
+        "scripts"
+      ],
+      "recipe": null,
+      "digest": "802381b192ce80b73272cd291caf7c5df0ae80af31a94c404dce63eda837d460"
+    },
+    {
+      "id": "library/skills/classic-text-adventure/SKILL.md",
+      "title": "Classic Text Adventure",
+      "category": "Skills",
+      "description": "Play a deterministic, resumable Colossal Cave adventure with exact game output and built-in diagnostics.",
+      "preview": "skill",
+      "source": "library/skills/classic-text-adventure/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "adventure",
+        "game",
+        "python"
+      ],
+      "recipe": null,
+      "digest": "40bd5a5ba6032ea9a8278334fc1e1f8685b8e853e06f0ba7ae832d8141c5082f"
+    },
+    {
+      "id": "library/skills/clipchamp-video/SKILL.md",
+      "title": "Clipchamp Narrated Demo Video",
+      "category": "Skills",
+      "description": "Produce a polished, narrated demo video of a live web app or Copilot Studio agent — real screen-flow footage under an AI (Ava neural) voiceover — either fully headless (ffmpeg + edge-tts) or assembled in the Clipchamp web UI as an editable project.",
+      "preview": "skill",
+      "source": "library/skills/clipchamp-video/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "video",
+        "demo",
+        "narration",
+        "playwright",
+        "ffmpeg",
+        "copilot-studio",
+        "clipchamp",
+        "tts"
+      ],
+      "recipe": null,
+      "digest": "68d54f71317cff5a07d9304dec00489eaf9523e7460b4fd47718f255e28febc1"
+    },
+    {
+      "id": "library/skills/commenting-content/SKILL.md",
+      "title": "Commenting Content",
+      "category": "Skills",
+      "description": "Comments Word or PowerPoint files with Comments.",
+      "preview": "skill",
+      "source": "library/skills/commenting-content/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "documents",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "6d83629af75426b2e0bf6b07136416a96b16c574b73f2c60bd0a60a42a539c20"
+    },
+    {
+      "id": "library/skills/style-analyzer/SKILL.md",
+      "title": "Communication Style Analyzer",
+      "category": "Skills",
+      "description": "Analyzes your Teams chats and emails to build a reusable profile of your writing voice — greetings, tone, length, punctuation, sign-offs, common phrases, and quirks — and saves it to memory for other assistants to use.",
+      "preview": "skill",
+      "source": "library/skills/style-analyzer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "style",
+        "teams",
+        "email",
+        "memory",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "9a6f6f6b54dfae2bfdb74aefee17f08c5f93344696d36736304ce33efca1ccea"
+    },
+    {
+      "id": "library/skills/competitive-battlecard-builder/SKILL.md",
+      "title": "Competitive Battlecard Builder",
+      "category": "Skills",
+      "description": "Build an interactive comparison app, either a sales battlecard advocating for your product against named competitors, or a neutral, unbiased comparison across two or more peer items with no side taken. Filterable by item and category, with live search, a compact scorecard, and copy-to-clipboard talking points. Every claim is tagged verified or unverified so nothing invented ends up in front of a customer. Exports to PowerPoint on request, with support for a real branding template.",
+      "preview": "skill",
+      "source": "library/skills/competitive-battlecard-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "sales-enablement",
+        "productivity",
+        "comparison"
+      ],
+      "recipe": null,
+      "digest": "fa6b80e25fe48db681e2c690254b1b1b69fd3e53a9b2edcfcfa771b888509b4c"
+    },
+    {
+      "id": "library/skills/conditional-chat-reminder/SKILL.md",
+      "title": "Conditional Chat Reminder",
+      "category": "Skills",
+      "description": "Schedule a Teams reminder that sends only when the expected person has not already posted a relevant update.",
+      "preview": "skill",
+      "source": "library/skills/conditional-chat-reminder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "automation",
+        "teams",
+        "reminders",
+        "follow-up",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "c39c6933af4a7872d3ae058e4fd7aef419f45f0a5b9170f1d78b198b7325bf1e"
+    },
+    {
+      "id": "library/skills/conference-session-abstract-pack/SKILL.md",
+      "title": "Conference Session Abstract Pack",
+      "category": "Skills",
+      "description": "Create CFP-ready talk titles, abstracts, takeaways, speaker notes, and submission copy from a topic.",
+      "preview": "skill",
+      "source": "library/skills/conference-session-abstract-pack/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "conference",
+        "abstract",
+        "speaking",
+        "content",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "9d37918bf39e496394633339cfd7ab477c99650fc6db6682f0b82b2962ece2d9"
+    },
+    {
+      "id": "library/skills/content-quality-auditor/SKILL.md",
+      "title": "Content Quality Auditor",
+      "category": "Skills",
+      "description": "Score documents, pages, posts, or artefact libraries against a configurable quality rubric and recommend fixes.",
+      "preview": "skill",
+      "source": "library/skills/content-quality-auditor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "content",
+        "quality",
+        "audit",
+        "documents",
+        "productivity",
+        "governance"
+      ],
+      "recipe": null,
+      "digest": "8a0fc4a0dccd430aa61d082fd0ab20d8866343c6c69884f0c0fdd6e43976be7e"
+    },
+    {
+      "id": "library/skills/create-copilot-adoption-dashboard/SKILL.md",
+      "title": "Copilot Adoption Dashboard",
+      "category": "Skills",
+      "description": "Using exported files from MAC usage reports, build html Copilot Adoption Dashboard with integrated framework that suggest next steps",
+      "preview": "skill",
+      "source": "library/skills/create-copilot-adoption-dashboard/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot",
+        "adoption",
+        "data",
+        "dashboard",
+        "kpis",
+        "measure"
+      ],
+      "recipe": null,
+      "digest": "524a2d8df8cac6bff1c0d64c1737cb1528b45dfa1cd2dbc806fe1895e3ab4092"
+    },
+    {
+      "id": "library/skills/copilot-agent-advisor/SKILL.md",
+      "title": "Copilot Agent Advisor",
+      "category": "Skills",
+      "description": "Tells you which Microsoft 365 / Copilot Studio agent option fits your scenario — use M365 Copilot as-is, build a standard (declarative) agent, or build a custom (custom engine) agent — and which Copilot Studio harness (GitHub Copilot, standard, or Copilot chat) to build on.",
+      "preview": "skill",
+      "source": "library/skills/copilot-agent-advisor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "agents",
+        "decision-support",
+        "architecture",
+        "advisor"
+      ],
+      "recipe": null,
+      "digest": "f4acb24148d924607f1ccfb6873d610df9881ac68071759aa7996e7b85bb2859"
+    },
+    {
+      "id": "library/skills/copilot-studio-agent-test/SKILL.md",
+      "title": "Copilot Studio Agent Test",
+      "category": "Skills",
+      "description": "Test a Copilot Studio agent against your own Q&A set and get a graded pass/fail report — no browser automation.",
+      "preview": "skill",
+      "source": "library/skills/copilot-studio-agent-test/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "testing",
+        "evaluation",
+        "quality",
+        "agents",
+        "power-platform"
+      ],
+      "recipe": null,
+      "digest": "f692bc908a02190f6b7681b5284e4564a77e3cd956bd98bb49e8cc25d94daf9b"
+    },
+    {
+      "id": "library/skills/copilot-studio-harness-picker/SKILL.md",
+      "title": "Copilot Studio Harness Picker",
+      "category": "Skills",
+      "description": "Choose the right Copilot Studio harness and build shape; in Cowork, use GPT-5.6 with High effort for Detailed mode, Claude Opus 5 as fallback, or Auto for Quick mode.",
+      "preview": "skill",
+      "source": "library/skills/copilot-studio-harness-picker/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "cowork",
+        "architecture",
+        "agent-design",
+        "governance",
+        "licensing"
+      ],
+      "recipe": null,
+      "digest": "e977cd6724e00f72afcfb554ce89897e515b4d13ed4c10ad2f62fbfdd2ef4b85"
+    },
+    {
+      "id": "library/skills/copilot-studio-knowledge-readiness/skill.md",
+      "title": "Copilot Studio Knowledge Readiness",
+      "category": "Skills",
+      "description": "Assess whether an uploaded or exported document set is ready to power a Copilot Studio agent. Produces a corpus-based readiness score, prioritized cleanup backlog, chunking and metadata guidance, and a test-prompt suite, while calling out any evidence gaps that require live system review.",
+      "preview": "skill",
+      "source": "library/skills/copilot-studio-knowledge-readiness/skill.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio",
+        "knowledge",
+        "rag",
+        "sharepoint",
+        "dataverse",
+        "governance",
+        "readiness",
+        "assessment"
+      ],
+      "recipe": null,
+      "digest": "0b2dcabe7172b12cd9589eb20e3fdf221152c24239fe2cb465d6100bb7dddd6e"
+    },
+    {
+      "id": "library/skills/copilot-studio-topic-blueprint/SKILL.md",
+      "title": "Copilot Studio Topic Blueprint",
+      "category": "Skills",
+      "description": "Turn a one-line use case into a build-ready Microsoft Copilot Studio agent blueprint: recommended agent type and orchestration, topics, tools, knowledge, variables, a welcome Adaptive Card, security and Copilot Credits notes, and a first test plan.",
+      "preview": "skill",
+      "source": "library/skills/copilot-studio-topic-blueprint/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "agent",
+        "blueprint",
+        "topics",
+        "design",
+        "power-platform",
+        "orchestration",
+        "adaptive-card"
+      ],
+      "recipe": null,
+      "digest": "dff01ef0faf7727ebd7cead6765aa1b051d7fd90f65042ccdeab7e47835958a5"
+    },
+    {
+      "id": "library/skills/cowork-use-case-one-pager/SKILL.md",
+      "title": "Cowork Use Case One-Pager",
+      "category": "Skills",
+      "description": "Turn a Cowork conversation, into a one-page HTML use case write-up — narrative, impact figures, workflow steps, and outputs.",
+      "preview": "skill",
+      "source": "library/skills/cowork-use-case-one-pager/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "use-case",
+        "html",
+        "documents",
+        "writing",
+        "audit"
+      ],
+      "recipe": null,
+      "digest": "e65e4a72616e78ba8d40473ae56a5a22f6c686b1334ef164137fdf2a10e1284a"
+    },
+    {
+      "id": "library/skills/lookup-dataverse-table/SKILL.md",
+      "title": "Dataverse Table Lookup",
+      "category": "Skills",
+      "description": "Search any Microsoft Dataverse table, browse matching records, and drill into full record details — sourced live via the Dataverse MCP Server.",
+      "preview": "skill",
+      "source": "library/skills/lookup-dataverse-table/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "dataverse",
+        "mcp",
+        "data-lookup",
+        "power-platform",
+        "crm"
+      ],
+      "recipe": null,
+      "digest": "71a994c019bbab1a35e79db52e41cda30d106cb64ed6e31e109a45d5133757b1"
+    },
+    {
+      "id": "library/skills/office/docx/SKILL.md",
+      "title": "DOCX creation, editing, and analysis",
+      "category": "Skills",
+      "description": "Reusable skill instructions. Inspect the source for prerequisites, tools, licensing, and approval requirements.",
+      "preview": "skill",
+      "source": "library/skills/office/docx/SKILL.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "62849c42eca6ffbfe1e2a7918198311d2e535570a004c74afe68c837372ef978"
+    },
+    {
+      "id": "library/skills/enterprise-agent-design-authority/SKILL.md",
+      "title": "Enterprise Agent Design Authority (EADA)",
+      "category": "Skills",
+      "description": "An enterprise design review framework that helps architects build secure, scalable, governable, and production-ready Microsoft Copilot Studio agents.",
+      "preview": "skill",
+      "source": "library/skills/enterprise-agent-design-authority/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "assessment",
+        "review",
+        "architecture",
+        "enterprise",
+        "design-review",
+        "copilot-studio"
+      ],
+      "recipe": null,
+      "digest": "b1ed13baa519070017e076758c9cca0aef212b7e80e73b76141a0f652bcaaf2f"
+    },
+    {
+      "id": "library/skills/eu-greenwashing-analysis/SKILL.md",
+      "title": "EU Greenwashing Analysis",
+      "category": "Skills",
+      "description": "Detect greenwashing in product descriptions, marketing copy, and catalog entries against EU Directive 2024/825 and the Green Claims Directive. Returns a structured per-claim findings report with risk levels, regulation references, and recommended corrections.",
+      "preview": "skill",
+      "source": "library/skills/eu-greenwashing-analysis/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "compliance",
+        "sustainability",
+        "greenwashing",
+        "eu-regulation",
+        "marketing-review",
+        "esg"
+      ],
+      "recipe": null,
+      "digest": "d33b9fc639e9b50f800d32c8f4bc08064874b53b83299ce72167d7d9991fe372"
+    },
+    {
+      "id": "library/skills/exam-prep-learning-plan-builder/SKILL.md",
+      "title": "Exam Prep Learning Plan Builder",
+      "category": "Skills",
+      "description": "Build a personalized study plan app for an exam or certification: overview timeline, day-by-day schedule with a calendar picker, domain breakdown, one-click .ics download, and a notes tab to track confidence over time.",
+      "preview": "skill",
+      "source": "library/skills/exam-prep-learning-plan-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "planning",
+        "productivity",
+        "learning"
+      ],
+      "recipe": null,
+      "digest": "7a00f2931feeedfb01be857cdb4e2d19c17db48c07a7d5b8a07c1a7cbbf1d51a"
+    },
+    {
+      "id": "library/skills/explainer-video/SKILL.md",
+      "title": "Explainer Video",
+      "category": "Skills",
+      "description": "Create narrated, captioned 1080p explainer videos with researched scripts, generated b-roll, and supplied screenshots.",
+      "preview": "skill",
+      "source": "library/skills/explainer-video/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "video",
+        "education",
+        "training",
+        "communication"
+      ],
+      "recipe": null,
+      "digest": "c464697d2a1ab8b4557704c7147c0ffe7793a94bc890aa25783893a05c23be09"
+    },
+    {
+      "id": "library/skills/gantt-chart-generator/SKILL.md",
+      "title": "Gantt Chart Builder",
+      "category": "Skills",
+      "description": "Generate clean, consistently-styled matplotlib Gantt charts from a schedule CSV or DataFrame — with group colours, completion overlays, and a today line.",
+      "preview": "skill",
+      "source": "library/skills/gantt-chart-generator/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "gantt",
+        "timeline",
+        "project-management",
+        "matplotlib",
+        "charts",
+        "scripts"
+      ],
+      "recipe": null,
+      "digest": "0ea7721b8c6ded289a1ed803f8324d477ae503248952dd9677457bbd53ecfca9"
+    },
+    {
+      "id": "library/skills/global-greenwashing-claim-auditor/SKILL.md",
+      "title": "Global Greenwashing Claim Auditor",
+      "category": "Skills",
+      "description": "Audit environmental claims in CSV, XLSX, DOCX, PPTX, conversational text, and public websites with separate ANY, CA, EU, and UK findings.",
+      "preview": "skill",
+      "source": "library/skills/global-greenwashing-claim-auditor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "greenwashing",
+        "environmental claims",
+        "sustainability",
+        "compliance",
+        "canada",
+        "european union",
+        "united kingdom",
+        "documents",
+        "spreadsheets",
+        "web"
+      ],
+      "recipe": null,
+      "digest": "62af549291ed56803b750547f573862ca40adef58b75d64b061d4849dd151a49"
+    },
+    {
+      "id": "library/skills/grab-my-files/SKILL.md",
+      "title": "Grab My Files",
+      "category": "Skills",
+      "description": "One-tap way to bundle every file your Copilot Studio agent produced in a session into a single timestamped .zip and hand it back as a download.",
+      "preview": "skill",
+      "source": "library/skills/grab-my-files/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "files",
+        "export",
+        "zip",
+        "download",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "ffbf2fb063a5455e2c50da8e6fea39a94f430d34b7108d7ecc3453c75458a6d6"
+    },
+    {
+      "id": "library/skills/holiday-recap/SKILL.md",
+      "title": "Holiday Recap",
+      "category": "Skills",
+      "description": "Catch up after annual leave in one pass — a single prioritised briefing of the mail, meetings, and Teams conversations you missed, with deep links and one-click follow-up actions.",
+      "preview": "skill",
+      "source": "library/skills/holiday-recap/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "outlook",
+        "teams",
+        "email",
+        "meetings",
+        "calendar",
+        "summarization",
+        "catch-up"
+      ],
+      "recipe": null,
+      "digest": "be11a515934f26dbf33ea2554d72c456fa6ce5afed47258eb17e79b6c64d4191"
+    },
+    {
+      "id": "library/skills/idea-refiner/SKILL.md",
+      "title": "Idea Refiner",
+      "category": "Skills",
+      "description": "Refines an existing plan, decision, or draft through relentless, branch-by-branch questioning. Grouped in batches of 2-5 with recommended answers, pulling facts from Work IQ where possible, until every part has been fully thought through.",
+      "preview": "skill",
+      "source": "library/skills/idea-refiner/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "planning",
+        "decision-making",
+        "refinement",
+        "brainstorming"
+      ],
+      "recipe": null,
+      "digest": "d7ef51fe5a43ea11ba1e2620c4ca17f685bd96c19d9e7285cb93c1a70fc8dbe7"
+    },
+    {
+      "id": "library/skills/institutional-knowledge/SKILL.md",
+      "title": "Institutional Knowledge Archivist",
+      "category": "Skills",
+      "description": "Preserve a departing senior leader's institutional knowledge — decisions, rationale, relationships, and tribal knowledge — by mining their M365 signals into a structured, multi-phase archive a successor can ground on.",
+      "preview": "skill",
+      "source": "library/skills/institutional-knowledge/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "knowledge",
+        "handoff",
+        "leadership",
+        "m365",
+        "offboarding",
+        "documentation",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "943b4e851a9cd0db5c3db77cda8ab4eb5a9082861cfb3ce78c389290d4a2d949"
+    },
+    {
+      "id": "library/skills/iterative-file-editing/SKILL.md",
+      "title": "Iterative File Editing",
+      "category": "Skills",
+      "description": "In Copilot Studio, re-sending an edited file under the same name fails to deliver it — the change is made but never reaches the user. This skill gives each iteration a new version-numbered filename (report_v1.docx, report_v2.docx…) so every update actually lands in the chat as its own attachment.",
+      "preview": "skill",
+      "source": "library/skills/iterative-file-editing/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "files",
+        "iteration",
+        "workflow",
+        "collaboration",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "d6affe709fb972d85aa85f60858686b9173218fd76138721158fd49518419c09"
+    },
+    {
+      "id": "library/skills/knowledge-corpus-curator/SKILL.md",
+      "title": "Knowledge Corpus Curator",
+      "category": "Skills",
+      "description": "Review uploaded knowledge-source files for duplication, redundancy, staleness, overlap, and potentially conflicting guidance, then produce an evidence-based curation backlog.",
+      "preview": "skill",
+      "source": "library/skills/knowledge-corpus-curator/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "knowledge",
+        "sharepoint",
+        "governance",
+        "deduplication",
+        "documents",
+        "uploads",
+        "excel"
+      ],
+      "recipe": null,
+      "digest": "399d87be66b1541490d0028bf571fb58f27bee4c1ca325b5ef5d39ef9ad2cf63"
+    },
+    {
+      "id": "library/skills/knowledge-source-router/SKILL.md",
+      "title": "Knowledge Source Router",
+      "category": "Skills",
+      "description": "Route country-specific SharePoint questions through Country metadata first, then search only the complete set of matching documents.",
+      "preview": "skill",
+      "source": "library/skills/knowledge-source-router/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "knowledge",
+        "routing",
+        "sharepoint",
+        "metadata",
+        "grounding"
+      ],
+      "recipe": null,
+      "digest": "ac8defd50c46306e56e7b2cd5fdad2653f8e18d2bbf10c00ed69e9978f0b9669"
+    },
+    {
+      "id": "library/skills/lab-column-mapper/SKILL.md",
+      "title": "Lab Column Mapper",
+      "category": "Skills",
+      "description": "When a health system's lab results ingestion pipeline hits an unknown column header, this skill semantically matches the source column against the canonical clinical schema (LOINC-anchored), scoped by lab and clinical domain, and writes a suggested mapping to a Dataverse review queue for a clinical informatics steward to approve.",
+      "preview": "skill",
+      "source": "library/skills/lab-column-mapper/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "healthcare",
+        "clinical-data",
+        "lab-results",
+        "schema-drift",
+        "column-mapping",
+        "data-ingestion",
+        "loinc",
+        "azure-ai-search",
+        "azure-data-factory",
+        "dataverse",
+        "power-automate",
+        "human-in-the-loop"
+      ],
+      "recipe": null,
+      "digest": "6335573951b902dc8e7014f5fa178f9317a314dbef7f8243bb98187c3149490a"
+    },
+    {
+      "id": "library/skills/linkedin-content-system/SKILL.md",
+      "title": "LinkedIn Content System",
+      "category": "Skills",
+      "description": "Create evidence-led LinkedIn posts, promos, newsletter intros, and long-form copy from supplied facts or drafts.",
+      "preview": "skill",
+      "source": "library/skills/linkedin-content-system/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "linkedin",
+        "social-media",
+        "writing",
+        "marketing",
+        "content"
+      ],
+      "recipe": null,
+      "digest": "14996df32a6dc1de91fce556ecb781d3ff6cb1c6fca7cdf91e68156d34d48153"
+    },
+    {
+      "id": "library/skills/linkedin-content-writer/SKILL.md",
+      "title": "LinkedIn Content Writer",
+      "category": "Skills",
+      "description": "Create credible LinkedIn content from facts, notes or drafts, with configurable voice and no invented evidence.",
+      "preview": "skill",
+      "source": "library/skills/linkedin-content-writer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "linkedin",
+        "social-media",
+        "writing",
+        "content"
+      ],
+      "recipe": null,
+      "digest": "f500f29d7ed793ab03e035b36fd476ce1619412994108d295aceee1c61f7a788"
+    },
+    {
+      "id": "library/skills/mct-excellence-iq/SKILL.md",
+      "title": "MCT Excellence IQ",
+      "category": "Skills",
+      "description": "An AI-powered Instructional Intelligence Skill that helps Microsoft Certified Trainers design, deliver, assess, localize, and continuously improve world-class Microsoft learning experiences across Azure, Business Applications, Data & AI, Modern Work, and Security.",
+      "preview": "skill",
+      "source": "library/skills/mct-excellence-iq/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "mct",
+        "instructional-intelligence",
+        "microsoft-learning",
+        "courseware",
+        "microsoft-learn",
+        "azure",
+        "business-applications",
+        "data-ai",
+        "modern-work",
+        "security",
+        "instructional-design",
+        "learning-experience",
+        "workshops",
+        "hands-on-labs",
+        "demonstrations",
+        "assessment",
+        "surveys",
+        "learning-analytics",
+        "localization",
+        "responsible-ai"
+      ],
+      "recipe": null,
+      "digest": "a82f87c956312b8f73c86a66a21ac00f468efdb5f45405a57d6545479f671814"
+    },
+    {
+      "id": "library/skills/meeting-analyzer/SKILL.md",
+      "title": "Meeting Analyzer",
+      "category": "Skills",
+      "description": "Analyzes meeting content pasted as text or provided as audio/video transcripts. Delivers a structured intelligence report: explicit decisions and action items, participant persona profiles, and — most importantly — hidden insights: unspoken tensions, implicit risks, unresolved topics, and signals that were not made explicit during the meeting but are critical to the context.",
+      "preview": "skill",
+      "source": "library/skills/meeting-analyzer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "meetings",
+        "analysis",
+        "insights",
+        "personas",
+        "transcription",
+        "productivity",
+        "communication"
+      ],
+      "recipe": null,
+      "digest": "5ec155bbd3fe3f8a6573968a04eff1362f69d72fa27a97ce96b47a34f78915d2"
+    },
+    {
+      "id": "library/skills/microsoft-ai-platform-advisor/SKILL.md",
+      "title": "Microsoft AI Platform Advisor",
+      "category": "Skills",
+      "description": "Guides a customer through a discovery interview, recommends the right Microsoft AI platform (M365 Copilot, Agent Builder, Copilot Studio, Foundry, Foundry Agent Service, Windows AI Foundry, or Agent 365 as the governance layer), scores technical complexity and risk, and plots them on a 2x2 quadrant chart with planning guidance.",
+      "preview": "skill",
+      "source": "library/skills/microsoft-ai-platform-advisor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "advisor",
+        "discovery",
+        "architecture",
+        "decision-making",
+        "requirements",
+        "risk-assessment",
+        "microsoft-365-copilot",
+        "foundry",
+        "foundry-agent-service",
+        "agent-365",
+        "windows-ai-foundry"
+      ],
+      "recipe": null,
+      "digest": "5b5901101911aaebc07f93f16adb7033b9d2066cce185f5dc5cf44f426d02150"
+    },
+    {
+      "id": "library/skills/monte-carlo-analysis/SKILL.md",
+      "title": "Monte Carlo Analysis",
+      "category": "Skills",
+      "description": "Run Monte Carlo simulations from natural-language risk inputs — triangular, normal, uniform, or log-normal — and return percentiles, a histogram PNG, optional interactive HTML, and a downloadable results spreadsheet.",
+      "preview": "skill",
+      "source": "library/skills/monte-carlo-analysis/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "monte-carlo",
+        "risk-assessment",
+        "python",
+        "simulation",
+        "matplotlib",
+        "charts",
+        "csv",
+        "analysis"
+      ],
+      "recipe": null,
+      "digest": "39b08b27ed8bbc75231108a7a5992bafdf122e176064994189b90b7a4f850c29"
+    },
+    {
+      "id": "library/skills/own-voice-builder/SKILL.md",
+      "title": "Own Voice Builder",
+      "category": "Skills",
+      "description": "Mines your sent emails to extract your real writing voice — languages, tone modes, structure, vocabulary, taboo phrases — and generates a personal voice skill that makes every email and Teams draft sound like you.",
+      "preview": "skill",
+      "source": "library/skills/own-voice-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "voice",
+        "email",
+        "teams",
+        "productivity",
+        "microsoft-365"
+      ],
+      "recipe": null,
+      "digest": "2931ba3b66ec694ca247a5f9bfddd4207142b48adbece93c736cb97d878e8f2e"
+    },
+    {
+      "id": "library/skills/pattern-radar/SKILL.md",
+      "title": "Pattern Radar",
+      "category": "Skills",
+      "description": "Scans your recent Microsoft 365 signals to surface recurring patterns worth productizing — things you keep explaining (blog candidates) or multi-step tasks you keep doing by hand (automation candidates).",
+      "preview": "skill",
+      "source": "library/skills/pattern-radar/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "automation",
+        "content",
+        "email",
+        "teams",
+        "insights"
+      ],
+      "recipe": null,
+      "digest": "7cf94614efff39c65097fa7857e16f24a75363f41d870eff826be31a9f7ea8b8"
+    },
+    {
+      "id": "library/skills/office/pdf/SKILL.md",
+      "title": "PDF Processing Guide",
+      "category": "Skills",
+      "description": "Reusable skill instructions. Inspect the source for prerequisites, tools, licensing, and approval requirements.",
+      "preview": "skill",
+      "source": "library/skills/office/pdf/SKILL.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "0e9a959f427c97b97e7e96b2f2aabecc3576a5a9c24a65db9e19beddb872fa80"
+    },
+    {
+      "id": "library/skills/pdf-table-data-conversion/SKILL.md",
+      "title": "PDF Table Data Conversion",
+      "category": "Skills",
+      "description": "Extract tables from a PDF document (e.g. contract rebate or pricing schedules) and convert them into a clean, workable Excel spreadsheet or CSV.",
+      "preview": "skill",
+      "source": "library/skills/pdf-table-data-conversion/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "documents",
+        "extraction",
+        "pdf",
+        "csv",
+        "xlsx",
+        "tables",
+        "sharepoint"
+      ],
+      "recipe": null,
+      "digest": "735a67c9967dfccf1d07e580f1465523e1f7f60e578186014c3a9b157ed73aa2"
+    },
+    {
+      "id": "library/skills/persona-reaction-panel/SKILL.md",
+      "title": "Persona Reaction Panel",
+      "category": "Skills",
+      "description": "Pre-test an internal launch, comms, or enablement artefact against your own role-based personas before it ships — surfaces blackspots, domain gaps, credible-detractor risks, and concrete edits. Bring your own personas file.",
+      "preview": "skill",
+      "source": "library/skills/persona-reaction-panel/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "communications",
+        "change-management",
+        "launch-readiness",
+        "personas",
+        "qa"
+      ],
+      "recipe": null,
+      "digest": "da931ae230bb068a34049d5f52cc5e81a28b11e62296c2dfe347135227c887b0"
+    },
+    {
+      "id": "library/skills/generating-podcast-script/SKILL.md",
+      "title": "Podcast Script Generator",
+      "category": "Skills",
+      "description": "Turn a topic or a pile of source material — a newsletter, news digest, or set of articles — into a two-host, NotebookLM-style podcast episode, with multi-voice SSML and optional Azure Text-to-Speech audio.",
+      "preview": "skill",
+      "source": "library/skills/generating-podcast-script/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "content",
+        "podcast",
+        "audio",
+        "text-to-speech",
+        "ssml",
+        "news"
+      ],
+      "recipe": null,
+      "digest": "cb59026214ee835eeeea61288c49fe7bc24f4883f6a30c2b04e31c6ffad69551"
+    },
+    {
+      "id": "library/skills/pov-line-generator/SKILL.md",
+      "title": "POV Line Generator",
+      "category": "Skills",
+      "description": "Generate sharp, specific point-of-view lines for posts, slides, talks, campaigns, or positioning work.",
+      "preview": "skill",
+      "source": "library/skills/pov-line-generator/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "positioning",
+        "marketing",
+        "content",
+        "social-media"
+      ],
+      "recipe": null,
+      "digest": "52189000bbd1aefe63a7a60d0e6725b840d1faff7fa61c4ca6f65ae930b77cf6"
+    },
+    {
+      "id": "library/skills/power-automate-desktop-assessment/SKILL.md",
+      "title": "Power Automate Desktop Assessment",
+      "category": "Skills",
+      "description": "Assess Power Automate Desktop and hybrid automation projects with evidence-based findings and prioritized remediation guidance.",
+      "preview": "skill",
+      "source": "library/skills/power-automate-desktop-assessment/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "power-automate",
+        "desktop-flows",
+        "automation",
+        "assessment",
+        "governance"
+      ],
+      "recipe": null,
+      "digest": "815bf62c7b114b3f5f6645bcd0059b3cd5f06ad3e3cfc302218209fc9e9cd73f"
+    },
+    {
+      "id": "library/skills/power-automate-documentation/SKILL.md",
+      "title": "Power Automate Documentation",
+      "category": "Skills",
+      "description": "Turns a Power Automate solution .zip into a clean markdown reference for every flow inside it: trigger, plain-English process, connection references, and a read/write/delete table for everything it touches. Maps which flows call each other and unresolved connections automatically.",
+      "preview": "skill",
+      "source": "library/skills/power-automate-documentation/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "power-automate",
+        "documentation",
+        "audit",
+        "governance"
+      ],
+      "recipe": null,
+      "digest": "61734a905c947a002a165fa371f3914cb0c26427261a3cc413f083cc78aaf0b7"
+    },
+    {
+      "id": "library/skills/power-bi-model-review/SKILL.md",
+      "title": "Power BI Model Review",
+      "category": "Skills",
+      "description": "Review a Power BI or Analysis Services semantic model (TMDL, BIM/JSON, or a pasted table/measure list) for relationship, DAX, date-handling, and naming issues, with corrected DAX for anything flagged.",
+      "preview": "skill",
+      "source": "library/skills/power-bi-model-review/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "power-bi",
+        "dax",
+        "semantic-model",
+        "data",
+        "review",
+        "fabric"
+      ],
+      "recipe": null,
+      "digest": "03c5f9ca3b212567408d62eb55e0427520f33bf46d6209a4deb5cd25f06dc8ed"
+    },
+    {
+      "id": "library/skills/office/pptx/SKILL.md",
+      "title": "PPTX creation, editing, and analysis",
+      "category": "Skills",
+      "description": "Reusable skill instructions. Inspect the source for prerequisites, tools, licensing, and approval requirements.",
+      "preview": "skill",
+      "source": "library/skills/office/pptx/SKILL.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "df6b5773b71c4583a330c1075ce91d4d0320203b31f0e5c30790567c8f6b9999"
+    },
+    {
+      "id": "library/skills/presentation-talk-track-builder/SKILL.md",
+      "title": "Presentation Talk Track Builder",
+      "category": "Skills",
+      "description": "Writes natural, first-person spoken presenter scripts for the slides in a deck. Treats existing speaker notes as authoritative when they contradict slide text. Calibrates length to a target duration and speaking pace and returns a timing table. Never modifies visible slide content.",
+      "preview": "skill",
+      "source": "library/skills/presentation-talk-track-builder/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "presentations",
+        "speaker-notes",
+        "powerpoint",
+        "writing",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "9b389cb865e5348313c6d4ab719e47702fb4a34e751530757e3128bcf89a1161"
+    },
+    {
+      "id": "library/skills/process-sop-architect/SKILL.md",
+      "title": "Process & SOP Architect",
+      "category": "Skills",
+      "description": "Turn process notes and transcripts into an editable SOP, process map, RACI, control register, improvement backlog, and polished PowerPoint briefing.",
+      "preview": "skill",
+      "source": "library/skills/process-sop-architect/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "process-improvement",
+        "sop",
+        "operations",
+        "powerpoint",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "eba2f73a0c5107c29b8f079ede3734f91b91f77cfc3267ea18eef9df17598575"
+    },
+    {
+      "id": "library/skills/redlining-content/SKILL.md",
+      "title": "Redlining Content",
+      "category": "Skills",
+      "description": "Redlines a document based on changes from a template with Track Changes.",
+      "preview": "skill",
+      "source": "library/skills/redlining-content/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "documents",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "4bb1e259943051cdddc4fa617cae541655983c6d4b50bcd1c401ece12ed1f9dd"
+    },
+    {
+      "id": "library/skills/regulation-monitor/SKILL.md",
+      "title": "Regulation Monitor",
+      "category": "Skills",
+      "description": "Configure once, then on a schedule sweeps a locked list of authoritative sources (auto-discovered at setup, confirmed by the user) plus any user-supplied seeds. Classifies each item, flags items relevant to the user's team using a light WorkIQ-derived profile, and renders a self-contained HTML dashboard. A tightly-bounded fallback web search is used only when a locked source is silent in the window. Domain-agnostic (tax, privacy, AI/ML, healthcare, finance, ESG, labor, etc.).",
+      "preview": "skill",
+      "source": "library/skills/regulation-monitor/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "regulation",
+        "monitoring",
+        "compliance",
+        "dashboard",
+        "research"
+      ],
+      "recipe": null,
+      "digest": "8f065799eb519f245d5236c981c85799e1b4bf033d762f549327e55fc478cd87"
+    },
+    {
+      "id": "library/skills/office/xlsx/SKILL.md",
+      "title": "Requirements for Outputs",
+      "category": "Skills",
+      "description": "Reusable skill instructions. Inspect the source for prerequisites, tools, licensing, and approval requirements.",
+      "preview": "skill",
+      "source": "library/skills/office/xlsx/SKILL.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "9e259246aceab907d997f29e87095dce87eceeb1ee2c895bf77f127565ff5326"
+    },
+    {
+      "id": "library/skills/rich-html-presentation/SKILL.md",
+      "title": "Rich HTML Presentation",
+      "category": "Skills",
+      "description": "Create polished, self-contained HTML slide decks with keynote-style visuals, keyboard navigation, themes, animations, and reusable presentation components.",
+      "preview": "skill",
+      "source": "library/skills/rich-html-presentation/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "presentations",
+        "html",
+        "design",
+        "productivity",
+        "writing"
+      ],
+      "recipe": null,
+      "digest": "938c44077af990516322bc0b0b1606e03143443910b9e818fd294a58587d20ee"
+    },
+    {
+      "id": "library/skills/route-map-visualizer/SKILL.md",
+      "title": "Route Map Visualizer",
+      "category": "Skills",
+      "description": "Visualize routes and locations on a map. Accepts pre-ordered stops with coordinates from upstream connectors (Azure Maps, Bing Maps, Dataverse, CRM) plus optional road geometry, leg distances, and durations. Produces PNG, interactive HTML (Leaflet/OSM), GeoJSON, KML, deep links, and QR codes. Fully offline Python engine — road geometry rendered directly when provided, or OSRM used browser-side as a schematic fallback.",
+      "preview": "skill",
+      "source": "library/skills/route-map-visualizer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "maps",
+        "routing",
+        "visualization",
+        "openstreetmap",
+        "python",
+        "leaflet",
+        "geojson",
+        "kml",
+        "deep-links",
+        "qr-codes",
+        "logistics",
+        "azure-maps",
+        "bing-maps"
+      ],
+      "recipe": null,
+      "digest": "93ecf2d3c1eae1cfcc5db5d35d878040166e11f09e4cfef4705fc57adf2e50bd"
+    },
+    {
+      "id": "library/skills/scrollytelling-data/SKILL.md",
+      "title": "Scrollytelling Data",
+      "category": "Skills",
+      "description": "Turns data into a scroll-driven HTML story.",
+      "preview": "skill",
+      "source": "library/skills/scrollytelling-data/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "data",
+        "visualization",
+        "storytelling",
+        "reporting"
+      ],
+      "recipe": null,
+      "digest": "1d6d9842b4f0c8d650f04ac85e2b12a01532bd727d4bdf5c0b3bb9aa64ef116f"
+    },
+    {
+      "id": "library/skills/sharepoint-file-creation/SKILL.md",
+      "title": "SharePoint File Creation",
+      "category": "Skills",
+      "description": "Generate a requested file, enforce a safe pre-upload size gate, and upload it to SharePoint without streaming bytes through the model.",
+      "preview": "skill",
+      "source": "library/skills/sharepoint-file-creation/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "sharepoint",
+        "files",
+        "upload",
+        "microsoft-365"
+      ],
+      "recipe": null,
+      "digest": "11bcae413a817483ac2d0cb049dbb8861bcdce75a3f5691b13c54bba3556e620"
+    },
+    {
+      "id": "library/skills/sharepoint-list-formatter/SKILL.md",
+      "title": "SharePoint List Formatter",
+      "category": "Skills",
+      "description": "Turns any SharePoint list data into a clean, consistent markdown table. Dynamic columns based on list type and query, plus a one-click Open link for every row.",
+      "preview": "skill",
+      "source": "library/skills/sharepoint-list-formatter/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "sharepoint",
+        "microsoft-365",
+        "productivity",
+        "tables",
+        "data"
+      ],
+      "recipe": null,
+      "digest": "10e9033ed2c63a887d9c954628f49d0292135f5c267eff7d555e95d161e7a320"
+    },
+    {
+      "id": "library/skills/sharepoint-list-insight-report-generator/SKILL.md",
+      "title": "SharePoint List Insight Report Generator",
+      "category": "Skills",
+      "description": "Automatically discovers and validates a SharePoint list within a connected knowledge source, analyzes its structure and data, identifies key business insights, and generates a downloadable interactive HTML report. The report includes dynamic filters, interactive charts, sortable and searchable tables with pagination, detailed record drill-down through modal popups, and direct links to open items in SharePoint. If the requested list is not found, the skill suggests available lists and closest matches before stopping the analysis.",
+      "preview": "skill",
+      "source": "library/skills/sharepoint-list-insight-report-generator/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "sharepoint",
+        "microsoft-365",
+        "lists",
+        "report",
+        "html"
+      ],
+      "recipe": null,
+      "digest": "2a81980f3281035bac7ea867c0347519afe73c644289a4b149895d1db7632ff2"
+    },
+    {
+      "id": "library/skills/skill-authoring-coach/SKILL.md",
+      "title": "Skill Authoring Coach",
+      "category": "Skills",
+      "description": "Help makers design concise, reusable Agent Skills with clear triggers, instructions, resources, and packaging.",
+      "preview": "skill",
+      "source": "library/skills/skill-authoring-coach/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "skills",
+        "authoring",
+        "documentation",
+        "productivity",
+        "agent"
+      ],
+      "recipe": null,
+      "digest": "04504f6bdd66f01d908312332d1ce96307e895bedb1640c820ab96ba420bed17"
+    },
+    {
+      "id": "library/skills/stoic-negotiator/SKILL.md",
+      "title": "Stoic Negotiator",
+      "category": "Skills",
+      "description": "A principled negotiation intelligence skill that combines Stoic decision disciplines with evidence-backed research to help individuals, executives, and analyst agents prepare, analyze, and execute high-quality negotiations. Supports interactive scoping workflows, Deep Research sourcing (citations and source URLs), and audit-ready outputs.",
+      "preview": "skill",
+      "source": "library/skills/stoic-negotiator/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "negotiation",
+        "decision-making",
+        "offers",
+        "salary",
+        "sales",
+        "commerce",
+        "BATNA",
+        "ZOPA",
+        "deals",
+        "stoicism"
+      ],
+      "recipe": null,
+      "digest": "b74fe8084435475e3f9ea94d324f843df5f6af171719da51197d72d36b72e788"
+    },
+    {
+      "id": "library/skills/tool-tracer/SKILL.md",
+      "title": "Tool Tracer",
+      "category": "Skills",
+      "description": "On-demand tool/action trace for Copilot Studio runs (`/special-debug tool-trace` → `tool_trace.json`).",
+      "preview": "skill",
+      "source": "library/skills/tool-tracer/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "transparency",
+        "observability",
+        "debugging",
+        "workflow",
+        "logging",
+        "json",
+        "productivity"
+      ],
+      "recipe": null,
+      "digest": "0f8211b8457f658fc8d0ed829d3677e2212ff5ab4ba8fce4753acb2d545d9b6c"
+    },
+    {
+      "id": "library/skills/doc-format-converter/SKILL.md",
+      "title": "Universal Document Converter",
+      "category": "Skills",
+      "description": "Convert documents between Markdown, HTML, PDF, Word, PowerPoint, Excel/CSV and text — fully offline, using only the libraries already in the agent sandbox.",
+      "preview": "skill",
+      "source": "library/skills/doc-format-converter/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "documents",
+        "conversion",
+        "markdown",
+        "pdf",
+        "office",
+        "scripts"
+      ],
+      "recipe": null,
+      "digest": "fcb552a84ac5a52e23afa6d8dd54b9c479310ad6580940fb1ff551591bc0607f"
+    },
+    {
+      "id": "library/skills/vendor-contract-risk-review/SKILL.md",
+      "title": "Vendor Contract Risk Review",
+      "category": "Skills",
+      "description": "First-pass review of a vendor contract or SOW for the clauses that commonly cause problems (auto-renewal, liability caps, termination, IP ownership), flagged by risk level to prepare for legal review, not replace it.",
+      "preview": "skill",
+      "source": "library/skills/vendor-contract-risk-review/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "contracts",
+        "legal",
+        "procurement",
+        "risk",
+        "vendor-management",
+        "review"
+      ],
+      "recipe": null,
+      "digest": "8f037b372a6ad8c8f223cf837dfdf59bcee215e2902c3a7d60564a6ae9bab695"
+    },
+    {
+      "id": "library/skills/wcag-power-platform/SKILL.md",
+      "title": "WCAG 2.1 for Web Apps & Power Platform",
+      "category": "Skills",
+      "description": "Makes everything the agent builds or reviews conform to WCAG 2.1 AA — HTML pages, SPAs, theming, PCF controls, model-driven and canvas apps, and Power Pages.",
+      "preview": "skill",
+      "source": "library/skills/wcag-power-platform/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "accessibility",
+        "wcag",
+        "a11y",
+        "power-platform",
+        "power-apps",
+        "pcf",
+        "power-pages",
+        "web"
+      ],
+      "recipe": null,
+      "digest": "9a5121e9a26aba1d1a0485dccd884afa80274d2d4ef5f53a112fa225d754dee4"
+    },
+    {
+      "id": "library/skills/what-to-use-when/SKILL.md",
+      "title": "What to Use When",
+      "category": "Skills",
+      "description": "Routes single-output requests to the best-fit included Microsoft 365 Copilot 1p agents and reserves Cowork for long-running or multi-output work.",
+      "preview": "skill",
+      "source": "library/skills/what-to-use-when/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "automation",
+        "copilot",
+        "routing"
+      ],
+      "recipe": null,
+      "digest": "2d853d0c2dd281e486bc4b7ec382b02efaf73a253b40ec767556edf56d7cc10f"
+    },
+    {
+      "id": "library/skills/whiteboard-to-infographic/SKILL.md",
+      "title": "Whiteboard to Infographic",
+      "category": "Skills",
+      "description": "Turn a photo of a hand-drawn whiteboard or process sketch into a polished, client-ready infographic slide (.pptx), generated natively in the agent's Python container.",
+      "preview": "skill",
+      "source": "library/skills/whiteboard-to-infographic/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "infographic",
+        "whiteboard",
+        "powerpoint",
+        "presentations",
+        "diagrams",
+        "design",
+        "consulting"
+      ],
+      "recipe": null,
+      "digest": "5441327f75e6bb85cbe8878f964f842aef6e9a96f260f665151f232ce8f5782b"
+    },
+    {
+      "id": "library/skills/wikipedia-human-style-writing/SKILL.md",
+      "title": "Wikipedia Human Style Writing",
+      "category": "Skills",
+      "description": "Rewrite or draft prose so it avoids the tell-tale signs of AI writing, using Wikipedia's 'Signs of AI writing' field guide.",
+      "preview": "skill",
+      "source": "library/skills/wikipedia-human-style-writing/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "writing",
+        "content",
+        "editing",
+        "style",
+        "humanize",
+        "ai-detection",
+        "wikipedia"
+      ],
+      "recipe": null,
+      "digest": "464ed55bf79bce4f775869445861a8f952e210c77dc42c62a216d1d6945268fe"
+    },
+    {
+      "id": "library/skills/work-brief/SKILL.md",
+      "title": "Work Brief",
+      "category": "Skills",
+      "description": "A morning brief that reads your mail, calendar, and Teams, then tells you what you owe people before the week starts.",
+      "preview": "skill",
+      "source": "library/skills/work-brief/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "productivity",
+        "automation",
+        "teams",
+        "email",
+        "calendar",
+        "briefing",
+        "multilingual"
+      ],
+      "recipe": null,
+      "digest": "0886aab893cecd0e3e7d6d4556f4721831c8ebd691a65ed147a61a41f34a094a"
+    },
+    {
+      "id": "library/skills/work-iq-signalboard/SKILL.md",
+      "title": "Work IQ Signalboard",
+      "category": "Skills",
+      "description": "Turn four weeks of Calendar, Mail, and Teams chat activity into a colorful dashboard of reconciled Work IQ counts.",
+      "preview": "skill",
+      "source": "library/skills/work-iq-signalboard/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "work-iq",
+        "microsoft-365",
+        "dashboard",
+        "visualization",
+        "work-patterns",
+        "analytics"
+      ],
+      "recipe": null,
+      "digest": "5beb077a564ac026311a45a21769c435e776b15c50b86c1223faaaeceb33d276"
+    },
+    {
+      "id": "template/brand-recipes.json#context-and-image",
+      "title": "Context and image",
+      "category": "Slide recipes",
+      "description": "Medium-density text beside an inset picture placeholder. Select a rights-cleared photo with subject space toward the text.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "context-and-image",
+      "tags": [
+        "content",
+        "medium",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "context-and-image",
+        "title": "Context and image",
+        "description": "Medium-density text beside an inset picture placeholder. Select a rights-cleared photo with subject space toward the text.",
+        "intent": "content",
+        "density": "medium",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "Capture the issue once",
+            "box": {
+              "x": 64,
+              "y": 64,
+              "width": 1152,
+              "height": 100
+            },
+            "clearance": 12,
+            "themeRole": "heading"
+          },
+          {
+            "id": "explanation",
+            "type": "body",
+            "sample": "A technician records the equipment, symptoms, and urgency in one request.",
+            "box": {
+              "x": 64,
+              "y": 220,
+              "width": 512,
+              "height": 360
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          },
+          {
+            "id": "photo",
+            "type": "picture",
+            "sample": "Technician inspecting equipment",
+            "box": {
+              "x": 640,
+              "y": 220,
+              "width": 576,
+              "height": 360
+            },
+            "clearance": 12,
+            "themeRole": "image"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "template/brand-recipes.json#decision-and-next-step",
+      "title": "Decision and next step",
+      "category": "Slide recipes",
+      "description": "A light-density closing slide linking the opening problem to a concrete owner and next action.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "decision-and-next-step",
+      "tags": [
+        "next-steps",
+        "light",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "decision-and-next-step",
+        "title": "Decision and next step",
+        "description": "A light-density closing slide linking the opening problem to a concrete owner and next action.",
+        "intent": "next-steps",
+        "density": "light",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "Start with one request",
+            "box": {
+              "x": 80,
+              "y": 120,
+              "width": 1120,
+              "height": 110
+            },
+            "clearance": 16,
+            "themeRole": "heading"
+          },
+          {
+            "id": "action",
+            "type": "body",
+            "sample": "Choose a team. Agree on the handoffs. Review one real pilot together.",
+            "box": {
+              "x": 80,
+              "y": 310,
+              "width": 1040,
+              "height": 210
+            },
+            "clearance": 16,
+            "themeRole": "body"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "template/brand-recipes.json#illustrative-dashboard",
+      "title": "Illustrative dashboard",
+      "category": "Slide recipes",
+      "description": "Heavy-density chart, table, and takeaway. The sample numbers are explicitly illustrative, not research claims.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "illustrative-dashboard",
+      "tags": [
+        "data-visualization",
+        "heavy",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "illustrative-dashboard",
+        "title": "Illustrative dashboard",
+        "description": "Heavy-density chart, table, and takeaway. The sample numbers are explicitly illustrative, not research claims.",
+        "intent": "data-visualization",
+        "density": "heavy",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "See the work in progress",
+            "box": {
+              "x": 64,
+              "y": 64,
+              "width": 1152,
+              "height": 100
+            },
+            "clearance": 12,
+            "themeRole": "heading"
+          },
+          {
+            "id": "chart",
+            "type": "chart",
+            "sample": "Illustrative requests: Open 12 / Closed 28",
+            "box": {
+              "x": 64,
+              "y": 220,
+              "width": 552,
+              "height": 260
+            },
+            "clearance": 12,
+            "themeRole": "data"
+          },
+          {
+            "id": "table",
+            "type": "table",
+            "sample": "Illustrative queue: Team A 7 / Team B 5",
+            "box": {
+              "x": 664,
+              "y": 220,
+              "width": 552,
+              "height": 260
+            },
+            "clearance": 12,
+            "themeRole": "data"
+          },
+          {
+            "id": "takeaway",
+            "type": "body",
+            "sample": "Illustrative open queue: Team A holds 7 of 12 requests.",
+            "box": {
+              "x": 64,
+              "y": 530,
+              "width": 1152,
+              "height": 54
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "template/brand-recipes.json#opening-question",
+      "title": "Opening question",
+      "category": "Slide recipes",
+      "description": "Light-density title and decision, with generous whitespace and a clear narrative promise.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "opening-question",
+      "tags": [
+        "title",
+        "light",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "opening-question",
+        "title": "Opening question",
+        "description": "Light-density title and decision, with generous whitespace and a clear narrative promise.",
+        "intent": "title",
+        "density": "light",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "Where does a request go?",
+            "box": {
+              "x": 80,
+              "y": 160,
+              "width": 1120,
+              "height": 110
+            },
+            "clearance": 16,
+            "themeRole": "heading"
+          },
+          {
+            "id": "promise",
+            "type": "body",
+            "sample": "Follow one maintenance request from intake to resolution.",
+            "box": {
+              "x": 80,
+              "y": 330,
+              "width": 920,
+              "height": 140
+            },
+            "clearance": 16,
+            "themeRole": "body"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "template/brand-recipes.json#routing-process",
+      "title": "Routing process",
+      "category": "Slide recipes",
+      "description": "A complete process composition. Animate its stages without moving labels through reserved video bands.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "routing-process",
+      "tags": [
+        "process",
+        "medium",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "routing-process",
+        "title": "Routing process",
+        "description": "A complete process composition. Animate its stages without moving labels through reserved video bands.",
+        "intent": "process",
+        "density": "medium",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "Make ownership visible",
+            "box": {
+              "x": 64,
+              "y": 64,
+              "width": 1152,
+              "height": 100
+            },
+            "clearance": 12,
+            "themeRole": "heading"
+          },
+          {
+            "id": "flow",
+            "type": "diagram",
+            "sample": "Intake > Triage > Assign > Resolve",
+            "box": {
+              "x": 64,
+              "y": 220,
+              "width": 1152,
+              "height": 250
+            },
+            "clearance": 12,
+            "themeRole": "data"
+          },
+          {
+            "id": "takeaway",
+            "type": "body",
+            "sample": "Each handoff has an owner and an explicit completion condition.",
+            "box": {
+              "x": 64,
+              "y": 520,
+              "width": 1152,
+              "height": 64
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "template/brand-recipes.json#three-part-agenda",
+      "title": "Three-part agenda",
+      "category": "Slide recipes",
+      "description": "A cohesive agenda that sets up a single example rather than a disconnected feature list.",
+      "preview": "slide",
+      "source": "template/brand-recipes.json",
+      "symbol": "three-part-agenda",
+      "tags": [
+        "agenda",
+        "medium",
+        "PPT + video",
+        "generic example"
+      ],
+      "recipe": {
+        "id": "three-part-agenda",
+        "title": "Three-part agenda",
+        "description": "A cohesive agenda that sets up a single example rather than a disconnected feature list.",
+        "intent": "agenda",
+        "density": "medium",
+        "objects": [
+          {
+            "id": "title",
+            "type": "title",
+            "sample": "A request, a route, a result",
+            "box": {
+              "x": 64,
+              "y": 64,
+              "width": 1152,
+              "height": 100
+            },
+            "clearance": 12,
+            "themeRole": "heading"
+          },
+          {
+            "id": "context",
+            "type": "body",
+            "sample": "1. Capture the issue",
+            "box": {
+              "x": 64,
+              "y": 230,
+              "width": 352,
+              "height": 280
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          },
+          {
+            "id": "mechanism",
+            "type": "body",
+            "sample": "2. Route to the right team",
+            "box": {
+              "x": 464,
+              "y": 230,
+              "width": 352,
+              "height": 280
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          },
+          {
+            "id": "result",
+            "type": "body",
+            "sample": "3. Confirm the resolution",
+            "box": {
+              "x": 864,
+              "y": 230,
+              "width": 352,
+              "height": 280
+            },
+            "clearance": 12,
+            "themeRole": "body"
+          }
+        ]
+      },
+      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+    },
+    {
+      "id": "projects/copilot/storyboard.md",
+      "title": "Copilot storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/copilot/storyboard.md",
+      "symbol": null,
+      "tags": [
+        "copilot"
+      ],
+      "recipe": null,
+      "digest": "3055be75f62b0b313334ae49b5196ba4078bd00891e4ba6537804cc9fc476da8"
+    },
+    {
+      "id": "projects/copilot-studio-2026/storyboard.md",
+      "title": "Copilot Studio 2026 storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/copilot-studio-2026/storyboard.md",
+      "symbol": null,
+      "tags": [
+        "copilot-studio-2026"
+      ],
+      "recipe": null,
+      "digest": "b9fe54a1554765eb2f6d4b9a41ce74848057de72dbc4f5a258e13eb968833178"
+    },
+    {
+      "id": "projects/john-deere/storyboard.md",
+      "title": "John Deere storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/john-deere/storyboard.md",
+      "symbol": null,
+      "tags": [
+        "john-deere"
+      ],
+      "recipe": null,
+      "digest": "f5ef4e9e629fd30863dbbff9dd465746222ef5723e7982335ed57623feab6082"
+    },
+    {
+      "id": "projects/microsoft/storyboard.md",
+      "title": "Microsoft storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/microsoft/storyboard.md",
+      "symbol": null,
+      "tags": [
+        "microsoft"
+      ],
+      "recipe": null,
+      "digest": "5af688f0b787d501c71c645a3ad56e4a3023fccef345a23254474678e678b6ee"
+    },
+    {
+      "id": "projects/power-platform-2026/storyboard.md",
+      "title": "Power Platform 2026 storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/power-platform-2026/storyboard.md",
+      "symbol": null,
+      "tags": [
+        "power-platform-2026"
+      ],
+      "recipe": null,
+      "digest": "1e6ce2b7b03f720825763a6fa1265566cd29c682ec5bbbab80cdf7db30fa8403"
+    },
+    {
+      "id": "projects/power-platform/brief.md",
+      "title": "Power Platform storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/power-platform/brief.md",
+      "symbol": null,
+      "tags": [
+        "power-platform"
+      ],
+      "recipe": null,
+      "digest": "d4929eedc7808f7382ccb54aba2912b5b323fa30a61c4d69eaf544cfa3eafed6"
+    }
+  ]
+}

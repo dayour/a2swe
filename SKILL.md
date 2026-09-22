@@ -23,6 +23,11 @@ brand, news, investor, and market sources with exact citations and rights eviden
 Read [reference/production-rules.md](reference/production-rules.md) before
 production. It defines research, narration, timing, storyboard syntax, safe
 areas, motion, lighting, QC, asset provenance, and delivery requirements.
+For PPT and video composition, also follow the
+[example-led brand-template contract](docs/content/specifications/brand-templates.md).
+Start from representative sample slides, retain theme and placeholder semantics,
+and validate exported brand plans before authoring. Schematic recipes and passing
+geometry checks do not confer brand, rights, pilot, or release approval.
 
 ## Companion Projection
 

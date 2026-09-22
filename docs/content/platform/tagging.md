@@ -5,6 +5,15 @@ description: Human-feedback tagging contract for evaluation, ranking, and future
 
 # Tagging for RLHF
 
+[Open the tagging workspace](/tagging). Review an exact video revision, mark a
+time range, select quality/defect tags, score it, or compare two revisions.
+Annotations persist in this browser's local storage and export as JSON or JSONL.
+
+This is a **local review tool**, not an RLHF backend. Records are unadjudicated,
+unsigned, and not authorized for training use. No feedback is transmitted and no
+release approval is granted. Reviewer consent, rights, independent adjudication,
+and dataset governance are still required before downstream use.
+
 Tagging captures structured human feedback about videos, scenes, assets, and model-assisted production decisions. The repository has evaluation jobs, signed approval scopes, canonical digests, and immutable artifact storage, but it does **not** yet implement an RLHF training-data service. This page defines the contract that such a service should follow.
 
 ## Goals
@@ -119,12 +128,13 @@ RLHF-oriented ranking should compare two digest-bound candidates under one rubri
 7. Adjudicate disputed high-impact labels.
 8. Export only approved, privacy-reviewed dataset slices.
 
-## Implementation roadmap
+## Next: shared storage and governed datasets
 
 1. Add JSON Schemas for annotations, rubrics, and pairwise preferences.
 2. Add canonical digest and validation support in `packages/core`.
 3. Store annotations as immutable artifacts through `Store`.
 4. Add CLI commands for tag creation, verification, adjudication, and export.
-5. Add a browser UI connected to the Video Library.
+5. Connect the existing browser review workspace to authenticated shared storage,
+   with explicit migration from its local, unadjudicated annotations.
 6. Add dataset cards, consent metadata, and export manifests.
 7. Add tests for tamper detection, reviewer scope, redaction, and deterministic exports.

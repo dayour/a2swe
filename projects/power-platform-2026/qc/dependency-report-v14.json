@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "narration": {
+      "detail": [
+        "7 narration lines ready."
+      ],
+      "line_count": 7,
+      "ok": true
+    },
+    "research": {
+      "detail": [
+        "research\\research.md",
+        "research\\sources.json"
+      ],
+      "ok": true
+    },
+    "timeline": {
+      "detail": [
+        "Deferred until audio generation."
+      ],
+      "ok": true
+    }
+  },
+  "created_at": "2026-09-21T21:54:46.746741+00:00",
+  "human_approvals": "not supplied; do not fabricate",
+  "media_policy": "original code-drawn visuals only; no external logos/media",
+  "project": "power-platform-2026",
+  "status": "ready",
+  "target": {
+    "duration_seconds": [
+      30,
+      45
+    ],
+    "fps": 30,
+    "height": 1080,
+    "language": "en",
+    "width": 1920
+  }
+}

@@ -109,16 +109,17 @@ class PipelineTests(unittest.TestCase):
             for engine in ('kokoro', 'kokoro_onnx'):
                 self.assertEqual(module.resolve_engine(engine), engine)
 
+    def test_tts_requires_python314(self):
+        module = self.load_tts()
+        with patch.object(module.sys, 'version_info', (3, 13, 0)):
+            with self.assertRaisesRegex(SystemExit, 'Python 3.14 is required'):
+                module.require_python314()
+
     def test_piper_requires_model(self):
         module = self.load_tts()
         module.PIPER_MODEL = ''
         with self.assertRaisesRegex(SystemExit, 'PIPER_MODEL'):
             module.synth_piper('An English sentence.')
-
-    def test_python312_preserves_local_kokoro(self):
-        module = self.load_tts()
-        with patch.object(module.sys, 'version_info', (3, 12, 0)):
-            self.assertEqual(module.resolve_engine('auto'), 'kokoro')
 
     def test_media_helpers_refuse_overwrite_and_validate_coverage(self):
         module = self.load_media()

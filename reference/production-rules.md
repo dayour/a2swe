@@ -102,8 +102,24 @@ Keep shot registry `id`, `from`, and `to` as literals for static QC.
 
 ## Composition and Typography
 
+- Before shared visuals, inspect complete brand sample slides, then layouts,
+  then Slide Master fallback. Record source hashes, sample numbers, intent,
+  density, theme/font roles, image composition, chart/table styles, and voice.
+  Generic recipes in `brand-recipes.json` are not official customer branding.
+- If using the Template Library, retain its scenario JSON and run
+  `node scripts/check_brand_plan.ts a2swe-scenario.json` in the new project.
+  Apply the recipes to real scenes/slides; a passing sidecar is not renderer
+  verification. Review actual glyph bounds, crops, motion, and negative space.
+- Use theme definitions and typed PPT layout placeholders. Placeholder wording
+  is sample content, not semantic instruction. Keep authoring guidance outside
+  reusable sample slides. Never shrink text, stretch placeholders, or silently
+  truncate to force a fit; split or recompose and reapprove changed content.
+- Map complete slide composition to a complete timed scene. Preserve icon,
+  shape, image, and data styles and rights/provenance across both outputs.
+  Reserve captions/HUD throughout motion, not just at the sampled still.
 - Canvas: 1280x720 at 30fps. Use the existing black backdrop, white line art,
-  and restrained accent palette. Select `stars` or `dots` in config.
+  and restrained accent palette as a generic fallback, never in place of
+  verified brand evidence. Select `stars` or `dots` in config only when appropriate.
 - Keep readable shot content above y637. Subtitles occupy y637-690; progress
   occupies y687-720. Entrance paths must not cross these reserved bands.
 - One visual focal point per shot. Hero height at least 170px or headline at

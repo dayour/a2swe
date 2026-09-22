@@ -1,0 +1,82 @@
+{
+  "python": "3.14.7",
+  "packages": {
+    "kokoro": "0.9.4",
+    "kokoro-onnx": "0.6.1",
+    "misaki": "0.9.4+py314.1",
+    "torch": "2.14.0",
+    "onnxruntime": "1.30.0",
+    "spacy": "3.8.16",
+    "en-core-web-sm": "3.8.0"
+  },
+  "device": "cpu",
+  "forks": {
+    "kokoro": {
+      "kokoro": {
+        "version": "0.9.4",
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+        "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+        "installed_source": {
+          "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+          "archive_info": {}
+        }
+      },
+      "misaki": {
+        "version": "0.9.4+py314.1",
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+        "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+        "installed_source": {
+          "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    },
+    "kokoro_onnx": {
+      "kokoro-onnx": {
+        "version": "0.6.1",
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+        "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+        "installed_source": {
+          "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+          "archive_info": {}
+        }
+      }
+    }
+  },
+  "voices": {
+    "kokoro": "am_liam",
+    "kokoro_onnx": "am_michael"
+  },
+  "parameter_count": 81810022,
+  "models": {
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f",
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\voices\\am_liam.pt": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+  },
+  "results": [
+    {
+      "topic": "power-platform-2026",
+      "text": "Power Platform connects business apps, automation, websites, and agents. Dataverse gives them shared tables, relationships, and security. Develop an unmanaged solution in source control, then promote the same managed artifact through test and production. Configure each environment's connections and variables; migrate table records separately. Use Power Platform pipelines, GitHub Actions, or Azure DevOps Build Tools to automate delivery. Before release, check connector policies, tests, monitoring, licensing, and feature availability. Low code makes delivery faster, not governance optional.",
+      "misaki_phonemes": "p\u02c8W\u0259\u0279 pl\u02c8\u00e6tf\u02cc\u0254\u0279m k\u0259n\u02c8\u025bkts b\u02c8\u026azn\u0259s \u02c8\u00e6ps, \u02cc\u0254T\u0259m\u02c8A\u0283\u0259n, w\u02c8\u025bbs\u02ccIts, \u00e6nd \u02c8A\u02a4\u1d4ants. d\u02cc\u0251T\u0259v\u02c8\u025c\u0279s \u0261\u02c8\u026avz \u00f0\u02cc\u025bm \u0283\u02c8\u025b\u0279d t\u02c8Ab\u1d4alz, \u0279\u0259l\u02c8A\u0283\u0259n\u0283\u02cc\u026aps, \u00e6nd s\u0259kj\u02c8\u028a\u0279\u0259Ti. d\u0259v\u02c8\u025bl\u0259p \u0250n \u02cc\u028cnm\u02c8\u00e6n\u0259\u02a4d s\u0259l\u02c8u\u0283\u0259n \u026an s\u02c8\u0254\u0279s k\u0259nt\u0279\u02c8Ol, \u00f0\u02c8\u025bn p\u0279\u0259m\u02c8Ot \u00f0\u0259 s\u02c8Am m\u02c8\u00e6n\u026a\u02a4d \u02c8\u0251\u0279T\u0259f\u02cc\u00e6kt \u03b8\u0279u t\u02c8\u025bst \u00e6nd p\u0279\u0259d\u02c8\u028ck\u0283\u0259n. k\u0259nf\u02c8\u026a\u0261j\u0259\u0279 \u02c8i\u02a7 \u0259nv\u02c8I\u0279\u0259nm\u1d4ants k\u0259n\u02c8\u025bk\u0283\u0259nz \u00e6nd v\u02c8\u025b\u0279i\u0259b\u1d4alz; m\u02c8I\u0261\u0279\u02ccAt t\u02c8Ab\u1d4al \u0279\u0259k\u02c8\u0254\u0279dz s\u02c8\u025bp\u0259\u0279\u0259tli. j\u02c8us p\u02c8W\u0259\u0279 pl\u02c8\u00e6tf\u02cc\u0254\u0279m p\u02c8Ipl\u02ccInz, \u0261\u02cc\u026ath\u02c8\u028cb \u02c8\u00e6k\u0283\u0259nz, \u0254\u0279 \u02c8\u00e6\u0292\u0259\u0279 d\u0259v\u02c8\u0251ps b\u02c8\u026ald t\u02c8ulz t\u028a \u02c8\u0254T\u0259m\u02ccAt d\u0259l\u02c8\u026av\u0259\u0279i. b\u0259f\u02c8\u0254\u0279 \u0279\u0259l\u02c8is, \u02a7\u02c8\u025bk k\u0259n\u02c8\u025bkt\u0259\u0279 p\u02c8\u0251l\u0259siz, t\u02c8\u025bsts, m\u02c8\u0251n\u026aT\u0259\u0279\u026a\u014b, l\u02c8Is\u1d4ans\u026a\u014b, \u00e6nd f\u02c8i\u02a7\u0259\u0279 \u0259v\u02ccAl\u0259b\u02c8\u026al\u0259Ti. l\u02c8O k\u02c8Od m\u02ccAks d\u0259l\u02c8\u026av\u0259\u0279i f\u02c8\u00e6st\u0259\u0279, n\u02cc\u0251t \u0261\u02c8\u028cv\u0259\u0279n\u0259ns \u02c8\u0251p\u0283\u0259n\u1d4al.",
+      "misaki_token_count": 99,
+      "kokoro": {
+        "file": "power-platform-2026-kokoro.wav",
+        "seconds": 32.075,
+        "sample_rate": 24000,
+        "peak": 0.4677804410457611,
+        "rms": 0.05386742074057698,
+        "sha256": "d5328704b50c07ed02c69ca9874e10670cfcb3788196a2c5144fa4faf432de67"
+      },
+      "kokoro_onnx": {
+        "file": "power-platform-2026-kokoro-onnx.wav",
+        "seconds": 42.163333333333334,
+        "sample_rate": 24000,
+        "peak": 0.47243013978004456,
+        "rms": 0.04898760211110478,
+        "sha256": "25284cc5ab29a9a7f49a1ac791321e85201cb9333c2634b1af68721eb7fcf70c"
+      }
+    }
+  ]
+}

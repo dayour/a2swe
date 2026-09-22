@@ -28,6 +28,17 @@ KOKORO_ONNX_VOICES = os.environ.get('KOKORO_ONNX_VOICES', '')
 KOKORO_ONNX_VOICE = os.environ.get('KOKORO_ONNX_VOICE', 'am_michael')
 KOKORO_ONNX_LANG = os.environ.get('KOKORO_ONNX_LANG', 'en-us')
 CHUNK_PAD = float(os.environ.get('CHUNK_PAD', 0.06))  
+REQUIRED_PYTHON = (3, 14)
+
+
+def require_python314():
+    version = sys.version_info
+    if version[:2] != REQUIRED_PYTHON:
+        actual = f'{version[0]}.{version[1]}.{version[2]}'
+        raise SystemExit(
+            f'Python {REQUIRED_PYTHON[0]}.{REQUIRED_PYTHON[1]} is required for the Kokoro speech stack; '
+            f'got {actual}. Use the repository .venv or uv-managed CPython 3.14.7.'
+        )
 
 
 def _file_fp(path):
@@ -377,6 +388,7 @@ def resolve_engine(engine):
 
 async def main(narr):
     global ENGINE
+    require_python314()
     items = parse(narr)
     if not any(item['type'] == 'sent' and item['raw'].replace('|', '').strip() for item in items):
         raise SystemExit('Narration must contain at least one English sentence')

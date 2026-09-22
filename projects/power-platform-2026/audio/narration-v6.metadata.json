@@ -1,0 +1,61 @@
+{
+  "engine": "kokoro",
+  "voice": "am_liam",
+  "rate": 1.0,
+  "runtime_fingerprint": "aac15035776ce61d3b7dcff15e9fb0d2856586a0e987faa1fa8e37ebb03c1cf8",
+  "models": {
+    "config": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json",
+      "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth",
+      "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
+    },
+    "voice": {
+      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\voices\\am_liam.pt",
+      "sha256": "c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518"
+    }
+  },
+  "forks": {
+    "kokoro": {
+      "version": "0.9.4",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "installed_source": {
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+        "archive_info": {}
+      }
+    },
+    "misaki": {
+      "version": "0.9.4+py314.1",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "installed_source": {
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+        "archive_info": {}
+      }
+    }
+  },
+  "caption_timing": "model-token-timestamps",
+  "python": "3.14.7",
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "language": "en",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 36.333333333333336,
+  "audio_file": "public\\assets\\power-platform-2026\\audio.wav",
+  "audio_sha256": "af84e7edf179237bff2d0c6cb612906d4a0c4d1ccbfc4f795816dd59090ff9c1",
+  "narration_sha256": "fafac2efb8aa34d1e5a459523debe59d342d19349f37aa235f15a0648bd7a106",
+  "timeline_sha256": "f5fed0635e227b599471c78f5e75d27ab589e8b86e5df848d66c6e17a560dadc",
+  "profile_sha256": "c14b6fd17acd777f2da2ded2bd7621082ce493d3b4116794d966c01b9f218a17",
+  "generated_files": {
+    "src/common/timeline.ts": "f84c5b2832d992c78139dbdfdcecd679da270fdb33f51d1f597601d78331873b",
+    "src/common/subs.ts": "2836539463b8a988a933dd809232749abe3d96d967b8d28af5ad0f2a290a2fb2"
+  },
+  "producer_files": {
+    "scripts/tts_build.py": "6b9ad7145ef63aa63a470990eae4b3d0a95fe009e82137ea7034c6e970a7b02f",
+    "scripts/speech_runtime.py": "28133af3309824fa83ef05f28dc8dcaba067ba0fe9c920016bb4f7d2ae6ab81a"
+  },
+  "human_listening_review": "pending"
+}

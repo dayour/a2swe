@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "library:build": "node scripts/build-library.mjs",
+    "library:refresh": "node scripts/build-library.mjs --refresh-media",
+    "prestart": "npm run library:build",
+    "prebuild": "npm run library:build",
+    "pretypecheck": "npm run library:build",
+    "pretest": "npm run library:build",
+    "test": "node --test scripts/*.test.mjs",
     "clear": "docusaurus clear",
     "start": "docusaurus start",
     "build": "docusaurus build",

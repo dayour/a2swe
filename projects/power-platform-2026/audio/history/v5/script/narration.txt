@@ -1,0 +1,12 @@
+# CHAPTER 1 One platform
+Power Platform combines business apps, automation, external sites, and agents. | Power Apps, Power Automate, Power Pages, and Copilot Studio shape each experience.
+# CHAPTER 2 Shared foundation
+Dataverse provides shared tables, relationships, security, and the solution layer beneath them.
+# CHAPTER 3 Production delivery
+Production delivery starts with an unmanaged solution and source control as the source of truth. | Export a managed artifact, then promote it through test and production.
+# CHAPTER 4 Configuration and data
+Resolve target connections and environment variables, while migrating Dataverse records separately because solutions do not carry table data.
+# CHAPTER 5 CI/CD
+Pipelines simplify promotion; GitHub Actions or Azure DevOps Build Tools support broader automated build, test, package, and deployment workflows.
+# CHAPTER 6 Governed release
+Finish with connector policies, solution checks, end-to-end tests, monitoring, licensing, feature checks, and human approval. | Low code accelerates delivery; engineering responsibility remains.

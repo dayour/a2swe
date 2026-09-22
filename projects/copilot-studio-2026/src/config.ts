@@ -8,7 +8,7 @@ export const VIDEO = {
   
   bg: 'stars' as 'stars' | 'dots',
   
-  title: {big: 'COPILOT', rest: 'STUDIO 2026', en: 'Copilot Studio 2026', tagline: 'Awaiting verified research and script'},
+  title: {big: 'COPILOT', rest: 'STUDIO 2026', en: 'Copilot Studio 2026', tagline: 'Adaptive automation, managed'},
   
   credit: null as {kicker: string; title: string; byline: string; note: string} | null,
   

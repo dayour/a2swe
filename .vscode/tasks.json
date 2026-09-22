@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Validate Power Platform Kokoro v6",
+			"type": "shell",
+			"command": "$env:PATH = 'C:\\Users\\dayour\\AppData\\Local\\nvm\\v24.8.0;' + $env:PATH; & '.\\.venv\\Scripts\\python.exe' -m unittest discover -s template\\scripts -p test_pipeline.py -v; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & '.\\.venv\\Scripts\\python.exe' -m unittest discover -s projects\\power-platform-2026\\scripts -p 'test_*.py' -v; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm --prefix template run typecheck; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm --prefix projects\\power-platform-2026 run build",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Render Power Platform v6",
+			"type": "shell",
+			"command": "$env:PATH = 'C:\\Users\\dayour\\AppData\\Local\\nvm\\v24.8.0;' + $env:PATH; npm --prefix projects\\power-platform-2026 run render",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

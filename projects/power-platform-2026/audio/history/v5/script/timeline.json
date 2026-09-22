@@ -1,0 +1,146 @@
+{
+  "fps": 30,
+  "total_frames": 1264,
+  "engine": "windows-sapi-local",
+  "voice": "Microsoft Mark",
+  "rate": 4,
+  "lead": 24,
+  "gap": 10,
+  "tail": 45,
+  "lang": "en",
+  "chapters": [
+    {
+      "n": 1,
+      "title": "One platform",
+      "from": 25
+    },
+    {
+      "n": 2,
+      "title": "Shared foundation",
+      "from": 269
+    },
+    {
+      "n": 3,
+      "title": "Production delivery",
+      "from": 382
+    },
+    {
+      "n": 4,
+      "title": "Configuration and data",
+      "from": 580
+    },
+    {
+      "n": 5,
+      "title": "CI/CD",
+      "from": 742
+    },
+    {
+      "n": 6,
+      "title": "Governed release",
+      "from": 942
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S01",
+      "chapter": 1,
+      "from": 25,
+      "to": 258,
+      "text": "Power Platform combines business apps, automation, external sites, and agents. Power Apps, Power Automate, Power Pages, and Copilot Studio shape each experience.",
+      "subs": [
+        {
+          "from": 25,
+          "to": 139,
+          "text": "Power Platform combines business apps, automation, external sites, and agents."
+        },
+        {
+          "from": 140,
+          "to": 258,
+          "text": "Power Apps, Power Automate, Power Pages, and Copilot Studio shape each experience."
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "chapter": 2,
+      "from": 269,
+      "to": 371,
+      "text": "Dataverse provides shared tables, relationships, security, and the solution layer beneath them.",
+      "subs": [
+        {
+          "from": 269,
+          "to": 371,
+          "text": "Dataverse provides shared tables, relationships, security, and the solution layer beneath them."
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "chapter": 3,
+      "from": 382,
+      "to": 569,
+      "text": "Production delivery starts with an unmanaged solution and source control as the source of truth. Export a managed artifact, then promote it through test and production.",
+      "subs": [
+        {
+          "from": 382,
+          "to": 489,
+          "text": "Production delivery starts with an unmanaged solution and source control as the source of truth."
+        },
+        {
+          "from": 490,
+          "to": 569,
+          "text": "Export a managed artifact, then promote it through test and production."
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "chapter": 4,
+      "from": 580,
+      "to": 731,
+      "text": "Resolve target connections and environment variables, while migrating Dataverse records separately because solutions do not carry table data.",
+      "subs": [
+        {
+          "from": 580,
+          "to": 731,
+          "text": "Resolve target connections and environment variables, while migrating Dataverse records separately because solutions do not carry table data."
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "chapter": 5,
+      "from": 742,
+      "to": 931,
+      "text": "Pipelines simplify promotion; GitHub Actions or Azure DevOps Build Tools support broader automated build, test, package, and deployment workflows.",
+      "subs": [
+        {
+          "from": 742,
+          "to": 931,
+          "text": "Pipelines simplify promotion; GitHub Actions or Azure DevOps Build Tools support broader automated build, test, package, and deployment workflows."
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "chapter": 6,
+      "from": 942,
+      "to": 1219,
+      "text": "Finish with connector policies, solution checks, end-to-end tests, monitoring, licensing, feature checks, and human approval. Low code accelerates delivery; engineering responsibility remains.",
+      "subs": [
+        {
+          "from": 942,
+          "to": 1121,
+          "text": "Finish with connector policies, solution checks, end-to-end tests, monitoring, licensing, feature checks, and human approval."
+        },
+        {
+          "from": 1122,
+          "to": 1219,
+          "text": "Low code accelerates delivery; engineering responsibility remains."
+        }
+      ]
+    }
+  ],
+  "words": 119,
+  "speech_sec": 38.21
+}
