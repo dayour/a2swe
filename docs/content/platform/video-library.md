@@ -27,7 +27,7 @@ The older Copilot pilot is also a separate project.
 No gallery card grants release approval. Matching QC is shown only when the
 report's movie digest matches the selected revision.
 
-The Video Library is the catalog layer for produced explainers and their reproducibility evidence. A library entry is more than an MP4: it connects the rendered video to its source project, content contract, approvals, rights, quality reports, and release digest.
+The Video Library is the catalog layer for produced explainers and their reproducibility evidence. A library entry is more than an MP4: it connects the rendered video to its source project, content contract, approvals, approval, quality reports, and release digest.
 
 ## Current repository library
 
@@ -40,7 +40,7 @@ The Video Library is the catalog layer for produced explainers and their reprodu
 | Power Platform 2026 | `projects/power-platform-2026/` | Research, storyboard, rendered revisions, pending human review |
 | Power Platform | `projects/power-platform/` | Product documentation and project implementation |
 
-Repository projects can be works in progress. A directory is not a published release unless its required approvals, rights, outputs, and verification evidence are complete.
+Repository projects can be works in progress. A directory is not a published release unless its required approvals, approval, outputs, and verification evidence are complete.
 
 ## Library entry model
 
@@ -60,7 +60,7 @@ The core registry recognizes reusable entries including agents, skills, plugins,
   },
   "artifacts": {
     "delivery": "projects/copilot/delivery.md",
-    "rights": "projects/copilot/asset-manifest.json",
+    "approval": "projects/copilot/asset-manifest.json",
     "quality": "projects/copilot/qc/media-v6.json"
   },
   "status": "candidate"
@@ -72,7 +72,7 @@ The core registry recognizes reusable entries including agents, skills, plugins,
 `packages/core/src/release.ts` creates digest-bound release plans and verifies release candidates. Publication must remain blocked when:
 
 - content, domain, style, voice, or render digests do not match;
-- selected assets lack approved redistribution rights;
+- selected assets lack approved redistribution approval;
 - required approval scopes are missing or invalid;
 - independent review requirements are not met;
 - output hashes or byte sizes differ from the parity manifest.
@@ -84,7 +84,7 @@ The core registry recognizes reusable entries including agents, skills, plugins,
 | `draft` | Project exists but narration or implementation is incomplete |
 | `pilot` | First approved segment and pilot evidence exist |
 | `candidate` | Complete render exists and automated checks have run |
-| `approved` | Human release approvals and rights checks are valid |
+| `approved` | Human release approvals and approval checks are valid |
 | `superseded` | A newer version exists; the historical release is preserved |
 | `withdrawn` | The artifact remains auditable but should not be distributed |
 
@@ -92,13 +92,13 @@ The core registry recognizes reusable entries including agents, skills, plugins,
 
 The interactive gallery currently supports project search, production-state
 filtering, and either project-level cards or every revision. Domain, audience,
-template, voice, rights, and adjudicated-quality filters remain future work;
+template, voice, approval, and adjudicated-quality filters remain future work;
 they require explicit manifest data rather than guesses from filenames.
 
 ## Publication checklist
 
 1. Verify the release candidate and output parity.
-2. Verify asset rights and attribution.
+2. Verify asset approval and attribution.
 3. Attach research, storyboard, timing, and QC evidence.
 4. Record the immutable release digest.
 5. Record human approval identities and scopes.

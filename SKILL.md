@@ -18,7 +18,7 @@ DomainReady gates.
 Ground recent claims in the trailing nine calendar months, separating publication,
 modification, observation, and retrieval dates. Older official foundations require
 explicit exceptions and current revalidation. Include applicable public engineering,
-brand, news, investor, and market sources with exact citations and rights evidence.
+brand, news, investor, and market sources with exact citations and approval evidence.
 
 Read [reference/production-rules.md](reference/production-rules.md) before
 production. It defines research, narration, timing, storyboard syntax, safe
@@ -27,7 +27,7 @@ For PPT and video composition, also follow the
 [example-led brand-template contract](docs/content/specifications/brand-templates.md).
 Start from representative sample slides, retain theme and placeholder semantics,
 and validate exported brand plans before authoring. Schematic recipes and passing
-geometry checks do not confer brand, rights, pilot, or release approval.
+geometry checks do not confer brand, approval, pilot, or release approval.
 
 ## Companion Projection
 

@@ -41,7 +41,7 @@ flowchart TD
 | Editorial scene intent | `script/storyboard_src.md` |
 | Resolved production plan | `storyboard.md` |
 | Runtime content | `src/config.ts`, timeline, subtitles, shot manifests |
-| Asset rights | `asset-manifest.json` |
+| Asset approval | `asset-manifest.json` |
 | Core runtime state | `.a2swe/` SQLite store, receipts, and content-addressed artifacts |
 | Video project projection | `agent/SWE_AGENT.md` |
 | Release inventory | `delivery.md` |

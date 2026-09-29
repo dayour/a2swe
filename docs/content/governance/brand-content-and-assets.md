@@ -6,7 +6,7 @@ title: Brand, content, and assets
 
 ## Language and identity
 
-All product copy, narration, subtitles, and delivery output are English. The active visual system uses a black canvas, white line art, restrained accent highlights, and supported backdrop treatments. Visual inspiration does not grant rights to copy third-party frames or clips.
+All product copy, narration, subtitles, and delivery output are English. The active visual system uses a black canvas, white line art, restrained accent highlights, and supported backdrop treatments. Visual inspiration does not grant approval to copy third-party frames or clips.
 
 ## Composition rules
 

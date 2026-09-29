@@ -14,13 +14,15 @@ node template\scripts\new_project.cjs projects\vector-databases vector-databases
 
 ## macOS and Linux
 
-The existing wrapper requires zsh and rsync:
+The POSIX shell wrapper delegates to the same Node scaffold as Windows:
 
 ```bash
 template/scripts/new_project.sh ~/work/vector-databases vector-databases
 ```
 
-The scaffold copies the production source, companion ledger, and production rules; excludes generated outputs; installs locked JavaScript dependencies; and typechecks. It refuses to overwrite an existing destination.
+The scaffold copies the production source, companion ledger, pending runbook,
+and production rules; excludes generated outputs; installs locked JavaScript
+dependencies; and typechecks. It refuses to overwrite an existing destination.
 
 ## Initialize stage 0
 

@@ -12,7 +12,11 @@ title: Remotion runtime
 - `Overlay`: overlay-only inspection;
 - `G1` through `G8`: isolated group previews.
 
-All compositions use centralized dimensions and rate: `W = 1280`, `H = 720`, and `FPS = 30`. Their duration derives from `TOTAL_FRAMES`.
+The established template compositions use centralized dimensions and rate:
+`W = 1280`, `H = 720`, and `FPS = 30`. The core release-candidate MP4 adapter
+targets `1920x1080`, `30fps`, and `48 kHz` audio from `RenderSpec.video`; it is a
+separate generated project surface and fails if those MP4 render requirements are
+not met.
 
 ## Stage graph
 
@@ -54,6 +58,27 @@ public/assets/<VIDEO.slug>/audio.wav
 ```
 
 The project slug is therefore both an editorial identifier and a runtime asset namespace. Changing it without moving the associated media breaks audio lookup.
+
+Core-managed Remotion release candidates use the same namespace pattern under the
+generated output project:
+
+```text
+public/assets/<ContentIR.contentId>/audio.wav
+public/assets/<ContentIR.contentId>/<assetId>.<ext>
+```
+
+`speech/approved-narration.json` binds the approved narration text to the
+`ContentIR` digest. `scripts/synthesize-audio.mjs` selects Python 3.14 from
+`A2SWE_PYTHON` or the nearest `.venv`, then runs the generated local producer.
+The producer supports only configured local Kokoro/Misaki or Kokoro ONNX model
+paths. It does not install packages, download weights, call cloud speech, or
+create placeholder audio.
+
+`asset-manifest.json` lists the required digest-bound WAV and visual assets.
+`scripts/render-mp4.mjs` invokes audio synthesis when the WAV or metadata is
+missing or stale, then refuses to render if local Remotion dependencies,
+FFmpeg/ffprobe, the narration WAV, exact audio duration, or any selected asset is
+missing or mismatched.
 
 ## Background selection
 

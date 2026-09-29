@@ -25,6 +25,7 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, and **MAY** describe implement
 - `agent/SWE_AGENT.md` MAY project state for portable video handoff, but MUST NOT supersede core receipts or verified artifact records.
 - The active 720p Remotion/Python video profile MUST use 1280x720 at 30 fps unless the specification is deliberately versioned.
 - Executive output work SHOULD use an explicit RenderSpec that names dimensions, fps, duration, source audio hash, output format, and adapter profile.
+- Export adapters MUST NOT imply that a selected asset was embedded unless digest-matching PNG/JPEG bytes were supplied to that adapter invocation. Missing bytes MUST be represented as a digest-only asset reference or a clear unsupported-capability error.
 - `Video`, `Overlay`, and group preview composition identifiers SHOULD remain stable.
 - Runtime animation MUST be deterministic for a frame and configuration.
 - `VIDEO.slug` MUST resolve the project audio namespace.

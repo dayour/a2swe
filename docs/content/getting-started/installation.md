@@ -61,7 +61,7 @@ The production documentation build is:
 npm --prefix docs run build
 ```
 
-## Optional runtime controls
+## Runtime controls
 
 On a disk-constrained host:
 

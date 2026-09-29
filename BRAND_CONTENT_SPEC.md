@@ -8,16 +8,15 @@
 - Package: `a2swe-remotion-template`.
 - Target outputs: independently evaluated domain agent plus narrated MP4, editable
    PPTX, searchable PDF, responsive HTML/AdaptiveDeck, and DOCX. The local adapter
-   foundation now uses shared ContentIR/RenderSpec for release candidates; the
-   established video architecture remains the active, approval-gated
-   Remotion/Python 1280x720, 30fps production video adapter.
-- Current surfaces: agent-first core state in `.a2swe/` SQLite, evaluation-only
-   synthetic asset proof, local release-candidate adapters, and established 720p
-   Remotion/Python production video architecture. None is production-ready without
-   the required approvals and rights records.
+   framework uses shared ContentIR/RenderSpec for release candidates; the
+   active video architecture has plugins for various adapters by default, including
+   Remotion/Python 1280x720, 30fps video adapter.
+- Current surfaces: agent-first core state in `.a2swe/` SQLite,
+   synthetic asset proof, local release-candidate adapters, and open plugin framework for for video architecture. No approvals required for asset usage and video generation, research and development benchmark use only, not for distribution. 
+
 
 The domain agent must be useful before media production. Public engineering and
-brand evidence, source freshness, rights, independent evaluation, and human approval
+brand evidence, source freshness, independent evaluation, and human approval
 are prerequisites, not post-production paperwork. The project companion is a readable
 view, not the authoritative runtime database. See the implementation status in
 [docs/AGENT_FIRST_BUILD_SPEC.md](docs/AGENT_FIRST_BUILD_SPEC.md).
@@ -32,7 +31,7 @@ then layouts, then Slide Master fallback. Preserve explicit intent, realistic
 content density, theme colors/fonts, typed placeholders, image composition,
 data styles, and approved voice/tone. Placeholder text is not an instruction
 channel. Keep negative space clear and split/recompose overflow rather than
-shrinking text or stretching geometry. Carry exact source, digest, rights,
+shrinking text or stretching geometry. Carry exact source, digest,
 crop/placement, and generation provenance into both output formats.
 
 The [brand-template specification](docs/content/specifications/brand-templates.md)
@@ -54,7 +53,7 @@ defaults on Python 3.14 use the upgraded local Kokoro/Misaki stack, or explicit
 Edge `en-US-AndrewNeural` at +0%. The dependency lock includes local upgraded
 Misaki, Kokoro and Kokoro ONNX wheels and the English spaCy model. Full English
 inference is verified on Python 3.14.7; ONNX uses supplied model/voice-bank paths.
-Piper remains optional. Do not substitute model imports for real inference evidence.
+Piper needs to be hardened and enhanced. Do not substitute model imports for real inference evidence.
 
 ## Image Inventory and Disposition
 
@@ -78,10 +77,10 @@ Every external image or clip needs a manifest containing path, source URL,
 license/permission, SHA-256, purpose, and required attribution. Logos must not
 imply endorsement. Do not copy frames from existing videos.
 
-Core evaluation bundles may also include optional asset quality metadata for
+Core evaluation bundles include asset quality metadata for
 dimensions, contrast, label readability, overlap, visual-review notes, and pending
 human disposition. These fields are review evidence only. They do not prove brand
-authenticity, rights, subject approval, or production readiness. Verify exported
+authenticity, approval, subject approval, or production readiness. Verify exported
 bundle `manifest.json` tamper status with the core verifier before reusing an
 evaluation asset proof.
 

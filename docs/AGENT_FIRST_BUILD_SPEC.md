@@ -2,7 +2,7 @@
 
 Version: 1.0.0. Decision date: 2026-09-17. The user authorized implementation with
 "Start implementation" after reviewing the agent-first plan. This authorizes the
-build, not subject readiness, content, voice, rights, style, or release approval.
+build, not subject readiness, content, voice, approval, style, or release approval.
 This repository document supersedes the session-only planning copy for build status.
 
 ## Product Contract
@@ -77,7 +77,7 @@ or new production video were generated. This is partial backlog progress, not A2
 
 ### 2026-09-18 Local Release Foundation Increment
 
-Implemented and tested strict local contracts for selected-asset rights manifests,
+Implemented and tested strict local contracts for selected-asset approval manifests,
 ContentIR, RenderSpec, approval bundles, release plans, and format parity manifests.
 Release candidates now require approved redistribution grants for each selected
 asset and signed content, style, voice, and release approvals bound to the exact
@@ -85,10 +85,30 @@ domain/content/style/voice/release digests. The producer cannot self-certify, an
 release approval must be independently reviewed. The initial deterministic adapters
 produce responsive self-contained HTML, AdaptiveDeck JSON, editable OpenXML PPTX,
 editable OpenXML DOCX, searchable text PDF, and a Remotion project/render plan.
-The Remotion adapter writes `encodedMp4: false`; it does not claim an MP4 was
-rendered. CLI commands `release-plan`, `release-produce`, and `release-verify`
-create and verify local release candidates while failing closed on pending rights
-or approvals.
+The Remotion adapter now emits a core-managed 1920x1080/30fps MP4 project surface:
+`render-plan.json`, timeline, asset manifest, source, and local render/QC scripts.
+The generated MP4 is produced only when the local project runs `npm run audio`
+and `npm run render` after pinned Remotion dependencies, Python 3.14 local
+Kokoro/Misaki or Kokoro ONNX dependencies, configured local model paths,
+FFmpeg/ffprobe, digest-bound 48 kHz narration WAV metadata, and digest-matching
+assets are present. Missing dependencies, model paths, audio, assets, duration
+matches, or media probes fail explicitly rather than silently falling back. CLI commands
+`release-plan`, `release-produce`, and `release-verify` create and verify local
+release-candidate packages while failing closed on pending approval or approvals;
+human voice/style/release approval is still separate from a successful render.
+
+### 2026-09-25 Export Adapter Truthfulness Increment
+
+Focused adapter work added digest-bound raster embedding for selected PNG/JPEG
+inputs. HTML and AdaptiveDeck inline supplied image bytes as data URIs; PPTX
+and DOCX embed native Office media parts with alt text and editable surrounding
+text. PDF embeds native image objects alongside searchable text. Standalone PNG
+and JPEG are now output formats in the RenderSpec, release plan, and parity
+contracts. Production requires verified asset bundles through `--assets` and
+`release-verify` requires a trust policy; review candidates without bytes still
+identify digest-only references instead of implying that images were embedded.
+Structural output checks pass, but native Office/PDF visual review remains pending
+where those renderer tools are unavailable.
 
 ### Foundation Baseline
 
@@ -105,7 +125,7 @@ Implemented and locally tested initial slices:
   generated/sensitive subtree exclusions, and disabled component records. Empty
   dependency/capability lists mean not yet extracted, not independently verified absence.
 - Conservative public-read-only resolver rejects unreviewed/unvalidated entries,
-  unavailable capabilities, unknown rights, missing dependencies, and cycles. This is
+  unavailable capabilities, unknown approval, missing dependencies, and cycles. This is
   not the future general producer capability profile.
 - Local SQLite receipts, principal-scoped job/artifact reads, revisions, lease fencing,
   checkpoints, explicit unknown-outcome reconciliation, cancellation, and verified output
@@ -118,8 +138,8 @@ Implemented and locally tested initial slices:
 Not implemented end to end: general trusted public source ingestion, bounded archive extraction, complete schema
 family beyond the new local release foundation, independently evaluated runnable SWE agent, live-verified Copilot backend,
 authenticated remote clients, ACP/MCP transports, full cross-protocol handoffs, owned
-worker process supervision, production-grade rendering/QC, encoded MP4 generation,
-and subject acceptance. Production submission and self-declared DomainReady validation
+worker process supervision, automatic end-to-end media production from the core CLI,
+production-grade subjective video QA, and subject acceptance. Production submission and self-declared DomainReady validation
 deliberately fail closed. The new detached local certification and release primitives
 are not integrated production authorization. Direct Remotion/Python production video
 architecture scripts remain manual adapter tools outside the new state machine, not
@@ -135,13 +155,13 @@ them. No current test is evidence of real model inference or executive visual qu
   freshness policy, source/claim/context/code/asset indexes, brand/profile/tool locks,
   evaluation report, gaps/applicability, immutable root digest and review metadata.
 - SourceDocument: original/final URLs, publisher/author/title/type, all relevant dates
-  and evidence, snapshot/extract hashes and rights, parser/ref/revision, provenance,
+  and evidence, snapshot/extract hashes and approval, parser/ref/revision, provenance,
   freshness, foundation exceptions, and related/syndicated origins.
 - EvidenceSpan/Claim: exact bounded extract, locator/page/line/cell/time, source version,
   quote hash, claim wording/applicability/confidence/qualifications, contradictions,
   factual/inferred/hypothetical label, valid-as-of, reviewer, and disposition.
 - Asset/BrandProfile: original logo/media/icons, source-backed palette/type/grid/clearspace,
-  font rights/fallbacks, permitted uses/transformations, attribution and expiry. Unknown
+  font approval/fallbacks, permitted uses/transformations, attribution and expiry. Unknown
   permission blocks bundling; publicly readable is not freely redistributable.
 - ContentIR: audience and decision, thesis/sections, shared claim IDs, cited datasets
   with units/transforms, semantic diagrams, code refs, assets/alt text, speaker notes,
@@ -154,7 +174,7 @@ them. No current test is evidence of real model inference or executive visual qu
   observable summary, command/tool/check results including not-run, usage/timings,
   limitations and next action. Do not persist hidden reasoning.
 - Artifact/Event/Approval: logical IDs and portable relative export paths, digest/media
-  type/size/producer/input hash/rights, monotonic event cursor, independently authenticated
+  type/size/producer/input hash/approval, monotonic event cursor, independently authenticated
   reviewer, exact approved operation/content digests, timestamp and expiry.
 
 Date-only fields currently use UTC. Transport paths resolve at trusted boundaries;
@@ -219,7 +239,7 @@ engineering and safety results. The conductor binds QA and user decisions to one
 DomainPack digest before ready. The producer cannot self-certify. Source/policy/profile
 changes create a new verifying version and invalidate dependent gates, not old releases.
 
-Selected-component rights are reviewed separately for use and redistribution. Missing
+Selected-component approval are reviewed separately for use and redistribution. Missing
 toolkit license text remains unresolved; do not invent a license. Unrelated disabled
 catalog entries need not be cleared to release a different approved selection.
 
@@ -230,13 +250,13 @@ Partial means an initial tested slice exists, not task acceptance.
 | Task | Priority | Owner and scope | Dependencies | Status / acceptance still required |
 | --- | --- | --- | --- | --- |
 | A00 | P0 | Architect: spec/context/product contract | First | Implemented docs; local Git/inventory checkpoint records dirty state, not a clean audit |
-| A01 | P0 | Registry SWE: catalog/resolve/materialize | A00 | Partial: passive inventories/resolver; complete template ownership, dependency extraction, rights review and import lock remain |
+| A01 | P0 | Registry SWE: catalog/resolve/materialize | A00 | Partial: passive inventories/resolver; complete template ownership, dependency extraction, approval review and import lock remain |
 | A02 | P0 | Protocol architect: schemas/types/fixtures | A00 | Partial: initial TS schemas; full schema family, Python parity and migration tests remain |
 | A03 | P0 | Runtime SWE: durable jobs/artifacts/workers | A02 | Partial: local store tested; all-boundary fault injection, authenticated approvals, process supervision and resource control remain |
 | A04 | P0 | Security SWE: public fetch and safe ingestion | A01,A02 | Partial: guarded raster HTTPS/DNS and decoding tests; general extraction, real-network acceptance and sandbox tests remain |
 | A05 | P0 | Research SWE: subject/source/freshness/finance | A02,A04 | Calendar function and draft intake only; live discovery, exact extraction, contradictions and source applicability remain |
 | A06 | P0 | Brand curator: brand/asset provenance | A01,A04,A05 | Evaluation asset pipeline implemented; verified subject branding and permitted-use rules remain |
-| A06R | P0 | Rights curator: selected rights manifest | A01,A04,A06 | Pending owner-reviewed grants, attribution, expiry and export permission |
+| A06R | P0 | approval curator: selected approval manifest | A01,A04,A06 | Pending owner-reviewed grants, attribution, expiry and export permission |
 | A07 | P0 | Agent SWE: Copilot backend/factory/ready | A01-A06 | Restricted SDK query and local signed certification primitives; live inference, SWE execution and integrated readiness remain |
 | A08 | P0 | Independent QA: domain evaluation | A05,A07 | Pending 20 questions, 3 engineering tasks and 8 adversarial cases per subject |
 | A09 | P0 | MCP SWE: modern/2025 compatibility SDK adapters | A02,A03 | Pending conformance, per-call auth, metadata/MRTR and fresh-server recovery |
@@ -248,8 +268,8 @@ Partial means an initial tested slice exists, not task acceptance.
 | A15 | P1 | Web SWE: HTML/AdaptiveDeck | A01,A02,A06,A12 | Pending pinned canonical schemas, full renderer, responsive/offline/security checks |
 | A16 | P1 | Document SWE: DOCX/PDF | A01,A02,A06,A12 | Pending editable headings/tables/TOC/alt text and every-page rendering |
 | A17 | P1 | Visual director: authentic topic proof | A06,A12,adapters | Pending 3 video keyframes and 2 slides; independent and user approval before full output |
-| A18 | P0 gate | QA: hash-bound fact/media/rights validation | A02 | Pending normal and optimized Python gates, current-artifact evidence and human review |
-| A19 | P1 | Release custodian: portable package/revision | A06R,A08,A11,A13-A18 | Pending clean-directory import, complete selected rights/approvals and resume |
+| A18 | P0 gate | QA: hash-bound fact/media/approval validation | A02 | Pending normal and optimized Python gates, current-artifact evidence and human review |
+| A19 | P1 | Release custodian: portable package/revision | A06R,A08,A11,A13-A18 | Pending clean-directory import, complete selected approval/approvals and resume |
 | A20 | P0 gate | Build SWE: Windows/Linux CI and profiles | A02 | Core CI added; hosted runs, plugin/model/media/conformance gates remain |
 | A21 | P1 | QA and user: four-subject acceptance | A07-A20 | Pending Deere, Copilot, Microsoft and one public repo/tool, all five formats |
 | A22 | P2 | Runtime: measured optional scale/cloud/A2A | A21,new scope | Not authorized until measured need and separate approval |
@@ -271,7 +291,7 @@ Verify actual fonts, content recognition, factual mechanisms, citations, accessi
 voice/pacing, editability, searchable PDFs, responsive HTML, chart units and format
 parity. The rejected pilot art direction is a negative benchmark; decorative motion
 or brightness cannot certify quality. Release remains blocked while required checks
-are failed/not-run, selected rights are unknown, or human approvals are pending.
+are failed/not-run, selected approval are unknown, or human approvals are pending.
 
 ## References
 

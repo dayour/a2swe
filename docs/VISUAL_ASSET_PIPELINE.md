@@ -1,7 +1,6 @@
 # Visual Asset Pipeline
 
-Implementation checkpoint: 2026-09-18. These are working evaluation tools, not a
-completed agent-to-executive-output system. Production and release remain disabled.
+Implementation checkpoint: 2026-09-18.
 
 ## What Changed
 
@@ -40,7 +39,7 @@ engineering fixtures, not factual Power Platform content or approved style frame
 
 Each bundle contains `request.json`, `asset.json`, and `asset.png`. The record binds
 the request and domain digests to the raster digest, dimensions, alt text and
-generation method. Both rights and visual review remain pending. Integrity hashes
+generation method. Both approval and visual review remain pending. Integrity hashes
 are not authenticity, factual support, or licensing decisions.
 
 Example request, with the domain digest replaced by the actual pack digest:
@@ -85,7 +84,7 @@ running work is not silently retried. Export is not production approval.
 not establish that the local bytes came from that URL. `asset-fetch` retrieves the
 bytes itself with the guarded HTTPS client. Both require `method: import`, known
 exact dimensions, and a new output directory. Normalization does not resize, crop
-or rotate; unknown rights remain pending. Original source bodies are not bundled.
+or rotate; unknown approval remain pending. Original source bodies are not bundled.
 Public acquisition retains the final URL, retrieval time and original-byte digest;
 it is not the full source-snapshot/revision contract required for general research.
 
@@ -127,7 +126,7 @@ never trust a stored `status: ready` string. No actual approval was created here
 
 This is a local attestation primitive. It does not independently establish signer
 identity, role assignment, evidence truth, source-update substance, or actual test
-execution. Authenticated enrollment, detailed foundation/rights records and
+execution. Authenticated enrollment, detailed foundation/approval records and
 integration with production/release transitions are still required.
 
 ## Existing Copilot Profile
@@ -287,7 +286,7 @@ durable jobs, cancellation, synthetic ComfyUI transport and synthetic reviewer k
 The inspected 2026-09-18 three-image proof had readable labels and no observed
 overlap. This is local engineering review, not independent or user style acceptance.
 
-Remaining implementation includes the full source/brand/rights schema and ingestion,
+Remaining implementation includes the full source/brand/approval schema and ingestion,
 safe archive handling, authenticated review enrollment, sandboxed SWE execution,
 ACP/MCP conformance and cross-protocol recovery, shared ContentIR and all five output
 adapters, media approval transitions, release packaging and four-subject acceptance.

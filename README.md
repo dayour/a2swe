@@ -1,20 +1,20 @@
 # a2swe
 
-**Anything to SWE Agent: Expert Explainers.**
+**Anything to SWE Agent: Domain Specific Workforce Explainers.**
 
-**Domain SWE agent first; executive explainers from its verified knowledge.**
-a2swe is becoming an English-only, agent-first toolkit for companies, topics,
+**Domain SWE agent first; executive explainers from relevant knowledge available.**
+a2swe is an English-only, agent-first toolkit for companies, topics,
 frameworks, repositories, and tools. Public evidence, engineering context, and
 verified brand assets must ground an independently evaluated domain agent before
 it directs videos, editable presentations, and briefings.
 
-Recent factual claims require reputable sources from the preceding nine calendar
+Only recent knowledge from reputable sources from the preceding nine calendar
 months. Older foundational sources need explicit review and revalidation;
 retrieval dates are not publication dates. See the
 [agent-first build specification](docs/AGENT_FIRST_BUILD_SPEC.md) and
 [context map](docs/audit/CONTEXT_MAP.md) for scope and implementation status.
 
-The current product is one evolving architecture with several coordinated surfaces:
+The current product uses swe agent architecture with several coordinated surfaces that need to be unified:
 
 - **Core orchestration:** passive inventory, schema validation, draft intake, and
   a local `.a2swe/` SQLite job/artifact store. This is the authority for runtime
@@ -27,7 +27,7 @@ The current product is one evolving architecture with several coordinated surfac
   an actively enhanced production video path and a target adapter for the
   agent-first system, not evidence that all new gates or five-format outputs are
   complete.
-- **Local release-candidate adapter foundation:** initial rights/approval-gated
+- **Local release-candidate adapter foundation:** initial approval-gated
   HTML, AdaptiveDeck, PPTX, DOCX, searchable PDF, and Remotion project/render-plan
   outputs consume the same approved ContentIR/RenderSpec. The Remotion release
   adapter does not yet claim an encoded MP4.
@@ -35,22 +35,19 @@ The current product is one evolving architecture with several coordinated surfac
   responsive HTML/AdaptiveDeck, and DOCX should continue to share the same
   evidence graph rather than fork into separate products.
 
-The optional Copilot SDK integration
+The Copilot SDK integration
 reuses the installed CLI, user authentication, profile and sessions; live inference
 and cross-process resume have passed. Native Copilot and Agency bridges preserve
 their agents, tools and plugins. The restricted evidence-query adapter remains
 separate. ACP/MCP, sandboxed
-SWE execution, integrated DomainReady/production gates, and full five-format
-production integration remain unfinished.
+SWE execution with full five-format asset generation remains unfinished. 
 
 See the [visual asset pipeline](docs/VISUAL_ASSET_PIPELINE.md) for commands,
 security boundaries, observed blockers and the remaining implementation work.
-Generate three real synthetic 1080p proofs with `npm run assets:proof`; this does
-not create approved subject media or bypass the production gates.
+Generate three real synthetic 1080p proofs with `npm run assets:proof`
 
-This repository is a toolkit and agent workflow, not an installed desktop app or
-an automatic topic-entry website. Remotion Studio is the local preview interface.
-The starter contains placeholder compositions, not a finished video.
+a2swe is a complete apim toolkit and agent workflow and should have tauri native windows de4sktop app. Remotion Studio is the local preview interface.
+
 
 ## Agent Core
 
@@ -94,7 +91,7 @@ npm run agency:copilot -- --agent dayour-dev
 For SDK sessions, install only the lightweight integration, not another runtime:
 
 ```powershell
-npm --prefix integrations/copilot ci --omit=optional --ignore-scripts
+npm --prefix integrations/copilot ci 
 npm run copilot:sdk -- --capabilities
 npm run copilot:sdk -- --doctor
 npm run copilot:sdk -- --catalogs
@@ -142,6 +139,21 @@ To make the skill discoverable, place or link this repository in your coding
 agent's supported skill directory as `a2swe`, or explicitly ask the agent to read
 [SKILL.md](SKILL.md). Skill registration is separate from dependency installation.
 
+First-party reusable entries under `library/` are local discovery aids, not
+approval or execution authority:
+
+- `library/agents/a2swe-conductor.agent.md` coordinates validated a2swe project
+  transitions.
+- `library/skills/a2swe/SKILL.md` inspects and resumes runbook-based projects.
+- `library/plugins/a2swe/` packages the local conductor, skill, and pending
+  runbook starter asset for compatible hosts.
+- `library/assets/runbook/runbook-starter.json` seeds scaffolded runbooks with
+  all gates pending.
+
+Indexing any of these files does not install a backend, grant credentials,
+approve DomainReady status, or prove that a renderer or release format is
+available.
+
 ## Documentation Website
 
 The [Docusaurus site source](docs/) describes the core orchestration,
@@ -169,18 +181,13 @@ Direct Remotion/Python scripts do not enforce the new state machine and must not
 be used to bypass those gates. The following documents the established video
 adapter workflow.
 
-1. Scaffold a separate project from the template and initialize its companion ledger.
-2. Research claims using primary sources and record source URLs and access dates.
-3. Approve narration and the voice engine, then generate audio and frame timing.
-4. Write the storyboard, shared overlays, and first shot group.
+1. Create new projects from the template and initialize its companion ledger.
+2. Research anything-topic using primary sources and record source URLs and access dates.
+3. Write the storyboard, shared overlays, and first shot group.
+4. Generate audio voiceover narration first and iterate the voice engine, then generate audio and frame timing.
 5. Render and approve a 30-second pilot before building remaining shot groups.
 6. Render the full movie, inspect audio and frames, fix defects, and deliver evidence.
 
-On macOS/Linux, the existing scaffold and render wrappers require zsh and rsync:
-
-```bash
-template/scripts/new_project.sh ~/work/my-video my-video
-```
 
 On Windows, scaffold a new directory without zsh or rsync:
 
@@ -228,12 +235,7 @@ with a matching timeline is also supported. No cloud fallback happens automatica
 
 ## Verified 720p Video Pilots
 
-- [John Deere, 30 seconds](projects/john-deere/renders/john-deere-v3.mp4)
-- [Copilot, 30 seconds](projects/copilot/renders/copilot-v6.mp4)
-- [Microsoft, 30 seconds](projects/microsoft/renders/microsoft-v3.mp4)
-
-These are active 720p Remotion/Python adapter fixtures, not DomainReady evidence
-and not proof of five-format production readiness. They use the approved Edge voice. Separate full-script inference samples from
+Full-script inference samples from
 both local Kokoro engines and Misaki phoneme evidence are in `qc/models/`.
 Run `scripts/verify_models.py --help` from a generated project to repeat that check.
 Use `scripts/align_audio.py` to measure and correct small AAC encoder offsets,
@@ -248,36 +250,24 @@ Each release includes the H.264 MP4, full source project, sourced research,
 approved narration, timing, storyboard, QC evidence, asset manifest, delivery
 notes, and populated [companion starter](template/agent/SWE_AGENT.md).
 
-For revisions, the next session reads the delivered companion, verifies files,
-refreshes facts, and resumes at the earliest affected stage. Narration edits need
-new approval and timing. Follow-ups use separate projects and approval ledgers,
-while reusing verified knowledge and licensed primitives with provenance.
+
 
 ## Content and Assets
 
-See [BRAND_CONTENT_SPEC.md](BRAND_CONTENT_SPEC.md) for identity, media, language,
-and acceptance requirements. The former non-English sample archive and its 36
+Create a brand spec doc for relevant content in scratchpad [BRAND_CONTENT_SPEC.md](BRAND_CONTENT_SPEC.md) for identity, media, language,
+and acceptance requirements for each a2swe. The former non-English sample archive and its 36
 reference JPEGs are retired. The active template draws original diagrams in code.
-Optional footage requires a source, license, SHA-256, and usage manifest.
 Evaluation asset bundles generated by the core include request, asset, raster, and
-manifest records. Optional asset quality metadata may record machine-measured
-readability, contrast, overlap, dimensions, review notes, and pending human
-disposition, but it does not confer brand or visual approval. Verify bundle
-`manifest.json` tamper status through the core verifier before treating an exported
-asset proof as intact.
+manifest records are not intended for distribution.
 
-The original visual vocabulary was inspired by the Douyin creator Tuling Yuzhou.
-No frames or clips from that creator are bundled. The existing black canvas,
-white line art, accent highlights, and two backdrop choices remain available.
+
 
 ## Licensing and Limits
 
-The prior README claimed PolyForm Noncommercial terms, but this checkout has no
-root license text. Resolve toolkit licensing before redistribution or commercial
-use; this README does not grant new rights. Bundled fonts retain their separate
+Bundled fonts retain their separate
 [OFL notices](template/public/fonts/LICENSE.md). Remotion has its own
 [licensing terms](https://remotion.dev/license).
 
-The layout targets landscape 720p only. A successful bundle is not a finished
+The layout targets all popular video formasts. A successful bundle is not a finished
 film or a passing visual QC result. Allow at least 5GB free space for production,
 and bound parallel renders to available CPU and memory.

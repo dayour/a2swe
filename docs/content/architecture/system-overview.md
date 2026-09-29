@@ -1,10 +1,18 @@
 ---
 title: System overview
+description: Shared core contracts, output adapters, and approval boundaries.
 ---
 
-# System architecture
+## System architecture
 
-The architecture has one orchestrated production model: core state and approvals produce ContentIR and RenderSpec records, then format adapters create reviewable outputs. The active Remotion/React and Python speech/QC video adapter, evaluation-only asset proof pipeline, and planned PPTX/PDF/HTML/DOCX adapters belong to that model rather than separate product lines. Production release remains gated by evidence, rights, independent QA, and human approval.
+The architecture has one shared contract model: core state and approvals
+govern ContentIR and RenderSpec records, then adapters create reviewable
+outputs. The core can generate HTML, AdaptiveDeck, editable PPTX/DOCX,
+searchable PDF, 1080p PNG/JPEG overviews, and a separate 1080p Remotion
+project. Supplied raster assets are digest-checked and embedded where
+supported. Production packaging remains gated by evidence, approval, and
+signed approvals; the encoded MP4 and native visual review are separate
+steps. The older 720p template remains a distinct, unmigrated workflow.
 
 ```mermaid
 flowchart LR
@@ -14,13 +22,14 @@ flowchart LR
   Core --> Domain[Verified DomainPack target]
   Domain --> ContentIR[Approved ContentIR]
   ContentIR --> RenderSpec[RenderSpec per output]
-  RenderSpec --> Remotion[Active Remotion/React video adapter]
-  RenderSpec --> Outputs[PPTX / PDF / HTML / DOCX adapters]
+  RenderSpec --> Remotion[Generated 1080p Remotion project]
+  RenderSpec --> Outputs[PPTX / PDF / HTML / DOCX / PNG / JPEG]
   Remotion --> Encode[H.264 render]
   Remotion --> Python[Python speech, timing, and QC]
   Python --> Encode
-  Encode --> QC[Static and audiovisual QC]
-  QC --> Delivery[Release evidence]
+  Encode --> QC[Encoded-stream QC]
+  QC --> Review[Full visual and audio review pending]
+  Review --> Delivery[Release evidence]
   Store -. exports projection .-> Ledger[SWE_AGENT.md projection]
   Ledger -. supports portable handoff .-> Delivery
 ```
@@ -55,5 +64,5 @@ Project variation is primarily data-driven:
 - Source claims become narration only after research qualification.
 - Narration becomes external speech input only after explicit disclosure and approval.
 - Automated checks can measure artifacts but cannot manufacture human approval.
-- Optional media must include source, license, digest, and usage records.
+- Optional to provide additional media source metadata, license, digest, etc.
 - The companion must not contain credentials or unverified claims of success.

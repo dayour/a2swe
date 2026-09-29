@@ -14,8 +14,8 @@ independent Docusaurus site. Existing files must be read before editing.
 | CTX03 Speech | template/scripts/{tts_build,verify_models,test_pipeline}, requirements, speech-stack reference | Preserve runtime fingerprints, atomic WAV writes, immutable fork pins and real inference evidence |
 | CTX04 Production | template/scripts scaffold/render/storyboard/QC tools | Generalize fixed six-shot/900-frame checks, eliminate assert-based gates and global temporary cleanup |
 | CTX05 Pilots | projects/{john-deere,copilot,microsoft} | Historical media/QC fixtures; technical passes are not executive visual or human listening approval |
-| CTX06 Research | library curation/source/governance/evaluation skills | Reuse bounded extraction and source analysis; private tools remain disabled |
-| CTX07 Editorial | library media/brand/chart/process/story skills | Host-specific scripts require explicit capability, rights and runtime review |
+| CTX06 Research | library curation/source/governance/evaluation skills | Reuse bounded extraction and source analysis; private tools remain private |
+| CTX07 Editorial | library media/brand/chart/process/story skills | Host-specific scripts require explicit capability, approval and runtime review |
 | CTX08 Office | library/skills/office and archive packs | Bounded Office ingestion and portable browser backend needed; ZIP presence is not execution readiness |
 | CTX09 Domain | library analytics, mapping, compliance and specialist skills | Optional specialization; simulations are not public financial facts |
 | CTX10 Private/host | M365, Work IQ, SharePoint, automations and publishing skills | Discover only; public-grounding profile cannot invoke private reads or external writes |
@@ -41,7 +41,7 @@ Do not scan a whole user profile. Reports store relative paths, SHA-256, disposi
 component associations, parse findings and disabled entries. Source locations are local
 CLI arguments, not exported absolute paths. Snapshots record actual Git HEAD, dirty
 statuses, and available dirty-file hashes. They are implementation checkpoints, not a
-reconstructed pre-edit state. Local reports are ignored because source rights remain
+reconstructed pre-edit state. Local reports are ignored because source approval remain
 unreviewed. Excluded directories represent their entire subtree; file hashes are null
 when intentionally not read. Unassigned files remain explicit review work.
 

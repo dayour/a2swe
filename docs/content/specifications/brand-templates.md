@@ -29,12 +29,12 @@ and checks an exported plan without dependencies, using Node 24.
 adapter is a basic text-layout exporter; it does not import these recipes or a
 `.potx`, reproduce sample-slide geometry, or upload to Brand kits. Remotion scenes
 must also be authored from the plan. Neither a schema check nor a gallery
-selection establishes brand fidelity, rights, or release approval.
+selection establishes brand fidelity, approval, or release approval.
 
 ## Source-of-truth order
 
 1. Inspect realistic, complete sample slides from the approved brand template.
-   Record the file's SHA-256, slide numbers, source owner, usage rights, and
+   Record the file's SHA-256, slide numbers, source owner, usage approval, and
    visual-review evidence. Include sample outputs, not only empty layouts.
 2. Map each scenario beat to a clear intent and a matching example. Preserve
    relationships between text, images, diagrams, and whitespace.
@@ -44,9 +44,6 @@ selection establishes brand fidelity, rights, or release approval.
    data styles, imagery, voice, and tone from the verified brand evidence.
    Reapprove affected output if those inputs change.
 
-The UI's optional exemplar field is **only an unverified reference string**. It
-does not read, hash, upload, or inspect a presentation. The producer must perform
-that work before claiming the reference is an approved design source.
 
 ## Representative coverage
 
@@ -156,12 +153,12 @@ moving pilot as review evidence. Machine checks cannot replace human approval.
 For each selected asset retain its source and digest, permission/license,
 attribution, alt text, intended placeholder, crop/focal point, and generation
 provenance. Preserve original source metadata and C2PA where present; never
-fabricate it. Generated artwork is not an official logo. Rights to a deck do
-not automatically grant rights to its fonts, photos, or logos.
+fabricate it. Generated artwork is not an official logo. approval to a deck do
+not automatically grant approval to its fonts, photos, or logos.
 
 Use the approved brand voice and tone in narration and written copy. Reapprove
 edited narration and regenerate dependent timing. Brand kit or connector
-selection does not waive a2swe's consent, domain, rights, pilot, or release gates.
+selection does not waive a2swe's consent, domain, approval, pilot, or release gates.
 
 ## PowerPoint and Brand kit handoff
 

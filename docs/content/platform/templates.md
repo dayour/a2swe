@@ -21,7 +21,7 @@ Choose **Slide recipes** for six complete, original composition examples with
 intent/density filters and geometry previews. Add at least one recipe, then
 combine it with skills, agents, graphics, and storylines. Choose PowerPoint,
 video, or both; optionally supply a reference to a brand deck and sample slides.
-This reference is not opened or uploaded.
+
 
 Exports now use `a2swe-scenario/2` and include an unapproved `brandPlan`.
 Instructions prioritize complete sample slides over layouts and Slide Master,
@@ -34,7 +34,7 @@ for the SDK, geometry preflight, PowerPoint/Brand kit handoff, and limitations.
 Recipes are not `.pptx`/`.potx` assets and are not consumed automatically by the
 core output adapters.
 
-Templates are reusable, versioned starting points for explainer production. They reduce repeated setup without transferring facts, rights, or human approvals from one video to another.
+Templates are reusable, versioned starting points for explainer production. They reduce repeated setup without transferring facts, approval, or human approvals from one video to another.
 
 ## Canonical project template
 

@@ -18,7 +18,7 @@ function RevisionViewer({video, onClose}: {video: Video; onClose: () => void}) {
         {project.revisions.filter((item) => item.id !== video.id).map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
       </select>
     </label>
-    <p className="library-meta">Independent playback controls let you pause and seek each revision. Videos include burned-in subtitles; optional English captions are provided for the latest revisions.</p>
+    <p className="library-meta">Independent playback controls let you pause and seek each revision. Videos include burned-in subtitles; English captions are provided for the latest revisions.</p>
     {other?.digest === video.digest && <p className="library-notice">These revisions contain identical movie bytes (matching SHA-256).</p>}
     <details><summary>File integrity and evidence</summary>
       <p>SHA-256 <code className="library-digest">{video.digest}</code></p>

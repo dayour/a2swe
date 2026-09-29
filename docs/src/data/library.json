@@ -2,6 +2,37 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "agent-365",
+      "title": "Agent 365",
+      "description": "Repository project.",
+      "note": "No curated completion record.",
+      "blockers": [],
+      "evidence": [],
+      "revisions": [
+        {
+          "id": "agent-365/agent-365-candidate.mp4",
+          "projectId": "agent-365",
+          "title": "Agent 365 agent-365-candidate",
+          "revision": "agent-365-candidate",
+          "source": "projects/agent-365/renders/agent-365-candidate.mp4",
+          "movie": "library/videos/agent-365/agent-365-candidate.mp4",
+          "poster": "library/posters/agent-365-agent-365-candidate.mp4.jpg",
+          "captions": "library/captions/agent-365.vtt",
+          "digest": "d1f89a8ba22103e6963734a3421c3deacbec6a55dabef98bb4adafbd2a9b5203",
+          "bytes": 4508676,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 62.633333,
+          "codec": "h264",
+          "latest": true,
+          "qc": null,
+          "state": "Review candidate"
+        }
+      ],
+      "state": "Review candidates"
+    },
+    {
       "id": "copilot",
       "title": "Copilot",
       "description": "A six-scene tour of Copilot Chat, Microsoft 365 Copilot, GitHub Copilot, and Copilot Studio. This is the earlier Copilot-family pilot, separate from Copilot Studio 2026.",
@@ -449,24 +480,6 @@
       "state": "Review candidates"
     },
     {
-      "id": "power-platform",
-      "title": "Power Platform",
-      "description": "An engineering-agent and explainer review package: domain research, proposed 60-second narration, and evaluation evidence.",
-      "note": "The delivery record explicitly calls the missing MP4 an unmet deliverable. This review package is not a substitute for the video.",
-      "evidence": [
-        "projects/power-platform/delivery.md",
-        "projects/power-platform/brief.md",
-        "projects/power-platform/qc/comparison.md"
-      ],
-      "blockers": [
-        "No TTS, timeline, stills, or MP4 was produced.",
-        "Content and local voice selection remain proposed, not approved.",
-        "Domain readiness, selected-component rights, and release gates remain unresolved in the delivery record."
-      ],
-      "revisions": [],
-      "state": "Not rendered"
-    },
-    {
       "id": "power-platform-2026",
       "title": "Power Platform 2026",
       "description": "A separate narrated Power Platform engineering explainer with rendered review candidates, research, and storyboard.",
@@ -608,6 +621,20 @@
   ],
   "templates": [
     {
+      "id": "projects/agent-365/agent/SWE_AGENT.md",
+      "title": "Agent 365 companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Review pending gates before reuse.",
+      "preview": "agent",
+      "source": "projects/agent-365/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "agent-365"
+      ],
+      "recipe": null,
+      "digest": "ef4f7fb78a0073a32968927bbb020e2eaa178c480d0e130689c8567795c89c0b"
+    },
+    {
       "id": "projects/copilot/agent/SWE_AGENT.md",
       "title": "Copilot companion",
       "category": "Agents",
@@ -673,7 +700,7 @@
       "symbol": null,
       "tags": [],
       "recipe": null,
-      "digest": "d4ee706d88908971cedeb54f6af625ef0c93c6b86340189f7b89c0602716b094"
+      "digest": "164660a92d22a85cbc4dac511fe03e002254d67d45ad0a2568d85f2a56db7a94"
     },
     {
       "id": "template/agent/SWE_AGENT.md",
@@ -685,7 +712,7 @@
       "symbol": null,
       "tags": [],
       "recipe": null,
-      "digest": "5c6b0525633ec469ee5f30a5dfd8e9bf692c08b1edb4e26c8fb3b5b609351799"
+      "digest": "80256177a423be39078caa47a40fc6e472941844f646292003033b74443e630a"
     },
     {
       "id": "template/src/ui.tsx#ArrowH",
@@ -1558,6 +1585,42 @@
       "digest": "12b4904ca8db628792f0bb750c83fb0b225477fd613f931cbbf67d6a29b4a523"
     },
     {
+      "id": "library/plugins/a2swe/README.md",
+      "title": "A2swe",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/README.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "5d0b3a4cf86eaed404689e2628dc857b8e54f1c0b5674e187e855ff03b001d9d"
+    },
+    {
+      "id": "library/plugins/a2swe/skills/a2swe-project/SKILL.md",
+      "title": "A2swe Project",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/skills/a2swe-project/SKILL.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "9eb0b861e6c06f6b5ee7dbbc6c7345e29b9cd33fce9a89402e856289539b90e0"
+    },
+    {
+      "id": "library/plugins/a2swe/agents/a2swe-conductor.agent.md",
+      "title": "Agents",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/agents/a2swe-conductor.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "a3a767a7e7236b27a4111a774ea6bd2a3796d6a0ac0615b5c73d02c8a32dfe21"
+    },
+    {
       "id": "library/plugins/templates/learn-tech-advisor/README.md",
       "title": "Learn Tech Advisor",
       "category": "Plugins",
@@ -1594,6 +1657,18 @@
       "digest": "f450c17d9150484ae2452610e80bf200096610cc69b3f67fc8f415432cc3855d"
     },
     {
+      "id": "library/plugins/a2swe/assets/runbook/README.md",
+      "title": "Runbook",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/assets/runbook/README.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "7748da92dfa2f7737ba55b1911d23840ca09ecf791dd029af446513d978a9fb1"
+    },
+    {
       "id": "library/plugins/templates/recipe.md",
       "title": "Templates",
       "category": "Plugins",
@@ -1616,6 +1691,24 @@
       "tags": [],
       "recipe": null,
       "digest": "8f5cbe447dfbca6a275ad80f08702cec8dff83be4c229eed33e18026b6193d6c"
+    },
+    {
+      "id": "library/skills/a2swe/SKILL.md",
+      "title": "a2swe Project",
+      "category": "Skills",
+      "description": "Inspect and resume an a2swe agent-first project runbook without granting DomainReady, media approval, renderer availability, or release authority.",
+      "preview": "skill",
+      "source": "library/skills/a2swe/SKILL.md",
+      "symbol": null,
+      "tags": [
+        "a2swe",
+        "runbook",
+        "agent-first",
+        "approval-gates",
+        "release-candidate"
+      ],
+      "recipe": null,
+      "digest": "6aad6dc1acbe314467adce215de74ae4906bd5a4ac24e0a33bbcbbad26bbcd15"
     },
     {
       "id": "library/skills/agent-evaluation-designer/SKILL.md",
@@ -2715,7 +2808,7 @@
       "id": "library/skills/monte-carlo-analysis/SKILL.md",
       "title": "Monte Carlo Analysis",
       "category": "Skills",
-      "description": "Run Monte Carlo simulations from natural-language risk inputs — triangular, normal, uniform, or log-normal — and return percentiles, a histogram PNG, optional interactive HTML, and a downloadable results spreadsheet.",
+      "description": "Run Monte Carlo simulations from natural-language risk inputs — triangular, normal, uniform, or log-normal — and return percentiles, a histogram PNG, interactive HTML, and a downloadable results spreadsheet.",
       "preview": "skill",
       "source": "library/skills/monte-carlo-analysis/SKILL.md",
       "symbol": null,
@@ -3026,7 +3119,7 @@
       "id": "library/skills/route-map-visualizer/SKILL.md",
       "title": "Route Map Visualizer",
       "category": "Skills",
-      "description": "Visualize routes and locations on a map. Accepts pre-ordered stops with coordinates from upstream connectors (Azure Maps, Bing Maps, Dataverse, CRM) plus optional road geometry, leg distances, and durations. Produces PNG, interactive HTML (Leaflet/OSM), GeoJSON, KML, deep links, and QR codes. Fully offline Python engine — road geometry rendered directly when provided, or OSRM used browser-side as a schematic fallback.",
+      "description": "Visualize routes and locations on a map. Accepts pre-ordered stops with coordinates from upstream connectors (Azure Maps, Bing Maps, Dataverse, CRM) plus road geometry, leg distances, and durations. Produces PNG, interactive HTML (Leaflet/OSM), GeoJSON, KML, deep links, and QR codes. Fully offline Python engine — road geometry rendered directly when provided, or OSRM used browser-side as a schematic fallback.",
       "preview": "skill",
       "source": "library/skills/route-map-visualizer/SKILL.md",
       "symbol": null,
@@ -3157,7 +3250,7 @@
         "stoicism"
       ],
       "recipe": null,
-      "digest": "b74fe8084435475e3f9ea94d324f843df5f6af171719da51197d72d36b72e788"
+      "digest": "a55b7e318bfaf833d8835e85c60a6c41a57d16ec17a379c5a4c77e2a16194e4a"
     },
     {
       "id": "library/skills/tool-tracer/SKILL.md",
@@ -3338,7 +3431,7 @@
       "id": "template/brand-recipes.json#context-and-image",
       "title": "Context and image",
       "category": "Slide recipes",
-      "description": "Medium-density text beside an inset picture placeholder. Select a rights-cleared photo with subject space toward the text.",
+      "description": "Medium-density text beside an inset picture placeholder. Select a approval-cleared photo with subject space toward the text.",
       "preview": "slide",
       "source": "template/brand-recipes.json",
       "symbol": "context-and-image",
@@ -3351,7 +3444,7 @@
       "recipe": {
         "id": "context-and-image",
         "title": "Context and image",
-        "description": "Medium-density text beside an inset picture placeholder. Select a rights-cleared photo with subject space toward the text.",
+        "description": "Medium-density text beside an inset picture placeholder. Select a approval-cleared photo with subject space toward the text.",
         "intent": "content",
         "density": "medium",
         "objects": [
@@ -3396,7 +3489,7 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
     },
     {
       "id": "template/brand-recipes.json#decision-and-next-step",
@@ -3447,7 +3540,7 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
     },
     {
       "id": "template/brand-recipes.json#illustrative-dashboard",
@@ -3524,7 +3617,7 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
     },
     {
       "id": "template/brand-recipes.json#opening-question",
@@ -3575,7 +3668,7 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
     },
     {
       "id": "template/brand-recipes.json#routing-process",
@@ -3639,7 +3732,7 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
     },
     {
       "id": "template/brand-recipes.json#three-part-agenda",
@@ -3716,7 +3809,21 @@
           }
         ]
       },
-      "digest": "3b0d44e9f0dc1491308fe4d86998c4db2ca9f1f4b39aaf33ee030f4355075290"
+      "digest": "7b2750b40b52f18cccaf960275ca05ede14d00095c69fc68899df05e91185267"
+    },
+    {
+      "id": "projects/agent-365/brief.md",
+      "title": "Agent 365 storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
+      "preview": "storyline",
+      "source": "projects/agent-365/brief.md",
+      "symbol": null,
+      "tags": [
+        "agent-365"
+      ],
+      "recipe": null,
+      "digest": "318e5db42c4e17eb86d1fd4c4274fe87f00f093c947000570e6e1f3ac118d534"
     },
     {
       "id": "projects/copilot/storyboard.md",
@@ -3787,20 +3894,6 @@
       ],
       "recipe": null,
       "digest": "1e6ce2b7b03f720825763a6fa1265566cd29c682ec5bbbab80cdf7db30fa8403"
-    },
-    {
-      "id": "projects/power-platform/brief.md",
-      "title": "Power Platform storyline",
-      "category": "Storylines",
-      "description": "Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.",
-      "preview": "storyline",
-      "source": "projects/power-platform/brief.md",
-      "symbol": null,
-      "tags": [
-        "power-platform"
-      ],
-      "recipe": null,
-      "digest": "d4929eedc7808f7382ccb54aba2912b5b323fa30a61c4d69eaf544cfa3eafed6"
     }
   ]
 }

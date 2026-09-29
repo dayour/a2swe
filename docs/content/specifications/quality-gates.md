@@ -1,8 +1,7 @@
 ---
 title: Quality gates
+description: Approval and automated verification requirements for all output adapters.
 ---
-
-# Quality gate specification
 
 ## Gate 1 — Scope
 
@@ -22,7 +21,20 @@ Evidence: first 30 seconds or complete shorter movie, plus review of style, read
 
 ## Automated release checks
 
-For agent-first production, automated checks are format-adapter specific and remain incomplete until ContentIR, RenderSpec, adapter, rights, and release gates are implemented. For the active 720p Remotion/Python video adapter, checks include:
+The core validates shared ContentIR/RenderSpec digests and references, verifies
+selected asset bytes and approval, and checks signed reviewer approvals before
+creating a production package. Release verification re-renders retained
+inputs and compares output bytes. The core-generated 1080p Remotion project
+requires local Python 3.14 speech dependencies and models, checks approved WAV
+provenance and image digests, encodes H.264, and runs ffprobe QC for:
+
+- decoded frame count, 1920x1080 at 30 fps, and yuv420p pixel format;
+- AAC 48 kHz stereo audio with bounded duration drift;
+- output digest matching the render receipt.
+
+The core does not currently enforce speech-to-scene alignment, audible
+content, nonblank frames, motion, or visual layout scores. The separate legacy
+720p Remotion/Python video template has its own checks:
 
 - locked dependency installation;
 - TypeScript validation;
@@ -38,7 +50,7 @@ For agent-first production, automated checks are format-adapter specific and rem
 - nonblank frame samples;
 - asset and subtitle presence.
 
-For evaluation-only asset proofs, checks cover request/asset schema validity, raster dimensions, recorded hashes, optional quality metadata, and `manifest.json` tamper verification. These checks do not approve subject branding, rights, or production release.
+For evaluation-only asset proofs, checks cover request/asset schema validity, raster dimensions, recorded hashes, quality metadata, and `manifest.json` tamper verification. These checks do not approve subject branding, approval, or production release.
 
 ## Human release checks
 

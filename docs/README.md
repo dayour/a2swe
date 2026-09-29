@@ -38,6 +38,12 @@ Update blockers as production advances; an input-readiness report is not proof
 of a rendered or approved video. Reusable catalog entries are discovered from
 repository files rather than a separate manually maintained list.
 
+First-party a2swe library entries live in `../library/agents/`,
+`../library/skills/a2swe/`, `../library/plugins/a2swe/`, and
+`../library/assets/runbook/`. They are local discovery and scaffold metadata
+only; catalog presence is not approval, credentialing, rendering, publication, or
+release evidence.
+
 Run `npm test` for catalog coverage, media integrity, and feedback validation.
 It also exercises complete brand recipes, negative-space geometry, and the
 scaffolded brand-plan CLI. Template scenario exports use `a2swe-scenario/2` with

@@ -3,7 +3,7 @@ title: a2swe overview
 slug: /overview
 ---
 
-# a2swe engineering documentation
+## a2swe engineering documentation
 
 a2swe is an English-only, agent-first source toolkit for building a public-evidence-grounded domain SWE agent before producing executive explainer outputs from that approved knowledge. The current repository has core orchestration, an evaluation-only asset proof pipeline, a local release-candidate adapter foundation, and the established 720p Remotion/Python production video architecture. It is not yet a complete production system for all target formats.
 
@@ -15,9 +15,9 @@ The system is deliberately not a one-click website, installed desktop applicatio
 | --- | --- | --- |
 | Core orchestration | Foundation implemented | Draft packs, inventories, contracts, durable state, local receipts, and verified artifact records |
 | Evaluation-only asset proof | Engineering validation only | Synthetic 1080p raster proofs and manifests; no subject, brand, or production approval |
-| Local release-candidate adapters | Foundation implemented | Rights/approval-gated HTML, AdaptiveDeck, editable PPTX, editable DOCX, searchable PDF, and Remotion project/render-plan outputs from one cited ContentIR and RenderSpec |
-| Established 720p Remotion/Python video architecture | Production video path, gated by approvals | Remotion/React 1280x720, 30 fps MP4 workflow, Python speech/timing/QC, and verified pilots |
-| Target executive adapters | Partially implemented foundation | Narrated MP4, editable PPTX, searchable PDF, responsive HTML/AdaptiveDeck, and DOCX from one cited ContentIR and RenderSpec; MP4 encoding remains outside the local adapter foundation |
+| Local release-candidate adapters | Gated generation | approval/approval-gated HTML, AdaptiveDeck, editable PPTX/DOCX, searchable PDF, flattened 1080p PNG/JPEG overviews, and a 1080p Remotion project from one cited ContentIR and RenderSpec; supplied raster bytes are digest-bound and embedded |
+| Established 720p Remotion/Python video architecture | Separate legacy template | Remotion/React 1280x720, 30 fps MP4 workflow and project-specific speech/timing/QC; older projects are not automatically migrated |
+| Core-managed MP4 project | Generated but not a verified release | Local Python 3.14 Kokoro/Kokoro-ONNX speech, Remotion H.264 rendering, and automatic ffprobe encoded-media QC; real encoding still requires approved local models, narration, assets, and human review |
 
 ## System outcomes
 

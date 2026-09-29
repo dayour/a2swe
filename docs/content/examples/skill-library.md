@@ -4,7 +4,9 @@ title: Skill library
 
 # Skill library
 
-`library/skills/` is a broad collection of reusable agent workflows and references. The current working tree contains 93 skill directories, 91 `SKILL.md` files, and 65 skill README files.
+`library/skills/` contains reusable agent workflows and references. Run the
+passive inventory to get current counts; checked-in totals drift as entries are
+added or removed.
 
 ## Functional families
 
@@ -29,4 +31,12 @@ title: Skill library
 
 ## Relationship to a2swe
 
-The library can provide domain expertise, research methods, content structures, and validation patterns to a video project. The a2swe production rules remain authoritative for narration approval, storyboard syntax, Remotion implementation, media QC, and delivery.
+The first-party `library/agents/a2swe-conductor.agent.md` and
+`library/skills/a2swe/SKILL.md` expose the agent-first runbook workflow.
+`library/plugins/a2swe/plugin.json` packages self-contained Copilot CLI agent
+and skill entries, while `library/assets/runbook/runbook-starter.json` seeds
+project runbooks. Inventory reports these entries as pending and disabled
+until review: catalog presence never grants approval, runtime execution, or
+production approval. The a2swe production rules remain authoritative for
+narration approval, storyboard syntax, Remotion implementation, media QC,
+and delivery.

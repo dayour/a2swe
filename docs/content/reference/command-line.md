@@ -1,8 +1,7 @@
 ---
 title: Command-line reference
+description: Root, scaffold, and generated-project commands with their approval boundaries.
 ---
-
-# Command-line reference
 
 ## Root agent-first core commands
 
@@ -21,12 +20,37 @@ title: Command-line reference
 
 The root commands do not render production video and do not certify DomainReady.
 
+## Core release candidate commands
+
+Run from the repository root. Supply your own validated contract files and
+reviewer trust policy; a pending runbook or an evaluation asset bundle alone is
+not production approval.
+
+```powershell
+npm run a2swe -- runbook-verify --root <project-directory>
+npm run a2swe -- release-plan --content <content-ir.json> --render <render-spec.json> --approval <approval.json>
+npm run a2swe -- release-review-candidate --content <content-ir.json> --render <render-spec.json> --out <new-directory>
+npm run a2swe -- release-produce --content <content-ir.json> --render <render-spec.json> --approval <approval.json> --approvals <approvals.json> --trust <policy.json> --assets <bundle-directory> --out <new-directory>
+npm run a2swe -- release-verify --root <release-directory> --trust <policy.json>
+```
+
+`release-review-candidate` may also take `--assets` for a visual preview; it
+remains unapproved. Production requires digest-matching source assets, approved
+approval, and signed approval scopes. `release-produce` emits editable document
+outputs, searchable PDF, 1080p PNG/JPEG overviews, and an
+`outputs/remotion/` project. It does not encode the MP4 itself. In that project,
+install local JavaScript dependencies, configure an approved Python 3.14
+Kokoro/Kokoro-ONNX environment and model paths, then run `npm run render`.
+This command synthesizes missing/stale audio, encodes the movie, runs ffprobe
+QC, and fails if QC fails. `npm run qc` repeats encoded checks. Human visual
+and audio review remains pending after automated success.
+
 ## Copilot integration commands
 
 Run from the repository root:
 
 ```powershell
-npm --prefix integrations\copilot ci --omit=optional --ignore-scripts
+npm --prefix integrations\copilot ci 
 npm run copilot -- --help
 npm run agency:copilot -- --help
 npm run copilot:sdk -- --doctor

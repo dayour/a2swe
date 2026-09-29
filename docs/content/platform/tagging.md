@@ -11,7 +11,7 @@ Annotations persist in this browser's local storage and export as JSON or JSONL.
 
 This is a **local review tool**, not an RLHF backend. Records are unadjudicated,
 unsigned, and not authorized for training use. No feedback is transmitted and no
-release approval is granted. Reviewer consent, rights, independent adjudication,
+release approval is granted. Reviewer consent, approval, independent adjudication,
 and dataset governance are still required before downstream use.
 
 Tagging captures structured human feedback about videos, scenes, assets, and model-assisted production decisions. The repository has evaluation jobs, signed approval scopes, canonical digests, and immutable artifact storage, but it does **not** yet implement an RLHF training-data service. This page defines the contract that such a service should follow.
@@ -52,7 +52,7 @@ Every tag must identify an immutable subject:
 
 ### Defect
 
-`hallucination`, `unsupported_claim`, `rights_risk`, `unsafe_asset`, `visual_artifact`, `clipped_text`, `dead_air`, `excessive_motion`, `missing_attribution`
+`hallucination`, `unsupported_claim`, `approval_risk`, `unsafe_asset`, `visual_artifact`, `clipped_text`, `dead_air`, `excessive_motion`, `missing_attribution`
 
 ### Production signal
 
@@ -121,7 +121,7 @@ RLHF-oriented ranking should compare two digest-bound candidates under one rubri
 
 1. Select a digest-bound release, shot, or candidate pair.
 2. Load the applicable rubric and reviewer scope.
-3. Capture scores, labels, reason codes, and optional comments.
+3. Capture scores, labels, reason codes, and comments.
 4. Validate tag vocabulary and target integrity.
 5. Sign or attest the annotation.
 6. Run disagreement and inter-rater analysis.
