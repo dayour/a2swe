@@ -15,7 +15,7 @@ Access date: 2026-09-18.
 9. Copilot Studio should not be positioned for emergency, clinical diagnosis, treatment, or medical device uses. Microsoft states the service is not intended or made available as a medical device, not a substitute for professional medical advice, and does not support emergency calls. Source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio
 10. Do not imply customer approvals, endorsements, legal permissions, certifications, or production results beyond what the cited Microsoft sources state. This packet contains no fabricated approvals.
 
-## Visual and rights boundaries
+## Visual and approval boundaries
 
 - Create only original vector/code-drawn visuals: abstract nodes, lines, panels, gauges, shields, documents, and workflow lanes.
 - Do not download, embed, or recreate Microsoft product logos, Copilot icons, Microsoft screenshots, blog imagery, customer logos, partner logos, UI captures, or third-party stock media.

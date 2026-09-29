@@ -1,0 +1,12 @@
+# Excerpts captured by a2swe on 2026-09-29 from the URL below; markup and links removed, wording verbatim.
+# Source: https://github.com/datadog-labs/claude-code-plugin
+This plugin is currently in Preview.
+Datadog Claude Code Plugin
+Query your Datadog data directly from Claude Code using natural language. Ask about logs, metrics, traces, dashboards, monitors, and more.
+If you already have the Datadog MCP server registered separately (e.g., in .claude/mcp.json), disable or remove it first to avoid conflicts.
+Start Claude Code, install the plugin from the official marketplace:
+/plugin install datadog@claude-plugins-official
+The setup process will guide you in selecting the correct Datadog MCP domain.
+/ddtoolsets — enable or disable groups of tools
+By default, authentication is handled via OAuth in your browser. Key authentication is also supported.
+No Datadog credentials are sent to the AI model provider.

@@ -49,4 +49,4 @@ v1-v5 movies remain unchanged. v5 source/timing/producer inputs are archived und
 `audio/history/v5/`. The active SAPI-only producer has been removed; its historical
 source is retained there for audit.
 
-See `research/`, `script/`, `storyboard.md`, `RIGHTS.md`, and `REVIEW.md`.
+See `research/`, `script/`, `storyboard.md`, `approval.md`, and `REVIEW.md`.

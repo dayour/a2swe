@@ -1,0 +1,41 @@
+{
+  "assetId": "mcp-flow",
+  "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
+  "height": 1080,
+  "nodes": [
+    {
+      "label": "Datadog data",
+      "symbol": "data",
+      "detail": "Logs, metrics, traces, monitors"
+    },
+    {
+      "label": "MCP server",
+      "symbol": "code",
+      "detail": "Bridge for MCP agents"
+    },
+    {
+      "label": "Claude connector",
+      "symbol": "artifact",
+      "detail": "Cowork or Claude Code plugin"
+    },
+    {
+      "label": "Your team",
+      "symbol": "review",
+      "detail": "Permissions still apply"
+    }
+  ],
+  "alt": "Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step.",
+  "purpose": "evaluation",
+  "method": "diagram",
+  "role": "diagram",
+  "width": 1920,
+  "prompt": "Flow from Datadog data through the Datadog MCP Server to the Claude connector or plugin and the engineering team.",
+  "seed": 29,
+  "title": "Datadog data to your agent",
+  "schemaVersion": "1.0.0",
+  "palette": [
+    "#0b0d1a",
+    "#f4f5ff",
+    "#9d6cff"
+  ]
+}

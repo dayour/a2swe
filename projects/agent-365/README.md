@@ -51,7 +51,7 @@ The presentation and video deliberately share the same restrained white/ink/blue
 composition system. The deck is generated through HTML-to-PPTX with editable
 text and shapes, then rendered through installed Microsoft PowerPoint for visual
 inspection. The video is 1920 x 1080 at 30fps with locally synthesized Kokoro
-audio. Both remain review candidates pending listening, visual, rights, and
+audio. Both remain review candidates pending listening, visual, approval, and
 release acceptance.
 
 The presentation authoring workflow uses HTML-to-PPTX with the locally installed

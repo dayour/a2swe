@@ -13,7 +13,7 @@ This ledger explains state; it does not grant approval.
 | Voice choice | selected | local Kokoro `am_liam`; listening acceptance requires synthesized audio |
 | Presentation | candidate generated | `renders/agent-365-presentation-candidate.pptx`; PowerPoint visual inspection passed |
 | Video | candidate generated | `renders/agent-365-candidate.mp4`; H.264/AAC, 1920 x 1080, 30fps, 62.68 seconds |
-| Release | blocked | requires artifact QC, rights review, human acceptance, and separate certification where applicable |
+| Release | blocked | requires artifact QC, approval review, human acceptance, and separate certification where applicable |
 
 ## Invariants
 

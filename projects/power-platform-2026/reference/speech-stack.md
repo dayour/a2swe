@@ -33,7 +33,7 @@ global or unrelated environment.
 The template's `npm run audio` uses `scripts/python.mjs`, selecting the nearest
 ancestor `.venv` or the absolute `A2SWE_PYTHON` override. It checks Python 3.14
 before starting the producer and never silently substitutes a global interpreter.
-An optional `script/speech.json` can persist `TTS_ENGINE`, `KOKORO_VOICE`,
+A `script/speech.json` can persist `TTS_ENGINE`, `KOKORO_VOICE`,
 `KOKORO_SPEED`, `LEAD`, `GAP`, `CHAPTER_GAP`, and `TAIL`; explicit environment
 variables override those defaults. A project-specific render gate should enforce
 its approved engine/voice/speed.

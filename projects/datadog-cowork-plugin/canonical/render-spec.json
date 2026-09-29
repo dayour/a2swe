@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "renderId": "datadog-cowork-plugin-r1",
+  "contentDigest": "131162c10df379a98e02d25fff056dd24580f8a1b71c2988a47dc96ab5af642b",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "theme": {
+    "name": "datadog-dark",
+    "background": "#0b0d1a",
+    "foreground": "#f4f5ff",
+    "accent": "#9d6cff",
+    "fontFamily": "Segoe UI, Arial, sans-serif"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 60,
+    "sampleRate": 48000
+  }
+}

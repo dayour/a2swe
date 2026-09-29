@@ -21,7 +21,7 @@ reviewed content or artifact and must not be broadened to later revisions.
 
 `agent/lifecycle.json` is the executable authorization record. The user accepted
 the revised agent/evidence snapshot after reviewing the hardening summary.
-Artifact listening, visual, rights, release, tenant, and DomainReady decisions
+Artifact listening, visual, approval, release, tenant, and DomainReady decisions
 remain separate and are not inherited from this acceptance.
 
 Current candidates:

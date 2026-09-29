@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "assetId": "mcp-flow",
+  "requestDigest": "9f0ba428578c7fe3e0822d3642687126bb4ed6114dc340529a50610ed500ae3c",
+  "recordDigest": "b27682acc4c65a098dd20f8236672aaba7a61252328671233c87dd6c3ca7a8a6",
+  "artifactDigest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+  "provenance": {
+    "method": "diagram",
+    "provider": "a2swe-semantic-diagram",
+    "version": "2;sharp=0.35.4;vips=8.18.6;lucide=1.45.0;font=a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+    "inputDigest": "9f0ba428578c7fe3e0822d3642687126bb4ed6114dc340529a50610ed500ae3c",
+    "sourceUrl": null
+  },
+  "files": [
+    {
+      "path": "request.json",
+      "digest": "a81e84788a287ae6e78392e1c4ed4480634f16947fd7c8975ef5ceb20ed6ebd8",
+      "mediaType": "application/vnd.a2swe.asset-request+json",
+      "byteSize": 1111
+    },
+    {
+      "path": "asset.json",
+      "digest": "fbdacbb0fb581b45ef67e37a7dce799a3562a39443df8cac65e223f062516a24",
+      "mediaType": "application/vnd.a2swe.asset-record+json",
+      "byteSize": 1248
+    },
+    {
+      "path": "asset.png",
+      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "mediaType": "image/png",
+      "byteSize": 81884
+    }
+  ]
+}

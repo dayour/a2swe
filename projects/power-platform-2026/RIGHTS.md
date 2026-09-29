@@ -1,4 +1,4 @@
-# Rights manifest
+# approval manifest
 
 All production visuals in `src/ProductionVideo.tsx` are original code-drawn React/CSS
 geometry created for this project. No Microsoft logos, product icons, screenshots,

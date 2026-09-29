@@ -45,7 +45,7 @@ ul{font-size:14pt;line-height:1.35;margin:0;padding-left:18pt;color:#101828}li{m
 .foot{border-top:1.5pt solid #CAD5E3;padding-top:9pt}.foot p{margin:0;font-size:9pt;color:#526173}
 </style></head><body><div class="page"><div class="top"><div class="brand"><p>AGENT 365</p></div><div class="meta"><p>PUBLIC-EVIDENCE EXPLAINER · UNOFFICIAL</p></div></div>
 <div class="content"><div class="copy"><h1>${title}</h1><p class="lead">${lead}</p><ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul></div><div class="index"><p>${String(index + 1).padStart(2, '0')}</p></div></div>
-<div class="foot"><p>Review candidate · Evidence, visual, rights, tenant, and release approvals remain distinct.</p></div></div></body></html>`;
+<div class="foot"><p>Review candidate · Evidence, visual, approval, tenant, and release approvals remain distinct.</p></div></div></body></html>`;
 
 const pptx = new PptxGenJS();
 pptx.defineLayout({name: 'HTML_16_9', width: 10, height: 5.625});

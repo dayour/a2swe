@@ -11,7 +11,7 @@ The user confirmed this brief in the authoring session:
   claim that this is an official Microsoft template.
 - Public Microsoft evidence only. Local English speech, no external narration
   transfer. The complete script must be approved before synthesis.
-- Outputs are review candidates. Content, voice/listening, style, rights, and
+- Outputs are review candidates. Content, voice/listening, style, approval, and
   release acceptance are distinct decisions.
 
 The narrative follows an illustrative operations agent: who owns it, what can it
