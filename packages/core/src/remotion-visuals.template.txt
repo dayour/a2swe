@@ -32,19 +32,19 @@ mermaid.initialize({
     actorTextColor: theme.foreground,
     signalColor: theme.foreground,
     signalTextColor: theme.foreground,
-    fontSize: '22px'
+    fontSize: '28px'
   },
-  flowchart: { curve: 'basis', padding: 20, useMaxWidth: false },
+  flowchart: { curve: 'basis', padding: 22, useMaxWidth: false, wrappingWidth: 300, nodeSpacing: 46, rankSpacing: 60 },
   sequence: { useMaxWidth: false }
 });
 
 // Excalidraw falls back to a CDN for fonts; point it at the fonts copied next to this project.
 (window as unknown as { EXCALIDRAW_ASSET_PATH: string }).EXCALIDRAW_ASSET_PATH = new URL(staticFile('excalidraw/'), window.location.href).href;
 
-function marpTheme(): string {
+function marpTheme(designHeight: number): string {
   const table = mixHex(theme.foreground, theme.background, 0.18);
   return '/* @theme a2swe */\n'
-    + 'section { width: 1280px; height: 720px; box-sizing: border-box; padding: 56px 72px; background: transparent; color: ' + theme.foreground + '; font-family: ' + primaryFont + '; font-size: 34px; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; }\n'
+    + 'section { width: 1280px; height: ' + designHeight + 'px; box-sizing: border-box; padding: 56px 72px; background: transparent; color: ' + theme.foreground + '; font-family: ' + primaryFont + '; font-size: 34px; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; }\n'
     + 'h1 { color: ' + theme.accent + '; font-size: 66px; margin: 0 0 24px; line-height: 1.08 }\n'
     + 'h2 { color: ' + theme.accent + '; font-size: 46px; margin: 0 0 18px }\n'
     + 'strong, code { color: ' + theme.accent + ' }\n'
@@ -70,27 +70,24 @@ function useRendered<T>(label: string, key: string, produce: () => Promise<T>): 
   return value;
 }
 
+// String surgery instead of a DOM parse: mermaid labels contain HTML (<br>) that is not well-formed XML.
 function fitSvg(markup: string): string {
-  const svg = new DOMParser().parseFromString(markup, 'image/svg+xml').documentElement;
-  const width = parseFloat(svg.getAttribute('width') ?? '');
-  const height = parseFloat(svg.getAttribute('height') ?? '');
-  if (!svg.getAttribute('viewBox') && width > 0 && height > 0) svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
-  svg.setAttribute('width', '100%');
-  svg.setAttribute('height', '100%');
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-  svg.setAttribute('style', 'display:block;max-width:none;overflow:visible');
-  return svg.outerHTML;
+  return markup.replace(/^\s*<svg\b([^>]*)>/, (_match, attributes: string) => {
+    const kept = attributes.replace(/\s(?:width|height|style|preserveAspectRatio)="[^"]*"/g, '');
+    return '<svg' + kept + ' width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="display:block;max-width:none;overflow:visible">';
+  });
 }
-
 function reveal(host: HTMLElement, kind: Visual['kind'], frame: number, settled: boolean) {
   const progress = (start: number, span = 14) => (settled ? 1 : ease((frame - start) / span));
   const stagger = (elements: Element[], first: number, step: number) => elements.forEach((element, index) => {
     const p = progress(first + index * step);
     const style = (element as HTMLElement | SVGElement).style;
+    // Individual transform properties compose with the SVG transform attribute that positions each element.
     style.opacity = String(p);
     style.transformBox = 'fill-box';
     style.transformOrigin = 'center';
-    style.transform = 'scale(' + (0.94 + 0.06 * p) + ') translateY(' + (1 - p) * 10 + 'px)';
+    style.scale = String(0.94 + 0.06 * p);
+    style.translate = '0px ' + (1 - p) * 10 + 'px';
   });
   if (kind === 'mermaid') {
     const nodes = [...host.querySelectorAll('g.node, g.cluster, rect.actor, text.actor, .actor-line')];
@@ -114,7 +111,7 @@ function reveal(host: HTMLElement, kind: Visual['kind'], frame: number, settled:
   }
 }
 
-function useVisual(visual: Visual, id: string) {
+function useVisual(visual: Visual, id: string, designHeight: number) {
   const rendered = useRendered<{ html: string; css?: string }>('visual ' + visual.kind + ' ' + id, visual.kind + ':' + visual.source, async () => {
     if (visual.kind === 'mermaid') {
       const { svg } = await mermaid.render('mmd-' + id.replace(/[^a-zA-Z0-9]/g, ''), visual.source);
@@ -126,10 +123,10 @@ function useVisual(visual: Visual, id: string) {
       const elements = convertToExcalidrawElements(skeleton as never);
       await document.fonts.ready;
       const svg = await exportToSvg({ elements, appState: { exportBackground: false, exportWithDarkMode: false, exportPadding: 32 } as never, files: null });
-      return { html: fitSvg(svg.outerHTML) };
+      return { html: fitSvg(new XMLSerializer().serializeToString(svg)) };
     }
     const marp = new Marp({ inlineSVG: false, html: false, script: false });
-    marp.themeSet.add(marpTheme());
+    marp.themeSet.add(marpTheme(designHeight));
     const output = marp.render('---\nmarp: true\ntheme: a2swe\n---\n' + visual.source);
     return { html: output.html, css: output.css };
   });
@@ -138,14 +135,16 @@ function useVisual(visual: Visual, id: string) {
 }
 
 export function VisualPanel({ visual, id, width, height, frame, settled = false }: { visual: Visual; id: string; width: number; height: number; frame: number; settled?: boolean }) {
-  const { rendered, host } = useVisual(visual, id);
+  // Marp slides are designed 1280 wide and as tall as the panel's aspect ratio, so text scales with the panel width.
+  const designHeight = Math.round(1280 * height / width);
+  const { rendered, host } = useVisual(visual, id, designHeight);
   useLayoutEffect(() => {
     if (host.current && rendered) reveal(host.current, visual.kind, frame, settled);
   });
-  const scale = Math.min(width / 1280, height / 720);
+  const scale = width / 1280;
   return <div role="img" aria-label={visual.caption} style={{ width, height, borderRadius: 26, border: '1px solid ' + line, background: surface, boxShadow: '0 0 0 1px ' + accentAlpha(0.12) + ', 0 24px 60px rgba(0,0,0,0.25)', overflow: 'hidden', position: 'relative', color: muted }}>
     {visual.kind === 'marp'
-      ? <div ref={host} style={{ position: 'absolute', left: (width - 1280 * scale) / 2, top: (height - 720 * scale) / 2, width: 1280, height: 720, transform: 'scale(' + scale + ')', transformOrigin: 'top left' }}>
+      ? <div ref={host} style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: designHeight, transform: 'scale(' + scale + ')', transformOrigin: 'top left' }}>
         {rendered ? <><style>{rendered.css}</style><div dangerouslySetInnerHTML={{ __html: rendered.html }} /></> : null}
       </div>
       : <div ref={host} style={{ position: 'absolute', inset: 24 }} dangerouslySetInnerHTML={{ __html: rendered?.html ?? '' }} />}

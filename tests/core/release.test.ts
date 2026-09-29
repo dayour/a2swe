@@ -187,7 +187,16 @@ test('ContentIR and RenderSpec contracts reject dangling references and digest d
   assert.equal(validate('ContentIR', content()).contentId, 'release-fixture');
   assert.throws(() => validate('ContentIR', { ...content(), sections: [{ ...content().sections[0], claimIds: ['missing'] }] }), /claim_reference/);
   assert.throws(() => validate('ContentIR', { ...content(), claims: [{ ...content().claims[0], evidenceIds: ['missing'] }] }), /evidence_reference/);
-  assert.equal(validate('RenderSpec', renderSpec()).renderId, 'render-fixture');
+  const withVisual = (visual: unknown) => ({ ...content(), sections: [{ ...content().sections[0], visual }] });
+  const mermaidVisual = { kind: 'mermaid', source: 'flowchart LR\n  A --> B', caption: 'A flows to B' };
+  assert.equal(validate('ContentIR', withVisual(mermaidVisual)).sections[0].visual?.kind, 'mermaid');
+  assert.throws(() => validate('ContentIR', withVisual({ ...mermaidVisual, source: 'A --> B' })), /invalid_mermaid_visual/);
+  assert.throws(() => validate('ContentIR', withVisual({ kind: 'excalidraw', source: '{"elements":[{"type":"image"}]}', caption: 'x' })), /invalid_excalidraw_visual/);
+  assert.throws(() => validate('ContentIR', withVisual({ kind: 'marp', source: '<script>alert(1)</script>', caption: 'x' })), /unsafe_visual_source/);
+  const visualPng = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/iZk9HQAAAABJRU5ErkJggg==', 'base64');
+  const visualItem = { ...content(), assets: [], sections: [{ ...content().sections[0], assetIds: [], visual: mermaidVisual }] };
+  const visualFiles = renderFiles(visualItem, { ...renderSpec(digest(visualItem)), formats: ['pdf', 'pptx'] }, { visualImages: [{ sectionId: 'section-1', bytes: visualPng }] });
+  assert.match(visualFiles.find((file) => file.format === 'pdf')!.bytes.toString('binary'), /mermaid diagram/);  assert.equal(validate('RenderSpec', renderSpec()).renderId, 'render-fixture');
   assert.throws(() => renderFiles(content(), renderSpec(sha256('changed'))), /content_digest_mismatch/);
 });
 
@@ -199,7 +208,7 @@ test('adapters deterministically produce editable/searchable/self-contained foun
     'outputs/remotion/speech/narration-manifest.json', 'outputs/remotion/tsconfig.json', 'outputs/remotion/remotion.config.ts',
     'outputs/remotion/scripts/synthesize-audio.mjs', 'outputs/remotion/scripts/synthesize-audio.py',
     'outputs/remotion/scripts/render-mp4.mjs', 'outputs/remotion/scripts/verify-mp4.mjs',
-    'outputs/remotion/src/content.json', 'outputs/remotion/src/index.tsx', 'outputs/remotion/src/Root.tsx']);
+    'outputs/remotion/src/content.json', 'outputs/remotion/src/index.tsx', 'outputs/remotion/src/Root.tsx', 'outputs/remotion/src/palette.ts', 'outputs/remotion/src/Visuals.tsx']);
   assert.deepEqual(files.map((file) => sha256(file.bytes)), renderFiles(content(), renderSpec()).map((file) => sha256(file.bytes)));
   assert.match(files.find((file) => file.format === 'html')!.bytes.toString('utf8'), /<meta name="viewport"/);
   assert.match(files.find((file) => file.format === 'pdf')!.bytes.toString('utf8'), /Every format is generated/);

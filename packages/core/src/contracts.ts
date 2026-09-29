@@ -115,6 +115,30 @@ function validateContent(content: ContentIR): void {
   for (const section of content.sections) {
     if (section.claimIds.some((id) => !claims.has(id))) throw new Error('invalid_content_claim_reference');
     if (section.assetIds.some((id) => !assets.has(id))) throw new Error('invalid_content_asset_reference');
+    if (section.visual) validateVisual(section.visual);
+  }
+}
+
+const MERMAID_DIAGRAMS = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram(-v2)?|erDiagram|journey|gantt|pie|mindmap|timeline|gitGraph|quadrantChart|requirementDiagram|sankey-beta|xychart-beta|block-beta|architecture-beta|packet-beta|kanban|C4Context|C4Container|C4Component|C4Dynamic|C4Deployment)\b/;
+const EXCALIDRAW_ELEMENTS = new Set(['rectangle', 'diamond', 'ellipse', 'arrow', 'line', 'text', 'freedraw', 'image', 'frame', 'magicframe', 'embeddable', 'iframe']);
+
+function validateVisual(visual: NonNullable<ContentIR['sections'][number]['visual']>): void {
+  if (visual.caption.trim() !== visual.caption) throw new Error('invalid_visual_caption');
+  if (visual.kind === 'mermaid') {
+    const first = visual.source.split(/\r?\n/).map((line) => line.trim()).find((line) => line && !line.startsWith('%%'));
+    if (!first || !MERMAID_DIAGRAMS.test(first)) throw new Error('invalid_mermaid_visual');
+    if (/<\s*script|javascript:/i.test(visual.source)) throw new Error('unsafe_visual_source');
+  } else if (visual.kind === 'excalidraw') {
+    let parsed: unknown;
+    try { parsed = JSON.parse(visual.source); } catch { throw new Error('invalid_excalidraw_visual'); }
+    const elements = Array.isArray(parsed) ? parsed : (parsed as { elements?: unknown })?.elements;
+    if (!Array.isArray(elements) || !elements.length || elements.length > 500) throw new Error('invalid_excalidraw_visual');
+    for (const element of elements) {
+      const type = (element as { type?: unknown })?.type;
+      if (typeof type !== 'string' || !EXCALIDRAW_ELEMENTS.has(type) || type === 'image' || type === 'embeddable' || type === 'iframe') throw new Error('invalid_excalidraw_visual');
+    }
+  } else {
+    if (/^\s*---/.test(visual.source) || /<\s*(script|iframe|object)|javascript:/i.test(visual.source)) throw new Error('unsafe_visual_source');
   }
 }
 

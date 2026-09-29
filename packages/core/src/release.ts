@@ -1,12 +1,13 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
 import { validate, validateContentAgainstDomain } from './contracts.ts';
 import type { ApprovalManifest, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec } from './contracts.ts';
 import { renderFiles } from './adapters.ts';
-import type { AdapterAssetEmbed } from './adapters.ts';
+import type { AdapterAssetEmbed, AdapterFile, AdapterVisualImage } from './adapters.ts';
 import { readRasterFile, verifyAssetBundle } from './assets.ts';
-import { renderEncodedMp4, verifyEncodedMp4 } from './media-remotion.ts';
+import { renderEncodedMp4, renderVisualStills, verifyEncodedMp4, visualStem } from './media-remotion.ts';
 
 function styleDigest(spec: RenderSpec): string {
   return digest(spec.theme);
@@ -85,23 +86,35 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
   requireAssetApprovals(content, approval);
   if (content.assets.length && !assetBundlesDirectory) throw new Error('release_asset_bundles_required');
   const embeds = assetBundlesDirectory ? await loadAssetBundles(content, assetBundlesDirectory) : [];
-  let files = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true });
+  const options = { assetEmbeds: embeds, strictAssetEmbeds: true };
+  let files = renderFiles(content, renderSpec, options);
   const root = path.resolve(directory);
   await mkdir(root, { recursive: false, mode: 0o700 });
   try {
     await writeAssetInputs(root, embeds);
-    for (const file of files) {
-      const target = destination(root, file.path);
-      await mkdir(path.dirname(target), { recursive: true });
-      await writeFile(target, file.bytes, { flag: 'wx', mode: 0o600 });
+    const writeAll = async (list: AdapterFile[]) => {
+      for (const file of list) {
+        const target = destination(root, file.path);
+        if (existsSync(target)) continue;
+        await mkdir(path.dirname(target), { recursive: true });
+        await writeFile(target, file.bytes, { flag: 'wx', mode: 0o600 });
+      }
+    };
+    let stills: AdapterFile[] = [];
+    const visualSections = content.sections.filter((section) => section.visual);
+    if (renderSpec.formats.includes('remotion') && visualSections.length) {
+      await writeAll(files.filter((file) => file.format === 'remotion'));
+      stills = await renderVisualStills(root, content);
+      const visualImages: AdapterVisualImage[] = visualSections.map((section, index) => ({ sectionId: section.sectionId, bytes: stills[index].bytes }));
+      files = renderFiles(content, renderSpec, { ...options, visualImages });
     }
+    await writeAll(files);
     if (renderSpec.formats.includes('remotion')) {
-      const media = await renderEncodedMp4(root, content.contentId);
+      const media = await renderEncodedMp4(root, content);
       const replacements = new Map(media.map((file) => [file.path, file]));
-      files = [...files.map((file) => replacements.get(file.path) ?? file),
+      files = [...files.map((file) => replacements.get(file.path) ?? file), ...stills,
         ...media.filter((file) => !files.some((existing) => existing.path === file.path))];
-    }
-    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
+    }    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
       renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest,
       outputs: files.map((file) => ({ format: file.format, path: file.path, digest: sha256(file.bytes), mediaType: file.mediaType,
         byteSize: file.bytes.length, contentDigest: plan.contentDigest, adapter: file.adapter })) });
@@ -136,10 +149,19 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
     if (asset.mediaType !== 'image/png' || sha256(bytes) !== asset.digest) throw new Error(`release_asset_input_mismatch: ${asset.assetId}`);
     embeds.push({ assetId: asset.assetId, mediaType: 'image/png', bytes });
   }
-  const expectedFiles = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true });
+  const visualSections = content.sections.filter((section) => section.visual);
+  const visualPaths = visualSections.map((section) => `outputs/remotion/visuals/${visualStem(content, section.sectionId)}.png`);
+  const visualImages: AdapterVisualImage[] = [];
+  if (renderSpec.formats.includes('remotion')) {
+    for (const [index, section] of visualSections.entries()) {
+      visualImages.push({ sectionId: section.sectionId, bytes: await readFile(destination(root, visualPaths[index])) });
+    }
+  }
+  const expectedFiles = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true, visualImages });
   const mutableMediaPaths = new Set(['outputs/remotion/render-plan.json', 'outputs/remotion/timeline.json',
     'outputs/remotion/asset-manifest.json']);
   const producedMedia = renderSpec.formats.includes('remotion') ? [
+    ...visualPaths.map((visualPath) => ({ path: visualPath, mediaType: 'image/png' })),
     { path: `outputs/remotion/public/assets/${content.contentId}/audio.wav`, mediaType: 'audio/wav' },
     { path: 'outputs/remotion/audio/narration-metadata.json', mediaType: 'application/json' },
     { path: 'outputs/remotion/dist/render.mp4', mediaType: 'video/mp4' },
