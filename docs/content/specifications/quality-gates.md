@@ -1,57 +1,60 @@
 ---
 title: Quality gates
-description: Approval and automated verification requirements for all output adapters.
+description: Evidence-backed runbook gates and automated verification requirements for current a2swe outputs.
 ---
 
-## Gate 1 — Scope
+## Runbook gates
 
-Evidence: audience, target duration, topic boundaries, and intended outcome. Narration remains blocked until approval.
+The shared runbook gate set is:
 
-## Gate 2 — Narration
+- domain
+- scope
+- narration
+- voice
+- brand
+- pilot
+- release
 
-Evidence: complete script, chapters, word count, estimated duration, and explicit sign-off. Synthesis remains blocked until approval.
+Each gate records:
 
-## Gate 3 — Voice and transfer
+- `name`
+- `status`
+- `evidencePath`
+- `evidenceDigest`
 
-Evidence: selected engine, voice/model, external transfer disclosure, and approval. No silent cloud fallback is permitted.
+`status` can be `pending`, `blocked`, or `passed`.
 
-## Gate 4 — Pilot
+## Gate rules
 
-Evidence: first 30 seconds or complete shorter movie, plus review of style, readability, pacing, voice, subtitles, and factual representation. Remaining groups remain blocked until approval.
+- A passed gate needs a real evidence file and matching digest.
+- Automated checks can satisfy evidence requirements.
+- Automated checks are not human approval.
+- Human review is optional and external.
 
-## Automated release checks
+## Release checks
 
-The core validates shared ContentIR/RenderSpec digests and references, verifies
-selected asset bytes and approval, and checks signed reviewer approvals before
-creating a production package. Release verification re-renders retained
-inputs and compares output bytes. The core-generated 1080p Remotion project
-requires local Python 3.14 speech dependencies and models, checks approved WAV
-provenance and image digests, encodes H.264, and runs ffprobe QC for:
+The core verifies:
 
-- decoded frame count, 1920x1080 at 30 fps, and yuv420p pixel format;
-- AAC 48 kHz stereo audio with bounded duration drift;
-- output digest matching the render receipt.
+- domain, content, render, and approval digest matches
+- exact content-to-domain claim and citation matching
+- selected asset digests in the approval manifest
+- output digests and media types in the parity manifest
 
-The core does not currently enforce speech-to-scene alignment, audible
-content, nonblank frames, motion, or visual layout scores. The separate legacy
-720p Remotion/Python video template has its own checks:
+Only a rejected asset in `ApprovalManifest.selectedAssets` blocks generation.
 
-- locked dependency installation;
-- TypeScript validation;
-- production Remotion bundle;
-- Studio or composition availability;
-- storyboard-token resolution;
-- shot-range and coverage validation;
-- motion and frame metrics;
-- H.264 1280×720 at 30 fps;
-- expected frame count;
-- AAC 48 kHz stereo;
-- audio correlation and lag thresholds;
-- nonblank frame samples;
-- asset and subtitle presence.
+## MP4 checks
 
-For evaluation-only asset proofs, checks cover request/asset schema validity, raster dimensions, recorded hashes, quality metadata, and `manifest.json` tamper verification. These checks do not approve subject branding, approval, or production release.
+The managed Remotion path verifies:
 
-## Human release checks
+- 1920x1080 output
+- 30 fps
+- H.264 video
+- AAC 48 kHz stereo audio
+- digest-bound render receipt
+- rerunnable encoded-media QC
 
-A reviewer MUST watch the complete output with audio and inspect transitions, facts, visible text, motion, subtitles, assets, credits, and ending. Automated metrics are supporting evidence, not a substitute.
+## Optional human review
+
+You can still watch the complete result with audio and inspect pacing, captions,
+layout, and style. That review is useful, but it is not encoded as a mandatory
+core workflow pause.

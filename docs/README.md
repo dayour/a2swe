@@ -1,6 +1,12 @@
-# a2swe documentation site
+---
+title: a2swe documentation site
+description: Build and maintain the Docusaurus site for the a2swe core, release flow, and legacy template notes.
+---
 
-This directory contains the Docusaurus source for the a2swe architecture, SDK, workflow, reference, and specification website.
+## Purpose
+
+This directory contains the Docusaurus source for the a2swe architecture,
+workflow, reference, and specification site.
 
 ```powershell
 npm ci
@@ -11,48 +17,39 @@ npm run build
 
 GitHub Pages deployment is defined in `../.github/workflows/docs-pages.yml`.
 
+## What the site documents
+
+- the local core under `packages/core/src`
+- the digest-bound release workflow
+- the repository `.venv` Python 3.14 speech stack
+- section visuals rendered through Remotion
+- the older 720p template path as a retained legacy workflow
+
+The site must not describe a2swe as a publication service, rights checker, or
+distribution authorization layer.
+
 ## Interactive libraries
 
-- `/video-library`: repository movie revisions, playback, comparison, downloads,
-  QC links, and explicit unfinished-project status.
-- `/templates`: searchable source-backed cards and a scenario-plan/instruction
-  exporter. The front/back interaction is inspired by FlipDeck.
-- `/tagging`: browser-local digest-bound feedback and pairwise preference capture;
-  JSON/JSONL export, not a backend or training service.
+- `/video-library` catalogs retained repository movies, revisions, and evidence
+- `/templates` indexes template recipes and exports authoring aids
+- `/tagging` stores browser-local feedback and JSON or JSONL exports
 
-`npm run library:build` indexes source material and copies recorded movies into
-`static/library/videos/` (ignored generated output). It runs before development,
-typechecking, tests, and production builds. All indexed source MP4 files,
-including the 2026 projects, must be included in version control for Pages to
-serve them. A clean checkout missing an indexed movie fails explicitly.
+`npm run library:build` indexes source material and copies retained movies into
+`static/library/videos/`. A catalog entry is discovery metadata only. It is not
+proof that a project is complete, approved, publishable, or cleared for reuse.
 
 When adding or replacing movies, run `npm run library:refresh`. This requires
-FFmpeg/ffprobe via `FFMPEG` and `FFPROBE`, or the installed Windows Remotion
-binaries. It records media metadata and SHA-256 in `catalog/media.json` and
-extracts per-revision posters. Commit the source movies, metadata, posters,
-captions, and generated `src/data/library.json` together. Ordinary CI builds do
-not need the media toolchain; changed or missing media fail closed.
+FFmpeg and ffprobe or the installed Windows Remotion binaries. It records media
+metadata and SHA-256 in `catalog/media.json` and extracts posters.
 
-Project completion notes and evidence are maintained in `catalog/projects.json`.
-Update blockers as production advances; an input-readiness report is not proof
-of a rendered or approved video. Reusable catalog entries are discovered from
-repository files rather than a separate manually maintained list.
+## First-party library entries
 
-First-party a2swe library entries live in `../library/agents/`,
-`../library/skills/a2swe/`, `../library/plugins/a2swe/`, and
-`../library/assets/runbook/`. They are local discovery and scaffold metadata
-only; catalog presence is not approval, credentialing, rendering, publication, or
-release evidence.
+The site also documents these local discovery surfaces:
 
-Run `npm test` for catalog coverage, media integrity, and feedback validation.
-It also exercises complete brand recipes, negative-space geometry, and the
-scaffolded brand-plan CLI. Template scenario exports use `a2swe-scenario/2` with
-an unapproved `a2swe-brand-plan/1` sidecar; select at least one complete slide
-recipe before exporting. Recipes live in `template/brand-recipes.json` and are
-schematic authoring examples, not rendered or brand-approved PowerPoint files.
-The catalog and gallery formats are documentation UI contracts, not replacements
-for the core runtime's `LibraryEntry` or signed approval contracts.
-Product-documentation validation is defined in
-`../.github/workflows/product-docs-validate.yml` and checks the agent-first core,
-evaluation-only asset proof, active 720p Remotion/Python video adapter, and
-`.a2swe` state anchors.
+- `../library/agents/a2swe-conductor.agent.md`
+- `../library/skills/a2swe/`
+- `../library/plugins/a2swe/`
+- `../library/assets/runbook/`
+
+They are local metadata and scaffold assets only. Their presence does not install
+models, validate a runbook, produce output, or grant sharing rights.

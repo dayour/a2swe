@@ -1,58 +1,37 @@
 ---
 title: Environment variables
+description: Current environment variables for the managed 1080p release path and the retained legacy template path.
 ---
 
-# Environment variables
-
-## Speech selection
+## Managed release path
 
 | Variable | Purpose |
 | --- | --- |
-| `TTS_ENGINE` | `auto`, `kokoro`, `kokoro_onnx`, `piper`, or `edge` |
-| `VOICE` | Edge voice identifier |
-| `RATE` | Edge speech-rate adjustment |
-| `KOKORO_VOICE` | Kokoro voice identifier |
-| `KOKORO_LANG` | Kokoro language code |
-| `KOKORO_SPEED` | Kokoro synthesis speed |
-| `KOKORO_ONNX_MODEL` | Path to ONNX model weights |
-| `KOKORO_ONNX_VOICES` | Path to ONNX voice data |
-| `KOKORO_ONNX_VOICE` | ONNX voice identifier |
-| `KOKORO_ONNX_LANG` | ONNX language code |
-| `PIPER_MODEL` | Piper model path; required for Piper |
-| `EDGE_TRIES` | Edge retry count |
+| `A2SWE_PYTHON` | Absolute Python 3.14 interpreter path override |
+| `A2SWE_TTS_ENGINE` | `auto`, `kokoro`, or `kokoro_onnx` |
+| `A2SWE_KOKORO_CONFIG` | PyTorch Kokoro config path |
+| `A2SWE_KOKORO_WEIGHTS` | PyTorch Kokoro weights path |
+| `A2SWE_KOKORO_VOICE_MODEL` | PyTorch Kokoro voice model path |
+| `KOKORO_ONNX_MODEL` | Kokoro ONNX model path |
+| `KOKORO_ONNX_VOICES` | Kokoro ONNX voices path |
+| `KOKORO_ONNX_VOICE` | Kokoro ONNX voice selection |
+| `FFMPEG_PATH` | FFmpeg executable override |
+| `FFPROBE_PATH` | ffprobe executable override |
+| `A2SWE_OVERWRITE_MP4` | Allow overwriting an existing MP4 when set to `1` |
 
-The active speech pipeline is English-only. `VOICE`, `KOKORO_VOICE`,
-`KOKORO_LANG`, `KOKORO_ONNX_VOICE`, `KOKORO_ONNX_LANG`, and Piper model choices
-must select English voices or language settings only. Do not add a language
-selector or set non-English defaults. `TTS_ENGINE=auto` remains local Kokoro and
-must not silently fall back to Edge or another cloud service.
+`auto` prefers ONNX when ONNX model paths exist. The managed release path does not
+silently fall back to cloud speech.
 
-## Timing controls
+## Legacy template path
 
-| Variable | Purpose |
-| --- | --- |
-| `GAP` | Standard inter-sentence gap |
-| `CHAPTER_GAP` | Additional chapter separation |
-| `LEAD` | Opening lead time |
-| `TAIL` | Closing tail time |
-| `CHUNK_PAD` | Speech chunk padding |
-
-Changing these values regenerates timing and can invalidate storyboard and shot windows.
-
-## Remotion controls
-
-| Variable | Purpose |
-| --- | --- |
-| `REMOTION_CACHE` | Set to `0` to reduce disk cache usage |
-| `REMOTION_BROWSER_EXECUTABLE` | Reuse an installed Chromium-compatible executable |
+The retained template still supports its own environment variables such as
+`TTS_ENGINE`, `VOICE`, `RATE`, and related timing controls. Keep those variables
+scoped to legacy template projects.
 
 ## Example
 
 ```powershell
-$env:TTS_ENGINE = 'kokoro_onnx'
 $env:KOKORO_ONNX_MODEL = 'C:\models\kokoro.onnx'
 $env:KOKORO_ONNX_VOICES = 'C:\models\voices.bin'
-python scripts\tts_build.py
+$env:KOKORO_ONNX_VOICE = 'am_michael'
 ```
-
-Do not record credentials in environment examples, project configuration, or the companion ledger.

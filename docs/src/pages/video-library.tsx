@@ -67,8 +67,8 @@ export default function VideoLibrary() {
     `${project.title} ${project.description} ${project.revisions.map((v) => v.title).join(' ')}`.toLowerCase().includes(query.toLowerCase()));
   const count = projects.reduce((total, project) => total + (allRevisions ? Math.max(1, project.revisions.length) : 1), 0);
   return <LibraryShell title="Video Library" description="Watch the work. Compare the iterations. See exactly what shipped as a candidate and what is still waiting to be made.">
-    <Stats items={[{value: videos.length, label: 'Playable revisions'}, {value: catalog.projects.length, label: 'Projects'}, {value: catalog.projects.filter((p) => !p.revisions.length).length, label: 'Not rendered'}, {value: 'Pending', label: 'Human pilot acceptance'}]} />
-    <p className="library-notice">These are review artifacts, not approved releases. Copilot is the earlier family-overview pilot; Copilot Studio 2026 and Power Platform 2026 are separate projects. Render availability and approval status are tracked independently. <Link to="/docs/platform/video-library">Catalog contract</Link></p>
+    <Stats items={[{value: videos.length, label: 'Playable revisions'}, {value: catalog.projects.length, label: 'Projects'}, {value: catalog.projects.filter((p) => !p.revisions.length).length, label: 'Not rendered'}]} />
+    <p className="library-notice">Copilot is the earlier family-overview pilot; Copilot Studio 2026 and Power Platform 2026 are separate projects. Datadog Cowork plugin is generated end to end by the core release pipeline. <Link to="/docs/platform/video-library">Catalog contract</Link></p>
     <div className="library-toolbar">
       <label className="library-field library-search">Search projects<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Copilot, Deere, Microsoft..." /></label>
       <label className="library-field">Production state<select value={filter} onChange={(event) => setFilter(event.target.value)}><option value="all">All projects</option><option value="rendered">Has video</option><option value="blocked">Not rendered</option></select></label>

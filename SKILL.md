@@ -1,90 +1,75 @@
 ---
 name: a2swe
-description: "Use when creating a public-evidence-grounded domain SWE agent for a company, topic, framework, repository, or tool, or producing executive videos, presentations, and briefings from that approved agent. Build and evaluate the domain agent before media; preserve citations, brand provenance, approval gates, and durable handoffs."
+description: "Use when building or resuming an a2swe domain SWE agent workflow, authoring release inputs, or producing a digest-verified explainer package from a ready domain."
 ---
 
 # a2swe
 
-**Anything to SWE Agent: Expert Explainers.** First build an independently useful,
-public-evidence-grounded domain SWE agent; then produce approved executive outputs
-from its versioned knowledge. All product copy and output are English.
+Use this skill for the first-party a2swe workflow in this repository.
 
-Read [docs/AGENT_FIRST_BUILD_SPEC.md](docs/AGENT_FIRST_BUILD_SPEC.md) for the
-accepted scope and current implementation boundary. The local core is a foundation,
-not a complete reasoning backend. Never present a draft pack or companion ledger
-as a ready agent, and never run direct video production to bypass missing
-DomainReady gates.
+Build the domain SWE agent first. Then produce evidence-bound briefings, decks,
+documents, and video outputs from that domain package.
 
-Ground recent claims in the trailing nine calendar months, separating publication,
-modification, observation, and retrieval dates. Older official foundations require
-explicit exceptions and current revalidation. Include applicable public engineering,
-brand, news, investor, and market sources with exact citations and approval evidence.
+## Scope
 
-Read [reference/production-rules.md](reference/production-rules.md) before
-production. It defines research, narration, timing, storyboard syntax, safe
-areas, motion, lighting, QC, asset provenance, and delivery requirements.
-For PPT and video composition, also follow the
-[example-led brand-template contract](docs/content/specifications/brand-templates.md).
-Start from representative sample slides, retain theme and placeholder semantics,
-and validate exported brand plans before authoring. Schematic recipes and passing
-geometry checks do not confer brand, approval, pilot, or release approval.
+- Create or resume a domain pack for a company, customer, topic, framework,
+  repository, or tool
+- Validate `Runbook`, `DomainPack`, `ContentIR`, `RenderSpec`,
+  `ApprovalManifest`, `ReleasePlan`, and `FormatParityManifest`
+- Generate or verify diagram asset bundles
+- Produce or verify a release package through the core CLI
+- Resume legacy template projects only when the task explicitly targets the older
+  720p branded-video path
 
-## Companion Projection
+Do not claim that this repository publishes output, grants redistribution rights,
+or authorizes sharing.
 
-Initialize the scaffolded `agent/SWE_AGENT.md` at stage 0. The pipeline owner
-updates it at every transition with dependencies, assignments, approvals,
-decisions, sources, artifact paths, actual checks, blockers, and next actions.
-Workers own bounded files and return evidence; they do not compete to edit the
-ledger. Parallel work is permitted only when dependencies and approvals allow it.
+## Current implementation boundary
 
-The companion is a readable project projection, not the authoritative runtime
-store, a daemon, or a trained model. The `.a2swe/` SQLite store owns runtime state,
-durable job receipts, integrity records, and verified asset records. Ship the
-projection with the movie and full source project, but never use it to override
-the core state. Never store secrets or invent successful checks or user approvals.
+The core workflow is local and digest-bound. It can assemble and verify release
+packages, but it does not act as a publication service or rights checker.
 
-## Mandatory Gates
+The remaining signed primitive is `domain-certify`, which creates an optional
+signed domain certificate. Release-specific signed approval bundles, trust-policy
+release verification, review-candidate packaging, and output watermarks were
+removed.
 
-Before these media gates, independent QA and the user must approve the exact
-DomainPack version, subject scope, foundational exceptions, and brand basis.
-Neither the producer nor a passing unit test can confer this approval.
+## Required workflow
 
-1. Confirm duration, audience, and scope before drafting narration. English is fixed.
-2. Show the complete narration, chapters, word count, and estimated duration;
-   wait for sign-off before TTS.
-3. Confirm TTS preference and disclose any external narration transfer. Auto uses
-   the upgraded local Kokoro/Misaki stack on Python 3.14; ONNX needs supplied weights;
-   Edge uses an English voice and Microsoft's speech endpoint. Install the
-   project's requirements.lock.txt into a Python 3.14 environment first.
-4. Show the first 30 seconds, or the whole shorter pilot, and wait for approval
-   of style, readability, pacing, and voice before building remaining groups.
+1. Read the repository `README.md`, `docs/AGENT_FIRST_BUILD_SPEC.md`, and
+   `reference/production-rules.md`.
+2. If the task targets an existing project, read `agent/runbook.json` and
+   `agent/SWE_AGENT.md`. Validate the runbook with:
+   `node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json`
+   and `node packages/core/src/cli.ts runbook-verify --root PROJECT`.
+3. If the task starts a new project, initialize a draft domain pack with
+   `domain-init`, complete its sources, evidence, claims, and known gaps, and do
+   not treat `state: "draft"` as production-ready.
+4. Author `ContentIR`, `RenderSpec`, and `ApprovalManifest` only after the domain
+   pack is ready. Keep claim wording and evidence IDs identical between the domain
+   pack and content.
+5. Use `asset-generate`, `asset-import`, `asset-fetch`, and `asset-verify` for
+   digest-bound visual bundles as needed.
+6. Use `release-plan` for a dry run, `release-produce` for a release package, and
+   `release-verify` to re-check the finished package.
+7. Record actual evidence in `agent/runbook.json`. Gates must remain
+   `pending`, `blocked`, or `passed` until the evidence file and digest exist.
 
-## Active 720p Remotion/Python Adapter
+## Speech and visual rules
 
-Run only after the agent-first domain and content prerequisites are met. This
-adapter targets 1280x720 at 30fps with Remotion/React rendering and Python
-speech, timing, and QC. It is the current production video path and an adapter
-target for the agent-first system. It does not yet produce the planned PPTX, PDF,
-HTML/AdaptiveDeck, or DOCX outputs; those adapters should consume the same
-ContentIR/RenderSpec and approval records instead of becoming separate products.
+- Use the repository `.venv` on Python 3.14.7
+- Install `template/requirements.lock.txt`
+- Prefer Kokoro ONNX when `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES` are set
+- Use explicit PyTorch Kokoro only when the `A2SWE_KOKORO_*` model paths are set
+- Treat blank-line-separated narration paragraphs as the speech segmentation unit
+- Use `ContentSection.visual` for Mermaid, Excalidraw, or Marp diagrams
+- Request the `remotion` format when document outputs need settled diagram PNGs
 
-| Stage | Work and evidence |
-| --- | --- |
-| 0 Scaffold | Copy template into a separate project; install locked dependencies; typecheck; initialize companion. |
-| 1 Research | Create research/research.md with primary-source claims, dates, glossary, qualifications, and unresolved facts. |
-| 2 Narration and timing | Draft script/narration.txt; obtain gates 1-3; run TTS; verify audio duration and subtitle timing. |
-| 3 Storyboard | Write script/storyboard_src.md; resolve tokens into storyboard.md; specify beats, text, hero, light, motion, and exits. |
-| 4 Shared visuals | Configure titles, chapters, HUD, rails, and primitives; inspect representative overlay stills. |
-| 5a Pilot | Build G1; typecheck and render first 30 seconds; obtain gate 4. |
-| 5b Parallel build | Assign remaining groups with approved storyboard and style; collect stills, motion checks, and BUILD_NOTES. |
-| 6 Render | Integrate source; run typecheck and static QC; render versioned H.264 MP4 and extract frames. |
-| 7 QC and fixes | Watch audio/video; inspect transitions, facts, text, motion, and assets; run metrics, repair, rerender, and retest. |
-| 8 Delivery | Link video, editable source, research, timing, storyboard, QC, manifest, and populated companion in delivery.md. |
+## Output expectations
 
-## Revisions and Follow-Ups
+Return the exact validated command results, blockers, stale or missing evidence,
+and earliest safe resumption stage.
 
-Read the delivered companion first. Verify referenced artifacts and refresh
-time-sensitive claims. Resume at the earliest affected stage. Narration changes
-need renewed approval, regenerated timing, and realigned shots. Preserve the
-released original. Follow-up videos get a separate project and approval record;
-reusable facts and primitives retain provenance and licensing information.
+If a required input, model path, asset bundle, or output format is unavailable,
+say so directly. Do not invent approvals, publication authority, or successful
+checks.

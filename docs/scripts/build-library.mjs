@@ -55,7 +55,11 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
   const prefix = `projects/${id}`;
   const notes = projectNotes[id] ?? {title: title(id), description: 'Repository project.', note: 'No curated completion record.', blockers: [], evidence: []};
   const renderDir = absolute(`${prefix}/renders`);
-  const files = existsSync(renderDir) ? walk(renderDir).filter((f) => /\.(mp4|webm|mov)$/i.test(f)).sort((a, b) => b.localeCompare(a, 'en', {numeric: true})) : [];
+  const releaseDir = absolute(`${prefix}/release/outputs/remotion`);
+  const isMovie = (f) => /\.(mp4|webm|mov)$/i.test(f);
+  // Videos come from hand-built projects (renders/) and from core-managed releases (release/outputs/remotion/dist).
+  const files = [...(existsSync(renderDir) ? walk(renderDir) : []), ...(existsSync(`${releaseDir}/dist`) ? walk(`${releaseDir}/dist`) : [])]
+    .filter(isMovie).sort((a, b) => b.localeCompare(a, 'en', {numeric: true}));
   const revisions = files.map((file, index) => {
     const source = relative(file);
     discoveredMovies.add(source);
@@ -84,27 +88,44 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
     mkdirSync(path.dirname(destination), {recursive: true});
     copyFileSync(file, destination);
     const revision = name.match(/-(v\d+)\./i)?.[1] ?? path.parse(name).name;
-    const reportPath = `${prefix}/qc/media-${revision}.json`;
+    const coreRelease = source.startsWith(`${prefix}/release/`);
+    const reportPath = coreRelease ? `${prefix}/release/outputs/remotion/qc/mp4-qc.json` : `${prefix}/qc/media-${revision}.json`;
     const report = existsSync(absolute(reportPath)) ? json(absolute(reportPath)) : null;
-    const reportMatches = report?.sha256?.toLowerCase() === digest;
+    const reportMatches = (report?.sha256 ?? report?.outputSha256)?.toLowerCase() === digest;
     let captions = null;
     const subsPath = `${prefix}/src/common/subs.ts`;
-    if (index === 0 && existsSync(absolute(subsPath))) {
+    const narrationPath = `${prefix}/release/outputs/remotion/audio/narration-metadata.json`;
+    if (index === 0 && coreRelease && existsSync(absolute(narrationPath))) {
+      // Core releases time captions from measured speech: each narration segment is split into sentences by length.
+      const cues = [];
+      for (const segment of json(absolute(narrationPath)).segments ?? []) {
+        const sentences = segment.text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((s) => s.trim()).filter(Boolean) ?? [segment.text];
+        const total = sentences.reduce((sum, s) => sum + s.length, 0) || 1;
+        let cursor = segment.startSeconds;
+        for (const sentence of sentences) {
+          const span = (segment.endSeconds - segment.startSeconds) * sentence.length / total;
+          cues.push(`${vttTime(Math.round(cursor * 1000), 1000)} --> ${vttTime(Math.round((cursor + span) * 1000), 1000)}\n${sentence}\n`);
+          cursor += span;
+        }
+      }
+      captions = `library/captions/${id}.vtt`;
+      write(path.join(docs, 'static', captions), `WEBVTT\n\n${cues.join('\n')}`);
+    } else if (index === 0 && existsSync(absolute(subsPath))) {
       const cues = [...text(subsPath).matchAll(/\{from:\s*(\d+),\s*to:\s*(\d+),\s*text:\s*("(?:\\.|[^"\\])*")\}/g)];
       if (!cues.length) throw new Error(`Cannot parse subtitle source: ${subsPath}`);
       captions = `library/captions/${id}.vtt`;
       write(path.join(docs, 'static', captions), `WEBVTT\n\n${cues.map((m) => `${vttTime(Number(m[1]), data.fps)} --> ${vttTime(Number(m[2]) + 1, data.fps)}\n${JSON.parse(m[3])}\n`).join('\n')}`);
     }
     return {id: revisionId, projectId: id, title: `${notes.title} ${revision}`, revision, source, movie, poster, captions,
-      ...data, latest: index === 0, qc: reportMatches ? reportPath : null, state: index === 0 ? 'Review candidate' : 'Historical revision'};
+      ...data, latest: index === 0, qc: reportMatches ? reportPath : null, state: index === 0 ? 'Generated' : 'Historical revision'};
   });
   const evidence = notes.evidence.map((p) => `${prefix}/${p}`);
   for (const source of evidence) if (!existsSync(absolute(source))) throw new Error(`Missing project evidence: ${source}`);
-  projects.push({id, ...notes, evidence, revisions, state: revisions.length ? 'Review candidates' : 'Not rendered'});
+  projects.push({id, ...notes, evidence, revisions, state: revisions.length ? 'Generated' : 'Not rendered'});
   const storyboard = [`${prefix}/storyboard.md`, `${prefix}/script/content-packet-2026-09-18/storyboard.md`, `${prefix}/brief.md`].find((p) => existsSync(absolute(p)));
-  if (storyboard) add(storyboard, 'Storylines', `${notes.title} storyline`, 'Adapt the scene sequence and narrative structure. Re-research claims and obtain new narration approval.', 'storyline', null, [id]);
+  if (storyboard) add(storyboard, 'Storylines', `${notes.title} storyline`, 'Adapt the scene sequence and narrative structure. Re-research claims before reuse.', 'storyline', null, [id]);
   const agent = `${prefix}/agent/SWE_AGENT.md`;
-  if (existsSync(absolute(agent))) add(agent, 'Agents', `${notes.title} companion`, 'Project companion instructions and production state. Review pending gates before reuse.', 'agent', null, [id]);
+  if (existsSync(absolute(agent))) add(agent, 'Agents', `${notes.title} companion`, 'Project companion instructions and production state. Check the recorded evidence before reuse.', 'agent', null, [id]);
 }
 if (refresh) {
   for (const source of Object.keys(metadata)) if (!discoveredMovies.has(source)) delete metadata[source];
@@ -118,7 +139,7 @@ if (existsSync(generatedMovies)) {
   }
 }
 
-add('template/agent/SWE_AGENT.md', 'Agents', 'Production companion', 'Start a portable, evidence-led production ledger with scope, narration, voice, and pilot approval gates.', 'agent');
+add('template/agent/SWE_AGENT.md', 'Agents', 'Production companion', 'Start a portable, evidence-led production ledger with scope, narration, voice, and pilot evidence gates.', 'agent');
 add('.github/agents/power-platform-swe.agent.md', 'Agents', 'Power Platform SWE (candidate)', 'Read/search-only architecture and test-planning agent. Not certified domain expertise or a media producer.', 'agent');
 add('template/package.json', 'Projects', 'Remotion project scaffold', 'Create a separate editable project with locked dependencies, shared visuals, shot groups, and production scripts.', 'layout');
 for (const recipe of json(absolute('template/brand-recipes.json'))) {
@@ -132,7 +153,7 @@ for (const file of walk(path.join(root, 'library', 'skills')).filter((f) => /^sk
   const meta = existsSync(metaPath) ? json(metaPath) : {};
   const body = readFileSync(file, 'utf8');
   const heading = body.match(/^# (.+)$/m)?.[1] ?? title(path.basename(path.dirname(file)));
-  add(source, 'Skills', meta.name ?? heading, meta.description ?? 'Reusable skill instructions. Inspect the source for prerequisites, tools, licensing, and approval requirements.',
+  add(source, 'Skills', meta.name ?? heading, meta.description ?? 'Reusable skill instructions. Inspect the source for prerequisites and tools.',
     'skill', null, Array.isArray(meta.tags) ? meta.tags : []);
 }
 for (const file of walk(path.join(root, 'library', 'plugins')).filter((f) => /\.md$/i.test(f))) {

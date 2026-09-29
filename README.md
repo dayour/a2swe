@@ -1,273 +1,232 @@
 # a2swe
 
-**Anything to SWE Agent: Domain Specific Workforce Explainers.**
+## Overview
 
-**Domain SWE agent first; executive explainers from relevant knowledge available.**
-a2swe is an English-only, agent-first toolkit for companies, topics,
-frameworks, repositories, and tools. Public evidence, engineering context, and
-verified brand assets must ground an independently evaluated domain agent before
-it directs videos, editable presentations, and briefings.
+a2swe is a research and development toolkit for building domain SWE agents and
+generating evidence-bound status updates, briefings, and explainer packages for a
+named agent and its project, company, market, licenses, consumption, trends,
+codebase, brand, health, perception, or leadership.
 
-Only recent knowledge from reputable sources from the preceding nine calendar
-months. Older foundational sources need explicit review and revalidation;
-retrieval dates are not publication dates. See the
-[agent-first build specification](docs/AGENT_FIRST_BUILD_SPEC.md) and
-[context map](docs/audit/CONTEXT_MAP.md) for scope and implementation status.
+Distribution is outside a2swe. The repository does not publish outputs, authorize
+sharing, perform redistribution checks, or confer usage rights.
 
-The current product uses swe agent architecture with several coordinated surfaces that need to be unified:
+The current code centers on a local Node/TypeScript core in `packages/core/src`.
+It validates contracts, assembles release packages, generates a core-managed 1080p
+Remotion project, and verifies the resulting output set.
 
-- **Core orchestration:** passive inventory, schema validation, draft intake, and
-  a local `.a2swe/` SQLite job/artifact store. This is the authority for runtime
-  state, receipts, and verified artifact records.
-- **Evaluation-only asset proof:** durable generation of synthetic 1080p raster
-  proofs for engineering validation. These proofs are not subject media, brand
-  approval, or production authorization.
-- **Active 720p Remotion/Python video adapter:** the established renderer,
-  React compositions, speech/timing scripts, QC tools, and verified pilots. It is
-  an actively enhanced production video path and a target adapter for the
-  agent-first system, not evidence that all new gates or five-format outputs are
-  complete.
-- **Local release-candidate adapter foundation:** initial approval-gated
-  HTML, AdaptiveDeck, PPTX, DOCX, searchable PDF, and Remotion project/render-plan
-  outputs consume the same approved ContentIR/RenderSpec. The Remotion release
-  adapter does not yet claim an encoded MP4.
-- **Target executive adapter set:** narrated MP4, editable PPTX, searchable PDF,
-  responsive HTML/AdaptiveDeck, and DOCX should continue to share the same
-  evidence graph rather than fork into separate products.
+## Current capability boundary
 
-The Copilot SDK integration
-reuses the installed CLI, user authentication, profile and sessions; live inference
-and cross-process resume have passed. Native Copilot and Agency bridges preserve
-their agents, tools and plugins. The restricted evidence-query adapter remains
-separate. ACP/MCP, sandboxed
-SWE execution with full five-format asset generation remains unfinished. 
+- Build and validate `DomainPack`, `ContentIR`, `RenderSpec`, `ApprovalManifest`,
+  `ReleasePlan`, `FormatParityManifest`, and `Runbook`
+- Initialize draft domain packs with `domain-init`
+- Generate, import, fetch, and verify raster asset bundles
+- Produce digest-verified release packages from a ready domain, matched content,
+  matched render spec, and approval manifest
+- Generate HTML, AdaptiveDeck, PPTX, DOCX, searchable PDF, 1080p PNG/JPEG
+  overview images, and a core-managed 1080p Remotion MP4 project
+- Re-run release verification, including encoded MP4 QC when the release includes
+  the Remotion output
 
-See the [visual asset pipeline](docs/VISUAL_ASSET_PIPELINE.md) for commands,
-security boundaries, observed blockers and the remaining implementation work.
-Generate three real synthetic 1080p proofs with `npm run assets:proof`
+The repository also retains an older template-based 720p video pipeline under
+`template/`. That path remains useful for hand-built branded videos, but it is the
+legacy path, not the core-managed production path.
 
-a2swe is a complete apim toolkit and agent workflow and should have tauri native windows de4sktop app. Remotion Studio is the local preview interface.
+## Install
 
-
-## Agent Core
-
-Use Node 24.8 or newer in the Node 24 line. The root workspace is independent of
-the existing template and documentation-site dependency locks.
+Use Node.js 24 and a single repository `.venv` on Python 3.14.7.
 
 ```powershell
 npm ci --ignore-scripts
 npm run build
 npm run contracts:check
 npm test
-npm run build:all
-npm run test:all
-npm run validate:all
-npm run a2swe -- capabilities
-npm run a2swe -- inventory --root library --source library --kind repository --out .a2swe/inventory/library.json
-npm run a2swe -- domain-init --id john-deere --name "John Deere" --kind company --as-of 2026-09-17
-```
-
-Intake creates a draft with explicit grounding gaps, not a ready agent. Inventory
-never executes or enables imported code. Local state, integrity keys, inventories,
-draft packs, durable job receipts, and verified asset records live in the ignored
-`.a2swe/` directory. `agent/SWE_AGENT.md` is a portable human-readable projection
-for scaffolded video projects, not the authoritative runtime database. This is a
-trusted local-user runtime, not a network-authenticated service or OS sandbox.
-Node's built-in SQLite API is experimental in the pinned runtime; the warning is
-not suppressed.
-
-## Existing Copilot Profile
-
-Use your existing Copilot or Agency CLI, including native permissions, agents,
-plugins, skills, MCP configuration and session commands:
-
-```powershell
-npm run copilot -- --help
-npm run agency:copilot -- --help
-npm run copilot -- --resume
-npm run agency:copilot -- --agent dayour-dev
-```
-
-For SDK sessions, install only the lightweight integration, not another runtime:
-
-```powershell
-npm --prefix integrations/copilot ci 
-npm run copilot:sdk -- --capabilities
-npm run copilot:sdk -- --doctor
-npm run copilot:sdk -- --catalogs
-npm run copilot:sdk -- --prompt "Review this repository"
-npm run copilot:sdk -- --permissions ask --prompt "Review this repository"
-```
-
-Defaults use `COPILOT_HOME` or your user home `.copilot` directory and the calling
-workspace. Normal SDK sessions automatically approve tool requests without
-terminal prompts, subject to managed-policy restrictions. Use `--permissions ask`
-or `--permissions deny` to override; `--trust-profile` is accepted for compatibility
-but no longer required. Configured plugins, hooks, MCP servers and tools execute
-with your OS-user access, not in a sandbox. Automatic tool permission is not
-editorial or release approval. The restricted evidence-query profile remains
-no-tools. `--capabilities` reports the selected CLI's version and advertised
-features without authentication or inference, with auto-updates disabled. Agency is
-supported through its native CLI, not SDK headless transport. See
-[profile options, session resume and safety boundaries](docs/VISUAL_ASSET_PIPELINE.md#existing-copilot-profile).
-
-## Install and Build
-
-Use Node.js 24 and Python 3.14 (tested on Windows x64 with Node 24.8.0 and Python 3.14.7).
-The repository pins the interpreter in `.python-version` and all Python packages
-in `template/requirements.lock.txt`. SoundFile and SciPy decode/resample narration.
-FFmpeg and ffprobe are needed for encoded-media QC; the Windows Remotion package
-includes suitable binaries. Local wheel paths resolve from the template directory.
-
-```powershell
-npm --prefix template ci
-npm --prefix template run build
 uv python install 3.14.7
 uv venv --python 3.14.7 .venv --seed
 Push-Location template
 ..\.venv\Scripts\python.exe -m pip install -r requirements.lock.txt
 Pop-Location
-.\.venv\Scripts\python.exe template/scripts/test_pipeline.py -v
-npm --prefix template run studio -- --port 3100
+.\.venv\Scripts\python.exe template\scripts\test_pipeline.py -v
 ```
 
-`build` runs TypeScript validation and creates the static production bundle in
-`template/build_production`. It does not synthesize narration or render a movie.
-Open the Studio URL printed by the command. Use another port if occupied.
-
-To make the skill discoverable, place or link this repository in your coding
-agent's supported skill directory as `a2swe`, or explicitly ask the agent to read
-[SKILL.md](SKILL.md). Skill registration is separate from dependency installation.
-
-First-party reusable entries under `library/` are local discovery aids, not
-approval or execution authority:
-
-- `library/agents/a2swe-conductor.agent.md` coordinates validated a2swe project
-  transitions.
-- `library/skills/a2swe/SKILL.md` inspects and resumes runbook-based projects.
-- `library/plugins/a2swe/` packages the local conductor, skill, and pending
-  runbook starter asset for compatible hosts.
-- `library/assets/runbook/runbook-starter.json` seeds scaffolded runbooks with
-  all gates pending.
-
-Indexing any of these files does not install a backend, grant credentials,
-approve DomainReady status, or prove that a renderer or release format is
-available.
-
-## Documentation Website
-
-The [Docusaurus site source](docs/) describes the core orchestration,
-ContentIR/RenderSpec contracts, active Remotion/Python video adapter, and planned
-format adapters as one system. Run the site locally with:
+Install the documentation site separately when you need it:
 
 ```powershell
 npm --prefix docs ci
-npm --prefix docs run start
+npm --prefix docs run build
 ```
 
-Build the static GitHub Pages site with `npm --prefix docs run typecheck` and
-`npm --prefix docs run build`. Pushes that
-change `docs/` on `main` deploy through `.github/workflows/docs-pages.yml` to
-`https://dayour.github.io/a2swe/` after GitHub Pages is configured for Actions.
+## Core workflow
 
-## Active 720p Remotion/Python Video Adapter
-
-Ask your coding agent: "Create a 30-second English explainer about vector databases."
-Follow [SKILL.md](SKILL.md) and [the production rules](reference/production-rules.md).
-
-For new agent-first production, first obtain a verified domain version and its
-independent/human approvals. Core production submission currently fails closed.
-Direct Remotion/Python scripts do not enforce the new state machine and must not
-be used to bypass those gates. The following documents the established video
-adapter workflow.
-
-1. Create new projects from the template and initialize its companion ledger.
-2. Research anything-topic using primary sources and record source URLs and access dates.
-3. Write the storyboard, shared overlays, and first shot group.
-4. Generate audio voiceover narration first and iterate the voice engine, then generate audio and frame timing.
-5. Render and approve a 30-second pilot before building remaining shot groups.
-6. Render the full movie, inspect audio and frames, fix defects, and deliver evidence.
-
-
-On Windows, scaffold a new directory without zsh or rsync:
+Initialize a draft domain pack:
 
 ```powershell
-node template/scripts/new_project.cjs projects/my-video my-video
+node packages/core/src/cli.ts domain-init `
+  --id datadog-cowork-plugin `
+  --name "Datadog Cowork Plugin" `
+  --kind tool `
+  --as-of 2026-09-29 `
+  --out projects/datadog-cowork-plugin/canonical/domain-pack.json
 ```
 
-The scaffold copies the companion and production rules, excludes generated
-outputs, installs locked dependencies, and typechecks. It refuses to overwrite
-an existing directory. Direct Remotion CLI commands also work without zsh:
+Then complete the domain pack by adding sources, evidence spans, supported claims,
+and known gaps. Production requires `state: "ready"`.
+
+Prepare visual assets as needed:
 
 ```powershell
-npx remotion still src/index.ts Overlay stills/title.png --frame=39
-npx remotion render src/index.ts Video renders/pilot.mp4 --frames=0-899
+node packages/core/src/cli.ts asset-generate --file asset-request.json --out asset-bundles/hero-diagram
+node packages/core/src/cli.ts asset-verify --root asset-bundles/hero-diagram
 ```
 
-The video render requires project-specific narration, timing, and shots first.
+Author these inputs next:
 
-## Four Checkpoints
+- `domain-pack.json`
+- `content-ir.json`
+- `render-spec.json`
+- `approval-manifest.json`
 
-- Duration, audience, and scope before writing narration.
-- Full narration sign-off before synthesis.
-- Voiceover choice and external speech-service disclosure before synthesis.
-- First 30 seconds before remaining shot groups are built.
-
-English is fixed; there is no language-selection step. On Python 3.14,
-`TTS_ENGINE=auto` uses the locally upgraded Kokoro stack. The lock includes wheel
-snapshots built from the local Misaki, Kokoro and Kokoro ONNX repositories, plus
-the English spaCy model. Full Kokoro downloads model/voice weights from Hugging Face
-when not cached. ONNX requires `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES` paths.
-Piper remains optional with `PIPER_MODEL` and its matching JSON configuration.
-Model licenses apply separately; model weights are not bundled. Edge is an explicit
-alternative; activate the environment before running project scripts:
+Plan or produce the release:
 
 ```powershell
-$env:TTS_ENGINE = 'edge'
-$env:VOICE = 'en-US-AndrewNeural'
-.\.venv\Scripts\Activate.ps1
-python scripts/tts_build.py
+node packages/core/src/cli.ts release-plan `
+  --content content-ir.json `
+  --render render-spec.json `
+  --approval approval-manifest.json `
+  --out release-plan.json
+
+node packages/core/src/cli.ts release-produce `
+  --domain domain-pack.json `
+  --content content-ir.json `
+  --render render-spec.json `
+  --approval approval-manifest.json `
+  --assets asset-bundles `
+  --out release
+
+node packages/core/src/cli.ts release-verify --root release
 ```
 
-Run the script from the generated project after activating the repository environment.
-Edge sends the approved narration to Microsoft's speech endpoint. Supplied audio
-with a matching timeline is also supported. No cloud fallback happens automatically.
+`release-produce` requires:
 
-## Verified 720p Video Pilots
+- a ready `DomainPack`
+- a domain digest equal to `ContentIR.domainDigest`
+- content claims whose wording and evidence exactly match supported domain claims
+- an `ApprovalManifest` whose `contentDigest` and `domainDigest` match the release
 
-Full-script inference samples from
-both local Kokoro engines and Misaki phoneme evidence are in `qc/models/`.
-Run `scripts/verify_models.py --help` from a generated project to repeat that check.
-Use `scripts/align_audio.py` to measure and correct small AAC encoder offsets,
-then `scripts/verify_video.py` to validate the encoded output against its WAV.
-Subjective voice/pacing approval remains a human gate, not an automated pass.
-On a disk-constrained machine set `REMOTION_CACHE=0`; use
-`REMOTION_BROWSER_EXECUTABLE` to share an existing Chromium installation.
+## Approval manifest
 
-## Deliverables and Reuse
+`ApprovalManifest` replaced the older rights manifest model.
 
-Each release includes the H.264 MP4, full source project, sourced research,
-approved narration, timing, storyboard, QC evidence, asset manifest, delivery
-notes, and populated [companion starter](template/agent/SWE_AGENT.md).
+Each manifest contains:
 
+- `schemaVersion`
+- `manifestId`
+- `domainDigest`
+- `contentDigest`
+- `reviewedAt`
+- `selectedAssets[]`
 
+Each selected asset contains:
 
-## Content and Assets
+- `assetId`
+- `assetDigest`
+- `basis`
+- `reviewerId`
+- `evidenceDigest`
+- `status` of `pending`, `approved`, or `rejected`
 
-Create a brand spec doc for relevant content in scratchpad [BRAND_CONTENT_SPEC.md](BRAND_CONTENT_SPEC.md) for identity, media, language,
-and acceptance requirements for each a2swe. The former non-English sample archive and its 36
-reference JPEGs are retired. The active template draws original diagrams in code.
-Evaluation asset bundles generated by the core include request, asset, raster, and
-manifest records are not intended for distribution.
+Only a rejected asset blocks generation. `AssetRecord` and `LibraryEntry` no longer
+carry embedded approval or rights fields.
 
+## Release outputs
 
+`release-produce` writes these release records at the package root:
 
-## Licensing and Limits
+- `content-ir.json`
+- `domain-pack.json`
+- `render-spec.json`
+- `approval-manifest.json`
+- `release-plan.json`
+- `parity-manifest.json`
 
-Bundled fonts retain their separate
-[OFL notices](template/public/fonts/LICENSE.md). Remotion has its own
-[licensing terms](https://remotion.dev/license).
+It can also produce:
 
-The layout targets all popular video formasts. A successful bundle is not a finished
-film or a passing visual QC result. Allow at least 5GB free space for production,
-and bound parallel renders to available CPU and memory.
+- self-contained HTML
+- AdaptiveDeck JSON
+- editable PPTX with native shapes, fitted text, speaker notes, and embedded images
+- editable DOCX
+- searchable PDF with inline images and WinAnsi text output
+- 1080p PNG and JPEG overview images
+- a core-managed Remotion project that synthesizes audio, renders a 1080p
+  H.264/AAC MP4, and records encoded-media QC
+
+`release-verify` checks the digests of the entire output set and reruns MP4 QC
+when the package includes the Remotion output.
+
+## Speech and video
+
+The repository uses one Python 3.14.7 environment at `.venv`. Speech dependencies
+are locked in `template/requirements.lock.txt`, including the dayour fork wheels
+for Kokoro, Kokoro ONNX, and Misaki from the `py314-2026.09.17` release set.
+
+The core-managed 1080p path defaults to Kokoro ONNX when
+`KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES` are configured. It can fall back to
+explicit PyTorch Kokoro only when `A2SWE_KOKORO_CONFIG`,
+`A2SWE_KOKORO_WEIGHTS`, and `A2SWE_KOKORO_VOICE_MODEL` are configured.
+`KOKORO_ONNX_VOICE` selects the ONNX voice.
+
+Narration is synthesized per paragraph, separated by blank lines. When paragraph
+count matches scene count, the renderer derives scene timing and captions from
+measured speech segments. Otherwise it distributes scene cuts proportionally by
+text length. Captions are burned into the video. Spoken-form spellings such as
+`H I P A A` and `O Auth` are normalized to written form in captions and documents.
+
+The core-managed Remotion scene design uses a dark backdrop, animated glow and
+grid treatment, a kinetic headline, claim cards with source labels, a progress
+bar, captions, and a sources footer.
+
+## Visuals inside sections
+
+Each `ContentSection` can include an optional `visual` object:
+
+```json
+{
+  "kind": "mermaid",
+  "source": "flowchart LR\nA-->B",
+  "caption": "System data flow"
+}
+```
+
+Supported `kind` values are:
+
+- `mermaid`
+- `excalidraw`
+- `marp`
+
+The release flow emits:
+
+- editable visual source files in `outputs/remotion/visuals/`
+- one settled PNG per visual in `outputs/remotion/visuals/NN-section.png`
+
+The PNG becomes the shared diagram image embedded by HTML, AdaptiveDeck, PPTX,
+DOCX, PDF, and PNG/JPEG outputs. Visual embedding therefore requires the Remotion
+format to be part of the requested release.
+
+## Autonomous workflow
+
+The workflow is autonomous. It does not pause at human sign-off checkpoints before
+TTS, pilot, or final render.
+
+Instead, the agent records decisions and evidence in `agent/runbook.json`. Gates
+use `pending`, `blocked`, and `passed` status with `evidencePath` and
+`evidenceDigest`. Automated checks are measurement evidence, not human review.
+Human review remains optional and external to the core state model.
+
+Facts still require cited evidence. Unknowns must be recorded as unknowns, not
+invented. Freshness for recent claims uses a trailing nine-calendar-month window.
+
+## Legacy template note
+
+The older 720p template pipeline still exists under `template/`, including
+`template/scripts`, `tts_build.py`, and `new_project.cjs`. Use it only when you
+need the older hand-built branded-video workflow. The core adapter described above
+is the managed 1080p path.

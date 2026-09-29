@@ -1,38 +1,46 @@
 ---
 title: Dependencies
+description: Runtime, package, model, and media-tool dependencies for the current a2swe core and retained template path.
 ---
-
-# Dependencies
 
 ## JavaScript runtime
 
-The template pins Remotion CLI and media packages at 4.0.523, React and React DOM at 19.3.0, and TypeScript at 7.0.2. Exact versions are recorded in `template/package.json` and `template/package-lock.json`.
+The template package pins:
+
+- Remotion 4.0.523
+- `@remotion/cli` 4.0.523
+- React 19.3.0
+- React DOM 19.3.0
+- TypeScript 7.0.2
+- Mermaid 12.0.0
+- `@excalidraw/excalidraw` 0.18.1
+- `@marp-team/marp-core` 4.4.0
 
 ## Python runtime
 
-Direct production requirements include:
+Use one repository `.venv` on Python 3.14.7.
 
-- `edge-tts`;
-- `numpy`;
-- `Pillow`;
-- `scipy`;
-- `soundfile`;
-- `piper-tts`;
-- `misaki[en]`;
-- `en-core-web-sm`;
-- `kokoro`;
-- `kokoro_onnx`.
+`template/requirements.lock.txt` pins the dayour fork wheels for:
 
-The lockfile includes their transitive runtime, model, networking, and NLP dependencies such as Torch, ONNX Runtime, spaCy, Transformers, Phonemizer, Hugging Face Hub, aiohttp, and Typer.
+- `kokoro`
+- `kokoro-onnx`
+- `misaki`
+
+It also pins the supporting runtime packages needed by the speech pipeline.
 
 ## System dependencies
 
-FFmpeg and ffprobe are required for encoded-media verification and alignment. A Chromium-compatible browser is required by Remotion rendering; the Windows package can supply one, or `REMOTION_BROWSER_EXECUTABLE` can point to an existing installation.
+FFmpeg and ffprobe are required for the managed MP4 render and QC path.
 
 ## Model dependencies
 
-Model weights are not toolkit source. Local Kokoro can download required files when absent from cache. Kokoro ONNX and Piper require explicit model configuration. Verify each model’s license and provenance independently.
+The managed 1080p path requires local model files through either:
 
-## Reproducibility
+- `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES`
+- or `A2SWE_KOKORO_CONFIG`, `A2SWE_KOKORO_WEIGHTS`, and
+  `A2SWE_KOKORO_VOICE_MODEL`
 
-Use `npm ci`, not an unconstrained install, for production projects. Install Python from `requirements.lock.txt` in the expected interpreter environment. Do not silently upgrade dependencies during a release build.
+## Legacy note
+
+The older template workflow remains available, but it is separate from the managed
+core release path.

@@ -1,33 +1,30 @@
 ---
 title: Installation
+description: Install the root workspace, shared Python 3.14 environment, and optional documentation site for a2swe.
 ---
-
-# Installation
 
 ## Supported baseline
 
-The repository pins and documents the following baseline:
+The current verified baseline is:
 
-- Node.js 24;
-- npm with lockfile-based installation;
-- Python 3.14.7;
-- Windows x64 as the verified environment;
-- FFmpeg and ffprobe for encoded-media inspection.
+- Node.js 24
+- npm lockfile installation
+- Python 3.14.7
+- one repository `.venv`
+- FFmpeg and ffprobe for encoded-media QC
 
-The Remotion package on Windows includes usable media binaries. Production should have at least 5 GB of free disk space.
-
-## Install the template
+## Install the root workspace
 
 From the repository root:
 
 ```powershell
-npm --prefix template ci
-npm --prefix template run build
+npm ci --ignore-scripts
+npm run build
+npm run contracts:check
+npm test
 ```
 
-`build` runs TypeScript validation, then creates the static Remotion bundle at `template/build_production`. It does not synthesize narration or render a completed movie.
-
-## Install Python dependencies
+## Install the shared Python environment
 
 ```powershell
 uv python install 3.14.7
@@ -38,41 +35,32 @@ Pop-Location
 .\.venv\Scripts\python.exe template\scripts\test_pipeline.py -v
 ```
 
-The lockfile is resolved from the template directory because it may contain template-relative wheel references.
+The lockfile must be installed from the `template/` directory because it uses
+template-relative references.
 
-## Start Remotion Studio
+## Optional template install
+
+Install the retained legacy template only when you need that older workflow:
 
 ```powershell
-npm --prefix template run studio -- --port 3100
+npm --prefix template ci
+npm --prefix template run build
 ```
 
-Use another port if `3100` is occupied. Studio exposes the registered `Video`, `Overlay`, and `G1` through `G8` compositions.
-
-## Documentation site
+## Optional documentation site install
 
 ```powershell
 npm --prefix docs ci
-npm --prefix docs run start
-```
-
-The production documentation build is:
-
-```powershell
 npm --prefix docs run build
 ```
 
-## Runtime controls
+## Model path notes
 
-On a disk-constrained host:
+For the managed 1080p path, configure either:
 
-```powershell
-$env:REMOTION_CACHE = '0'
-```
+- `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES`
+- or `A2SWE_KOKORO_CONFIG`, `A2SWE_KOKORO_WEIGHTS`, and
+  `A2SWE_KOKORO_VOICE_MODEL`
 
-To reuse an installed Chromium binary:
-
-```powershell
-$env:REMOTION_BROWSER_EXECUTABLE = 'C:\Path\To\chrome.exe'
-```
-
-See [environment variables](../reference/environment-variables.md) for narration and model controls.
+The generated Remotion project can also read verified ONNX paths from
+`qc/models/verification.json` when available.

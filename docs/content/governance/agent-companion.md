@@ -1,8 +1,7 @@
 ---
 title: SWE companion ledger
+description: Required content and integrity rules for the portable a2swe project companion projection.
 ---
-
-# SWE companion ledger
 
 `agent/SWE_AGENT.md` is a portable instruction-and-state artifact shipped with each project. It is not a daemon, trained model, autonomous approval authority, or substitute for source files.
 
@@ -12,7 +11,7 @@ title: SWE companion ledger
 - current lifecycle stage;
 - owner and bounded worker assignments;
 - dependencies and blockers;
-- approval record;
+- gate record;
 - stage-by-stage evidence;
 - decisions and rationale;
 - source and artifact paths;
@@ -30,7 +29,7 @@ One pipeline owner writes the ledger. Parallel workers return bounded evidence a
 - Never record an approval that did not occur.
 - Never mark a check successful without its actual result.
 - Never store secrets.
-- Distinguish planned, implemented, rendered, verified, and approved.
+- Distinguish planned, implemented, rendered, verified, and passed.
 - Update the ledger at every stage transition.
 - Verify artifact paths before resuming a revision.
 

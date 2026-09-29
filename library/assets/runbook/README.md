@@ -1,24 +1,32 @@
-# a2swe Runbook Starter Asset
+---
+title: a2swe runbook starter asset
+description: Starter runbook asset for scaffolded a2swe projects.
+---
 
-`runbook-starter.json` is the first-party seed for a scaffolded
-`agent/runbook.json`. It deliberately starts with pending gates and empty
-artifact lists so a project must record real evidence before resuming or
-releasing.
+## Purpose
 
-## Current capability boundary
+`runbook-starter.json` seeds a project `agent/runbook.json`. It starts with pending
+gates and empty artifact lists so a project must record real evidence before it
+can claim progress.
 
-The starter is a machine-readable projection template only. It is not an
-approval, credential, model, renderer, signed receipt, release candidate, or
-proof that any output format has been produced.
+## Boundary
 
-When a scaffold copies this file, it must set project-specific identifiers and
-timestamps, then validate the copied runbook from the repository root:
+This asset is a projection template only. It is not:
+
+- a credential
+- an approval record
+- a renderer output
+- a release package
+- publication authorization
+
+## Validation
+
+Validate a copied runbook from the repository root:
 
 ```powershell
 node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json
 node packages/core/src/cli.ts runbook-verify --root PROJECT
 ```
 
-Validation checks schema, referenced paths, and hashes. DomainReady status,
-brand approval, narration approval, pilot approval, release approval, and
-redistribution rights remain separate human or independent-reviewer gates.
+Those commands verify structure, referenced paths, and digests. They do not grant
+sharing rights or certify a finished release.

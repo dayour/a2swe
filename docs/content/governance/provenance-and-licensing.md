@@ -1,34 +1,32 @@
 ---
 title: Provenance and licensing
+description: Provenance and licensing boundaries for a2swe claims, assets, models, and retained outputs.
 ---
-
-# Provenance and licensing
 
 ## Claim provenance
 
-Every narration and on-screen fact must trace to `research/research.md`. Qualifications, dates, and uncertainty must survive the transformation from source to script.
+Every narration and on-screen fact must trace to cited evidence.
 
 ## Media provenance
 
-For every external asset, record:
+For each external asset, record:
 
-- project-relative path;
-- canonical source URL;
-- creator or publisher;
-- access date;
-- license and relevant terms;
-- SHA-256 digest;
-- attribution text;
-- shot or frame usage.
+- project-relative path
+- canonical source URL
+- creator or publisher
+- relevant dates
+- license or terms
+- SHA-256 digest
+- attribution text
 
 ## Model provenance
 
-`verify_models.py` can synthesize real samples and hash model files and installed runtime packages, including Kokoro, Kokoro ONNX, Misaki, Torch, ONNX Runtime, spaCy, and the English model. Preserve its `verification.json` with model QC evidence.
+Keep model verification evidence when you rely on local model files. The repository
+does not bundle usage rights for those models.
 
-## Licensing boundaries
+## Licensing boundary
 
-The checkout does not contain a root license grant. Repository documentation must not be interpreted as permission for redistribution or commercial use. Bundled fonts retain separate OFL notices. Remotion and speech/model components have their own terms.
-
-## Reuse
-
-Reusable facts, components, and assets retain their provenance. Reuse never transfers a prior human approval to a new video.
+The checkout is not publication authorization. Repository documentation and output
+records must not be interpreted as permission for redistribution or commercial use.
+Bundled fonts retain separate OFL notices. Remotion and speech-model components
+have their own terms.

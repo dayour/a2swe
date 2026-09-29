@@ -1,32 +1,32 @@
 ---
 title: Timing and subtitles
+description: Timing and burned-caption rules for paragraph-based narration in the current a2swe managed release path.
 ---
-
-# Timing and subtitle specification
 
 ## Media clock
 
-- Visual frame rate: 30 fps.
-- Speech sample rate: 48 kHz.
-- Pilot duration: 30 seconds or the complete shorter video.
-- Pilot frame range at 30 fps: 0–899.
+- Visual frame rate: 30 fps
+- Speech sample rate: 48 kHz
+- Managed release video size: 1920x1080
 
-## Timing generation
+## Segmentation
 
-The speech builder trims invalid edge silence, computes chunk starts, inserts sentence and chapter gaps, and applies lead, tail, and chunk padding. The generated timeline is authoritative for downstream scenes.
+Narration is split by blank lines into paragraphs. Those paragraphs become the
+speech segments stored in narration metadata.
 
-## Subtitle requirements
+When paragraph count matches the number of scenes, measured speech defines scene
+timing and caption timing. Otherwise the renderer keeps the measured WAV duration
+and derives scene cuts proportionally from text length.
 
-- Subtitle cues MUST derive from approved narration.
-- Cue timing MUST align with the generated or verified audio.
-- Text MUST remain inside y=637–690.
-- Blocks SHOULD remain readable at the target pace and resolution.
-- Subtitles MUST NOT conceal critical focal content.
+## Subtitle rules
 
-## Audio sync acceptance
-
-The encoded pilot verifier requires audio correlation greater than 0.98 and lag no greater than 1024 samples against the reference WAV. `align_audio.py` permits correction only for offsets under 0.1 seconds with the same high similarity threshold.
+- Captions derive from the approved narration text.
+- Captions are burned into the managed MP4 output.
+- Captions must reflect measured or verified speech timing.
+- Spoken-form spellings normalize to written forms in captions and documents.
+- Captions must not hide critical focal content.
 
 ## Change control
 
-Any narration, engine, voice, rate, pronunciation, gap, lead, tail, or chunk-padding change MUST regenerate timing and trigger review of subtitles, chapter starts, overlay windows, and shot manifests.
+Changes to narration text, paragraph boundaries, speech engine, model path, or
+audio generation invalidate dependent timing and can require rerendering.

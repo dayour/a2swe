@@ -1,89 +1,69 @@
 ---
 title: Remotion runtime
+description: Core-generated 1080p Remotion project behavior and the retained legacy template runtime.
 ---
 
-# Remotion runtime
+## Core-generated runtime
 
-## Composition registry
+`release-produce` can emit a generated Remotion project under `outputs/remotion/`.
+That project is the managed video runtime for the current core release path.
 
-`src/index.ts` calls `registerRoot(Root)`. `Root.tsx` registers:
+It includes:
 
-- `Video`: the complete production composition;
-- `Overlay`: overlay-only inspection;
-- `G1` through `G8`: isolated group previews.
+- `render-plan.json`
+- `timeline.json`
+- `asset-manifest.json`
+- `speech/narration-manifest.json`
+- `audio/narration-metadata.json`
+- `public/assets/<contentId>/audio.wav`
+- `public/assets/<contentId>/...`
+- render, audio, and QC scripts
 
-The established template compositions use centralized dimensions and rate:
-`W = 1280`, `H = 720`, and `FPS = 30`. The core release-candidate MP4 adapter
-targets `1920x1080`, `30fps`, and `48 kHz` audio from `RenderSpec.video`; it is a
-separate generated project surface and fails if those MP4 render requirements are
-not met.
+The generated project requires:
 
-## Stage graph
+- 1920x1080 video
+- 30 fps
+- 48 kHz stereo audio
+- local Remotion dependencies
+- FFmpeg and ffprobe
+- local Python 3.14 speech dependencies
 
-`Main.tsx` owns the root render sequence. Conceptually:
+## Scene timing
 
-```tsx
-<Stage>
-  <Fonts />
-  <Audio />
-  <Background />
-  <FootageTrack />
-  <Shots layer="below-progress" />
-  <ProgressBar />
-  <Shots layer="above-progress" />
-  <Subtitles />
-</Stage>
-```
+The generated runtime measures narration WAV duration and paragraph timings.
+When narration paragraph count matches scene count, those measured paragraph
+segments drive scene timing. Otherwise scene cuts fall back to proportional text
+length while the measured WAV still defines total duration.
 
-Actual shot ordering is controlled by each `ShotDef.layer`. Entries marked `aboveBar` render after the progress bar; all other entries render before it.
+## Section visuals
 
-## Manifest assembly
+The generated runtime supports `ContentSection.visual` with:
 
-The complete `Video` composition combines:
+- Mermaid
+- Excalidraw element JSON
+- one Marp slide
 
-- overlay shots;
-- group shots from `G1` through `G8`;
-- background specifications;
-- footage specifications;
-- top-layer overlay shots.
+It writes editable visual sources to `outputs/remotion/visuals/` and renders one
+settled PNG per visual. Those PNGs become the shared diagram image for every
+document adapter.
 
-This keeps scene creation declarative: a group exports timed manifests, while the shared stage handles global composition concerns.
+## Captions and layout
 
-## Asset resolution
+The generated 1080p scenes use:
 
-Narration audio resolves from:
+- a dark backdrop
+- animated glow and grid treatment
+- a kinetic headline
+- claim cards with source labels
+- a progress bar
+- burned-in captions
+- a sources footer
 
-```text
-public/assets/<VIDEO.slug>/audio.wav
-```
+Caption and document text normalize spoken forms such as `H I P A A` and
+`O Auth` to written forms.
 
-The project slug is therefore both an editorial identifier and a runtime asset namespace. Changing it without moving the associated media breaks audio lookup.
+## Legacy template runtime
 
-Core-managed Remotion release candidates use the same namespace pattern under the
-generated output project:
-
-```text
-public/assets/<ContentIR.contentId>/audio.wav
-public/assets/<ContentIR.contentId>/<assetId>.<ext>
-```
-
-`speech/approved-narration.json` binds the approved narration text to the
-`ContentIR` digest. `scripts/synthesize-audio.mjs` selects Python 3.14 from
-`A2SWE_PYTHON` or the nearest `.venv`, then runs the generated local producer.
-The producer supports only configured local Kokoro/Misaki or Kokoro ONNX model
-paths. It does not install packages, download weights, call cloud speech, or
-create placeholder audio.
-
-`asset-manifest.json` lists the required digest-bound WAV and visual assets.
-`scripts/render-mp4.mjs` invokes audio synthesis when the WAV or metadata is
-missing or stale, then refuses to render if local Remotion dependencies,
-FFmpeg/ffprobe, the narration WAV, exact audio duration, or any selected asset is
-missing or mismatched.
-
-## Background selection
-
-`VIDEO.bg` selects the supported background system, including the dot-field and shared background track implementations. Time-windowed `BgSpec` entries can add stars and fog.
-
-## Preview strategy
-
-Use isolated group compositions for local scene development, `Overlay` for editorial UI checks, a 30-second `Video` frame range for the pilot, and the complete `Video` composition only after pilot approval.
+The older template still exposes `Video`, `Overlay`, and `G1` through `G8`
+compositions at 1280x720 and 30 fps. Keep that path for legacy branded-video
+projects only.

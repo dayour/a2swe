@@ -26,15 +26,17 @@ test('every repository project appears, including unfinished projects', () => {
   const projects = readdirSync(path.join(root, 'projects'), {withFileTypes: true}).filter((p) => p.isDirectory()).map((p) => p.name).sort();
   assert.deepEqual(catalog.projects.map((p) => p.id).sort(), projects);
   for (const project of catalog.projects) {
-    assert.equal(project.state, project.revisions.length ? 'Review candidates' : 'Not rendered');
+    assert.equal(project.state, project.revisions.length ? 'Generated' : 'Not rendered');
     if (!project.revisions.length) assert.ok(project.note);
     assert.ok(project.evidence.every((p) => existsSync(path.join(root, p))));
   }
 });
 test('all retained movies are indexed and copied byte-for-byte for GitHub Pages', () => {
   const sources = catalog.projects.flatMap((p) => {
-    const dir = path.join(root, 'projects', p.id, 'renders');
-    return existsSync(dir) ? walk(dir).filter((f) => /\.(mp4|webm|mov)$/i.test(f)).map((f) => path.relative(root, f).split(path.sep).join('/')) : [];
+    return ['renders', 'release/outputs/remotion/dist'].flatMap((sub) => {
+      const dir = path.join(root, 'projects', p.id, ...sub.split('/'));
+      return existsSync(dir) ? walk(dir).filter((f) => /\.(mp4|webm|mov)$/i.test(f)).map((f) => path.relative(root, f).split(path.sep).join('/')) : [];
+    });
   });
   assert.ok(videos.length > 0);
   assert.deepEqual(videos.map((v) => v.source).sort(), sources.sort());
@@ -50,7 +52,10 @@ test('all retained movies are indexed and copied byte-for-byte for GitHub Pages'
     assert.ok(video.duration > 0 && video.fps > 0 && video.width > 0 && video.height > 0);
     assert.ok(existsSync(path.join(docs, 'static', video.poster)));
     assert.notEqual(video.state, 'approved');
-    if (video.qc) assert.equal(JSON.parse(readFileSync(path.join(root, video.qc), 'utf8')).sha256.toLowerCase(), video.digest);
+    if (video.qc) {
+      const report = JSON.parse(readFileSync(path.join(root, video.qc), 'utf8'));
+      assert.equal((report.sha256 ?? report.outputSha256).toLowerCase(), video.digest);
+    }
     if (video.captions) assert.match(readFileSync(path.join(docs, 'static', video.captions), 'utf8'), /^WEBVTT\n\n\d{2}:\d{2}:\d{2}\.\d{3} -->/);
   }
 });

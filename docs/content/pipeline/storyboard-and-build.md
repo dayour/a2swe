@@ -1,57 +1,35 @@
 ---
 title: Storyboard and build
+description: Storyboard expectations for sectioned content and the retained legacy template build path.
 ---
 
-# Storyboard and build
+## Managed release path
 
-## Storyboard source
+The core-managed release path does not require the old template shot-group scaffold.
+Its primary content structure comes from:
 
-`script/storyboard_src.md` maps approved narration into visual instructions. One shot per sentence is preferred where practical. Group work into five to seven shots when possible.
+- `ContentIR.sections`
+- `ContentIR.voice.narration`
+- `ContentIR.claims`
+- `ContentIR.citations`
+- optional `ContentSection.visual`
 
-Every shot should state:
+Speaker notes remain the per-section authoring field for downstream adapters.
 
-- sentence or frame window;
-- exact visible text;
-- subtitle beat;
-- visual subject and focal hero;
-- hero size and placement;
-- light and backdrop behavior;
-- entrance, sustained motion, and exit;
-- camera motion;
-- literal shot registry identifier;
-- factual or asset dependencies.
+## Legacy template path
 
-## Token resolution
+The retained template workflow still uses:
 
-`render_storyboard.py` resolves timing tokens from `script/timeline.json`, including sentence, chapter, and total-duration references. It writes `storyboard.md` and fails when any token remains unresolved.
+- `script/storyboard_src.md`
+- `storyboard.md`
+- `src/shots/G1` through `G8`
+- `render_storyboard.py`
+- `selfcheck.py`
 
-```powershell
-python scripts\render_storyboard.py
-```
+Keep that path only for the older hand-built 720p branded-video workflow.
 
-## Static self-check
+## Build rules
 
-`selfcheck.py` compares resolved storyboard ranges against `src/shots/G*/index.ts`, detects gaps and overlaps, checks chapter allowances, validates glitch use against the storyboard whitelist, and surfaces literal strings for manual review.
-
-```powershell
-python scripts\selfcheck.py
-```
-
-## Shared visual stage
-
-Before group implementation, configure title, chapter cards, HUD, rail, subtitles, progress, backdrop, ending, and credits. Inspect representative overlay stills so every group uses the same hierarchy and safe areas.
-
-## Pilot first
-
-Implement `G1`, typecheck, and render frames 0–899 for a 30-second pilot. Review style, readability, pacing, voice, motion, subtitle placement, and factual representation. Remaining groups stay blocked until approval.
-
-## Parallel group build
-
-After approval, workers may implement separate groups with bounded ownership. Each returns:
-
-- changed files;
-- build notes;
-- typecheck result;
-- representative stills;
-- motion-check output;
-- unresolved blockers.
+- Keep claims tied to evidence.
+- Regenerate downstream timing when narration changes.
+- Treat render and QC receipts as evidence, not as publication authorization.

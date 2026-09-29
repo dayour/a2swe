@@ -1,41 +1,33 @@
 ---
 name: a2swe-project
-description: Validate and resume an a2swe project's agent-first runbook and production gates.
+description: Validate and resume an a2swe project's runbook, release inputs, and managed output package.
 ---
 
 # a2swe Project
 
 ## Prerequisites
 
-Open an a2swe checkout with Node 24.8 or newer. Read its `SKILL.md`,
-`docs/AGENT_FIRST_BUILD_SPEC.md`, and `reference/production-rules.md`; this
-plugin does not ship a backend, models, renderer, approval service, credential,
-or publication channel.
+Use this packaged skill inside an a2swe checkout. Read:
 
-## Current implementation boundary
+- `README.md`
+- `docs/AGENT_FIRST_BUILD_SPEC.md`
+- `reference/production-rules.md`
 
-This packaged skill validates and resumes project projections. It does not create
-DomainReady status, approve a brand, synthesize narration, encode a finished MP4,
-or prove availability of PPTX, PDF, HTML/AdaptiveDeck, or DOCX release output.
-The packaged runbook asset is a pending scaffold seed only.
+## Boundary
 
-## Quick Start
+This skill is packaged metadata only. It does not ship a backend, models, a
+renderer, or publication authority.
 
-1. Read `agent/runbook.json` and `agent/SWE_AGENT.md` in the target project.
-2. Run `node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json`
-   and `node packages/core/src/cli.ts runbook-verify --root PROJECT` from the checkout.
-   The second command checks paths and hashes, not approval signatures.
-3. Obtain cited domain QA, user decisions, and selected-asset approval before
-   approved core release production. No runbook flag can confer approval.
-4. Record native output QA and limitations. Never report unimplemented MP4 or
-   unsupported format output as a finished deliverable.
+## Required workflow
+
+1. Read `agent/runbook.json` and `agent/SWE_AGENT.md`.
+2. Validate the runbook and verify recorded files:
+   `node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json`
+   and `node packages/core/src/cli.ts runbook-verify --root PROJECT`.
+3. Validate domain, content, render, and approval inputs before production.
+4. Use the managed core release path for output generation.
+5. Treat missing evidence, model paths, or assets as blockers.
 
 ## Expected output
 
-Return the exact command evidence, pending gates, stale or missing artifact paths,
-explicit blockers, and earliest safe resumption stage.
-
-## Troubleshooting
-
-Missing runbook, renderer, approval, or model weights are explicit blockers.
-Do not bypass a missing gate through a standalone script.
+Return exact command evidence, blockers, and the earliest safe resumption stage.

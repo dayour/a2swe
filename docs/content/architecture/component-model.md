@@ -1,8 +1,7 @@
 ---
 title: Component model
+description: Shared legacy template components, overlay primitives, and scene-group structure.
 ---
-
-# Component model
 
 ## Stage-level components
 
@@ -45,7 +44,7 @@ The `src/common/` barrel exports typography, easing, fitting, blur, arrows, pill
 - footage windows;
 - group-local implementation notes.
 
-The template groups are placeholders. A project fills them according to the approved storyboard.
+The template groups are placeholders. A project fills them according to the recorded storyboard.
 
 ## Component design constraints
 

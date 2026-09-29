@@ -1,35 +1,46 @@
 ---
 title: Production lifecycle
+description: Runbook stages and evidence-backed workflow states for the current a2swe release process.
 ---
 
-# Production lifecycle
+## Canonical stages
 
-The canonical lifecycle contains nine numbered stages with a split build stage.
+The shared runbook uses these stages:
 
 | Stage | Objective | Required evidence |
 | --- | --- | --- |
-| 0 — Scaffold | Create an isolated project and initialize ownership | Locked install, typecheck, initialized companion |
-| 1 — Research | Establish source-backed facts and constraints | URLs, access dates, claims, qualifications, confidence |
-| 2 — Narration and timeline | Approve spoken content and produce synchronized media | Approval record, audio, timeline, subtitles |
-| 3 — Storyboard | Translate sentences into executable visual intent | Source storyboard, resolved storyboard, token validation |
-| 4 — Overlays and primitives | Configure global visual language | Title, chapters, HUD, rail, shared visuals, still checks |
-| 5a — Pilot | Prove the first 30 seconds | Render, stills, readability, pacing, voice and style approval |
-| 5b — Parallel build | Implement remaining approved groups | Bounded assignments, build notes, still and motion evidence |
-| 6 — Render | Integrate and encode the complete movie | Typecheck, static QC, versioned H.264 MP4, extracted frames |
-| 7 — QC and fixes | Detect, repair, and retest defects | Media metrics, frame checks, sync checks, rerender evidence |
-| 8 — Delivery | Ship the reproducible release | Video, source, research, timing, storyboard, QC, manifest, ledger |
+| scaffold | Create the project inputs and runbook | Initialized records and validated paths |
+| research | Build the domain evidence base | Sources, evidence spans, supported claims, known gaps |
+| narration | Finalize release narration | Stored narration text and any measured speech evidence |
+| storyboard | Define section and scene intent | Section structure, speaker notes, and any legacy storyboard files |
+| visuals | Prepare visual assets and section visuals | Asset bundles, visual source, or settled visual PNGs |
+| pilot | Verify an initial render slice when used | Render evidence and QC notes |
+| build | Assemble the full release inputs | Validated content, render, and approval inputs |
+| render | Produce outputs | Release package and generated files |
+| qc | Verify outputs | Release verification and media QC |
+| delivery | Hand off the package | Final package paths, digests, and limitations |
 
-## Dependency rules
+## Gate model
 
-Parallel work is allowed only when dependencies and approvals permit it. A single pipeline owner updates `agent/SWE_AGENT.md`; workers edit bounded files and return evidence rather than competing to update the ledger.
+`agent/runbook.json` records gates as:
 
-## Mandatory gates
+- `pending`
+- `blocked`
+- `passed`
 
-1. Confirm duration, audience, and scope before narration drafting.
-2. Show the complete narration, chapter structure, word count, and estimated duration; wait for sign-off before speech synthesis.
-3. Confirm the speech engine and disclose any external narration transfer.
-4. Show the first 30 seconds, or the whole shorter pilot, and wait for approval before building remaining groups.
+Each passed gate needs an `evidencePath` and `evidenceDigest`.
 
-## State transitions
+Automated checks can satisfy evidence requirements. They are not human review.
 
-A stage is complete only when its artifacts exist and its checks were actually run. “Planned,” “implemented,” “rendered,” “verified,” and “approved” are distinct states. The companion should record the command, result, artifact path, owner, and decision where applicable.
+## Workflow rules
+
+- Facts require cited evidence.
+- Unknowns remain unknowns.
+- Recent claims use the trailing nine-calendar-month freshness window.
+- Narration changes can invalidate downstream timing and render outputs.
+- Reuse keeps provenance attached.
+
+## Human review
+
+Human review remains optional and external. The workflow does not stop at
+mandatory human sign-off checkpoints before TTS, pilot, or final render.

@@ -1,62 +1,47 @@
 ---
 title: a2swe overview
+description: Overview of the a2swe core, release workflow, shared speech stack, and retained legacy template path.
 slug: /overview
 ---
 
-## a2swe engineering documentation
+## What a2swe is
 
-a2swe is an English-only, agent-first source toolkit for building a public-evidence-grounded domain SWE agent before producing executive explainer outputs from that approved knowledge. The current repository has core orchestration, an evaluation-only asset proof pipeline, a local release-candidate adapter foundation, and the established 720p Remotion/Python production video architecture. It is not yet a complete production system for all target formats.
+a2swe is a research and development toolkit for building domain SWE agents and
+generating evidence-bound briefings and explainer packages from those agents.
 
-The system is deliberately not a one-click website, installed desktop application, trained model, or permanently running agent. The `.a2swe/` SQLite store is the authoritative local runtime state for core jobs and artifacts. `agent/SWE_AGENT.md` is a portable projection for established video architecture projects. Remotion Studio is the local preview interface for the Remotion/Python video adapter. Humans still approve scope, narration, voice handling, visual style, and release.
+The codebase does not publish output, grant sharing rights, or perform
+redistribution checks.
 
 ## Current surfaces
 
 | Surface | Status | Output boundary |
 | --- | --- | --- |
-| Core orchestration | Foundation implemented | Draft packs, inventories, contracts, durable state, local receipts, and verified artifact records |
-| Evaluation-only asset proof | Engineering validation only | Synthetic 1080p raster proofs and manifests; no subject, brand, or production approval |
-| Local release-candidate adapters | Gated generation | approval/approval-gated HTML, AdaptiveDeck, editable PPTX/DOCX, searchable PDF, flattened 1080p PNG/JPEG overviews, and a 1080p Remotion project from one cited ContentIR and RenderSpec; supplied raster bytes are digest-bound and embedded |
-| Established 720p Remotion/Python video architecture | Separate legacy template | Remotion/React 1280x720, 30 fps MP4 workflow and project-specific speech/timing/QC; older projects are not automatically migrated |
-| Core-managed MP4 project | Generated but not a verified release | Local Python 3.14 Kokoro/Kokoro-ONNX speech, Remotion H.264 rendering, and automatic ffprobe encoded-media QC; real encoding still requires approved local models, narration, assets, and human review |
+| Core orchestration | Implemented | Contracts, digests, inventories, asset bundles, runbook verification, and local release packaging |
+| Core-managed 1080p release path | Implemented | HTML, AdaptiveDeck, PPTX, DOCX, searchable PDF, 1080p PNG/JPEG overviews, and a generated 1080p Remotion project |
+| Encoded MP4 verification | Implemented | Local H.264/AAC render with encoded-media QC and release re-verification |
+| Section visuals | Implemented | Mermaid, Excalidraw, and Marp sources rendered to shared diagram PNGs |
+| Legacy template path | Retained | Hand-built 720p branded-video workflow under `template/` |
 
-## System outcomes
+## Core workflow
 
-A completed video adapter release contains more than an MP4:
+1. Initialize a draft `DomainPack`.
+2. Add sources, evidence spans, supported claims, and known gaps.
+3. Mark the domain pack `ready` only when evidence is complete.
+4. Author `ContentIR`, `RenderSpec`, and `ApprovalManifest`.
+5. Generate or verify asset bundles as needed.
+6. Produce the release package.
+7. Verify the release package.
 
-- an H.264 explainer video;
-- editable Remotion source;
-- primary-source research and claim qualifications;
-- approved narration and synchronized timing;
-- resolved storyboard and chapter structure;
-- quality-control evidence and media measurements;
-- an asset provenance manifest;
-- delivery notes;
-- a populated SWE companion ledger projection that records decisions and verified state.
+## Shared runtime rules
 
-## Technology stack
+- Use the repository `.venv` on Python 3.14.7.
+- Install `template/requirements.lock.txt`.
+- Prefer Kokoro ONNX when ONNX model paths are configured.
+- Keep claims tied to cited evidence.
+- Record unknowns instead of inventing them.
+- Treat automated checks as evidence, not as human approval.
 
-| Layer | Technology | Responsibility |
-| --- | --- | --- |
-| Visual runtime | Remotion 4, React 19 | Frame-addressable composition and rendering |
-| Application code | TypeScript | Components, shot manifests, timeline data, configuration |
-| Media pipeline | Python 3.14 | TTS, timing, subtitle alignment, media verification |
-| Encoding and inspection | FFmpeg and ffprobe | Encoded output, stream metadata, media QC |
-| Documentation | Docusaurus 3 | Architecture, SDK, operating, and specification reference |
-| Governance | `.a2swe/` SQLite plus Markdown projections | Runtime state, approvals, evidence, provenance, and portable project state |
+## Legacy note
 
-## Core principles
-
-1. **Evidence before animation.** Claims are researched, dated, sourced, and qualified before they enter narration.
-2. **Human approval is a state transition.** The four mandatory gates cannot be replaced by an automated success marker.
-3. **Core state is authoritative.** `.a2swe/` owns durable job and artifact state; Markdown ledgers are projections.
-4. **The template is reusable; projects are isolated.** Every video is scaffolded into a separate project directory.
-5. **Delivery is reproducible.** Source, evidence, manifests, and companion state ship with the movie.
-6. **Checks must be real.** The workflow never invents approvals or successful validation.
-
-## Read next
-
-- [Install the toolchain](./getting-started/installation.md)
-- [Understand the architecture](./architecture/system-overview.md)
-- [Follow the production lifecycle](./pipeline/lifecycle.md)
-- [Use the SDK](./sdk/overview.md)
-- [Implement the normative system contract](./specifications/system-contract.md)
+The older template path still exists for project-specific branded productions.
+Use it only when the task explicitly targets that older workflow.

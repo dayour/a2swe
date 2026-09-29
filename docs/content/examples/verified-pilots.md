@@ -1,35 +1,32 @@
 ---
 title: Verified 720p video pilots
+description: Retained legacy 720p pilot projects that demonstrate the older template workflow and historical QC shape.
 ---
 
-# Verified 720p video pilot projects
+## Legacy pilot projects
 
-The repository includes three representative active 720p, 30-second pilot projects.
-They demonstrate the existing Remotion/Python profile and historical QC shape.
-
+The repository retains three 720p, 30-second pilot projects from the older
+template workflow. They are legacy examples, not the current managed production
+path.
 
 | Project | Slug | Demonstrates |
 | --- | --- | --- |
-| Copilot | `copilot` | Six-shot pilot, Edge narration, versioned QC evidence |
-| John Deere | `john-deere` | Branded project configuration and delivery evidence |
-| Microsoft | `microsoft` | Shared runtime shell with project-specific content |
+| Copilot | `copilot` | A retained legacy pilot project |
+| John Deere | `john-deere` | A retained legacy pilot project |
+| Microsoft | `microsoft` | A retained legacy pilot project |
 
-Each project follows the same source layout and retains the template composition architecture. Verified core files such as `Main.tsx` and `overlay/Overlay.tsx` are shared, while configuration, timeline, subtitles, shot implementations, research, storyboard, assets, and release evidence specialize the project.
+## Typical retained evidence
 
+A retained pilot commonly includes:
 
-
-## Pilot evidence
-
-A complete pilot commonly includes:
-
-- project research;
-- approved narration;
-- generated timeline and subtitles;
-- resolved storyboard;
-- implemented `G1` shots;
-- versioned MP4;
-- overview and shot stills;
-- motion, frame, model, and media reports;
-- asset manifest;
-- delivery index;
-- updated companion ledger.
+- project research
+- narration text
+- generated timeline and subtitles
+- resolved storyboard
+- implemented `G1` shots
+- versioned MP4
+- overview and shot stills
+- motion, frame, model, and media reports
+- asset manifest
+- delivery index
+- updated companion ledger

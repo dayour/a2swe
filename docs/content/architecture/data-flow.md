@@ -1,61 +1,49 @@
 ---
 title: Data flow
+description: Data flow from domain evidence to release package, shared outputs, and workflow projections.
 ---
 
-# Data flow
-
-## Orchestrated content and adapter transformation
+## Core data flow
 
 ```mermaid
 flowchart TD
-  Sources[Primary sources] --> Core[Agent-first core]
-  Core --> Store[.a2swe SQLite state and receipts]
-  Core --> AssetProof[Evaluation-only asset proof]
-  Core --> Claims[Qualified claims and glossary]
-  Claims --> ContentIR[ContentIR target]
-  ContentIR --> RenderSpec[RenderSpec target]
-  RenderSpec --> Script[Narration text]
-  Script --> Audio[Approved speech audio]
-  Audio --> Timing[Sentence and word timing]
-  Timing --> Timeline[TypeScript timeline and subtitles]
-  Script --> Storyboard[Storyboard source]
-  Timing --> Storyboard
-  Storyboard --> Config[VIDEO configuration]
-  Storyboard --> Groups[G1-G8 shot manifests]
-  Timeline --> Overlay[Overlay manifests]
-  Config --> Stage[Remotion Stage]
-  Groups --> Stage
-  Overlay --> Stage
-  Stage --> Movie[Encoded movie]
-  Movie --> Metrics[QC metrics and stills]
-  Store -. exports .-> Companion[SWE_AGENT.md projection]
+  Sources[Public sources] --> DomainPack[DomainPack]
+  DomainPack --> Claims[Supported claims and evidence]
+  Claims --> ContentIR[ContentIR]
+  ContentIR --> RenderSpec[RenderSpec]
+  ContentIR --> ApprovalManifest[ApprovalManifest]
+  RenderSpec --> Release[release-produce]
+  ApprovalManifest --> Release
+  DomainPack --> Release
+  Release --> Package[Release package]
+  Package --> Outputs[HTML, deck, PPTX, DOCX, PDF, PNG, JPEG, Remotion]
+  Outputs --> Verify[release-verify]
+  Package -. records .-> Runbook[agent/runbook.json]
+  Runbook -. projects .-> Ledger[agent/SWE_AGENT.md]
 ```
 
-## Authoritative data
+## Authoritative artifacts
 
 | Concern | Authoritative artifact |
 | --- | --- |
-| Claims and qualifications | `research/research.md` |
-| Spoken content | `script/narration.txt` |
-| Timing | generated timeline data and verified audio duration |
-| Editorial scene intent | `script/storyboard_src.md` |
-| Resolved production plan | `storyboard.md` |
-| Runtime content | `src/config.ts`, timeline, subtitles, shot manifests |
-| Asset approval | `asset-manifest.json` |
-| Core runtime state | `.a2swe/` SQLite store, receipts, and content-addressed artifacts |
-| Video project projection | `agent/SWE_AGENT.md` |
-| Release inventory | `delivery.md` |
+| Domain identity and freshness window | `domain-pack.json` |
+| Supported claims and evidence | `domain-pack.json` |
+| Audience, decision, sections, narration, and citations | `content-ir.json` |
+| Format selection and video dimensions | `render-spec.json` |
+| Selected-asset disposition | `approval-manifest.json` |
+| Release digests and formats | `release-plan.json` |
+| Output digests and media types | `parity-manifest.json` |
+| Workflow state | `agent/runbook.json` |
+| Human-readable workflow projection | `agent/SWE_AGENT.md` |
 
-## Frame timing
+## Timing propagation
 
-Seconds convert to frames using the project frame rate:
+Narration changes have the widest downstream impact. They can require regenerated
+speech, updated scene timing, updated captions, and rerendered output. Visual-only
+changes can stay scoped to the affected output set when narration and timing remain
+unchanged.
 
-```text
-frame = round(seconds × FPS)
-```
+## Legacy note
 
-At 30 fps, a 30-second pilot covers frames 0 through 899. Sequence intervals should use a consistent inclusive/exclusive convention within the manifests to prevent single-frame gaps or overlaps.
-
-## Change propagation
-
-Narration changes have the largest propagation radius. They require renewed approval, speech regeneration or replacement, fresh timing, subtitle realignment, storyboard review, scene-window review, rerendering, and QC. Visual-only fixes can restart at the affected build stage if narration and timing remain unchanged.
+The older template path keeps its own storyboard, shot-group, and 720p timing
+artifacts. Treat that path as legacy and separate from the core data flow above.

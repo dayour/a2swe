@@ -1,8 +1,7 @@
 ---
 title: Extension points
+description: Extension points for the retained legacy template runtime and its speech, asset, and scene integrations.
 ---
-
-# Extension points
 
 ## Add a shot group scene
 
@@ -36,7 +35,7 @@ A new engine must:
 
 - be selected explicitly or by documented local auto-detection;
 - never become an undisclosed cloud fallback;
-- accept only approved narration;
+- accept only recorded narration;
 - produce deterministic output paths;
 - expose voice/model provenance;
 - generate or support sentence timing;
