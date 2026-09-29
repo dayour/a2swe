@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "starter",
+  "projectId": "starter",
+  "updatedAt": "2026-09-25T00:00:00.000Z",
+  "domainDigest": null,
+  "contentDigest": null,
+  "stage": "scaffold",
+  "gates": [
+    { "name": "domain", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "scope", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "narration", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "voice", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "brand", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "pilot", "status": "pending", "evidencePath": null, "evidenceDigest": null },
+    { "name": "release", "status": "pending", "evidencePath": null, "evidenceDigest": null }
+  ],
+  "stages": [
+    { "name": "scaffold", "status": "not_started", "owner": null, "dependencies": [], "evidencePaths": [] },
+    { "name": "research", "status": "not_started", "owner": null, "dependencies": ["scaffold"], "evidencePaths": [] },
+    { "name": "narration", "status": "not_started", "owner": null, "dependencies": ["research"], "evidencePaths": [] },
+    { "name": "storyboard", "status": "not_started", "owner": null, "dependencies": ["narration"], "evidencePaths": [] },
+    { "name": "visuals", "status": "not_started", "owner": null, "dependencies": ["storyboard"], "evidencePaths": [] },
+    { "name": "pilot", "status": "not_started", "owner": null, "dependencies": ["visuals"], "evidencePaths": [] },
+    { "name": "build", "status": "not_started", "owner": null, "dependencies": ["pilot"], "evidencePaths": [] },
+    { "name": "render", "status": "not_started", "owner": null, "dependencies": ["build"], "evidencePaths": [] },
+    { "name": "qc", "status": "not_started", "owner": null, "dependencies": ["render"], "evidencePaths": [] },
+    { "name": "delivery", "status": "not_started", "owner": null, "dependencies": ["qc"], "evidencePaths": [] }
+  ],
+  "artifacts": [],
+  "blockers": [
+    "Domain evidence, scope, narration, voice, brand, pilot, and release checks are pending."
+  ],
+  "nextAction": "Initialize the project brief and record the first verified scaffold transition."
+}

@@ -71,13 +71,13 @@ python capture_snapshot.py \
   --catalog ../references/python-library-catalog.yaml \
   --out snapshot.json
 
-# Optional: include opt-in active-safe probes and agent-observed tools/MCP
+# 1. Include opt-in active-safe probes and agent-observed tools/MCP
 python capture_snapshot.py --active-safe --tools observations.json --out snapshot.json
 
 # 2. Render the report (HTML is the default output)
 python generate_html_report.py snapshot.json --out report.html
 
-# Optional: Markdown outputs, only when you specifically want Markdown
+#Markdown outputs
 python generate_markdown_report.py snapshot.json --out report.md
 python generate_library_inventory.py snapshot.json --out inventory.md
 
@@ -180,7 +180,7 @@ setup but may not be durable or shareable, so exporting JSON + Markdown is
 encouraged for anything you want to keep or share. Retention, baseline handling,
 and the compact record shape are documented in
 [`references/memory-snapshot-protocol.md`](references/memory-snapshot-protocol.md).
-Optional external stores (SharePoint, Dataverse, GitHub, Blob) are only offered
+External stores (SharePoint, Dataverse, GitHub, Blob) are only offered
 when a compatible persistence tool is visible, and are never required.
 
 ---

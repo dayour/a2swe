@@ -25,7 +25,7 @@ A single record tracking:
 - `latestSnapshotId`
 - `baselineSnapshotId`
 - Known snapshot IDs with their timestamps and fingerprints
-- Optional labels
+- Tags and labels
 
 ### Compact snapshot
 One per retained snapshot (fields listed above).

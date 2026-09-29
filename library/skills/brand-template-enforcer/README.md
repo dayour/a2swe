@@ -126,10 +126,9 @@ In Copilot Studio:
 Adding a URL to the manifest is not sufficient by itself; the SharePoint
 location must also be configured as knowledge.
 
-### Step 4: Optionally configure the template manifest
+### Step 4: Configure the template manifest
 
-Skip this step for a simple one-template setup. Complete it when you need the
-multi-template routing, defaults, priorities, exact-source mapping, or
+This step is for a simple one-template setup with multi-template routing, defaults, priorities, exact-source mapping, or
 image-template guidance described above.
 
 Open `assets/template-manifest.json` and replace:

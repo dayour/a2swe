@@ -58,7 +58,7 @@ User: "We want a Teams helpdesk assistant that answers from our SharePoint IT
    with ONE clarifying question if a load-bearing factor is missing.
 2. Apply the decision logic (Phase 2).
 3. Recommend (Phase 3): primary option + why, runner-up, how to build, caveats.
-4. (Optional) If the platform can browse the web, verify any current product
+4. If the platform can browse the web, verify any current product
    detail against Microsoft Learn before asserting it.
 ```
 

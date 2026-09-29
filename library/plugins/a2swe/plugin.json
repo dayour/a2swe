@@ -1,0 +1,8 @@
+{
+  "name": "a2swe-local",
+  "version": "0.1.0",
+  "description": "Local a2swe runbook and agent-first production guidance; no automatic authority, renderer, model, approval, or remote service.",
+  "agents": "agents/",
+  "skills": ["skills/"],
+  "assets": ["assets/"]
+}

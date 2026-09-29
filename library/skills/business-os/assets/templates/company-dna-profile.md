@@ -5,7 +5,7 @@ Mark every entry Explicit, Observed, Proposed, or Unknown. Update as the organis
 ## Purpose and strategy
 [...] - [Explicit/Observed/Proposed/Unknown]
 
-## Structure and decision rights
+## Structure and decision approval
 Who decides what, and who approves: [...] - [status]
 
 ## Policies and risk appetite

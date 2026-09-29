@@ -32,7 +32,7 @@ Categorise **every** role and activity into one of five buckets, with the column
 | **Remove** | | — | no longer needed | Removed | — |
 
 - **Ownership tags:** `[AI-owned]` · `[Hybrid]` · `[Human-led]`.
-- **Building block (optional):** process change · knowledge · tool · skill · agent · connected
+- **Building block:** process change · knowledge · tool · skill · agent · connected
   agent. For a skill or agent you may add the agent type: retrieval · task-based · orchestrator ·
   transactional. Choose per [ai-building-blocks.md](ai-building-blocks.md) — don't default to
   "agent."

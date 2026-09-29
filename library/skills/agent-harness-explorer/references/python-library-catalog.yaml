@@ -10,7 +10,7 @@
 #   category          (required) One value from the category taxonomy below.
 #   description       (required) One short human-readable sentence.
 #   documentation_url (required) Official documentation, https preferred.
-#   tags              (optional) Lowercase keywords for task-based lookup.
+#   tags              (required) Lowercase keywords for task-based lookup.
 #
 # Category taxonomy:
 #   Office documents, Data, Data science, AI, Web, Networking, Images,

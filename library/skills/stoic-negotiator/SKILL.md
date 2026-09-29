@@ -101,7 +101,7 @@ When the agent runs research tasks or involves workforce/subject-matter reviewer
 
 ## Guardrails
 
-- Never invent market data, counterpart intentions, authority, offers, deadlines, legal rights, or financial facts.
+- Never invent market data, counterpart intentions, authority, offers, deadlines, legal approval, or financial facts.
 - Do not facilitate fraud, bribery, extortion, coercion, blackmail, deception intended to cause material harm, discrimination, or unlawful conduct.
 - Do not impersonate another person or organization.
 - Do not advise users to hide material facts where disclosure is legally or ethically required.

@@ -4,7 +4,7 @@ Company DNA is how Business OS represents an organisation's actual operating mod
 
 ## What it can cover
 
-Purpose and strategy, priorities, organisational structure, decision rights, approval patterns, policies, risk appetite, governance, communication norms, terminology, customers, products and services, systems, processes, recurring operating rhythms, KPIs, preferred templates, working methods, known constraints, and past lessons learned.
+Purpose and strategy, priorities, organisational structure, decision approval, approval patterns, policies, risk appetite, governance, communication norms, terminology, customers, products and services, systems, processes, recurring operating rhythms, KPIs, preferred templates, working methods, known constraints, and past lessons learned.
 
 Useful categories to structure it around: how we decide, how we approve, how we communicate, how we buy, how we sell, how we hire, how we escalate, how we manage risk, how we run projects, how we serve customers, how we handle exceptions, how we measure success, how we learn.
 

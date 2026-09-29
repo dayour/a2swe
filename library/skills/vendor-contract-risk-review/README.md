@@ -7,10 +7,10 @@ risk level with plain-language explanations.
 
 ## What it checks
 
-Auto-renewal and opt-out notice, termination rights and fees, liability caps
+Auto-renewal and opt-out notice, termination approval and fees, liability caps
 and their carve-outs, indemnification balance, data and IP ownership, SLA
 remedies, pricing escalation, governing law and arbitration, and assignment
-rights. The full list and what each one means is in the skill's instructions.
+approval. The full list and what each one means is in the skill's instructions.
 
 ## What it explicitly is not
 
