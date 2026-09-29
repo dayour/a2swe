@@ -1,0 +1,370 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2157,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Datadog for Claude Cowork. Observability by conversation.",
+      "body": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.",
+      "narration": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.",
+      "claims": [
+        "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language.",
+        "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
+        "Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates.",
+        "Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.",
+        "Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts.",
+        "You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider.",
+        "Groups of MCP tools can be enabled or disabled with the toolsets command.",
+        "The Datadog plugin and its marketplace listing are in Preview.",
+        "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites."
+      ],
+      "claimSources": [
+        "[ev-01] Datadog MCP Server",
+        "[ev-05] Set Up the Datadog MCP Server",
+        "[ev-06] Set Up the Datadog MCP Server",
+        "[ev-07] Set Up the Datadog MCP Server",
+        "[ev-14] Datadog Claude Code Plugin",
+        "[ev-10] Set Up the Datadog MCP Server",
+        "[ev-11] Datadog Claude Code Plugin",
+        "[ev-03] Datadog Claude Code Plugin",
+        "[ev-12] Datadog MCP Server"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Datadog | Claude by Anthropic",
+          "canonicalUrl": "https://claude.com/marketplace/plugins/datadog"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        }
+      ],
+      "assetIds": [
+        "mcp-flow"
+      ],
+      "visual": null,
+      "visualId": null,
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 0,
+      "durationInFrames": 249,
+      "endFrame": 249,
+      "speechStartFrame": 8,
+      "speechEndFrame": 240
+    },
+    {
+      "id": "what-it-is",
+      "kind": "section",
+      "title": "A bridge. Not a dashboard.",
+      "body": "The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.",
+      "narration": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
+      "claims": [
+        "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language."
+      ],
+      "claimSources": [
+        "[ev-01] Datadog MCP Server"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  data[\"Datadog data<br/>logs, metrics, traces,<br/>dashboards, monitors\"] --> server[\"Datadog MCP Server\"]\n  server --> agent[\"MCP-capable AI agent\"]\n  agent -->|\"natural-language questions\"| server",
+        "caption": "Datadog data reaches an MCP-capable agent through the Datadog MCP Server."
+      },
+      "visualId": "01-what-it-is",
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 249,
+      "durationInFrames": 324,
+      "endFrame": 573,
+      "speechStartFrame": 257,
+      "speechEndFrame": 565
+    },
+    {
+      "id": "where-it-runs",
+      "kind": "section",
+      "title": "Where it runs. Cowork and Claude Code.",
+      "body": "Claude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.",
+      "narration": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.",
+      "claims": [
+        "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
+        "Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates."
+      ],
+      "claimSources": [
+        "[ev-05] Set Up the Datadog MCP Server",
+        "[ev-06] Set Up the Datadog MCP Server"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        }
+      ],
+      "assetIds": [
+        "mcp-flow"
+      ],
+      "visual": null,
+      "visualId": null,
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 573,
+      "durationInFrames": 352,
+      "endFrame": 925,
+      "speechStartFrame": 581,
+      "speechEndFrame": 916
+    },
+    {
+      "id": "setup",
+      "kind": "section",
+      "title": "Set up. Pick a site, sign in.",
+      "body": "Choose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.",
+      "narration": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.",
+      "claims": [
+        "Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.",
+        "Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts."
+      ],
+      "claimSources": [
+        "[ev-07] Set Up the Datadog MCP Server",
+        "[ev-14] Datadog Claude Code Plugin"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  old[\"Remove older manual server<br/>or custom connector\"] --> install[\"Install connector<br/>or plugin\"]\n  install --> site[\"Select your<br/>Datadog site\"]\n  site --> oauth[\"Sign in<br/>with OAuth\"]",
+        "caption": "Setup order: clear conflicts, install, choose a site, sign in."
+      },
+      "visualId": "03-setup",
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 925,
+      "durationInFrames": 323,
+      "endFrame": 1248,
+      "speechStartFrame": 933,
+      "speechEndFrame": 1240
+    },
+    {
+      "id": "access",
+      "kind": "section",
+      "title": "Access. Your permissions still apply.",
+      "body": "You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.",
+      "narration": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
+      "claims": [
+        "You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider."
+      ],
+      "claimSources": [
+        "[ev-10] Set Up the Datadog MCP Server"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Your Datadog permissions apply; no Datadog credentials go to the model provider.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"perm\",\"x\":0,\"y\":40,\"width\":300,\"height\":130,\"strokeColor\":\"#c9b3ff\",\"backgroundColor\":\"#2a1f4d\",\"fillStyle\":\"solid\",\"roughness\":2,\"strokeWidth\":3,\"label\":{\"text\":\"Your Datadog\\npermissions\",\"fontSize\":28,\"strokeColor\":\"#f4f5ff\"}},{\"type\":\"rectangle\",\"id\":\"srv\",\"x\":420,\"y\":40,\"width\":300,\"height\":130,\"strokeColor\":\"#c9b3ff\",\"backgroundColor\":\"#2a1f4d\",\"fillStyle\":\"solid\",\"roughness\":2,\"strokeWidth\":3,\"label\":{\"text\":\"Datadog\\nMCP Server\",\"fontSize\":28,\"strokeColor\":\"#f4f5ff\"}},{\"type\":\"rectangle\",\"id\":\"agent\",\"x\":840,\"y\":40,\"width\":300,\"height\":130,\"strokeColor\":\"#c9b3ff\",\"backgroundColor\":\"#2a1f4d\",\"fillStyle\":\"solid\",\"roughness\":2,\"strokeWidth\":3,\"label\":{\"text\":\"AI agent\",\"fontSize\":28,\"strokeColor\":\"#f4f5ff\"}},{\"type\":\"arrow\",\"x\":300,\"y\":105,\"width\":120,\"height\":0,\"start\":{\"id\":\"perm\"},\"end\":{\"id\":\"srv\"},\"strokeColor\":\"#9d6cff\",\"strokeWidth\":4,\"roughness\":2},{\"type\":\"arrow\",\"x\":720,\"y\":105,\"width\":120,\"height\":0,\"start\":{\"id\":\"srv\"},\"end\":{\"id\":\"agent\"},\"strokeColor\":\"#9d6cff\",\"strokeWidth\":4,\"roughness\":2},{\"type\":\"text\",\"x\":300,\"y\":250,\"text\":\"No Datadog credentials are sent\\nto the AI model provider\",\"fontSize\":30,\"strokeColor\":\"#c9b3ff\",\"textAlign\":\"center\"}]"
+      },
+      "visualId": "04-access",
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 1248,
+      "durationInFrames": 301,
+      "endFrame": 1549,
+      "speechStartFrame": 1256,
+      "speechEndFrame": 1541
+    },
+    {
+      "id": "control",
+      "kind": "section",
+      "title": "Control. Choose the toolsets.",
+      "body": "Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.",
+      "narration": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.",
+      "claims": [
+        "Groups of MCP tools can be enabled or disabled with the toolsets command."
+      ],
+      "claimSources": [
+        "[ev-11] Datadog Claude Code Plugin"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 1549,
+      "durationInFrames": 214,
+      "endFrame": 1763,
+      "speechStartFrame": 1557,
+      "speechEndFrame": 1755
+    },
+    {
+      "id": "risk",
+      "kind": "section",
+      "title": "Risk. Preview, compliance, site limits.",
+      "body": "The plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
+      "narration": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
+      "claims": [
+        "The Datadog plugin and its marketplace listing are in Preview.",
+        "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites."
+      ],
+      "claimSources": [
+        "[ev-03] Datadog Claude Code Plugin",
+        "[ev-12] Datadog MCP Server"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Datadog Claude Code Plugin",
+          "canonicalUrl": "https://github.com/datadog-labs/claude-code-plugin"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Datadog | Claude by Anthropic",
+          "canonicalUrl": "https://claude.com/marketplace/plugins/datadog"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Set Up the Datadog MCP Server",
+          "canonicalUrl": "https://docs.datadoghq.com/mcp_server/setup/"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Rollout checklist: Preview status, compliance ownership and supported sites.",
+        "source": "# Rollout checklist\n\n| Check | State |\n|---|---|\n| Plugin and marketplace listing | **Preview** |\n| Datadog MCP Server | HIPAA-eligible; you own tool compliance |\n| Datadog government sites | **Not supported** |"
+      },
+      "visualId": "06-risk",
+      "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
+      "startFrame": 1763,
+      "durationInFrames": 394,
+      "endFrame": 2157,
+      "speechStartFrame": 1772,
+      "speechEndFrame": 2142
+    }
+  ]
+}
