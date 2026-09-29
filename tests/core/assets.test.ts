@@ -72,7 +72,6 @@ test('asset records never turn structural checks into approval or official gener
   const input = request();
   const asset = await createAsset(input, await generateDiagram(input), diagramOrigin(input));
   assert.equal(asset.record.review, 'pending');
-  assert.equal(asset.record.rights, 'pending');
   assert.throws(() => validate('AssetRecord', { ...asset.record, review: 'approved' }), /invalid_contract/);
   assert.throws(() => validate('AssetRecord', { ...asset.record, role: 'official_mark' }), /official_mark/);
   await assert.rejects(createAsset(input, asset.png, { ...diagramOrigin(input), method: 'import' }), /method_mismatch/);

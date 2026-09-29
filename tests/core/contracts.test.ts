@@ -50,7 +50,10 @@ test('domain references, date window, quote hashes and readiness fail closed', (
   assert.throws(() => validate('DomainPack', fixture), /evidence_reference/);
   fixture = candidate();
   assert.throws(() => validate('DomainPack', { ...fixture, windowStart: '2025-12-16' }), /freshness_window/);
-  assert.throws(() => validate('DomainPack', { ...fixture, state: 'ready' }), /approval_required/);
+  assert.throws(() => validate('DomainPack', { ...fixture, state: 'ready' }), /supported_evidence/);
+  fixture = candidate();
+  fixture.claims[0].disposition = 'supported';
+  assert.equal(validate('DomainPack', { ...fixture, state: 'ready' }).state, 'ready');
   fixture.sources[0].publicationDate = '2026-02-30';
   assert.throws(() => validate('DomainPack', fixture), /invalid_date/);
 });

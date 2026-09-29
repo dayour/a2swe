@@ -54,7 +54,7 @@ test('lease fencing, revision conflicts, cancellation and production readiness f
     const cancelled = store.cancel(work.taskId, running.revision);
     assert.equal(cancelled.state, 'cancelled');
     assert.throws(() => second.complete(work.taskId, running.revision, running.fence, result(running)), /stale_lease/);
-    assert.throws(() => store.submit({ ...work, taskId: 'media', idempotencyKey: 'media', stage: 'production' }), /approval_required/);
+    assert.throws(() => store.submit({ ...work, taskId: 'media', idempotencyKey: 'media', stage: 'production' }), /production_domain_input_required/);
     assert.throws(() => first.submit(work), /permission_denied/);
   } finally { first.close(); second.close(); store.close(); }
 }));

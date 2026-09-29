@@ -36,7 +36,7 @@ async function main(): Promise<void> {
     'as-of': { type: 'string' }, state: { type: 'string' }, help: { type: 'boolean' },
     endpoint: { type: 'string' }, checkpoint: { type: 'string' }, url: { type: 'string' }, domain: { type: 'string' },
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
-    content: { type: 'string' }, render: { type: 'string' }, rights: { type: 'string' }
+    content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -50,7 +50,8 @@ async function main(): Promise<void> {
       '  capabilities',
       '  inventory --root PATH --source ALIAS --kind repository|installed --out FILE',
       '  snapshot --root PATH --out FILE',
-      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|RightsManifest|ContentIR|RenderSpec|ApprovalBundle|FormatParityManifest|ReleasePlan --file FILE',
+      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|FormatParityManifest|ReleasePlan|Runbook --file FILE',
+      '  runbook-verify --root PROJECT_DIRECTORY',
       '  domain-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD [--out FILE]',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
@@ -60,18 +61,17 @@ async function main(): Promise<void> {
       '  asset-import --file REQUEST --source RASTER --url HTTPS_PROVENANCE --out NEW_DIRECTORY',
       '  asset-fetch --file REQUEST --url HTTPS_RASTER --out NEW_DIRECTORY',
       '  asset-verify --root DIRECTORY',
-      '  release-plan --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --out NEW_FILE',
-      '  release-review-candidate --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --out NEW_DIRECTORY',
-      '  release-produce --content CONTENT_IR --render RENDER_SPEC --rights RIGHTS_MANIFEST --approvals APPROVAL_BUNDLE --trust POLICY --out NEW_DIRECTORY',
-      '  release-verify --root DIRECTORY [--trust POLICY]',
+      '  release-plan --content CONTENT_IR --render RENDER_SPEC --approval APPROVAL_MANIFEST --out NEW_FILE',
+      '  release-produce --domain READY_DOMAIN --content CONTENT_IR --render RENDER_SPEC --approval APPROVAL_MANIFEST [--assets BUNDLE_DIRECTORY] --out NEW_DIRECTORY',
+      '  release-verify --root DIRECTORY',
       '  asset-job-submit --file REQUEST --domain DOMAIN [--state DIRECTORY]',
       '  asset-job-run --id TASK [--state DIRECTORY]',
       '  asset-job-export --id TASK --out NEW_DIRECTORY [--state DIRECTORY]',
       '  asset-diffusion-submit --file REQUEST --endpoint http://127.0.0.1:8188 --checkpoint MODEL.safetensors --out NEW_RECEIPT',
       '  asset-diffusion-collect --file RECEIPT --out NEW_DIRECTORY', '',
-      'Assets are evaluation candidates, never approved production. Output parent directories must exist.',
+      'Assets are generated as evaluation candidates and recorded with an ApprovalManifest. Output parent directories must exist.',
       'Diffusion uses a fixed loopback workflow; no cloud service or model download is invoked.',
-      'Certification verifies configured reviewer keys, not arbitrary ready flags. Release production fails closed on pending rights or approvals.'
+      'release-produce requires a ready DomainPack with supported, cited claims and writes a digest-verified multi-format output set. a2swe does not publish or distribute outputs.'
     ].join('\n'));
     return;
   }
@@ -85,7 +85,7 @@ async function main(): Promise<void> {
     const certificate = certifyDomain(domain, review, approvals, policy);
     if (values.out) await writeJson(values.out, { domain, review, certificate }, true);
     console.log(JSON.stringify({ status: certificate.status, domainDigest: certificate.domainDigest, profileDigest: certificate.profileDigest,
-      output: values.out ?? null, trustBoundary: 'Local configured reviewer keys; reverify on each use. Production jobs remain disabled.' }));
+      output: values.out ?? null, trustBoundary: 'Optional signed domain certificate; production requires a digest-matched ready domain input.' }));
     return;
   }
   if (['asset-job-submit', 'asset-job-run', 'asset-job-export'].includes(command)) {
@@ -108,11 +108,11 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ schemaVersion: '1.0.0', node: process.version,
       implemented: ['passive_inventory', 'contract_validation', 'draft_intake', 'local_job_receipts', 'leases', 'checkpoints', 'artifact_hashes',
         'evaluation_asset_contracts', 'raster_normalization', 'semantic_diagram_generation', 'comfyui_loopback_adapter', 'asset_bundle_verification',
-        'rights_manifest_contracts', 'approval_bundle_verification', 'content_ir_contracts', 'render_spec_contracts',
-        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_render_plan_adapter',
-        'pre_approval_review_candidate', 'release_candidate_verification'],
+        'approval_manifest_contracts', 'content_ir_contracts', 'render_spec_contracts',
+        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_mp4_project_adapter',
+        'local_mp4_encoding_and_qc_when_dependencies_available', 'multi_format_generation', 'output_set_verification'],
       partial: ['bounded_public_raster_fetch', 'local_signed_domain_certification', 'durable_diagram_worker', 'optional_restricted_copilot_sdk_query'],
-      unavailable: ['public_fetch', 'archive_import', 'copilot_reasoning', 'domain_ready', 'acp', 'mcp', 'media_approval', 'mp4_encoding'],
+      unavailable: ['archive_import', 'copilot_reasoning', 'acp', 'mcp'],
       trustBoundary: 'Trusted local OS user only; no network authentication or sandbox', sqlite: 'Node built-in experimental API' }, null, 2));
     return;
   }
@@ -145,39 +145,37 @@ async function main(): Promise<void> {
   if (command === 'validate') {
     const name = required('schema');
     if (!['DomainPack', 'SourceDocument', 'WorkItem', 'TaskResult', 'LibraryEntry', 'AssetRequest', 'AssetRecord',
-      'RightsManifest', 'ContentIR', 'RenderSpec', 'ApprovalBundle', 'FormatParityManifest', 'ReleasePlan'].includes(name)) throw new Error('unknown_schema');
+      'ApprovalManifest', 'ContentIR', 'RenderSpec', 'FormatParityManifest', 'ReleasePlan', 'Runbook'].includes(name)) throw new Error('unknown_schema');
     const data = validate(name as Parameters<typeof validate>[0], JSON.parse(await readFile(required('file'), 'utf8')));
     console.log(JSON.stringify({ valid: true, schema: name, digest: digest(data) }));
     return;
   }
-  if (['release-plan', 'release-review-candidate', 'release-produce', 'release-verify'].includes(command)) {
+  if (command === 'runbook-verify') {
+    const { verifyRunbook } = await import('./runbook.ts');
+    const result = await verifyRunbook(required('root'));
+    console.log(JSON.stringify({ valid: true, ...result, evidenceState: 'digest_verified_references_only' }));
+    return;
+  }
+  if (['release-plan', 'release-produce', 'release-verify'].includes(command)) {
     const release = await import('./release.ts');
     if (command === 'release-verify') {
-      const policy = values.trust ? JSON.parse(await readFile(values.trust, 'utf8')) : undefined;
-      const parity = await release.verifyReleaseCandidate(required('root'), policy);
+      const parity = await release.verifyRelease(required('root'));
       console.log(JSON.stringify({ valid: true, releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, outputs: parity.outputs.length }));
       return;
     }
     const content = JSON.parse(await readFile(required('content'), 'utf8'));
     const render = JSON.parse(await readFile(required('render'), 'utf8'));
-    const rights = JSON.parse(await readFile(required('rights'), 'utf8'));
+    const approval = JSON.parse(await readFile(required('approval'), 'utf8'));
     if (command === 'release-plan') {
-      const plan = release.createReleasePlan(content, render, rights);
+      const plan = release.createReleasePlan(content, render, approval);
       await writeJson(required('out'), plan, true);
-      console.log(JSON.stringify({ releaseDigest: plan.releaseDigest, contentDigest: plan.contentDigest, output: required('out'), ready: false }));
+      console.log(JSON.stringify({ releaseDigest: plan.releaseDigest, contentDigest: plan.contentDigest, output: required('out'), planningOnly: true }));
       return;
     }
-    if (command === 'release-review-candidate') {
-      const parity = await release.writePreApprovalReviewCandidate(required('out'), content, render, rights);
-      console.log(JSON.stringify({ releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, output: required('out'),
-        outputs: parity.outputs.length, approvalState: 'unapproved', productionEligible: false,
-        warning: 'UNAPPROVED REVIEW CANDIDATE. No approval signatures were fabricated or accepted.' }));
-      return;
-    }
-    const approvals = JSON.parse(await readFile(required('approvals'), 'utf8'));
-    const policy = JSON.parse(await readFile(required('trust'), 'utf8'));
-    const parity = await release.writeReleaseCandidate(required('out'), content, render, rights, approvals, policy);
-    console.log(JSON.stringify({ releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, output: required('out'), outputs: parity.outputs.length }));
+    const domain = JSON.parse(await readFile(required('domain'), 'utf8'));
+    const parity = await release.writeRelease(required('out'), content, render, approval, domain, values.assets);
+    console.log(JSON.stringify({ releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest,
+      output: required('out'), outputs: parity.outputs.length }));
     return;
   }
   if (['asset-generate', 'asset-import', 'asset-fetch', 'asset-verify'].includes(command)) {
@@ -200,7 +198,7 @@ async function main(): Promise<void> {
         version: fetched ? `1;retrieved=${fetched.retrievedAt}` : '1;source-url-user-declared-not-fetched', inputDigest: sha256(bytes), sourceUrl: fetched?.finalUrl ?? required('url') };
     const asset = await assets.createAsset(request, bytes, origin);
     await assets.writeAssetBundle(required('out'), request, asset);
-    console.log(JSON.stringify({ assetId: request.assetId, output: required('out'), digest: asset.record.artifact.digest, review: 'pending', rights: 'pending' }));
+    console.log(JSON.stringify({ assetId: request.assetId, output: required('out'), digest: asset.record.artifact.digest, review: 'pending' }));
     return;
   }
   if (command === 'asset-diffusion-submit' || command === 'asset-diffusion-collect') {
@@ -226,7 +224,7 @@ async function main(): Promise<void> {
     const candidate = validate('DomainPack', { schemaVersion: '1.0.0', domainId: id, kind: required('kind'), canonicalName: required('name'),
       asOf, windowStart: windowStart(asOf), timezone: 'UTC', state: 'draft', sources: [], evidence: [], claims: [],
       knownGaps: ['Public evidence not collected', 'Engineering context and source applicability not reviewed',
-        'Brand assets and rights not reviewed', 'Reasoning backend not configured', 'Independent evaluation and human approval pending'] });
+        'Brand and visual assets not selected', 'Evidence evaluation pending'] });
     const output = values.out ?? `.a2swe/domains/${id}.json`;
     await writeJson(output, candidate, true);
     console.log(JSON.stringify({ domainId: id, state: 'draft', digest: digest(candidate), output, ready: false }, null, 2));

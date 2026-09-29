@@ -1,11 +1,12 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
-import { validate } from './contracts.ts';
-import type { ApprovalBundle, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec, RightsManifest } from './contracts.ts';
-import { verifyApproval } from './approvals.ts';
-import type { ApprovalScope, ReviewPolicy } from './approvals.ts';
+import { validate, validateContentAgainstDomain } from './contracts.ts';
+import type { ApprovalManifest, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec } from './contracts.ts';
 import { renderFiles } from './adapters.ts';
+import type { AdapterAssetEmbed } from './adapters.ts';
+import { readRasterFile, verifyAssetBundle } from './assets.ts';
+import { renderEncodedMp4, verifyEncodedMp4 } from './media-remotion.ts';
 
 function styleDigest(spec: RenderSpec): string {
   return digest(spec.theme);
@@ -15,76 +16,35 @@ function voiceDigest(content: ContentIR): string {
   return digest(content.voice);
 }
 
-export function releaseSubject(plan: ReleasePlan): string {
-  return digest({ contentDigest: plan.contentDigest, domainDigest: plan.domainDigest, releaseDigest: plan.releaseDigest,
-    styleDigest: plan.styleDigest, voiceDigest: plan.voiceDigest });
-}
-
-export function createReleasePlan(contentInput: unknown, renderInput: unknown, rightsInput: unknown): ReleasePlan {
+export function createReleasePlan(contentInput: unknown, renderInput: unknown, approvalInput: unknown): ReleasePlan {
   const content = validate('ContentIR', contentInput);
   const renderSpec = validate('RenderSpec', renderInput);
-  const rights = validate('RightsManifest', rightsInput);
+  const approval = validate('ApprovalManifest', approvalInput);
   const contentDigest = digest(content);
   const renderSpecDigest = digest(renderSpec);
-  const rightsDigest = digest(rights);
-  if (renderSpec.contentDigest !== contentDigest || rights.contentDigest !== contentDigest || rights.domainDigest !== content.domainDigest) {
+  const approvalDigest = digest(approval);
+  if (renderSpec.contentDigest !== contentDigest || approval.contentDigest !== contentDigest || approval.domainDigest !== content.domainDigest) {
     throw new Error('release_input_digest_mismatch');
   }
-  const draft = { schemaVersion: '1.0.0' as const, contentDigest, renderSpecDigest, rightsDigest,
+  const draft = { schemaVersion: '1.0.0' as const, contentDigest, renderSpecDigest, approvalDigest,
     domainDigest: content.domainDigest, styleDigest: styleDigest(renderSpec), voiceDigest: voiceDigest(content), formats: renderSpec.formats };
   return validate('ReleasePlan', { ...draft, releaseDigest: digest(draft) });
 }
 
-function requireApprovedRights(content: ContentIR, rights: RightsManifest, now: number): void {
-  const grants = new Map(rights.selectedAssets.map((asset) => [asset.assetId, asset]));
+function requireAssetApprovals(content: ContentIR, approval: ApprovalManifest): void {
+  const records = new Map(approval.selectedAssets.map((asset) => [asset.assetId, asset]));
+  if (records.size !== content.assets.length) throw new Error('asset_approval_scope_mismatch');
   for (const asset of content.assets) {
-    const grant = grants.get(asset.assetId);
-    if (!grant || grant.assetDigest !== asset.digest) throw new Error('asset_rights_missing');
-    if (grant.status !== 'approved') throw new Error('asset_rights_not_approved');
-    if (grant.redistribution === 'not_permitted' || grant.redistribution === 'internal_only') throw new Error('asset_redistribution_not_permitted');
-    if (grant.expiresAt && Date.parse(`${grant.expiresAt}T23:59:59.999Z`) < now) throw new Error('asset_rights_expired');
+    const record = records.get(asset.assetId);
+    if (!record || record.assetDigest !== asset.digest) throw new Error('asset_approval_missing');
+    if (record.status === 'rejected') throw new Error('asset_approval_rejected');
   }
-  for (const grant of rights.selectedAssets) {
-    if (grant.status === 'pending') throw new Error('asset_rights_pending');
-  }
-}
-
-export function verifyApprovalBundle(input: unknown, plan: ReleasePlan, policy: ReviewPolicy, now = Date.now()): ApprovalBundle {
-  const bundle = validate('ApprovalBundle', input);
-  if (bundle.producerId !== policy.producerId || bundle.domainDigest !== plan.domainDigest || bundle.contentDigest !== plan.contentDigest
-    || bundle.styleDigest !== plan.styleDigest || bundle.voiceDigest !== plan.voiceDigest || bundle.releaseDigest !== plan.releaseDigest) {
-    throw new Error('approval_bundle_digest_mismatch');
-  }
-  const subject = releaseSubject(plan);
-  const verified = new Map<ApprovalScope, string>();
-  for (const scope of ['content', 'style', 'voice', 'release'] as const) {
-    const candidates = bundle.approvals.filter((approval) => approval.statement.scope === scope);
-    if (candidates.length !== 1) throw new Error('unique_approval_required');
-    const approval = verifyApproval(candidates[0], scope, subject, bundle.evidenceDigest, policy, now);
-    verified.set(scope, approval.statement.reviewerId);
-  }
-  if (new Set(verified.values()).size < 2 || verified.get('release') === verified.get('content')) throw new Error('independent_review_required');
-  return bundle;
 }
 
 async function writeJson(filename: string, value: unknown): Promise<void> {
   await writeFile(filename, `${JSON.stringify(value, null, 2)}\n`, { flag: 'wx', mode: 0o600 });
 }
 
-function visibleReviewContent(content: ContentIR): ContentIR {
-  const prefix = 'UNAPPROVED REVIEW CANDIDATE';
-  return validate('ContentIR', {
-    ...content,
-    title: `${prefix} - ${content.title}`.slice(0, 160).replace(/\s+\S*$/, ''),
-    decision: `${prefix}. ${content.decision}`.slice(0, 1000),
-    summary: `${prefix}. Not signed, not approved, and not for production release. ${content.summary}`.slice(0, 4000),
-    sections: content.sections.map((section) => ({
-      ...section,
-      body: `${prefix}. ${section.body}`.slice(0, 8000),
-      speakerNotes: `${prefix}. ${section.speakerNotes}`.slice(0, 4000)
-    }))
-  });
-}
 
 function destination(root: string, relative: string): string {
   const resolved = path.resolve(root, ...relative.split('/'));
@@ -93,31 +53,62 @@ function destination(root: string, relative: string): string {
   return resolved;
 }
 
-export async function writeReleaseCandidate(directory: string, contentInput: unknown, renderInput: unknown, rightsInput: unknown,
-  approvalsInput: unknown, policy: ReviewPolicy, now = Date.now()): Promise<FormatParityManifest> {
-  const content = validate('ContentIR', contentInput);
+async function loadAssetBundles(content: ContentIR, directory: string): Promise<AdapterAssetEmbed[]> {
+  const embeds: AdapterAssetEmbed[] = [];
+  for (const asset of content.assets) {
+    const bundle = path.join(path.resolve(directory), asset.assetId);
+    const record = await verifyAssetBundle(bundle);
+    if (record.assetId !== asset.assetId || record.domainDigest !== content.domainDigest
+      || record.artifact.digest !== asset.digest || record.artifact.mediaType !== asset.mediaType
+      || record.alt !== asset.alt || record.role !== asset.role) throw new Error(`release_asset_record_mismatch: ${asset.assetId}`);
+    if (record.artifact.mediaType !== 'image/png') throw new Error(`unsupported_release_asset: ${asset.assetId}`);
+    embeds.push({ assetId: asset.assetId, mediaType: 'image/png', bytes: await readRasterFile(path.join(bundle, 'asset.png')) });
+  }
+  return embeds;
+}
+
+async function writeAssetInputs(root: string, embeds: AdapterAssetEmbed[]): Promise<void> {
+  if (!embeds.length) return;
+  await mkdir(path.join(root, 'asset-inputs'));
+  for (const embed of embeds) {
+    await writeFile(path.join(root, 'asset-inputs', `${embed.assetId}.png`), embed.bytes, { flag: 'wx', mode: 0o600 });
+  }
+}
+
+
+export async function writeRelease(directory: string, contentInput: unknown, renderInput: unknown, approvalInput: unknown,
+  domainInput: unknown, assetBundlesDirectory?: string): Promise<FormatParityManifest> {
+  const { content, domain } = validateContentAgainstDomain(contentInput, domainInput);
   const renderSpec = validate('RenderSpec', renderInput);
-  const rights = validate('RightsManifest', rightsInput);
-  const plan = createReleasePlan(content, renderSpec, rights);
-  requireApprovedRights(content, rights, now);
-  const approvals = verifyApprovalBundle(approvalsInput, plan, policy, now);
-  const files = renderFiles(content, renderSpec);
+  const approval = validate('ApprovalManifest', approvalInput);
+  const plan = createReleasePlan(content, renderSpec, approval);
+  requireAssetApprovals(content, approval);
+  if (content.assets.length && !assetBundlesDirectory) throw new Error('release_asset_bundles_required');
+  const embeds = assetBundlesDirectory ? await loadAssetBundles(content, assetBundlesDirectory) : [];
+  let files = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true });
   const root = path.resolve(directory);
   await mkdir(root, { recursive: false, mode: 0o700 });
   try {
+    await writeAssetInputs(root, embeds);
     for (const file of files) {
       const target = destination(root, file.path);
       await mkdir(path.dirname(target), { recursive: true });
       await writeFile(target, file.bytes, { flag: 'wx', mode: 0o600 });
+    }
+    if (renderSpec.formats.includes('remotion')) {
+      const media = await renderEncodedMp4(root, content.contentId);
+      const replacements = new Map(media.map((file) => [file.path, file]));
+      files = [...files.map((file) => replacements.get(file.path) ?? file),
+        ...media.filter((file) => !files.some((existing) => existing.path === file.path))];
     }
     const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
       renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest,
       outputs: files.map((file) => ({ format: file.format, path: file.path, digest: sha256(file.bytes), mediaType: file.mediaType,
         byteSize: file.bytes.length, contentDigest: plan.contentDigest, adapter: file.adapter })) });
     await writeJson(path.join(root, 'content-ir.json'), content);
+    await writeJson(path.join(root, 'domain-pack.json'), domain);
     await writeJson(path.join(root, 'render-spec.json'), renderSpec);
-    await writeJson(path.join(root, 'rights-manifest.json'), rights);
-    await writeJson(path.join(root, 'approval-bundle.json'), approvals);
+    await writeJson(path.join(root, 'approval-manifest.json'), approval);
     await writeJson(path.join(root, 'release-plan.json'), plan);
     await writeJson(path.join(root, 'parity-manifest.json'), parity);
     return parity;
@@ -127,63 +118,58 @@ export async function writeReleaseCandidate(directory: string, contentInput: unk
   }
 }
 
-export async function writePreApprovalReviewCandidate(directory: string, contentInput: unknown, renderInput: unknown, rightsInput: unknown): Promise<FormatParityManifest> {
-  const content = visibleReviewContent(validate('ContentIR', contentInput));
-  const originalRenderSpec = validate('RenderSpec', renderInput);
-  const rights = validate('RightsManifest', rightsInput);
-  const contentDigest = digest(content);
-  const renderSpec = validate('RenderSpec', { ...originalRenderSpec, contentDigest });
-  const reviewRights = validate('RightsManifest', { ...rights, contentDigest });
-  const plan = createReleasePlan(content, renderSpec, reviewRights);
-  const files = renderFiles(content, renderSpec, { reviewCandidate: true });
-  const root = path.resolve(directory);
-  await mkdir(root, { recursive: false, mode: 0o700 });
-  try {
-    for (const file of files) {
-      const target = destination(root, file.path);
-      await mkdir(path.dirname(target), { recursive: true });
-      await writeFile(target, file.bytes, { flag: 'wx', mode: 0o600 });
-    }
-    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
-      renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest,
-      outputs: files.map((file) => ({ format: file.format, path: file.path, digest: sha256(file.bytes), mediaType: file.mediaType,
-        byteSize: file.bytes.length, contentDigest: plan.contentDigest, adapter: file.adapter })) });
-    await writeJson(path.join(root, 'content-ir.json'), content);
-    await writeJson(path.join(root, 'render-spec.json'), renderSpec);
-    await writeJson(path.join(root, 'rights-manifest.json'), reviewRights);
-    await writeJson(path.join(root, 'release-plan.json'), plan);
-    await writeJson(path.join(root, 'parity-manifest.json'), parity);
-    await writeJson(path.join(root, 'review-candidate-manifest.json'), {
-      schemaVersion: '1.0.0',
-      approvalState: 'unapproved',
-      productionEligible: false,
-      warning: 'UNAPPROVED REVIEW CANDIDATE. Do not publish, ship, or treat as a signed release.',
-      originalContentDigest: digest(validate('ContentIR', contentInput)),
-      reviewContentDigest: plan.contentDigest,
-      releaseDigest: plan.releaseDigest,
-      generatedBy: 'a2swe release-review-candidate'
-    });
-    return parity;
-  } catch (error) {
-    await rm(root, { recursive: true, force: true });
-    throw error;
-  }
-}
-
-export async function verifyReleaseCandidate(directory: string, policy?: ReviewPolicy, now = Date.now()): Promise<FormatParityManifest> {
+export async function verifyRelease(directory: string): Promise<FormatParityManifest> {
   const root = path.resolve(directory);
   const content = validate('ContentIR', JSON.parse(await readFile(path.join(root, 'content-ir.json'), 'utf8')));
+  const domain = validate('DomainPack', JSON.parse(await readFile(path.join(root, 'domain-pack.json'), 'utf8')));
+  validateContentAgainstDomain(content, domain);
   const renderSpec = validate('RenderSpec', JSON.parse(await readFile(path.join(root, 'render-spec.json'), 'utf8')));
-  const rights = validate('RightsManifest', JSON.parse(await readFile(path.join(root, 'rights-manifest.json'), 'utf8')));
+  const approval = validate('ApprovalManifest', JSON.parse(await readFile(path.join(root, 'approval-manifest.json'), 'utf8')));
   const plan = validate('ReleasePlan', JSON.parse(await readFile(path.join(root, 'release-plan.json'), 'utf8')));
   const parity = validate('FormatParityManifest', JSON.parse(await readFile(path.join(root, 'parity-manifest.json'), 'utf8')));
-  const expected = createReleasePlan(content, renderSpec, rights);
+  const expected = createReleasePlan(content, renderSpec, approval);
   if (digest(plan) !== digest(expected) || parity.releaseDigest !== plan.releaseDigest || parity.contentDigest !== digest(content)) throw new Error('release_manifest_mismatch');
-  requireApprovedRights(content, rights, now);
-  if (policy) verifyApprovalBundle(JSON.parse(await readFile(path.join(root, 'approval-bundle.json'), 'utf8')), plan, policy, now);
+  requireAssetApprovals(content, approval);
+  const embeds: AdapterAssetEmbed[] = [];
+  for (const asset of content.assets) {
+    const bytes = await readRasterFile(destination(root, `asset-inputs/${asset.assetId}.png`));
+    if (asset.mediaType !== 'image/png' || sha256(bytes) !== asset.digest) throw new Error(`release_asset_input_mismatch: ${asset.assetId}`);
+    embeds.push({ assetId: asset.assetId, mediaType: 'image/png', bytes });
+  }
+  const expectedFiles = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true });
+  const mutableMediaPaths = new Set(['outputs/remotion/render-plan.json', 'outputs/remotion/timeline.json',
+    'outputs/remotion/asset-manifest.json']);
+  const producedMedia = renderSpec.formats.includes('remotion') ? [
+    { path: `outputs/remotion/public/assets/${content.contentId}/audio.wav`, mediaType: 'audio/wav' },
+    { path: 'outputs/remotion/audio/narration-metadata.json', mediaType: 'application/json' },
+    { path: 'outputs/remotion/dist/render.mp4', mediaType: 'video/mp4' },
+    { path: 'outputs/remotion/qc/render-receipt.json', mediaType: 'application/json' },
+    { path: 'outputs/remotion/qc/mp4-qc.json', mediaType: 'application/json' }
+  ] : [];
+  if (expectedFiles.length + producedMedia.length !== parity.outputs.length || expectedFiles.some((file, index) => {
+    const output = parity.outputs[index];
+    return output.path !== file.path || output.format !== file.format || output.mediaType !== file.mediaType
+      || output.adapter !== file.adapter || (!mutableMediaPaths.has(file.path)
+        && (output.digest !== sha256(file.bytes) || output.byteSize !== file.bytes.length));
+  }) || producedMedia.some((file, index) => {
+    const output = parity.outputs[expectedFiles.length + index];
+    return output.path !== file.path || output.format !== 'remotion' || output.mediaType !== file.mediaType
+      || output.adapter !== expectedFiles.find((entry) => entry.format === 'remotion')?.adapter;
+  })) throw new Error('release_output_manifest_mismatch');
   for (const output of parity.outputs) {
     const bytes = await readFile(destination(root, output.path));
     if (sha256(bytes) !== output.digest || bytes.length !== output.byteSize || output.contentDigest !== parity.contentDigest) throw new Error('release_output_mismatch');
+  }
+  if (renderSpec.formats.includes('remotion')) {
+    verifyEncodedMp4(root);
+    const mediaRoot = path.join(root, 'outputs', 'remotion');
+    const audio = JSON.parse(await readFile(path.join(mediaRoot, 'audio', 'narration-metadata.json'), 'utf8'));
+    const timeline = JSON.parse(await readFile(path.join(mediaRoot, 'timeline.json'), 'utf8'));
+    const mediaPlan = JSON.parse(await readFile(path.join(mediaRoot, 'render-plan.json'), 'utf8'));
+    if (audio.contentDigest !== plan.contentDigest || audio.narrationSha256 !== sha256(Buffer.from(content.voice.narration))
+      || mediaPlan.contentDigest !== plan.contentDigest || mediaPlan.composition.durationInFrames !== timeline.durationInFrames
+      || !Number.isInteger(timeline.durationInFrames) || timeline.durationInFrames < timeline.scenes.length
+      || timeline.scenes.at(-1)?.endFrame !== timeline.durationInFrames) throw new Error('mp4_timeline_mismatch');
   }
   return parity;
 }

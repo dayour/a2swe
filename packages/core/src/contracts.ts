@@ -1,17 +1,17 @@
 import { readFileSync } from 'node:fs';
 import { Ajv2020 } from 'ajv/dist/2020.js';
-import { digest, parseDate, sha256, windowStart } from './canonical.ts';
-import type { ApprovalBundle, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, RightsManifest, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+import { digest, parseDate, safeRelativePath, sha256, windowStart } from './canonical.ts';
+import type { AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 
-export type { ApprovalBundle, ArtifactRef, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, RightsManifest, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+export type { ArtifactRef, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 const schema = JSON.parse(readFileSync(new URL('../schemas/contracts.schema.json', import.meta.url), 'utf8'));
 const validator = new Ajv2020({ allErrors: true, strict: true });
 validator.addSchema(schema);
 
 type Contracts = {
-  ApprovalBundle: ApprovalBundle; AssetRequest: AssetRequest; AssetRecord: AssetRecord; ContentIR: ContentIR; DomainPack: DomainPack;
-  FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; RightsManifest: RightsManifest;
-  SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem
+  AssetRequest: AssetRequest; AssetRecord: AssetRecord; ContentIR: ContentIR; DomainPack: DomainPack;
+  FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; ApprovalManifest: ApprovalManifest;
+  Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem
 };
 
 export function validate<Name extends keyof Contracts>(name: Name, value: unknown): Contracts[Name] {
@@ -21,10 +21,10 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'DomainPack') validateDomain(value as DomainPack);
   if (name === 'ContentIR') validateContent(value as ContentIR);
   if (name === 'RenderSpec') validateRenderSpec(value as RenderSpec);
-  if (name === 'RightsManifest') validateRightsManifest(value as RightsManifest);
-  if (name === 'ApprovalBundle') validateApprovalBundleShape(value as ApprovalBundle);
+  if (name === 'ApprovalManifest') validateApprovalManifest(value as ApprovalManifest);
   if (name === 'FormatParityManifest') validateParity(value as FormatParityManifest);
   if (name === 'ReleasePlan') validateReleasePlan(value as ReleasePlan);
+  if (name === 'Runbook') validateRunbook(value as Runbook);
   if (name === 'AssetRequest') {
     const request = value as AssetRequest;
     validateAltText(request.alt);
@@ -92,7 +92,10 @@ function validateDomain(domain: DomainPack): void {
   for (const claim of domain.claims) {
     if (claim.evidenceIds.some((id) => !evidence.has(id))) throw new Error('invalid_evidence_reference');
   }
-  if (domain.state === 'ready') throw new Error('approval_required: readiness certification is not implemented');
+  if (domain.state === 'ready' && (!sources.size || !evidence.size || !domain.claims.length
+    || domain.claims.some((claim) => claim.disposition !== 'supported' || !claim.evidenceIds.length))) {
+    throw new Error('domain_ready_requires_supported_evidence');
+  }
 }
 
 function validateContent(content: ContentIR): void {
@@ -115,42 +118,96 @@ function validateContent(content: ContentIR): void {
   }
 }
 
+export function validateContentAgainstDomain(contentInput: unknown, domainInput: unknown): { content: ContentIR; domain: DomainPack } {
+  const content = validate('ContentIR', contentInput);
+  const domain = validate('DomainPack', domainInput);
+  if (domain.state !== 'ready' || digest(domain) !== content.domainDigest) throw new Error('release_domain_not_ready_or_mismatched');
+  const claims = new Map(domain.claims.map((claim) => [claim.claimId, claim]));
+  const evidence = new Map(domain.evidence.map((span) => [span.evidenceId, span]));
+  const sources = new Map(domain.sources.map((source) => [source.sourceId, source]));
+  const cited = new Set<string>();
+  for (const claim of content.claims) {
+    const sourceClaim = claims.get(claim.claimId);
+    if (!sourceClaim || sourceClaim.disposition !== 'supported' || sourceClaim.wording !== claim.text
+      || claim.evidenceIds.length !== sourceClaim.evidenceIds.length
+      || claim.evidenceIds.some((id) => !sourceClaim.evidenceIds.includes(id))) throw new Error(`release_claim_not_supported: ${claim.claimId}`);
+    for (const id of claim.evidenceIds) cited.add(id);
+  }
+  if (cited.size !== content.citations.length) throw new Error('release_citation_scope_mismatch');
+  for (const citation of content.citations) {
+    const span = evidence.get(citation.evidenceId);
+    const source = span && sources.get(span.sourceId);
+    if (!cited.has(citation.evidenceId) || !source || citation.canonicalUrl !== source.canonicalUrl
+      || citation.sourceTitle !== source.title || citation.retrievedAt !== source.retrievedAt) {
+      throw new Error(`release_citation_mismatch: ${citation.evidenceId}`);
+    }
+  }
+  return { content, domain };
+}
+
 function validateRenderSpec(spec: RenderSpec): void {
   if (spec.contentDigest === digest(spec)) throw new Error('render_spec_self_digest');
   if (spec.video.width * 9 !== spec.video.height * 16) throw new Error('invalid_video_aspect_ratio');
 }
 
-function validateRightsManifest(manifest: RightsManifest): void {
+function validateApprovalManifest(manifest: ApprovalManifest): void {
   uniqueBy(manifest.selectedAssets, (asset) => asset.assetId);
   validateInstant(manifest.reviewedAt);
   for (const asset of manifest.selectedAssets) {
-    if (!asset.grantBasis.trim() || !asset.useScope.trim() || !asset.attribution.trim()) throw new Error('incomplete_rights_grant');
-    if (asset.expiresAt !== null) parseDate(asset.expiresAt);
+    if (!asset.basis.trim()) throw new Error('incomplete_asset_approval');
   }
 }
-
-function validateApprovalBundleShape(bundle: ApprovalBundle): void {
-  const scopes = new Set(bundle.approvals.map((approval) => approval.statement.scope));
-  for (const scope of ['content', 'style', 'voice', 'release'] as const) {
-    if (!scopes.has(scope)) throw new Error('approval_bundle_missing_scope');
-  }
-  for (const approval of bundle.approvals) {
-    validateInstant(approval.statement.issuedAt);
-    validateInstant(approval.statement.expiresAt);
-  }
-}
-
 function validateParity(manifest: FormatParityManifest): void {
   const paths = uniqueBy(manifest.outputs, (output) => output.path);
   if (paths.size !== manifest.outputs.length) throw new Error('duplicate_output_path');
   for (const output of manifest.outputs) {
+    if (!safeRelativePath(output.path)) throw new Error('unsafe_output_path');
     if (output.contentDigest !== manifest.contentDigest) throw new Error('format_parity_content_mismatch');
+  }
+}
+
+function validateRunbook(runbook: Runbook): void {
+  validateInstant(runbook.updatedAt);
+  const gateNames = uniqueBy(runbook.gates, (gate) => gate.name);
+  for (const name of ['domain', 'scope', 'narration', 'voice', 'brand', 'pilot', 'release']) {
+    if (!gateNames.has(name)) throw new Error(`missing_runbook_gate: ${name}`);
+  }
+  for (const gate of runbook.gates) {
+    if (gate.status === 'passed' ? !gate.evidencePath || !gate.evidenceDigest : gate.evidencePath !== null || gate.evidenceDigest !== null) {
+      throw new Error('invalid_runbook_gate_evidence');
+    }
+    if (gate.evidencePath && !safeRelativePath(gate.evidencePath)) throw new Error('unsafe_runbook_path');
+  }
+  const stages = uniqueBy(runbook.stages, (stage) => stage.name);
+  const order = ['scaffold', 'research', 'narration', 'storyboard', 'visuals', 'pilot', 'build', 'render', 'qc', 'delivery'];
+  if (stages.size !== order.length || order.some((name) => !stages.has(name))) throw new Error('incomplete_runbook_stages');
+  if (runbook.stage !== 'scaffold' && !stages.has(runbook.stage)) throw new Error('unknown_runbook_stage');
+  for (const stage of runbook.stages) {
+    if (stage.status === 'complete' && !stage.evidencePaths.length) throw new Error('runbook_stage_missing_evidence');
+    if (stage.dependencies.some((name) => order.indexOf(name) >= order.indexOf(stage.name))) throw new Error('invalid_runbook_dependency');
+    for (const evidencePath of stage.evidencePaths) {
+      if (!safeRelativePath(evidencePath)) throw new Error('unsafe_runbook_path');
+    }
+  }
+  const artifacts = uniqueBy(runbook.artifacts, (artifact) => artifact.path);
+  for (const artifact of runbook.artifacts) {
+    if (!safeRelativePath(artifact.path)) throw new Error('unsafe_runbook_path');
+  }
+  for (const stage of runbook.stages) {
+    if (stage.status === 'complete' && stage.evidencePaths.some((evidencePath) => !artifacts.has(evidencePath))) {
+      throw new Error('runbook_untracked_evidence');
+    }
+  }
+  for (const gate of runbook.gates) {
+    if (gate.status === 'passed' && artifacts.get(gate.evidencePath!)?.digest !== gate.evidenceDigest) {
+      throw new Error('runbook_untracked_gate_evidence');
+    }
   }
 }
 
 function validateReleasePlan(plan: ReleasePlan): void {
   const expected = digest({ contentDigest: plan.contentDigest, domainDigest: plan.domainDigest, formats: plan.formats,
-    renderSpecDigest: plan.renderSpecDigest, rightsDigest: plan.rightsDigest, schemaVersion: plan.schemaVersion,
+    renderSpecDigest: plan.renderSpecDigest, approvalDigest: plan.approvalDigest, schemaVersion: plan.schemaVersion,
     styleDigest: plan.styleDigest, voiceDigest: plan.voiceDigest });
   if (plan.releaseDigest !== expected) throw new Error('release_digest_mismatch');
 }

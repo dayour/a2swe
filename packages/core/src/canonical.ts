@@ -51,3 +51,10 @@ export function freshness(publicationDate: string | null, asOf: string): 'recent
   if (publicationDate > asOf) return 'future';
   return publicationDate < start ? 'stale' : 'recent';
 }
+
+export function safeRelativePath(value: string): boolean {
+  if (!value || value.includes('\\') || value.startsWith('/') || /[:\x00-\x1f]/.test(value)) return false;
+  return value.split('/').every((part) => part !== '' && part !== '.' && part !== '..'
+    && !/[. ]$/.test(part) && !/[<>"|?*]/.test(part)
+    && !/^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part));
+}

@@ -3,7 +3,7 @@ import { lstat, readFile, readdir, realpath } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { parseDocument } from 'yaml';
-import { digest } from './canonical.ts';
+import { digest, safeRelativePath } from './canonical.ts';
 import { validate } from './contracts.ts';
 import type { LibraryEntry } from './contracts.ts';
 
@@ -30,12 +30,7 @@ const excludedDirectories = new Set(['.git', 'node_modules', '.venv', '__pycache
 const textExtensions = new Set(['.md', '.txt', '.json', '.yaml', '.yml', '.ts', '.tsx', '.js', '.cjs', '.mjs', '.py', '.sh', '.css', '.html', '.toml', '.cff', '.xml', '.xsd']);
 const secretName = /^(?:\.env(?:\..*)?|.*\.(?:pem|key|pfx|p12)|credentials(?:\..*)?|secrets?(?:\..*)?|mcp-config\.json|auth\.json)$/i;
 
-export function safeRelativePath(value: string): boolean {
-  if (!value || value.includes('\\') || value.startsWith('/') || /[:\x00-\x1f]/.test(value)) return false;
-  return value.split('/').every((part) => part !== '' && part !== '.' && part !== '..'
-    && !/[. ]$/.test(part) && !/[<>"|?*]/.test(part)
-    && !/^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part));
-}
+export { safeRelativePath } from './canonical.ts';
 
 async function fileHash(filePath: string): Promise<string> {
   const hash = createHash('sha256');
@@ -103,6 +98,7 @@ export async function inventory(root: SourceRoot): Promise<Inventory> {
     const name = path.posix.basename(file.path).toLowerCase();
     const parent = path.posix.dirname(file.path);
     if (name === 'skill.md') candidates.set(parent, { file, kind: 'skill' });
+    else if (name === 'plugin.json' && parent !== '.') candidates.set(parent, { file, kind: 'plugin' });
     else if (name.endsWith('.agent.md') || (root.kind === 'installed' && parent === '.' && name.endsWith('.md') && name.startsWith('dayour'))) {
       candidates.set(file.path, { file, kind: 'agent' });
     } else if (name.endsWith('.zip')) candidates.set(file.path, { file, kind: 'archive' });
@@ -110,7 +106,7 @@ export async function inventory(root: SourceRoot): Promise<Inventory> {
   for (const file of files) {
     if (file.contentHash && path.posix.basename(file.path).toLowerCase() === 'metadata.json') {
       const parent = path.posix.dirname(file.path);
-      if (!candidates.has(parent)) candidates.set(parent, { file, kind: 'automation' });
+      if (!candidates.has(parent)) candidates.set(parent, { file, kind: parent.startsWith('assets/') ? 'asset' : 'automation' });
     }
   }
 
@@ -118,9 +114,8 @@ export async function inventory(root: SourceRoot): Promise<Inventory> {
   const ids = new Set<string>();
   for (const [componentPath, candidate] of candidates) {
     const { file, kind } = candidate;
-    const componentDirectory = path.posix.dirname(file.path);
     const members = kind === 'archive' || kind === 'agent' ? [file] : files.filter((item) =>
-      componentDirectory === '.' || item.path.startsWith(`${componentDirectory}/`));
+      (componentPath === '.' || item.path.startsWith(`${componentPath}/`)) && item.contentHash !== null);
     const id = `${root.id}/${normalized(componentPath)}`;
     let quarantined = kind === 'archive';
     if (ids.has(id)) {
@@ -156,7 +151,6 @@ export async function inventory(root: SourceRoot): Promise<Inventory> {
       schemaVersion: '1.0.0', id, kind, displayName, sourceRoot: root.id, entrypoint: file.path,
       contentHash: digest(members.map((member) => ({ path: member.path, hash: member.contentHash, disposition: member.disposition }))),
       dependencies: [], requiredCapabilities: [], dataClasses: ['unknown'], effects: ['unknown'],
-      rights: root.kind === 'installed' ? 'reference_only' : 'unknown',
       reviewStatus: quarantined ? 'quarantined' : 'pending', enablementStatus: 'disabled', runtimeValidation: 'not_run'
     });
     entries.push(entry);
@@ -186,7 +180,6 @@ export function resolveEntries(entries: LibraryEntry[], requested: string[], cap
     const entry = index.get(id);
     if (!entry) throw new Error(`missing_dependency: ${id}`);
     if (entry.reviewStatus !== 'approved' || entry.enablementStatus !== 'enabled' || entry.runtimeValidation !== 'passed') throw new Error(`component_not_ready: ${id}`);
-    if (entry.rights !== 'permitted') throw new Error(`rights_unknown: ${id}`);
     if (entry.dataClasses.some((value) => value !== 'public') || entry.effects.some((value) => !['read'].includes(value))) throw new Error(`public_profile_denied: ${id}`);
     if (entry.requiredCapabilities.some((value) => !capabilities.has(value))) throw new Error(`capability_unavailable: ${id}`);
     visiting.add(id);

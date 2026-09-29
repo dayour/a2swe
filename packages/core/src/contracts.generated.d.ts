@@ -6,12 +6,12 @@ export type CoreContract =
   | DomainPack
   | AssetRequest
   | AssetRecord
-  | RightsManifest
+  | ApprovalManifest
   | ContentIR
   | RenderSpec
-  | ApprovalBundle
   | FormatParityManifest
-  | ReleasePlan;
+  | ReleasePlan
+  | Runbook;
 export type Identifier = string;
 export type RelativePath = string;
 export type Digest = string;
@@ -30,7 +30,6 @@ export interface LibraryEntry {
   requiredCapabilities: Identifier[];
   dataClasses: ("public" | "private" | "unknown")[];
   effects: ("read" | "write" | "network" | "execute" | "publish" | "unknown")[];
-  rights: "unknown" | "reference_only" | "permitted";
   reviewStatus: "pending" | "quarantined" | "approved";
   enablementStatus: "disabled" | "enabled";
   runtimeValidation: "not_run" | "passed" | "failed" | "unavailable";
@@ -256,7 +255,6 @@ export interface AssetRecord {
     inputDigest: Digest;
     sourceUrl: string | null;
   };
-  rights: "pending";
   review: "pending";
   createdAt: string;
   checks: {
@@ -273,7 +271,7 @@ export interface AssetRecord {
     channelRangeMin: number;
   };
 }
-export interface RightsManifest {
+export interface ApprovalManifest {
   schemaVersion: "1.0.0";
   manifestId: Identifier;
   domainDigest: Digest;
@@ -282,19 +280,15 @@ export interface RightsManifest {
   /**
    * @maxItems 100
    */
-  selectedAssets: SelectedAssetRights[];
+  selectedAssets: SelectedAssetApproval[];
 }
-export interface SelectedAssetRights {
+export interface SelectedAssetApproval {
   assetId: Identifier;
   assetDigest: Digest;
-  grantBasis: string;
-  useScope: string;
-  redistribution: "not_permitted" | "internal_only" | "permitted_with_attribution" | "permitted_without_attribution";
-  expiresAt: Date | null;
-  attribution: string;
+  basis: string;
   reviewerId: string;
   evidenceDigest: Digest;
-  status: "pending" | "approved" | "rejected" | "expired";
+  status: "pending" | "approved" | "rejected";
 }
 export interface ContentIR {
   schemaVersion: "1.0.0";
@@ -357,6 +351,12 @@ export interface ContentSection {
   claimIds: [Identifier, ...Identifier[]];
   assetIds: Identifier[];
   speakerNotes: string;
+  visual?: SectionVisual;
+}
+export interface SectionVisual {
+  kind: "mermaid" | "excalidraw" | "marp";
+  source: string;
+  caption: string;
 }
 export interface VoiceSpec {
   style: string;
@@ -369,39 +369,58 @@ export interface RenderSpec {
   contentDigest: Digest;
   /**
    * @minItems 1
-   * @maxItems 6
+   * @maxItems 8
    */
   formats:
-    | ["html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"]
+    | ["html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ];
   theme: {
     name: string;
@@ -422,49 +441,6 @@ export interface RenderSpec {
     sampleRate: 44100 | 48000;
   };
 }
-export interface ApprovalBundle {
-  schemaVersion: "1.0.0";
-  bundleId: Identifier;
-  producerId: string;
-  domainDigest: Digest;
-  contentDigest: Digest;
-  styleDigest: Digest;
-  voiceDigest: Digest;
-  releaseDigest: Digest;
-  evidenceDigest: Digest;
-  /**
-   * @minItems 4
-   * @maxItems 8
-   */
-  approvals:
-    | [SignedApproval, SignedApproval, SignedApproval, SignedApproval]
-    | [SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval]
-    | [SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval]
-    | [SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval, SignedApproval]
-    | [
-        SignedApproval,
-        SignedApproval,
-        SignedApproval,
-        SignedApproval,
-        SignedApproval,
-        SignedApproval,
-        SignedApproval,
-        SignedApproval
-      ];
-}
-export interface SignedApproval {
-  signature: string;
-  statement: {
-    schemaVersion: "1.0.0";
-    reviewerId: string;
-    scope: "domain_qa" | "domain" | "asset_rights" | "asset_visual" | "content" | "voice" | "style" | "release";
-    subjectDigest: Digest;
-    evidenceDigest: Digest;
-    decision: "approve" | "reject";
-    issuedAt: IsoInstant;
-    expiresAt: IsoInstant;
-  };
-}
 export interface FormatParityManifest {
   schemaVersion: "1.0.0";
   contentDigest: Digest;
@@ -472,218 +448,12 @@ export interface FormatParityManifest {
   releaseDigest: Digest;
   /**
    * @minItems 1
-   * @maxItems 20
+   * @maxItems 128
    */
-  outputs:
-    | [FormatOutput]
-    | [FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput]
-    | [FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput, FormatOutput]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ]
-    | [
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput,
-        FormatOutput
-      ];
+  outputs: [FormatOutput, ...FormatOutput[]];
 }
 export interface FormatOutput {
-  format: "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion";
+  format: "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion";
   path: RelativePath;
   digest: Digest;
   mediaType: string;
@@ -695,45 +465,151 @@ export interface ReleasePlan {
   schemaVersion: "1.0.0";
   contentDigest: Digest;
   renderSpecDigest: Digest;
-  rightsDigest: Digest;
+  approvalDigest: Digest;
   domainDigest: Digest;
   styleDigest: Digest;
   voiceDigest: Digest;
   releaseDigest: Digest;
   /**
    * @minItems 1
-   * @maxItems 6
+   * @maxItems 8
    */
   formats:
-    | ["html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"]
+    | ["html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ]
     | [
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion",
-        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "remotion"
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ];
+}
+export interface Runbook {
+  schemaVersion: "1.0.0";
+  runbookId: Identifier;
+  projectId: Identifier;
+  updatedAt: IsoInstant;
+  domainDigest: Digest | null;
+  contentDigest: Digest | null;
+  stage:
+    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
+  /**
+   * @minItems 4
+   * @maxItems 7
+   */
+  gates:
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate]
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate];
+  /**
+   * @minItems 1
+   * @maxItems 10
+   */
+  stages:
+    | [RunbookStage]
+    | [RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage]
+    | [RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage, RunbookStage]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ];
+  /**
+   * @maxItems 100
+   */
+  artifacts: RunbookArtifact[];
+  /**
+   * @maxItems 100
+   */
+  blockers: string[];
+  nextAction: string;
+}
+export interface RunbookGate {
+  name: "domain" | "scope" | "narration" | "voice" | "brand" | "pilot" | "release";
+  status: "pending" | "blocked" | "passed";
+  evidencePath: RelativePath | null;
+  evidenceDigest: Digest | null;
+}
+export interface RunbookStage {
+  name:
+    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
+  status: "not_started" | "in_progress" | "blocked" | "complete";
+  owner: string | null;
+  dependencies: (
+    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery"
+  )[];
+  evidencePaths: RelativePath[];
+}
+export interface RunbookArtifact {
+  path: RelativePath;
+  digest: Digest;
+  mediaType: string;
+  stage:
+    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
 }

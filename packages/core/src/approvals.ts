@@ -4,7 +4,7 @@ import { canonicalJson, digest, parseDate } from './canonical.ts';
 import { validate } from './contracts.ts';
 import type { DomainPack } from './contracts.ts';
 
-export type ApprovalScope = 'domain_qa' | 'domain' | 'asset_rights' | 'asset_visual' | 'content' | 'voice' | 'style' | 'release';
+export type ApprovalScope = 'domain_qa' | 'domain' | 'asset_approval' | 'asset_visual' | 'content' | 'voice' | 'style' | 'release';
 export interface ApprovalStatement {
   schemaVersion: '1.0.0';
   reviewerId: string;
@@ -40,7 +40,7 @@ const checkApproval = new Ajv2020({ strict: true, allErrors: true }).compile({
     statement: { type: 'object', additionalProperties: false,
       required: ['schemaVersion', 'reviewerId', 'scope', 'subjectDigest', 'evidenceDigest', 'decision', 'issuedAt', 'expiresAt'],
       properties: { schemaVersion: { const: '1.0.0' }, reviewerId: { type: 'string', minLength: 1, maxLength: 200 },
-        scope: { enum: ['domain_qa', 'domain', 'asset_rights', 'asset_visual', 'content', 'voice', 'style', 'release'] },
+        scope: { enum: ['domain_qa', 'domain', 'asset_approval', 'asset_visual', 'content', 'voice', 'style', 'release'] },
         subjectDigest: hashSchema, evidenceDigest: hashSchema, decision: { enum: ['approve', 'reject'] },
         issuedAt: { type: 'string', pattern: '^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$' },
         expiresAt: { type: 'string', pattern: '^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$' }

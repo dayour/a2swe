@@ -10,7 +10,7 @@ const qa = generateKeyPairSync('ed25519');
 const human = generateKeyPairSync('ed25519');
 const policy: ReviewPolicy = { producerId: 'producer', revokedSignatures: [], reviewers: [
   { reviewerId: 'qa', publicKey: qa.publicKey.export({ type: 'spki', format: 'pem' }).toString(), scopes: ['domain_qa', 'asset_visual'] },
-  { reviewerId: 'human', publicKey: human.publicKey.export({ type: 'spki', format: 'pem' }).toString(), scopes: ['domain', 'asset_rights'] }
+  { reviewerId: 'human', publicKey: human.publicKey.export({ type: 'spki', format: 'pem' }).toString(), scopes: ['domain', 'asset_approval'] }
 ] };
 function approval(scope: ApprovalScope, subjectDigest: string, evidenceDigest: string, reviewerId = scope === 'domain_qa' ? 'qa' : 'human') {
   const statement: ApprovalStatement = { schemaVersion: '1.0.0', reviewerId, scope, subjectDigest, evidenceDigest, decision: 'approve',
@@ -21,16 +21,16 @@ function approval(scope: ApprovalScope, subjectDigest: string, evidenceDigest: s
 test('signed approvals bind reviewer, exact artifact, evidence, scope, expiry and revocation', () => {
   const subject = digest('subject');
   const evidence = digest('evidence');
-  const signed = approval('asset_rights', subject, evidence);
-  assert.equal(verifyApproval(signed, 'asset_rights', subject, evidence, policy, now), signed);
+  const signed = approval('asset_approval', subject, evidence);
+  assert.equal(verifyApproval(signed, 'asset_approval', subject, evidence, policy, now), signed);
   assert.throws(() => verifyApproval(signed, 'asset_visual', subject, evidence, policy, now), /scope_mismatch/);
-  assert.throws(() => verifyApproval(signed, 'asset_rights', digest('edited'), evidence, policy, now), /scope_mismatch/);
-  assert.throws(() => verifyApproval(signed, 'asset_rights', subject, evidence, policy, now + 86400000), /expired/);
-  assert.throws(() => verifyApproval(signed, 'asset_rights', subject, evidence, { ...policy, revokedSignatures: [digest(signed)] }, now), /revoked/);
-  assert.throws(() => verifyApproval(signed, 'asset_rights', subject, evidence, { ...policy, producerId: 'human' }, now), /untrusted/);
-  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-09-18T09:00:00Z' } }, 'asset_rights', subject, evidence, policy, now), /signature/);
-  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-02-30T10:00:00Z' } }, 'asset_rights', subject, evidence, policy, now), /invalid_date/);
-  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-09-17T24:00:00Z' } }, 'asset_rights', subject, evidence, policy, now), /invalid_approval_time/);
+  assert.throws(() => verifyApproval(signed, 'asset_approval', digest('edited'), evidence, policy, now), /scope_mismatch/);
+  assert.throws(() => verifyApproval(signed, 'asset_approval', subject, evidence, policy, now + 86400000), /expired/);
+  assert.throws(() => verifyApproval(signed, 'asset_approval', subject, evidence, { ...policy, revokedSignatures: [digest(signed)] }, now), /revoked/);
+  assert.throws(() => verifyApproval(signed, 'asset_approval', subject, evidence, { ...policy, producerId: 'human' }, now), /untrusted/);
+  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-09-18T09:00:00Z' } }, 'asset_approval', subject, evidence, policy, now), /signature/);
+  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-02-30T10:00:00Z' } }, 'asset_approval', subject, evidence, policy, now), /invalid_date/);
+  assert.throws(() => verifyApproval({ ...signed, statement: { ...signed.statement, issuedAt: '2026-09-17T24:00:00Z' } }, 'asset_approval', subject, evidence, policy, now), /invalid_approval_time/);
 });
 
 test('domain certification requires independent signatures, current evidence and actual execution attestations', () => {

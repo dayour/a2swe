@@ -46,7 +46,7 @@ export async function runAssetJob(root: string, principalId: string, taskId: str
       return store.complete(taskId, running.revision, running.fence, { schemaVersion: '1.0.0', taskId,
         inputDigest: running.inputDigest, status: 'succeeded', outputs: [image, record],
         checks: [{ name: 'raster.decode', status: 'passed' }, { name: 'raster.dimensions', status: 'passed' }, { name: 'raster.nonblank', status: 'passed' }],
-        summary: 'Evaluation raster generated and structurally checked. Rights, visual review, and production approval remain pending.' });
+        summary: 'Evaluation raster generated and structurally checked. approval, visual review, and production approval remain pending.' });
     } catch (error) {
       const current = store.get(taskId);
       if (current.state === 'running' && current.fence === running.fence && current.revision === running.revision) {

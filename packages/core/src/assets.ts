@@ -157,7 +157,7 @@ export async function createAsset(input: unknown, bytes: Buffer, origin: AssetRe
   const record = validate('AssetRecord', { schemaVersion: '1.0.0', assetId: request.assetId, domainDigest: request.domainDigest,
     requestDigest: digest(request), artifact: { digest: sha256(png), mediaType: 'image/png', byteSize: png.length },
     width: request.width, height: request.height, alt: request.alt, role: request.role, origin,
-    rights: 'pending', review: 'pending', createdAt: new Date().toISOString(),
+    review: 'pending', createdAt: new Date().toISOString(),
     checks: { decoded: 'passed', dimensions: 'passed', nonblank: 'passed' }, quality });
   return { record, png };
 }

@@ -9,8 +9,8 @@ const candidate = { schemaVersion: '1.0.0', domainId: 'fixture', kind: 'tool', c
     publisher: 'Synthetic', title: id, publicationDate: id === 'old' ? '2025-01-01' : '2026-01-01', modifiedDate: null,
     retrievedAt: '2026-09-18T00:00:00Z', dateEvidence: 'Synthetic fixture', contentHash: sha256(id) })),
   evidence: ['recent', 'old'].map((id) => ({ evidenceId: id, sourceId: id, sourceDigest: sha256(id), locator: 'Synthetic paragraph', quote: id, quoteDigest: sha256(id) })),
-  claims: [{ claimId: 'pp-c07', wording: 'Synthetic recent claim', evidenceIds: ['recent'], disposition: 'unreviewed' },
-    { claimId: 'pp-c01', wording: 'Synthetic foundation claim', evidenceIds: ['old'], disposition: 'unreviewed' }] };
+  claims: [{ claimId: 'pp-c07', wording: 'Synthetic recent claim', evidenceIds: ['recent'], disposition: 'supported' },
+    { claimId: 'pp-c01', wording: 'Synthetic foundation claim', evidenceIds: ['old'], disposition: 'supported' }] };
 
 test('domain query keeps source wording and locators outside model control', () => {
   const query = buildDomainQuery(candidate, 'Does deployment include records?');

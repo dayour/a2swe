@@ -34,7 +34,6 @@ test('capabilities never advertise unfinished adapters', () => {
   const capabilities = JSON.parse(response.stdout);
   assert.ok(capabilities.unavailable.includes('copilot_reasoning'));
   assert.ok(capabilities.unavailable.includes('mcp'));
-  assert.ok(capabilities.unavailable.includes('domain_ready'));
 });
 
 test('asset CLI generates and verifies a real evaluation raster from fresh processes', () => {

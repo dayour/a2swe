@@ -115,7 +115,7 @@ Keep shot registry `id`, `from`, and `to` as literals for static QC.
   reusable sample slides. Never shrink text, stretch placeholders, or silently
   truncate to force a fit; split or recompose and reapprove changed content.
 - Map complete slide composition to a complete timed scene. Preserve icon,
-  shape, image, and data styles and rights/provenance across both outputs.
+  shape, image, and data styles and approval/provenance across both outputs.
   Reserve captions/HUD throughout motion, not just at the sampled still.
 - Canvas: 1280x720 at 30fps. Use the existing black backdrop, white line art,
   and restrained accent palette as a generic fallback, never in place of

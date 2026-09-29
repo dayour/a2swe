@@ -123,7 +123,6 @@ export class Store {
   submit(input: unknown): Job {
     this.requireRole('coordinator');
     const work = validate('WorkItem', input);
-    if (work.stage === 'production') throw new Error('approval_required: DomainReady and media gates are not implemented');
     if (work.requiredCapabilities.some((capability) => !this.actor.capabilities.has(capability))) throw new Error('capability_unavailable');
     const inputDigest = digest(work);
     return this.transaction(() => {
@@ -141,6 +140,7 @@ export class Store {
         ready = ready && dependency.state === 'succeeded';
       }
       for (const reference of work.inputs) this.readArtifact(reference);
+      this.verifyProductionDomain(work);
       this.database.prepare('INSERT INTO jobs VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run(
         work.taskId, this.actor.principalId, ready ? 'ready' : 'pending', 0, 0, 0, null, null, inputDigest, canonicalJson(work), null, work.idempotencyKey
       );
@@ -162,6 +162,7 @@ export class Store {
       if (job.work.dependencies.some((dependency) => this.get(dependency).state !== 'succeeded')) throw new Error('dependencies_not_ready');
       if (job.work.requiredCapabilities.some((capability) => !this.actor.capabilities.has(capability))) throw new Error('capability_unavailable');
       for (const reference of job.work.inputs) this.readArtifact(reference);
+      this.verifyProductionDomain(job.work);
       this.database.prepare('UPDATE jobs SET state=?,revision=revision+1,attempt=attempt+1,fence=fence+1,lease_owner=?,lease_until=? WHERE task_id=?')
         .run('leased', this.actor.workerId!, this.now() + ttlMs, taskId);
       this.record(taskId, 'leased', { workerId: this.actor.workerId, fence: job.fence + 1 });
@@ -203,7 +204,9 @@ export class Store {
       if (job.state !== 'running') throw new Error('task_not_started');
       if (result.taskId !== taskId || result.inputDigest !== job.inputDigest) throw new Error('input_changed');
       if (result.status === 'succeeded' && (!result.checks.length || result.checks.some((check) => check.status !== 'passed'))) throw new Error('checks_incomplete');
+      if (job.work.stage === 'production' && result.status === 'succeeded' && !result.outputs.length) throw new Error('production_output_missing');
       for (const reference of job.work.inputs) this.readArtifact(reference);
+      this.verifyProductionDomain(job.work);
       for (const reference of result.outputs) this.readArtifact(reference);
       this.database.prepare('UPDATE jobs SET state=?,revision=revision+1,result_json=?,lease_owner=NULL,lease_until=NULL WHERE task_id=?')
         .run(result.status, canonicalJson(result), taskId);
@@ -272,6 +275,16 @@ export class Store {
       .get(this.actor.principalId, reference.digest, reference.mediaType) as Row | undefined;
     if (!record || record.byte_size !== reference.byteSize) throw new Error('artifact_not_found_or_denied');
     return this.verifyFile(reference);
+  }
+
+  private verifyProductionDomain(work: WorkItem): void {
+    if (work.stage !== 'production') return;
+    const domainReferences = work.inputs.filter((reference) => reference.mediaType === 'application/vnd.a2swe.domain+json');
+    if (domainReferences.length !== 1) throw new Error('production_domain_input_required');
+    const domain = validate('DomainPack', JSON.parse(this.readArtifact(domainReferences[0]).toString('utf8')));
+    if (domain.state !== 'ready' || domain.domainId !== work.domainId || digest(domain) !== work.domainDigest) {
+      throw new Error('production_domain_not_ready_or_mismatched');
+    }
   }
 
   events(taskId: string, after = 0): { sequence: number; payload: unknown }[] {

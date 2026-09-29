@@ -37,16 +37,15 @@ test('unsafe portable paths fail Windows and POSIX rules', () => {
   assert.equal(safeRelativePath('skills/example/SKILL.md'), true);
 });
 
-test('resolver rejects missing dependencies, cycles, unknown rights and private effects', () => {
+test('resolver rejects missing dependencies, cycles, private effects', () => {
   const entry: LibraryEntry = {
     schemaVersion: '1.0.0', id: 'fixture/one', kind: 'skill', displayName: 'One', sourceRoot: 'fixture', entrypoint: 'SKILL.md',
     contentHash: 'a'.repeat(64), dependencies: [], requiredCapabilities: [], dataClasses: ['public'], effects: ['read'],
-    rights: 'permitted', reviewStatus: 'approved', enablementStatus: 'enabled', runtimeValidation: 'passed'
+    reviewStatus: 'approved', enablementStatus: 'enabled', runtimeValidation: 'passed'
   };
   assert.equal(resolveEntries([entry], [entry.id], new Set()).length, 1);
   assert.throws(() => resolveEntries([{ ...entry, dependencies: ['missing'] }], [entry.id], new Set()), /missing_dependency/);
   assert.throws(() => resolveEntries([{ ...entry, dependencies: [entry.id] }], [entry.id], new Set()), /dependency_cycle/);
-  assert.throws(() => resolveEntries([{ ...entry, rights: 'unknown' }], [entry.id], new Set()), /rights_unknown/);
   assert.throws(() => resolveEntries([{ ...entry, effects: ['publish'] }], [entry.id], new Set()), /public_profile_denied/);
   assert.throws(() => resolveEntries([{ ...entry, requiredCapabilities: ['private.graph'] }], [entry.id], new Set()), /capability_unavailable/);
 });

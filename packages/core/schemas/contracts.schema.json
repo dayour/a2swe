@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://a2swe.local/contracts/1.0.0",
+  "$id": "https://a2swe.local/contracts/1.3.1",
   "title": "CoreContract",
   "oneOf": [
     { "$ref": "#/$defs/LibraryEntry" },
@@ -10,12 +10,12 @@
     { "$ref": "#/$defs/DomainPack" },
     { "$ref": "#/$defs/AssetRequest" },
     { "$ref": "#/$defs/AssetRecord" },
-    { "$ref": "#/$defs/RightsManifest" },
+    { "$ref": "#/$defs/ApprovalManifest" },
     { "$ref": "#/$defs/ContentIR" },
     { "$ref": "#/$defs/RenderSpec" },
-    { "$ref": "#/$defs/ApprovalBundle" },
     { "$ref": "#/$defs/FormatParityManifest" },
-    { "$ref": "#/$defs/ReleasePlan" }
+    { "$ref": "#/$defs/ReleasePlan" },
+    { "$ref": "#/$defs/Runbook" }
   ],
   "$defs": {
     "AssetRequest": {
@@ -48,7 +48,7 @@
     },
     "AssetRecord": {
       "type": "object", "additionalProperties": false,
-      "required": ["schemaVersion", "assetId", "domainDigest", "requestDigest", "artifact", "width", "height", "alt", "role", "origin", "rights", "review", "createdAt", "checks"],
+      "required": ["schemaVersion", "assetId", "domainDigest", "requestDigest", "artifact", "width", "height", "alt", "role", "origin", "review", "createdAt", "checks"],
       "properties": {
         "schemaVersion": { "const": "1.0.0" },
         "assetId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$" },
@@ -70,7 +70,6 @@
             "sourceUrl": { "anyOf": [{ "type": "string", "pattern": "^https://", "maxLength": 4000 }, { "type": "null" }] }
           }
         },
-        "rights": { "const": "pending" },
         "review": { "const": "pending" },
         "createdAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:.]+Z$" },
         "checks": { "type": "object", "additionalProperties": false,
@@ -107,9 +106,67 @@
         "byteSize": { "type": "integer", "minimum": 0, "maximum": 1073741824 }
       }
     },
+    "Runbook": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "runbookId", "projectId", "updatedAt", "domainDigest", "contentDigest", "stage", "gates", "stages", "artifacts", "blockers", "nextAction"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "runbookId": { "$ref": "#/$defs/Identifier" },
+        "projectId": { "$ref": "#/$defs/Identifier" },
+        "updatedAt": { "$ref": "#/$defs/IsoInstant" },
+        "domainDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] },
+        "contentDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] },
+        "stage": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] },
+        "gates": {
+          "type": "array", "minItems": 4, "maxItems": 7,
+          "items": { "$ref": "#/$defs/RunbookGate" }
+        },
+        "stages": {
+          "type": "array", "minItems": 1, "maxItems": 10,
+          "items": { "$ref": "#/$defs/RunbookStage" }
+        },
+        "artifacts": {
+          "type": "array", "maxItems": 100,
+          "items": { "$ref": "#/$defs/RunbookArtifact" }
+        },
+        "blockers": { "type": "array", "maxItems": 100, "items": { "type": "string", "minLength": 1, "maxLength": 2000 } },
+        "nextAction": { "type": "string", "minLength": 1, "maxLength": 2000 }
+      }
+    },
+    "RunbookGate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "status", "evidencePath", "evidenceDigest"],
+      "properties": {
+        "name": { "enum": ["domain", "scope", "narration", "voice", "brand", "pilot", "release"] },
+        "status": { "enum": ["pending", "blocked", "passed"] },
+        "evidencePath": { "anyOf": [{ "$ref": "#/$defs/RelativePath" }, { "type": "null" }] },
+        "evidenceDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] }
+      }
+    },
+    "RunbookStage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "status", "owner", "dependencies", "evidencePaths"],
+      "properties": {
+        "name": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] },
+        "status": { "enum": ["not_started", "in_progress", "blocked", "complete"] },
+        "owner": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 200 }, { "type": "null" }] },
+        "dependencies": { "type": "array", "uniqueItems": true, "items": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] } },
+        "evidencePaths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/RelativePath" } }
+      }
+    },
+    "RunbookArtifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "digest", "mediaType", "stage"],
+      "properties": {
+        "path": { "$ref": "#/$defs/RelativePath" },
+        "digest": { "$ref": "#/$defs/Digest" },
+        "mediaType": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "stage": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] }
+      }
+    },
     "LibraryEntry": {
       "type": "object", "additionalProperties": false,
-      "required": ["schemaVersion", "id", "kind", "displayName", "sourceRoot", "entrypoint", "contentHash", "dependencies", "requiredCapabilities", "dataClasses", "effects", "rights", "reviewStatus", "enablementStatus", "runtimeValidation"],
+      "required": ["schemaVersion", "id", "kind", "displayName", "sourceRoot", "entrypoint", "contentHash", "dependencies", "requiredCapabilities", "dataClasses", "effects", "reviewStatus", "enablementStatus", "runtimeValidation"],
       "properties": {
         "schemaVersion": { "const": "1.0.0" },
         "id": { "$ref": "#/$defs/Identifier" },
@@ -122,7 +179,6 @@
         "requiredCapabilities": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
         "dataClasses": { "type": "array", "uniqueItems": true, "items": { "enum": ["public", "private", "unknown"] } },
         "effects": { "type": "array", "uniqueItems": true, "items": { "enum": ["read", "write", "network", "execute", "publish", "unknown"] } },
-        "rights": { "enum": ["unknown", "reference_only", "permitted"] },
         "reviewStatus": { "enum": ["pending", "quarantined", "approved"] },
         "enablementStatus": { "enum": ["disabled", "enabled"] },
         "runtimeValidation": { "enum": ["not_run", "passed", "failed", "unavailable"] }
@@ -224,7 +280,7 @@
         "knownGaps": { "type": "array", "items": { "type": "string", "minLength": 1 } }
       }
     },
-    "RightsManifest": {
+    "ApprovalManifest": {
       "type": "object", "additionalProperties": false,
       "required": ["schemaVersion", "manifestId", "domainDigest", "contentDigest", "selectedAssets", "reviewedAt"],
       "properties": {
@@ -233,23 +289,19 @@
         "domainDigest": { "$ref": "#/$defs/Digest" },
         "contentDigest": { "$ref": "#/$defs/Digest" },
         "reviewedAt": { "$ref": "#/$defs/IsoInstant" },
-        "selectedAssets": { "type": "array", "maxItems": 100, "items": { "$ref": "#/$defs/SelectedAssetRights" } }
+        "selectedAssets": { "type": "array", "maxItems": 100, "items": { "$ref": "#/$defs/SelectedAssetApproval" } }
       }
     },
-    "SelectedAssetRights": {
+    "SelectedAssetApproval": {
       "type": "object", "additionalProperties": false,
-      "required": ["assetId", "assetDigest", "grantBasis", "useScope", "redistribution", "expiresAt", "attribution", "reviewerId", "evidenceDigest", "status"],
+      "required": ["assetId", "assetDigest", "basis", "reviewerId", "evidenceDigest", "status"],
       "properties": {
         "assetId": { "$ref": "#/$defs/Identifier" },
         "assetDigest": { "$ref": "#/$defs/Digest" },
-        "grantBasis": { "type": "string", "minLength": 1, "maxLength": 2000 },
-        "useScope": { "type": "string", "minLength": 1, "maxLength": 2000 },
-        "redistribution": { "enum": ["not_permitted", "internal_only", "permitted_with_attribution", "permitted_without_attribution"] },
-        "expiresAt": { "anyOf": [{ "$ref": "#/$defs/Date" }, { "type": "null" }] },
-        "attribution": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "basis": { "type": "string", "minLength": 1, "maxLength": 2000 },
         "reviewerId": { "type": "string", "minLength": 1, "maxLength": 200 },
         "evidenceDigest": { "$ref": "#/$defs/Digest" },
-        "status": { "enum": ["pending", "approved", "rejected", "expired"] }
+        "status": { "enum": ["pending", "approved", "rejected"] }
       }
     },
     "ContentIR": {
@@ -310,7 +362,17 @@
         "body": { "type": "string", "minLength": 1, "maxLength": 8000 },
         "claimIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
         "assetIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
-        "speakerNotes": { "type": "string", "minLength": 1, "maxLength": 4000 }
+        "speakerNotes": { "type": "string", "minLength": 1, "maxLength": 4000 },
+        "visual": { "$ref": "#/$defs/SectionVisual" }
+      }
+    },
+    "SectionVisual": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "source", "caption"],
+      "properties": {
+        "kind": { "enum": ["mermaid", "excalidraw", "marp"] },
+        "source": { "type": "string", "minLength": 1, "maxLength": 20000 },
+        "caption": { "type": "string", "minLength": 1, "maxLength": 300 }
       }
     },
     "VoiceSpec": {
@@ -329,8 +391,8 @@
         "schemaVersion": { "const": "1.0.0" },
         "renderId": { "$ref": "#/$defs/Identifier" },
         "contentDigest": { "$ref": "#/$defs/Digest" },
-        "formats": { "type": "array", "minItems": 1, "maxItems": 6, "uniqueItems": true,
-          "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "remotion"] } },
+        "formats": { "type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+          "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"] } },
         "theme": { "type": "object", "additionalProperties": false,
           "required": ["name", "background", "foreground", "accent", "fontFamily"],
           "properties": {
@@ -360,42 +422,6 @@
         }
       }
     },
-    "SignedApproval": {
-      "type": "object", "additionalProperties": false,
-      "required": ["statement", "signature"],
-      "properties": {
-        "signature": { "type": "string", "pattern": "^[A-Za-z0-9+/]{86}==$" },
-        "statement": { "type": "object", "additionalProperties": false,
-          "required": ["schemaVersion", "reviewerId", "scope", "subjectDigest", "evidenceDigest", "decision", "issuedAt", "expiresAt"],
-          "properties": {
-            "schemaVersion": { "const": "1.0.0" },
-            "reviewerId": { "type": "string", "minLength": 1, "maxLength": 200 },
-            "scope": { "enum": ["domain_qa", "domain", "asset_rights", "asset_visual", "content", "voice", "style", "release"] },
-            "subjectDigest": { "$ref": "#/$defs/Digest" },
-            "evidenceDigest": { "$ref": "#/$defs/Digest" },
-            "decision": { "enum": ["approve", "reject"] },
-            "issuedAt": { "$ref": "#/$defs/IsoInstant" },
-            "expiresAt": { "$ref": "#/$defs/IsoInstant" }
-          }
-        }
-      }
-    },
-    "ApprovalBundle": {
-      "type": "object", "additionalProperties": false,
-      "required": ["schemaVersion", "bundleId", "producerId", "domainDigest", "contentDigest", "styleDigest", "voiceDigest", "releaseDigest", "evidenceDigest", "approvals"],
-      "properties": {
-        "schemaVersion": { "const": "1.0.0" },
-        "bundleId": { "$ref": "#/$defs/Identifier" },
-        "producerId": { "type": "string", "minLength": 1, "maxLength": 200 },
-        "domainDigest": { "$ref": "#/$defs/Digest" },
-        "contentDigest": { "$ref": "#/$defs/Digest" },
-        "styleDigest": { "$ref": "#/$defs/Digest" },
-        "voiceDigest": { "$ref": "#/$defs/Digest" },
-        "releaseDigest": { "$ref": "#/$defs/Digest" },
-        "evidenceDigest": { "$ref": "#/$defs/Digest" },
-        "approvals": { "type": "array", "minItems": 4, "maxItems": 8, "items": { "$ref": "#/$defs/SignedApproval" } }
-      }
-    },
     "FormatParityManifest": {
       "type": "object", "additionalProperties": false,
       "required": ["schemaVersion", "contentDigest", "renderSpecDigest", "releaseDigest", "outputs"],
@@ -404,14 +430,14 @@
         "contentDigest": { "$ref": "#/$defs/Digest" },
         "renderSpecDigest": { "$ref": "#/$defs/Digest" },
         "releaseDigest": { "$ref": "#/$defs/Digest" },
-        "outputs": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "$ref": "#/$defs/FormatOutput" } }
+        "outputs": { "type": "array", "minItems": 1, "maxItems": 128, "items": { "$ref": "#/$defs/FormatOutput" } }
       }
     },
     "FormatOutput": {
       "type": "object", "additionalProperties": false,
       "required": ["format", "path", "digest", "mediaType", "byteSize", "contentDigest", "adapter"],
       "properties": {
-        "format": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "remotion"] },
+        "format": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"] },
         "path": { "$ref": "#/$defs/RelativePath" },
         "digest": { "$ref": "#/$defs/Digest" },
         "mediaType": { "type": "string", "minLength": 1, "maxLength": 200 },
@@ -422,18 +448,18 @@
     },
     "ReleasePlan": {
       "type": "object", "additionalProperties": false,
-      "required": ["schemaVersion", "contentDigest", "renderSpecDigest", "rightsDigest", "domainDigest", "styleDigest", "voiceDigest", "releaseDigest", "formats"],
+      "required": ["schemaVersion", "contentDigest", "renderSpecDigest", "approvalDigest", "domainDigest", "styleDigest", "voiceDigest", "releaseDigest", "formats"],
       "properties": {
         "schemaVersion": { "const": "1.0.0" },
         "contentDigest": { "$ref": "#/$defs/Digest" },
         "renderSpecDigest": { "$ref": "#/$defs/Digest" },
-        "rightsDigest": { "$ref": "#/$defs/Digest" },
+        "approvalDigest": { "$ref": "#/$defs/Digest" },
         "domainDigest": { "$ref": "#/$defs/Digest" },
         "styleDigest": { "$ref": "#/$defs/Digest" },
         "voiceDigest": { "$ref": "#/$defs/Digest" },
         "releaseDigest": { "$ref": "#/$defs/Digest" },
-        "formats": { "type": "array", "minItems": 1, "maxItems": 6, "uniqueItems": true,
-          "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "remotion"] } }
+        "formats": { "type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+          "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"] } }
       }
     }
   }

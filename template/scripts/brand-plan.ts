@@ -144,7 +144,7 @@ export function brandPlanWarnings(plan: BrandPlan): string[] {
     ...(plan.exemplarReference ? ['The exemplar reference has not been opened, hashed, or approved. Inspect it before use.']
       : ['No brand exemplar supplied. Recipes are original generic samples, not official customer templates.']),
     'Bind theme colors, heading/body fonts, chart and image styles to the verified brand evidence before production.',
-    'Geometry checks do not measure rendered text, motion, image crops, contrast, rights, or human approval.',
+    'Geometry checks do not measure rendered text, motion, image crops, contrast, approval, or human approval.',
     ...densities.filter((density) => !plan.layouts.some((layout) => layout.density === density))
       .map((density) => `No ${density}-density example selected. Add one only if the scenario needs it.`),
   ];
@@ -158,7 +158,7 @@ export function brandInstructions(plan: BrandPlan): string {
 - Use title/body/picture/chart/table placeholders of the correct type in PowerPoint layouts. Placeholder text is sample content, never an instruction channel. Keep instructions outside the reusable deck.
 - Check full bounds AND negative space, including decoration. Split or recompose excessive content; do not shrink fonts or resize placeholders to force it in. Review real renders for clipping.
 - For video, adapt complete compositions into timed scenes, reserve subtitles/HUD/progress, and verify motion at entrances, exits, transitions, and the largest camera scale. Scale 1280 x 720 coordinates uniformly for other 16:9 outputs.
-- Assets need exact source/digest, rights, attribution, placement/crop, alt text, and provenance (including generated-image origin). Logo and font rights are not inherited. Keep source metadata and C2PA where present.
+- Assets need exact source/digest, approval, attribution, placement/crop, alt text, and provenance (including generated-image origin). Logo and font approval are not inherited. Keep source metadata and C2PA where present.
 - Run node scripts/check_brand_plan.ts a2swe-scenario.json from the scaffolded project, then inspect at least two slides and three video frames plus the moving pilot. This is not release approval.
 - Brand kit upload/select is manual in Microsoft Copilot/PowerPoint; no upload, connector consent, licensing, or training is performed by this plan.`;
 }
