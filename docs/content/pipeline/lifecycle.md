@@ -40,6 +40,17 @@ Automated checks can satisfy evidence requirements. They are not human review.
 - Narration changes can invalidate downstream timing and render outputs.
 - Reuse keeps provenance attached.
 
+## Copilot SDK assistance
+
+Copilot SDK sessions can assist a lifecycle stage, but they do not replace the
+stage evidence. Use `node integrations/copilot/session.ts --capabilities` to
+confirm the local integration shape, then use `--doctor`, `--sessions`,
+`--catalogs`, or `--prompt` only in an authenticated environment.
+
+Record Copilot SDK output as advisory working material until the affected stage
+has its normal evidence path and digest. The SDK bridge reports when native CLI
+help was not probed, so do not treat unprobed native options as available.
+
 ## Human review
 
 Human review remains optional and external. The workflow does not stop at

@@ -653,6 +653,30 @@
   ],
   "templates": [
     {
+      "id": "library/agents/a2swe-audio-qa.agent.md",
+      "title": "a2swe-audio-qa",
+      "category": "Agents",
+      "description": "Inspect core-managed a2swe release audio with objective spectrogram, hiss, static, and speech/noise metrics.",
+      "preview": "agent",
+      "source": "library/agents/a2swe-audio-qa.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "2f19e1db5ded59ddb8277e84f120c042e4991d456502e408d7b477f133480617"
+    },
+    {
+      "id": "library/agents/a2swe-conductor.agent.md",
+      "title": "a2swe-conductor",
+      "category": "Agents",
+      "description": "Coordinate the local a2swe domain and release workflow in this checkout.",
+      "preview": "agent",
+      "source": "library/agents/a2swe-conductor.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "29dc86fa328c10c62c1740c67f63cc0ee69f5705cd6193e3a4b9ac24a43d6f20"
+    },
+    {
       "id": "projects/agent-365/agent/SWE_AGENT.md",
       "title": "Agent 365 companion",
       "category": "Agents",
@@ -706,7 +730,7 @@
         "datadog-cowork-plugin"
       ],
       "recipe": null,
-      "digest": "80256177a423be39078caa47a40fc6e472941844f646292003033b74443e630a"
+      "digest": "e981332f6962361007c98a04fe9544f889f830e3e2f70629a8337d9c9d4c1fa2"
     },
     {
       "id": "projects/john-deere/agent/SWE_AGENT.md",
@@ -721,6 +745,20 @@
       ],
       "recipe": null,
       "digest": "579b5bf49edbe98df3c7d609446e7dd5607f91f2597b2e968ebd949b321679b6"
+    },
+    {
+      "id": "template/agent/SWE_AGENT.md",
+      "title": "Legacy production companion",
+      "category": "Agents",
+      "description": "Copied 720p template ledger; use the core Runbook for new projects.",
+      "preview": "agent",
+      "source": "template/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "legacy"
+      ],
+      "recipe": null,
+      "digest": "2d304795d2cc446c9533940b22628c2463334d533bb046c66fcabc060794e6ec"
     },
     {
       "id": "projects/microsoft/agent/SWE_AGENT.md",
@@ -747,18 +785,6 @@
       "tags": [],
       "recipe": null,
       "digest": "164660a92d22a85cbc4dac511fe03e002254d67d45ad0a2568d85f2a56db7a94"
-    },
-    {
-      "id": "template/agent/SWE_AGENT.md",
-      "title": "Production companion",
-      "category": "Agents",
-      "description": "Start a portable, evidence-led production ledger with scope, narration, voice, and pilot evidence gates.",
-      "preview": "agent",
-      "source": "template/agent/SWE_AGENT.md",
-      "symbol": null,
-      "tags": [],
-      "recipe": null,
-      "digest": "2d304795d2cc446c9533940b22628c2463334d533bb046c66fcabc060794e6ec"
     },
     {
       "id": "template/src/ui.tsx#ArrowH",
@@ -1640,7 +1666,7 @@
       "symbol": null,
       "tags": [],
       "recipe": null,
-      "digest": "95cc87cfd96a9b03e4203b6e9f433af04f9d6e8b3bc90c4a801878207e1b3bbb"
+      "digest": "93d495978316cfcbec83c9bb00e48726eb6d6ec60aec06ffb58889a847ca557f"
     },
     {
       "id": "library/plugins/a2swe/skills/a2swe-project/SKILL.md",
@@ -1655,6 +1681,18 @@
       "digest": "ace11e799c6cc7624c1e50a71cd7b1715323f146f34bc00684b73dba2d046b9a"
     },
     {
+      "id": "library/plugins/a2swe/agents/a2swe-audio-qa.agent.md",
+      "title": "Agents",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/agents/a2swe-audio-qa.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "2f19e1db5ded59ddb8277e84f120c042e4991d456502e408d7b477f133480617"
+    },
+    {
       "id": "library/plugins/a2swe/agents/a2swe-conductor.agent.md",
       "title": "Agents",
       "category": "Plugins",
@@ -1664,7 +1702,7 @@
       "symbol": null,
       "tags": [],
       "recipe": null,
-      "digest": "463e4c55348304a9ce00f0702bd143e421e3705a4acfcdd030010551ffdaf603"
+      "digest": "8ee5e8df1a28678e75a28904cc74fb1d91c204fd888be5bbb7d75f8ab6b3412b"
     },
     {
       "id": "library/plugins/templates/learn-tech-advisor/README.md",
@@ -1727,14 +1765,28 @@
       "digest": "3b74237dd00273171b329378f4baf5d46927997ef50e931f858110a99ab44752"
     },
     {
-      "id": "template/package.json",
-      "title": "Remotion project scaffold",
+      "id": "packages/core/src/cli.ts",
+      "title": "Core-managed project scaffold",
       "category": "Projects",
-      "description": "Create a separate editable project with locked dependencies, shared visuals, shot groups, and production scripts.",
+      "description": "Initialize a draft domain and evidence-tracked Runbook with project-init; no copied runtime or empty output folders.",
+      "preview": "layout",
+      "source": "packages/core/src/cli.ts",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "digest": "29ceb03a0f0fda52eada069bade6574290bf28dd61c0cb1f4808f44fa5181187"
+    },
+    {
+      "id": "template/package.json",
+      "title": "Legacy 720p Remotion scaffold",
+      "category": "Projects",
+      "description": "Explicit --legacy compatibility path with a copied runtime and scripts.",
       "preview": "layout",
       "source": "template/package.json",
       "symbol": null,
-      "tags": [],
+      "tags": [
+        "legacy"
+      ],
       "recipe": null,
       "digest": "79c112d728f5d3daa6dc2ad6e1638c6dcfdd7a216904721e78e82a10c35cfbb6"
     },

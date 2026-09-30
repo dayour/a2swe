@@ -2,10 +2,31 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {spawnSync} = require('node:child_process');
 
-const [destination, slug = 'video', ...flags] = process.argv.slice(2);
-if (!destination || !/^[a-z0-9][a-z0-9-]*$/.test(slug) || flags.some(flag => flag !== '--no-install')) {
-  console.error('Usage: node scripts/new_project.cjs <new-directory> <slug> [--no-install]');
+const [destination, slug, ...flags] = process.argv.slice(2);
+const legacy = flags.includes('--legacy');
+const noInstall = flags.includes('--no-install');
+const options = {};
+for (let index = 0; index < flags.length; index++) {
+  const flag = flags[index];
+  if (['--name', '--kind', '--as-of'].includes(flag) && flags[index + 1] && !flags[index + 1].startsWith('--')) {
+    options[flag] = flags[++index];
+  } else if (flag !== '--legacy' && flag !== '--no-install') {
+    console.error(`Invalid or incomplete option: ${flag}`);
+    process.exit(1);
+  }
+}
+if (!destination || !slug || !/^[a-z0-9][a-z0-9-]{0,79}$/.test(slug) || (legacy && Object.keys(options).length)) {
+  console.error('Usage: node template/scripts/new_project.cjs <new-directory> <slug> [--name NAME --kind KIND --as-of YYYY-MM-DD] [--legacy] [--no-install]');
   process.exit(1);
+}
+if (!legacy) {
+  const cli = path.resolve(__dirname, '../../packages/core/src/cli.ts');
+  const name = options['--name'] || slug.split('-').map(part => part[0].toUpperCase() + part.slice(1)).join(' ');
+  const result = spawnSync(process.execPath, [cli, 'project-init', '--id', slug, '--name', name,
+    '--kind', options['--kind'] || 'topic', '--as-of', options['--as-of'] || new Date().toISOString().slice(0, 10),
+    '--out', destination], {stdio: 'inherit'});
+  if (result.error || result.status !== 0) process.exit(result.status || 1);
+  process.exit(0);
 }
 const source = path.resolve(__dirname, '..');
 const target = path.resolve(destination);
@@ -40,9 +61,7 @@ runbook.runbookId = slug;
 runbook.projectId = slug;
 runbook.updatedAt = new Date().toISOString();
 fs.writeFileSync(path.join(target, 'agent/runbook.json'), `${JSON.stringify(runbook, null, 2)}\n`, {flag: 'wx'});
-for (const directory of [`public/assets/${slug}`, 'research', 'qc', 'stills', 'renders', 'reference']) {
-  fs.mkdirSync(path.join(target, directory), {recursive: true});
-}
+fs.mkdirSync(path.join(target, 'reference'), {recursive: true});
 const rules = [path.join(source, 'reference/production-rules.md'), path.join(source, '../reference/production-rules.md')].find(filename => fs.existsSync(filename));
 if (rules) fs.copyFileSync(rules, path.join(target, 'reference/production-rules.md'));
 if (!flags.includes('--no-install')) {

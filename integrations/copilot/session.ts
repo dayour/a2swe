@@ -2,7 +2,7 @@ import { createInterface } from 'node:readline/promises';
 import { parseArgs } from 'node:util';
 import { CopilotClient } from '@github/copilot-sdk';
 import type { CopilotSession, PermissionHandler } from '@github/copilot-sdk';
-import { inspectRuntime, resolveRuntime } from './runtime.ts';
+import { inspectRuntime, resolveRuntime, sdkRuntimeCapabilities } from './runtime.ts';
 import { deadline, permissionMode, profileClient, profilePermissions, profileSession } from './profile.ts';
 
 async function main() {
@@ -11,7 +11,7 @@ async function main() {
     prompt: { type: 'string' }, resume: { type: 'string' }, sessions: { type: 'boolean' }, doctor: { type: 'boolean' }, catalogs: { type: 'boolean' },
     capabilities: { type: 'boolean' }, permissions: { type: 'string', default: 'auto' }, 'trust-profile': { type: 'boolean' }, help: { type: 'boolean' } } });
   if (values.help) {
-    console.log('Existing-profile SDK: --capabilities | --doctor | --sessions | --catalogs | --prompt TEXT [--resume ID] [--agent NAME] [--model MODEL]\nOptions: --cli ABSOLUTE_COPILOT_EXECUTABLE --runtime-home DIRECTORY --cwd DIRECTORY --permissions auto|ask|deny\nDefault auto approves tool requests without prompting, subject to managed policy. Installed configuration, plugins, MCP startup and hooks may execute as your OS user; this is not a sandbox. --trust-profile remains accepted for compatibility.\nUse npm run agency:copilot for native Agency; its launcher is incompatible with SDK headless mode.');
+    console.log('Copilot SDK: --capabilities | --doctor | --sessions | --catalogs | --prompt TEXT [--resume ID] [--agent NAME] [--model MODEL]\nOptions: --cli ABSOLUTE_COPILOT_EXECUTABLE --runtime-home DIRECTORY --cwd DIRECTORY --permissions auto|ask|deny\nBy default the SDK uses its managed runtime connection; --cli, A2SWE_COPILOT_CLI, or COPILOT_CLI_PATH opt into an existing Copilot executable. Default auto approves tool requests without prompting, subject to managed policy. Installed configuration, plugins, MCP startup and hooks may execute as your OS user; this is not a sandbox. --trust-profile remains accepted for compatibility.\nUse npm run agency:copilot for native Agency; its launcher is incompatible with SDK headless mode.');
     return;
   }
   const permissions = permissionMode(values.permissions);
@@ -20,7 +20,7 @@ async function main() {
   }
   const runtime = resolveRuntime({ runtime: values.runtime, cli: values.cli, home: values['runtime-home'], cwd: values.cwd });
   if (values.capabilities) {
-    console.log(JSON.stringify(await inspectRuntime(runtime), null, 2));
+    console.log(JSON.stringify(runtime.cli ? await inspectRuntime(runtime) : sdkRuntimeCapabilities(runtime), null, 2));
     return;
   }
   const client = new CopilotClient(profileClient(runtime));

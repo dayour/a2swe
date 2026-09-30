@@ -1,15 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import { digest, parseDate, safeRelativePath, sha256, windowStart } from './canonical.ts';
-import type { AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 
-export type { ArtifactRef, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 const schema = JSON.parse(readFileSync(new URL('../schemas/contracts.schema.json', import.meta.url), 'utf8'));
 const validator = new Ajv2020({ allErrors: true, strict: true });
 validator.addSchema(schema);
 
 type Contracts = {
-  AssetRequest: AssetRequest; AssetRecord: AssetRecord; ContentIR: ContentIR; DomainPack: DomainPack;
+  AssetRequest: AssetRequest; AssetRecord: AssetRecord; AssetInventory: AssetInventory; ContentIR: ContentIR; DomainPack: DomainPack;
   FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; ApprovalManifest: ApprovalManifest;
   Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem
 };
@@ -23,6 +23,7 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'RenderSpec') validateRenderSpec(value as RenderSpec);
   if (name === 'ApprovalManifest') validateApprovalManifest(value as ApprovalManifest);
   if (name === 'FormatParityManifest') validateParity(value as FormatParityManifest);
+  if (name === 'AssetInventory') validateInventory(value as AssetInventory);
   if (name === 'ReleasePlan') validateReleasePlan(value as ReleasePlan);
   if (name === 'Runbook') validateRunbook(value as Runbook);
   if (name === 'AssetRequest') {
@@ -181,6 +182,13 @@ function validateApprovalManifest(manifest: ApprovalManifest): void {
     if (!asset.basis.trim()) throw new Error('incomplete_asset_approval');
   }
 }
+function validateInventory(inventory: AssetInventory): void {
+  uniqueBy(inventory.entries, (entry) => entry.path);
+  for (const entry of inventory.entries) {
+    if (!safeRelativePath(entry.path)) throw new Error('unsafe_asset_inventory_path');
+    if ((entry.kind === 'selected') !== (entry.sectionId === null)) throw new Error('invalid_asset_inventory_origin');
+  }
+}
 function validateParity(manifest: FormatParityManifest): void {
   const paths = uniqueBy(manifest.outputs, (output) => output.path);
   if (paths.size !== manifest.outputs.length) throw new Error('duplicate_output_path');
@@ -192,43 +200,36 @@ function validateParity(manifest: FormatParityManifest): void {
 
 function validateRunbook(runbook: Runbook): void {
   validateInstant(runbook.updatedAt);
-  const gateNames = uniqueBy(runbook.gates, (gate) => gate.name);
-  for (const name of ['domain', 'scope', 'narration', 'voice', 'brand', 'pilot', 'release']) {
-    if (!gateNames.has(name)) throw new Error(`missing_runbook_gate: ${name}`);
-  }
-  for (const gate of runbook.gates) {
+  const stages = uniqueBy(runbook.stages, (stage) => stage.name);
+  if (!stages.has(runbook.stage)) throw new Error('unknown_runbook_stage');
+  const gates = uniqueBy(runbook.gates, (gate) => gate.name);
+  const artifacts = uniqueBy(runbook.artifacts, (artifact) => artifact.path);
+  for (const gate of gates.values()) {
     if (gate.status === 'passed' ? !gate.evidencePath || !gate.evidenceDigest : gate.evidencePath !== null || gate.evidenceDigest !== null) {
       throw new Error('invalid_runbook_gate_evidence');
     }
     if (gate.evidencePath && !safeRelativePath(gate.evidencePath)) throw new Error('unsafe_runbook_path');
-  }
-  const stages = uniqueBy(runbook.stages, (stage) => stage.name);
-  const order = ['scaffold', 'research', 'narration', 'storyboard', 'visuals', 'pilot', 'build', 'render', 'qc', 'delivery'];
-  if (stages.size !== order.length || order.some((name) => !stages.has(name))) throw new Error('incomplete_runbook_stages');
-  if (runbook.stage !== 'scaffold' && !stages.has(runbook.stage)) throw new Error('unknown_runbook_stage');
-  for (const stage of runbook.stages) {
-    if (stage.status === 'complete' && !stage.evidencePaths.length) throw new Error('runbook_stage_missing_evidence');
-    if (stage.dependencies.some((name) => order.indexOf(name) >= order.indexOf(stage.name))) throw new Error('invalid_runbook_dependency');
-    for (const evidencePath of stage.evidencePaths) {
-      if (!safeRelativePath(evidencePath)) throw new Error('unsafe_runbook_path');
-    }
-  }
-  const artifacts = uniqueBy(runbook.artifacts, (artifact) => artifact.path);
-  for (const artifact of runbook.artifacts) {
-    if (!safeRelativePath(artifact.path)) throw new Error('unsafe_runbook_path');
-  }
-  for (const stage of runbook.stages) {
-    if (stage.status === 'complete' && stage.evidencePaths.some((evidencePath) => !artifacts.has(evidencePath))) {
-      throw new Error('runbook_untracked_evidence');
-    }
-  }
-  for (const gate of runbook.gates) {
     if (gate.status === 'passed' && artifacts.get(gate.evidencePath!)?.digest !== gate.evidenceDigest) {
       throw new Error('runbook_untracked_gate_evidence');
     }
   }
+  for (const [index, stage] of runbook.stages.entries()) {
+    if (stage.dependencies.some((name) => !stages.has(name) || runbook.stages.findIndex((item) => item.name === name) >= index)) {
+      throw new Error('invalid_runbook_dependency');
+    }
+    if (stage.status === 'complete' && (!stage.evidencePaths.length || stage.dependencies.some((name) => stages.get(name)?.status !== 'complete'))) {
+      throw new Error('runbook_stage_missing_evidence_or_dependency');
+    }
+    for (const evidencePath of stage.evidencePaths) {
+      if (!safeRelativePath(evidencePath)) throw new Error('unsafe_runbook_path');
+      if (stage.status === 'complete' && !artifacts.has(evidencePath)) throw new Error('runbook_untracked_evidence');
+    }
+  }
+  for (const artifact of artifacts.values()) {
+    if (!safeRelativePath(artifact.path)) throw new Error('unsafe_runbook_path');
+    if (!stages.has(artifact.stage)) throw new Error('runbook_unknown_artifact_stage');
+  }
 }
-
 function validateReleasePlan(plan: ReleasePlan): void {
   const expected = digest({ contentDigest: plan.contentDigest, domainDigest: plan.domainDigest, formats: plan.formats,
     renderSpecDigest: plan.renderSpecDigest, approvalDigest: plan.approvalDigest, schemaVersion: plan.schemaVersion,

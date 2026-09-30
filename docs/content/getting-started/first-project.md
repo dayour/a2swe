@@ -1,21 +1,23 @@
 ---
 title: First project
-description: Start a core-managed a2swe project with domain-init, release inputs, and the optional legacy template path.
+description: Create a minimal core-managed project and produce a verified release.
 ---
 
 ## Core-managed project flow
 
-Start from a domain pack, not from the legacy template scaffold.
+Create a draft domain pack and evidence-tracked Runbook in a new directory:
 
 ```powershell
-node packages/core/src/cli.ts domain-init `
+node packages/core/src/cli.ts project-init `
   --id datadog-cowork-plugin `
   --name "Datadog Cowork Plugin" `
   --kind tool `
   --as-of 2026-09-29 `
-  --out projects/datadog-cowork-plugin/canonical/domain-pack.json
+  --out projects/datadog-cowork-plugin
 ```
 
+The default `node template\scripts\new_project.cjs <new-directory> <slug>`
+delegates to the same core command. Both refuse to overwrite a destination.
 Then:
 
 1. add sources, evidence spans, supported claims, and known gaps
@@ -24,16 +26,17 @@ Then:
 4. author `content-ir.json`, `render-spec.json`, and `approval-manifest.json`
 5. run `release-produce`
 6. run `release-verify`
+7. record completed stages and file-digest evidence in `agent/runbook.json`
 
 Example production commands:
 
 ```powershell
 node packages/core/src/cli.ts release-produce `
   --domain projects/datadog-cowork-plugin/canonical/domain-pack.json `
-  --content projects/datadog-cowork-plugin/content-ir.json `
-  --render projects/datadog-cowork-plugin/render-spec.json `
-  --approval projects/datadog-cowork-plugin/approval-manifest.json `
-  --assets projects/datadog-cowork-plugin/assets `
+  --content projects/datadog-cowork-plugin/canonical/content-ir.json `
+  --render projects/datadog-cowork-plugin/canonical/render-spec.json `
+  --approval projects/datadog-cowork-plugin/canonical/approval-manifest.json `
+  --assets projects/datadog-cowork-plugin/canonical/assets `
   --out projects/datadog-cowork-plugin/release
 
 node packages/core/src/cli.ts release-verify `
@@ -50,14 +53,18 @@ The managed path expects:
 - an `ApprovalManifest`
 
 If sections use diagrams, include `remotion` in the format list so the release can
-render settled visual PNGs for the document outputs.
+render settled visual PNGs for the document outputs. `asset-inventory.json`
+records selected raster bundles under `asset-inputs/` separately from generated
+visual stills under `outputs/remotion/visuals/`. One selected PNG can accompany
+several generated Mermaid, Excalidraw, and Marp visuals. The parity manifest
+binds this inventory, and release verification rehashes every referenced file.
 
 ## Legacy template path
 
-The older 720p template scaffold still exists:
+The older copied 720p template scaffold remains an explicit compatibility path:
 
 ```powershell
-node template\scripts\new_project.cjs projects\vector-databases vector-databases
+node template\scripts\new_project.cjs projects\vector-databases vector-databases --legacy
 ```
 
 Use that only when you explicitly need the legacy hand-built branded-video path.

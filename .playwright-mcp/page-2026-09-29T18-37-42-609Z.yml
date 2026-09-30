@@ -1,0 +1,244 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - main [ref=e3]:
+    - article [ref=e4]:
+      - paragraph [ref=e5]: Platform and SRE engineers
+      - heading "Datadog for Claude Cowork. Observability by conversation." [level=1] [ref=e6]
+      - paragraph [ref=e7]: The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.
+      - paragraph [ref=e8]:
+        - strong [ref=e9]: "Decision:"
+        - text: Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.
+    - generic [ref=e10]:
+      - region [ref=e11]:
+        - paragraph [ref=e12]: Section 1
+        - heading "A bridge. Not a dashboard." [level=2] [ref=e13]
+        - paragraph [ref=e14]: The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.
+        - heading "Supported claims" [level=3] [ref=e15]
+        - list [ref=e16]:
+          - listitem [ref=e17]:
+            - text: The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language.
+            - link "Citation ev-01" [ref=e18] [cursor=pointer]:
+              - /url: "#ev-01"
+              - text: "[ev-01]"
+            - link "Citation ev-02" [ref=e19] [cursor=pointer]:
+              - /url: "#ev-02"
+              - text: "[ev-02]"
+        - complementary "Assets for A bridge. Not a dashboard." [ref=e20]:
+          - heading "Assets" [level=3] [ref=e21]
+          - figure [ref=e22]:
+            - img "Datadog data reaches an MCP-capable agent through the Datadog MCP Server. (mermaid diagram)" [ref=e23]
+            - generic [ref=e24]:
+              - text: Datadog data reaches an MCP-capable agent through the Datadog MCP Server. (mermaid diagram)
+              - code [ref=e25]: visual-what-it-is
+        - group [ref=e26]:
+          - generic "Speaker notes" [ref=e27]
+      - region [ref=e28]:
+        - paragraph [ref=e29]: Section 2
+        - heading "Where it runs. Cowork and Claude Code." [level=2] [ref=e30]
+        - paragraph [ref=e31]: Claude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.
+        - heading "Supported claims" [level=3] [ref=e32]
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - text: For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.
+            - link "Citation ev-05" [ref=e35] [cursor=pointer]:
+              - /url: "#ev-05"
+              - text: "[ev-05]"
+          - listitem [ref=e36]:
+            - text: Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates.
+            - link "Citation ev-06" [ref=e37] [cursor=pointer]:
+              - /url: "#ev-06"
+              - text: "[ev-06]"
+        - complementary "Assets for Where it runs. Cowork and Claude Code." [ref=e38]:
+          - heading "Assets" [level=3] [ref=e39]
+          - figure [ref=e40]:
+            - 'img "Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step." [ref=e41]'
+            - generic [ref=e42]:
+              - text: "Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step."
+              - code [ref=e43]: mcp-flow
+        - group [ref=e44]:
+          - generic "Speaker notes" [ref=e45]
+      - region [ref=e46]:
+        - paragraph [ref=e47]: Section 3
+        - heading "Set up. Pick a site, sign in." [level=2] [ref=e48]
+        - paragraph [ref=e49]: Choose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.
+        - heading "Supported claims" [level=3] [ref=e50]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - text: Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.
+            - link "Citation ev-07" [ref=e53] [cursor=pointer]:
+              - /url: "#ev-07"
+              - text: "[ev-07]"
+            - link "Citation ev-08" [ref=e54] [cursor=pointer]:
+              - /url: "#ev-08"
+              - text: "[ev-08]"
+          - listitem [ref=e55]:
+            - text: Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts.
+            - link "Citation ev-14" [ref=e56] [cursor=pointer]:
+              - /url: "#ev-14"
+              - text: "[ev-14]"
+            - link "Citation ev-15" [ref=e57] [cursor=pointer]:
+              - /url: "#ev-15"
+              - text: "[ev-15]"
+        - complementary "Assets for Set up. Pick a site, sign in." [ref=e58]:
+          - heading "Assets" [level=3] [ref=e59]
+          - figure [ref=e60]:
+            - 'img "Setup order: clear conflicts, install, choose a site, sign in. (mermaid diagram)" [ref=e61]'
+            - generic [ref=e62]:
+              - text: "Setup order: clear conflicts, install, choose a site, sign in. (mermaid diagram)"
+              - code [ref=e63]: visual-setup
+        - group [ref=e64]:
+          - generic "Speaker notes" [ref=e65]
+      - region [ref=e66]:
+        - paragraph [ref=e67]: Section 4
+        - heading "Access. Your permissions still apply." [level=2] [ref=e68]
+        - paragraph [ref=e69]: You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.
+        - heading "Supported claims" [level=3] [ref=e70]
+        - list [ref=e71]:
+          - listitem [ref=e72]:
+            - text: You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider.
+            - link "Citation ev-10" [ref=e73] [cursor=pointer]:
+              - /url: "#ev-10"
+              - text: "[ev-10]"
+            - link "Citation ev-09" [ref=e74] [cursor=pointer]:
+              - /url: "#ev-09"
+              - text: "[ev-09]"
+        - complementary "Assets for Access. Your permissions still apply." [ref=e75]:
+          - heading "Assets" [level=3] [ref=e76]
+          - figure [ref=e77]:
+            - img "Your Datadog permissions apply; no Datadog credentials go to the model provider. (excalidraw diagram)" [ref=e78]
+            - generic [ref=e79]:
+              - text: Your Datadog permissions apply; no Datadog credentials go to the model provider. (excalidraw diagram)
+              - code [ref=e80]: visual-access
+        - group [ref=e81]:
+          - generic "Speaker notes" [ref=e82]
+      - region [ref=e83]:
+        - paragraph [ref=e84]: Section 5
+        - heading "Control. Choose the toolsets." [level=2] [ref=e85]
+        - paragraph [ref=e86]: Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.
+        - heading "Supported claims" [level=3] [ref=e87]
+        - list [ref=e88]:
+          - listitem [ref=e89]:
+            - text: Groups of MCP tools can be enabled or disabled with the toolsets command.
+            - link "Citation ev-11" [ref=e90] [cursor=pointer]:
+              - /url: "#ev-11"
+              - text: "[ev-11]"
+        - group [ref=e91]:
+          - generic "Speaker notes" [ref=e92]
+      - region [ref=e93]:
+        - paragraph [ref=e94]: Section 6
+        - heading "Risk. Preview, compliance, site limits." [level=2] [ref=e95]
+        - paragraph [ref=e96]: The plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.
+        - heading "Supported claims" [level=3] [ref=e97]
+        - list [ref=e98]:
+          - listitem [ref=e99]:
+            - text: The Datadog plugin and its marketplace listing are in Preview.
+            - link "Citation ev-03" [ref=e100] [cursor=pointer]:
+              - /url: "#ev-03"
+              - text: "[ev-03]"
+            - link "Citation ev-04" [ref=e101] [cursor=pointer]:
+              - /url: "#ev-04"
+              - text: "[ev-04]"
+          - listitem [ref=e102]:
+            - text: The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites.
+            - link "Citation ev-12" [ref=e103] [cursor=pointer]:
+              - /url: "#ev-12"
+              - text: "[ev-12]"
+            - link "Citation ev-13" [ref=e104] [cursor=pointer]:
+              - /url: "#ev-13"
+              - text: "[ev-13]"
+        - complementary "Assets for Risk. Preview, compliance, site limits." [ref=e105]:
+          - heading "Assets" [level=3] [ref=e106]
+          - figure [ref=e107]:
+            - 'img "Rollout checklist: Preview status, compliance ownership and supported sites. (marp diagram)" [ref=e108]'
+            - generic [ref=e109]:
+              - text: "Rollout checklist: Preview status, compliance ownership and supported sites. (marp diagram)"
+              - code [ref=e110]: visual-risk
+        - group [ref=e111]:
+          - generic "Speaker notes" [ref=e112]
+    - region [ref=e113]:
+      - heading "Assets and alt text" [level=2] [ref=e114]
+      - list [ref=e115]:
+        - listitem [ref=e116]:
+          - text: diagram
+          - code [ref=e117]: mcp-flow
+          - text: ": Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step. 4177aa1687b3 embedded inline"
+        - listitem [ref=e118]:
+          - text: diagram
+          - code [ref=e119]: visual-what-it-is
+          - text: ": Datadog data reaches an MCP-capable agent through the Datadog MCP Server. (mermaid diagram) 02701015e9bf embedded inline"
+        - listitem [ref=e120]:
+          - text: diagram
+          - code [ref=e121]: visual-setup
+          - text: ": Setup order: clear conflicts, install, choose a site, sign in. (mermaid diagram) d86356b9ae0f embedded inline"
+        - listitem [ref=e122]:
+          - text: diagram
+          - code [ref=e123]: visual-access
+          - text: ": Your Datadog permissions apply; no Datadog credentials go to the model provider. (excalidraw diagram) a8c711d76354 embedded inline"
+        - listitem [ref=e124]:
+          - text: diagram
+          - code [ref=e125]: visual-risk
+          - text: ": Rollout checklist: Preview status, compliance ownership and supported sites. (marp diagram) 3e49a5f78a29 embedded inline"
+    - region [ref=e126]:
+      - heading "Citations" [level=2] [ref=e127]
+      - list [ref=e128]:
+        - listitem [ref=e129]:
+          - link "Datadog MCP Server" [ref=e130] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e131]:
+          - link "Datadog Claude Code Plugin" [ref=e132] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e133]:
+          - link "Datadog Claude Code Plugin" [ref=e134] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e135]:
+          - link "Datadog | Claude by Anthropic" [ref=e136] [cursor=pointer]:
+            - /url: https://claude.com/marketplace/plugins/datadog
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e137]:
+          - link "Set Up the Datadog MCP Server" [ref=e138] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e139]:
+          - link "Set Up the Datadog MCP Server" [ref=e140] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e141]:
+          - link "Set Up the Datadog MCP Server" [ref=e142] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e143]:
+          - link "Datadog Claude Code Plugin" [ref=e144] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e145]:
+          - link "Datadog Claude Code Plugin" [ref=e146] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e147]:
+          - link "Set Up the Datadog MCP Server" [ref=e148] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e149]:
+          - link "Datadog Claude Code Plugin" [ref=e150] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e151]:
+          - link "Datadog MCP Server" [ref=e152] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e153]:
+          - link "Set Up the Datadog MCP Server" [ref=e154] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e155]:
+          - link "Datadog Claude Code Plugin" [ref=e156] [cursor=pointer]:
+            - /url: https://github.com/datadog-labs/claude-code-plugin
+          - text: retrieved 2026-09-29T17:00:00Z
+        - listitem [ref=e157]:
+          - link "Set Up the Datadog MCP Server" [ref=e158] [cursor=pointer]:
+            - /url: https://docs.datadoghq.com/mcp_server/setup/
+          - text: retrieved 2026-09-29T17:00:00Z

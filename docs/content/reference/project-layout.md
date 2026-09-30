@@ -1,6 +1,6 @@
 ---
 title: Project layout
-description: Expected input and output layout for a core-managed a2swe project and the separate legacy template scaffold.
+description: Minimal core authoring inputs, digest-bound release inventory, and legacy compatibility layout.
 ---
 
 ## Core-managed authoring layout
@@ -8,17 +8,16 @@ description: Expected input and output layout for a core-managed a2swe project a
 ```text
 project/
 ├── canonical/
-│   └── domain-pack.json
-├── content-ir.json
-├── render-spec.json
-├── approval-manifest.json
-├── assets/
-│   └── <assetId>/
-│       ├── request.json
-│       ├── asset.json
-│       └── asset.png
+│   ├── domain-pack.json
+│   ├── content-ir.json
+│   ├── render-spec.json
+│   ├── approval-manifest.json
+│   └── assets/
+│       └── <assetId>/
+│           ├── request.json
+│           ├── asset.json
+│           └── asset.png
 ├── agent/
-│   ├── SWE_AGENT.md
 │   └── runbook.json
 └── release/
 ```
@@ -32,21 +31,30 @@ release/
 ├── render-spec.json
 ├── approval-manifest.json
 ├── release-plan.json
+├── asset-inventory.json
 ├── parity-manifest.json
-├── asset-inputs/
+├── asset-inputs/              # selected raster bundles only
 └── outputs/
-    ├── site.html
+    ├── index.html
     ├── deck.deck.json
-    ├── slides.pptx
+    ├── deck.pptx
     ├── document.docx
     ├── document.pdf
-    ├── overview.png
-    ├── overview.jpg
-    └── remotion/
+    ├── raster.png
+    ├── raster.jpg
+    └── remotion/               # one generated build workspace
 ```
+
+The default scaffold initially creates only the draft domain and Runbook.
+Other authoring files appear when you create them; the release tree appears
+only after production. `outputs/remotion/` holds its own `src/`, `scripts/`,
+`audio/`, `visuals/`, `public/`, `qc/`, and `dist/` as one generated build
+workspace. Section stills live in `visuals/`, not in a top-level `stills/`
+folder. The asset inventory distinguishes selected PNGs from generated
+visuals and is bound by the parity manifest.
 
 ## Legacy template layout
 
-The older template scaffold still creates the familiar `script/`, `src/`, `qc/`,
-and `renders/` structure for 720p projects. Keep that layout scoped to legacy
-template work.
+Pass `--legacy` to the template script to copy the old `script/`, `src/`,
+`qc/`, and `renders/` structure for 720p projects. Do not copy it into
+core-managed projects.

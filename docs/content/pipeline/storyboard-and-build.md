@@ -15,6 +15,9 @@ Its primary content structure comes from:
 - optional `ContentSection.visual`
 
 Speaker notes remain the per-section authoring field for downstream adapters.
+Copilot SDK sessions may draft or critique this structure, but the managed build
+still consumes checked-in release inputs and evidence-backed records rather than
+chat history.
 
 ## Legacy template path
 

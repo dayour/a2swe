@@ -25,9 +25,9 @@ export function profilePermissions(mode: PermissionMode = 'auto', ask?: Permissi
 
 export function profileClient(runtime: ReturnType<typeof resolveRuntime>): CopilotClientOptions {
   if (runtime.runtime !== 'copilot') throw new Error('Agency injects --session-id and cannot launch SDK --headless mode. Use npm run agency:copilot for Agency, or --cli with a Copilot executable for SDK sessions.');
-  return { connection: RuntimeConnection.forStdio({ path: runtime.cli, args: runtime.args }), mode: 'copilot-cli',
-    baseDirectory: runtime.baseDirectory, workingDirectory: runtime.workingDirectory, useLoggedInUser: true,
-    logLevel: 'error', enableRemoteSessions: false };
+  return { ...(runtime.cli ? { connection: RuntimeConnection.forStdio({ path: runtime.cli, args: runtime.args }) } : {}),
+    mode: 'copilot-cli', baseDirectory: runtime.baseDirectory, workingDirectory: runtime.workingDirectory,
+    useLoggedInUser: true, logLevel: 'error', enableRemoteSessions: false };
 }
 
 export function profileSession(workingDirectory: string, onPermissionRequest: PermissionHandler,

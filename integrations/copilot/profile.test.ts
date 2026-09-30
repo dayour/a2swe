@@ -11,13 +11,15 @@ import type { PermissionRequest } from '@github/copilot-sdk';
 import { permissionMode, profileClient, profilePermissions, profileSession } from './profile.ts';
 
 test('profile mode preserves keychain auth, native catalogs and persistent sessions', () => {
-  const runtime = { runtime: 'copilot', cli: '/existing/copilot', args: [], baseDirectory: '/home/user/.copilot', workingDirectory: '/repo' };
+  const runtime = { runtime: 'copilot' as const, cli: '/existing/copilot', args: [], baseDirectory: '/home/user/.copilot', workingDirectory: '/repo', source: 'explicit' as const };
   const client = profileClient(runtime);
   assert.throws(() => profileClient({ ...runtime, runtime: 'agency', args: ['copilot'] }), /cannot launch SDK/);
   assert.equal(client.mode, 'copilot-cli');
   assert.equal(client.useLoggedInUser, true);
   assert.equal(client.baseDirectory, '/home/user/.copilot');
   assert.deepEqual(client.connection, { kind: 'stdio', path: '/existing/copilot', args: [], env: undefined });
+  const sdkDefault = profileClient({ ...runtime, cli: undefined, source: 'sdk-default' });
+  assert.equal(Object.hasOwn(sdkDefault, 'connection'), false, 'SDK default runtime must not require an existing CLI path');
   const permission = () => ({ kind: 'reject' as const, feedback: 'test' });
   const session = profileSession('/repo', permission, { agent: 'existing-agent' });
   assert.equal(session.agent, 'existing-agent');

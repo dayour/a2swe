@@ -1,0 +1,4 @@
+flowchart LR
+  old["Remove older manual server<br/>or custom connector"] --> install["Install connector<br/>or plugin"]
+  install --> site["Select your<br/>Datadog site"]
+  site --> oauth["Sign in<br/>with OAuth"]

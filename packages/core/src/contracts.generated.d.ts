@@ -9,6 +9,7 @@ export type CoreContract =
   | ApprovalManifest
   | ContentIR
   | RenderSpec
+  | AssetInventory
   | FormatParityManifest
   | ReleasePlan
   | Runbook;
@@ -441,11 +442,29 @@ export interface RenderSpec {
     sampleRate: 44100 | 48000;
   };
 }
+export interface AssetInventory {
+  schemaVersion: "1.0.0";
+  contentDigest: Digest;
+  /**
+   * @maxItems 200
+   */
+  entries: AssetInventoryEntry[];
+}
+export interface AssetInventoryEntry {
+  assetId: Identifier;
+  kind: "selected" | "generated_visual";
+  role: string;
+  path: RelativePath;
+  digest: Digest;
+  sourceDigest: Digest;
+  sectionId: Identifier | null;
+}
 export interface FormatParityManifest {
   schemaVersion: "1.0.0";
   contentDigest: Digest;
   renderSpecDigest: Digest;
   releaseDigest: Digest;
+  assetInventoryDigest: Digest;
   /**
    * @minItems 1
    * @maxItems 128
@@ -533,20 +552,221 @@ export interface Runbook {
   updatedAt: IsoInstant;
   domainDigest: Digest | null;
   contentDigest: Digest | null;
-  stage:
-    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
+  stage: Identifier;
   /**
-   * @minItems 4
-   * @maxItems 7
+   * @maxItems 20
    */
   gates:
+    | []
+    | [RunbookGate]
+    | [RunbookGate, RunbookGate]
+    | [RunbookGate, RunbookGate, RunbookGate]
     | [RunbookGate, RunbookGate, RunbookGate, RunbookGate]
     | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
     | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
-    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate];
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
+    | [RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate, RunbookGate]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ]
+    | [
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate,
+        RunbookGate
+      ];
   /**
    * @minItems 1
-   * @maxItems 10
+   * @maxItems 20
    */
   stages:
     | [RunbookStage]
@@ -579,6 +799,181 @@ export interface Runbook {
         RunbookStage,
         RunbookStage,
         RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
+      ]
+    | [
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage,
+        RunbookStage
       ];
   /**
    * @maxItems 100
@@ -591,25 +986,21 @@ export interface Runbook {
   nextAction: string;
 }
 export interface RunbookGate {
-  name: "domain" | "scope" | "narration" | "voice" | "brand" | "pilot" | "release";
+  name: Identifier;
   status: "pending" | "blocked" | "passed";
   evidencePath: RelativePath | null;
   evidenceDigest: Digest | null;
 }
 export interface RunbookStage {
-  name:
-    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
+  name: Identifier;
   status: "not_started" | "in_progress" | "blocked" | "complete";
   owner: string | null;
-  dependencies: (
-    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery"
-  )[];
+  dependencies: Identifier[];
   evidencePaths: RelativePath[];
 }
 export interface RunbookArtifact {
   path: RelativePath;
   digest: Digest;
   mediaType: string;
-  stage:
-    "scaffold" | "research" | "narration" | "storyboard" | "visuals" | "pilot" | "build" | "render" | "qc" | "delivery";
+  stage: Identifier;
 }

@@ -139,9 +139,17 @@ if (existsSync(generatedMovies)) {
   }
 }
 
-add('template/agent/SWE_AGENT.md', 'Agents', 'Production companion', 'Start a portable, evidence-led production ledger with scope, narration, voice, and pilot evidence gates.', 'agent');
+add('template/agent/SWE_AGENT.md', 'Agents', 'Legacy production companion', 'Copied 720p template ledger; use the core Runbook for new projects.', 'agent', null, ['legacy']);
 add('.github/agents/power-platform-swe.agent.md', 'Agents', 'Power Platform SWE (candidate)', 'Read/search-only architecture and test-planning agent. Not certified domain expertise or a media producer.', 'agent');
-add('template/package.json', 'Projects', 'Remotion project scaffold', 'Create a separate editable project with locked dependencies, shared visuals, shot groups, and production scripts.', 'layout');
+add('packages/core/src/cli.ts', 'Projects', 'Core-managed project scaffold', 'Initialize a draft domain and evidence-tracked Runbook with project-init; no copied runtime or empty output folders.', 'layout');
+add('template/package.json', 'Projects', 'Legacy 720p Remotion scaffold', 'Explicit --legacy compatibility path with a copied runtime and scripts.', 'layout', null, ['legacy']);
+for (const file of walk(path.join(root, 'library', 'agents')).filter((f) => /\.agent\.md$/i.test(f))) {
+  const source = relative(file);
+  const body = readFileSync(file, 'utf8');
+  const name = body.match(/^name:\s*(.+)$/m)?.[1] ?? title(path.basename(file));
+  const description = body.match(/^description:\s*(.+)$/m)?.[1] ?? 'Local agent profile. Read its scope and evidence boundaries.';
+  add(source, 'Agents', name, description, 'agent');
+}
 for (const recipe of json(absolute('template/brand-recipes.json'))) {
   validateSlideRecipe(recipe);
   add('template/brand-recipes.json', 'Slide recipes', recipe.title, recipe.description, 'slide',

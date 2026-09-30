@@ -3,8 +3,6 @@ title: Templates
 description: Reusable project, visual, workflow, and output templates in a2swe.
 ---
 
-# Templates
-
 [Open the interactive Template Library](/templates). Search all indexed skills,
 agent profiles and companions, overlay layouts, storylines, graphics components,
 plugin recipes, and the project scaffold. Flip a card to inspect its source and
@@ -34,11 +32,25 @@ for the SDK, geometry preflight, PowerPoint/Brand kit handoff, and limitations.
 Recipes are not `.pptx`/`.potx` assets and are not consumed automatically by the
 core output adapters.
 
-Templates are reusable, versioned starting points for explainer production. They reduce repeated setup without transferring facts, approval, or human approvals from one video to another.
+Templates are reusable, versioned starting points. They do not transfer facts,
+approval evidence, or asset decisions between projects.
 
 ## Canonical project template
 
-`template/` is the production scaffold for a new video. It includes:
+The default `template/scripts/new_project.cjs` calls core `project-init` and
+creates only a draft domain and evidence-tracked Runbook:
+
+```powershell
+node template\scripts\new_project.cjs projects\my-explainer my-explainer
+```
+
+The copied 720p runtime is an explicit compatibility option:
+
+```powershell
+node template\scripts\new_project.cjs projects\my-explainer my-explainer --legacy
+```
+
+That compatibility workspace includes:
 
 - the Remotion composition shell;
 - shared visual and overlay primitives;
@@ -48,24 +60,18 @@ Templates are reusable, versioned starting points for explainer production. They
 - production rules and dependency locks;
 - fonts and project asset namespaces.
 
-Create a project on Windows with:
-
-```powershell
-node template\scripts\new_project.cjs projects\my-explainer my-explainer
-```
-
 The scaffold refuses to overwrite an existing destination.
 
 ## Template categories
 
 | Category | Examples | Reuse boundary |
 | --- | --- | --- |
-| Project | `template/` | Runtime shell, scripts, layout, and artifact structure |
+| Project | Core `project-init`; `template/` only with `--legacy` | Minimal authoring inputs by default; copied 720p runtime only by request |
 | Visual | Shared components in `template/src/common/` | Drawing, typography, animation, backgrounds |
 | Editorial | Overlay, chapter, HUD, rail, and ending patterns | Presentation behavior, not project claims |
 | Workflow | Companion ledger and production rules | Stage definitions, gates, and evidence fields |
 | Skill | `library/skills/*` | Domain-specific operating instructions and assets |
-| Output | Core adapters | HTML, Markdown, Adaptive Card, slides, and Remotion plans |
+| Output | Core adapters | HTML, AdaptiveDeck, PPTX, DOCX, PDF, PNG, JPEG, and 1080p MP4 |
 
 ## Registry contract
 
@@ -94,7 +100,7 @@ path: template
 - Templates must be deterministic and source-controlled.
 - Generated outputs must not be mistaken for authored template inputs.
 - Project slugs must create isolated asset namespaces.
-- New templates must preserve required approval and evidence gates.
+- New templates must preserve evidence and asset approval records; no publication-rights gate is required.
 - External assets and model weights must not be silently bundled.
 - Template upgrades must not overwrite project-specific research, timing, scenes, or approvals.
 

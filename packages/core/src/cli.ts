@@ -23,6 +23,14 @@ async function writeJson(filename: string, data: unknown, exclusive = false): Pr
   } finally { await rm(staging, { force: true }); }
 }
 
+function draftDomain(id: string, name: string, kind: string, asOf: string) {
+  if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) throw new Error('invalid_domain_slug');
+  return validate('DomainPack', { schemaVersion: '1.0.0', domainId: id, kind, canonicalName: name,
+    asOf, windowStart: windowStart(asOf), timezone: 'UTC', state: 'draft', sources: [], evidence: [], claims: [],
+    knownGaps: ['Public evidence not collected', 'Engineering context and source applicability not reviewed',
+      'Brand and visual assets not selected', 'Evidence evaluation pending'] });
+}
+
 function git(root: string, args: string[]): string {
   const result = spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout: 30000, windowsHide: true });
   if (result.error || result.status !== 0) throw new Error('git_snapshot_unavailable');
@@ -50,9 +58,10 @@ async function main(): Promise<void> {
       '  capabilities',
       '  inventory --root PATH --source ALIAS --kind repository|installed --out FILE',
       '  snapshot --root PATH --out FILE',
-      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|FormatParityManifest|ReleasePlan|Runbook --file FILE',
+      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|AssetInventory|FormatParityManifest|ReleasePlan|Runbook --file FILE',
       '  runbook-verify --root PROJECT_DIRECTORY',
       '  domain-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD [--out FILE]',
+      '  project-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD --out NEW_DIRECTORY',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
       '  job-status --id TASK [--state DIRECTORY]',
@@ -145,7 +154,7 @@ async function main(): Promise<void> {
   if (command === 'validate') {
     const name = required('schema');
     if (!['DomainPack', 'SourceDocument', 'WorkItem', 'TaskResult', 'LibraryEntry', 'AssetRequest', 'AssetRecord',
-      'ApprovalManifest', 'ContentIR', 'RenderSpec', 'FormatParityManifest', 'ReleasePlan', 'Runbook'].includes(name)) throw new Error('unknown_schema');
+      'ApprovalManifest', 'ContentIR', 'RenderSpec', 'AssetInventory', 'FormatParityManifest', 'ReleasePlan', 'Runbook'].includes(name)) throw new Error('unknown_schema');
     const data = validate(name as Parameters<typeof validate>[0], JSON.parse(await readFile(required('file'), 'utf8')));
     console.log(JSON.stringify({ valid: true, schema: name, digest: digest(data) }));
     return;
@@ -217,14 +226,34 @@ async function main(): Promise<void> {
     }
     return;
   }
+  if (command === 'project-init') {
+    const id = required('id');
+    const domain = draftDomain(id, required('name'), required('kind'), required('as-of'));
+    const root = path.resolve(required('out'));
+    await mkdir(root, { mode: 0o700 });
+    try {
+      const domainFile = path.join(root, 'canonical', 'domain-pack.json');
+      await writeJson(domainFile, domain, true);
+      const starter = JSON.parse(await readFile(new URL('../../../library/assets/runbook/runbook-starter.json', import.meta.url), 'utf8'));
+      const runbook = validate('Runbook', { ...starter, runbookId: id, projectId: id, updatedAt: new Date().toISOString(),
+        domainDigest: digest(domain), stage: 'research',
+        stages: starter.stages.map((stage: { name: string; status: string; evidencePaths: string[] }) => stage.name === 'scaffold'
+          ? { ...stage, status: 'complete', evidencePaths: ['canonical/domain-pack.json'] } : stage),
+        artifacts: [{ path: 'canonical/domain-pack.json', digest: sha256(await readFile(domainFile)),
+          mediaType: 'application/vnd.a2swe.domain+json', stage: 'scaffold' }],
+        nextAction: 'Collect sources and evidence for the draft domain.' });
+      await writeJson(path.join(root, 'agent', 'runbook.json'), runbook, true);
+      console.log(JSON.stringify({ projectId: id, project: root, domain: domainFile,
+        runbook: path.join(root, 'agent', 'runbook.json'), state: 'draft' }));
+    } catch (error) {
+      await rm(root, { recursive: true, force: true });
+      throw error;
+    }
+    return;
+  }
   if (command === 'domain-init') {
     const id = required('id');
-    if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) throw new Error('invalid_domain_slug');
-    const asOf = required('as-of');
-    const candidate = validate('DomainPack', { schemaVersion: '1.0.0', domainId: id, kind: required('kind'), canonicalName: required('name'),
-      asOf, windowStart: windowStart(asOf), timezone: 'UTC', state: 'draft', sources: [], evidence: [], claims: [],
-      knownGaps: ['Public evidence not collected', 'Engineering context and source applicability not reviewed',
-        'Brand and visual assets not selected', 'Evidence evaluation pending'] });
+    const candidate = draftDomain(id, required('name'), required('kind'), required('as-of'));
     const output = values.out ?? `.a2swe/domains/${id}.json`;
     await writeJson(output, candidate, true);
     console.log(JSON.stringify({ domainId: id, state: 'draft', digest: digest(candidate), output, ready: false }, null, 2));

@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
 import { validate, validateContentAgainstDomain } from './contracts.ts';
-import type { ApprovalManifest, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec } from './contracts.ts';
+import type { ApprovalManifest, AssetInventory, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec } from './contracts.ts';
 import { renderFiles } from './adapters.ts';
 import type { AdapterAssetEmbed, AdapterFile, AdapterVisualImage } from './adapters.ts';
 import { readRasterFile, verifyAssetBundle } from './assets.ts';
@@ -76,6 +76,31 @@ async function writeAssetInputs(root: string, embeds: AdapterAssetEmbed[]): Prom
   }
 }
 
+function assetInventory(content: ContentIR, embeds: AdapterAssetEmbed[], stills: AdapterFile[]): AssetInventory {
+  const selected = new Map(embeds.map((embed) => [embed.assetId, embed]));
+  const generated = new Map(stills.map((still) => [still.path, still]));
+  return validate('AssetInventory', {
+    schemaVersion: '1.0.0',
+    contentDigest: digest(content),
+    entries: [
+      ...content.assets.map((asset) => {
+        const embed = selected.get(asset.assetId);
+        if (!embed) throw new Error(`release_asset_missing: ${asset.assetId}`);
+        return { assetId: asset.assetId, kind: 'selected', role: asset.role, sectionId: null,
+          path: `asset-inputs/${asset.assetId}.png`, digest: sha256(embed.bytes), sourceDigest: asset.digest };
+      }),
+      ...content.sections.filter((section) => section.visual && generated.has(
+        `outputs/remotion/visuals/${visualStem(content, section.sectionId)}.png`)).map((section) => {
+        const path = `outputs/remotion/visuals/${visualStem(content, section.sectionId)}.png`;
+        const still = generated.get(path);
+        if (!still || !section.visual) throw new Error(`release_visual_missing: ${section.sectionId}`);
+        return { assetId: section.sectionId, kind: 'generated_visual', role: 'diagram', sectionId: section.sectionId,
+          path, digest: sha256(still.bytes), sourceDigest: digest(section.visual) };
+      })
+    ]
+  });
+}
+
 
 export async function writeRelease(directory: string, contentInput: unknown, renderInput: unknown, approvalInput: unknown,
   domainInput: unknown, assetBundlesDirectory?: string): Promise<FormatParityManifest> {
@@ -114,8 +139,10 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
       const replacements = new Map(media.map((file) => [file.path, file]));
       files = [...files.map((file) => replacements.get(file.path) ?? file), ...stills,
         ...media.filter((file) => !files.some((existing) => existing.path === file.path))];
-    }    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
-      renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest,
+    }
+    const inventory = assetInventory(content, embeds, stills);
+    const parity = validate('FormatParityManifest', { schemaVersion: '1.0.0', contentDigest: plan.contentDigest,
+      renderSpecDigest: plan.renderSpecDigest, releaseDigest: plan.releaseDigest, assetInventoryDigest: digest(inventory),
       outputs: files.map((file) => ({ format: file.format, path: file.path, digest: sha256(file.bytes), mediaType: file.mediaType,
         byteSize: file.bytes.length, contentDigest: plan.contentDigest, adapter: file.adapter })) });
     await writeJson(path.join(root, 'content-ir.json'), content);
@@ -123,6 +150,7 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
     await writeJson(path.join(root, 'render-spec.json'), renderSpec);
     await writeJson(path.join(root, 'approval-manifest.json'), approval);
     await writeJson(path.join(root, 'release-plan.json'), plan);
+    await writeJson(path.join(root, 'asset-inventory.json'), inventory);
     await writeJson(path.join(root, 'parity-manifest.json'), parity);
     return parity;
   } catch (error) {
@@ -140,8 +168,10 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
   const approval = validate('ApprovalManifest', JSON.parse(await readFile(path.join(root, 'approval-manifest.json'), 'utf8')));
   const plan = validate('ReleasePlan', JSON.parse(await readFile(path.join(root, 'release-plan.json'), 'utf8')));
   const parity = validate('FormatParityManifest', JSON.parse(await readFile(path.join(root, 'parity-manifest.json'), 'utf8')));
+  const inventory = validate('AssetInventory', JSON.parse(await readFile(path.join(root, 'asset-inventory.json'), 'utf8')));
   const expected = createReleasePlan(content, renderSpec, approval);
-  if (digest(plan) !== digest(expected) || parity.releaseDigest !== plan.releaseDigest || parity.contentDigest !== digest(content)) throw new Error('release_manifest_mismatch');
+  if (digest(plan) !== digest(expected) || parity.releaseDigest !== plan.releaseDigest || parity.contentDigest !== digest(content)
+    || parity.assetInventoryDigest !== digest(inventory)) throw new Error('release_manifest_mismatch');
   requireAssetApprovals(content, approval);
   const embeds: AdapterAssetEmbed[] = [];
   for (const asset of content.assets) {
@@ -152,11 +182,16 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
   const visualSections = content.sections.filter((section) => section.visual);
   const visualPaths = visualSections.map((section) => `outputs/remotion/visuals/${visualStem(content, section.sectionId)}.png`);
   const visualImages: AdapterVisualImage[] = [];
+  const stills: AdapterFile[] = [];
   if (renderSpec.formats.includes('remotion')) {
     for (const [index, section] of visualSections.entries()) {
-      visualImages.push({ sectionId: section.sectionId, bytes: await readFile(destination(root, visualPaths[index])) });
+      const bytes = await readFile(destination(root, visualPaths[index]));
+      visualImages.push({ sectionId: section.sectionId, bytes });
+      stills.push({ format: 'remotion', path: visualPaths[index], bytes, mediaType: 'image/png', adapter: '' });
     }
   }
+  if (digest(inventory) !== digest(assetInventory(content, embeds, stills))
+    || inventory.entries.length !== embeds.length + stills.length) throw new Error('release_asset_inventory_mismatch');
   const expectedFiles = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true, visualImages });
   const mutableMediaPaths = new Set(['outputs/remotion/render-plan.json', 'outputs/remotion/timeline.json',
     'outputs/remotion/asset-manifest.json']);
@@ -166,6 +201,8 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
     { path: 'outputs/remotion/audio/narration-metadata.json', mediaType: 'application/json' },
     { path: 'outputs/remotion/dist/render.mp4', mediaType: 'video/mp4' },
     { path: 'outputs/remotion/qc/render-receipt.json', mediaType: 'application/json' },
+    { path: 'outputs/remotion/qc/audio-qa.json', mediaType: 'application/json' },
+    { path: 'outputs/remotion/qc/audio-spectrogram.svg', mediaType: 'image/svg+xml' },
     { path: 'outputs/remotion/qc/mp4-qc.json', mediaType: 'application/json' }
   ] : [];
   if (expectedFiles.length + producedMedia.length !== parity.outputs.length || expectedFiles.some((file, index) => {

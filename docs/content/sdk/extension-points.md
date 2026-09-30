@@ -1,7 +1,32 @@
 ---
 title: Extension points
-description: Extension points for the retained legacy template runtime and its speech, asset, and scene integrations.
+description: Extension points for Copilot SDK sessions, the managed release path, and the retained legacy template runtime.
 ---
+
+## Extend the Copilot SDK session bridge
+
+Copilot SDK behavior lives under `integrations/copilot/`:
+
+- `runtime.ts` resolves the SDK runtime connection, optional existing executable,
+  Copilot home directory, and working directory.
+- `profile.ts` defines client/session defaults and permission handling.
+- `session.ts` implements the session CLI for capabilities, doctor checks,
+  session listing, catalogs, prompts, and resume.
+- `query.ts` implements a constrained domain-query evaluator path.
+- `cli.ts` is native passthrough only and must keep literal argument forwarding
+  separate from SDK session creation.
+
+When extending this bridge:
+
+1. Keep SDK session behavior independent from native Agency launcher behavior.
+2. Prefer SDK defaults unless the caller explicitly supplies `--cli`,
+   `A2SWE_COPILOT_CLI`, or `COPILOT_CLI_PATH`.
+3. Report unprobed native capabilities as unprobed; do not infer native CLI
+   options from docs or examples.
+4. Keep permission modes explicit. Automatic approval must not override managed
+   policy requests.
+5. Add coverage to the existing integration or related runtime tests; do not add
+   unverified feature claims to docs.
 
 ## Add a shot group scene
 

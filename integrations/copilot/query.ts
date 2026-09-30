@@ -23,8 +23,8 @@ async function main() {
   const query = buildDomainQuery(JSON.parse(await readFile(values.domain, 'utf8')), values.question);
   const workingDirectory = await mkdtemp(path.join(tmpdir(), 'a2swe-copilot-'));
   const runtime = resolveRuntime({ runtime: 'copilot', cli: values.cli, home: values['runtime-home'], cwd: workingDirectory });
-  const client = new CopilotClient({ connection: RuntimeConnection.forStdio({ path: runtime.cli }), mode: 'empty',
-    workingDirectory, baseDirectory: runtime.baseDirectory, useLoggedInUser: true, logLevel: 'error', enableRemoteSessions: false });
+  const client = new CopilotClient({ ...(runtime.cli ? { connection: RuntimeConnection.forStdio({ path: runtime.cli, args: runtime.args }) } : {}),
+    mode: 'empty', workingDirectory, baseDirectory: runtime.baseDirectory, useLoggedInUser: true, logLevel: 'error', enableRemoteSessions: false });
   let session: CopilotSession | undefined;
   const denied: string[] = [];
   let phase = 'runtime_start';

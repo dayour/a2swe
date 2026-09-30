@@ -21,4 +21,6 @@ This packaged copy is local metadata only. It is not:
 - a rights grant
 
 Use the core CLI to validate runbook, domain, content, render, and approval inputs.
+For narrated MP4 audio, use the packaged `agents/a2swe-audio-qa.agent.md`
+profile and inspect the release's measured spectrogram and metrics.
 Report blockers instead of bypassing missing evidence, model paths, or assets.

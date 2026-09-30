@@ -1,11 +1,12 @@
 ---
 title: a2swe local plugin
-description: Packaged first-party discovery metadata for the a2swe conductor, project skill, and runbook starter asset.
+description: Packaged local conductor, audio QA agent, project skill, and runbook starter asset.
 ---
 
 ## Contents
 
 - `agents/a2swe-conductor.agent.md`
+- `agents/a2swe-audio-qa.agent.md`
 - `skills/a2swe-project/SKILL.md`
 - `assets/runbook/runbook-starter.json`
 - `plugin.json`

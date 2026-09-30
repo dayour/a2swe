@@ -13,6 +13,7 @@
     { "$ref": "#/$defs/ApprovalManifest" },
     { "$ref": "#/$defs/ContentIR" },
     { "$ref": "#/$defs/RenderSpec" },
+    { "$ref": "#/$defs/AssetInventory" },
     { "$ref": "#/$defs/FormatParityManifest" },
     { "$ref": "#/$defs/ReleasePlan" },
     { "$ref": "#/$defs/Runbook" }
@@ -116,13 +117,13 @@
         "updatedAt": { "$ref": "#/$defs/IsoInstant" },
         "domainDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] },
         "contentDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] },
-        "stage": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] },
+        "stage": { "$ref": "#/$defs/Identifier" },
         "gates": {
-          "type": "array", "minItems": 4, "maxItems": 7,
+          "type": "array", "maxItems": 20,
           "items": { "$ref": "#/$defs/RunbookGate" }
         },
         "stages": {
-          "type": "array", "minItems": 1, "maxItems": 10,
+          "type": "array", "minItems": 1, "maxItems": 20,
           "items": { "$ref": "#/$defs/RunbookStage" }
         },
         "artifacts": {
@@ -137,7 +138,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["name", "status", "evidencePath", "evidenceDigest"],
       "properties": {
-        "name": { "enum": ["domain", "scope", "narration", "voice", "brand", "pilot", "release"] },
+        "name": { "$ref": "#/$defs/Identifier" },
         "status": { "enum": ["pending", "blocked", "passed"] },
         "evidencePath": { "anyOf": [{ "$ref": "#/$defs/RelativePath" }, { "type": "null" }] },
         "evidenceDigest": { "anyOf": [{ "$ref": "#/$defs/Digest" }, { "type": "null" }] }
@@ -147,10 +148,10 @@
       "type": "object", "additionalProperties": false,
       "required": ["name", "status", "owner", "dependencies", "evidencePaths"],
       "properties": {
-        "name": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] },
+        "name": { "$ref": "#/$defs/Identifier" },
         "status": { "enum": ["not_started", "in_progress", "blocked", "complete"] },
         "owner": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 200 }, { "type": "null" }] },
-        "dependencies": { "type": "array", "uniqueItems": true, "items": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] } },
+        "dependencies": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/Identifier" } },
         "evidencePaths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/RelativePath" } }
       }
     },
@@ -161,7 +162,7 @@
         "path": { "$ref": "#/$defs/RelativePath" },
         "digest": { "$ref": "#/$defs/Digest" },
         "mediaType": { "type": "string", "minLength": 1, "maxLength": 200 },
-        "stage": { "enum": ["scaffold", "research", "narration", "storyboard", "visuals", "pilot", "build", "render", "qc", "delivery"] }
+        "stage": { "$ref": "#/$defs/Identifier" }
       }
     },
     "LibraryEntry": {
@@ -422,14 +423,36 @@
         }
       }
     },
-    "FormatParityManifest": {
+    "AssetInventory": {
       "type": "object", "additionalProperties": false,
-      "required": ["schemaVersion", "contentDigest", "renderSpecDigest", "releaseDigest", "outputs"],
+      "required": ["schemaVersion", "contentDigest", "entries"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "contentDigest": { "$ref": "#/$defs/Digest" },
+        "entries": { "type": "array", "maxItems": 200, "items": { "$ref": "#/$defs/AssetInventoryEntry" } }
+      }
+    },
+    "AssetInventoryEntry": {
+      "type": "object", "additionalProperties": false,
+      "required": ["assetId", "kind", "role", "path", "digest", "sourceDigest", "sectionId"],
+      "properties": {
+        "assetId": { "$ref": "#/$defs/Identifier" },
+        "kind": { "enum": ["selected", "generated_visual"] },
+        "role": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "path": { "$ref": "#/$defs/RelativePath" },
+        "digest": { "$ref": "#/$defs/Digest" },
+        "sourceDigest": { "$ref": "#/$defs/Digest" },
+        "sectionId": { "anyOf": [{ "$ref": "#/$defs/Identifier" }, { "type": "null" }] }
+      }
+    },    "FormatParityManifest": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "contentDigest", "renderSpecDigest", "releaseDigest", "assetInventoryDigest", "outputs"],
       "properties": {
         "schemaVersion": { "const": "1.0.0" },
         "contentDigest": { "$ref": "#/$defs/Digest" },
         "renderSpecDigest": { "$ref": "#/$defs/Digest" },
         "releaseDigest": { "$ref": "#/$defs/Digest" },
+        "assetInventoryDigest": { "$ref": "#/$defs/Digest" },
         "outputs": { "type": "array", "minItems": 1, "maxItems": 128, "items": { "$ref": "#/$defs/FormatOutput" } }
       }
     },

@@ -1,4 +1,7 @@
-# a2swe
+---
+title: a2swe
+description: Evidence-bound SWE agent research and eight-format explainer generation with a core-managed 1080p video path.
+---
 
 ## Overview
 
@@ -17,8 +20,9 @@ Remotion project, and verifies the resulting output set.
 ## Current capability boundary
 
 - Build and validate `DomainPack`, `ContentIR`, `RenderSpec`, `ApprovalManifest`,
-  `ReleasePlan`, `FormatParityManifest`, and `Runbook`
-- Initialize draft domain packs with `domain-init`
+  `ReleasePlan`, `AssetInventory`, `FormatParityManifest`, and `Runbook`
+- Initialize a minimal project with `project-init` or a standalone draft domain
+  with `domain-init`
 - Generate, import, fetch, and verify raster asset bundles
 - Produce digest-verified release packages from a ready domain, matched content,
   matched render spec, and approval manifest
@@ -57,19 +61,22 @@ npm --prefix docs run build
 
 ## Core workflow
 
-Initialize a draft domain pack:
+Create a project with a draft domain pack and evidence-tracked Runbook:
 
 ```powershell
-node packages/core/src/cli.ts domain-init `
+node packages/core/src/cli.ts project-init `
   --id datadog-cowork-plugin `
   --name "Datadog Cowork Plugin" `
   --kind tool `
   --as-of 2026-09-29 `
-  --out projects/datadog-cowork-plugin/canonical/domain-pack.json
+  --out projects/datadog-cowork-plugin
 ```
 
-Then complete the domain pack by adding sources, evidence spans, supported claims,
-and known gaps. Production requires `state: "ready"`.
+The default `node template\scripts\new_project.cjs <new-directory> <slug>` also
+calls `project-init`. Neither path copies the 720p runtime, creates empty
+`stills/`, `renders/`, or `qc/` folders, or overwrites an existing destination.
+Complete `canonical/domain-pack.json` by adding sources, evidence spans,
+supported claims, and known gaps. Production requires `state: "ready"`.
 
 Prepare visual assets as needed:
 
@@ -104,6 +111,11 @@ node packages/core/src/cli.ts release-produce `
 
 node packages/core/src/cli.ts release-verify --root release
 ```
+
+`release/asset-inventory.json` lists selected PNG asset bundles under
+`asset-inputs/` and separately generated section visuals under
+`outputs/remotion/visuals/`. The parity manifest binds its digest;
+`release-verify` rehashes each asset and rejects a changed inventory or output.
 
 `release-produce` requires:
 
@@ -184,6 +196,15 @@ The core-managed Remotion scene design uses a dark backdrop, animated glow and
 grid treatment, a kinetic headline, claim cards with source labels, a progress
 bar, captions, and a sources footer.
 
+Audio QC is part of the managed Remotion path. The generated package includes a
+reusable `scripts/audio-qa.mjs` tool that decodes the rendered MP4 audio, measures
+speech RMS, non-speech noise floor, speech-versus-silence SNR, high-frequency
+energy above 8 kHz, spectral flatness, and peak level, then writes
+`qc/audio-qa.json` and `qc/audio-spectrogram.svg`. The speech producer can also
+apply measured cleanup through `A2SWE_AUDIO_CLEANUP=auto|on|off`; `auto` is the
+default and leaves clean audio unchanged unless objective hiss/static metrics
+cross the configured thresholds.
+
 ## Visuals inside sections
 
 Each `ContentSection` can include an optional `visual` object:
@@ -227,6 +248,7 @@ invented. Freshness for recent claims uses a trailing nine-calendar-month window
 ## Legacy template note
 
 The older 720p template pipeline still exists under `template/`, including
-`template/scripts`, `tts_build.py`, and `new_project.cjs`. Use it only when you
-need the older hand-built branded-video workflow. The core adapter described above
-is the managed 1080p path.
+`template/scripts` and `tts_build.py`. The `new_project.cjs` compatibility
+copy requires `--legacy`. Use it only when you need the older hand-built
+branded-video workflow. The core adapter described above is the managed 1080p
+path.

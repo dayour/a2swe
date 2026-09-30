@@ -5,11 +5,15 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { inspectRuntime, parseNativeHelp, resolveRuntime } from '../../integrations/copilot/runtime.ts';
+import { inspectRuntime, parseNativeHelp, resolveRuntime, sdkRuntimeCapabilities } from '../../integrations/copilot/runtime.ts';
 
 test('existing Copilot resolution preserves home, cwd and Agency prefix without a bundled runtime', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'a2swe-runtime-'));
   try {
+    const sdkDefault = resolveRuntime({}, { LOCALAPPDATA: root, PATH: root }, 'win32', root);
+    assert.equal(sdkDefault.cli, undefined);
+    assert.equal(sdkDefault.source, 'sdk-default');
+    assert.equal(sdkRuntimeCapabilities(sdkDefault).sdk.runtimeConnection, 'sdk-default-bundled-or-COPILOT_CLI_PATH');
     const binary = path.join(root, 'copilot.exe');
     writeFileSync(binary, 'fixture');
     chmodSync(binary, 0o700);
@@ -69,7 +73,7 @@ test('runtime inspection uses bounded no-update subprocesses and never starts Ag
   try {
     const fixture = path.join(root, 'probe.cjs');
     writeFileSync(fixture, `if (!process.argv.includes('--no-auto-update')) process.exit(9);\nif (process.argv.includes('--version')) console.log('fixture-1');\nelse if (process.argv.includes('--help')) console.log('Commands:\\n  sessions     Manage sessions\\nOptions:\\n      --fleet');\nelse process.exit(8);`);
-    const runtime = { runtime: 'copilot', cli: process.execPath, args: [fixture], baseDirectory: root, workingDirectory: root };
+    const runtime = { runtime: 'copilot' as const, cli: process.execPath, args: [fixture], baseDirectory: root, workingDirectory: root, source: 'explicit' as const };
     const result = await inspectRuntime(runtime);
     assert.equal(result.version, 'fixture-1');
     assert.deepEqual(result.native.commands, ['sessions']);

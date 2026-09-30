@@ -4,6 +4,50 @@ title: TypeScript SDK
 
 # TypeScript SDK
 
+This page covers both the project authoring API and the repository's GitHub
+Copilot SDK integration. The Copilot integration is not a generated video
+runtime; it is the TypeScript bridge in `integrations/copilot/` that lets a2swe
+start, resume, inspect, and constrain SDK-driven assistant sessions.
+
+## Copilot SDK bridge
+
+The bridge uses `@github/copilot-sdk` and has two runtime modes:
+
+- SDK session mode (`npm run copilot:sdk`) creates or resumes Copilot SDK
+  sessions. It defaults to the SDK runtime connection and no longer requires a
+  preinstalled `copilot` executable for the non-native SDK path.
+- Native passthrough mode (`npm run copilot` and `npm run agency:copilot`)
+  forwards arguments to an existing executable without a shell. This is for
+  native CLI behavior and remains intentionally separate from SDK sessions.
+
+Direct `node integrations/copilot/session.ts ...` invocations are the clearest
+way to pass flags. With npm 11, use an extra separator such as
+`npm run copilot:sdk -- -- --capabilities`.
+
+SDK session options:
+
+| Option | Behavior |
+| --- | --- |
+| `--capabilities` | Prints a JSON description of the integration. When no executable is configured, native command/option probing is reported as `not_probed_sdk_default_runtime` rather than fabricated. |
+| `--doctor` | Starts the SDK client and reports authentication, status, session count, permissions mode, and managed-policy handling. |
+| `--sessions` | Lists persisted SDK sessions. |
+| `--catalogs` | Lists runtime-discovered agents, skills, and plugins. |
+| `--prompt TEXT` | Creates or resumes a session and waits for the final assistant message. |
+| `--resume ID` | Resumes a stored SDK session ID. |
+| `--permissions auto\|ask\|deny` | Controls the SDK permission handler. `auto` still rejects managed-policy-required requests instead of bypassing policy. |
+| `--cli PATH` | Overrides the SDK default runtime with an absolute existing Copilot executable. |
+| `--runtime-home DIR` | Sets the Copilot base directory used for session/config state. |
+| `--cwd DIR` | Sets the session working directory. |
+
+Known limitations:
+
+- The SDK bridge does not implement live attachments.
+- `ask` permissions need an interactive terminal.
+- The non-live test suite verifies option shaping, permission behavior, runtime
+  resolution, and native argument forwarding. Authenticated prompt execution must
+  be verified in the target environment before documenting a specific deployment
+  as operational.
+
 ## Manifest types
 
 ### `ShotDef`

@@ -207,6 +207,7 @@ test('adapters deterministically produce editable/searchable/self-contained foun
     'outputs/remotion/requirements.lock.txt', 'outputs/remotion/timeline.json', 'outputs/remotion/asset-manifest.json',
     'outputs/remotion/speech/narration-manifest.json', 'outputs/remotion/tsconfig.json', 'outputs/remotion/remotion.config.ts',
     'outputs/remotion/scripts/synthesize-audio.mjs', 'outputs/remotion/scripts/synthesize-audio.py',
+    'outputs/remotion/scripts/audio-qa.mjs',
     'outputs/remotion/scripts/render-mp4.mjs', 'outputs/remotion/scripts/verify-mp4.mjs',
     'outputs/remotion/src/content.json', 'outputs/remotion/src/index.tsx', 'outputs/remotion/src/Root.tsx', 'outputs/remotion/src/palette.ts', 'outputs/remotion/src/Visuals.tsx']);
   assert.deepEqual(files.map((file) => sha256(file.bytes)), renderFiles(content(), renderSpec()).map((file) => sha256(file.bytes)));
@@ -276,7 +277,7 @@ test('production output adapters meet canonical schema, OOXML, PDF, accessibilit
   assert.equal(remotionPlan.paths.audio, 'public/assets/release-fixture/audio.wav');
   assert.equal(remotionPlan.paths.assetManifest, 'asset-manifest.json');
   assert.deepEqual(remotionPlan.commands, { install: 'npm install --ignore-scripts', preview: 'npm run preview', typecheck: 'npm run typecheck',
-    audio: 'npm run audio', render: 'npm run render', qc: 'npm run qc' });
+    audio: 'npm run audio', audioQa: 'npm run audio:qa', render: 'npm run render', qc: 'npm run qc' });
   assert.equal(remotionPlan.paths.entryPoint, 'src/index.tsx');
   assert.equal(remotionPlan.paths.rootComponent, 'src/Root.tsx');
   assert.equal(remotionPlan.paths.timeline, 'timeline.json');
@@ -290,6 +291,7 @@ test('production output adapters meet canonical schema, OOXML, PDF, accessibilit
   assert.equal(remotionPackage.devDependencies['@types/react-dom'], '19.3.0');
   assert.match(remotionPackage.scripts.preview, /^remotion preview src\/index\.tsx$/);
   assert.equal(remotionPackage.scripts.render, 'node scripts/render-mp4.mjs');
+  assert.equal(remotionPackage.scripts['audio:qa'], 'node scripts/audio-qa.mjs');
   assert.equal(remotionPackage.scripts.typecheck, 'tsc --noEmit');
   assert.equal(remotionPackage.scripts.qc, 'node scripts/verify-mp4.mjs');
   const remotionTimeline = JSON.parse(files.find((file) => file.path.endsWith('timeline.json'))!.bytes.toString('utf8'));

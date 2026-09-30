@@ -49,5 +49,11 @@ narration, but caption and document text normalize them to written forms such as
 The current managed release contract fixes `externalTransfer` to `false`. The core
 does not silently fall back to cloud speech.
 
+The optional Copilot SDK domain-query integration is an explicit external
+assistant transfer path. It requires `--allow-copilot-transfer`, writes a new
+result file with exclusive create semantics, disables tools and file hooks for
+the evaluator session, and records denied permission kinds. Use it only when the
+project policy permits Copilot processing of the supplied domain pack.
+
 The retained legacy template can still support additional engine choices, but that
 path is separate from the managed core release flow.

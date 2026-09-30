@@ -14,7 +14,8 @@ try {
     if (flag === '--runtime-home') options.home = value;
   }
   if (forwarded[0] === '--') forwarded.shift();
-  const runtime = resolveRuntime(options);
+  const runtime = resolveRuntime({ ...options, requireExecutable: true });
+  if (!runtime.cli) throw new Error('Existing Copilot CLI could not be resolved for native passthrough.');
   const child = spawn(runtime.cli, [...runtime.args, ...forwarded], { shell: false, stdio: 'inherit',
     cwd: runtime.workingDirectory, env: { ...process.env, COPILOT_HOME: runtime.baseDirectory } });
   child.on('error', () => { console.error('Existing Copilot CLI could not start.'); process.exitCode = 1; });
