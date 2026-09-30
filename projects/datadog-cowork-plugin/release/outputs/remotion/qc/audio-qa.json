@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-3",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "input": "dist/render.mp4",
+  "inputSha256": "6c7aa200daad147284bdfb8037077746a2553c70407bbc2787a616cd7ab18747",
+  "sampleRate": 48000,
+  "durationSeconds": 89.024,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "en-us",
+    "speed": 1,
+    "voice": "am_michael"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 89.024,
+      "rmsDbfs": -20.349803,
+      "peakDbfs": -0.992437,
+      "highFrequencyRatio8k": 0.005947,
+      "spectralFlatness": 0.000005
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 84.892,
+      "rmsDbfs": -20.146278,
+      "peakDbfs": -0.992437,
+      "highFrequencyRatio8k": 0.0036,
+      "spectralFlatness": 0.000004
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 4.132,
+      "rmsDbfs": -38.80398,
+      "peakDbfs": -26.423785,
+      "highFrequencyRatio8k": 0.007329,
+      "spectralFlatness": 0.014113
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 2.532,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "snrSpeechVsSilenceDb": 219.853722
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}

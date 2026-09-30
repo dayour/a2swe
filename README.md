@@ -202,8 +202,12 @@ speech RMS, non-speech noise floor, speech-versus-silence SNR, high-frequency
 energy above 8 kHz, spectral flatness, and peak level, then writes
 `qc/audio-qa.json` and `qc/audio-spectrogram.svg`. The speech producer can also
 apply measured cleanup through `A2SWE_AUDIO_CLEANUP=auto|on|off`; `auto` is the
-default and leaves clean audio unchanged unless objective hiss/static metrics
-cross the configured thresholds.
+default. It removes measured DC offset from speech segments without changing
+the inserted silence, and only applies a low-pass filter when the measured
+hiss signature crosses its threshold. The report retains both the full gap
+level and an interior-gap level measured 100 ms away from speech boundaries,
+so AAC transition energy does not masquerade as continuous static. Audio QA
+threshold overrides can only tighten the built-in limits.
 
 ## Visuals inside sections
 

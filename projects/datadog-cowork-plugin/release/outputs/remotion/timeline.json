@@ -4,7 +4,7 @@
   "width": 1920,
   "height": 1080,
   "sampleRate": 48000,
-  "durationInFrames": 2157,
+  "durationInFrames": 2669,
   "scenes": [
     {
       "id": "title",
@@ -118,10 +118,10 @@
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
       "startFrame": 0,
-      "durationInFrames": 249,
-      "endFrame": 249,
+      "durationInFrames": 307,
+      "endFrame": 307,
       "speechStartFrame": 8,
-      "speechEndFrame": 240
+      "speechEndFrame": 299
     },
     {
       "id": "what-it-is",
@@ -155,11 +155,11 @@
       },
       "visualId": "01-what-it-is",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 249,
-      "durationInFrames": 324,
-      "endFrame": 573,
-      "speechStartFrame": 257,
-      "speechEndFrame": 565
+      "startFrame": 307,
+      "durationInFrames": 410,
+      "endFrame": 717,
+      "speechStartFrame": 315,
+      "speechEndFrame": 709
     },
     {
       "id": "where-it-runs",
@@ -193,11 +193,11 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 573,
-      "durationInFrames": 352,
-      "endFrame": 925,
-      "speechStartFrame": 581,
-      "speechEndFrame": 916
+      "startFrame": 717,
+      "durationInFrames": 425,
+      "endFrame": 1142,
+      "speechStartFrame": 725,
+      "speechEndFrame": 1133
     },
     {
       "id": "setup",
@@ -243,11 +243,11 @@
       },
       "visualId": "03-setup",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 925,
-      "durationInFrames": 323,
-      "endFrame": 1248,
-      "speechStartFrame": 933,
-      "speechEndFrame": 1240
+      "startFrame": 1142,
+      "durationInFrames": 403,
+      "endFrame": 1545,
+      "speechStartFrame": 1150,
+      "speechEndFrame": 1537
     },
     {
       "id": "access",
@@ -281,11 +281,11 @@
       },
       "visualId": "04-access",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1248,
-      "durationInFrames": 301,
-      "endFrame": 1549,
-      "speechStartFrame": 1256,
-      "speechEndFrame": 1541
+      "startFrame": 1545,
+      "durationInFrames": 355,
+      "endFrame": 1900,
+      "speechStartFrame": 1554,
+      "speechEndFrame": 1892
     },
     {
       "id": "control",
@@ -310,11 +310,11 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1549,
-      "durationInFrames": 214,
-      "endFrame": 1763,
-      "speechStartFrame": 1557,
-      "speechEndFrame": 1755
+      "startFrame": 1900,
+      "durationInFrames": 261,
+      "endFrame": 2161,
+      "speechStartFrame": 1908,
+      "speechEndFrame": 2153
     },
     {
       "id": "risk",
@@ -360,11 +360,11 @@
       },
       "visualId": "06-risk",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1763,
-      "durationInFrames": 394,
-      "endFrame": 2157,
-      "speechStartFrame": 1772,
-      "speechEndFrame": 2142
+      "startFrame": 2161,
+      "durationInFrames": 508,
+      "endFrame": 2669,
+      "speechStartFrame": 2170,
+      "speechEndFrame": 2653
     }
   ]
 }

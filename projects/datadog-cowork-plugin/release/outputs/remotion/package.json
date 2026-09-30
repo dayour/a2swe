@@ -4,6 +4,7 @@
   "scripts": {
     "preview": "remotion preview src/index.tsx",
     "audio": "node scripts/synthesize-audio.mjs",
+    "audio:qa": "node scripts/audio-qa.mjs",
     "render": "node scripts/render-mp4.mjs",
     "typecheck": "tsc --noEmit",
     "qc": "node scripts/verify-mp4.mjs"

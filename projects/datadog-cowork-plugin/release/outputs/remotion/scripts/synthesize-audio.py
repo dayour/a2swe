@@ -151,6 +151,14 @@ def import_audio_deps():
     return np, sf, resample_poly
 
 
+def import_filter_deps():
+    try:
+        from scipy.signal import butter, sosfiltfilt
+    except ImportError as exc:
+        fail(f'missing required audio cleanup dependency from requirements.lock.txt: {exc.name}')
+    return butter, sosfiltfilt
+
+
 def validate_narration(payload: dict[str, object]) -> str:
     if payload.get('schemaVersion') != '1.0.0':
         fail('narration schemaVersion must be 1.0.0')
@@ -264,6 +272,66 @@ def resample_to_target(audio, sample_rate: int, target_rate: int):
     return np.asarray(resample_poly(audio, target_rate // divisor, sample_rate // divisor), dtype=np.float32)
 
 
+def rms_dbfs(audio) -> float:
+    np, _, _ = import_audio_deps()
+    array = np.asarray(audio, dtype=np.float32)
+    if array.size == 0:
+        return -240.0
+    rms = float(np.sqrt(np.mean(np.square(array))))
+    return 20.0 * math.log10(max(rms, 1e-12))
+
+
+def spectral_cleanup_metrics(audio, sample_rate: int) -> dict[str, float]:
+    np, _, _ = import_audio_deps()
+    array = np.asarray(audio, dtype=np.float32).reshape(-1)
+    if array.size < 4096:
+        return {'rmsDbfs': rms_dbfs(array), 'highFrequencyRatio8k': 0.0, 'spectralFlatness': 0.0, 'dcOffset': float(np.mean(array)) if array.size else 0.0}
+    window = min(65536, 1 << (array.size.bit_length() - 1))
+    offset = max(0, (array.size - window) // 2)
+    sample = array[offset:offset + window] * np.hanning(window)
+    power = np.square(np.abs(np.fft.rfft(sample)))
+    frequencies = np.fft.rfftfreq(window, 1 / sample_rate)
+    audible = power[(frequencies >= 80) & (frequencies <= min(20000, sample_rate / 2))]
+    high = power[frequencies >= 8000]
+    positive = audible[audible > 1e-20]
+    flatness = float(np.exp(np.mean(np.log(positive))) / np.mean(positive)) if positive.size else 0.0
+    return {
+        'rmsDbfs': rms_dbfs(array),
+        'highFrequencyRatio8k': float(np.sum(high) / max(np.sum(audible), 1e-30)),
+        'spectralFlatness': flatness,
+        'dcOffset': float(np.mean(array)),
+    }
+
+
+def cleanup_audio(audio, sample_rate: int, timings):
+    np, _, _ = import_audio_deps()
+    mode = os.environ.get('A2SWE_AUDIO_CLEANUP', 'auto').strip().lower()
+    if mode not in ('auto', 'off', 'on'):
+        fail('A2SWE_AUDIO_CLEANUP must be auto, off, or on')
+    array = np.asarray(audio, dtype=np.float32).reshape(-1)
+    before = spectral_cleanup_metrics(array, sample_rate)
+    cleaned = np.asarray(array, dtype=np.float32).copy()
+    actions = []
+    if mode != 'off' and abs(before['dcOffset']) > 1e-4:
+        for segment in timings:
+            start = round(segment['startSeconds'] * sample_rate)
+            end = round(segment['endSeconds'] * sample_rate)
+            if end > start:
+                cleaned[start:end] -= float(np.mean(cleaned[start:end]))
+        actions.append('dc_offset_removed')
+    measured_hiss = before['highFrequencyRatio8k'] > 0.05 and before['spectralFlatness'] > 0.02 and before['rmsDbfs'] > -70
+    if mode == 'on' or (mode == 'auto' and measured_hiss):
+        butter, sosfiltfilt = import_filter_deps()
+        cutoff = float(os.environ.get('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ', '11500'))
+        if not math.isfinite(cutoff) or cutoff <= 1000 or cutoff >= sample_rate / 2:
+            fail('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ must be a finite frequency between 1000 Hz and Nyquist')
+        sos = butter(4, cutoff, btype='lowpass', fs=sample_rate, output='sos')
+        cleaned = sosfiltfilt(sos, cleaned).astype(np.float32)
+        actions.append('measured_lowpass_denoise')
+    after = spectral_cleanup_metrics(cleaned, sample_rate)
+    return cleaned, {'mode': mode, 'actions': actions, 'before': before, 'after': after}
+
+
 def write_wav(path: Path, audio, sample_rate: int, channels: int) -> None:
     np, _, _ = import_audio_deps()
     array = np.asarray(audio, dtype=np.float32)
@@ -328,6 +396,7 @@ def main() -> None:
     output_rate = int(payload['sampleRate'])
     output_channels = int(payload['channels'])
     audio = resample_to_target(samples, input_rate, output_rate)
+    audio, cleanup_info = cleanup_audio(audio, output_rate, timings)
     output_wav = root / str(payload['outputWav'])
     write_wav(output_wav, audio, output_rate, output_channels)
     duration = probe_duration(output_wav)
@@ -359,6 +428,7 @@ def main() -> None:
         'voice': voice_info,
         'models': model_files,
         'forks': forks,
+        'audioCleanup': cleanup_info,
         'producer': Path(__file__).relative_to(root).as_posix(),
         'producerSha256': sha256_path(Path(__file__)),
         'requirementsLockSha256': sha256_path(root / 'requirements.lock.txt'),

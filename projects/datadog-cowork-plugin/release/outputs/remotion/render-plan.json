@@ -11,7 +11,7 @@
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "durationInFrames": 2157,
+    "durationInFrames": 2669,
     "sampleRate": 48000
   },
   "paths": {
@@ -23,6 +23,9 @@
     "audio": "public/assets/datadog-cowork-plugin/audio.wav",
     "narrationManifest": "speech/narration-manifest.json",
     "narrationMetadata": "audio/narration-metadata.json",
+    "audioQaScript": "scripts/audio-qa.mjs",
+    "audioQaReport": "qc/audio-qa.json",
+    "audioSpectrogram": "qc/audio-spectrogram.svg",
     "requirementsLock": "requirements.lock.txt",
     "tsconfig": "tsconfig.json",
     "remotionConfig": "remotion.config.ts",
@@ -38,6 +41,7 @@
     "preview": "npm run preview",
     "typecheck": "npm run typecheck",
     "audio": "npm run audio",
+    "audioQa": "npm run audio:qa",
     "render": "npm run render",
     "qc": "npm run qc"
   },

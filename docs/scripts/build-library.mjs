@@ -66,22 +66,24 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
     const name = path.basename(file);
     const revisionId = `${id}/${name}`;
     const digest = hash(readFileSync(file));
-    if (refresh) {
+    const bytes = statSync(file).size;
+    const poster = `library/posters/${id}-${name}.jpg`;
+    if (refresh && (metadata[source]?.digest !== digest || metadata[source]?.bytes !== bytes
+      || !existsSync(path.join(docs, 'static', poster)))) {
       const probe = JSON.parse(execFileSync(ffprobe, ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', file], {encoding: 'utf8'}));
       const stream = probe.streams.find((s) => s.codec_type === 'video');
       if (!stream) throw new Error(`No video stream: ${source}`);
       const [n, d] = stream.avg_frame_rate.split('/').map(Number);
-      metadata[source] = {digest, bytes: statSync(file).size, width: stream.width, height: stream.height,
+      metadata[source] = {digest, bytes, width: stream.width, height: stream.height,
         fps: n / d, duration: Number(stream.duration ?? probe.format.duration), codec: stream.codec_name};
-      const poster = path.join(mediaOut, 'posters', `${id}-${name}.jpg`);
-      mkdirSync(path.dirname(poster), {recursive: true});
-      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', '2', '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', poster]);
+      const posterFile = path.join(docs, 'static', poster);
+      mkdirSync(path.dirname(posterFile), {recursive: true});
+      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', '2', '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
     }
     const data = metadata[source];
-    if (!data || data.digest !== digest || data.bytes !== statSync(file).size) {
+    if (!data || data.digest !== digest || data.bytes !== bytes) {
       throw new Error(`Unindexed or changed movie: ${source}. Run npm --prefix docs run library:refresh with FFMPEG and FFPROBE configured.`);
     }
-    const poster = `library/posters/${id}-${name}.jpg`;
     if (!existsSync(path.join(docs, 'static', poster))) throw new Error(`Missing poster: ${poster}`);
     const movie = `library/videos/${id}/${name}`;
     const destination = path.join(docs, 'static', movie);

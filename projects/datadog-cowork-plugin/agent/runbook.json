@@ -2,147 +2,162 @@
   "schemaVersion": "1.0.0",
   "runbookId": "datadog-cowork-plugin",
   "projectId": "datadog-cowork-plugin",
-  "updatedAt": "2026-09-29T17:46:59.300Z",
-  "domainDigest": null,
-  "contentDigest": null,
-  "stage": "scaffold",
+  "updatedAt": "2026-09-30T03:28:43.549Z",
+  "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "stage": "delivery",
   "gates": [
     {
       "name": "domain",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c"
     },
     {
-      "name": "scope",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b"
     },
     {
-      "name": "narration",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
-    },
-    {
-      "name": "voice",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
-    },
-    {
-      "name": "brand",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
-    },
-    {
-      "name": "pilot",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "20238ac511e1f86048d41e91a0d5fb264d4722573e9f29f8e71945ec541db400"
     },
     {
       "name": "release",
-      "status": "pending",
-      "evidencePath": null,
-      "evidenceDigest": null
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "b199d463e3a1801f926e77982aab79cbf69fb0650c30101932581ffc02e5477e"
     }
   ],
   "stages": [
     {
       "name": "scaffold",
-      "status": "not_started",
-      "owner": null,
+      "status": "complete",
+      "owner": "a2swe",
       "dependencies": [],
-      "evidencePaths": []
+      "evidencePaths": ["agent/SWE_AGENT.md"]
     },
     {
       "name": "research",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "scaffold"
-      ],
-      "evidencePaths": []
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["scaffold"],
+      "evidencePaths": ["release/domain-pack.json"]
     },
     {
-      "name": "narration",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "research"
-      ],
-      "evidencePaths": []
-    },
-    {
-      "name": "storyboard",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "narration"
-      ],
-      "evidencePaths": []
-    },
-    {
-      "name": "visuals",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "storyboard"
-      ],
-      "evidencePaths": []
-    },
-    {
-      "name": "pilot",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "visuals"
-      ],
-      "evidencePaths": []
-    },
-    {
-      "name": "build",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "pilot"
-      ],
-      "evidencePaths": []
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["research"],
+      "evidencePaths": ["release/content-ir.json", "release/render-spec.json"]
     },
     {
       "name": "render",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "build"
-      ],
-      "evidencePaths": []
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["content"],
+      "evidencePaths": [
+        "release/outputs/remotion/dist/render.mp4",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx"
+      ]
     },
     {
       "name": "qc",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "render"
-      ],
-      "evidencePaths": []
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["render"],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "release/parity-manifest.json"
+      ]
     },
     {
       "name": "delivery",
-      "status": "not_started",
-      "owner": null,
-      "dependencies": [
-        "qc"
-      ],
-      "evidencePaths": []
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["qc"],
+      "evidencePaths": ["release/asset-inventory.json", "release/release-plan.json"]
     }
   ],
-  "artifacts": [],
-  "blockers": [
-    "Domain evidence, scope, narration, voice, brand, pilot, and release checks are pending."
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "e981332f6962361007c98a04fe9544f889f830e3e2f70629a8337d9c9d4c1fa2",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "6c7aa200daad147284bdfb8037077746a2553c70407bbc2787a616cd7ab18747",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "984f8999dde6e5d49587f63a62c18c16439d7c6af277be91794f79f0f5d62723",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "24e44309473fabd4b489baec7969a2426edcac3801ee68cc241c441fd889dc12",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "20238ac511e1f86048d41e91a0d5fb264d4722573e9f29f8e71945ec541db400",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "e641580eafdad4b66a1a474e7d40beda3d26de72d64fabfa9c4d88a48db8db09",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "b199d463e3a1801f926e77982aab79cbf69fb0650c30101932581ffc02e5477e",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "2aace5f5eca94955fef345f9b2d4ef2c7d60f6996bbe57b3a49f87265a3911b7",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    }
   ],
-  "nextAction": "Initialize the project brief and record the first verified scaffold transition."
+  "blockers": [],
+  "nextAction": "Generate the next agent-specific status update with the core release pipeline; investigate any listener-reported audio transitions."
 }

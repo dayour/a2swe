@@ -34,15 +34,19 @@ This entry is an audio quality-assurance profile. It is not:
   Pop-Location
   ```
 
-- Report objective measurements: speech RMS dBFS, non-speech RMS dBFS,
-  speech-versus-silence SNR, high-frequency energy ratio above 8 kHz, spectral
-  flatness, peak dBFS, input digest, producer, engine, and voice.
+- Report objective measurements: speech RMS dBFS, whole-gap and interior-gap
+  RMS dBFS, interior-gap SNR, high-frequency energy ratio above 8 kHz,
+  spectral flatness, peak dBFS, input digest, producer, engine, and voice.
+- Distinguish AAC boundary energy from steady noise. The managed QA excludes
+  100 ms at each gap boundary when evaluating the interior noise floor,
+  preserves whole-gap metrics for diagnosis, and rejects relaxed thresholds.
 - Treat a finding as actionable only when the measured report fails its
   thresholds or the spectrogram shows broadband energy that correlates with
   audible hiss/static.
 - Keep cleanup minimally invasive. Prefer the core-managed `A2SWE_AUDIO_CLEANUP`
   controls over ad hoc file edits:
-  - `auto` measures first and cleans only when a hiss signature is present
+  - `auto` removes measured speech-segment DC offset and filters only when a
+    hiss signature is present; inserted silence remains untouched
   - `on` forces measured low-pass denoise after validation
   - `off` disables cleanup
 - Never overwrite release evidence without preserving the previous digest and

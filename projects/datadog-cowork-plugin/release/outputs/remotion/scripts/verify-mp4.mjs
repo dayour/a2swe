@@ -70,6 +70,7 @@ const aacPadding = 3 * 1024 / timeline.sampleRate;
 if (!Number.isFinite(duration) || duration < expectedDuration - durationTolerance || duration > Math.max(expectedDuration + durationTolerance, videoDuration + aacPadding)) {
   fail(`expected narration duration ${expectedDuration}s through video duration ${videoDuration}s plus AAC padding ${aacPadding}s, got ${duration}s`);
 }
+run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg', '--verify-only'], 'encoded audio spectrogram QA');
 const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-3', file: plan.encodedMp4Path,
   contentDigest: plan.contentDigest, outputSha256, video, audio, container: probe.format };
 if (!process.argv.includes('--verify-only')) {

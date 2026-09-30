@@ -147,6 +147,7 @@ writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
   sampleRate: timeline.sampleRate,
   assets: manifest.assets.map((asset) => asset.assetId)
 }, null, 2) + '\n');
+run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg'], 'encoded audio spectrogram QA');
 run(process.execPath, ['scripts/verify-mp4.mjs'], 'encoded MP4 QC');
 console.log(JSON.stringify({ output: plan.encodedMp4Path, sha256: outputHash, adapter: 'a2swe-remotion-mp4-adapter-3',
-  qc: 'qc/mp4-qc.json', narrationDurationSeconds: audioProbe.duration }));
+  qc: 'qc/mp4-qc.json', audioQa: 'qc/audio-qa.json', audioSpectrogram: 'qc/audio-spectrogram.svg', narrationDurationSeconds: audioProbe.duration }));
