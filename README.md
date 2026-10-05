@@ -27,6 +27,10 @@ domain SWE agent and all eight presentation formats, including narrated video.
 Expand **Pro mode** only to customize sources, library context, voice, speed,
 formats, naming, or guided tool approvals. Resolved defaults are persisted in
 the project's generation specification.
+Executive decision-makers are the default audience: lead with the decision,
+why it matters, supported impact, risks, and next actions. Pro mode can override
+the audience. Customer and market research must distinguish verified sources,
+referenced records and ambiguous entity matches.
 See the [desktop guide](docs/content/platform/desktop.md) for runtime requirements,
 permissions, and the distinction between draft intake and verified domain context.
 
@@ -223,10 +227,11 @@ QC directory. Old model evidence lives with its project.
 QC indexes inventory hashes, not quality approvals. Existing self-contained
 release packages keep their internal QC paths intact.
 
-Narration is synthesized per paragraph, separated by blank lines. When paragraph
-count matches scene count, the renderer derives scene timing and captions from
-measured speech segments. Otherwise it distributes scene cuts proportionally by
-text length. Captions are burned into the video. Spoken-form spellings such as
+Narration is synthesized per paragraph, separated by blank lines. Global captions
+come from actual measured narration, independent of scene count. Scene timing
+uses proven transcript/scene mappings when available; otherwise visual cuts are
+proportional and their provenance is explicit. Captions are burned into the video.
+Spoken-form spellings such as
 `H I P A A` and `O Auth` are normalized to written form in captions and documents.
 
 The core-managed Remotion scene design uses a dark backdrop, animated glow and

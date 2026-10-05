@@ -9,7 +9,8 @@ import type { CopilotSession, PermissionHandler, SessionConfig } from '@github/c
 import { validate } from '../../../packages/core/src/contracts.ts';
 import { digest } from '../../../packages/core/src/canonical.ts';
 import type { GenerationRequest } from '../../../packages/core/src/contracts.ts';
-import { callLocalTool, LOCAL_TOOL_NAMES } from './mcp-server.ts';
+import { callLocalTool } from './mcp-server.ts';
+import { MediaReviewService } from './media-review.ts';
 import { deadline, permissionMode, profileClient, profilePermissions, profileSession } from './profile.ts';
 import { inspectRuntime, resolveRuntime, sdkRuntimeCapabilities } from './runtime.ts';
 import {
@@ -132,6 +133,7 @@ class DesktopBridge {
   private agentBusy = false;
   private activeGenerationStateFile?: string;
   private generationLaunch?: { controller: AbortController; stateFile: string };
+  private mediaReview?: MediaReviewService;
   private readonly stateFile: string;
 
   constructor(workspace: string) {
@@ -185,6 +187,36 @@ class DesktopBridge {
           kind: stringParam(params, 'kind', false),
           sources: Array.isArray(params.sources) ? params.sources.filter((source): source is string => typeof source === 'string') : undefined
         });
+      case 'review.list':
+        return this.ensureMediaReview().then((service) => service.list(stringParam(params, 'projectId', false)));
+      case 'review.open':
+        return this.ensureMediaReview().then((service) => service.open({ projectId: stringParam(params, 'projectId', false), path: stringParam(params, 'path', false), kind: stringParam(params, 'kind', false) as 'video' | 'audio' | 'image' | 'studio' | undefined }));
+      case 'review.state':
+        return this.ensureMediaReview().then((service) => service.state(stringParam(params, 'reviewId', false)));
+      case 'review.seek':
+        return this.ensureMediaReview().then((service) => service.requestControl(stringParam(params, 'reviewId')!, 'seek', typeof params.timeSeconds === 'number' ? params.timeSeconds : 0));
+      case 'review.play':
+        return this.ensureMediaReview().then((service) => service.requestControl(stringParam(params, 'reviewId')!, 'play'));
+      case 'review.pause':
+        return this.ensureMediaReview().then((service) => service.requestControl(stringParam(params, 'reviewId')!, 'pause'));
+      case 'review.ack':
+        return this.ensureMediaReview().then((service) => service.ack({ reviewId: stringParam(params, 'reviewId')!, requestId: stringParam(params, 'requestId')!, timeSeconds: typeof params.timeSeconds === 'number' ? params.timeSeconds : undefined, playing: typeof params.playing === 'boolean' ? params.playing : undefined, error: stringParam(params, 'error', false) }));
+      case 'review.update':
+        return this.ensureMediaReview().then((service) => service.updatePlayback({ reviewId: stringParam(params, 'reviewId')!, timeSeconds: typeof params.timeSeconds === 'number' ? params.timeSeconds : 0, playing: params.playing === true, rate: typeof params.rate === 'number' ? params.rate : undefined }));
+      case 'review.frame':
+        return this.ensureMediaReview().then(async (service) => {
+          const result = await service.frame(stringParam(params, 'reviewId')!, typeof params.timeSeconds === 'number' ? params.timeSeconds : 0);
+          return { mimeType: result.mimeType, data: result.data, path: result.path };
+        });
+      case 'review.subtitles':
+        return this.ensureMediaReview().then((service) => service.subtitles(stringParam(params, 'reviewId')!));
+      case 'review.spectrogram':
+        return this.ensureMediaReview().then(async (service) => {
+          const result = await service.spectrogram(stringParam(params, 'reviewId')!, typeof params.startSeconds === 'number' ? params.startSeconds : 0, typeof params.endSeconds === 'number' ? params.endSeconds : undefined);
+          return { mimeType: result.mimeType, data: result.data };
+        });
+      case 'review.studio':
+        return this.ensureMediaReview().then((service) => service.studio(stringParam(params, 'projectId', false)));
       default:
         throw new Error(`unknown_method: ${envelope.method}`);
     }
@@ -537,7 +569,7 @@ class DesktopBridge {
   }
 
   private async buildGenerationRequest(params: JsonObject): Promise<GenerationRequest> {
-    const allowed = new Set(['id', 'name', 'kind', 'brief', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode']);
+    const allowed = new Set(['id', 'name', 'kind', 'brief', 'audience', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode']);
     for (const key of Object.keys(params)) if (!allowed.has(key)) throw new Error(`unknown_generation_option: ${key}`);
     const brief = stringParam(params, 'brief')!.trim();
     const registry: unknown = JSON.parse(await readFile(path.join(this.workspace, 'library', 'assets', 'speech', 'voice-profiles.json'), 'utf8'));
@@ -549,6 +581,7 @@ class DesktopBridge {
       name: params.name === undefined ? inferredName || brief.slice(0, 120) : stringParam(params, 'name')!.trim(),
       kind: params.kind === undefined ? 'topic' : params.kind,
       brief,
+      audience: params.audience === undefined ? 'Executive decision-makers' : stringParam(params, 'audience')!.trim(),
       sources: params.sources === undefined
         ? [...new Set((brief.match(/https?:\/\/[^\s<>"`]+/g) ?? []).map(url => url.replace(/[.,;!?)\]]+$/, '')))]
         : stringArrayParam(params, 'sources'),
@@ -682,9 +715,13 @@ class DesktopBridge {
   private generationPrompt(request: GenerationRequest, requestPath: string, intakeResults: unknown[]) {
     return [
       'Run autonomous a2swe project generation for the selected project.',
+      'The coordinator has already created this project and session. Do not call project.generate or start a nested generation; execute the existing core authoring, production and verification operations for this request.',
       'Use only source-backed contracts and repository tools; do not invent facts or brand knowledge.',
       'Do not request human editorial signoff. If a gate fails, repair and rerun the relevant local validation until the selected outputs are coherent or report a hard blocker.',
       'Use the persisted GenerationRequest as the source of truth.',
+      `Audience: ${request.audience ?? 'Executive decision-makers'}. Lead with the bottom line and decision, explain business impact and why it matters now, then the few facts, risks and next actions that change the decision. Avoid a feature-by-feature walkthrough.`,
+      'Apply library/agents/a2swe-executive-engagement.agent.md. Use its identity, source-access, record-attribution and coverage rules when gathering customer, product, market or industry evidence.',
+      'Prefer existing authorized read-only connectors when enterprise context is requested. Inspect actual tool schemas and connection status first. Never invent connector access, record identifiers, dates, metrics or customer matches.',
       JSON.stringify({
         generationRequestPath: requestPath,
         request,
@@ -695,6 +732,7 @@ class DesktopBridge {
           'Generate all requested output formats; the default is the agent plus all eight presentation formats including narrated 1080p video.',
           'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
           'Run project QC and core verification gates relevant to selected formats.',
+          'Review actual rendered frames, subtitles and audio/spectrogram evidence. Repair unreadable layouts, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
           'Preserve citations/provenance and avoid protected/private source transfer.'
         ]
       }, null, 2)
@@ -728,6 +766,7 @@ class DesktopBridge {
       return promise;
     } : profilePermissions(permissions);
     const config = profileSession(this.workspace, permissionHandler, this.sessionModel ? { model: this.sessionModel } : {});
+    const mediaReview = await this.ensureMediaReview();
     const context = await this.agentSystemContext();
     config.clientName = 'a2swe-tauri-widget';
     config.streaming = true;
@@ -739,7 +778,8 @@ class DesktopBridge {
         command: process.execPath,
         args: [path.join(INTEGRATION_ROOT, 'mcp-server.ts'), '--workspace', this.workspace],
         workingDirectory: this.workspace,
-        timeout: 120000
+        timeout: 35 * 60_000,
+        env: { A2SWE_MEDIA_REVIEW_URL: mediaReview.baseUrl, A2SWE_MEDIA_REVIEW_TOKEN: mediaReview.token }
       }
     };
     config.skillDirectories = [path.join(this.workspace, 'library', 'skills')];
@@ -763,7 +803,8 @@ class DesktopBridge {
       `Workspace: ${this.workspace}`,
       `Active project: ${activeProject ? `${activeProject.name} (${activeProject.path})` : 'none selected'}`,
       `Core commands available through MCP a2swe.core_command only, not arbitrary shell: ${CORE_COMMANDS.join(', ')}`,
-      `MCP tools available: ${LOCAL_TOOL_NAMES.join(', ')}`,
+      'Discover executable MCP tools from the configured server. The helper tools catalog separates callable workspace tools from native bridgeMethods; do not invoke native-only methods through a2swe.tools_call.',
+      'For actual media review use review.list, review.open, review.frame, review.subtitles and review.spectrogram. Playback controls operate the native player and require its acknowledgement.',
       `Library inventory counts: agents=${library.agents.length}, skills=${library.skills.length}, plugins=${library.plugins.length}, documents=${library.documents.length}, assets=${library.assets.length}, resources=${(library.resources ?? []).length}.`,
       'Use MCP tools a2swe.context, a2swe.library, a2swe.knowledge_search, and MCP resources for targeted retrieval instead of relying on preloaded knowledge.',
       'Repository library skills and agent markdown are exposed as context/resources. Do not claim that markdown files execute autonomously; they are references unless an explicit tool or SDK workflow invokes behavior.',
@@ -852,6 +893,7 @@ class DesktopBridge {
         await this.client.forceStop().catch(() => undefined);
       }
     }
+    await this.mediaReview?.close().catch(() => undefined);
   }
 
   private async disconnectSession() {
@@ -883,6 +925,12 @@ class DesktopBridge {
   async diagnostics() {
     const runtime = this.runtime.cli ? await inspectRuntime(this.runtime).catch((error) => ({ error: errorMessage(error) })) : sdkRuntimeCapabilities(this.runtime);
     return { workspace: this.workspace, runtime };
+  }
+
+  private async ensureMediaReview(): Promise<MediaReviewService> {
+    this.mediaReview ??= new MediaReviewService(this.workspace, (name, data) => event(name, data));
+    await this.mediaReview.start();
+    return this.mediaReview;
   }
 }
 

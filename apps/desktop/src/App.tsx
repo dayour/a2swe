@@ -1,10 +1,11 @@
-import {useEffect, useState} from 'react';
-import {ArrowUpRight, Bot, CircleAlert, FolderOpen, FolderPlus, Library, MessageSquare, Search, Send, Settings2, ShieldCheck, Sparkles, Square, Wrench, X} from 'lucide-react';
+import {useCallback, useEffect, useState} from 'react';
+import {ArrowUpRight, Bot, CircleAlert, Film, FolderOpen, FolderPlus, Library, MessageSquare, Search, Send, Settings2, ShieldCheck, Sparkles, Square, Waves, Wrench, X} from 'lucide-react';
 import {invoke} from '@tauri-apps/api/core';
 import {getCurrentWindow} from '@tauri-apps/api/window';
 import {bridgeRequest, focusMain, hideWidget, imageData, isNative, readSettings, saveSettings, showWidget} from './bridge';
 import {useAgent} from './agent';
 import {NewProject} from './NewProject';
+import {MediaWorkspace, StudioWorkspace} from './MediaWorkspace';
 import type {AppSettings, LibraryItem, PermissionMode, Project, RuntimeStatus} from './types';
 
 type Agent = ReturnType<typeof useAgent>;
@@ -60,7 +61,8 @@ function Widget() {
       event.preventDefault();
       void getCurrentWindow().startDragging().catch(agent.reportError);
     }}>
-      <div className="brand-mark small"><Sparkles size={14}/></div><div className="widget-title"><strong>a2swe</strong><span>{agent.state}{agent.activeProjectId ? ` · ${agent.activeProjectId}` : ''}</span></div>
+      <div className="brand-mark small"><Sparkles size={14}/></div><div className="widget-title"><strong>a2swe</strong><span>{agent.state}{agent.activeProjectId ? ` · ${agent.activeProjectId}` : ''}</span>
+        {agent.activities[0] && <span>{agent.activities[0].name} · {agent.activities[0].status}</span>}</div>
       <button className="icon-button" title="Stop agent" onClick={() => void bridgeRequest('agent.abort', {projectId: agent.activeProjectId}).catch(agent.reportError)}><Square size={13}/></button>
       <button className="icon-button" title="Open console" onClick={() => void focusMain().catch(agent.reportError)}><ArrowUpRight size={15}/></button>
       <button className="icon-button" title="Hide widget" onClick={() => void hideWidget().catch(agent.reportError)}><X size={15}/></button>
@@ -92,6 +94,8 @@ function Console() {
   const [toolName, setToolName] = useState('');
   const [toolArguments, setToolArguments] = useState('{}');
   const [toolOutput, setToolOutput] = useState<unknown>();
+  const activateStudio = useCallback(() => setActiveTab('studio'), []);
+  const activateReview = useCallback(() => setActiveTab('review'), []);
   async function refresh() {
     const [nextStatus, nextProjects, nextLibrary, toolCatalog] = await Promise.all([
       bridgeRequest<RuntimeStatus>('status'), bridgeRequest<{projects: Project[]}>('projects'),
@@ -118,7 +122,7 @@ function Console() {
   }
   const selected = projects.find(project => project.id === selectedProject);
   const items = searchResults ?? library.filter(item => !search || `${item.title ?? item.name} ${item.description ?? ''} ${item.tags?.join(' ') ?? ''}`.toLowerCase().includes(search.toLowerCase()));
-  return <div className="app-shell">
+  return <div className={`app-shell ${activeTab === 'studio' ? 'studio-mode' : ''}`}>
     <header className="topbar"><div className="brand-lockup"><div className="brand-mark"><Sparkles size={17}/></div><div><strong>a2swe</strong><span>native production workspace</span></div></div>
       <div className="topbar-center"><span className={`status-dot ${status?.connected ? '' : 'danger'}`}/>{status?.connected ? `${status.authenticated ? 'Copilot connected' : 'Sign in to Copilot'} · ${agent.state}` : 'Disconnected'}</div>
       <div className="topbar-actions"><button className="secondary-button" disabled={!isNative} onClick={() => void showWidget().catch(agent.reportError)}><Bot size={15}/> Floating agent</button>
@@ -144,9 +148,11 @@ function Console() {
         {agent.generation.completion && <p>Verified release: {agent.generation.completion.releasePath}</p>}
         {['failed', 'needs-attention'].includes(agent.generation.state) && <button className="secondary-button" onClick={() => setActiveTab('chat')}>Continue with agent</button>}
       </section>}
-      <div className="console-grid"><section className="chat-panel panel">
-        <nav className="panel-tabs">{[['chat', 'Agent chat', MessageSquare], ['library', 'Library', Library], ['intake', 'Brand intake', FolderOpen], ['tools', 'Tools', Wrench]].map(([id, label, Icon]) =>
+      <div className={`console-grid ${['studio', 'review'].includes(activeTab) ? 'review-expanded' : ''}`}><section className="chat-panel panel">
+        <nav className="panel-tabs">{[['chat', 'Agent chat', MessageSquare], ['studio', 'Studio', Film], ['review', 'Media review', Waves], ['library', 'Library', Library], ['intake', 'Brand intake', FolderOpen], ['tools', 'Tools', Wrench]].map(([id, label, Icon]) =>
           <button key={String(id)} className={activeTab === id ? 'active' : ''} onClick={() => setActiveTab(String(id))}>{typeof Icon !== 'string' && <Icon size={15}/>} {String(label)}</button>)}</nav>
+        <StudioWorkspace active={activeTab === 'studio'} projectId={selectedProject} onActivate={activateStudio} reportError={agent.reportError}/>
+        <MediaWorkspace active={activeTab === 'review'} projectId={selectedProject} onActivate={activateReview} reportError={agent.reportError}/>
         {activeTab === 'chat' && <Conversation agent={agent} disabled={selectedProject !== agent.activeProjectId}/>}
         {activeTab === 'library' && <div className="library-view">
           <form className="library-search" onSubmit={event => { event.preventDefault(); void action(async () => {
@@ -190,7 +196,7 @@ function Console() {
           <p>Run tool executes the selected local operation as your OS user. Review write and render arguments before running.</p>
           <button className="primary-button" disabled={!toolName || busy || !isNative}>Run tool</button>{toolOutput !== undefined && <pre>{JSON.stringify(toolOutput, null, 2)}</pre>}
         </form>}
-      </section><aside className="activity-panel panel"><div className="activity-header"><Wrench size={15}/><h2>Tool activity</h2></div><Requests agent={agent}/>{agent.activities.map(activity =>
+      </section><aside className="activity-panel panel" hidden={['studio', 'review'].includes(activeTab)}><div className="activity-header"><Wrench size={15}/><h2>Tool activity</h2></div><Requests agent={agent}/>{agent.activities.map(activity =>
         <div key={activity.id} className="activity-item"><strong>{activity.name}</strong><span>{activity.status}</span>{activity.details && <details><summary>Details</summary><pre>{activity.details}</pre></details>}</div>)}</aside></div>
     </main></div>
     {newProjectOpen && <NewProject library={library} profiles={profiles} selected={projectContext} busyAgent={agent.state === 'running' || agent.generation?.state === 'running'}

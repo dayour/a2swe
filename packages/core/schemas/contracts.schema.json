@@ -29,6 +29,7 @@
         "name": { "type": "string", "minLength": 1, "maxLength": 160 },
         "kind": { "enum": ["company", "customer", "topic", "framework", "repository", "tool"] },
         "brief": { "type": "string", "minLength": 1, "maxLength": 12000 },
+        "audience": { "type": "string", "minLength": 1, "maxLength": 200, "default": "Executive decision-makers" },
         "sources": { "type": "array", "maxItems": 20, "uniqueItems": true,
           "items": { "type": "string", "minLength": 8, "maxLength": 2048, "pattern": "^https?://" } },
         "libraryPaths": { "type": "array", "maxItems": 40, "uniqueItems": true,

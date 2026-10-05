@@ -23,6 +23,7 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
   const [id, setId] = useState('');
   const [idEdited, setIdEdited] = useState(false);
   const [kind, setKind] = useState<GenerationRequest['kind']>('topic');
+  const [audience, setAudience] = useState('Executive decision-makers');
   const [brief, setBrief] = useState('');
   const [sourceText, setSourceText] = useState('');
   const [paths, setPaths] = useState(selected);
@@ -62,6 +63,7 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
       brief: brief.trim(),
       ...(id ? {id} : {}), ...(name.trim() ? {name: name.trim()} : {}),
       ...(kind !== 'topic' ? {kind} : {}),
+      ...(audience !== 'Executive decision-makers' ? {audience} : {}),
       ...(sources.length ? {sources} : {}),
       ...(paths.length ? {libraryPaths: paths} : {}),
       ...(voiceEdited ? {voiceProfile} : {}),
@@ -86,6 +88,7 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
     <div className="pro-mode-toggle"><button type="button" className="secondary-button" aria-expanded={proMode} aria-controls="project-pro-settings" onClick={() => setProMode(value => !value)}>{proMode ? 'Hide Pro settings' : 'Pro mode'}</button>
       <span>{paths.length ? `${paths.length} library item${paths.length === 1 ? '' : 's'} attached · ` : ''}{mode === 'auto' ? 'Auto generation' : 'Guided generation'}{outputs.length !== formats.length ? ` · ${outputs.length} selected formats` : ''}</span></div>
     <div id="project-pro-settings" className="new-project-columns" hidden={!proMode}><section>
+      <label>Audience<input aria-label="Project audience" maxLength={200} value={audience} onChange={event => setAudience(event.target.value)}/></label>
       <label>Project name (optional)<input aria-label="Project name" placeholder="From your prompt" maxLength={160} value={name} onChange={event => {
         setName(event.target.value);
         if (!idEdited) setId(event.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80));

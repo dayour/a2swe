@@ -1016,6 +1016,7 @@ export interface GenerationRequest {
   name: string;
   kind: "company" | "customer" | "topic" | "framework" | "repository" | "tool";
   brief: string;
+  audience?: string;
   /**
    * @maxItems 20
    */

@@ -41,6 +41,18 @@ const ALLOWED_METHODS: &[&str] = &[
     "tools.call",
     "tools.cancel",
     "intake",
+    "review.list",
+    "review.open",
+    "review.state",
+    "review.studio",
+    "review.seek",
+    "review.play",
+    "review.pause",
+    "review.ack",
+    "review.update",
+    "review.frame",
+    "review.subtitles",
+    "review.spectrogram",
 ];
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -237,6 +249,8 @@ impl BridgeManager {
             Duration::from_secs(1800)
         } else if method == "project.generate" {
             Duration::from_secs(600)
+        } else if method == "review.frame" || method == "review.spectrogram" {
+            Duration::from_secs(120)
         } else {
             BRIDGE_TIMEOUT
         };

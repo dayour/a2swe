@@ -72,8 +72,9 @@ library card to start with selected context. The default UI is one prompt and
 one Generate button. It creates a domain SWE agent and all eight presentation
 formats automatically. Expand **Pro mode** for multiple source URLs, library
 entries, voice and speed, naming, output selection, and guided execution.
-Guided mode requests tool approvals; Auto mode starts autonomous generation
-after the user explicitly selects it. Existing projects are never overwritten.
+Guided mode requests tool approvals; the default Generate action authorizes
+Auto generation as described beside the button. Existing projects are never
+overwritten.
 
 Auto mode verifies the requested release formats, runbook, domain companion and
 voice settings. It can make up to three corrective turns when verification
@@ -89,6 +90,25 @@ than treating a generated answer as proof that a command ran.
 The core remains responsible for schemas, source evidence, asset generation,
 speech, releases, and QC. Read and write tools operate on the selected workspace.
 Agent edits still need normal contract validation and output verification.
+
+## Studio and media review
+
+The Studio tab opens the complete compiled Remotion interface from
+`template/build_production/`, including its preview and timeline. It is a
+sandboxed local frame without native filesystem or shell privileges. The
+selected project's compiled Studio can also be opened when its bundle exists.
+
+Media review lists real video, audio and image outputs from the selected
+project. Its player supports seeking, subtitle inspection, decoded-frame
+capture and measured audio spectrograms. The transcript overlay is optional
+because produced videos can already contain burned-in captions.
+
+The floating agent uses MCP `review.*` tools against the same review service.
+Playback controls require acknowledgement from the real UI; the model cannot
+self-acknowledge a seek or claim that an absent player moved. Frame and
+spectrogram tools return actual PNG image content with progress events.
+Loopback control uses a private token, while local media/Studio assets use
+separate read grants and byte-range serving. Nothing is deployed to a cloud API.
 
 ## URL, company, and product intake
 

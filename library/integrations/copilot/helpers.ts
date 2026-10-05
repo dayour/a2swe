@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
+import type { ChildProcess } from 'node:child_process';
 import { lookup } from 'node:dns/promises';
 import { constants, createWriteStream } from 'node:fs';
 import { access, lstat, mkdir, opendir, readFile, realpath, rename, rm, stat, writeFile } from 'node:fs/promises';
@@ -366,25 +367,56 @@ const CORE_PATH_OPTIONS_BY_COMMAND: Partial<Record<(typeof CORE_COMMANDS)[number
   'asset-diffusion-collect': ['file', 'out']
 };
 
+const CORE_COMMAND_TIMEOUTS: Partial<Record<(typeof CORE_COMMANDS)[number], number>> = {
+  'release-produce': 30 * 60_000,
+  'release-verify': 15 * 60_000,
+  'audio-render': 10 * 60_000,
+  'asset-diffusion-submit': 10 * 60_000,
+  'asset-diffusion-collect': 10 * 60_000,
+  'asset-generate': 5 * 60_000,
+  'asset-import': 5 * 60_000,
+  'asset-fetch': 5 * 60_000,
+  'asset-job-run': 10 * 60_000,
+  'asset-job-export': 5 * 60_000,
+  'runbook-verify': 5 * 60_000,
+  'qc-index': 5 * 60_000,
+  'validate': 2 * 60_000,
+  'capabilities': 30_000,
+  'voice-profiles': 30_000
+};
+
 type JsonSchema = { type?: string; properties?: Record<string, JsonSchema>; required?: string[]; enum?: readonly string[] | string[]; items?: JsonSchema; description?: string; default?: unknown; additionalProperties?: boolean | JsonSchema };
 
-export const TOOL_SCHEMAS: Array<{ name: string; description: string; inputSchema: JsonSchema }> = [
-  { name: 'status', description: 'Return runtime/auth status. Starts the real Copilot SDK client before reporting connected:true.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+export const CALLABLE_TOOL_SCHEMAS: Array<{ name: string; description: string; inputSchema: JsonSchema }> = [
   { name: 'context', description: 'Refresh and return workspace, projects, tools, core commands, library catalog, and active project context.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'context.refresh', description: 'Alias for context; forces a fresh read of project/library/knowledge metadata from disk.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'projects', description: 'Return {projects:[{id,name,path,hasCanonical,hasQc}]} from the workspace.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'library', description: 'Return repository library agents, skills, plugins, assets, documents, profiles, and resource URIs.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'knowledge.search', description: 'Search library/assets/knowledge/catalog.json chunks/assets/documents.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, limit: { type: 'number', default: 10 } }, required: ['query'], additionalProperties: false } },
-  { name: 'tools.list', description: 'Return this complete tool schema catalog plus comprehensive core CLI command option map.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
-  { name: 'tools.call', description: 'Dispatch one local backend tool by name with JSON arguments.', inputSchema: { type: 'object', properties: { name: { type: 'string' }, arguments: { type: 'object', additionalProperties: true } }, required: ['name'], additionalProperties: false } },
-  { name: 'tools.cancel', description: 'Cancel one running JSONL tools.call by request id, or all running local tool operations when requestId is omitted.', inputSchema: { type: 'object', properties: { requestId: { type: 'string' } }, additionalProperties: false } },
   { name: 'intake', description: 'Store draft source/domain intake. URL inputs are SSRF-guarded public fetches; free text becomes a draft query with no invented claims. Optional sources support later agent enrichment.', inputSchema: { type: 'object', properties: { input: { type: 'string' }, projectId: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string' }, sources: { type: 'array', items: { type: 'string' } } }, required: ['input'], additionalProperties: false } },
-  { name: 'project.generate', description: 'Generate a domain SWE agent and all eight presentation formats from a brief alone. Optional Pro settings override defaults; persist the resolved GenerationRequest and run autonomous verified production. JSONL bridge only.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string', enum: ['company', 'customer', 'topic', 'framework', 'repository', 'tool'], default: 'topic' }, brief: { type: 'string' }, sources: { type: 'array', items: { type: 'string' } }, libraryPaths: { type: 'array', items: { type: 'string' } }, voiceProfile: { type: 'string' }, speed: { type: 'number', default: 1 }, formats: { type: 'array', items: { type: 'string', enum: ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] } }, mode: { type: 'string', enum: ['guided', 'auto'], default: 'auto' } }, required: ['brief'], additionalProperties: false } },
   { name: 'workspace.list', description: 'List non-secret workspace files/directories, excluding .git and out-of-workspace symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string', default: '.' }, depth: { type: 'number', default: 2 } }, additionalProperties: false } },
   { name: 'workspace.read', description: 'Read one bounded text file inside workspace. Rejects .git, secrets, and unsafe symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string' } }, required: ['path'], additionalProperties: false } },
   { name: 'workspace.write', description: 'Write one bounded text file inside workspace. Rejects .git, secrets, and unsafe symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string' }, text: { type: 'string' }, overwrite: { type: 'boolean', default: false } }, required: ['path', 'text'], additionalProperties: false } },
   { name: 'core.command', description: 'Run an advertised a2swe core CLI command via Node; not a shell. Path options are workspace-confined.', inputSchema: { type: 'object', properties: { command: { type: 'string', enum: CORE_COMMANDS }, options: { type: 'object', additionalProperties: true } }, required: ['command'], additionalProperties: false } }
 ];
+
+export const BRIDGE_METHOD_SCHEMAS: Array<{ name: string; description: string; inputSchema: JsonSchema }> = [
+  { name: 'status', description: 'JSONL bridge runtime/auth status. Not callable through a2swe.tools_call.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+  { name: 'tools.list', description: 'JSONL bridge catalog. Not callable through a2swe.tools_call.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+  { name: 'tools.call', description: 'JSONL bridge dispatcher for catalog tools only. Not self-recursive.', inputSchema: { type: 'object', properties: { name: { type: 'string' }, arguments: { type: 'object', additionalProperties: true } }, required: ['name'], additionalProperties: false } },
+  { name: 'tools.cancel', description: 'JSONL bridge cancellation for running local tools.call operations.', inputSchema: { type: 'object', properties: { requestId: { type: 'string' } }, additionalProperties: false } },
+  { name: 'agent.start', description: 'JSONL bridge SDK session start/resume.', inputSchema: { type: 'object', properties: {}, additionalProperties: true } },
+  { name: 'agent.send', description: 'JSONL bridge SDK message send.', inputSchema: { type: 'object', properties: { prompt: { type: 'string' } }, required: ['prompt'], additionalProperties: false } },
+  { name: 'agent.abort', description: 'JSONL bridge abort for SDK/local/generation work.', inputSchema: { type: 'object', properties: { projectId: { type: 'string' } }, additionalProperties: false } },
+  { name: 'agent.snapshot', description: 'JSONL bridge snapshot for late-attaching widgets.', inputSchema: { type: 'object', properties: { limit: { type: 'number' } }, additionalProperties: false } },
+  { name: 'agent.permission', description: 'JSONL bridge permission answer.', inputSchema: { type: 'object', properties: { requestId: { type: 'string' }, approved: { type: 'boolean' } }, required: ['requestId', 'approved'], additionalProperties: false } },
+  { name: 'agent.input', description: 'JSONL bridge ask-user answer.', inputSchema: { type: 'object', properties: { requestId: { type: 'string' }, answer: { type: 'string' } }, required: ['requestId', 'answer'], additionalProperties: false } },
+  { name: 'project.generate', description: 'JSONL bridge autonomous project generation; intentionally not MCP-callable to avoid recursive generation.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string', enum: ['company', 'customer', 'topic', 'framework', 'repository', 'tool'], default: 'topic' }, brief: { type: 'string' }, audience: { type: 'string', default: 'Executive decision-makers' }, sources: { type: 'array', items: { type: 'string' } }, libraryPaths: { type: 'array', items: { type: 'string' } }, voiceProfile: { type: 'string' }, speed: { type: 'number', default: 1 }, formats: { type: 'array', items: { type: 'string', enum: ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] } }, mode: { type: 'string', enum: ['guided', 'auto'], default: 'auto' } }, required: ['brief'], additionalProperties: false } },
+  { name: 'project.generation.status', description: 'JSONL bridge generation receipt/status lookup.', inputSchema: { type: 'object', properties: { projectId: { type: 'string' }, id: { type: 'string' } }, additionalProperties: false } },
+  { name: 'review.*', description: 'JSONL bridge Studio/media review methods. Some review methods are also directly exposed as MCP tools.', inputSchema: { type: 'object', properties: {}, additionalProperties: true } }
+];
+
+export const CALLABLE_TOOL_NAMES = new Set(CALLABLE_TOOL_SCHEMAS.map((tool) => tool.name));
 
 export const CORE_COMMAND_SCHEMAS: Record<(typeof CORE_COMMANDS)[number], { description: string; required: string[]; options: Record<string, string> }> = {
   capabilities: { description: 'Print local core capability manifest.', required: [], options: {} },
@@ -416,7 +448,7 @@ export const CORE_COMMAND_SCHEMAS: Record<(typeof CORE_COMMANDS)[number], { desc
 };
 
 export function toolsCatalog() {
-  return { tools: TOOL_SCHEMAS, coreCommands: CORE_COMMAND_SCHEMAS, generatedAt: new Date().toISOString(), source: 'static-map-from-packages/core/src/cli.ts-help' };
+  return { tools: CALLABLE_TOOL_SCHEMAS, bridgeMethods: BRIDGE_METHOD_SCHEMAS, coreCommands: CORE_COMMAND_SCHEMAS, generatedAt: new Date().toISOString(), source: 'static-map-from-packages/core/src/cli.ts-help' };
 }
 
 export async function runCoreCommand(workspace: string, command: string, options: JsonObject = {}, signal?: AbortSignal) {
@@ -449,12 +481,12 @@ export async function runCoreCommand(workspace: string, command: string, options
     }
     args.push(`--${key}`, finalValue);
   }
-  return execute(process.execPath, args, { cwd: workspace, timeoutMs: 120000, maxBytes: 1024 * 1024, signal });
+  return execute(process.execPath, args, { cwd: workspace, timeoutMs: CORE_COMMAND_TIMEOUTS[typedCommand] ?? 120_000, maxBytes: 1024 * 1024, signal });
 }
 
 export function execute(command: string, args: string[], options: { cwd: string; timeoutMs: number; maxBytes: number; signal?: AbortSignal }): Promise<{ exitCode: number; stdout: string; stderr: string }> {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { cwd: options.cwd, windowsHide: true, shell: false, env: process.env });
+    const child = spawn(command, args, { cwd: options.cwd, windowsHide: true, shell: false, env: process.env, detached: process.platform !== 'win32' });
     let stdout = '';
     let stderr = '';
     let settled = false;
@@ -466,11 +498,11 @@ export function execute(command: string, args: string[], options: { cwd: string;
       reject(error);
     };
     const timer = setTimeout(() => {
-      child.kill();
+      terminateProcessTree(child);
       fail(new Error('process_timeout'));
     }, options.timeoutMs);
     const abort = () => {
-      child.kill();
+      terminateProcessTree(child);
       fail(new Error('process_cancelled'));
     };
     if (options.signal?.aborted) {
@@ -497,6 +529,23 @@ export function execute(command: string, args: string[], options: { cwd: string;
       resolve({ exitCode: code ?? 1, stdout: truncate(stdout, options.maxBytes), stderr: redact(truncate(stderr, 64 * 1024)) });
     });
   });
+}
+
+function terminateProcessTree(child: ChildProcess): void {
+  if (!child.pid) return;
+  if (process.platform === 'win32') {
+    const killer = spawn('taskkill.exe', ['/PID', String(child.pid), '/T', '/F'], { windowsHide: true, shell: false, stdio: 'ignore' });
+    killer.on('error', () => child.kill());
+    return;
+  }
+  try {
+    process.kill(-child.pid, 'SIGTERM');
+    setTimeout(() => {
+      try { process.kill(-child.pid!, 'SIGKILL'); } catch { /* already gone */ }
+    }, 3000).unref();
+  } catch {
+    child.kill('SIGTERM');
+  }
 }
 
 export async function intake(workspace: string, params: { input: string; projectId?: string; name?: string; kind?: string; sources?: string[] }) {

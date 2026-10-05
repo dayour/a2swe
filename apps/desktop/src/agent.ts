@@ -71,6 +71,8 @@ export function useAgent() {
     });
     if (event.event === 'agent.tool' || event.event === 'tool.status') setActivities(current => [{id: crypto.randomUUID(), name: String(data.name ?? 'tool'),
       status: String(data.status ?? ''), details: (typeof data.details === 'string' ? data.details : JSON.stringify(data.details))?.slice(0, 8000)}, ...current].slice(0, 100));
+    if (event.event === 'review.progress') setActivities(current => [{id: crypto.randomUUID(), name: `review.${String(data.action ?? 'media')}`,
+      status: String(data.status ?? ''), details: typeof data.timeSeconds === 'number' ? `Frame time: ${data.timeSeconds}s` : undefined}, ...current].slice(0, 100));
     if (event.event === 'agent.permission') setPermissions(current => [...current.filter(p => p.requestId !== data.requestId),
       {requestId: String(data.requestId), request: data.request}]);
     if (event.event === 'agent.input') setInputs(current => [...current.filter(p => p.requestId !== data.requestId),

@@ -32,7 +32,7 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'Runbook') validateRunbook(value as Runbook);
   if (name === 'GenerationRequest') {
     const request = value as GenerationRequest;
-    if (!request.name.trim() || !request.brief.trim()) throw new Error('empty_generation_request');
+    if (!request.name.trim() || !request.brief.trim() || (request.audience !== undefined && !request.audience.trim())) throw new Error('empty_generation_request');
     if (!safeRelativePath(`projects/${request.id}`) || request.libraryPaths.some(filename => !safeRelativePath(filename))) {
       throw new Error('unsafe_generation_path');
     }
