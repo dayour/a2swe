@@ -1724,10 +1724,12 @@ export async function renderVisualStills(releaseRoot: string, content: ContentIR
   const files: AdapterFile[] = [];
   for (const section of visuals) {
     const relative = `visuals/${visualStem(content, section.sectionId)}.png`;
-    const bytes = await readFile(path.join(root, ...relative.split('/')));
+    const filename = path.join(root, ...relative.split('/'));
+    const bytes = await readFile(filename);
     const normalized = await normalizeRaster(bytes, 1600, 900).catch((error: unknown) => {
       throw new Error(`visual_render_invalid_png: ${section.sectionId}: ${error instanceof Error ? error.message : String(error)}`);
     });
+    await writeFile(filename, normalized);
     files.push({ format: 'remotion', path: `outputs/remotion/${relative}`, mediaType: 'image/png', bytes: normalized, adapter: REMOTION_MP4_ADAPTER });
   }
   return files;
