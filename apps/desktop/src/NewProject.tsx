@@ -6,8 +6,8 @@ import type {LibraryItem} from './types';
 
 export type GenerationLaunch = {projectId: string; path: string; sessionId: string; state: string; requestPath: string};
 type OutputFormat = GenerationRequest['formats'][number];
-type GenerationDraft = Omit<GenerationRequest, 'schemaVersion' | 'sources' | 'libraryPaths' | 'formats'> & {
-  sources: string[]; libraryPaths: string[]; formats: OutputFormat[];
+type GenerationDraft = Partial<Omit<GenerationRequest, 'schemaVersion' | 'sources' | 'libraryPaths' | 'formats'>> & {
+  brief: string; sources?: string[]; libraryPaths?: string[]; formats?: OutputFormat[];
 };
 const formats: {id: GenerationRequest['formats'][number]; name: string}[] = [
   {id: 'remotion', name: 'Video + narration'}, {id: 'pptx', name: 'PowerPoint'}, {id: 'pdf', name: 'PDF'},
@@ -28,9 +28,11 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
   const [paths, setPaths] = useState(selected);
   const [query, setQuery] = useState('');
   const [voiceProfile, setVoiceProfile] = useState(profiles.find(p => p.id === 'am_michael')?.id ?? profiles[0]?.id ?? '');
+  const [voiceEdited, setVoiceEdited] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [outputs, setOutputs] = useState<OutputFormat[]>(formats.map(f => f.id));
-  const [mode, setMode] = useState<'guided' | 'auto'>('guided');
+  const [mode, setMode] = useState<'guided' | 'auto'>('auto');
+  const [proMode, setProMode] = useState(false);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -45,8 +47,9 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
   async function generate() {
     setError('');
     const sources = [...new Set(sourceText.split(/\r?\n/).map(value => value.trim()).filter(Boolean))];
-    if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(id) || !name.trim() || !brief.trim() || !outputs.length || !voiceProfile) {
-      setError('Provide a name, a lowercase project ID, a brief, a voice and at least one output.'); return;
+    if (!brief.trim()) { setError('Tell a2swe what you want to create.'); return; }
+    if ((id && !/^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) || !outputs.length || (voiceEdited && !voiceProfile)) {
+      setError('Check the optional project ID, voice and output choices in Pro mode.'); return;
     }
     for (const source of sources) {
       try {
@@ -55,8 +58,17 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
       } catch { setError(`Use a public HTTP/HTTPS URL without credentials: ${source}`); return; }
     }
     if (sources.length > 20 || paths.length > 40) { setError('Choose at most 20 URLs and 40 library items.'); return; }
-    const request: GenerationDraft = {id, name: name.trim(), kind, brief: brief.trim(),
-      sources, libraryPaths: paths, voiceProfile, speed, formats: outputs, mode};
+    const request: GenerationDraft = {
+      brief: brief.trim(),
+      ...(id ? {id} : {}), ...(name.trim() ? {name: name.trim()} : {}),
+      ...(kind !== 'topic' ? {kind} : {}),
+      ...(sources.length ? {sources} : {}),
+      ...(paths.length ? {libraryPaths: paths} : {}),
+      ...(voiceEdited ? {voiceProfile} : {}),
+      ...(speed !== 1 ? {speed} : {}),
+      ...(outputs.length !== formats.length ? {formats: outputs} : {}),
+      ...(mode !== 'auto' ? {mode} : {})
+    };
     setStarting(true);
     try {
       const launch = await bridgeRequest<GenerationLaunch>('project.generate', request);
@@ -67,20 +79,23 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
       reportError(cause);
     } finally { setStarting(false); }
   }
-  return <div className="settings-backdrop"><form className="new-project-dialog" aria-label="New a2swe project" onSubmit={event => {event.preventDefault();void generate();}}>
+  return <div className="settings-backdrop"><form className={`new-project-dialog ${proMode ? '' : 'quick-project-dialog'}`} aria-label="New a2swe project" onSubmit={event => {event.preventDefault();void generate();}}>
     <header><div><span className="eyebrow">Prompt to production</span><h2><FolderPlus size={21}/> New project</h2></div><button type="button" className="icon-button" aria-label="Close new project" disabled={starting} onClick={onClose}><X size={18}/></button></header>
-    <div className="new-project-columns"><section>
-      <label>Project name<input aria-label="Project name" maxLength={160} value={name} onChange={event => {
+    <label className="quick-project-prompt">What would you like to create?<textarea autoFocus aria-label="Project brief" rows={5} maxLength={12000} value={brief} onChange={event => setBrief(event.target.value)} placeholder="Explain our product for engineering leaders... or paste a company, product or documentation URL." required/></label>
+    <p className="quick-project-summary"><strong>Your domain agent + {outputs.length === formats.length ? 'all presentation materials' : 'your selected materials'}.</strong> {formats.filter(format => outputs.includes(format.id)).map(format => format.name).join(', ')}. a2swe researches, builds, refines and verifies{mode === 'auto' ? ' automatically' : ' with tool approvals'}.</p>
+    <div className="pro-mode-toggle"><button type="button" className="secondary-button" aria-expanded={proMode} aria-controls="project-pro-settings" onClick={() => setProMode(value => !value)}>{proMode ? 'Hide Pro settings' : 'Pro mode'}</button>
+      <span>{paths.length ? `${paths.length} library item${paths.length === 1 ? '' : 's'} attached · ` : ''}{mode === 'auto' ? 'Auto generation' : 'Guided generation'}{outputs.length !== formats.length ? ` · ${outputs.length} selected formats` : ''}</span></div>
+    <div id="project-pro-settings" className="new-project-columns" hidden={!proMode}><section>
+      <label>Project name (optional)<input aria-label="Project name" placeholder="From your prompt" maxLength={160} value={name} onChange={event => {
         setName(event.target.value);
         if (!idEdited) setId(event.target.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80));
-      }} required/></label>
-      <div className="form-row"><label>Project ID<input aria-label="Project ID" pattern="[a-z0-9][a-z0-9-]{0,79}" value={id} onChange={event => {setIdEdited(true);setId(event.target.value);}} required/></label>
+      }}/></label>
+      <div className="form-row"><label>Project ID (optional)<input aria-label="Project ID" placeholder="Generated automatically" pattern="[a-z0-9][a-z0-9-]{0,79}" value={id} onChange={event => {setIdEdited(true);setId(event.target.value);}}/></label>
         <label>Context type<select aria-label="Context type" value={kind} onChange={event => setKind(event.target.value as GenerationRequest['kind'])}>
           {['topic', 'company', 'customer', 'framework', 'repository', 'tool'].map(k => <option key={k} value={k}>{k === 'tool' ? 'product / tool' : k}</option>)}
         </select></label></div>
-      <label>What should the agent create?<textarea aria-label="Project brief" rows={5} maxLength={12000} value={brief} onChange={event => setBrief(event.target.value)} placeholder="Explain the product for engineering leaders. Research the brand, build a domain SWE agent, and produce a narrated video and presentation..." required/></label>
       <label>Source URLs (one per line)<textarea aria-label="Project source URLs" rows={3} value={sourceText} onChange={event => setSourceText(event.target.value)} placeholder="https://company.example/product&#10;https://docs.example/overview"/></label>
-      <div className="form-row"><label>Voice<select aria-label="Project voice" value={voiceProfile} onChange={event => setVoiceProfile(event.target.value)}>
+      <div className="form-row"><label>Voice<select aria-label="Project voice" value={voiceProfile} onChange={event => {setVoiceEdited(true);setVoiceProfile(event.target.value);}}>
         {!profiles.length && <option value="">No voice profiles loaded</option>}
         {profiles.map(profile => <option key={profile.id} value={profile.id}>{profile.name ?? profile.title ?? profile.id}</option>)}
       </select></label><label>Speech speed<input aria-label="Speech speed" type="number" min={0.5} max={2} step={0.05} value={speed} onChange={event => setSpeed(Number(event.target.value))}/></label></div>
@@ -101,8 +116,8 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
     </section></div>
     {error && <p className="error-banner" role="alert">{error}</p>}
     {busyAgent && <p role="status">Stop or finish the current agent turn before starting another project.</p>}
-    <footer><span>{starting ? 'Creating project and connecting the agent...' : 'A real project, persisted request, source receipts and QC. Existing folders are never overwritten.'}</span>
+    <footer><span>{starting ? 'Creating project and connecting the agent...' : mode === 'auto' ? 'Generate authorizes autonomous tool use and local rendering. Stop is always available.' : 'Tool requests will ask for your approval.'}</span>
       {starting && <button type="button" className="secondary-button" onClick={() => void bridgeRequest('agent.abort', {projectId: id}).catch(reportError)}>Stop launch</button>}
-      <button type="submit" className="primary-button" disabled={starting || busyAgent || !isNative || !voiceProfile}><Sparkles size={16}/>{starting ? 'Starting...' : mode === 'auto' ? 'Create and auto-generate' : 'Create with agent'}</button></footer>
+      <button type="submit" className="primary-button" disabled={starting || busyAgent || !isNative || !brief.trim()}><Sparkles size={16}/>{starting ? 'Starting...' : 'Generate'}</button></footer>
   </form></div>;
 }

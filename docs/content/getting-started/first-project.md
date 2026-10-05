@@ -8,8 +8,15 @@ description: Create a minimal core-managed project and produce a verified releas
 ### Prompt from the native app
 
 Select **New project** in the desktop sidebar, or choose **New project with this**
-on a library card. Enter a project name, a brief, public source URLs, optional
-library context, voice profile, and requested outputs.
+on a library card. Enter a prompt and select **Generate**. No other field is
+required: the default is autonomous creation of a domain SWE agent plus all
+eight presentation formats, including narrated video.
+
+Expand **Pro mode** to customize the name, project ID, sources, library context,
+voice, speed, output formats, or tool-approval mode. Closing Pro mode retains
+your choices; it does not silently reset them. With no overrides, the backend
+derives a stable project identity from the prompt and uses the shared default
+voice. URLs included in the prompt are captured as source inputs.
 
 * Guided mode starts the agent with tool approvals visible in the console and
   floating widget.

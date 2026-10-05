@@ -172,6 +172,12 @@ pre { max-width: 100%; overflow: auto; font: 11px/1.5 ui-monospace, monospace; w
 .generation-status span { margin-left: 16px; color: var(--muted); }
 .generation-status p { margin-top: 8px; }
 .new-project-dialog { width: min(1060px, 100%); max-height: 94vh; overflow: auto; padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel-solid); }
+.quick-project-dialog { width: min(720px, 100%); }
+.new-project-columns[hidden] { display: none; }
+.quick-project-prompt textarea { font-size: 15px; line-height: 1.6; min-height: 160px; }
+.quick-project-summary strong { color: var(--teal); display: block; }
+.pro-mode-toggle { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+.pro-mode-toggle span { font-size: 12px; color: var(--muted); }
 .new-project-dialog header, .new-project-dialog footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .new-project-dialog h2 { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
 .new-project-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 14px; }

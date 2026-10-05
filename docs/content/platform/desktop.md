@@ -68,8 +68,10 @@ running tools.
 ## Workspace and agent context
 
 Use **New project** to generate from a prompt, or **New project with this** on a
-library card to start with selected context. The creation form supports multiple
-source URLs and library entries, voice selection, and all eight output formats.
+library card to start with selected context. The default UI is one prompt and
+one Generate button. It creates a domain SWE agent and all eight presentation
+formats automatically. Expand **Pro mode** for multiple source URLs, library
+entries, voice and speed, naming, output selection, and guided execution.
 Guided mode requests tool approvals; Auto mode starts autonomous generation
 after the user explicitly selects it. Existing projects are never overwritten.
 

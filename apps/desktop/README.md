@@ -62,8 +62,10 @@ installed Node 24. It does not bundle model weights or private knowledge files.
 
 ## Shared agent and tools
 
-New project collects a brief, sources, selected library context, voice and
-requested output formats. Guided mode uses ask permissions; Auto mode permits
+New project needs only a prompt. The default is Auto creation of the domain SWE
+agent and all eight presentation formats, including narrated video. Pro mode
+expands optional sources, library context, voice, naming and output controls.
+Guided mode uses ask permissions; Auto mode permits
 the agent to run the full production workflow without per-tool prompts, subject
 to managed policy. The core validates and persists the generation specification
 before starting a project-scoped session.

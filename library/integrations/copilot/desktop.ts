@@ -7,6 +7,7 @@ import { parseArgs } from 'node:util';
 import { CopilotClient } from '@github/copilot-sdk';
 import type { CopilotSession, PermissionHandler, SessionConfig } from '@github/copilot-sdk';
 import { validate } from '../../../packages/core/src/contracts.ts';
+import { digest } from '../../../packages/core/src/canonical.ts';
 import type { GenerationRequest } from '../../../packages/core/src/contracts.ts';
 import { callLocalTool, LOCAL_TOOL_NAMES } from './mcp-server.ts';
 import { deadline, permissionMode, profileClient, profilePermissions, profileSession } from './profile.ts';
@@ -536,24 +537,29 @@ class DesktopBridge {
   }
 
   private async buildGenerationRequest(params: JsonObject): Promise<GenerationRequest> {
-    const formats = Array.isArray(params.formats) ? params.formats.filter((format): format is GenerationRequest['formats'][number] =>
-      ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'].includes(String(format))) : [];
-    const request = {
+    const allowed = new Set(['id', 'name', 'kind', 'brief', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode']);
+    for (const key of Object.keys(params)) if (!allowed.has(key)) throw new Error(`unknown_generation_option: ${key}`);
+    const brief = stringParam(params, 'brief')!.trim();
+    const registry: unknown = JSON.parse(await readFile(path.join(this.workspace, 'library', 'assets', 'speech', 'voice-profiles.json'), 'utf8'));
+    if (!registry || typeof registry !== 'object' || !('defaultProfileId' in registry)
+      || typeof registry.defaultProfileId !== 'string' || !registry.defaultProfileId.trim()) throw new Error('missing_default_voice_profile');
+    const inferredName = brief.split(/\r?\n/)[0].replace(/^(?:create|generate|make|build|produce|explain)\s+(?:an?\s+|the\s+)?/i, '').trim().slice(0, 120);
+    const options = {
       schemaVersion: '1.0.0',
-      id: slug(stringParam(params, 'id')!),
-      name: stringParam(params, 'name')!,
-      kind: enumParam(params, 'kind', ['company', 'customer', 'topic', 'framework', 'repository', 'tool'] as const) as GenerationRequest['kind'],
-      brief: stringParam(params, 'brief')!,
-      sources: stringArrayParam(params, 'sources'),
-      libraryPaths: stringArrayParam(params, 'libraryPaths'),
-      voiceProfile: stringParam(params, 'voiceProfile')!,
-      speed: typeof params.speed === 'number' && Number.isFinite(params.speed) ? params.speed : Number.NaN,
-      formats,
-      mode: enumParam(params, 'mode', ['guided', 'auto'] as const) as GenerationRequest['mode']
+      name: params.name === undefined ? inferredName || brief.slice(0, 120) : stringParam(params, 'name')!.trim(),
+      kind: params.kind === undefined ? 'topic' : params.kind,
+      brief,
+      sources: params.sources === undefined
+        ? [...new Set((brief.match(/https?:\/\/[^\s<>"`]+/g) ?? []).map(url => url.replace(/[.,;!?)\]]+$/, '')))]
+        : stringArrayParam(params, 'sources'),
+      libraryPaths: params.libraryPaths === undefined ? [] : stringArrayParam(params, 'libraryPaths'),
+      voiceProfile: params.voiceProfile === undefined ? registry.defaultProfileId : stringParam(params, 'voiceProfile')!,
+      speed: params.speed === undefined ? 1 : params.speed,
+      formats: params.formats === undefined ? ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] : params.formats,
+      mode: params.mode === undefined ? 'auto' : params.mode
     };
-    if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(request.id)) throw new Error('invalid_project_id');
-    if (!Number.isFinite(request.speed) || request.speed <= 0 || request.speed > 3) throw new Error('invalid_generation_speed');
-    if (!request.formats.length) throw new Error('missing_generation_formats');
+    const id = params.id === undefined ? `${slug(options.name).slice(0, 56)}-${digest(options).slice(0, 10)}` : stringParam(params, 'id')!;
+    const request = validate('GenerationRequest', { ...options, id });
     const profiles = await discoverVoiceProfiles(this.workspace);
     if (!profiles.some((profile) => profile.id === request.voiceProfile)) throw new Error(`invalid_voice_profile: ${request.voiceProfile}`);
     if (request.sources.length > 20) throw new Error('too_many_generation_sources');
@@ -684,8 +690,10 @@ class DesktopBridge {
         request,
         sourceIntakeReceipts: intakeResults,
         requiredWork: [
+          'Create a project-specific domain SWE agent at agent/SWE_AGENT.md and maintain the evidence-bound agent/runbook.json.',
           'Create source-backed domain/content/render/approval-ready draft artifacts for selected formats.',
-          'Generate the requested output formats only.',
+          'Generate all requested output formats; the default is the agent plus all eight presentation formats including narrated 1080p video.',
+          'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
           'Run project QC and core verification gates relevant to selected formats.',
           'Preserve citations/provenance and avoid protected/private source transfer.'
         ]

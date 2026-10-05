@@ -22,6 +22,11 @@ Remotion project, and verifies the resulting output set.
 The Tauri application in `apps/desktop/` provides a main workspace and floating
 agent widget. Its Rust host shares one local Copilot SDK bridge between windows;
 the a2swe MCP server exposes core tools and source-linked workspace context.
+Start with one prompt and select **Generate**. By default, a2swe creates the
+domain SWE agent and all eight presentation formats, including narrated video.
+Expand **Pro mode** only to customize sources, library context, voice, speed,
+formats, naming, or guided tool approvals. Resolved defaults are persisted in
+the project's generation specification.
 See the [desktop guide](docs/content/platform/desktop.md) for runtime requirements,
 permissions, and the distinction between draft intake and verified domain context.
 
