@@ -1,11 +1,12 @@
 import { cpSync, createReadStream, existsSync, readFileSync, symlinkSync, unlinkSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir, mkdtemp, writeFile, copyFile, rm, rename } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digest, sha256 } from './canonical.ts';
 import type { ContentIR, RenderSpec } from './contracts.ts';
+import { validate } from './contracts.ts';
 import type { AdapterFile, AdapterRenderOptions } from './adapters.ts';
 
 type SupportedImageMediaType = 'image/png' | 'image/jpeg';
@@ -20,6 +21,21 @@ interface ResolvedAsset {
 const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-3';
 export const MP4_ADAPTER = REMOTION_MP4_ADAPTER;
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
+interface VoiceProfile { id: string; name: string; language: 'a' | 'b'; speed: number }
+const VOICE_PROFILES: { defaultProfileId: string; pronunciations: Record<string, string>; profiles: VoiceProfile[] } =
+  JSON.parse(readFileSync(new URL('../../../library/assets/speech/voice-profiles.json', import.meta.url), 'utf8'));
+
+export function voiceProfiles() {
+  return VOICE_PROFILES;
+}
+
+function speechProfile(voice: ContentIR['voice']) {
+  const id = voice.profileId ?? VOICE_PROFILES.defaultProfileId;
+  const profile = VOICE_PROFILES.profiles.find((entry) => entry.id === id);
+  if (!profile) throw new Error(`unknown_voice_profile: ${id}`);
+  return { ...profile, speed: voice.speed ?? profile.speed,
+    pronunciations: { ...VOICE_PROFILES.pronunciations, ...voice.pronunciations } };
+}
 const REMOTION_ROOT_TEMPLATE = readFileSync(new URL('./remotion-root.template.txt', import.meta.url), 'utf8');
 const REMOTION_PALETTE_TEMPLATE = readFileSync(new URL('./remotion-palette.template.txt', import.meta.url), 'utf8');
 const REMOTION_VISUALS_TEMPLATE = readFileSync(new URL('./remotion-visuals.template.txt', import.meta.url), 'utf8');
@@ -118,6 +134,7 @@ function digestBoundNarration(content: ContentIR, spec: RenderSpec, timeline: Re
     narrationSha256: sha256(Buffer.from(content.voice.narration, 'utf8')),
     language: content.language,
     externalTransfer: content.voice.externalTransfer,
+    voiceProfile: speechProfile(content.voice),
     outputWav: `public/assets/${content.contentId}/audio.wav`,
     metadataPath: 'audio/narration-metadata.json',
     sampleRate: spec.video.sampleRate,
@@ -126,7 +143,7 @@ function digestBoundNarration(content: ContentIR, spec: RenderSpec, timeline: Re
     maxDurationDriftSeconds: 2 / timeline.fps,
     allowedEngines: ['kokoro', 'kokoro_onnx'],
     modelPathContract: {
-      kokoro: ['A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'A2SWE_KOKORO_VOICE_MODEL'],
+      kokoro: ['A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'KOKORO_ONNX_VOICES'],
       kokoro_onnx: ['KOKORO_ONNX_MODEL', 'KOKORO_ONNX_VOICES']
     }
   };
@@ -378,7 +395,7 @@ def validate_lock_references(root: Path, lock: str) -> None:
 
 
 def verify_lock_source(root: Path, engine: str) -> dict[str, object]:
-    names = {'kokoro': ('kokoro', 'misaki'), 'kokoro_onnx': ('kokoro-onnx',)}[engine]
+    names = ('kokoro', 'misaki') + (('kokoro-onnx',) if engine == 'kokoro_onnx' else ())
     lock_path = root / 'requirements.lock.txt'
     if not lock_path.is_file():
         fail('requirements.lock.txt is required for speech provenance')
@@ -450,67 +467,95 @@ def resolve_engine() -> str:
         fail('A2SWE_TTS_ENGINE/TTS_ENGINE must be auto, kokoro, or kokoro_onnx')
     if requested != 'auto':
         return requested
-    full_kokoro = all(os.environ.get(name) for name in ('A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'A2SWE_KOKORO_VOICE_MODEL'))
+    full_kokoro = all(os.environ.get(name) for name in ('A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'KOKORO_ONNX_VOICES'))
     onnx = all(os.environ.get(name) for name in ('KOKORO_ONNX_MODEL', 'KOKORO_ONNX_VOICES'))
     if onnx:
         return 'kokoro_onnx'
     if full_kokoro:
         return 'kokoro'
-    fail('auto speech requires configured local model paths: A2SWE_KOKORO_CONFIG/A2SWE_KOKORO_WEIGHTS/A2SWE_KOKORO_VOICE_MODEL or KOKORO_ONNX_MODEL/KOKORO_ONNX_VOICES')
+    fail('auto speech requires configured local model paths and a shared KOKORO_ONNX_VOICES bank')
 
 
-def synth_kokoro(segments: list[str]):
+def synth_segments(segments: list[str], profile: dict, engine: str):
     enforce_offline_runtime()
     np, _, _ = import_audio_deps()
     try:
+        import torch
         from kokoro import KModel, KPipeline
     except ImportError:
-        fail('TTS_ENGINE=kokoro requires locked kokoro and misaki fork wheels')
-    config = require_file_env('A2SWE_KOKORO_CONFIG', ('.json',))
-    weights = require_file_env('A2SWE_KOKORO_WEIGHTS', ('.pth',))
-    voice_model = require_file_env('A2SWE_KOKORO_VOICE_MODEL', ('.pt',))
-    lang = os.environ.get('KOKORO_LANG', 'a')
-    speed = float(os.environ.get('KOKORO_SPEED', '1.0'))
-    if not math.isfinite(speed) or speed <= 0:
-        fail('KOKORO_SPEED must be a positive finite number')
-    model = KModel(repo_id=KOKORO_REPO, config=str(config), model=str(weights)).eval()
-    pipeline = KPipeline(lang_code=lang, repo_id=KOKORO_REPO, model=model)
-    pieces = []
-    token_count = 0
-    for segment in segments:
-        parts = []
-        for result in pipeline(segment, voice=str(voice_model), speed=speed):
-            if result.audio is None or not result.tokens:
-                fail('Kokoro must return audio and English token timestamps')
-            parts.append(result.audio.detach().cpu().numpy().reshape(-1))
-            token_count += len(result.tokens)
-        if not parts:
-            fail('Kokoro returned no audio')
-        pieces.append(np.concatenate(parts))
-    return pieces, 24000, {'voice': str(voice_model), 'lang': lang, 'speed': speed, 'tokens': token_count}
-
-
-def synth_kokoro_onnx(segments: list[str]):
-    enforce_offline_runtime()
-    np, _, _ = import_audio_deps()
-    try:
+        fail('shared phonemization requires locked kokoro and misaki fork wheels')
+    voice = profile.get('id')
+    lang = profile.get('language')
+    speed = profile.get('speed')
+    if not isinstance(voice, str) or lang not in ('a', 'b') or not isinstance(speed, (int, float)) or not 0.5 <= speed <= 2:
+        fail('invalid voice profile')
+    for key in ('KOKORO_VOICE', 'KOKORO_ONNX_VOICE', 'KOKORO_SPEED', 'KOKORO_LANG', 'KOKORO_ONNX_LANG', 'A2SWE_KOKORO_VOICE_MODEL'):
+        if os.environ.get(key):
+            fail(f'{key} is superseded by ContentIR.voice profileId/speed; remove the override')
+    torch.set_num_threads(min(4, os.cpu_count() or 1))
+    voices_path = require_file_env('KOKORO_ONNX_VOICES')
+    with np.load(voices_path) as bank:
+        if voice not in bank:
+            fail(f'voice profile {voice} is absent from the configured voice bank')
+        voice_data = np.array(bank[voice], dtype=np.float32, copy=True)
+    if voice_data.ndim != 3 or voice_data.shape[1:] != (1, 256) or not np.isfinite(voice_data).all():
+        fail('invalid voice bank tensor')
+    pipeline = KPipeline(lang_code=lang, repo_id=KOKORO_REPO, model=False)
+    if engine == 'kokoro':
+        config = require_file_env('A2SWE_KOKORO_CONFIG', ('.json',))
+        weights = require_file_env('A2SWE_KOKORO_WEIGHTS', ('.pth',))
+        model = KModel(repo_id=KOKORO_REPO, config=str(config), model=str(weights)).eval()
+        vocab = model.vocab
+    else:
         from kokoro_onnx import Kokoro
-    except ImportError:
-        fail('TTS_ENGINE=kokoro_onnx requires the locked kokoro-onnx fork wheel')
-    model = require_file_env('KOKORO_ONNX_MODEL', ('.onnx',))
-    voices = require_file_env('KOKORO_ONNX_VOICES')
-    voice = os.environ.get('KOKORO_ONNX_VOICE', 'am_michael')
-    lang = os.environ.get('KOKORO_ONNX_LANG', 'en-us')
-    speed = float(os.environ.get('KOKORO_SPEED', '1.0'))
-    if not math.isfinite(speed) or speed <= 0:
-        fail('KOKORO_SPEED must be a positive finite number')
-    kokoro = Kokoro(str(model), str(voices))
+        model = Kokoro(str(require_file_env('KOKORO_ONNX_MODEL', ('.onnx',))), str(voices_path))
+        vocab = model.tokenizer.vocab
     pieces = []
-    sample_rate = 24000
-    for segment in segments:
-        samples, sample_rate = kokoro.create(segment, voice=voice, speed=speed, lang=lang)
-        pieces.append(np.asarray(samples, dtype=np.float32).reshape(-1))
-    return pieces, int(sample_rate), {'voice': voice, 'lang': lang, 'speed': speed}
+    phoneme_segments = []
+    spoken_segments = []
+    replacements = profile.get('pronunciations', {})
+    if not isinstance(replacements, dict) or any(not isinstance(k, str) or not k.strip() or not isinstance(v, str) or not v.strip() for k, v in replacements.items()):
+        fail('invalid pronunciation overrides')
+    pattern = re.compile(r'(?<!\\w)(?:' + '|'.join(re.escape(key) for key in sorted(replacements, key=len, reverse=True)) + r')(?!\\w)', re.IGNORECASE) if replacements else None
+    lookup = {key.casefold(): value for key, value in replacements.items()}
+    try:
+        for segment in segments:
+            spoken = pattern.sub(lambda match: lookup[match.group().casefold()], segment) if pattern else segment
+            spoken_segments.append(spoken)
+            parts, phonemes = [], []
+            for chunk in pipeline(spoken):
+                if not chunk.phonemes:
+                    fail('Misaki returned no phonemes')
+                unknown = set(chunk.phonemes) - set(vocab)
+                if unknown:
+                    fail(f'phonemes missing from model vocabulary: {sorted(unknown)}')
+                ids = [vocab[c] for c in chunk.phonemes]
+                if not 0 < len(ids) <= min(510, len(voice_data)):
+                    fail('phoneme chunk exceeds model or voice limits')
+                if engine == 'kokoro':
+                    with torch.inference_mode():
+                        samples, _ = model.forward_with_tokens(torch.tensor([[0, *ids, 0]]), torch.from_numpy(voice_data[len(ids) - 1]), speed)
+                    samples = samples.detach().cpu().numpy()
+                else:
+                    samples, _ = model.create(chunk.phonemes, voice=voice_data, speed=speed, is_phonemes=True, trim=False, sentence_pause=0, clause_pause=0)
+                parts.append(np.asarray(samples, dtype=np.float32).reshape(-1))
+                phonemes.append(chunk.phonemes)
+            if not parts:
+                fail('speech engine returned no audio')
+            pieces.append(np.concatenate(parts))
+            raw = pieces[-1]
+            if not np.isfinite(raw).all() or not raw.size or float(np.max(np.abs(raw))) > 1:
+                fail('speech engine returned invalid raw audio')
+            if abs(float(np.mean(raw, dtype=np.float64))) > 0.001:
+                fail('raw speech has excessive DC offset; verify the model reconstruction')
+            phoneme_segments.append(phonemes)
+    finally:
+        if engine == 'kokoro_onnx':
+            model.voices.close()
+    return pieces, 24000, {'profileId': voice, 'lang': lang, 'speed': speed, 'phonemizer': 'misaki',
+        'voiceTensorSha256': hashlib.sha256(voice_data.tobytes()).hexdigest(),
+        'spokenSegments': spoken_segments, 'phonemeSegments': phoneme_segments,
+        'phonemesSha256': sha256_text(json.dumps(phoneme_segments, ensure_ascii=True))}
 
 
 def assemble_segments(pieces, sample_rate: int, segments: list[str]):
@@ -579,22 +624,32 @@ def cleanup_audio(audio, sample_rate: int, timings):
     before = spectral_cleanup_metrics(array, sample_rate)
     cleaned = np.asarray(array, dtype=np.float32).copy()
     actions = []
-    if mode != 'off' and abs(before['dcOffset']) > 1e-4:
+    measured_hiss = before['highFrequencyRatio8k'] > 0.05 and before['spectralFlatness'] > 0.02 and before['rmsDbfs'] > -70
+    if mode != 'off':
+        butter, sosfiltfilt = import_filter_deps()
+        highpass = butter(4, 35, btype='highpass', fs=sample_rate, output='sos')
+        lowpass = None
+        if mode == 'on' or (mode == 'auto' and measured_hiss):
+            cutoff = float(os.environ.get('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ', '11500'))
+            if not math.isfinite(cutoff) or cutoff <= 1000 or cutoff >= sample_rate / 2:
+                fail('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ must be a finite frequency between 1000 Hz and Nyquist')
+            lowpass = butter(4, cutoff, btype='lowpass', fs=sample_rate, output='sos')
         for segment in timings:
             start = round(segment['startSeconds'] * sample_rate)
             end = round(segment['endSeconds'] * sample_rate)
-            if end > start:
-                cleaned[start:end] -= float(np.mean(cleaned[start:end]))
-        actions.append('dc_offset_removed')
-    measured_hiss = before['highFrequencyRatio8k'] > 0.05 and before['spectralFlatness'] > 0.02 and before['rmsDbfs'] > -70
-    if mode == 'on' or (mode == 'auto' and measured_hiss):
-        butter, sosfiltfilt = import_filter_deps()
-        cutoff = float(os.environ.get('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ', '11500'))
-        if not math.isfinite(cutoff) or cutoff <= 1000 or cutoff >= sample_rate / 2:
-            fail('A2SWE_AUDIO_CLEANUP_LOWPASS_HZ must be a finite frequency between 1000 Hz and Nyquist')
-        sos = butter(4, cutoff, btype='lowpass', fs=sample_rate, output='sos')
-        cleaned = sosfiltfilt(sos, cleaned).astype(np.float32)
-        actions.append('measured_lowpass_denoise')
+            if end - start <= 32:
+                fail('speech segment is too short for boundary-safe filtering')
+            speech = sosfiltfilt(highpass, cleaned[start:end])
+            if lowpass is not None:
+                speech = sosfiltfilt(lowpass, speech)
+            fade = min(round(0.025 * sample_rate), (end - start) // 4)
+            envelope = np.sin(np.linspace(0, np.pi / 2, fade, dtype=np.float64)) ** 2
+            speech[:fade] *= envelope
+            speech[-fade:] *= envelope[::-1]
+            cleaned[start:end] = speech.astype(np.float32)
+        actions.extend(('speech_dc_highpass', 'speech_boundary_fade'))
+        if lowpass is not None:
+            actions.append('measured_lowpass_denoise')
     after = spectral_cleanup_metrics(cleaned, sample_rate)
     return cleaned, {'mode': mode, 'actions': actions, 'before': before, 'after': after}
 
@@ -640,6 +695,7 @@ def probe_duration(path: Path) -> float:
 
 def main() -> None:
     require_python314()
+    np, _, _ = import_audio_deps()
     root = Path(__file__).resolve().parents[1]
     manifest_path = root / (sys.argv[1] if len(sys.argv) > 1 else 'speech/narration-manifest.json')
     payload = json.loads(manifest_path.read_text(encoding='utf-8'))
@@ -655,10 +711,7 @@ def main() -> None:
         fail('narration segments must be a nonempty list of nonempty strings')
     if re.sub(r'\\s+', ' ', ' '.join(segments)).strip() != re.sub(r'\\s+', ' ', text).strip():
         fail('narration segments do not match narration text')
-    if engine == 'kokoro':
-        pieces, input_rate, voice_info = synth_kokoro(segments)
-    else:
-        pieces, input_rate, voice_info = synth_kokoro_onnx(segments)
+    pieces, input_rate, voice_info = synth_segments(segments, payload.get('voiceProfile', {}), engine)
     samples, timings = assemble_segments(pieces, input_rate, segments)
     output_rate = int(payload['sampleRate'])
     output_channels = int(payload['channels'])
@@ -673,7 +726,7 @@ def main() -> None:
     model_files = {}
     if engine == 'kokoro':
         model_files = {name: {'path': str(require_file_env(env)), 'sha256': sha256_path(require_file_env(env))}
-                       for name, env in {'config': 'A2SWE_KOKORO_CONFIG', 'weights': 'A2SWE_KOKORO_WEIGHTS', 'voice': 'A2SWE_KOKORO_VOICE_MODEL'}.items()}
+                       for name, env in {'config': 'A2SWE_KOKORO_CONFIG', 'weights': 'A2SWE_KOKORO_WEIGHTS', 'voices': 'KOKORO_ONNX_VOICES'}.items()}
     else:
         model_files = {name: {'path': str(require_file_env(env)), 'sha256': sha256_path(require_file_env(env))}
                        for name, env in {'weights': 'KOKORO_ONNX_MODEL', 'voices': 'KOKORO_ONNX_VOICES'}.items()}
@@ -696,6 +749,9 @@ def main() -> None:
         'models': model_files,
         'forks': forks,
         'audioCleanup': cleanup_info,
+        'rawAudio': {'dc': float(np.mean(samples, dtype=np.float64)),
+                     'rms': float(np.sqrt(np.mean(samples.astype(np.float64) ** 2))),
+                     'peak': float(np.max(np.abs(samples)))},
         'producer': Path(__file__).relative_to(root).as_posix(),
         'producerSha256': sha256_path(Path(__file__)),
         'requirementsLockSha256': sha256_path(root / 'requirements.lock.txt'),
@@ -882,6 +938,38 @@ function buildWindows(samples) {
   return { speech, silence };
 }
 
+function sourceBoundaryMetrics(samples, segments) {
+  if (!Array.isArray(segments) || !segments.length) fail('narration metadata has no speech segments');
+  const edgeSamples = Math.round(0.01 * sampleRate);
+  let maxOnsetRmsDbfs = -240;
+  let maxTailRmsDbfs = -240;
+  let maxJump = 0;
+  let previousEnd = 0;
+  for (const segment of segments) {
+    const startSeconds = Number(segment.startSeconds);
+    const endSeconds = Number(segment.endSeconds);
+    const start = Math.round(startSeconds * sampleRate);
+    const end = Math.round(endSeconds * sampleRate);
+    if (!Number.isFinite(startSeconds) || !Number.isFinite(endSeconds) || start <= previousEnd || end <= start || end >= samples.length) {
+      fail('narration metadata contains an invalid or overlapping speech segment');
+    }
+    const width = Math.min(edgeSamples, Math.floor((end - start) / 4));
+    if (width < 1) fail('speech segment is too short to measure its boundaries');
+    maxOnsetRmsDbfs = Math.max(maxOnsetRmsDbfs, rmsDbfs(samples.subarray(start, start + width)));
+    maxTailRmsDbfs = Math.max(maxTailRmsDbfs, rmsDbfs(samples.subarray(end - width, end)));
+    maxJump = Math.max(maxJump, Math.abs(samples[start] - samples[start - 1]), Math.abs(samples[end] - samples[end - 1]));
+    previousEnd = end;
+  }
+  return {
+    label: 'sourceSpeechBoundaries',
+    segmentsChecked: segments.length,
+    edgeWindowSeconds: 0.01,
+    maxOnsetRmsDbfs: rounded(maxOnsetRmsDbfs),
+    maxTailRmsDbfs: rounded(maxTailRmsDbfs),
+    maxJumpDbfs: rounded(20 * Math.log10(Math.max(maxJump, 1e-12)))
+  };
+}
+
 function rounded(value) {
   return Number.isFinite(value) ? Number(value.toFixed(6)) : value;
 }
@@ -929,7 +1017,7 @@ function spectrogramSvg(samples, summary) {
   const top = 28;
   const size = 2048;
   const width = left + columns * cellW + 24;
-  const height = top + rows * cellH + 48;
+  const height = top + rows * cellH + 94;
   const rects = [];
   for (let column = 0; column < columns; column += 1) {
     const center = Math.round((column + 0.5) * samples.length / columns);
@@ -947,15 +1035,28 @@ function spectrogramSvg(samples, summary) {
       rects.push('<rect x="' + (left + column * cellW) + '" y="' + y + '" width="' + cellW + '" height="' + cellH + '" fill="' + color(normalized) + '"/>');
     }
   }
+  const cuts = timeline.scenes.slice(1).map((scene) => {
+    const x = left + Math.round(scene.startFrame / timeline.durationInFrames * columns * cellW);
+    return '<line x1="' + x + '" x2="' + x + '" y1="' + top + '" y2="' + (top + rows * cellH) + '" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5 4"/>';
+  });
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((fraction) => {
+    const x = left + Math.round(fraction * columns * cellW);
+    return '<text x="' + x + '" y="' + (top + rows * cellH + 15) + '" text-anchor="middle" fill="#a8b3c7" font-family="Arial" font-size="10">' +
+      (fraction * samples.length / sampleRate).toFixed(0) + 's</text>';
+  });
   return '<svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '" viewBox="0 0 ' + width + ' ' + height + '" role="img" aria-labelledby="title desc">' +
     '<title id="title">Audio spectrogram QA</title><desc id="desc">Frequency energy over time for ' + escapeXml(input) + '</desc>' +
     '<rect width="100%" height="100%" fill="#0b1020"/><text x="16" y="18" fill="#e5eefc" font-family="Arial" font-size="13">a2swe audio QA: ' + escapeXml(input) + '</text>' +
-    '<text x="16" y="' + (height - 26) + '" fill="#a8b3c7" font-family="Arial" font-size="11">speech ' + summary.speech.rmsDbfs + ' dBFS; whole gap ' + summary.silence.rmsDbfs + ' dBFS; interior ' + summary.interiorSilence.rmsDbfs + ' dBFS; SNR ' + summary.snrSpeechVsSilenceDb + ' dB</text>' +
+    '<text x="16" y="' + (height - 43) + '" fill="#a8b3c7" font-family="Arial" font-size="11">speech ' + summary.speech.rmsDbfs + ' dBFS; whole gap ' + summary.silence.rmsDbfs + ' dBFS; interior ' + summary.interiorSilence.rmsDbfs + ' dBFS; SNR ' + summary.snrSpeechVsSilenceDb + ' dB</text>' +
+    '<text x="16" y="' + (height - 21) + '" fill="#fbbf24" font-family="Arial" font-size="11">source boundary jump ' + summary.sourceBoundaries.maxJumpDbfs + ' dBFS; edge RMS ' + Math.max(summary.sourceBoundaries.maxOnsetRmsDbfs, summary.sourceBoundaries.maxTailRmsDbfs) + ' dBFS; dashed lines: scene cuts</text>' +
     '<text x="8" y="' + (top + 10) + '" fill="#a8b3c7" font-family="Arial" font-size="10">24 kHz</text><text x="12" y="' + (top + rows * cellH) + '" fill="#a8b3c7" font-family="Arial" font-size="10">0 Hz</text>' +
-    rects.join('') + '</svg>\\n';
+    rects.join('') + cuts.join('') + ticks.join('') + '</svg>\\n';
 }
 
 const samples = decodeAudio(input);
+const sourceAudioSha256 = sha256File(manifest.audio.path);
+if (sourceAudioSha256 !== metadata.audioSha256) fail('source WAV digest does not match narration metadata');
+const sourceBoundaries = sourceBoundaryMetrics(decodeAudio(manifest.audio.path), metadata.segments);
 const windows = buildWindows(samples);
 const speechSamples = concatWindows(samples, windows.speech);
 const silenceSamples = concatWindows(samples, windows.silence);
@@ -972,13 +1073,20 @@ const silence = summarize('nonSpeechGaps', silenceSamples);
 const interiorSilence = summarize('nonSpeechGapInteriors', interiorSamples);
 const thresholds = {
   gapBoundaryGuardSeconds,
+  maxSourceBoundaryJumpDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_JUMP_DBFS', -55),
+  maxSourceEdgeRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_EDGE_RMS_DBFS', -60),
   maxSilenceRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SILENCE_RMS_DBFS', -55),
   maxSpeechHighFrequencyRatio8k: strictThreshold('A2SWE_AUDIO_QA_MAX_SPEECH_HF_RATIO_8K', 0.03),
   minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true)
 };
 const snr = rounded(speech.rmsDbfs - interiorSilence.rmsDbfs);
 const findings = [];
-if (interiorSilence.rmsDbfs > thresholds.maxSilenceRmsDbfs && snr < thresholds.minSpeechVsSilenceSnrDb) findings.push('non-speech gap interior noise exceeds configured floor');
+if (sourceBoundaries.maxJumpDbfs > thresholds.maxSourceBoundaryJumpDbfs ||
+  Math.max(sourceBoundaries.maxOnsetRmsDbfs, sourceBoundaries.maxTailRmsDbfs) > thresholds.maxSourceEdgeRmsDbfs) {
+  findings.push('source speech boundaries contain a DC step or abrupt transition');
+}
+if (interiorSilence.rmsDbfs > thresholds.maxSilenceRmsDbfs) findings.push('non-speech gap interior noise exceeds configured floor');
+if (snr < thresholds.minSpeechVsSilenceSnrDb) findings.push('speech-to-silence SNR is below the configured minimum');
 if (speech.highFrequencyRatio8k > thresholds.maxSpeechHighFrequencyRatio8k && speech.spectralFlatness > 0.01) findings.push('speech band contains broadband high-frequency hiss/static signature');
 const valid = findings.length === 0;
 const report = {
@@ -987,12 +1095,13 @@ const report = {
   contentDigest: plan.contentDigest,
   input,
   inputSha256: sha256File(input),
+  sourceAudioSha256,
   sampleRate,
   durationSeconds: rounded(samples.length / sampleRate),
   producer: metadata.producer,
   engine: metadata.engine,
   voice: metadata.voice,
-  metrics: { overall, speech, silence, interiorSilence, snrSpeechVsSilenceDb: snr },
+  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr },
   thresholds,
   findings,
   valid,
@@ -1002,7 +1111,8 @@ if (!valid) fail('audio QA failed: ' + findings.join('; ') + '; metrics=' + JSON
 if (verifyOnly) {
   if (!existsSync(path.join(root, reportPath))) fail('audio QA report is missing: ' + reportPath);
   const existing = JSON.parse(readFileSync(path.join(root, reportPath), 'utf8'));
-  if (existing.input !== report.input || existing.inputSha256 !== report.inputSha256 || existing.contentDigest !== report.contentDigest
+  if (existing.input !== report.input || existing.inputSha256 !== report.inputSha256 || existing.sourceAudioSha256 !== report.sourceAudioSha256
+    || existing.contentDigest !== report.contentDigest
     || JSON.stringify(existing.metrics) !== JSON.stringify(report.metrics)
     || JSON.stringify(existing.thresholds) !== JSON.stringify(report.thresholds) || existing.valid !== true) {
     fail('audio QA report does not match current encoded audio');
@@ -1010,7 +1120,7 @@ if (verifyOnly) {
 } else {
   mkdirSync(path.dirname(path.join(root, reportPath)), { recursive: true });
   writeFileSync(path.join(root, reportPath), JSON.stringify(report, null, 2) + '\\n');
-  writeFileSync(path.join(root, spectrogramPath), spectrogramSvg(samples, { speech, silence, interiorSilence, snrSpeechVsSilenceDb: snr }));
+  writeFileSync(path.join(root, spectrogramPath), spectrogramSvg(samples, { speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr }));
 }
 console.log(JSON.stringify({ valid, input, qa: reportPath, spectrogram: spectrogramPath, findings }));
 `;
@@ -1226,6 +1336,7 @@ if (receipt.output !== plan.encodedMp4Path || receipt.outputSha256 !== outputSha
   fail('encoded MP4 does not match its render receipt');
 }
 const probe = JSON.parse(run(ffprobe, ['-v', 'error', '-count_frames', '-show_streams', '-show_format', '-of', 'json', movie], 'ffprobe'));
+if (!probe.format) fail('MP4 container metadata is missing');
 const video = probe.streams?.find((stream) => stream.codec_type === 'video');
 const audio = probe.streams?.find((stream) => stream.codec_type === 'audio');
 if (!video) fail('MP4 has no video stream');
@@ -1248,10 +1359,20 @@ if (!Number.isFinite(duration) || duration < expectedDuration - durationToleranc
 }
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg', '--verify-only'], 'encoded audio spectrogram QA');
 const report = { schemaVersion: '1.0.0', adapter: '${REMOTION_MP4_ADAPTER}', file: plan.encodedMp4Path,
-  contentDigest: plan.contentDigest, outputSha256, video, audio, container: probe.format };
-if (!process.argv.includes('--verify-only')) {
+  contentDigest: plan.contentDigest, outputSha256, video, audio, container: { ...probe.format, filename: plan.encodedMp4Path } };
+const qcPath = path.join(root, 'qc', 'mp4-qc.json');
+if (process.argv.includes('--verify-only')) {
+  if (!existsSync(qcPath)) fail('MP4 QC report is missing');
+  const recorded = JSON.parse(readFileSync(qcPath, 'utf8'));
+  if (recorded.adapter !== report.adapter || recorded.file !== report.file ||
+    recorded.contentDigest !== report.contentDigest || recorded.outputSha256 !== report.outputSha256 ||
+    recorded.container?.filename !== report.file || recorded.video?.codec_name !== video.codec_name ||
+    recorded.video?.nb_read_frames !== video.nb_read_frames || recorded.video?.width !== video.width ||
+    recorded.video?.height !== video.height || recorded.audio?.codec_name !== audio.codec_name ||
+    recorded.audio?.sample_rate !== audio.sample_rate) fail('MP4 QC report does not match the encoded media');
+} else {
   mkdirSync(path.join(root, 'qc'), { recursive: true });
-  writeFileSync(path.join(root, 'qc', 'mp4-qc.json'), JSON.stringify(report, null, 2) + '\\n');
+  writeFileSync(qcPath, JSON.stringify(report, null, 2) + '\\n');
 }
 console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: '${REMOTION_MP4_ADAPTER}' }));
 `;
@@ -1431,30 +1552,103 @@ export async function renderVisualStills(releaseRoot: string, content: ContentIR
   return files;
 }
 
+async function speechEnvironment(engine: string): Promise<NodeJS.ProcessEnv> {
+  const env: NodeJS.ProcessEnv = { ...process.env, A2SWE_TTS_ENGINE: engine, PYTHONUTF8: '1' };
+  if (!env.A2SWE_PYTHON) {
+    const candidate = path.join(REPOSITORY_ROOT, '.venv', process.platform === 'win32' ? 'Scripts' : 'bin',
+      process.platform === 'win32' ? 'python.exe' : 'python');
+    if (existsSync(candidate)) env.A2SWE_PYTHON = candidate;
+  }
+  const registry = JSON.parse(await readFile(path.join(REPOSITORY_ROOT, 'library', 'assets', 'speech', 'models.json'), 'utf8')) as {
+    models: Record<string, { path: string; sha256: string }>;
+  };
+  const required = engine === 'kokoro'
+    ? ['A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'KOKORO_ONNX_VOICES']
+    : ['KOKORO_ONNX_MODEL', 'KOKORO_ONNX_VOICES'];
+  for (const key of required) {
+    if (env[key]) continue;
+    const model = registry.models[key];
+    if (!model || !path.isAbsolute(model.path) || !existsSync(model.path)) throw new Error(`speech_model_unavailable: ${key}`);
+    const hash = createHash('sha256');
+    for await (const chunk of createReadStream(model.path)) hash.update(chunk);
+    if (hash.digest('hex') !== model.sha256) throw new Error(`speech_model_digest_mismatch: ${model.path}`);
+    env[key] = model.path;
+  }
+  return env;
+}
+
+export async function renderProjectAudio(projectDirectory: string, engine: string, profileId?: string) {
+  if (!['both', 'kokoro', 'kokoro_onnx'].includes(engine)) throw new Error('invalid_speech_engine');
+  const project = path.resolve(projectDirectory);
+  const contentFile = path.join(project, 'canonical', 'content-ir.json');
+  const content = existsSync(contentFile) ? validate('ContentIR', JSON.parse(await readFile(contentFile, 'utf8'))) : null;
+  const narration = content?.voice.narration ?? (await readFile(path.join(project, 'script', 'narration.txt'), 'utf8'))
+    .split(/\r?\n/).filter((line) => !line.startsWith('#')).join('\n').replaceAll('|', ' ').trim();
+  if (!narration.trim()) throw new Error('empty_narration');
+  const profile = speechProfile({ ...(content?.voice ?? { style: 'clear', narration, externalTransfer: false }),
+    ...(profileId ? { profileId } : {}) });
+  const qc = path.join(project, 'qc');
+  await mkdir(qc, { recursive: true });
+  const staging = await mkdtemp(path.join(qc, '.speech-'));
+  try {
+    await mkdir(path.join(staging, 'scripts'));
+    await writeFile(path.join(staging, 'scripts', 'synthesize-audio.py'), synthesizeAudioPython());
+    await writeFile(path.join(staging, 'requirements.lock.txt'), GENERATED_REQUIREMENTS_LOCK);
+    const engines = engine === 'both' ? ['kokoro_onnx', 'kokoro'] : [engine];
+    const outputs: { engine: string; audio: string; metadata: string; sha256: string; durationSeconds: number; rawAudio: unknown }[] = [];
+    let expectedVoiceDigest: string | undefined;
+    let expectedPhonemes: string | undefined;
+    for (const selected of engines) {
+      const payload = {
+        schemaVersion: '1.0.0', contentId: content?.contentId ?? path.basename(project),
+        contentDigest: content ? digest(content) : sha256(narration),
+        text: narration, segments: narration.split(/\r?\n[ \t]*\r?\n/).map((part) => part.trim()).filter(Boolean),
+        narrationSha256: sha256(narration), language: 'en', externalTransfer: false, voiceProfile: profile,
+        outputWav: `${selected}.wav`, metadataPath: `${selected}.json`, sampleRate: 48000, channels: 2,
+        expectedDurationSeconds: Math.max(1, narration.split(/\s+/).length / 2.5)
+      };
+      await writeFile(path.join(staging, 'narration.json'), stableJson(payload));
+      const env = await speechEnvironment(selected);
+      env.A2SWE_AUDIO_CLEANUP = 'off';
+      const run = spawnSync(env.A2SWE_PYTHON ?? 'python', ['scripts/synthesize-audio.py', 'narration.json'], {
+        cwd: staging, env, encoding: 'utf8', timeout: 10 * 60 * 1000, maxBuffer: 16 * 1024 * 1024, windowsHide: true
+      });
+      if (run.error || run.status !== 0) throw new Error(`speech_generation_failed: ${run.error?.message ?? (run.stderr || run.stdout).trim()}`);
+      const metadata = JSON.parse(await readFile(path.join(staging, `${selected}.json`), 'utf8'));
+      if (expectedVoiceDigest && (expectedVoiceDigest !== metadata.voice.voiceTensorSha256 || expectedPhonemes !== metadata.voice.phonemesSha256)) {
+        throw new Error('speech_comparison_input_mismatch');
+      }
+      expectedVoiceDigest = metadata.voice.voiceTensorSha256;
+      expectedPhonemes = metadata.voice.phonemesSha256;
+      if (sha256(await readFile(path.join(staging, `${selected}.wav`))) !== metadata.audioSha256) throw new Error('speech_audio_digest_mismatch');
+      outputs.push({ engine: selected, audio: `${selected}.wav`, metadata: `${selected}.json`, sha256: metadata.audioSha256,
+        durationSeconds: metadata.durationSeconds, rawAudio: metadata.rawAudio });
+    }
+    const target = path.join(qc, 'audio', profile.id);
+    await mkdir(target, { recursive: true });
+    for (const output of outputs) {
+      await copyFile(path.join(staging, output.audio), path.join(target, output.audio));
+      const metadata = JSON.parse(await readFile(path.join(staging, output.metadata), 'utf8'));
+      const producer = fileURLToPath(import.meta.url);
+      metadata.generatedProducerSha256 = metadata.producerSha256;
+      metadata.producer = path.relative(target, producer).split(path.sep).join('/');
+      metadata.producerSha256 = sha256(await readFile(producer));
+      await writeFile(path.join(target, output.metadata), stableJson(metadata));
+    }
+    const comparison = { schemaVersion: '1.0.0', profile, narrationSha256: sha256(narration),
+      voiceTensorSha256: expectedVoiceDigest, phonemesSha256: expectedPhonemes, cleanup: 'off',
+      waveformParity: 'not_expected_independent_stochastic_excitation', outputs };
+    await writeFile(path.join(target, 'comparison.json.tmp'), stableJson(comparison));
+    await rename(path.join(target, 'comparison.json.tmp'), path.join(target, 'comparison.json'));
+    return { directory: target, ...comparison };
+  } finally { await rm(staging, { recursive: true, force: true }); }
+}
+
 export async function renderEncodedMp4(releaseRoot: string, content: ContentIR): Promise<AdapterFile[]> {
   const contentId = content.contentId;
   const root = path.join(path.resolve(releaseRoot), 'outputs', 'remotion');
   const cleanup = await prepareRuntime(root, content);  try {
-    const env = { ...process.env };
-    if (!env.A2SWE_PYTHON) {
-      const candidate = path.join(REPOSITORY_ROOT, '.venv', process.platform === 'win32' ? 'Scripts' : 'bin',
-        process.platform === 'win32' ? 'python.exe' : 'python');
-      if (existsSync(candidate)) env.A2SWE_PYTHON = candidate;
-    }
-    if (env.A2SWE_TTS_ENGINE !== 'kokoro' && env.TTS_ENGINE !== 'kokoro' && (!env.KOKORO_ONNX_MODEL || !env.KOKORO_ONNX_VOICES)) {
-      const verification = JSON.parse(await readFile(path.join(REPOSITORY_ROOT, 'qc', 'models', 'verification.json'), 'utf8')) as {
-        models: Record<string, string>;
-      };
-      for (const [suffix, key] of [['.onnx', 'KOKORO_ONNX_MODEL'], ['.bin', 'KOKORO_ONNX_VOICES']] as const) {
-        if (env[key]) continue;
-        const match = Object.entries(verification.models).find(([filename]) => filename.endsWith(suffix));
-        if (!match || !existsSync(match[0])) throw new Error(`mp4_model_unavailable: set ${key} to a local verified ${suffix} model`);
-        const hash = createHash('sha256');
-        for await (const chunk of createReadStream(match[0])) hash.update(chunk);
-        if (hash.digest('hex') !== match[1]) throw new Error(`mp4_model_digest_mismatch: ${match[0]}`);
-        env[key] = match[0];
-      }
-    }
+    const env = await speechEnvironment(process.env.A2SWE_TTS_ENGINE ?? process.env.TTS_ENGINE ?? 'auto');
     const result = spawnSync(process.execPath, ['scripts/render-mp4.mjs'], {
       cwd: root, env, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout: 30 * 60 * 1000, windowsHide: true
     });

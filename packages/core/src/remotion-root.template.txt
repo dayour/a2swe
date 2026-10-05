@@ -75,7 +75,7 @@ function ClaimCard({ claim, source, number, progress, large, compact }: { claim:
   return <div style={{ display: 'flex', gap: 20, padding: compact ? '14px 20px' : '20px 26px', borderRadius: 22, background: surface, border: '1px solid ' + line, opacity: progress, transform: 'translateY(' + (1 - progress) * 26 + 'px)' }}>
     <div style={{ flex: compact ? '0 0 44px' : '0 0 56px', height: compact ? 44 : 56, borderRadius: 28, background: accentAlpha(0.24), color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: compact ? 22 : 28, fontWeight: 800 }}>{number}</div>
     <div style={{ minWidth: 0 }}>
-      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(compact ? 3 : large ? 5 : 4) }}>{claim}</div>
+      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(compact ? 5 : large ? 5 : 4) }}>{claim}</div>
       {source ? <div style={{ marginTop: 6, fontSize: compact ? 15 : 17, color: muted, ...clip(1) }}>{source}</div> : null}
     </div>
   </div>;
@@ -86,7 +86,10 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
   const { fps } = useVideoConfig();
   const frame = scene.startFrame + local;
   const last = scene.durationInFrames - 1;
-  const fade = last < 24 ? 1 : interpolate(local, [0, 10, last - 10, last], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const fadeIn = last < 24 ? 1 : interpolate(local, [0, 10], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const fadeOut = index === scenes.length - 1 && last >= 24
+    ? interpolate(local, [last - 10, last], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) : 1;
+  const fade = fadeIn * fadeOut;
   const enter = (delay: number) => spring({ frame: local - delay, fps, config: { damping: 200 } });
   const caption = captionAt(scene, frame);
   const sceneAssets = scene.assetIds.map((id) => assetsById.get(id)).filter((asset): asset is AssetRecord => Boolean(asset) && Boolean(asset?.mediaType.startsWith('image/'))).slice(0, 2);
@@ -112,7 +115,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
       <div style={{ position: 'absolute', left: 96, right: 96, top: 380, height: 470, display: 'grid', gridTemplateColumns: hasVisual ? '600px 1fr' : '0.9fr 1.1fr', gap: hasVisual ? 48 : 64 }}>
         <div style={{ alignSelf: 'start', minWidth: 0 }}>
           <div style={{ borderLeft: '6px solid ' + theme.accent, paddingLeft: 30, opacity: enter(6) }}>
-            <p style={{ fontSize: hasVisual ? 32 : 38, lineHeight: 1.4, margin: 0, ...clip(isLast && !hasVisual ? 5 : hasVisual ? 4 : 7) }}>{scene.body}</p>
+            <p style={{ fontSize: hasVisual ? 30 : 38, lineHeight: hasVisual ? 1.32 : 1.4, margin: 0, ...clip(isLast && !hasVisual ? 5 : hasVisual ? 6 : 7) }}>{scene.body}</p>
             {isLast && !hasVisual ? <p style={{ fontSize: 28, lineHeight: 1.3, margin: '28px 0 0', color: theme.accent, fontWeight: 700, ...clip(3) }}>Decision: {scene.decision}</p> : null}
             {!hasVisual ? sceneAssets.map((asset) => <div key={asset.assetId} style={{ marginTop: 28, opacity: enter(10) }}>
               <Img src={assetSrc(asset)} alt={asset.alt} style={{ width: '100%', maxHeight: 250, objectFit: 'contain', borderRadius: 18, border: '1px solid ' + line }} />
@@ -142,7 +145,7 @@ function Progress() {
 export function Explainer() {
   return <AbsoluteFill>
     <Backdrop />
-    {scenes.map((scene, index) => <Sequence key={index} from={scene.startFrame} durationInFrames={scene.durationInFrames}><SceneView scene={scene} index={index} /></Sequence>)}
+    {scenes.map((scene, index) => <Sequence key={index} from={scene.startFrame} durationInFrames={scene.durationInFrames + (index < scenes.length - 1 ? Math.min(10, Math.floor(scene.durationInFrames / 4)) : 0)}><SceneView scene={scene} index={index} /></Sequence>)}
     <Progress />
   </AbsoluteFill>;
 }

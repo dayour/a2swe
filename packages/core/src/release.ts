@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
@@ -15,6 +15,30 @@ function styleDigest(spec: RenderSpec): string {
 
 function voiceDigest(content: ContentIR): string {
   return digest(content.voice);
+}
+
+export async function indexProjectQc(directory: string) {
+  const project = path.resolve(directory);
+  const qc = path.join(project, 'qc');
+  await mkdir(qc, { recursive: true });
+  const entries: { path: string; digest: string; byteSize: number }[] = [];
+  for (const folder of [qc, path.join(project, 'release', 'outputs', 'remotion', 'qc')]) {
+    if (!existsSync(folder)) continue;
+    for (const entry of await readdir(folder, { recursive: true, withFileTypes: true })) {
+      if (!entry.isFile()) continue;
+      const filename = path.join(entry.parentPath, entry.name);
+      const relative = path.relative(project, filename).split(path.sep).join('/');
+      if (relative === 'qc/index.json' || relative.endsWith('.tmp') || relative.split('/').some((part) => part.startsWith('.'))) continue;
+      const bytes = await readFile(filename);
+      entries.push({ path: relative, digest: sha256(bytes), byteSize: bytes.length });
+    }
+  }
+  const index = { schemaVersion: '1.0.0', projectId: path.basename(project),
+    status: 'indexed_not_quality_approved', entries: entries.sort((a, b) => a.path.localeCompare(b.path)) };
+  const staging = path.join(qc, 'index.json.tmp');
+  await writeFile(staging, `${JSON.stringify(index, null, 2)}\n`);
+  await rename(staging, path.join(qc, 'index.json'));
+  return index;
 }
 
 export function createReleasePlan(contentInput: unknown, renderInput: unknown, approvalInput: unknown): ReleasePlan {
@@ -152,6 +176,9 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
     await writeJson(path.join(root, 'release-plan.json'), plan);
     await writeJson(path.join(root, 'asset-inventory.json'), inventory);
     await writeJson(path.join(root, 'parity-manifest.json'), parity);
+    if (existsSync(path.join(path.dirname(root), 'canonical', 'domain-pack.json'))) {
+      await indexProjectQc(path.dirname(root));
+    }
     return parity;
   } catch (error) {
     await rm(root, { recursive: true, force: true });

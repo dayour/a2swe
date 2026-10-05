@@ -361,6 +361,11 @@ export interface SectionVisual {
 }
 export interface VoiceSpec {
   style: string;
+  profileId?: string;
+  speed?: number;
+  pronunciations?: {
+    [k: string]: string;
+  };
   narration: string;
   externalTransfer: false;
 }

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "profile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work"
+    }
+  },
+  "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
+  "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1",
+  "phonemesSha256": "24ed675b337d53ef74c8bc380480b08f702ec9aefa5a5d962572eaeb98eee3a6",
+  "cleanup": "off",
+  "waveformParity": "not_expected_independent_stochastic_excitation",
+  "outputs": [
+    {
+      "engine": "kokoro_onnx",
+      "audio": "kokoro_onnx.wav",
+      "metadata": "kokoro_onnx.json",
+      "sha256": "8dcbd14f05561e1f3a0b014675191ca6f37b9e79e3f9993909c8060eec88334d",
+      "durationSeconds": 91.675,
+      "rawAudio": {
+        "dc": 0.000014632229146400214,
+        "peak": 0.5620275139808655,
+        "rms": 0.040457402722662086
+      }
+    },
+    {
+      "engine": "kokoro",
+      "audio": "kokoro.wav",
+      "metadata": "kokoro.json",
+      "sha256": "0648df7cdfff643d5a334bb369714cc0acaa2b382668f43703017ed23e992c9b",
+      "durationSeconds": 91.675,
+      "rawAudio": {
+        "dc": 0.000014166992257316356,
+        "peak": 0.5570836663246155,
+        "rms": 0.0404516110911102
+      }
+    }
+  ]
+}

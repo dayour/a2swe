@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "1.0.0",
+  "historical": true,
+  "models": {
+    "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa",
+    "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+  },
+  "contentId": "datadog-cowork-plugin",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
+  "file": "datadog-cowork-plugin-kokoro-onnx.wav",
+  "sha256": "b058eacf97eb5681ae259938cbcfa14553e96ec4c36015fa022f8c242358e14c",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "voice": "am_michael",
+    "lang": "en-us",
+    "speed": 1
+  },
+  "modelSha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa",
+  "sample_rate": 48000,
+  "channels": 2,
+  "seconds": 88.166625,
+  "cleanup": "none",
+  "raw_segments": [
+    {
+      "segment": 0,
+      "seconds": 9.426,
+      "dc": 0.00002417906124953329,
+      "rms": 0.042870077444358855,
+      "peak": 0.36984488368034363
+    },
+    {
+      "segment": 1,
+      "seconds": 12.917333333333334,
+      "dc": 0.00001220962055366144,
+      "rms": 0.044984013671549763,
+      "peak": 0.5227976441383362
+    },
+    {
+      "segment": 2,
+      "seconds": 13.604666666666667,
+      "dc": 0.000012271253719665764,
+      "rms": 0.04440871125553027,
+      "peak": 0.45724156498908997
+    },
+    {
+      "segment": 3,
+      "seconds": 12.752666666666666,
+      "dc": 0.000016434609412575364,
+      "rms": 0.041836647784553205,
+      "peak": 0.44064298272132874
+    },
+    {
+      "segment": 4,
+      "seconds": 11.262,
+      "dc": 0.000022352137147123606,
+      "rms": 0.04182158566207326,
+      "peak": 0.555668830871582
+    },
+    {
+      "segment": 5,
+      "seconds": 8.14,
+      "dc": 0.000023343858859408248,
+      "rms": 0.04370599900990026,
+      "peak": 0.5151560306549072
+    },
+    {
+      "segment": 6,
+      "seconds": 16.013958333333335,
+      "dc": 0.000013535877851867954,
+      "rms": 0.04169502613419062,
+      "peak": 0.47163572907447815
+    }
+  ],
+  "segments": [
+    {
+      "index": 0,
+      "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.",
+      "startSeconds": 0.25,
+      "endSeconds": 9.676
+    },
+    {
+      "index": 1,
+      "text": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
+      "startSeconds": 10.226,
+      "endSeconds": 23.143333333333334
+    },
+    {
+      "index": 2,
+      "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.",
+      "startSeconds": 23.69333333333333,
+      "endSeconds": 37.298
+    },
+    {
+      "index": 3,
+      "text": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.",
+      "startSeconds": 37.848,
+      "endSeconds": 50.60066666666667
+    },
+    {
+      "index": 4,
+      "text": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
+      "startSeconds": 51.150666666666666,
+      "endSeconds": 62.41266666666667
+    },
+    {
+      "index": 5,
+      "text": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.",
+      "startSeconds": 62.962666666666664,
+      "endSeconds": 71.10266666666666
+    },
+    {
+      "index": 6,
+      "text": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
+      "startSeconds": 71.65266666666666,
+      "endSeconds": 87.666625
+    }
+  ]
+}

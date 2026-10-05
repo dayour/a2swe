@@ -1,0 +1,69 @@
+{
+  "reconstruction": "normalized-real-valued-stft",
+  "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa",
+  "voice": "am_liam",
+  "cases": [
+    {
+      "speed": 1,
+      "tokens": 32,
+      "samples": 59400,
+      "peak": 0.4533906579017639,
+      "rms": 0.05732596472806528,
+      "dc": 0.00008831593631433284,
+      "reference_rms": 0.05747031792998314
+    },
+    {
+      "speed": 0.9,
+      "tokens": 15,
+      "samples": 42600,
+      "peak": 0.4431149661540985,
+      "rms": 0.05651528834525211,
+      "dc": 0.000046671790907265543,
+      "reference_rms": 0.05652235820889473
+    },
+    {
+      "speed": 1.2,
+      "tokens": 62,
+      "samples": 86400,
+      "peak": 0.4743684232234955,
+      "rms": 0.054577627371567385,
+      "dc": 0.00005124222204895692,
+      "reference_rms": 0.05461820587515831
+    }
+  ],
+  "waveform_sample_parity": "not_applicable_stochastic_excitation",
+  "default_voice_verification": {
+    "voice": "am_michael",
+    "duration_parity": true,
+    "waveform_sample_parity": "not_applicable_stochastic_excitation",
+    "cases": [
+      {
+        "speed": 1,
+        "tokens": 32,
+        "samples": 61200,
+        "peak": 0.3094095289707184,
+        "rms": 0.040978340801744395,
+        "dc": 0.000027705171254218864,
+        "reference_rms": 0.04101685434579849
+      },
+      {
+        "speed": 0.9,
+        "tokens": 16,
+        "samples": 46800,
+        "peak": 0.41524815559387207,
+        "rms": 0.04114327266241403,
+        "dc": 0.00001640969987188342,
+        "reference_rms": 0.04111390933394432
+      },
+      {
+        "speed": 1.2,
+        "tokens": 62,
+        "samples": 94800,
+        "peak": 0.29409438371658325,
+        "rms": 0.03903939506746888,
+        "dc": 0.00001971734061376115,
+        "reference_rms": 0.03896984085440636
+      }
+    ]
+  }
+}

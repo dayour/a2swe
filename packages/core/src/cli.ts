@@ -44,7 +44,8 @@ async function main(): Promise<void> {
     'as-of': { type: 'string' }, state: { type: 'string' }, help: { type: 'boolean' },
     endpoint: { type: 'string' }, checkpoint: { type: 'string' }, url: { type: 'string' }, domain: { type: 'string' },
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
-    content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' }
+    content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' },
+    engine: { type: 'string' }, voice: { type: 'string' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -62,6 +63,9 @@ async function main(): Promise<void> {
       '  runbook-verify --root PROJECT_DIRECTORY',
       '  domain-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD [--out FILE]',
       '  project-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD --out NEW_DIRECTORY',
+      '  voice-profiles',
+      '  audio-render --root PROJECT_DIRECTORY [--engine both|kokoro|kokoro_onnx] [--voice PROFILE_ID]',
+      '  qc-index --root PROJECT_DIRECTORY',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
       '  job-status --id TASK [--state DIRECTORY]',
@@ -85,6 +89,22 @@ async function main(): Promise<void> {
     return;
   }
   if (positionals.length !== 1) throw new Error('unexpected_positional_argument');
+  if (command === 'voice-profiles' || command === 'audio-render') {
+    const { voiceProfiles, renderProjectAudio } = await import('./media-remotion.ts');
+    const result = command === 'voice-profiles' ? voiceProfiles()
+      : await renderProjectAudio(required('root'), values.engine ?? 'both', values.voice);
+    if (command === 'audio-render') {
+      const { indexProjectQc } = await import('./release.ts');
+      await indexProjectQc(required('root'));
+    }
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+  if (command === 'qc-index') {
+    const { indexProjectQc } = await import('./release.ts');
+    console.log(JSON.stringify(await indexProjectQc(required('root')), null, 2));
+    return;
+  }
   if (command === 'domain-certify') {
     const { certifyDomain } = await import('./approvals.ts');
     const domain = JSON.parse(await readFile(required('file'), 'utf8'));
@@ -233,6 +253,8 @@ async function main(): Promise<void> {
     await mkdir(root, { mode: 0o700 });
     try {
       const domainFile = path.join(root, 'canonical', 'domain-pack.json');
+      const { indexProjectQc } = await import('./release.ts');
+      await indexProjectQc(root);
       await writeJson(domainFile, domain, true);
       const starter = JSON.parse(await readFile(new URL('../../../library/assets/runbook/runbook-starter.json', import.meta.url), 'utf8'));
       const runbook = validate('Runbook', { ...starter, runbookId: id, projectId: id, updatedAt: new Date().toISOString(),

@@ -381,6 +381,13 @@
       "required": ["style", "narration", "externalTransfer"],
       "properties": {
         "style": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "profileId": { "type": "string", "pattern": "^[ab][fm]_[a-z0-9_]+$", "maxLength": 80 },
+        "speed": { "type": "number", "minimum": 0.5, "maximum": 2 },
+        "pronunciations": {
+          "type": "object", "maxProperties": 100,
+          "propertyNames": { "minLength": 1, "maxLength": 100 },
+          "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 200 }
+        },
         "narration": { "type": "string", "minLength": 1, "maxLength": 20000 },
         "externalTransfer": { "const": false }
       }
