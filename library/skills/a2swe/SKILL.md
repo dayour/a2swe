@@ -23,7 +23,11 @@ output, grant reuse rights, or create approval by itself.
 
 ## Required workflow
 
-1. Read `agent/runbook.json` and `agent/SWE_AGENT.md`.
+1. Read `canonical/generation-request.json` when present. Create the
+   project-specific `agent/SWE_AGENT.md` when beginning a new project; read and
+   maintain it with `agent/runbook.json` rather than stopping at a missing
+   companion. Default to executive decision-makers and use
+   `library/agents/a2swe-executive-engagement.agent.md`.
 2. Validate the runbook and verify its recorded files:
    `node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json`
    and `node packages/core/src/cli.ts runbook-verify --root PROJECT`.
@@ -31,16 +35,18 @@ output, grant reuse rights, or create approval by itself.
    producing a release.
 4. Use `release-plan`, `release-produce`, and `release-verify` for the managed
    release path.
-5. Leave missing model paths, stale evidence, unsupported formats, and absent
-   assets as explicit blockers.
+5. Inspect real rendered outputs and audio. Repair stale caches, unreadable
+   visuals, caption/timing defects and failed quality checks, then rerun existing
+   verification. Do not add duplicate pipelines or weaken thresholds. Surface
+   genuine access/dependency failures without inventing successful output.
 
 ## Expected output
 
 Return:
 
 - exact command evidence
-- pending or blocked gates
-- stale or missing artifact paths
-- earliest safe resumption stage
+- verified output paths and digests
+- repairs made and their verification results
+- exact unavoidable access/dependency failures, if any
 
 Do not invent approvals or publication authority.

@@ -88,9 +88,13 @@ audio.
 Narration is synthesized per blank-line-separated paragraph. The generated project
 stores those paragraphs as speech segments and measures each segment duration.
 
-When paragraph count matches scene count, measured speech defines scene timing and
-caption timing. Otherwise the renderer keeps measured audio but places scene cuts
-proportionally by text length.
+Measured speech drives global subtitle cues for every paragraph. When transcript
+text proves a scene mapping, the producer records scene IDs for timed cuts.
+Otherwise cuts are proportional and labeled as lacking semantic alignment.
+Captions are never disabled merely because paragraph and scene counts differ.
+
+Cached narration is reused only when its engine, models, voice bank, profile,
+pronunciations, producer, lockfile and cleanup policy match current inputs.
 
 Captions and document text normalize spoken-form spellings such as `H I P A A`
 and `O Auth` to `HIPAA` and `OAuth`.
