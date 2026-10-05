@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import { digest, parseDate, safeRelativePath, sha256, windowStart } from './canonical.ts';
-import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 
-export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 const schema = JSON.parse(readFileSync(new URL('../schemas/contracts.schema.json', import.meta.url), 'utf8'));
 const validator = new Ajv2020({ allErrors: true, strict: true });
 validator.addSchema(schema);
@@ -11,8 +11,12 @@ validator.addSchema(schema);
 type Contracts = {
   AssetRequest: AssetRequest; AssetRecord: AssetRecord; AssetInventory: AssetInventory; ContentIR: ContentIR; DomainPack: DomainPack;
   FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; ApprovalManifest: ApprovalManifest;
-  Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem
+  Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem; GenerationRequest: GenerationRequest
 };
+
+export function isContractName(name: string): name is keyof Contracts {
+  return schema.oneOf.some((entry: { $ref: string }) => entry.$ref === `#/$defs/${name}`);
+}
 
 export function validate<Name extends keyof Contracts>(name: Name, value: unknown): Contracts[Name] {
   const check = validator.getSchema(`${schema.$id}#/$defs/${name}`);
@@ -26,6 +30,17 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'AssetInventory') validateInventory(value as AssetInventory);
   if (name === 'ReleasePlan') validateReleasePlan(value as ReleasePlan);
   if (name === 'Runbook') validateRunbook(value as Runbook);
+  if (name === 'GenerationRequest') {
+    const request = value as GenerationRequest;
+    if (!request.name.trim() || !request.brief.trim()) throw new Error('empty_generation_request');
+    if (!safeRelativePath(`projects/${request.id}`) || request.libraryPaths.some(filename => !safeRelativePath(filename))) {
+      throw new Error('unsafe_generation_path');
+    }
+    for (const source of request.sources) {
+      const url = new URL(source);
+      if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password) throw new Error('invalid_generation_source');
+    }
+  }
   if (name === 'AssetRequest') {
     const request = value as AssetRequest;
     validateAltText(request.alt);

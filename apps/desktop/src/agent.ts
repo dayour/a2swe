@@ -4,6 +4,8 @@ import type {Activity, BridgeEvent, ChatMessage} from './types';
 
 type Permission = {requestId: string; request: unknown};
 type InputRequest = {requestId: string; question: string; choices?: string[]};
+export type GenerationStatus = {projectId: string; state: string; phase?: string; attempts?: number; error?: unknown;
+  completion?: {releasePath: string; outputs?: {format: string; path: string}[]}};
 type Snapshot = {
   sessionState: {currentSessionId?: string; savedSessionId?: string; lastState?: string; activeProjectId?: string};
   transcript: {events: {id?: string; type: string; content?: string; data?: Record<string, unknown>}[]};
@@ -20,6 +22,7 @@ export function useAgent() {
   const [permissions, setPermissions] = useState<Permission[]>([]);
   const [inputs, setInputs] = useState<InputRequest[]>([]);
   const [error, setError] = useState<string>();
+  const [generation, setGeneration] = useState<GenerationStatus>();
   const reportError = useCallback((cause: unknown) => setError(cause instanceof Error ? cause.message : String(cause)), []);
   const refresh = useCallback(async () => {
     if (!isNative) return;
@@ -27,6 +30,10 @@ export function useAgent() {
     setState(snapshot.sessionState.lastState ?? 'idle');
     setSessionId(snapshot.sessionState.currentSessionId ?? snapshot.sessionState.savedSessionId);
     setActiveProjectId(snapshot.sessionState.activeProjectId);
+    if (snapshot.sessionState.activeProjectId) {
+      const status = await bridgeRequest<GenerationStatus | null>('project.generation.status', {projectId: snapshot.sessionState.activeProjectId});
+      setGeneration(status ?? undefined);
+    }
     setPermissions(snapshot.pendingPermissions ?? []);
     setInputs(snapshot.pendingInputs ?? []);
     const history = snapshot.transcript.events.filter(e => ['user.message', 'assistant.message'].includes(e.type))
@@ -45,6 +52,12 @@ export function useAgent() {
       }
     }
     if (event.event === 'agent.error') reportError(data.message ?? 'Agent failed');
+    if (event.event === 'project.generation.status' && typeof data.projectId === 'string' && typeof data.state === 'string') {
+      setGeneration({projectId: data.projectId, state: data.state, phase: typeof data.phase === 'string' ? data.phase : undefined,
+        error: data.error, attempts: typeof data.attempts === 'number' ? data.attempts : undefined,
+        completion: data.completion && typeof data.completion === 'object' && 'releasePath' in data.completion
+          && typeof data.completion.releasePath === 'string' ? {releasePath: data.completion.releasePath} : undefined});
+    }
     if (event.event === 'agent.user') setMessages(current => [...current, {id: crypto.randomUUID(), role: 'user', text: String(data.text ?? '')}]);
     if (event.event === 'agent.message.delta' && data.text) setMessages(current => {
       const last = current.at(-1);
@@ -92,6 +105,6 @@ export function useAgent() {
     await bridgeRequest('agent.input', {requestId, answer});
     setInputs(current => current.filter(p => p.requestId !== requestId));
   }
-  return {messages, activities, state, sessionId, activeProjectId, permissions, inputs, error, setError, reportError,
+  return {messages, activities, state, sessionId, activeProjectId, permissions, inputs, generation, error, setError, reportError,
     refresh, send, answerPermission, answerInput};
 }

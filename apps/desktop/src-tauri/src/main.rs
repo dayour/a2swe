@@ -27,6 +27,8 @@ const ALLOWED_METHODS: &[&str] = &[
     "context",
     "context.refresh",
     "projects",
+    "project.generate",
+    "project.generation.status",
     "library",
     "knowledge.search",
     "agent.start",
@@ -233,6 +235,8 @@ impl BridgeManager {
         }
         let timeout = if method == "tools.call" {
             Duration::from_secs(1800)
+        } else if method == "project.generate" {
+            Duration::from_secs(600)
         } else {
             BRIDGE_TIMEOUT
         };

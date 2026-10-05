@@ -1,9 +1,13 @@
 import { createInterface } from 'node:readline';
 import { randomUUID } from 'node:crypto';
+import { access, mkdir, opendir, readFile, stat } from 'node:fs/promises';
+import { constants } from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { CopilotClient } from '@github/copilot-sdk';
 import type { CopilotSession, PermissionHandler, SessionConfig } from '@github/copilot-sdk';
+import { validate } from '../../../packages/core/src/contracts.ts';
+import type { GenerationRequest } from '../../../packages/core/src/contracts.ts';
 import { callLocalTool, LOCAL_TOOL_NAMES } from './mcp-server.ts';
 import { deadline, permissionMode, profileClient, profilePermissions, profileSession } from './profile.ts';
 import { inspectRuntime, resolveRuntime, sdkRuntimeCapabilities } from './runtime.ts';
@@ -11,14 +15,19 @@ import {
   CORE_COMMANDS,
   DEFAULT_WORKSPACE,
   INTEGRATION_ROOT,
+  digestText,
   discoverLibrary,
   discoverProjects,
+  discoverVoiceProfiles,
   intake,
   readJsonFile,
   redact,
   resolveWorkspace,
+  runCoreCommand,
+  safePath,
   searchKnowledge,
   toolsCatalog,
+  toRepoRelative,
   truncate,
   writeJsonAtomic
 } from './helpers.ts';
@@ -45,8 +54,24 @@ type DesktopState = {
   sessionId?: string;
   activeProjectId?: string;
   model?: string;
+  projectSessions?: Record<string, { sessionId: string; model?: string; updatedAt: string }>;
   updatedAt?: string;
   lastState?: string;
+};
+type GenerationState = {
+  schemaVersion: '1.0.0';
+  projectId: string;
+  requestDigest: string;
+  request: GenerationRequest;
+  state: 'draft' | 'running' | 'needs-attention' | 'completed' | 'failed';
+  phase?: string;
+  attemptCount?: number;
+  projectPath: string;
+  requestPath: string;
+  sessionId?: string;
+  completion?: { releasePath: string; parityPath: string; outputs: Array<{ format?: string; path: string; byteSize?: number }> };
+  errors?: Array<{ stage: string; message: string }>;
+  updatedAt: string;
 };
 
 function sendLine(payload: unknown) {
@@ -73,6 +98,23 @@ function stringParam(params: JsonObject, name: string, required = true): string 
   throw new Error(`missing_string: ${name}`);
 }
 
+function stringArrayParam(params: JsonObject, name: string): string[] {
+  const value = params[name];
+  if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) throw new Error(`missing_string_array: ${name}`);
+  return [...new Set(value.map((item) => item.trim()).filter(Boolean))];
+}
+
+function enumParam<Allowed extends readonly string[]>(params: JsonObject, name: string, allowed: Allowed): Allowed[number] {
+  const value = stringParam(params, name);
+  if (!allowed.includes(value!)) throw new Error(`invalid_enum: ${name}`);
+  return value as Allowed[number];
+}
+
+function slug(value: string): string {
+  const normalized = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
+  return normalized || 'project';
+}
+
 class DesktopBridge {
   private readonly workspace: string;
   private readonly runtime: ReturnType<typeof resolveRuntime>;
@@ -86,6 +128,9 @@ class DesktopBridge {
   private pendingPermissionKeys = new Map<string, string>();
   private pendingInputs = new Map<string, PendingInput>();
   private localOperations = new Map<string, AbortController>();
+  private agentBusy = false;
+  private activeGenerationStateFile?: string;
+  private generationLaunch?: { controller: AbortController; stateFile: string };
   private readonly stateFile: string;
 
   constructor(workspace: string) {
@@ -115,8 +160,12 @@ class DesktopBridge {
         return this.agentSnapshot(params);
       case 'agent.send':
         return this.agentSend(params);
+      case 'project.generate':
+        return this.projectGenerate(params);
+      case 'project.generation.status':
+        return this.projectGenerationStatus(params);
       case 'agent.abort':
-        return this.agentAbort();
+        return this.agentAbort(params);
       case 'tools.cancel':
         return this.toolsCancel(params);
       case 'agent.permission':
@@ -169,7 +218,9 @@ class DesktopBridge {
         runtime: this.runtime.runtime,
         runtimeSource: this.runtime.source,
         sessionId: this.session?.sessionId,
+        activeProjectId: this.activeProjectId ?? (await this.loadState()).activeProjectId,
         savedSessionId: (await this.loadState()).sessionId,
+        projectSessionId: this.activeProjectId ? (await this.loadState()).projectSessions?.[this.activeProjectId]?.sessionId : undefined,
         status
       };
     } catch (error) {
@@ -187,6 +238,7 @@ class DesktopBridge {
   private async context() {
     const [projects, library] = await Promise.all([discoverProjects(this.workspace), discoverLibrary(this.workspace)]);
     const state = await this.loadState();
+    const activeProjectId = this.activeProjectId ?? state.activeProjectId;
     return {
       workspace: this.workspace,
       projects: projects.projects,
@@ -197,6 +249,7 @@ class DesktopBridge {
       sessionState: {
         currentSessionId: this.session?.sessionId,
         savedSessionId: state.sessionId,
+        projectSessionId: activeProjectId ? state.projectSessions?.[activeProjectId]?.sessionId : undefined,
         canResume: Boolean(state.sessionId),
         updatedAt: state.updatedAt,
         lastState: state.lastState
@@ -209,36 +262,188 @@ class DesktopBridge {
     const client = await this.ensureClient();
     await this.disconnectSession();
     const saved = await this.loadState();
-    this.activeProjectId = typeof params.projectId === 'string' ? params.projectId : saved.activeProjectId;
+    const requestedProjectId = typeof params.projectId === 'string' && params.projectId.trim() ? params.projectId.trim() : undefined;
+    this.activeProjectId = requestedProjectId ?? saved.activeProjectId;
     this.sessionModel = typeof params.model === 'string' ? params.model : saved.model;
     const permissions = permissionMode(typeof params.permissions === 'string' ? params.permissions : 'ask');
     const config = await this.sessionConfig(permissions);
     const requestedSessionId = typeof params.sessionId === 'string' && params.sessionId.trim() ? params.sessionId.trim() : undefined;
-    const resume = params.resume === true || Boolean(requestedSessionId) || (params.new !== true && Boolean(saved.sessionId));
-    const sessionId = requestedSessionId ?? saved.sessionId;
-    this.session = await deadline(resume && sessionId ? client.resumeSession(sessionId, config) : client.createSession(config), 60000);
+    if (requestedSessionId && requestedProjectId && saved.projectSessions?.[requestedProjectId]?.sessionId !== requestedSessionId) {
+      throw new Error(`session_project_mismatch: ${requestedSessionId} is not bound to project ${requestedProjectId}`);
+    }
+    const savedProjectSessionId = this.activeProjectId ? saved.projectSessions?.[this.activeProjectId]?.sessionId : undefined;
+    const sessionId = requestedSessionId ?? savedProjectSessionId ?? (this.activeProjectId ? undefined : saved.sessionId);
+    const resume = params.resume === true || Boolean(requestedSessionId) || (params.new !== true && Boolean(sessionId));
+    let didResume = resume && Boolean(sessionId);
+    if (didResume && sessionId) {
+      try {
+        this.session = await deadline(client.resumeSession(sessionId, config), 60000);
+      } catch (error) {
+        if (requestedSessionId) throw error;
+        didResume = false;
+        this.session = await deadline(client.createSession(config), 60000);
+      }
+    } else {
+      this.session = await deadline(client.createSession(config), 60000);
+    }
     this.wireSessionEvents(this.session);
     await this.persistState({ sessionId: this.session.sessionId, activeProjectId: this.activeProjectId, model: this.sessionModel, lastState: 'ready' });
     event('agent.status', { state: 'ready', sessionId: this.session.sessionId });
-    return { sessionId: this.session.sessionId, resumed: resume && Boolean(sessionId), saved: true };
+    return { sessionId: this.session.sessionId, resumed: didResume, saved: true };
   }
 
   private async agentSend(params: JsonObject) {
-    if (!this.session) await this.agentStart({ resume: true });
+    if (!this.session) await this.agentStart({ resume: true, ...(this.activeProjectId ? { projectId: this.activeProjectId } : {}) });
     if (!this.session) throw new Error('agent_session_unavailable');
     const prompt = stringParam(params, 'prompt')!;
     event('agent.status', { state: 'running', sessionId: this.session.sessionId });
+    this.agentBusy = true;
     await this.persistState({ sessionId: this.session.sessionId, activeProjectId: this.activeProjectId, model: this.sessionModel, lastState: 'running' });
     const messageId = await this.session.send({ prompt });
     event('agent.user', { text: prompt, messageId, sessionId: this.session.sessionId });
     return { queued: true, messageId, sessionId: this.session.sessionId };
   }
 
-  private async agentAbort() {
+  private async projectGenerate(params: JsonObject) {
+    if (this.agentBusy) throw new Error('agent_turn_active: cannot start project.generate while an agent turn is running');
+    const launchController = new AbortController();
+    this.generationLaunch = { controller: launchController, stateFile: '' };
+    let request: GenerationRequest;
+    try {
+      request = await this.buildGenerationRequest(params);
+      this.throwIfGenerationCancelled(launchController.signal);
+    } catch (error) {
+      if (this.generationLaunch?.controller === launchController) this.generationLaunch = undefined;
+      throw error;
+    }
+    const requestDigest = digestText(JSON.stringify(request));
+    const projectRelative = path.join('projects', request.id);
+    const projectPath = await safePath(this.workspace, projectRelative, { forWrite: true });
+    const requestRelative = path.join(projectRelative, 'canonical', 'generation-request.json');
+    const stateFile = path.join(this.workspace, '.a2swe', 'project-generation', `${request.id}.json`);
+    this.generationLaunch = { controller: launchController, stateFile };
+    const existingState = await readJsonFile<GenerationState | undefined>(stateFile, undefined);
+    if (existingState && existingState.requestDigest !== requestDigest) throw new Error('generation_request_mismatch: existing project-generation state has a different request digest');
+    if (existingState?.state === 'completed') return { projectId: request.id, path: existingState.projectPath, sessionId: existingState.sessionId, state: 'completed', requestPath: existingState.requestPath, completion: existingState.completion };
+    if (existingState?.state === 'running') return { projectId: request.id, path: existingState.projectPath, sessionId: existingState.sessionId, state: 'running', requestPath: existingState.requestPath, phase: existingState.phase, attemptCount: existingState.attemptCount ?? 0 };
+    const active = await this.findActiveGeneration(request.id);
+    if (active) throw new Error(`generation_active: ${active.projectId}:${active.phase ?? active.state}`);
+    await this.writeGenerationState(stateFile, { projectId: request.id, requestDigest, request, state: 'draft', phase: 'state-prepared',
+      attemptCount: existingState?.attemptCount ?? 0, projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'), updatedAt: new Date().toISOString() });
+    this.generationLaunch = { controller: launchController, stateFile };
+    this.activeGenerationStateFile = stateFile;
+    try {
+      this.throwIfGenerationCancelled(launchController.signal);
+      if (!(await this.fileExists(projectPath))) {
+        const init = await runCoreCommand(this.workspace, 'project-init', { id: request.id, name: request.name, kind: request.kind, 'as-of': new Date().toISOString().slice(0, 10), out: projectRelative });
+        if (init.exitCode !== 0) throw new Error(`project_init_failed: ${init.stderr || init.stdout || 'unknown failure'}`);
+      }
+      this.throwIfGenerationCancelled(launchController.signal);
+      const requestPath = await safePath(this.workspace, requestRelative, { forWrite: true });
+      await mkdir(path.dirname(requestPath), { recursive: true, mode: 0o700 });
+      await this.writeGenerationRequest(requestPath, request, requestDigest);
+      this.throwIfGenerationCancelled(launchController.signal);
+      const intakeResults = [];
+      const intakeErrors: Array<{ stage: string; message: string }> = [];
+      for (const source of request.sources) {
+        this.throwIfGenerationCancelled(launchController.signal);
+        try {
+          intakeResults.push(await intake(this.workspace, { input: source, projectId: request.id, name: request.name, kind: 'source' }));
+          this.throwIfGenerationCancelled(launchController.signal);
+        } catch (error) {
+          if (launchController.signal.aborted) throw error;
+          intakeErrors.push({ stage: `intake:${source}`, message: errorMessage(error) });
+        }
+      }
+      this.throwIfGenerationCancelled(launchController.signal);
+      if (intakeErrors.length) {
+        await this.writeGenerationState(stateFile, { projectId: request.id, requestDigest, request, state: 'failed', phase: 'source-intake', attemptCount: existingState?.attemptCount ?? 0,
+          projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'), errors: intakeErrors, updatedAt: new Date().toISOString() });
+        throw new Error(`generation_intake_failed: ${JSON.stringify(intakeErrors)}`);
+      }
+      const start = await this.agentStart({ projectId: request.id, new: true, permissions: request.mode === 'auto' ? 'auto' : 'ask' }) as { sessionId: string };
+      if (launchController.signal.aborted) {
+        await deadline(this.session?.abort() ?? Promise.resolve(), 5000).catch(() => undefined);
+        await deadline(this.session?.disconnect() ?? Promise.resolve(), 5000).catch(() => undefined);
+        this.session = undefined;
+        throw new Error('generation_cancelled');
+      }
+      const prompt = this.generationPrompt(request, toRepoRelative(this.workspace, requestPath), intakeResults);
+      this.agentBusy = true;
+      const messageId = await this.session!.send({ prompt });
+      this.throwIfGenerationCancelled(launchController.signal);
+      event('agent.user', { text: prompt, messageId, sessionId: this.session!.sessionId });
+      await this.writeGenerationState(stateFile, { projectId: request.id, requestDigest, request, state: 'running', phase: 'agent-running', attemptCount: 0,
+        projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'),
+        sessionId: start.sessionId, updatedAt: new Date().toISOString() });
+      if (this.generationLaunch?.stateFile === stateFile) this.generationLaunch = undefined;
+      return { projectId: request.id, path: toRepoRelative(this.workspace, projectPath), sessionId: start.sessionId, state: 'running', requestPath: toRepoRelative(this.workspace, requestPath) };
+    } catch (error) {
+      const current = await readJsonFile<GenerationState | undefined>(stateFile, undefined);
+      if (launchController.signal.aborted) {
+        await this.writeGenerationState(stateFile, { projectId: request.id, requestDigest, request, state: 'failed', phase: 'cancelled', attemptCount: current?.attemptCount ?? existingState?.attemptCount ?? 0,
+          projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'),
+          errors: [...(current?.errors ?? []), { stage: 'cancelled', message: 'Generation cancelled by user.' }], updatedAt: new Date().toISOString() });
+        if (this.generationLaunch?.stateFile === stateFile) this.generationLaunch = undefined;
+        this.activeGenerationStateFile = undefined;
+        this.agentBusy = false;
+        event('project.generation.status', generationStatusPayload({ ...(current ?? { schemaVersion: '1.0.0', projectId: request.id, requestDigest, request, projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'), updatedAt: new Date().toISOString() }), state: 'failed', phase: 'cancelled', errors: [...(current?.errors ?? []), { stage: 'cancelled', message: 'Generation cancelled by user.' }] }));
+        throw new Error('generation_cancelled');
+      }
+      if (current?.state !== 'failed' && current?.state !== 'running') {
+        await this.writeGenerationState(stateFile, { projectId: request.id, requestDigest, request, state: 'failed', phase: 'launch', attemptCount: existingState?.attemptCount ?? 0,
+          projectPath: toRepoRelative(this.workspace, projectPath), requestPath: requestRelative.replace(/\\/g, '/'),
+          errors: [{ stage: 'launch', message: errorMessage(error) }], updatedAt: new Date().toISOString() });
+      }
+      if (this.generationLaunch?.stateFile === stateFile) this.generationLaunch = undefined;
+      throw error;
+    }
+  }
+
+  private async projectGenerationStatus(params: JsonObject) {
+    const projectId = slug(stringParam(params, 'projectId', false) ?? stringParam(params, 'id')!);
+    const stateFile = await safePath(this.workspace, path.join('.a2swe', 'project-generation', `${projectId}.json`), { forWrite: true });
+    const state = await readJsonFile<GenerationState | undefined>(stateFile, undefined);
+    if (!state) return null;
+    return generationStatusPayload(state);
+  }
+
+  private async findActiveGeneration(exceptProjectId?: string): Promise<GenerationState | undefined> {
+    const directory = path.join(this.workspace, '.a2swe', 'project-generation');
+    const handle = await opendir(directory).catch((error: unknown) => {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+      throw error;
+    });
+    if (!handle) return undefined;
+    for await (const entry of handle) {
+      if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+      const state = await readJsonFile<GenerationState | undefined>(path.join(directory, entry.name), undefined);
+      if (!state || state.projectId === exceptProjectId) continue;
+      if (state.state === 'running') return state;
+    }
+    return undefined;
+  }
+
+  private async agentAbort(params: JsonObject = {}) {
+    this.generationLaunch?.controller.abort();
     if (this.session) await deadline(this.session.abort(), 10000).catch(() => undefined);
     for (const controller of this.localOperations.values()) controller.abort();
     this.localOperations.clear();
     this.rejectPending(new Error('agent_aborted'));
+    const abortProjectId = stringParam(params, 'projectId', false) ?? stringParam(params, 'id', false) ?? this.activeProjectId ?? (await this.loadState()).activeProjectId;
+    const persistedAbortFile = abortProjectId ? path.join(this.workspace, '.a2swe', 'project-generation', `${slug(abortProjectId)}.json`) : undefined;
+    const abortStateFile = this.activeGenerationStateFile ?? this.generationLaunch?.stateFile ?? persistedAbortFile;
+    if (abortStateFile) {
+      const file = abortStateFile;
+      this.activeGenerationStateFile = undefined;
+      if (this.generationLaunch?.stateFile === file) this.generationLaunch = undefined;
+      const state = await readJsonFile<GenerationState | undefined>(file, undefined);
+      if (state && state.state === 'running') {
+        await this.writeGenerationState(file, { ...state, state: 'failed', phase: 'cancelled', errors: [...(state.errors ?? []), { stage: 'cancelled', message: 'Generation cancelled by user.' }] });
+        event('project.generation.status', generationStatusPayload({ ...state, state: 'failed', phase: 'cancelled', errors: [...(state.errors ?? []), { stage: 'cancelled', message: 'Generation cancelled by user.' }] }));
+      }
+    }
+    this.agentBusy = false;
     await this.persistState({ sessionId: this.session?.sessionId, activeProjectId: this.activeProjectId, model: this.sessionModel, lastState: 'aborted' });
     event('agent.status', { state: 'aborted', sessionId: this.session?.sessionId });
     return { aborted: true };
@@ -288,6 +493,7 @@ class DesktopBridge {
         updatedAt: saved.updatedAt,
         lastState: saved.lastState,
         activeProjectId: this.activeProjectId ?? saved.activeProjectId,
+        projectSessionId: (this.activeProjectId ?? saved.activeProjectId) ? saved.projectSessions?.[this.activeProjectId ?? saved.activeProjectId!]?.sessionId : undefined,
         model: this.sessionModel ?? saved.model
       },
       transcript: {
@@ -327,6 +533,172 @@ class DesktopBridge {
     pending.resolve({ answer, wasFreeform: !pending.choices?.includes(answer) });
     event('agent.input.resolved', { requestId });
     return { requestId, resolved: true };
+  }
+
+  private async buildGenerationRequest(params: JsonObject): Promise<GenerationRequest> {
+    const formats = Array.isArray(params.formats) ? params.formats.filter((format): format is GenerationRequest['formats'][number] =>
+      ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'].includes(String(format))) : [];
+    const request = {
+      schemaVersion: '1.0.0',
+      id: slug(stringParam(params, 'id')!),
+      name: stringParam(params, 'name')!,
+      kind: enumParam(params, 'kind', ['company', 'customer', 'topic', 'framework', 'repository', 'tool'] as const) as GenerationRequest['kind'],
+      brief: stringParam(params, 'brief')!,
+      sources: stringArrayParam(params, 'sources'),
+      libraryPaths: stringArrayParam(params, 'libraryPaths'),
+      voiceProfile: stringParam(params, 'voiceProfile')!,
+      speed: typeof params.speed === 'number' && Number.isFinite(params.speed) ? params.speed : Number.NaN,
+      formats,
+      mode: enumParam(params, 'mode', ['guided', 'auto'] as const) as GenerationRequest['mode']
+    };
+    if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(request.id)) throw new Error('invalid_project_id');
+    if (!Number.isFinite(request.speed) || request.speed <= 0 || request.speed > 3) throw new Error('invalid_generation_speed');
+    if (!request.formats.length) throw new Error('missing_generation_formats');
+    const profiles = await discoverVoiceProfiles(this.workspace);
+    if (!profiles.some((profile) => profile.id === request.voiceProfile)) throw new Error(`invalid_voice_profile: ${request.voiceProfile}`);
+    if (request.sources.length > 20) throw new Error('too_many_generation_sources');
+    if (request.libraryPaths.length > 40) throw new Error('too_many_generation_library_paths');
+    for (const source of request.sources) {
+      const url = new URL(source);
+      if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) throw new Error('invalid_generation_source');
+    }
+    const seen = new Set<string>();
+    request.libraryPaths = await Promise.all(request.libraryPaths.map(async (libraryPath) => {
+      if (!libraryPath.replace(/\\/g, '/').startsWith('library/')) throw new Error(`generation_library_path_outside_library: ${libraryPath}`);
+      const absolute = await safePath(this.workspace, libraryPath, { mustExist: true });
+      const info = await stat(absolute);
+      if (!info.isFile()) throw new Error(`library_path_not_file: ${libraryPath}`);
+      const relative = toRepoRelative(this.workspace, absolute);
+      if (seen.has(relative)) throw new Error(`duplicate_library_path: ${relative}`);
+      seen.add(relative);
+      return relative;
+    }));
+    return validate('GenerationRequest', request);
+  }
+
+  private async writeGenerationRequest(file: string, request: GenerationRequest, requestDigest: string) {
+    const existing = await readFile(file, 'utf8').catch((error: unknown) => {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+      throw error;
+    });
+    if (existing !== undefined) {
+      if (digestText(JSON.stringify(JSON.parse(existing) as unknown)) !== requestDigest) throw new Error('generation_request_file_mismatch');
+      return;
+    }
+    await writeJsonAtomic(file, request);
+  }
+
+  private async writeGenerationState(file: string, state: Omit<GenerationState, 'schemaVersion'> | GenerationState) {
+    await writeJsonAtomic(file, { ...state, schemaVersion: '1.0.0', updatedAt: new Date().toISOString() });
+  }
+
+  private async verifyActiveGenerationCompletion(sessionId: string) {
+    if (!this.activeGenerationStateFile) return;
+    const file = this.activeGenerationStateFile;
+    const state = await readJsonFile<GenerationState | undefined>(file, undefined);
+    if (this.activeGenerationStateFile !== file) return;
+    if (!state || state.sessionId !== sessionId || state.state !== 'running') return;
+    const inspection = await this.inspectGenerationOutputs(state);
+    if (!inspection.completion) {
+      const attemptCount = state.attemptCount ?? 0;
+      const errors = [...(state.errors ?? []), { stage: `completion-check-${attemptCount}`, message: inspection.message }];
+      if (state.request.mode === 'auto' && attemptCount < 3 && this.session && this.activeGenerationStateFile === file) {
+        const nextAttempt = attemptCount + 1;
+        const phase = `auto-repair-${nextAttempt}`;
+        await this.writeGenerationState(file, { ...state, state: 'running', phase, attemptCount: nextAttempt, errors });
+        event('project.generation.status', generationStatusPayload({ ...state, state: 'running', phase, attemptCount: nextAttempt, errors }));
+        this.agentBusy = true;
+        const prompt = [
+          `Generation completion check failed for project ${state.projectId}.`,
+          `Failure: ${inspection.message}`,
+          `Repair attempt ${nextAttempt} of 3.`,
+          'Continue autonomously. Create or repair the missing source-backed release artifacts, run core release-verify for the release directory, and do not report success until release-verify passes and all requested formats exist in parity-manifest.json.',
+          `Requested formats: ${state.request.formats.join(', ')}`,
+          `GenerationRequest: ${state.requestPath}`
+        ].join('\n');
+        const messageId = await this.session.send({ prompt });
+        event('agent.user', { text: prompt, messageId, sessionId: this.session.sessionId });
+        return;
+      }
+      const finalState = state.request.mode === 'guided' ? 'needs-attention' : 'failed';
+      const phase = state.request.mode === 'guided' ? 'needs-attention-release-verification' : 'auto-repair-exhausted';
+      await this.writeGenerationState(file, { ...state, state: finalState, phase, attemptCount, errors });
+      this.activeGenerationStateFile = undefined;
+      this.agentBusy = false;
+      event('project.generation.status', generationStatusPayload({ ...state, state: finalState, phase, attemptCount, errors }));
+      return;
+    }
+    await this.writeGenerationState(file, { ...state, state: 'completed', phase: 'release-verify-passed', completion: inspection.completion });
+    this.activeGenerationStateFile = undefined;
+    this.agentBusy = false;
+    event('project.generation.status', generationStatusPayload({ ...state, state: 'completed', phase: 'release-verify-passed', completion: inspection.completion }));
+  }
+
+  private async inspectGenerationOutputs(state: GenerationState): Promise<{ completion?: GenerationState['completion']; message: string }> {
+    const releasePath = path.join(this.workspace, state.projectPath, 'release');
+    const parityPath = path.join(releasePath, 'parity-manifest.json');
+    const runbook = await readFile(path.join(this.workspace, state.projectPath, 'agent', 'SWE_AGENT.md'), 'utf8').catch(() => '');
+    if (!runbook.trim()) return { message: 'required agent runbook missing or empty: agent/SWE_AGENT.md' };
+    const runbookVerify = await runCoreCommand(this.workspace, 'runbook-verify', { root: state.projectPath }).catch((error: unknown) => ({ exitCode: 1, stdout: '', stderr: errorMessage(error) }));
+    if (runbookVerify.exitCode !== 0) return { message: `core runbook-verify failed: ${runbookVerify.stderr || runbookVerify.stdout || 'unknown failure'}` };
+    const verify = await runCoreCommand(this.workspace, 'release-verify', { root: path.join(state.projectPath, 'release') }).catch((error: unknown) => ({ exitCode: 1, stdout: '', stderr: errorMessage(error) }));
+    if (verify.exitCode !== 0) return { message: `core release-verify failed: ${verify.stderr || verify.stdout || 'unknown failure'}` };
+    const voiceCheck = await this.verifyGenerationVoice(releasePath, state.request);
+    if (voiceCheck) return { message: voiceCheck };
+    const parity = await readJsonFile<{ outputs?: Array<{ format?: string; path?: string; byteSize?: number }> } | undefined>(parityPath, undefined);
+    if (!parity?.outputs?.length) return { message: 'parity-manifest.json missing or contains no outputs' };
+    const requiredFormats = new Set(state.request.formats);
+    const foundFormats = new Set(parity.outputs.map((output) => output.format).filter((format): format is string => typeof format === 'string'));
+    const missingFormats = [...requiredFormats].filter((format) => !foundFormats.has(format));
+    if (missingFormats.length) return { message: `parity-manifest missing requested formats: ${missingFormats.join(', ')}` };
+    const outputs = [];
+    for (const output of parity.outputs) {
+      if (!output.path) return { message: 'parity output missing path' };
+      const outputPath = path.join(releasePath, output.path);
+      const info = await stat(outputPath).catch(() => undefined);
+      if (!info?.isFile() || info.size <= 0) return { message: `parity output missing or empty: ${output.path}` };
+      outputs.push({ format: output.format, path: output.path, byteSize: output.byteSize ?? info.size });
+    }
+    return { message: 'release-verify passed', completion: { releasePath: toRepoRelative(this.workspace, releasePath), parityPath: toRepoRelative(this.workspace, parityPath), outputs } };
+  }
+
+  private async verifyGenerationVoice(releasePath: string, request: GenerationRequest): Promise<string | undefined> {
+    const content = await readJsonFile<{ voice?: { profileId?: string; speed?: number } } | undefined>(path.join(releasePath, 'content-ir.json'), undefined);
+    if (!content?.voice) return 'content-ir voice spec missing';
+    const registry = await readJsonFile<{ defaultProfileId?: string }>(path.join(this.workspace, 'library', 'assets', 'speech', 'voice-profiles.json'), {});
+    const actualProfile = content.voice.profileId ?? registry.defaultProfileId;
+    const actualSpeed = content.voice.speed ?? 1;
+    if (actualProfile !== request.voiceProfile) return `voice profile mismatch: requested ${request.voiceProfile}, content has ${actualProfile ?? 'none'}`;
+    if (actualSpeed !== request.speed) return `voice speed mismatch: requested ${request.speed}, content has ${actualSpeed}`;
+    return undefined;
+  }
+
+  private generationPrompt(request: GenerationRequest, requestPath: string, intakeResults: unknown[]) {
+    return [
+      'Run autonomous a2swe project generation for the selected project.',
+      'Use only source-backed contracts and repository tools; do not invent facts or brand knowledge.',
+      'Do not request human editorial signoff. If a gate fails, repair and rerun the relevant local validation until the selected outputs are coherent or report a hard blocker.',
+      'Use the persisted GenerationRequest as the source of truth.',
+      JSON.stringify({
+        generationRequestPath: requestPath,
+        request,
+        sourceIntakeReceipts: intakeResults,
+        requiredWork: [
+          'Create source-backed domain/content/render/approval-ready draft artifacts for selected formats.',
+          'Generate the requested output formats only.',
+          'Run project QC and core verification gates relevant to selected formats.',
+          'Preserve citations/provenance and avoid protected/private source transfer.'
+        ]
+      }, null, 2)
+    ].join('\n\n');
+  }
+
+  private async fileExists(file: string) {
+    try { await access(file, constants.F_OK); return true; } catch { return false; }
+  }
+
+  private throwIfGenerationCancelled(signal: AbortSignal) {
+    if (signal.aborted) throw new Error('generation_cancelled');
   }
 
   private async sessionConfig(permissions: 'ask' | 'auto' | 'deny'): Promise<SessionConfig> {
@@ -417,6 +789,7 @@ class DesktopBridge {
         case 'assistant.idle':
           event('agent.status', { state: 'idle', sessionId: session.sessionId });
           void this.persistState({ sessionId: session.sessionId, activeProjectId: this.activeProjectId, model: this.sessionModel, lastState: 'idle' }).catch(() => undefined);
+          void this.verifyActiveGenerationCompletion(session.sessionId).catch((error) => event('agent.error', { message: errorMessage(error), phase: 'generation-completion-check' }));
           this.cleanupSettledPending();
           break;
         case 'session.error':
@@ -488,7 +861,15 @@ class DesktopBridge {
 
   private async persistState(update: Partial<DesktopState>) {
     const current = await this.loadState();
-    await writeJsonAtomic(this.stateFile, { ...current, ...update, schemaVersion: '1.0.0', updatedAt: new Date().toISOString() });
+    const updatedAt = new Date().toISOString();
+    const next: DesktopState = { ...current, ...update, schemaVersion: '1.0.0', updatedAt };
+    if (update.sessionId && update.activeProjectId) {
+      next.projectSessions = {
+        ...(current.projectSessions ?? {}),
+        [update.activeProjectId]: { sessionId: update.sessionId, model: update.model, updatedAt }
+      };
+    }
+    await writeJsonAtomic(this.stateFile, next);
   }
 
   async diagnostics() {
@@ -526,6 +907,18 @@ function stableStringify(value: unknown): string {
     .filter(([key]) => key !== 'requestId')
     .sort(([a], [b]) => a.localeCompare(b));
   return `{${entries.map(([key, entryValue]) => `${JSON.stringify(key)}:${stableStringify(entryValue)}`).join(',')}}`;
+}
+
+function generationStatusPayload(state: GenerationState) {
+  const lastError = state.errors?.at(-1);
+  return {
+    projectId: state.projectId,
+    state: state.state,
+    phase: state.phase,
+    attempts: state.attemptCount ?? 0,
+    ...(lastError ? { error: lastError.message } : {}),
+    ...(state.completion ? { completion: state.completion } : {})
+  };
 }
 
 function boundedDetails(value: JsonObject): JsonObject {

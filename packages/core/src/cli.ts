@@ -5,7 +5,7 @@ import { userInfo } from 'node:os';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import { canonicalJson, digest, sha256, windowStart } from './canonical.ts';
-import { validate } from './contracts.ts';
+import { isContractName, validate } from './contracts.ts';
 import { inventory } from './registry.ts';
 
 async function writeJson(filename: string, data: unknown, exclusive = false): Promise<void> {
@@ -59,7 +59,7 @@ async function main(): Promise<void> {
       '  capabilities',
       '  inventory --root PATH --source ALIAS --kind repository|installed --out FILE',
       '  snapshot --root PATH --out FILE',
-      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|AssetInventory|FormatParityManifest|ReleasePlan|Runbook --file FILE',
+      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|AssetInventory|FormatParityManifest|ReleasePlan|Runbook|GenerationRequest --file FILE',
       '  runbook-verify --root PROJECT_DIRECTORY',
       '  domain-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD [--out FILE]',
       '  project-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD --out NEW_DIRECTORY',
@@ -175,9 +175,8 @@ async function main(): Promise<void> {
   }
   if (command === 'validate') {
     const name = required('schema');
-    if (!['DomainPack', 'SourceDocument', 'WorkItem', 'TaskResult', 'LibraryEntry', 'AssetRequest', 'AssetRecord',
-      'ApprovalManifest', 'ContentIR', 'RenderSpec', 'AssetInventory', 'FormatParityManifest', 'ReleasePlan', 'Runbook'].includes(name)) throw new Error('unknown_schema');
-    const data = validate(name as Parameters<typeof validate>[0], JSON.parse(await readFile(required('file'), 'utf8')));
+    if (!isContractName(name)) throw new Error('unknown_schema');
+    const data = validate(name, JSON.parse(await readFile(required('file'), 'utf8')));
     console.log(JSON.stringify({ valid: true, schema: name, digest: digest(data) }));
     return;
   }

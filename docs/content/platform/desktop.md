@@ -67,6 +67,18 @@ running tools.
 
 ## Workspace and agent context
 
+Use **New project** to generate from a prompt, or **New project with this** on a
+library card to start with selected context. The creation form supports multiple
+source URLs and library entries, voice selection, and all eight output formats.
+Guided mode requests tool approvals; Auto mode starts autonomous generation
+after the user explicitly selects it. Existing projects are never overwritten.
+
+Auto mode verifies the requested release formats, runbook, domain companion and
+voice settings. It can make up to three corrective turns when verification
+fails; it reports failure rather than looping indefinitely or declaring an
+unverified project complete. Stop also cancels initialization/source intake
+before a model turn starts.
+
 Select the local a2swe checkout and a project before starting a session. The
 agent can discover projects, core tools, library instructions, voice profiles,
 and imported knowledge assets. Read tool activity and errors in the UI rather

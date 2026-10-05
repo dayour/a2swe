@@ -116,8 +116,23 @@ export async function discoverLibrary(workspace: string) {
     discoverLibraryResources(workspace)
   ]);
   const catalog = await loadKnowledgeCatalog(workspace);
-  const profiles = await discoverDirectoryItems(workspace, path.join(library, 'profiles'), 'profile');
+  const profiles = await discoverVoiceProfiles(workspace);
   return { agents, skills, plugins, assets: catalog.assets, documents: catalog.documents, profiles, resources };
+}
+
+export type VoiceProfile = { id: string; name: string; language: string; speed: number };
+
+export async function discoverVoiceProfiles(workspace: string): Promise<VoiceProfile[]> {
+  const registry = await readJsonFile<{ profiles?: Array<Partial<VoiceProfile>> }>(
+    path.join(workspace, 'library', 'assets', 'speech', 'voice-profiles.json'),
+    { profiles: [] }
+  );
+  return (registry.profiles ?? [])
+    .filter((profile): profile is VoiceProfile => typeof profile.id === 'string'
+      && typeof profile.name === 'string'
+      && typeof profile.language === 'string'
+      && typeof profile.speed === 'number')
+    .map((profile) => ({ id: profile.id, name: profile.name, language: profile.language, speed: profile.speed }));
 }
 
 async function discoverMarkdownItems(workspace: string, directory: string, type: string) {
@@ -364,6 +379,7 @@ export const TOOL_SCHEMAS: Array<{ name: string; description: string; inputSchem
   { name: 'tools.call', description: 'Dispatch one local backend tool by name with JSON arguments.', inputSchema: { type: 'object', properties: { name: { type: 'string' }, arguments: { type: 'object', additionalProperties: true } }, required: ['name'], additionalProperties: false } },
   { name: 'tools.cancel', description: 'Cancel one running JSONL tools.call by request id, or all running local tool operations when requestId is omitted.', inputSchema: { type: 'object', properties: { requestId: { type: 'string' } }, additionalProperties: false } },
   { name: 'intake', description: 'Store draft source/domain intake. URL inputs are SSRF-guarded public fetches; free text becomes a draft query with no invented claims. Optional sources support later agent enrichment.', inputSchema: { type: 'object', properties: { input: { type: 'string' }, projectId: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string' }, sources: { type: 'array', items: { type: 'string' } } }, required: ['input'], additionalProperties: false } },
+  { name: 'project.generate', description: 'Create/reuse a project draft, persist an exact GenerationRequest, intake sources, and launch a Copilot SDK generation turn. JSONL bridge only; not exposed as an MCP tool.', inputSchema: { type: 'object', properties: { id: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string', enum: ['company', 'customer', 'topic', 'framework', 'repository', 'tool'] }, brief: { type: 'string' }, sources: { type: 'array', items: { type: 'string' } }, libraryPaths: { type: 'array', items: { type: 'string' } }, voiceProfile: { type: 'string' }, speed: { type: 'number' }, formats: { type: 'array', items: { type: 'string', enum: ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] } }, mode: { type: 'string', enum: ['guided', 'auto'] } }, required: ['id', 'name', 'kind', 'brief', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode'], additionalProperties: false } },
   { name: 'workspace.list', description: 'List non-secret workspace files/directories, excluding .git and out-of-workspace symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string', default: '.' }, depth: { type: 'number', default: 2 } }, additionalProperties: false } },
   { name: 'workspace.read', description: 'Read one bounded text file inside workspace. Rejects .git, secrets, and unsafe symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string' } }, required: ['path'], additionalProperties: false } },
   { name: 'workspace.write', description: 'Write one bounded text file inside workspace. Rejects .git, secrets, and unsafe symlinks.', inputSchema: { type: 'object', properties: { path: { type: 'string' }, text: { type: 'string' }, overwrite: { type: 'boolean', default: false } }, required: ['path', 'text'], additionalProperties: false } },

@@ -16,9 +16,30 @@
     { "$ref": "#/$defs/AssetInventory" },
     { "$ref": "#/$defs/FormatParityManifest" },
     { "$ref": "#/$defs/ReleasePlan" },
-    { "$ref": "#/$defs/Runbook" }
+    { "$ref": "#/$defs/Runbook" },
+    { "$ref": "#/$defs/GenerationRequest" }
   ],
   "$defs": {
+    "GenerationRequest": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "id", "name", "kind", "brief", "sources", "libraryPaths", "voiceProfile", "speed", "formats", "mode"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "kind": { "enum": ["company", "customer", "topic", "framework", "repository", "tool"] },
+        "brief": { "type": "string", "minLength": 1, "maxLength": 12000 },
+        "sources": { "type": "array", "maxItems": 20, "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8, "maxLength": 2048, "pattern": "^https?://" } },
+        "libraryPaths": { "type": "array", "maxItems": 40, "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 1000, "pattern": "^library/" } },
+        "voiceProfile": { "type": "string", "pattern": "^[ab][fm]_[a-z0-9_]+$", "maxLength": 80 },
+        "speed": { "type": "number", "minimum": 0.5, "maximum": 2 },
+        "formats": { "type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+          "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"] } },
+        "mode": { "enum": ["guided", "auto"] }
+      }
+    },
     "AssetRequest": {
       "type": "object", "additionalProperties": false,
       "required": ["schemaVersion", "assetId", "domainDigest", "purpose", "method", "role", "prompt", "alt", "width", "height", "seed", "palette", "nodes"],

@@ -5,6 +5,31 @@ description: Create a minimal core-managed project and produce a verified releas
 
 ## Core-managed project flow
 
+### Prompt from the native app
+
+Select **New project** in the desktop sidebar, or choose **New project with this**
+on a library card. Enter a project name, a brief, public source URLs, optional
+library context, voice profile, and requested outputs.
+
+* Guided mode starts the agent with tool approvals visible in the console and
+  floating widget.
+* Auto mode authorizes autonomous research, workspace editing, generation and
+  verification, subject to managed policy. It uses the same core pipeline and
+  does not bypass content or output validation.
+
+The request is schema-validated and persisted as
+`canonical/generation-request.json`. A new project gets a draft domain,
+Runbook and QC index before the SDK starts work. Existing project directories
+are not overwritten. Source and library context remains attached to the task
+so the agent can retrieve it rather than infer brand facts.
+
+The agent is instructed to build the domain-specific companion, canonical
+content and selected outputs, repair failed checks and verify the release.
+The console shows real tool activity; Stop cancels execution. A model turn
+ending is not evidence that a release passed verification.
+
+### Scaffold from the CLI
+
 Create a draft domain pack and evidence-tracked Runbook in a new directory:
 
 ```powershell
@@ -47,6 +72,7 @@ node packages/core/src/cli.ts release-verify `
 
 The managed path expects:
 
+- a `GenerationRequest` for prompt-created native projects
 - a ready `DomainPack`
 - a `ContentIR` whose claims and citations match the domain pack
 - a `RenderSpec`

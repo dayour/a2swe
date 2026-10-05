@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
-import {ArrowUpRight, Bot, CircleAlert, FolderOpen, Library, MessageSquare, Search, Send, Settings2, ShieldCheck, Sparkles, Square, Wrench, X} from 'lucide-react';
+import {ArrowUpRight, Bot, CircleAlert, FolderOpen, FolderPlus, Library, MessageSquare, Search, Send, Settings2, ShieldCheck, Sparkles, Square, Wrench, X} from 'lucide-react';
 import {invoke} from '@tauri-apps/api/core';
 import {getCurrentWindow} from '@tauri-apps/api/window';
 import {bridgeRequest, focusMain, hideWidget, imageData, isNative, readSettings, saveSettings, showWidget} from './bridge';
 import {useAgent} from './agent';
+import {NewProject} from './NewProject';
 import type {AppSettings, LibraryItem, PermissionMode, Project, RuntimeStatus} from './types';
 
 type Agent = ReturnType<typeof useAgent>;
@@ -60,7 +61,7 @@ function Widget() {
       void getCurrentWindow().startDragging().catch(agent.reportError);
     }}>
       <div className="brand-mark small"><Sparkles size={14}/></div><div className="widget-title"><strong>a2swe</strong><span>{agent.state}{agent.activeProjectId ? ` · ${agent.activeProjectId}` : ''}</span></div>
-      <button className="icon-button" title="Stop agent" onClick={() => void bridgeRequest('agent.abort').catch(agent.reportError)}><Square size={13}/></button>
+      <button className="icon-button" title="Stop agent" onClick={() => void bridgeRequest('agent.abort', {projectId: agent.activeProjectId}).catch(agent.reportError)}><Square size={13}/></button>
       <button className="icon-button" title="Open console" onClick={() => void focusMain().catch(agent.reportError)}><ArrowUpRight size={15}/></button>
       <button className="icon-button" title="Hide widget" onClick={() => void hideWidget().catch(agent.reportError)}><X size={15}/></button>
     </header><ErrorBanner agent={agent}/><Conversation agent={agent} compact/>
@@ -76,6 +77,9 @@ function Console() {
   const [selectedProject, setSelectedProject] = useState('');
   const [permissionMode, setPermissionMode] = useState<PermissionMode>('ask');
   const [library, setLibrary] = useState<LibraryItem[]>([]);
+  const [profiles, setProfiles] = useState<LibraryItem[]>([]);
+  const [newProjectOpen, setNewProjectOpen] = useState(false);
+  const [projectContext, setProjectContext] = useState<string[]>([]);
   const [tools, setTools] = useState<Tool[]>([]);
   const [activeTab, setActiveTab] = useState('chat');
   const [search, setSearch] = useState('');
@@ -96,6 +100,7 @@ function Console() {
     setStatus(nextStatus); setProjects(nextProjects.projects);
     setSelectedProject(current => current || nextProjects.projects[0]?.id || '');
     setLibrary([...nextLibrary.assets, ...nextLibrary.documents, ...nextLibrary.skills, ...nextLibrary.agents, ...nextLibrary.plugins, ...nextLibrary.profiles]);
+    setProfiles(nextLibrary.profiles);
     setTools(toolCatalog.tools);
   }
   useEffect(() => {
@@ -123,6 +128,7 @@ function Console() {
       <button className="workspace-card" onClick={() => setSettingsOpen(true)}><FolderOpen size={17}/><span className="workspace-copy">{settings?.workspace ?? 'Select checkout'}</span></button>
       <div className="sidebar-section-title projects-heading">Projects · {projects.length}</div>
       <div className="project-list">{projects.map(project => <button key={project.id} className={`project-item ${selectedProject === project.id ? 'selected' : ''}`} onClick={() => setSelectedProject(project.id)}><span className="project-avatar">{project.name[0]}</span><span>{project.name}</span></button>)}</div>
+      <button className="primary-button new-project-button" disabled={!isNative} onClick={() => setNewProjectOpen(true)}><FolderPlus size={15}/> New project</button>
       <button className="secondary-button" disabled={!isNative || busy} onClick={() => void action(refresh)}>Refresh context</button>
       <div className="sidebar-footer"><ShieldCheck size={14}/><span>Workspace tools · explicit permissions</span></div>
     </aside><main className="main-content">
@@ -130,8 +136,14 @@ function Console() {
         {selectedProject !== agent.activeProjectId && <p role="status">Start / resume to apply this project before sending. The agent is currently scoped to {agent.activeProjectId ?? 'the workspace'}.</p>}</div>
         <div className="session-actions"><select aria-label="Permission mode" value={permissionMode} onChange={event => setPermissionMode(event.target.value as PermissionMode)}><option value="ask">Ask before tools</option><option value="auto">Auto approve</option><option value="deny">Deny tools</option></select>
           <button className="primary-button" disabled={!isNative || busy} onClick={() => void action(start)}>{busy ? 'Working...' : 'Start / resume'}</button>
-          <button className="icon-button" title="Stop agent" disabled={!isNative} onClick={() => void bridgeRequest('agent.abort').catch(agent.reportError)}><Square size={15}/></button></div>
+          <button className="icon-button" title="Stop agent" disabled={!isNative} onClick={() => void bridgeRequest('agent.abort', {projectId: selectedProject || agent.activeProjectId}).catch(agent.reportError)}><Square size={15}/></button></div>
       </section><ErrorBanner agent={agent}/>
+      {agent.generation && <section className="generation-status" role="status">
+        <strong>{agent.generation.projectId}: {agent.generation.state}</strong><span>{agent.generation.phase}</span>
+        {agent.generation.error !== undefined && <p>{typeof agent.generation.error === 'string' ? agent.generation.error : JSON.stringify(agent.generation.error)}</p>}
+        {agent.generation.completion && <p>Verified release: {agent.generation.completion.releasePath}</p>}
+        {['failed', 'needs-attention'].includes(agent.generation.state) && <button className="secondary-button" onClick={() => setActiveTab('chat')}>Continue with agent</button>}
+      </section>}
       <div className="console-grid"><section className="chat-panel panel">
         <nav className="panel-tabs">{[['chat', 'Agent chat', MessageSquare], ['library', 'Library', Library], ['intake', 'Brand intake', FolderOpen], ['tools', 'Tools', Wrench]].map(([id, label, Icon]) =>
           <button key={String(id)} className={activeTab === id ? 'active' : ''} onClick={() => setActiveTab(String(id))}>{typeof Icon !== 'string' && <Icon size={15}/>} {String(label)}</button>)}</nav>
@@ -149,6 +161,9 @@ function Console() {
               const preview = await imageData(item.path!);setPreviews(current => ({...current, [item.id]: preview}));
             })}>Preview asset</button>}
             <button className="secondary-button" onClick={() => {setInput(item.path ?? item.id);setName(item.title ?? item.name ?? '');setActiveTab('intake');}}>Use as context</button>
+            {item.path?.startsWith('library/') && !item.extractionStatus?.startsWith('protected') && <button className="secondary-button" onClick={() => {
+              setProjectContext(current => current.includes(item.path!) ? current : [...current, item.path!]);setNewProjectOpen(true);
+            }}>New project with this</button>}
           </article>)}</div>
           {items.length > 80 && <p>Showing the first 80 matches. Narrow the search to see more.</p>}
         </div>}
@@ -178,6 +193,11 @@ function Console() {
       </section><aside className="activity-panel panel"><div className="activity-header"><Wrench size={15}/><h2>Tool activity</h2></div><Requests agent={agent}/>{agent.activities.map(activity =>
         <div key={activity.id} className="activity-item"><strong>{activity.name}</strong><span>{activity.status}</span>{activity.details && <details><summary>Details</summary><pre>{activity.details}</pre></details>}</div>)}</aside></div>
     </main></div>
+    {newProjectOpen && <NewProject library={library} profiles={profiles} selected={projectContext} busyAgent={agent.state === 'running' || agent.generation?.state === 'running'}
+      reportError={agent.reportError} onClose={() => setNewProjectOpen(false)} onLaunched={async (launch, mode) => {
+        setSelectedProject(launch.projectId);setPermissionMode(mode === 'auto' ? 'auto' : 'ask');setActiveTab('chat');setProjectContext([]);
+        await refresh();await agent.refresh();
+      }}/>}
     {settingsOpen && <div className="settings-backdrop"><form className="settings-dialog" onSubmit={event => {event.preventDefault();if (!settings) return;void action(async () => {
       const saved = await saveSettings(settings);await invoke('restart_bridge', {settings: saved});await refresh();await agent.refresh();setSettingsOpen(false);
     });}}><h2>Local workspace</h2><label>Checkout path<input aria-label="Workspace path" value={settings?.workspace ?? ''} onChange={event => setSettings({...settings, workspace: event.target.value})}/></label>

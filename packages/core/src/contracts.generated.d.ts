@@ -12,7 +12,8 @@ export type CoreContract =
   | AssetInventory
   | FormatParityManifest
   | ReleasePlan
-  | Runbook;
+  | Runbook
+  | GenerationRequest;
 export type Identifier = string;
 export type RelativePath = string;
 export type Digest = string;
@@ -1008,4 +1009,209 @@ export interface RunbookArtifact {
   digest: Digest;
   mediaType: string;
   stage: Identifier;
+}
+export interface GenerationRequest {
+  schemaVersion: "1.0.0";
+  id: string;
+  name: string;
+  kind: "company" | "customer" | "topic" | "framework" | "repository" | "tool";
+  brief: string;
+  /**
+   * @maxItems 20
+   */
+  sources:
+    | []
+    | [string]
+    | [string, string]
+    | [string, string, string]
+    | [string, string, string, string]
+    | [string, string, string, string, string]
+    | [string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string, string, string, string, string]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ]
+    | [
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string,
+        string
+      ];
+  /**
+   * @maxItems 40
+   */
+  libraryPaths: string[];
+  voiceProfile: string;
+  speed: number;
+  /**
+   * @minItems 1
+   * @maxItems 8
+   */
+  formats:
+    | ["html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ]
+    | [
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
+        "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
+      ];
+  mode: "guided" | "auto";
 }

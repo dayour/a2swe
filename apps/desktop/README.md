@@ -62,6 +62,12 @@ installed Node 24. It does not bundle model weights or private knowledge files.
 
 ## Shared agent and tools
 
+New project collects a brief, sources, selected library context, voice and
+requested output formats. Guided mode uses ask permissions; Auto mode permits
+the agent to run the full production workflow without per-tool prompts, subject
+to managed policy. The core validates and persists the generation specification
+before starting a project-scoped session.
+
 Both windows display one SDK session, including streamed messages, tool activity,
 pending permission prompts and user-input requests. The workspace-local session
 receipt supports reconnect/resume. Stop cancels the SDK turn and active local
