@@ -7,7 +7,9 @@ on:
       - 'tests/core/**'
       - 'scripts/generate-contracts.mjs'
       - 'scripts/asset-proof.mjs'
-      - 'integrations/copilot/**'
+      - 'library/integrations/copilot/**'
+      - 'apps/desktop/**'
+      - 'library/assets/speech/**'
       - 'template/public/fonts/**'
       - 'package*.json'
       - 'tsconfig.json'
@@ -18,7 +20,9 @@ on:
       - 'tests/core/**'
       - 'scripts/generate-contracts.mjs'
       - 'scripts/asset-proof.mjs'
-      - 'integrations/copilot/**'
+      - 'library/integrations/copilot/**'
+      - 'apps/desktop/**'
+      - 'library/assets/speech/**'
       - 'template/public/fonts/**'
       - 'package*.json'
       - 'tsconfig.json'
@@ -46,9 +50,9 @@ jobs:
       - run: npm run contracts:check
       - run: npm run build
       - run: npm test
-      - run: npm --prefix integrations/copilot ci --omit=optional --ignore-scripts
-      - run: npm --prefix integrations/copilot run typecheck
-      - run: npm --prefix integrations/copilot test
+      - run: npm --prefix library/integrations/copilot ci --omit=optional --ignore-scripts
+      - run: npm --prefix library/integrations/copilot run typecheck
+      - run: npm --prefix library/integrations/copilot test
       - run: npm run assets:proof -- --out .a2swe/ci-asset-proof
       - uses: actions/upload-artifact@v4
         with:
@@ -59,3 +63,24 @@ jobs:
             .a2swe/ci-asset-proof/contact-sheet.png
             .a2swe/ci-asset-proof/proof.json
             .a2swe/ci-asset-proof/*/asset.png
+  desktop:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.8.0'
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm ci --ignore-scripts
+      - run: npm --prefix library/integrations/copilot ci --ignore-scripts
+      - run: npm --prefix apps/desktop ci
+      - run: npm --prefix library/integrations/copilot run typecheck
+      - run: npm --prefix apps/desktop run build
+      - run: cargo build --locked --release --features custom-protocol --manifest-path apps/desktop/src-tauri/Cargo.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: a2swe-desktop-windows
+          path: apps/desktop/src-tauri/target/release/a2swe-desktop.exe

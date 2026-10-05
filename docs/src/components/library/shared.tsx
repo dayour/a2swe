@@ -8,7 +8,9 @@ import './library.css';
 export {catalog};
 export type Project = (typeof catalog.projects)[number];
 export type Video = Project['revisions'][number];
-export type Template = (typeof catalog.templates)[number];
+export type Template = Omit<(typeof catalog.templates)[number], 'image'> & {
+  image?: {path: string; width: number; height: number; source: string; page: number} | null;
+};
 export const videos = catalog.projects.flatMap((project) => project.revisions);
 export const sourceUrl = (source: string) =>
   `https://github.com/dayour/a2swe/blob/main/${source.split('/').map(encodeURIComponent).join('/')}`;
@@ -43,6 +45,15 @@ export function SourceLink({source, children}: {source: string; children?: React
 export function Poster({video}: {video: Video}) {
   const src = useBaseUrl(`/${video.poster}`);
   return <img className="library-poster" src={src} alt={`${video.title}, frame captured at two seconds`} loading="lazy" width={640} height={360} />;
+}
+
+export function AssetPreview({item}: {item: Template}) {
+  const src = useBaseUrl(`/${item.image?.path ?? ''}`);
+  if (!item.image) return null;
+  return <figure>
+    <img src={src} alt={item.description} loading="lazy" width={item.image.width} height={item.image.height} style={{width: '100%', height: 190, objectFit: 'contain'}} />
+    <figcaption><a href={`${sourceUrl(item.image.source)}#page=${item.image.page}`} target="_blank" rel="noopener noreferrer">Source document, page {item.image.page}</a></figcaption>
+  </figure>;
 }
 
 export function Player({video}: {video: Video}) {

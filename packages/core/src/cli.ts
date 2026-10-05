@@ -139,9 +139,11 @@ async function main(): Promise<void> {
         'evaluation_asset_contracts', 'raster_normalization', 'semantic_diagram_generation', 'comfyui_loopback_adapter', 'asset_bundle_verification',
         'approval_manifest_contracts', 'content_ir_contracts', 'render_spec_contracts',
         'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_mp4_project_adapter',
-        'local_mp4_encoding_and_qc_when_dependencies_available', 'multi_format_generation', 'output_set_verification'],
+        'local_mp4_encoding_and_qc_when_dependencies_available', 'multi_format_generation', 'output_set_verification',
+        'shared_voice_profiles', 'matched_audio_comparison', 'project_qc_index', 'copilot_sdk_sessions', 'mcp',
+        'native_tauri_workspace', 'source_linked_knowledge_search', 'guarded_document_intake'],
       partial: ['bounded_public_raster_fetch', 'local_signed_domain_certification', 'durable_diagram_worker', 'optional_restricted_copilot_sdk_query'],
-      unavailable: ['archive_import', 'copilot_reasoning', 'acp', 'mcp'],
+      unavailable: ['archive_import', 'acp'],
       trustBoundary: 'Trusted local OS user only; no network authentication or sandbox', sqlite: 'Node built-in experimental API' }, null, 2));
     return;
   }

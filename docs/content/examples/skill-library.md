@@ -1,8 +1,7 @@
 ---
 title: Skill library
+description: Discover and apply source-linked skills, agents, scripts and knowledge assets through the native workspace and MCP.
 ---
-
-# Skill library
 
 `library/skills/` contains reusable agent workflows and references. Run the
 passive inventory to get current counts; checked-in totals drift as entries are
@@ -35,8 +34,18 @@ The first-party `library/agents/a2swe-conductor.agent.md` and
 `library/skills/a2swe/SKILL.md` expose the agent-first runbook workflow.
 `library/plugins/a2swe/plugin.json` packages self-contained Copilot CLI agent
 and skill entries, while `library/assets/runbook/runbook-starter.json` seeds
-project runbooks. Inventory reports these entries as pending and disabled
-until review: catalog presence never grants approval, runtime execution, or
-production approval. The a2swe production rules remain authoritative for
-narration approval, storyboard syntax, Remotion implementation, media QC,
-and delivery.
+project runbooks. Passive inventory does not itself execute a skill. The native
+SDK session loads repository skill, plugin and agent-instruction directories;
+MCP also exposes their markdown as resources for targeted retrieval.
+Normal SDK permission handling controls actual tool execution.
+
+The native Library tab and `a2swe.library` enumerate the current entries directly
+from the checkout. `a2swe.tools_list` exposes executable tool schemas; markdown
+instructions remain separate from executable scripts. `a2swe.knowledge_search`
+retrieves bounded, source-linked chunks instead of embedding an entire PDF
+collection in the session prompt.
+
+Use the [spec-driven command map](../reference/command-line.md#spec-driven-execution)
+to connect domain-agent work to audio, video and presentation outputs. Each
+output is validated by its core contract and recorded in project QC. Human
+review is optional; no skill entry grants publication or distribution rights.

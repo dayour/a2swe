@@ -8,6 +8,7 @@ import {validateSlideRecipe} from '../../template/scripts/brand-plan.ts';
 const docs = fileURLToPath(new URL('../', import.meta.url));
 const root = path.resolve(docs, '..');
 const refresh = process.argv.includes('--refresh-media');
+const localKnowledge = process.env.A2SWE_INCLUDE_LOCAL_KNOWLEDGE === '1';
 const relative = (file) => path.relative(root, file).split(path.sep).join('/');
 const absolute = (file) => path.join(root, ...file.split('/'));
 const text = (file) => readFileSync(absolute(file), 'utf8');
@@ -37,11 +38,11 @@ const ffprobe = process.env.FFPROBE ?? path.join(path.dirname(ffmpeg), 'ffprobe.
 const projects = [];
 const discoveredMovies = new Set();
 const templates = [];
-const add = (source, category, name, description, preview, symbol = null, tags = [], recipe = null) => {
+const add = (source, category, name, description, preview, symbol = null, tags = [], recipe = null, image = null) => {
   if (!existsSync(absolute(source))) throw new Error(`Missing catalog source: ${source}`);
   templates.push({
     id: `${source}${symbol ? `#${symbol}` : ''}`,
-    title: name, category, description, preview, source, symbol, tags, recipe,
+    title: name, category, description, preview, source, symbol, tags, recipe, image,
     digest: hash(readFileSync(absolute(source))),
   });
 };
@@ -139,6 +140,40 @@ if (existsSync(generatedMovies)) {
   for (const file of walk(generatedMovies)) {
     if (!expectedMovies.has(file)) unlinkSync(file);
   }
+  for (const [folder, field] of [['posters', 'poster'], ['captions', 'captions']]) {
+    const expected = new Set(projects.flatMap((project) => project.revisions.map((video) => video[field])
+      .filter(Boolean).map((file) => path.join(docs, 'static', file))));
+    const directory = path.join(mediaOut, folder);
+    if (existsSync(directory)) for (const file of walk(directory)) if (!expected.has(file)) unlinkSync(file);
+  }
+
+  const knowledgePath = absolute('library/assets/knowledge/catalog.json');
+  const knowledgePreviews = new Set();
+  if (localKnowledge && existsSync(knowledgePath)) {
+    const knowledge = json(knowledgePath);
+    const sourceHashes = new Map();
+    for (const asset of knowledge.assets) {
+      for (const source of [asset.path, asset.source.path]) {
+        if (typeof source !== 'string' || source.startsWith('/') || source.includes('\\')
+          || source.split('/').some((part) => part === '..' || part === '.') || !source.startsWith('library/assets/')) {
+          throw new Error(`Unsafe knowledge asset path: ${source}`);
+        }
+      }
+      const bytes = readFileSync(absolute(asset.path));
+      if (!['image/png', 'image/jpeg'].includes(asset.mediaType) || hash(bytes) !== asset.digest) throw new Error(`Invalid knowledge asset: ${asset.id}`);
+      if (!sourceHashes.has(asset.source.path)) sourceHashes.set(asset.source.path, hash(readFileSync(absolute(asset.source.path))));
+      if (sourceHashes.get(asset.source.path) !== asset.source.digest) throw new Error(`Knowledge source changed: ${asset.source.path}`);
+      const preview = `library/assets/${asset.digest}.${asset.mediaType === 'image/png' ? 'png' : 'jpg'}`;
+      const target = path.join(docs, 'static', preview);
+      knowledgePreviews.add(target);
+      mkdirSync(path.dirname(target), {recursive: true});
+      if (!existsSync(target)) writeFileSync(target, bytes);
+      add(asset.path, 'Knowledge assets', asset.title, asset.description, 'image', null, asset.tags, null,
+        {path: preview, width: asset.width, height: asset.height, source: asset.source.path, page: asset.source.page});
+    }
+  }
+  const knowledgePreviewRoot = path.join(mediaOut, 'assets');
+  if (existsSync(knowledgePreviewRoot)) for (const file of walk(knowledgePreviewRoot)) if (!knowledgePreviews.has(file)) unlinkSync(file);
 }
 
 add('template/agent/SWE_AGENT.md', 'Agents', 'Legacy production companion', 'Copied 720p template ledger; use the core Runbook for new projects.', 'agent', null, ['legacy']);

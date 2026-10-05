@@ -1,8 +1,7 @@
 ---
 title: Repository tour
+description: Core, reusable library material and project-local evidence locations.
 ---
-
-# Repository tour
 
 | Path | Purpose |
 | --- | --- |
@@ -10,19 +9,22 @@ title: Repository tour
 | `SKILL.md` | Agent-facing operating contract and mandatory gates |
 | `BRAND_CONTENT_SPEC.md` | Identity, language, media, and acceptance requirements |
 | `reference/production-rules.md` | Detailed production and quality rules |
-| `template/` | Canonical scaffold for a new explainer project |
+| `packages/core/` | Canonical contracts, CLI, project scaffold and managed release pipeline |
+| `template/` | Retained 720p compatibility runtime and shared speech dependency lock |
 | `template/src/` | Remotion composition runtime and visual SDK |
 | `template/scripts/` | Scaffolding, narration, timing, model, and QC utilities |
 | `template/agent/SWE_AGENT.md` | Portable companion-ledger starter |
 | `projects/` | Completed or in-progress project instances |
-| `qc/` | Cross-project model and quality evidence |
+| `projects/*/qc/` | Project evidence, matched audio and hash inventory |
+| `library/assets/speech/` | Shared model registry, export receipt and voice profiles |
+| `library/integrations/` | Copilot SDK and CLI integration |
 | `library/skills/` | Reusable skill and workflow reference library |
 | `docs/` | Docusaurus engineering documentation website |
 | `.github/workflows/docs-pages.yml` | GitHub Pages build and deployment |
 
 ## Canonical source and examples
 
-Treat `template/` as the reusable implementation baseline. The project directories demonstrate authored configurations and production evidence, but may contain local work in progress. Project code should not silently redefine the global production contract.
+Use `packages/core/` for new project and release workflows. The project directories demonstrate authored configurations and production evidence, but may contain local work in progress. Project code should not silently redefine the global production contract.
 
 ## Generated outputs
 
@@ -31,7 +33,6 @@ The repository ignores common generated artifacts, including Node modules, virtu
 ## Representative projects
 
 - `projects/copilot/`
-- `projects/john-deere/`
 - `projects/microsoft/`
 
 These projects preserve the same composition shell as the template and specialize content, timing, configuration, assets, and shot implementations.

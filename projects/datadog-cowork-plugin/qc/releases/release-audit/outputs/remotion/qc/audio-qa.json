@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-3",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "input": "dist/render.mp4",
+  "inputSha256": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
+  "sourceAudioSha256": "50da8d9e2eb3d89ac9c14e51de6620749164455d73a09cf1214f1c2e0709f145",
+  "sampleRate": 48000,
+  "durationSeconds": 88.96,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "en-us",
+    "speed": 1,
+    "voice": "am_michael"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 88.96,
+      "rmsDbfs": -21.606121,
+      "peakDbfs": -1.041174,
+      "highFrequencyRatio8k": 0.005933,
+      "spectralFlatness": 0.000003
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 84.821292,
+      "rmsDbfs": -21.399222,
+      "peakDbfs": -1.041174,
+      "highFrequencyRatio8k": 0.003539,
+      "spectralFlatness": 0.000003
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 4.138708,
+      "rmsDbfs": -89.474211,
+      "peakDbfs": -63.890205,
+      "highFrequencyRatio8k": 0.134679,
+      "spectralFlatness": 0.000402
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 2.538708,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "sourceBoundaries": {
+      "label": "sourceSpeechBoundaries",
+      "segmentsChecked": 7,
+      "edgeWindowSeconds": 0.01,
+      "maxOnsetRmsDbfs": -93.618931,
+      "maxTailRmsDbfs": -89.524733,
+      "maxJumpDbfs": -67.386438
+    },
+    "snrSpeechVsSilenceDb": 218.600778
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSourceBoundaryJumpDbfs": -55,
+    "maxSourceEdgeRmsDbfs": -60,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}

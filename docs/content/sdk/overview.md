@@ -9,18 +9,18 @@ The a2swe SDK is the collection of reusable TypeScript visual modules, declarati
 ## Copilot SDK integration
 
 The repository includes a first-class GitHub Copilot SDK integration under
-`integrations/copilot/`. It is separate from the retained native Agency wrapper:
+`library/integrations/copilot/`. It is separate from the retained native Agency wrapper:
 
 | Command | Purpose | Runtime behavior |
 | --- | --- | --- |
-| `node integrations/copilot/session.ts --help` | Show the SDK session interface | Does not start a session |
-| `node integrations/copilot/session.ts --capabilities` | Report supported a2swe SDK controls | Works without probing a native executable; reports when native help was not probed |
-| `node integrations/copilot/session.ts --doctor` | Start the SDK runtime and report auth/status/session count | Requires an authenticated Copilot runtime |
-| `node integrations/copilot/session.ts --sessions` | List persisted Copilot SDK sessions | Requires an authenticated Copilot runtime |
-| `node integrations/copilot/session.ts --catalogs` | List agents, skills, and plugins discovered by the runtime | Requires an authenticated Copilot runtime |
-| `node integrations/copilot/session.ts --prompt "..."` | Create a SDK session and wait for the answer | Requires an authenticated Copilot runtime |
-| `node integrations/copilot/cli.ts -- --help` | Forward literal arguments to a native Copilot executable | Requires an existing executable |
-| `node integrations/copilot/cli.ts --runtime agency -- --help` | Forward literal arguments through the native Agency launcher | Requires an existing Agency executable |
+| `node library/integrations/copilot/session.ts --help` | Show the SDK session interface | Does not start a session |
+| `node library/integrations/copilot/session.ts --capabilities` | Report supported a2swe SDK controls | Works without probing a native executable; reports when native help was not probed |
+| `node library/integrations/copilot/session.ts --doctor` | Start the SDK runtime and report auth/status/session count | Requires an authenticated Copilot runtime |
+| `node library/integrations/copilot/session.ts --sessions` | List persisted Copilot SDK sessions | Requires an authenticated Copilot runtime |
+| `node library/integrations/copilot/session.ts --catalogs` | List agents, skills, and plugins discovered by the runtime | Requires an authenticated Copilot runtime |
+| `node library/integrations/copilot/session.ts --prompt "..."` | Create a SDK session and wait for the answer | Requires an authenticated Copilot runtime |
+| `node library/integrations/copilot/cli.ts -- --help` | Forward literal arguments to a native Copilot executable | Requires an existing executable |
+| `node library/integrations/copilot/cli.ts --runtime agency -- --help` | Forward literal arguments through the native Agency launcher | Requires an existing Agency executable |
 
 SDK sessions default to the Copilot SDK runtime connection. Use
 `--cli`, `A2SWE_COPILOT_CLI`, or `COPILOT_CLI_PATH` only when you need to force an

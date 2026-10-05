@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import Link from '@docusaurus/Link';
-import {Blueprint, catalog, download, LibraryShell, SourceLink, Stats, type Template} from '../components/library/shared';
+import {AssetPreview, Blueprint, catalog, download, LibraryShell, SourceLink, Stats, type Template} from '../components/library/shared';
 import {RecipePreview} from '../components/library/recipe';
+import voiceProfiles from '../../../library/assets/speech/voice-profiles.json';
 import {brandInstructions, brandPlanWarnings, createBrandPlan, densities, slideIntents, validateBrandPlan, validateSlideRecipe, type BrandPlan, type SlideRecipe} from '../../../template/scripts/brand-plan';
 
 function recipeOf(item: Template): SlideRecipe | null {
@@ -20,7 +21,7 @@ function TemplateCard({item, selected, onToggle}: {item: Template; selected: boo
         <button aria-pressed={back} onClick={() => setBack(!back)} aria-label={`${back ? 'Preview' : 'Inspect'} ${item.title}`}>{back ? 'Preview' : 'Inspect manifest'}</button></div>
       <h2>{item.title}</h2>
       {back ? <pre className="library-manifest" tabIndex={0} aria-label={`${item.title} manifest`}>{JSON.stringify({source: item.source, symbol: item.symbol, sha256: item.digest, category: item.category, tags: item.tags, recipe}, null, 2)}</pre>
-        : <>{recipe ? <RecipePreview recipe={recipe} /> : <Blueprint kind={item.preview} name={item.title} />}<p className="library-description">{item.description}</p></>}
+        : <>{item.image ? <AssetPreview item={item} /> : recipe ? <RecipePreview recipe={recipe} /> : <Blueprint kind={item.preview} name={item.title} />}<p className="library-description">{item.description}</p></>}
       <div className="library-tags">{item.tags.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div>
       <div className="library-actions library-card-footer">
         <button className={selected ? '' : 'library-primary'} aria-pressed={selected} onClick={onToggle}>{selected ? 'Remove from scenario' : 'Add to scenario'}</button>
@@ -38,6 +39,7 @@ export default function Templates() {
   const [audience, setAudience] = useState('Engineering leaders');
   const [duration, setDuration] = useState('30');
   const [output, setOutput] = useState('video');
+  const [voiceProfile, setVoiceProfile] = useState(voiceProfiles.defaultProfileId);
   const [exemplar, setExemplar] = useState('');
   const [intent, setIntent] = useState('All');
   const [density, setDensity] = useState('All');
@@ -53,9 +55,10 @@ export default function Templates() {
   const recipes = selected.flatMap((item) => { const recipe = recipeOf(item); return recipe ? [recipe] : []; });
   const brandPlan = createBrandPlan(recipes, formats, exemplar);
   const plan = {schemaVersion: 'a2swe-scenario/2', scenario: scenario.trim(), audience, targetSeconds: Number(duration), brandPlan,
-    execution: 'manual-review-required', templates: selected.map((item) => ({id: item.id, category: item.category, source: item.source, symbol: item.symbol, sha256: item.digest})),
-    gates: ['Confirm scope and domain approval', 'Review sample slides and verified brand basis', 'Approve narration', 'Approve voice and any external transfer', 'Approve pilot and slide samples', 'Review approval and release']};
-  const prompt = `Create an English explainer about: ${scenario.trim()}\nAudience: ${audience}\nOutputs: ${formats.join(', ')}\nVideo target (if selected): ${duration} seconds\n\nRead SKILL.md and reference/production-rules.md first. Scaffold a separate project; do not overwrite existing work.\n\nSelected repository material:\n${selected.map((item) => `- ${item.category}: ${item.source}${item.symbol ? ` (${item.symbol})` : ''} [sha256 ${item.digest}]`).join('\n')}\n\n${brandInstructions(brandPlan)}\n\nSave the companion a2swe-scenario.json download in the new project for the preflight command. Adapt the selected sources; do not inherit prior facts, approvals, or approval. Confirm scope, approve narration and voice handling, then approve the pilot before completing production. Report missing tools and sources rather than claiming success.`;
+    voice: {profileId: voiceProfile, speed: 1, externalTransfer: false},
+    execution: 'core-managed-evidence-gates', templates: selected.map((item) => ({id: item.id, category: item.category, source: item.source, symbol: item.symbol, sha256: item.digest})),
+    gates: ['Validate domain evidence', 'Check brand basis and assets', 'Validate narration and voice profile', 'Verify pilot and release outputs']};
+  const prompt = `Create an English explainer about: ${scenario.trim()}\nAudience: ${audience}\nOutputs: ${formats.join(', ')}\nVideo target (if selected): ${duration} seconds\nVoice: set ContentIR.voice.profileId to "${voiceProfile}", speed to 1 and externalTransfer to false. Use the shared voice profile for Kokoro and Kokoro ONNX.\n\nRead SKILL.md and reference/production-rules.md first. Scaffold a separate project; do not overwrite existing work.\n\nSelected repository material:\n${selected.map((item) => `- ${item.category}: ${item.source}${item.symbol ? ` (${item.symbol})` : ''} [sha256 ${item.digest}]`).join('\n')}\n\n${brandInstructions(brandPlan)}\n\nSave the companion a2swe-scenario.json download in the new project for the preflight command. Adapt the selected sources; do not inherit prior facts or approvals. Validate evidence, narration and voice handling, then verify the pilot and release. Human sign-off is optional. Report missing tools and sources rather than claiming success.`;
   function validatePlan() {
     if (!scenario.trim() || !selected.length) { setError('Describe your scenario and add at least one library entry.'); return false; }
     try { validateBrandPlan(brandPlan); }
@@ -83,6 +86,9 @@ export default function Templates() {
           <button key={value} aria-pressed={category === value} onClick={() => { setCategory(value); setLimit(18); }}>{value}<span>{value === 'All' ? catalog.templates.length : catalog.templates.filter((item) => item.category === value).length}</span></button>)}</div>
         <section className="library-scenario">
           <h2>Your scenario</h2>
+          <label className="library-field">Voice profile<select value={voiceProfile} onChange={(event) => setVoiceProfile(event.target.value)}>
+            {voiceProfiles.profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.name} ({profile.id})</option>)}
+          </select></label>
           <label className="library-field">What are you explaining?<textarea value={scenario} maxLength={2000} onChange={(event) => setScenario(event.target.value)} placeholder="A maintenance-request agent for field technicians..." rows={4} /></label>
           <label className="library-field">Audience<input value={audience} maxLength={160} onChange={(event) => setAudience(event.target.value)} /></label>
           <label className="library-field">Output format<select value={output} onChange={(event) => setOutput(event.target.value)}><option value="video">Video</option><option value="pptx">PowerPoint</option><option value="both">PowerPoint + video</option></select></label>

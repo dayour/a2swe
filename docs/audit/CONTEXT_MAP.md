@@ -13,7 +13,7 @@ independent Docusaurus site. Existing files must be read before editing.
 | CTX02 Visuals | template/src/{ui,fx}, common primitives/fonts/overlay | Keep mechanics; active 720p space theme remains the current video profile; required font failures currently need hardening |
 | CTX03 Speech | template/scripts/{tts_build,verify_models,test_pipeline}, requirements, speech-stack reference | Preserve runtime fingerprints, atomic WAV writes, immutable fork pins and real inference evidence |
 | CTX04 Production | template/scripts scaffold/render/storyboard/QC tools | Generalize fixed six-shot/900-frame checks, eliminate assert-based gates and global temporary cleanup |
-| CTX05 Pilots | projects/{john-deere,copilot,microsoft} | Historical media/QC fixtures; technical passes are not executive visual or human listening approval |
+| CTX05 Pilots | projects/{copilot,microsoft} | Historical media/QC fixtures; technical passes are not executive visual or human listening approval |
 | CTX06 Research | library curation/source/governance/evaluation skills | Reuse bounded extraction and source analysis; private tools remain private |
 | CTX07 Editorial | library media/brand/chart/process/story skills | Host-specific scripts require explicit capability, approval and runtime review |
 | CTX08 Office | library/skills/office and archive packs | Bounded Office ingestion and portable browser backend needed; ZIP presence is not execution readiness |

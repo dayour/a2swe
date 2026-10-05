@@ -5,7 +5,7 @@ description: Extension points for Copilot SDK sessions, the managed release path
 
 ## Extend the Copilot SDK session bridge
 
-Copilot SDK behavior lives under `integrations/copilot/`:
+Copilot SDK behavior lives under `library/integrations/copilot/`:
 
 - `runtime.ts` resolves the SDK runtime connection, optional existing executable,
   Copilot home directory, and working directory.

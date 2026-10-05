@@ -5,14 +5,6 @@ import {VIDEO} from '../../config';
 
 type SceneSpec = {title: string; kind: string; labels: string[]; icons: string[]; note?: string};
 const CATALOG: Record<string, {brand: string; accent: string; scenes: SceneSpec[]}> = {
-  'john-deere': {brand: 'JOHN DEERE', accent: '#a9dc6e', scenes: [
-    {title: 'One field. Different conditions.', kind: 'field', labels: ['Variable field', 'Illustrative map'], icons: []},
-    {title: 'Precision needs connected information.', kind: 'network', labels: ['Positioning', 'Machine display', 'Field data'], icons: ['satellite', 'display', 'field']},
-    {title: 'StarFire helps align each pass.', kind: 'field', labels: ['StarFire', 'Aligned passes'], icons: []},
-    {title: 'Machine data becomes the next plan.', kind: 'network', labels: ['Equipment', 'JDLink', 'Operations Center', 'Next job'], icons: ['tractor', 'signal', 'display', 'plan']},
-    {title: 'More than a smarter tractor.', kind: 'network', labels: ['Field', 'Machine', 'Operation'], icons: ['field', 'tractor', 'plan']},
-    {title: 'A connected operation.', kind: 'network', labels: ['Position', 'Operate', 'Review', 'Plan'], icons: ['satellite', 'tractor', 'display', 'plan'], note: 'Guided by better information.'},
-  ]},
   copilot: {brand: 'COPILOT', accent: '#70dce2', scenes: [
     {title: 'A family. Different jobs.', kind: 'network', labels: ['Copilot Chat', 'Microsoft 365\nCopilot', 'GitHub Copilot', 'Copilot Studio'], icons: ['chat', 'document', 'code', 'agent']},
     {title: 'Research. Then draft.', kind: 'document', labels: ['Copilot Chat', 'Research', 'Draft'], icons: []},

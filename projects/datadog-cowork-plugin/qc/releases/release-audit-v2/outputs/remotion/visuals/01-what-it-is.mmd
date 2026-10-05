@@ -1,0 +1,4 @@
+flowchart LR
+  data["Datadog data<br/>logs, metrics, traces,<br/>dashboards, monitors"] --> server["Datadog MCP Server"]
+  server --> agent["MCP-capable AI agent"]
+  agent -->|"natural-language questions"| server

@@ -36,19 +36,23 @@ This entry is an audio quality-assurance profile. It is not:
 
 - Report objective measurements: speech RMS dBFS, whole-gap and interior-gap
   RMS dBFS, interior-gap SNR, high-frequency energy ratio above 8 kHz,
-  spectral flatness, peak dBFS, input digest, producer, engine, and voice.
+  spectral flatness, peak dBFS, source boundary jump and 10 ms edge RMS,
+  source and encoded digests, producer, engine, and voice.
 - Distinguish AAC boundary energy from steady noise. The managed QA excludes
-  100 ms at each gap boundary when evaluating the interior noise floor,
-  preserves whole-gap metrics for diagnosis, and rejects relaxed thresholds.
-- Treat a finding as actionable only when the measured report fails its
-  thresholds or the spectrogram shows broadband energy that correlates with
-  audible hiss/static.
+  100 ms at each gap boundary when evaluating the interior noise floor but
+  independently rejects discontinuous source speech boundaries. The
+  spectrogram marks scene cuts; do not infer clean transitions from its
+  whole-track resolution or a quiet gap interior.
+- Investigate any failed boundary, noise-floor, or SNR gate. Listening at
+  speech entrances and endings remains necessary for perceptual judgment;
+  objective measurements alone cannot prove the absence of audible artifacts.
 - Keep cleanup minimally invasive. Prefer the core-managed `A2SWE_AUDIO_CLEANUP`
   controls over ad hoc file edits:
-  - `auto` removes measured speech-segment DC offset and filters only when a
-    hiss signature is present; inserted silence remains untouched
-  - `on` forces measured low-pass denoise after validation
-  - `off` disables cleanup
+  - `auto` high-pass filters speech segments at 35 Hz, tapers their first and
+    last 25 ms, and applies low-pass denoise only for a measured hiss signature
+  - `on` also forces the validated low-pass filter
+  - `off` disables cleanup but does not bypass audio QA
+  - Inserted silence remains untouched in all modes
 - Never overwrite release evidence without preserving the previous digest and
   rerunning `release-verify`.
 

@@ -38,7 +38,12 @@ The managed 1080p path requires local model files through either:
 
 - `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES`
 - or `A2SWE_KOKORO_CONFIG`, `A2SWE_KOKORO_WEIGHTS`, and
-  `A2SWE_KOKORO_VOICE_MODEL`
+  the same `KOKORO_ONNX_VOICES` bank
+
+Both use locked Kokoro/Misaki phonemization so voice comparisons do not compare
+different text front ends. The shared registry is
+`library/assets/speech/models.json`; voice profiles are in
+`library/assets/speech/voice-profiles.json`.
 
 ## Legacy note
 

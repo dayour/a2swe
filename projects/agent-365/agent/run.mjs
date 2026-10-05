@@ -1,6 +1,6 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {resolveRuntime} from '../../../integrations/copilot/runtime.ts';
+import {resolveRuntime} from '../../../library/integrations/copilot/runtime.ts';
 
 const root = fileURLToPath(new URL('../../../', import.meta.url));
 const args = process.argv.slice(2);

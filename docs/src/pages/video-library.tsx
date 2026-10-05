@@ -70,7 +70,7 @@ export default function VideoLibrary() {
     <Stats items={[{value: videos.length, label: 'Playable revisions'}, {value: catalog.projects.length, label: 'Projects'}, {value: catalog.projects.filter((p) => !p.revisions.length).length, label: 'Not rendered'}]} />
     <p className="library-notice">Copilot is the earlier family-overview pilot; Copilot Studio 2026 and Power Platform 2026 are separate projects. Datadog Cowork plugin is generated end to end by the core release pipeline. <Link to="/docs/platform/video-library">Catalog contract</Link></p>
     <div className="library-toolbar">
-      <label className="library-field library-search">Search projects<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Copilot, Deere, Microsoft..." /></label>
+      <label className="library-field library-search">Search projects<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Copilot, Datadog, Microsoft..." /></label>
       <label className="library-field">Production state<select value={filter} onChange={(event) => setFilter(event.target.value)}><option value="all">All projects</option><option value="rendered">Has video</option><option value="blocked">Not rendered</option></select></label>
       <label className="library-checkbox"><input type="checkbox" checked={allRevisions} onChange={(event) => setAllRevisions(event.target.checked)} />Show every revision</label>
     </div>

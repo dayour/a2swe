@@ -1,12 +1,11 @@
 ---
 title: TypeScript SDK
+description: Project authoring types, terminal SDK sessions, and the native desktop agent bridge.
 ---
-
-# TypeScript SDK
 
 This page covers both the project authoring API and the repository's GitHub
 Copilot SDK integration. The Copilot integration is not a generated video
-runtime; it is the TypeScript bridge in `integrations/copilot/` that lets a2swe
+runtime; it is the TypeScript bridge in `library/integrations/copilot/` that lets a2swe
 start, resume, inspect, and constrain SDK-driven assistant sessions.
 
 ## Copilot SDK bridge
@@ -20,7 +19,7 @@ The bridge uses `@github/copilot-sdk` and has two runtime modes:
   forwards arguments to an existing executable without a shell. This is for
   native CLI behavior and remains intentionally separate from SDK sessions.
 
-Direct `node integrations/copilot/session.ts ...` invocations are the clearest
+Direct `node library/integrations/copilot/session.ts ...` invocations are the clearest
 way to pass flags. With npm 11, use an extra separator such as
 `npm run copilot:sdk -- -- --capabilities`.
 
@@ -39,7 +38,7 @@ SDK session options:
 | `--runtime-home DIR` | Sets the Copilot base directory used for session/config state. |
 | `--cwd DIR` | Sets the session working directory. |
 
-Known limitations:
+Terminal-session limitations:
 
 - The SDK bridge does not implement live attachments.
 - `ask` permissions need an interactive terminal.
@@ -47,6 +46,18 @@ Known limitations:
   resolution, and native argument forwarding. Authenticated prompt execution must
   be verified in the target environment before documenting a specific deployment
   as operational.
+
+## Desktop and MCP integration
+
+The [native desktop app](../platform/desktop.md) uses the same installed Copilot
+SDK/runtime configuration through a local JSON-lines bridge. Desktop permission
+and user-input events are answered in the UI rather than through terminal stdin.
+The floating widget and main window share that connection.
+
+The a2swe MCP server exposes core operations and workspace/library context to
+the agent. Core commands remain the implementation authority; the desktop
+does not carry a separate media-generation pipeline. URL/company intake begins
+as research material and must be developed into source-backed canonical inputs.
 
 ## Manifest types
 

@@ -1,4 +1,7 @@
-# Video Companion SWE Agent
+---
+title: Video Companion SWE Agent
+description: Microsoft pilot companion instructions and historical production ledger.
+---
 
 ## Role and Boundaries
 
@@ -23,7 +26,7 @@ Keep facts tied to source URLs and dates, assets tied to provenance and licenses
 
 | Checkpoint | Status | Approved scope and evidence |
 | --- | --- | --- |
-| Duration and scope | Approved | User selected three 30-second English technology-focused pilots: John Deere, Copilot family, Microsoft. |
+| Duration and scope | Approved | Historical batch included this 30-second English Microsoft pilot and the Copilot-family pilot. |
 | Narration sign-off | Approved | User selected "Approve all three" for the complete 61-word scripts. The exact project script is script/narration.txt. |
 | Voiceover choice | Approved | Edge en-US-AndrewNeural, +0%; transfer to Microsoft's speech service disclosed before synthesis. |
 | First 30 seconds | Awaiting review | The complete pilot is rendered. Human pronunciation, pacing and final acceptance have not been supplied. |

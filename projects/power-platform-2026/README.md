@@ -41,7 +41,7 @@ handoff. Machine waveform alignment is not a listening approval.
 
 The custom ONNX build was also exercised locally with `am_michael`; that is
 separate model verification, not the voice used in this movie. Compared sibling
-projects (John Deere, Copilot, Microsoft) use the same local builder defaults,
+projects (Copilot and Microsoft) use the same local builder defaults,
 but their retained delivered timelines identify Edge AndrewNeural. Their
 separate Kokoro model checks must not be presented as their delivered voices.
 

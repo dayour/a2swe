@@ -1,6 +1,6 @@
 ---
 title: a2swe documentation site
-description: Build and maintain the Docusaurus site for the a2swe core, release flow, and legacy template notes.
+description: Docusaurus site for the a2swe core, release flow, and legacy template notes.
 ---
 
 ## Purpose

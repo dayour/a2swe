@@ -1,0 +1,802 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "datadog-cowork-plugin",
+  "status": "indexed_not_quality_approved",
+  "entries": [
+    {
+      "path": "qc/audio/am_michael/comparison.json",
+      "digest": "78ec8eba07a5a5c57e60ca2cfc027e2a6a86c6b4f2e736a074fd941c3ad97677",
+      "byteSize": 1295
+    },
+    {
+      "path": "qc/audio/am_michael/kokoro_onnx.json",
+      "digest": "1728cc983d50f9228c0fde72c1fea6a1ae60dc102e68a016dd4b3b601fb8d6de",
+      "byteSize": 8863
+    },
+    {
+      "path": "qc/audio/am_michael/kokoro_onnx.wav",
+      "digest": "8dcbd14f05561e1f3a0b014675191ca6f37b9e79e3f9993909c8060eec88334d",
+      "byteSize": 17601644
+    },
+    {
+      "path": "qc/audio/am_michael/kokoro.json",
+      "digest": "d8b26675568d9dc96149494f6c5af35538d0d3dae0062e28a7a33471a9d66e96",
+      "byteSize": 8730
+    },
+    {
+      "path": "qc/audio/am_michael/kokoro.wav",
+      "digest": "0648df7cdfff643d5a334bb369714cc0acaa2b382668f43703017ed23e992c9b",
+      "byteSize": 17601644
+    },
+    {
+      "path": "qc/models/onnx-repair/datadog-cowork-plugin-kokoro-onnx.wav",
+      "digest": "b058eacf97eb5681ae259938cbcfa14553e96ec4c36015fa022f8c242358e14c",
+      "byteSize": 16928036
+    },
+    {
+      "path": "qc/models/onnx-repair/verification.json",
+      "digest": "b9d97580ce979fcf943de0db6e1a38b0cca8a066dd90bd92873d7d5587f70ce6",
+      "byteSize": 4445
+    },
+    {
+      "path": "qc/releases/release-audit-v2/approval-manifest.json",
+      "digest": "3f642fdfb2531389cdd62ea3aba49c16e72c94ca36b17ad8860c60461704955b",
+      "byteSize": 752
+    },
+    {
+      "path": "qc/releases/release-audit-v2/asset-inputs/mcp-flow.png",
+      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "byteSize": 81884
+    },
+    {
+      "path": "qc/releases/release-audit-v2/asset-inventory.json",
+      "digest": "f7a829470e3b50fbe8fd4bdff19a35b7b9093664f68ad2927e1b92b80046cf85",
+      "byteSize": 1902
+    },
+    {
+      "path": "qc/releases/release-audit-v2/content-ir.json",
+      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "byteSize": 12805
+    },
+    {
+      "path": "qc/releases/release-audit-v2/domain-pack.json",
+      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
+      "byteSize": 11502
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/deck.deck.json",
+      "digest": "314bc5214ff8a4539849f404d33c5b7ec6648d6a389767fdca75acd47fdb3cc9",
+      "byteSize": 652993
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/deck.pptx",
+      "digest": "14f20edd23e50f896b4b0d5d20234fae1f5ddfc04533e8899d80201827df92e2",
+      "byteSize": 568922
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/document.docx",
+      "digest": "a1b12e3938ca3ca1ba88cc741b445d8ea3339595cda05cd76689e8de4e2d7550",
+      "byteSize": 496447
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/document.pdf",
+      "digest": "9d6f8338816b457eb10bdfeafec27426f1d16736e4bd2c53e765713993d20091",
+      "byteSize": 263431
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/index.html",
+      "digest": "cdd24cf9b838405dbf3231ad6625e1abb5004c7d66b2654c557658e756402247",
+      "byteSize": 639939
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/raster.jpg",
+      "digest": "c1abf3bc07f212dfc757492c201e160b6ff00df5df13dddd454f912252ca7701",
+      "byteSize": 263424
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/raster.png",
+      "digest": "6df29fa8c0b89cbf6f30e3cb4dcabf8a9b429d804a073031b471b6143ef1db6b",
+      "byteSize": 226361
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/asset-manifest.json",
+      "digest": "86c316c28d138401105f1151db37911e54d86e527d0480a597e75c9607ebc7b7",
+      "byteSize": 1257
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/audio/narration-metadata.json",
+      "digest": "0dacb953bf05d37b12a7dbd856a44bd5bf825b247daa84e40e2cf8fb5fdc438b",
+      "byteSize": 4557
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/dist/render.mp4",
+      "digest": "6ae265094e1a0647784c0d71ae488408f1428ebe3b5972465b92427a24fb41d2",
+      "byteSize": 14637035
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/package.json",
+      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
+      "byteSize": 677
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/assets/datadog-cowork-plugin/audio.wav",
+      "digest": "529ad211fea4254f5cfcc7524383fd2673a9acb4e9b2ef9bba6765e5fe0847bf",
+      "byteSize": 17085100
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/assets/datadog-cowork-plugin/mcp-flow-4177aa1687b3.png",
+      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "byteSize": 81884
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
+      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
+      "byteSize": 20380
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
+      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
+      "byteSize": 20320
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
+      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
+      "byteSize": 20232
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
+      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
+      "byteSize": 20212
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
+      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
+      "byteSize": 65732
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
+      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
+      "byteSize": 17488
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
+      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
+      "byteSize": 1292
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
+      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
+      "byteSize": 2816
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
+      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
+      "byteSize": 9856
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
+      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
+      "byteSize": 2656
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
+      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
+      "byteSize": 2104
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
+      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
+      "byteSize": 8712
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
+      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
+      "byteSize": 824
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
+      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
+      "byteSize": 24956
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
+      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
+      "byteSize": 13296
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
+      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
+      "byteSize": 12220
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
+      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
+      "byteSize": 70668
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
+      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
+      "byteSize": 1416
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
+      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
+      "byteSize": 10676
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
+      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
+      "byteSize": 8392
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
+      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
+      "byteSize": 11104
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
+      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
+      "byteSize": 15476
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
+      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
+      "byteSize": 16476
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
+      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
+      "byteSize": 6116
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
+      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
+      "byteSize": 56156
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/audio-qa.json",
+      "digest": "c7ee5afb3589fadb1e316dd12f4896f63fdef8e3c1fe19a17a680371929f2fd9",
+      "byteSize": 2061
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "1dc4721ee2bf497e6a2b2b46c59eb24ad8d4268344708a46355f98c43ed30c98",
+      "byteSize": 445931
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/mp4-qc.json",
+      "digest": "3d3e3744ed66c141e0175772e8da10c8b8c104ff7a782e321e6bd59199c6b470",
+      "byteSize": 3566
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/render-receipt.json",
+      "digest": "41f0c8a5d1fa6a170203472448cd033ac869d571a4297b7c4ecf4939f145e991",
+      "byteSize": 385
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/remotion.config.ts",
+      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
+      "byteSize": 351
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/render-plan.json",
+      "digest": "34cde49d8553a27d0aae955d022cfc0c52014a00c071540beeb9d4dc4a45a465",
+      "byteSize": 2060
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/requirements.lock.txt",
+      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+      "byteSize": 5663
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/audio-qa.mjs",
+      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
+      "byteSize": 17077
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/render-mp4.mjs",
+      "digest": "badbf99e790fba288478e2a7c3f880be5aad859c36a6ae71e4ef4ffb0c9554a3",
+      "byteSize": 8598
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/synthesize-audio.mjs",
+      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
+      "byteSize": 1703
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/synthesize-audio.py",
+      "digest": "270a29b40f7651d504e5bad57697a0e9d4dffb9481a48c0baf6dda0d5d9ebe76",
+      "byteSize": 19743
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/verify-mp4.mjs",
+      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
+      "byteSize": 5728
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/speech/narration-manifest.json",
+      "digest": "4a0d26e2404835f95b6ddfea987b8e1f58872be5530c8c1d48eef4815432940b",
+      "byteSize": 3335
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/src/content.json",
+      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "byteSize": 12805
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/src/index.tsx",
+      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
+      "byteSize": 93
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/src/palette.ts",
+      "digest": "c654487aadb0c4435f5226206490d24e9e68c191ebe0c2b505da63503a636e36",
+      "byteSize": 1538
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/src/Root.tsx",
+      "digest": "f6dc5ec55212a7d2ea44434c665b72314b1072dd67177cc9f5d07f4b38c2a793",
+      "byteSize": 12298
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/src/Visuals.tsx",
+      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
+      "byteSize": 8575
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/timeline.json",
+      "digest": "2acba9f94dbd21ccc7bd0873b3d392d4da7d347494bf4fa7cb8cbc3f08799839",
+      "byteSize": 18054
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/tsconfig.json",
+      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
+      "byteSize": 397
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/01-what-it-is.mmd",
+      "digest": "bd57989d57aae21fd7592d07893ee577539cd7d6b9d0f032db4054088c88dab5",
+      "byteSize": 213
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/01-what-it-is.png",
+      "digest": "02701015e9bf87965d6b5f8ba842d0643bc9b0872f7579fcf69ec467f408ab9c",
+      "byteSize": 83094
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/03-setup.mmd",
+      "digest": "62fa30d258ad54cf1edf6f03f07beeaf4e09c7216456f32dcfa802ad90346b60",
+      "byteSize": 214
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/03-setup.png",
+      "digest": "d86356b9ae0fca2d9f9db4266eb3cbae3bf99d33f6ef4a3518ddc423957add66",
+      "byteSize": 92957
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/04-access.excalidraw.json",
+      "digest": "966714bbacf5232a1550053ae434023065398b108efb1ee7fe21c64fe84aeda8",
+      "byteSize": 1212
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/04-access.png",
+      "digest": "d780408aaa3242decb62ff39017b287b7dde0c95311d3c25e7f6dfc9339faff0",
+      "byteSize": 115242
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/06-risk.marp.md",
+      "digest": "df4b214beab0f897872b4ae31115e505e3c34d4ec61d99d3707a529abb9d4a4f",
+      "byteSize": 212
+    },
+    {
+      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/06-risk.png",
+      "digest": "3e49a5f78a2909a655dd9ca2914c9b065392d8ab99ef5480758dd62885cf2fc9",
+      "byteSize": 95673
+    },
+    {
+      "path": "qc/releases/release-audit-v2/parity-manifest.json",
+      "digest": "958075101327ff69e17cbb5570dd2f238b8289b66afbeef85cb054a5a35f25a4",
+      "byteSize": 16028
+    },
+    {
+      "path": "qc/releases/release-audit-v2/release-plan.json",
+      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/releases/release-audit-v2/render-spec.json",
+      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
+      "byteSize": 643
+    },
+    {
+      "path": "qc/releases/release-audit/approval-manifest.json",
+      "digest": "3f642fdfb2531389cdd62ea3aba49c16e72c94ca36b17ad8860c60461704955b",
+      "byteSize": 752
+    },
+    {
+      "path": "qc/releases/release-audit/asset-inputs/mcp-flow.png",
+      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "byteSize": 81884
+    },
+    {
+      "path": "qc/releases/release-audit/asset-inventory.json",
+      "digest": "c5dca6e0f5ed98c0e36e249690fceeeec77c9d2652202c8a162f261232244ef7",
+      "byteSize": 1902
+    },
+    {
+      "path": "qc/releases/release-audit/content-ir.json",
+      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "byteSize": 12805
+    },
+    {
+      "path": "qc/releases/release-audit/domain-pack.json",
+      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
+      "byteSize": 11502
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/deck.deck.json",
+      "digest": "86023a0e2cb4736845eb1d4c05cf5fc78d4b6dbc497832c0cd69b6d701e4395d",
+      "byteSize": 658213
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/deck.pptx",
+      "digest": "b14dd2a50bc610e6217807e693f466f3f08ccf71131ae246d61430f975a62c40",
+      "byteSize": 572837
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/document.docx",
+      "digest": "02b1af639a79c12979ca2ee2f60f4bbd1ed919330058f7e7fe8b08568a2d7560",
+      "byteSize": 500362
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/document.pdf",
+      "digest": "5df40b8a3748e6756b1fd78768cb61285429ce9858ef76655515755fdd71fc7e",
+      "byteSize": 264961
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/index.html",
+      "digest": "4537dd2fbc4e37c8c42186759f1460070517d2c051c0a7f5c9f817dd518ecab6",
+      "byteSize": 645159
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/raster.jpg",
+      "digest": "0e023ae1f81f1d70e0e6b158996e87bd7f9764ccaa64ddcfe1055b6236a69cb7",
+      "byteSize": 263463
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/raster.png",
+      "digest": "5871426bbc6df5d05e743efe069febe4bef44385aba1e9fe64577462d9772753",
+      "byteSize": 225803
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/asset-manifest.json",
+      "digest": "e8ca9b3bbab3315ad7c8df481380d02a8de8b299441237cfa537c28bcc9d30cb",
+      "byteSize": 1257
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/audio/narration-metadata.json",
+      "digest": "9d00dcbffad9dadecd72414054ae5efc50a7857fab34a7d47625b9e442ff6f5e",
+      "byteSize": 4555
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/dist/render.mp4",
+      "digest": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
+      "byteSize": 15031741
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/package.json",
+      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
+      "byteSize": 677
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/assets/datadog-cowork-plugin/audio.wav",
+      "digest": "50da8d9e2eb3d89ac9c14e51de6620749164455d73a09cf1214f1c2e0709f145",
+      "byteSize": 17063332
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/assets/datadog-cowork-plugin/mcp-flow-4177aa1687b3.png",
+      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "byteSize": 81884
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
+      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
+      "byteSize": 20380
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
+      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
+      "byteSize": 20320
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
+      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
+      "byteSize": 20232
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
+      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
+      "byteSize": 20212
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
+      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
+      "byteSize": 65732
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
+      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
+      "byteSize": 17488
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
+      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
+      "byteSize": 1292
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
+      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
+      "byteSize": 2816
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
+      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
+      "byteSize": 9856
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
+      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
+      "byteSize": 2656
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
+      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
+      "byteSize": 2104
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
+      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
+      "byteSize": 8712
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
+      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
+      "byteSize": 824
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
+      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
+      "byteSize": 24956
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
+      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
+      "byteSize": 13296
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
+      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
+      "byteSize": 12220
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
+      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
+      "byteSize": 70668
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
+      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
+      "byteSize": 1416
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
+      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
+      "byteSize": 10676
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
+      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
+      "byteSize": 8392
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
+      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
+      "byteSize": 11104
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
+      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
+      "byteSize": 15476
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
+      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
+      "byteSize": 16476
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
+      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
+      "byteSize": 6116
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
+      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
+      "byteSize": 56156
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/qc/audio-qa.json",
+      "digest": "071ca0492f00747ac966cf9cc9170bb013b005555987826cdeb80732948c1e07",
+      "byteSize": 2061
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "df3fa3206bcd93940c887106a5266a3d30e6ecad81f59d7d4de3b0977a289971",
+      "byteSize": 446084
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/qc/mp4-qc.json",
+      "digest": "41ddd0cc8b1b6ef0948fb79ccec4ef9b231b1d22d11a12cc4bf0f42d0f197dbb",
+      "byteSize": 3567
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/qc/render-receipt.json",
+      "digest": "5523530a5231579dc2aeb11bec6518a77eee31706c3b8e3e9fca7aafd1347388",
+      "byteSize": 385
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/remotion.config.ts",
+      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
+      "byteSize": 351
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/render-plan.json",
+      "digest": "1fee7cdd397f0b97762f5f439e82f2b1143cb0e08446c2954cf4b106ee832178",
+      "byteSize": 2060
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/requirements.lock.txt",
+      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+      "byteSize": 5663
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/scripts/audio-qa.mjs",
+      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
+      "byteSize": 17077
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/scripts/render-mp4.mjs",
+      "digest": "badbf99e790fba288478e2a7c3f880be5aad859c36a6ae71e4ef4ffb0c9554a3",
+      "byteSize": 8598
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/scripts/synthesize-audio.mjs",
+      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
+      "byteSize": 1703
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/scripts/synthesize-audio.py",
+      "digest": "270a29b40f7651d504e5bad57697a0e9d4dffb9481a48c0baf6dda0d5d9ebe76",
+      "byteSize": 19743
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/scripts/verify-mp4.mjs",
+      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
+      "byteSize": 5728
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/speech/narration-manifest.json",
+      "digest": "4a0d26e2404835f95b6ddfea987b8e1f58872be5530c8c1d48eef4815432940b",
+      "byteSize": 3335
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/src/content.json",
+      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "byteSize": 12805
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/src/index.tsx",
+      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
+      "byteSize": 93
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/src/palette.ts",
+      "digest": "c654487aadb0c4435f5226206490d24e9e68c191ebe0c2b505da63503a636e36",
+      "byteSize": 1538
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/src/Root.tsx",
+      "digest": "1a3d73096c272da40aed72ba9c2907a81779c0b670bf9e7a3703d6115016f6f9",
+      "byteSize": 12023
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/src/Visuals.tsx",
+      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
+      "byteSize": 8575
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/timeline.json",
+      "digest": "db5fe51a88dbb2801f75f7cb6cf731202c1fe57a4c22c8ea7075fc801c0d3680",
+      "byteSize": 18054
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/tsconfig.json",
+      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
+      "byteSize": 397
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/01-what-it-is.mmd",
+      "digest": "bd57989d57aae21fd7592d07893ee577539cd7d6b9d0f032db4054088c88dab5",
+      "byteSize": 213
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/01-what-it-is.png",
+      "digest": "02701015e9bf87965d6b5f8ba842d0643bc9b0872f7579fcf69ec467f408ab9c",
+      "byteSize": 83094
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/03-setup.mmd",
+      "digest": "62fa30d258ad54cf1edf6f03f07beeaf4e09c7216456f32dcfa802ad90346b60",
+      "byteSize": 214
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/03-setup.png",
+      "digest": "d86356b9ae0fca2d9f9db4266eb3cbae3bf99d33f6ef4a3518ddc423957add66",
+      "byteSize": 92957
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/04-access.excalidraw.json",
+      "digest": "966714bbacf5232a1550053ae434023065398b108efb1ee7fe21c64fe84aeda8",
+      "byteSize": 1212
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/04-access.png",
+      "digest": "310d5079bb794eaa28bab7e6c5a227cf8d9f1bcbf090e21b22baa7babca5231c",
+      "byteSize": 119157
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/06-risk.marp.md",
+      "digest": "df4b214beab0f897872b4ae31115e505e3c34d4ec61d99d3707a529abb9d4a4f",
+      "byteSize": 212
+    },
+    {
+      "path": "qc/releases/release-audit/outputs/remotion/visuals/06-risk.png",
+      "digest": "3e49a5f78a2909a655dd9ca2914c9b065392d8ab99ef5480758dd62885cf2fc9",
+      "byteSize": 95673
+    },
+    {
+      "path": "qc/releases/release-audit/parity-manifest.json",
+      "digest": "67e6504e5579eb52ad55bbed51f641d7d32789d8ac746907776e8916f15d570b",
+      "byteSize": 16028
+    },
+    {
+      "path": "qc/releases/release-audit/release-plan.json",
+      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/releases/release-audit/render-spec.json",
+      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
+      "byteSize": 643
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "20238ac511e1f86048d41e91a0d5fb264d4722573e9f29f8e71945ec541db400",
+      "byteSize": 1649
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "e641580eafdad4b66a1a474e7d40beda3d26de72d64fabfa9c4d88a48db8db09",
+      "byteSize": 444706
+    },
+    {
+      "path": "release/outputs/remotion/qc/mp4-qc.json",
+      "digest": "14a43156a12ce759876a4d13efbad73960d6e988cb70a089dade53c51ce19cb4",
+      "byteSize": 3696
+    },
+    {
+      "path": "release/outputs/remotion/qc/render-receipt.json",
+      "digest": "ba817befc51e7930929726af0f81ad14b398a53ede21d5b0a387a4605270c842",
+      "byteSize": 385
+    }
+  ]
+}

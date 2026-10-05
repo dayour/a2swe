@@ -3,7 +3,7 @@ import test from 'node:test';
 import { canonicalJson, digest, freshness, windowStart } from '../../packages/core/src/canonical.ts';
 
 test('canonical hashes are order independent but bind every input', () => {
-  assert.equal(digest({ subject: 'Deere', policy: { version: 1 } }), digest({ policy: { version: 1 }, subject: 'Deere' }));
+  assert.equal(digest({ subject: 'Example', policy: { version: 1 } }), digest({ policy: { version: 1 }, subject: 'Example' }));
   assert.notEqual(digest({ approved: false }), digest({ approved: true }));
   for (const value of [undefined, NaN, Infinity, new Date(), { missing: undefined }, new Array(2)]) {
     assert.throws(() => canonicalJson(value), /invalid_json/);

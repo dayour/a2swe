@@ -17,6 +17,20 @@ The current code centers on a local Node/TypeScript core in `packages/core/src`.
 It validates contracts, assembles release packages, generates a core-managed 1080p
 Remotion project, and verifies the resulting output set.
 
+## Native desktop workspace
+
+The Tauri application in `apps/desktop/` provides a main workspace and floating
+agent widget. Its Rust host shares one local Copilot SDK bridge between windows;
+the a2swe MCP server exposes core tools and source-linked workspace context.
+See the [desktop guide](docs/content/platform/desktop.md) for runtime requirements,
+permissions, and the distinction between draft intake and verified domain context.
+
+Original product PDFs stay in `library/assets/product_knowledgebase/`.
+Source-linked text chunks and selected visual assets are indexed in
+`library/assets/knowledge/catalog.json` for the native library, agent retrieval,
+and documentation asset previews. No source collection is uploaded by local
+extraction or browsing.
+
 ## Current capability boundary
 
 - Build and validate `DomainPack`, `ContentIR`, `RenderSpec`, `ApprovalManifest`,
@@ -74,7 +88,8 @@ node packages/core/src/cli.ts project-init `
 
 The default `node template\scripts\new_project.cjs <new-directory> <slug>` also
 calls `project-init`. Neither path copies the 720p runtime, creates empty
-`stills/`, `renders/`, or `qc/` folders, or overwrites an existing destination.
+`stills/` or `renders/` folders, or overwrites an existing destination.
+Each project gets a `qc/index.json` evidence inventory.
 Complete `canonical/domain-pack.json` by adding sources, evidence spans,
 supported claims, and known gaps. Production requires `state: "ready"`.
 
@@ -183,8 +198,25 @@ for Kokoro, Kokoro ONNX, and Misaki from the `py314-2026.09.17` release set.
 The core-managed 1080p path defaults to Kokoro ONNX when
 `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES` are configured. It can fall back to
 explicit PyTorch Kokoro only when `A2SWE_KOKORO_CONFIG`,
-`A2SWE_KOKORO_WEIGHTS`, and `A2SWE_KOKORO_VOICE_MODEL` are configured.
-`KOKORO_ONNX_VOICE` selects the ONNX voice.
+`A2SWE_KOKORO_WEIGHTS`, and the shared `KOKORO_ONNX_VOICES` bank are configured.
+The core resolves local model paths and verifies their hashes from
+`library/assets/speech/models.json` unless explicitly overridden.
+`ContentIR.voice.profileId` selects the same voice for either engine; optional
+`speed` and `pronunciations` control speech without altering display text.
+
+```powershell
+npm run a2swe -- voice-profiles
+npm run a2swe -- audio-render --root projects\datadog-cowork-plugin --engine both --voice am_michael
+npm run a2swe -- qc-index --root projects\datadog-cowork-plugin
+```
+
+Matched comparisons use identical voice tensors and Misaki phonemes, with
+cleanup disabled. WAVs and measured metadata go in `PROJECT/qc/audio/PROFILE/`.
+The default pronunciation map says `co-work` for `Cowork`.
+Shared integrations now live under `library/integrations/`; there is no root
+QC directory. Old model evidence lives with its project.
+QC indexes inventory hashes, not quality approvals. Existing self-contained
+release packages keep their internal QC paths intact.
 
 Narration is synthesized per paragraph, separated by blank lines. When paragraph
 count matches scene count, the renderer derives scene timing and captions from
@@ -194,19 +226,27 @@ text length. Captions are burned into the video. Spoken-form spellings such as
 
 The core-managed Remotion scene design uses a dark backdrop, animated glow and
 grid treatment, a kinetic headline, claim cards with source labels, a progress
-bar, captions, and a sources footer.
+bar, captions, and a sources footer. The outgoing scene remains visible while
+the next scene fades in over at most ten frames; only the opening and ending
+fade to the backdrop.
 
 Audio QC is part of the managed Remotion path. The generated package includes a
 reusable `scripts/audio-qa.mjs` tool that decodes the rendered MP4 audio, measures
 speech RMS, non-speech noise floor, speech-versus-silence SNR, high-frequency
-energy above 8 kHz, spectral flatness, and peak level, then writes
+energy above 8 kHz, spectral flatness, peak level, and source-WAV speech
+boundary continuity, then writes
 `qc/audio-qa.json` and `qc/audio-spectrogram.svg`. The speech producer can also
 apply measured cleanup through `A2SWE_AUDIO_CLEANUP=auto|on|off`; `auto` is the
-default. It removes measured DC offset from speech segments without changing
-the inserted silence, and only applies a low-pass filter when the measured
-hiss signature crosses its threshold. The report retains both the full gap
-level and an interior-gap level measured 100 ms away from speech boundaries,
-so AAC transition energy does not masquerade as continuous static. Audio QA
+default. It high-pass filters speech segments at 35 Hz to remove DC drift and
+tapers each speech boundary over at most 25 ms without changing inserted
+silence. It only applies an additional low-pass filter when the measured hiss
+signature crosses its threshold (`on` forces that filter; `off` disables cleanup
+but not QA). The report rejects source boundary jumps above -55 dBFS and
+10 ms source edge RMS above -60 dBFS. It retains both the full gap level and
+an interior-gap level measured 100 ms away from speech boundaries; the interior
+noise floor and speech-to-silence SNR are checked independently. The
+spectrogram marks scene cuts and reports boundary measurements. These
+measurements do not replace listening for perceptual quality. Audio QA
 threshold overrides can only tighten the built-in limits.
 
 ## Visuals inside sections

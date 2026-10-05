@@ -22,6 +22,17 @@ The shared runbook uses these stages:
 
 ## Gate model
 
+Each project has a `qc/` directory. `audio-render` stores matched-voice audio and
+metadata there; `qc-index --root PROJECT` inventories evidence with file hashes.
+Project initialization creates the index, and core release production refreshes
+it. An index is not a passing quality verdict.
+
+Loose Datadog audit releases are under `qc/releases/`. Complete release packages
+keep internal QC paths intact because their parity manifests bind those paths
+and hashes. Project indexes link to that evidence instead of moving files out of
+an immutable package. Shared model configuration belongs in
+`library/assets/speech/models.json`, not project QC.
+
 `agent/runbook.json` records gates as:
 
 - `pending`
@@ -43,7 +54,7 @@ Automated checks can satisfy evidence requirements. They are not human review.
 ## Copilot SDK assistance
 
 Copilot SDK sessions can assist a lifecycle stage, but they do not replace the
-stage evidence. Use `node integrations/copilot/session.ts --capabilities` to
+stage evidence. Use `node library/integrations/copilot/session.ts --capabilities` to
 confirm the local integration shape, then use `--doctor`, `--sessions`,
 `--catalogs`, or `--prompt` only in an authenticated environment.
 

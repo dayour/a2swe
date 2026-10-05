@@ -1,4 +1,7 @@
-# Production Review
+---
+title: Production Review
+description: Historical Copilot pilot media verification and reproduction notes.
+---
 
 ## Verified
 
@@ -23,11 +26,10 @@
 
 ## Reproduction
 
-Both local engines also passed the actual a2swe TTS adapter in isolated QC projects:
-the complete approved Deere script produced real WAV audio, six sentence timings
-and subtitles with Kokoro and Kokoro ONNX. This check did not overwrite the approved
-Edge voice in any delivered movie. Direct full-script model evidence covers all
-three topics; adapter evidence is retained in the repository's qc/model-pipeline/.
+Historical local model checks did not overwrite the Edge voice in this delivered
+movie. Current model evidence lives in this project's `qc/models/`; use the core
+`audio-render` command for matched-voice comparisons rather than the retired
+isolated adapter fixtures.
 
 From the project directory, with the root Python environment active:
 

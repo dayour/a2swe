@@ -13,7 +13,16 @@ Run these from the repository root.
 | `npm run build` | Typecheck the root core project |
 | `npm run contracts:check` | Verify generated contract files |
 | `npm test` | Run root tests |
+| `npm run desktop` | Start the native workspace and floating agent widget |
+| `npm run desktop:build` | Build the native desktop application and installer |
+| `npm run desktop:check` | Compile the desktop UI and Rust host |
+| `npm run mcp` | Run the a2swe stdio MCP server for an MCP client |
+| `npm run copilot:desktop` | Run the JSON-lines Copilot desktop bridge |
 | `node packages/core/src/cli.ts capabilities` | Print current core capability summary |
+| `node packages/core/src/cli.ts voice-profiles` | List shared local speech profiles |
+| `node packages/core/src/cli.ts audio-render --root PROJECT --engine both --voice am_michael` | Produce matched Kokoro and ONNX narration through the managed speech producer |
+| `node packages/core/src/cli.ts qc-index --root PROJECT` | Refresh project evidence paths and hashes |
+| `node packages/core/src/cli.ts project-init --id SLUG --name NAME --kind topic --as-of DATE --out DIR` | Create canonical draft-domain, runbook and QC records |
 | `node packages/core/src/cli.ts validate --schema ... --file ...` | Validate a contract file |
 | `node packages/core/src/cli.ts runbook-verify --root PROJECT` | Verify runbook paths and digests |
 | `node packages/core/src/cli.ts domain-init --id SLUG --name NAME --kind ... --as-of DATE --out FILE` | Create a draft domain pack |
@@ -37,6 +46,24 @@ Run these from the repository root.
 
 It writes release records plus the requested outputs. `release-verify` checks the
 entire output set and reruns MP4 QC when the package includes the Remotion output.
+
+## Spec-driven execution
+
+Use the same contract and tool sequence from the CLI, desktop Tools tab, or
+Copilot MCP session. Do not encode product claims in renderer templates.
+
+| Priority | Specification | Executable implementation | Recorded output |
+| --- | --- | --- | --- |
+| Domain SWE agent | Source-backed domain, project runbook, library agent/skill instructions | SDK session plus `intake`, knowledge search, workspace tools, core validation | Source receipts, canonical contracts, runbook evidence |
+| Audio | `ContentIR.voice` profile, speed, pronunciation map and narration | `audio-render`; generated `synthesize-audio.py` | WAVs, phoneme/voice hashes and raw measurements under project QC |
+| Video | Content sections/visuals and `RenderSpec.video` | `release-produce`; generated Remotion render and QC scripts | 1080p MP4, captions, render receipt, encoded-media measurements |
+| Presentation | Shared claims, citations, layouts and embedded assets | `release-produce` with PPTX/PDF/HTML/AdaptiveDeck/DOCX/raster formats | Editable/source-linked documents and digest-bound parity manifest |
+
+Each project selects its own content, brand, voice and render specifications;
+tools do not inherit another project's facts or approval state. The native
+project selector refreshes the working context, while its Tools catalog exposes
+argument schemas for the actual core commands. SDK tool approvals control
+execution, not editorial or publication sign-offs.
 
 ## Legacy template commands
 

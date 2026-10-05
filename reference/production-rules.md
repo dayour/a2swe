@@ -55,8 +55,10 @@ Human review remains optional and external.
 - Install `template/requirements.lock.txt`
 - Prefer Kokoro ONNX when `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES` are set
 - Use explicit PyTorch Kokoro only when `A2SWE_KOKORO_CONFIG`,
-  `A2SWE_KOKORO_WEIGHTS`, and `A2SWE_KOKORO_VOICE_MODEL` are set
-- Use `KOKORO_ONNX_VOICE` to select the ONNX voice
+  `A2SWE_KOKORO_WEIGHTS`, and the shared `KOKORO_ONNX_VOICES` bank are set
+- Use `ContentIR.voice.profileId` and `speed` for both engines; do not mix backend-specific voice overrides
+- Keep speech-only pronunciation overrides in `ContentIR.voice.pronunciations`
+- Store audio comparisons and evidence in the project's `qc/`; shared model paths belong in `library/assets/speech/models.json`
 - Keep narration in blank-line-separated paragraphs
 - Expect measured speech timing only when paragraph count matches scene count
 

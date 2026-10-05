@@ -60,7 +60,17 @@ For the managed 1080p path, configure either:
 
 - `KOKORO_ONNX_MODEL` and `KOKORO_ONNX_VOICES`
 - or `A2SWE_KOKORO_CONFIG`, `A2SWE_KOKORO_WEIGHTS`, and
-  `A2SWE_KOKORO_VOICE_MODEL`
+  the shared `KOKORO_ONNX_VOICES` bank
 
-The generated Remotion project can also read verified ONNX paths from
-`qc/models/verification.json` when available.
+The core reads hash-verified local paths from
+`library/assets/speech/models.json` when model environment variables are absent.
+Model configuration no longer depends on a root QC directory.
+
+```powershell
+npm run a2swe -- voice-profiles
+npm run a2swe -- audio-render --root projects\datadog-cowork-plugin --engine both --voice am_michael
+```
+
+Both engines use the same voice bank, profile, speed, pronunciation overrides,
+and Misaki phonemes. Output and comparison metadata live in the project's
+`qc/audio/PROFILE/` folder. Set `ContentIR.voice.profileId` for video production.

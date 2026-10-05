@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { inspectRuntime, parseNativeHelp, resolveRuntime, sdkRuntimeCapabilities } from '../../integrations/copilot/runtime.ts';
+import { inspectRuntime, parseNativeHelp, resolveRuntime, sdkRuntimeCapabilities } from '../../library/integrations/copilot/runtime.ts';
 
 test('existing Copilot resolution preserves home, cwd and Agency prefix without a bundled runtime', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'a2swe-runtime-'));
@@ -49,7 +49,7 @@ test('native bridge forwards literal arguments, home and cwd without a shell', (
       '--additional-mcp-config', '@config with spaces.json', '--attachment', 'image.png', '--acp',
       '--allow-tool=shell(git:*)', '--deny-tool=shell(git push)', '--future-native-option'];
     const code = 'console.log(JSON.stringify({args:process.argv.slice(1),home:process.env.COPILOT_HOME,cwd:process.cwd()}))';
-    const result = spawnSync(process.execPath, [fileURLToPath(new URL('../../integrations/copilot/cli.ts', import.meta.url)),
+    const result = spawnSync(process.execPath, [fileURLToPath(new URL('../../library/integrations/copilot/cli.ts', import.meta.url)),
       '--cli', process.execPath, '--runtime-home', root, '--', '-e', code, '--', ...forwarded],
     { encoding: 'utf8', env: { ...process.env, A2SWE_COPILOT_RUNTIME: 'copilot', INIT_CWD: root }, timeout: 15000 });
     assert.equal(result.status, 0, result.stderr);

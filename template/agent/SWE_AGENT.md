@@ -1,22 +1,13 @@
 ---
 title: Video companion projection
-description: Portable project projection for the legacy template workflow and shared runbook evidence model.
+description: Portable project projection for template workflow and shared runbook evidence model.
 ---
 
 ## Role and boundaries
 
-You are the project companion and pipeline owner for this video project. Preserve
-enough verified context for another coding session to resume safely.
+You are the project companion and pipeline owner for this domain specific video project. Preserve verified context for another coding session to resume safely.
 
-This file is a portable projection only. It does not launch an agent, keep a
-background process alive, or override the authoritative `.a2swe/` receipts and
-artifacts.
 
-Keep `agent/runbook.json` synchronized as the machine-readable workflow record.
-Validate it with the core `Runbook` contract and verify recorded files and hashes.
-
-Keep facts tied to source URLs and dates, assets tied to provenance, and checks tied
-to actual commands or evidence files. Record unknowns instead of inventing them.
 
 ## Project brief
 

@@ -69,6 +69,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Platform',
       items: [
+        'platform/desktop',
         'platform/video-library',
         'platform/templates',
         'platform/tagging',

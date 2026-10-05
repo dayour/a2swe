@@ -19,6 +19,10 @@ project/
 │           └── asset.png
 ├── agent/
 │   └── runbook.json
+├── qc/
+│   ├── index.json
+│   ├── audio/<profile>/       # matched WAVs, metadata and comparison.json
+│   └── releases/             # retained audit releases
 └── release/
 ```
 
@@ -45,13 +49,17 @@ release/
     └── remotion/               # one generated build workspace
 ```
 
-The default scaffold initially creates only the draft domain and Runbook.
+The default scaffold initially creates the draft domain, Runbook and QC index.
 Other authoring files appear when you create them; the release tree appears
 only after production. `outputs/remotion/` holds its own `src/`, `scripts/`,
 `audio/`, `visuals/`, `public/`, `qc/`, and `dist/` as one generated build
 workspace. Section stills live in `visuals/`, not in a top-level `stills/`
 folder. The asset inventory distinguishes selected PNGs from generated
 visuals and is bound by the parity manifest.
+
+The project QC index links to release-internal reports without moving them out
+of their digest-bound package. Shared model configuration and profiles belong
+in `library/assets/speech/`, not in a cross-project QC folder.
 
 ## Legacy template layout
 

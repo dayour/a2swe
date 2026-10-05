@@ -12,7 +12,6 @@ path.
 | Project | Slug | Demonstrates |
 | --- | --- | --- |
 | Copilot | `copilot` | A retained legacy pilot project |
-| John Deere | `john-deere` | A retained legacy pilot project |
 | Microsoft | `microsoft` | A retained legacy pilot project |
 
 ## Typical retained evidence
