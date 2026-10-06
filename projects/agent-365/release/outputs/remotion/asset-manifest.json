@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "audio": {
+    "required": true,
+    "path": "public/assets/agent-365/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "66d2e3b6b9f5aa08188c85a2616c1bf6dfb5daa5c0bf1f54d7b5e19b49d8d30d",
+    "expectedDurationSeconds": 66,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "AI": "A I",
+        "SDK": "S D K",
+        "MCP": "M C P"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": []
+}

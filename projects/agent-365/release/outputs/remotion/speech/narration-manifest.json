@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "agent-365",
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "text": "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.\n\nAgent 365 is the control plane for AI agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.\n\nObserve with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.\n\nGovern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.\n\nKeep the current agent and add only needed SDK pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review.",
+  "segments": [
+    {
+      "text": "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Agent 365 is the control plane for AI agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+      "sceneId": "control-plane"
+    },
+    {
+      "text": "Observe with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.",
+      "sceneId": "observe-traces"
+    },
+    {
+      "text": "Govern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.",
+      "sceneId": "govern-secure"
+    },
+    {
+      "text": "Keep the current agent and add only needed SDK pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review.",
+      "sceneId": "accountable-pilot"
+    }
+  ],
+  "narrationSha256": "66d2e3b6b9f5aa08188c85a2616c1bf6dfb5daa5c0bf1f54d7b5e19b49d8d30d",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "AI": "A I",
+      "SDK": "S D K",
+      "MCP": "M C P"
+    }
+  },
+  "outputWav": "public/assets/agent-365/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 65,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

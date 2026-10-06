@@ -1,0 +1,181 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": 2.935077311402856e-12,
+      "highFrequencyRatio8k": 0.00428404053784218,
+      "rmsDbfs": -27.910008331676575,
+      "spectralFlatness": 5.058449270408896e-07
+    },
+    "before": {
+      "dcOffset": 1.2446609616745263e-05,
+      "highFrequencyRatio8k": 0.00428376346444462,
+      "rmsDbfs": -27.90937126615733,
+      "spectralFlatness": 4.868909560345338e-07
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/agent-365/audio.wav",
+  "audioSha256": "6346042b09041c1452fb2b0860eac50535f65b72f6f6c37b56aa03db05fa9b03",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "durationSeconds": 66.0,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.62,
+    "inputLufs": -24.39,
+    "limitedSampleRatio": 0.02821,
+    "maxLimiterReductionDb": 6.65,
+    "outputLufs": -16.03,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "66d2e3b6b9f5aa08188c85a2616c1bf6dfb5daa5c0bf1f54d7b5e19b49d8d30d",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.2446618187312076e-05,
+    "peak": 0.6659982800483704,
+    "rms": 0.04023084472166677
+  },
+  "requestedDurationSeconds": 65.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 14.225,
+      "index": 0,
+      "sceneId": "title",
+      "startSeconds": 0.25,
+      "text": "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling."
+    },
+    {
+      "endSeconds": 27.2,
+      "index": 1,
+      "sceneId": "control-plane",
+      "startSeconds": 14.775,
+      "text": "Agent 365 is the control plane for AI agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action."
+    },
+    {
+      "endSeconds": 39.775,
+      "index": 2,
+      "sceneId": "observe-traces",
+      "startSeconds": 27.75,
+      "text": "Observe with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork."
+    },
+    {
+      "endSeconds": 52.275,
+      "index": 3,
+      "sceneId": "govern-secure",
+      "startSeconds": 40.325,
+      "text": "Govern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout."
+    },
+    {
+      "endSeconds": 65.5,
+      "index": 4,
+      "sceneId": "accountable-pilot",
+      "startSeconds": 52.825,
+      "text": "Keep the current agent and add only needed SDK pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: j\u02c8uz \u02c8A\u02a4\u1d4ant \u03b8\u0279\u02c8i h\u02c8\u028cnd\u0279\u0259d s\u02c8\u026aksti f\u02c8Iv \u00e6z \u00f0\u0259 k\u0259nt\u0279\u02c8Ol pl\u02c8An f\u0254\u0279 w\u02c8\u028cn \u0259k\u02c8Wnt\u0259b\u0259l p\u02c8Il\u0259t; v\u02c8\u025b\u0279\u0259f\u02ccI \u02c8On\u0259\u0279\u0283\u02cc\u026ap, \u02c8\u00e6ks\u02cc\u025bs, \u02c8\u00e6k\u0283\u0259n t\u0279\u02c8As\u1d7bz, l\u02c8Is\u1d4ans\u1d7bz, \u00e6nd p\u0279\u02c8ivj\u02ccu l\u02c8\u026am\u0259ts b\u0259f\u02c8\u0254\u0279 sk\u02c8Al\u026a\u014b."
+      ],
+      [
+        "\u02c8A\u02a4\u1d4ant \u03b8\u0279\u02c8i h\u02c8\u028cnd\u0279\u0259d s\u02c8\u026aksti f\u02c8Iv \u026az \u00f0\u0259 k\u0259nt\u0279\u02c8Ol pl\u02c8An f\u0254\u0279 \u0250 \u02c8I \u02c8A\u02a4\u1d4ants. \u02c8\u00e6sk h\u02ccu \u02c8Onz \u02c8i\u02a7 w\u02c8\u028cn, w\u02cc\u025b\u0279 \u026at \u0279\u02c8\u028cnz, w\u02cc\u028ct \u026at k\u00e6n \u0279\u02c8i\u02a7, h\u02ccu \u026at \u0259f\u02c8\u025bkts, \u00e6nd w\u02cc\u028ct \u0279\u02c8\u026ask n\u02c8idz \u02c8\u00e6k\u0283\u0259n."
+      ],
+      [
+        "\u0259bz\u02c8\u025c\u0279v w\u026a\u00f0 \u0250 \u0279\u02c8\u025b\u02a4\u0259st\u0279i, \u00e6kt\u02c8\u026av\u0259Ti, \u00e6nd h\u02c8\u025bl\u03b8 f\u02c8\u025c\u0279st. \u02c8\u00e6d t\u0259l\u02c8\u025bm\u0259t\u0279i s\u02ccO \u02c8i\u02a7 \u0279\u0259kw\u02c8\u025bst, m\u02c8\u0251d\u1d4al st\u02c8\u025bp, t\u02c8ul k\u02c8\u0254l, \u00e6nd \u02c8\u025b\u0279\u0259\u0279 h\u00e6z \u0250 t\u0279\u02c8As f\u0254\u0279 \u02c8\u0251p\u0259\u0279\u02ccAT\u0259\u0279z, n\u02cc\u0251t \u0261\u02c8\u025bsw\u02cc\u025c\u0279k."
+      ],
+      [
+        "\u0261\u02c8\u028cv\u0259\u0279n \u00e6nd s\u0259kj\u02c8\u028a\u0279 \u02c8\u00e6ks\u02cc\u025bs \u00e6z w\u02c8\u028cn p\u02c8\u00e6\u03b8. p\u02c8\u025b\u0279 l\u02c8IfsIk\u1d4al \u0279\u0259vj\u02c8u, \u02c8\u025bnt\u0279\u0259 k\u0259nt\u0279\u02c8Olz, p\u02c8\u025c\u0279vj\u02ccu d\u02c8AT\u0259 \u02a7\u02c8\u025bks, \u00e6nd d\u0259f\u02c8\u025bnd\u0259\u0279 s\u02c8\u026a\u0261n\u1d4alz f\u0254\u0279 \u02c8\u025bv\u0259\u0279i \u02c8A\u02a4\u1d4ant b\u0259f\u02c8\u0254\u0279 w\u02c8Id\u0259\u0279 \u0279\u02c8OlWt."
+      ],
+      [
+        "k\u02c8ip \u00f0\u0259 k\u02c8\u025c\u0279\u0259nt \u02c8A\u02a4\u1d4ant \u00e6nd \u02c8\u00e6d \u02c8Onli n\u02c8id\u1d7bd \u02c8\u025bs d\u02c8i k\u02c8A p\u02c8is\u1d7bz. p\u02c8Il\u0259t w\u02c8\u028cn \u02c8Ond j\u02c8us k\u02c8As, v\u02c8\u025b\u0279\u0259f\u02ccI l\u02c8Is\u1d4ans\u1d7bz \u00e6nd p\u0279\u02c8ivj\u02ccu l\u02c8\u026am\u0259ts, \u00f0\u02c8\u025bn sk\u02c8Al \u02c8Onli f\u0279\u028cm \u02c8\u025bv\u0259d\u1d4ans \u00e6nd \u0279\u0259vj\u02c8u."
+      ]
+    ],
+    "phonemesSha256": "1c456dc7e9fa49f605fb5f3eb462b1f2318483dccc9b16369c37c2e3b21da125",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.",
+      "Agent 365 is the control plane for A I agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+      "Observe with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.",
+      "Govern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.",
+      "Keep the current agent and add only needed S D K pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "AI": "A I",
+      "Cowork": "co-work",
+      "MCP": "M C P",
+      "SDK": "S D K"
+    },
+    "speed": 1
+  }
+}

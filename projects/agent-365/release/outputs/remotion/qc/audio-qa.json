@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-7",
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "input": "dist/render.mp4",
+  "inputSha256": "2842c7d8de14f06e185a7e9382ee3839c20a5ef42bee6dab3798d4f95d6fb127",
+  "sourceAudioSha256": "6346042b09041c1452fb2b0860eac50535f65b72f6f6c37b56aa03db05fa9b03",
+  "sampleRate": 48000,
+  "durationSeconds": 66.048,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "bˈɑTəm lˈIn: jˈuz ˈAʤᵊnt θɹˈi hˈʌndɹəd sˈɪksti fˈIv æz ðə kəntɹˈOl plˈAn fɔɹ wˈʌn əkˈWntəbəl pˈIlət; vˈɛɹəfˌI ˈOnəɹʃˌɪp, ˈæksˌɛs, ˈækʃən tɹˈAsᵻz, lˈIsᵊnsᵻz, ænd pɹˈivjˌu lˈɪməts bəfˈɔɹ skˈAlɪŋ."
+      ],
+      [
+        "ˈAʤᵊnt θɹˈi hˈʌndɹəd sˈɪksti fˈIv ɪz ðə kəntɹˈOl plˈAn fɔɹ ɐ ˈI ˈAʤᵊnts. ˈæsk hˌu ˈOnz ˈiʧ wˈʌn, wˌɛɹ ɪt ɹˈʌnz, wˌʌt ɪt kæn ɹˈiʧ, hˌu ɪt əfˈɛkts, ænd wˌʌt ɹˈɪsk nˈidz ˈækʃən."
+      ],
+      [
+        "əbzˈɜɹv wɪð ɐ ɹˈɛʤəstɹi, æktˈɪvəTi, ænd hˈɛlθ fˈɜɹst. ˈæd təlˈɛmətɹi sˌO ˈiʧ ɹəkwˈɛst, mˈɑdᵊl stˈɛp, tˈul kˈɔl, ænd ˈɛɹəɹ hæz ɐ tɹˈAs fɔɹ ˈɑpəɹˌATəɹz, nˌɑt ɡˈɛswˌɜɹk."
+      ],
+      [
+        "ɡˈʌvəɹn ænd səkjˈʊɹ ˈæksˌɛs æz wˈʌn pˈæθ. pˈɛɹ lˈIfsIkᵊl ɹəvjˈu, ˈɛntɹə kəntɹˈOlz, pˈɜɹvjˌu dˈATə ʧˈɛks, ænd dəfˈɛndəɹ sˈɪɡnᵊlz fɔɹ ˈɛvəɹi ˈAʤᵊnt bəfˈɔɹ wˈIdəɹ ɹˈOlWt."
+      ],
+      [
+        "kˈip ðə kˈɜɹənt ˈAʤᵊnt ænd ˈæd ˈOnli nˈidᵻd ˈɛs dˈi kˈA pˈisᵻz. pˈIlət wˈʌn ˈOnd jˈus kˈAs, vˈɛɹəfˌI lˈIsᵊnsᵻz ænd pɹˈivjˌu lˈɪməts, ðˈɛn skˈAl ˈOnli fɹʌm ˈɛvədᵊns ænd ɹəvjˈu."
+      ]
+    ],
+    "phonemesSha256": "1c456dc7e9fa49f605fb5f3eb462b1f2318483dccc9b16369c37c2e3b21da125",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.",
+      "Agent 365 is the control plane for A I agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+      "Observe with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.",
+      "Govern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.",
+      "Keep the current agent and add only needed S D K pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 66.048,
+      "rmsDbfs": -19.553857,
+      "peakDbfs": -1.484896,
+      "highFrequencyRatio8k": 0.003357,
+      "spectralFlatness": 0.000001
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 63.05,
+      "rmsDbfs": -19.352111,
+      "peakDbfs": -1.484896,
+      "highFrequencyRatio8k": 0.003307,
+      "spectralFlatness": 0.000001
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 2.998,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 1.798,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "sourceBoundaries": {
+      "label": "sourceSpeechBoundaries",
+      "segmentsChecked": 5,
+      "edgeWindowSeconds": 0.01,
+      "maxOnsetRmsDbfs": -240,
+      "maxTailRmsDbfs": -240,
+      "maxJumpDbfs": -240
+    },
+    "snrSpeechVsSilenceDb": 220.647889,
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 3.2,
+      "truePeakDbtp": -1.5
+    }
+  },
+  "mastering": {
+    "gainDb": 8.62,
+    "inputLufs": -24.39,
+    "limitedSampleRatio": 0.02821,
+    "maxLimiterReductionDb": 6.65,
+    "outputLufs": -16.03,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSourceBoundaryJumpDbfs": -55,
+    "maxSourceEdgeRmsDbfs": -60,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45,
+    "targetLufs": -16,
+    "maxLoudnessDeviationLu": 1,
+    "maxTruePeakDbtp": -1
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}

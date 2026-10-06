@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "agent-365",
+  "title": "agent-365-2026-02",
+  "year": 2026,
+  "number": 2,
+  "createdAt": "2026-10-06T23:13:54.360Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/agent-365-2026-02",
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "outputs": [
+    {
+      "path": "agent-365-2026-02-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "f0c81afccb6fdfc7c300503af56cae25a42b1a824e73a76060b9b7f9ac9bc16b",
+      "byteSize": 1069,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "agent-365-2026-02-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "2842c7d8de14f06e185a7e9382ee3839c20a5ef42bee6dab3798d4f95d6fb127",
+      "byteSize": 10414134,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "e4f088024bf9d2a025a162490fb34d8e6cb2599867cfb0c32b5fa2656b5aeac7",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.5
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 14.5,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 27.5,
+          "endSeconds": 40.067
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 40.067,
+          "endSeconds": 52.567
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 52.567,
+          "endSeconds": 66
+        }
+      ],
+      "captions": "agent-365-2026-02-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "agent-365-2026-02-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "19bf1dfa956de85d79b029cbd0ce63895f5f58d588147b0000851ca63148d753",
+      "byteSize": 1069,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "agent-365-2026-02-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "aa27daa6c007047d6c6383a4e3ca47423b34d15b591e5a911cefc2a73a6bcc0a",
+      "byteSize": 9649219,
+      "mediaType": "video/mp4",
+      "durationSeconds": 59.584,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "e85fa9a35d8789f161866f5e51854ba779ab40ba94033c6a508572fcd7816201",
+      "package": "qc/revisions/agent-365-2026-02/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.267
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 13.267,
+          "endSeconds": 24.767
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 24.767,
+          "endSeconds": 36.133
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 36.133,
+          "endSeconds": 47.5
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 47.5,
+          "endSeconds": 59.533
+        }
+      ],
+      "captions": "agent-365-2026-02-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "agent-365-2026-02-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "b695ee95542aba669138a8249b602801eb6c3feb56612f4627d3217ab9ef3149",
+      "byteSize": 1069,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "agent-365-2026-02-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "0542ff05e69fcc0563ea1c5387e80c92d48b732c74236afc081e51afb4e6f8c5",
+      "byteSize": 10086732,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.147,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "63fc96e9a6617ca65faef4d8dce7c45e0534acdd3e8e24171fc2645f901d97cd",
+      "package": "qc/revisions/agent-365-2026-02/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.167
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 14.167,
+          "endSeconds": 26.5
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 26.5,
+          "endSeconds": 38.5
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 38.5,
+          "endSeconds": 50.4
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 50.4,
+          "endSeconds": 63.1
+        }
+      ],
+      "captions": "agent-365-2026-02-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "agent-365-2026-02-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "f0c81afccb6fdfc7c300503af56cae25a42b1a824e73a76060b9b7f9ac9bc16b",
+      "byteSize": 1069,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "agent-365-2026-02-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "60920df17382647b6c7b82b8cc9b9320fffeb5412fbe5393d7446f3f6c2d79d4",
+      "byteSize": 10409490,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "1595f6c4380c6395a7c3c4599a6f1bab319a52df75c0d67186ec4bb599e00783",
+      "package": "qc/revisions/agent-365-2026-02/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.5
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 14.5,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 27.5,
+          "endSeconds": 40.067
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 40.067,
+          "endSeconds": 52.567
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 52.567,
+          "endSeconds": 66
+        }
+      ],
+      "captions": "agent-365-2026-02-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/agent-365-2026-02."
+  ]
+}

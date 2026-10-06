@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "agent-365",
+  "kind": "topic",
+  "canonicalName": "Microsoft Agent 365 control plane",
+  "asOf": "2026-10-06",
+  "windowStart": "2026-01-06",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-overview",
+      "domainId": "agent-365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft Agent 365 overview",
+      "publicationDate": "2026-08-19",
+      "modifiedDate": "2026-08-20",
+      "retrievedAt": "2026-10-06T20:16:48.334Z",
+      "dateEvidence": "Page metadata records ms.date 2026-08-19T00:00:00Z and updated_at 2026-08-20T01:04:00Z.",
+      "contentHash": "67f91a31d7ae25816291ceae106a590153d65948bb3b7919b1ea657cda65dae2"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-developer-sdk-cli",
+      "domainId": "agent-365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft Agent 365 SDK and CLI",
+      "publicationDate": "2026-09-30",
+      "modifiedDate": "2026-10-02",
+      "retrievedAt": "2026-10-06T20:16:48.694Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-30T00:00:00Z and updated_at 2026-10-02T01:03:00Z.",
+      "contentHash": "17c914f5887e81ce5693de28efd332925a35af11b59c31b5ec819aa5d3680a66"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-service-description",
+      "domainId": "agent-365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-agent-365/microsoft-agent-365",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft Agent 365 - Service Descriptions",
+      "publicationDate": "2026-09-30",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:49.112Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-30T00:00:00Z and updated_at 2026-10-01T14:58:00Z.",
+      "contentHash": "f6bd58114cdce3ac09b830950de9162da80e174b550e86cc530478aa838f9f1d"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-connect-existing-agent",
+      "domainId": "agent-365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started",
+      "publisher": "Microsoft Learn",
+      "title": "Quickstart: Connect an Existing Agent to Agent 365",
+      "publicationDate": "2026-09-17",
+      "modifiedDate": "2026-09-17",
+      "retrievedAt": "2026-10-06T20:16:49.394Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-17T00:00:00Z and updated_at 2026-09-17T19:06:00Z.",
+      "contentHash": "f4ce9eb5dcdbdb3018aedbdccf10c93ac25b990545fa2827d85cf1ad047fcd32"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-service-description",
+      "sourceDigest": "f6bd58114cdce3ac09b830950de9162da80e174b550e86cc530478aa838f9f1d",
+      "locator": "Opening definition",
+      "quote": "Microsoft Agent 365 is a Microsoft 365 service that provides a centralized control plane for AI agents.",
+      "quoteDigest": "c4911e083371d2e353d4df1bb99b3cff612312ee5edf1a60973449ec17e3344d"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-overview",
+      "sourceDigest": "67f91a31d7ae25816291ceae106a590153d65948bb3b7919b1ea657cda65dae2",
+      "locator": "Overview capability statement",
+      "quote": "Microsoft Agent 365 provides the ability to observe, govern, and secure the growing number of agents within organizations.",
+      "quoteDigest": "4efcb1be86aeda2807f66c748f846db0deaa93e947fbf2ea95255b0847dfeb46"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-overview",
+      "sourceDigest": "67f91a31d7ae25816291ceae106a590153d65948bb3b7919b1ea657cda65dae2",
+      "locator": "Observe section",
+      "quote": "Microsoft Agent 365 gives organizations real-time visibility into their agentic environment, helping admins understand how agents are used, identify performance or risk signals early, and take action before issues impact the business.",
+      "quoteDigest": "ba06ce321062b8cc00f829cd46f0ce236430d7cf448d148fb18ef8a64b90c4a8"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-developer-sdk-cli",
+      "sourceDigest": "17c914f5887e81ce5693de28efd332925a35af11b59c31b5ec819aa5d3680a66",
+      "locator": "Agent 365 SDK capabilities",
+      "quote": "Gain full observability via Open Telemetry, enabling audited, traceable agent interactions, inference events, and tool usage.",
+      "quoteDigest": "31a03b94bcaa4844eb0fe3ce321ff5d0f834cc93a441689ae3c3bfed9915814d"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-overview",
+      "sourceDigest": "67f91a31d7ae25816291ceae106a590153d65948bb3b7919b1ea657cda65dae2",
+      "locator": "Govern section",
+      "quote": "Through the Agent 365 registry in the Microsoft 365 admin center, Microsoft Entra, and Microsoft Purview, admins can intentionally manage the lifecycle of their organization’s agents while ensuring the right permissions, policies, and reviews are in place.",
+      "quoteDigest": "c51b459bc1e9164db7a06202e8d36b75748b3893d83a91e5003eeb013e284f43"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-overview",
+      "sourceDigest": "67f91a31d7ae25816291ceae106a590153d65948bb3b7919b1ea657cda65dae2",
+      "locator": "Secure section",
+      "quote": "Microsoft Defender adds continuous threat detection and real‑time protection to block unsafe behaviors and malicious activity.",
+      "quoteDigest": "748c74c1923bdce278c1f84e9c4b5dd1e43b371ee18b9793df5b14e91699faa0"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-developer-sdk-cli",
+      "sourceDigest": "17c914f5887e81ce5693de28efd332925a35af11b59c31b5ec819aa5d3680a66",
+      "locator": "SDK difference statement",
+      "quote": "The Agent 365 SDK differs from agent frameworks like Microsoft Agent Framework or Microsoft Copilot Studio because it doesn't create or host agents.",
+      "quoteDigest": "a3cd5129550717d8252e5c7e71bdf9bb69154707e7fb7175c08f0aacbc1ce994"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-developer-sdk-cli",
+      "sourceDigest": "17c914f5887e81ce5693de28efd332925a35af11b59c31b5ec819aa5d3680a66",
+      "locator": "SDK extension statement",
+      "quote": "Use the Agent 365 SDK to extend agents built using any agent SDK or platform with identity, notifications, security, and governed access to Microsoft 365 data.",
+      "quoteDigest": "1459de38e2db3b89ad0bbf5acad811db21035a554899ed985c353655234a616e"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-connect-existing-agent",
+      "sourceDigest": "f4ce9eb5dcdbdb3018aedbdccf10c93ac25b990545fa2827d85cf1ad047fcd32",
+      "locator": "Quickstart path",
+      "quote": "The path starts by registering the agent, then adds the capabilities you choose, and ends with validation.",
+      "quoteDigest": "98e6d5d9e3ebcb84b73730cee5cd01a517f0b604b9f8b8dfac00cc268007fa97"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceId": "src-connect-existing-agent",
+      "sourceDigest": "f4ce9eb5dcdbdb3018aedbdccf10c93ac25b990545fa2827d85cf1ad047fcd32",
+      "locator": "Telemetry licensing warning",
+      "quote": "If no user in the tenant has a Microsoft 365 E7 or Microsoft Agent 365 license assigned, the whole request is dropped; the SKU being present isn't sufficient.",
+      "quoteDigest": "065d5d441dcc67ede993fc172d6284b78d485ec9147f71267fc9bbf47bf382a9"
+    },
+    {
+      "evidenceId": "ev-11",
+      "sourceId": "src-connect-existing-agent",
+      "sourceDigest": "f4ce9eb5dcdbdb3018aedbdccf10c93ac25b990545fa2827d85cf1ad047fcd32",
+      "locator": "Work IQ preview note",
+      "quote": "Important Work IQ MCP is in preview and requires a Microsoft 365 Copilot license.",
+      "quoteDigest": "69fd2080bcd5b82435d5cc4ee7817382927dfce540f156eaa23c9e55a9644359"
+    },
+    {
+      "evidenceId": "ev-12",
+      "sourceId": "src-service-description",
+      "sourceDigest": "f6bd58114cdce3ac09b830950de9162da80e174b550e86cc530478aa838f9f1d",
+      "locator": "Available plans",
+      "quote": "Microsoft Agent 365 is available as a stand-alone subscription for use with eligible Microsoft 365 subscriptions and is also included with Microsoft 365 E7.",
+      "quoteDigest": "6de14e087999ea8dc7b3ba285212fae9825e365cd8077bb60a2b678d750273b2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Agent 365 is a centralized control plane for observing, governing, and securing AI agents.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Observation should pair agent inventory with audited traces for interactions, inference events, and tool usage.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-04"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Governance and security connect lifecycle controls, Entra permissions, Purview protection, and Defender detection.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "SDK integration extends existing agents with enterprise capabilities without creating or hosting the agent.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "A pilot must verify prerequisites, licenses, preview limits, and telemetry before scaling.",
+      "evidenceIds": [
+        "ev-09",
+        "ev-10",
+        "ev-11",
+        "ev-12"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected public sources do not verify this tenant's licenses, enabled previews, permissions, telemetry ingestion, or service health.",
+    "The sources support lifecycle and access controls but do not prescribe a single enterprise owner model; the pilot ownership recommendation is an operating choice.",
+    "Work IQ and Frontier-related preview references are eligibility constraints, not promises that those capabilities are available in every tenant.",
+    "No private tenant registration, data access, Purview policy, Defender configuration, or Agent 365 service integration was inspected."
+  ]
+}
