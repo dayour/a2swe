@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "a82b996d18f2d7f92ff49cc7e6c2c7a80ac7aca8384710797e3cfa0c72475b05",
+  "audio": {
+    "required": true,
+    "path": "public/assets/microsoft-autopilot-agents/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "850e8df81986c1ffdfea2327de1783d0f6c42c2afad91b7a82dc5429cadca789",
+    "expectedDurationSeconds": 64.6,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "Microsoft 365": "Microsoft three sixty five"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": []
+}

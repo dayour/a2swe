@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Microsoft Autopilot Agents",
+  "kind": "tool",
+  "brief": "Create a polished executive engagement package about Microsoft Autopilot Agents as of 2026-10-05. Scope the briefing to Copilot Autopilot, previously Scout, announced in September 2026; use Microsoft Foundry autopilot identity as a clearly labeled architectural lens, not a claim that all implementations are identical. Do not confuse this with Windows Autopilot device provisioning. Explain the shift from asking for answers to assigning a bounded standing role with identity, memory and a workspace; people retain goals, access boundaries and accountability. Preserve the announced private-preview caveat, never claim general availability. Lead with the operating-model decision, then three substantive points and a narrow accountable pilot recommendation. No invented savings, customer results or unlimited permissions. Use only the listed public official sources and their public references, not private enterprise messages or local PDFs. Create the project-specific domain SWE agent and all eight outputs using existing a2swe core. Target a concise 60-90 second video with 120-160 words, Arial, refined blue/teal design and meaningful original diagrams using short large labels, not tiny verbose horizontal boxes. Narration should equal the title summary followed by each section body, separated by blank lines, to preserve measured scene alignment. Set speech-only pronunciation for Microsoft 365 to Microsoft three sixty five if used; preserve written captions. Keep executive claims concise with full provenance in notes. Review encoded video, subtitles, spectrogram, assets and editable presentations; repair defects without weakening gates or adding test/render scripts. Preserve failed/intermediate releases only under qc/revisions and keep final release at release. Keep raw fetched pages local and commit concise evidence/provenance. Run release-verify and runbook-verify before completion.",
+  "audience": "Executive decision-makers",
+  "sources": [
+    "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+  ],
+  "libraryPaths": [],
+  "voiceProfile": "am_michael",
+  "speed": 1,
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "mode": "auto",
+  "id": "microsoft-autopilot-agents"
+}

@@ -1,0 +1,737 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-autopilot-agents",
+  "status": "indexed_not_quality_approved",
+  "entries": [
+    {
+      "path": "qc/revisions/release-plan-r1.json",
+      "digest": "e662c01a8deda459462beab35260ab61e2756bd060d7af782a7d0db286ddd1a9",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/revisions/release-plan-r2.json",
+      "digest": "318e26df4d0f72ecb17e3e9e59588bab6015fa2e7207cc071f6a0b816cff016a",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/revisions/release-r1/approval-manifest.json",
+      "digest": "4ed3d2432a464e0d1d5a7efbbe91eb776a0159ce490d6c8319cb024f5f9c8b4e",
+      "byteSize": 325
+    },
+    {
+      "path": "qc/revisions/release-r1/asset-inventory.json",
+      "digest": "e2cce4dde9e66745ea0a47830af3709440e0535eaebca8f8aec0d33b568c12bc",
+      "byteSize": 1271
+    },
+    {
+      "path": "qc/revisions/release-r1/content-ir.json",
+      "digest": "975f7d23e2be29ced3fb6deaad88c81e68449d2374598f69d615dcd0e7131471",
+      "byteSize": 11040
+    },
+    {
+      "path": "qc/revisions/release-r1/domain-pack.json",
+      "digest": "39b35ff6ca022625c415b166ead1c7998eeff787333aa19e936cd095068d9ab3",
+      "byteSize": 8629
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/deck.deck.json",
+      "digest": "1d4afa8431b389174c8875154f31212cc5ba03be4194a324a453dee48f281263",
+      "byteSize": 263638
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/deck.pptx",
+      "digest": "e61fc4fc4c22a278c1e2b8366ad5f0abecc475d13ed7b7484fc235e33ff0807f",
+      "byteSize": 249867
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/document.docx",
+      "digest": "18d3b9d4f81c3cf86769c67ee90c18aaaeff99c6c520ddcec34ae4ffc8bb4b5b",
+      "byteSize": 200784
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/document.pdf",
+      "digest": "cef73182760e8c16a09a6a9950526479f5ebc9212634a7f3199365ee43d0c3f6",
+      "byteSize": 147852
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/index.html",
+      "digest": "4eddf78fe99c3604c76e2de4f5ff4e5581bc927343e119311cc0bc6a55022807",
+      "byteSize": 255843
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/raster.jpg",
+      "digest": "8405de2a3ddc45bd1a116c2b641bbd3111f000c8352f17468df93cd9c8959049",
+      "byteSize": 307539
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/raster.png",
+      "digest": "3140dfbd0f1728117f69fe86d29ecb76d25c1be7771ad94907cd5166f81a262f",
+      "byteSize": 239116
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/asset-manifest.json",
+      "digest": "f93fe7ec58aadc266cad0a0bc7002bd408eb3eeebf109804fda0560c346afa60",
+      "byteSize": 1020
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/audio/narration-metadata.json",
+      "digest": "89e275b367594380dd1186ce55266eea53bd554d1ce083c932236852dbe72679",
+      "byteSize": 9780
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/dist/render.mp4",
+      "digest": "b85a071fd5e799e08045fa8418bdd8f0c230b03e73b0a8c7d486f4a8afe904a1",
+      "byteSize": 12752734
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/package.json",
+      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
+      "byteSize": 677
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/assets/microsoft-autopilot-agents/audio.wav",
+      "digest": "4446bdc08e869bcb659879ac69c6072fbf390e477b0508962c78cd57cd6a958b",
+      "byteSize": 14083244
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
+      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
+      "byteSize": 20380
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
+      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
+      "byteSize": 20320
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
+      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
+      "byteSize": 20232
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
+      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
+      "byteSize": 20212
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
+      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
+      "byteSize": 65732
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
+      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
+      "byteSize": 17488
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
+      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
+      "byteSize": 1292
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
+      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
+      "byteSize": 2816
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
+      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
+      "byteSize": 9856
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
+      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
+      "byteSize": 2656
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
+      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
+      "byteSize": 2104
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
+      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
+      "byteSize": 8712
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
+      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
+      "byteSize": 824
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
+      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
+      "byteSize": 24956
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
+      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
+      "byteSize": 13296
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
+      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
+      "byteSize": 12220
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
+      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
+      "byteSize": 70668
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
+      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
+      "byteSize": 1416
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
+      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
+      "byteSize": 10676
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
+      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
+      "byteSize": 8392
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
+      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
+      "byteSize": 11104
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
+      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
+      "byteSize": 15476
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
+      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
+      "byteSize": 16476
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
+      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
+      "byteSize": 6116
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
+      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
+      "byteSize": 56156
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/qc/audio-qa.json",
+      "digest": "f9f2b63609e008992554ec495c19a545eaefbe175de701a3c83cff47fb8433fb",
+      "byteSize": 4796
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "118caf0d1dc6371643a1084d6272b6a751ac85150eefca0a742ffca600ea9b95",
+      "byteSize": 447003
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/qc/mp4-qc.json",
+      "digest": "7a0f8b222bdf7a6c667f56d6706f01e91ea44548179ef17f21d1525e30caa100",
+      "byteSize": 3567
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/qc/render-receipt.json",
+      "digest": "5a2193f26373b5a2e3ff2f0431a3eeac2c551ee66bc4f6503c40d970f8249962",
+      "byteSize": 367
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/remotion.config.ts",
+      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
+      "byteSize": 351
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/render-plan.json",
+      "digest": "99660dcf5318138dffd92da88dfd46eabb2254a22b248230134aeb18b65ed080",
+      "byteSize": 2070
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/requirements.lock.txt",
+      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+      "byteSize": 5663
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/scripts/audio-qa.mjs",
+      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
+      "byteSize": 17077
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/scripts/render-mp4.mjs",
+      "digest": "215b53f086144a92a0c7c915c6f0ec553a1f5c74578fb73e1f7fc8779f56422b",
+      "byteSize": 14532
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/scripts/synthesize-audio.mjs",
+      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
+      "byteSize": 1703
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/scripts/synthesize-audio.py",
+      "digest": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
+      "byteSize": 23490
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/scripts/verify-mp4.mjs",
+      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
+      "byteSize": 5728
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/speech/narration-manifest.json",
+      "digest": "3db2ad0c4684d496bf587688d1c6425652dc03ef75fbace3a7ea4201676b2aea",
+      "byteSize": 3255
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/src/content.json",
+      "digest": "975f7d23e2be29ced3fb6deaad88c81e68449d2374598f69d615dcd0e7131471",
+      "byteSize": 11040
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/src/index.tsx",
+      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
+      "byteSize": 93
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/src/palette.ts",
+      "digest": "0932becd27782e62187246a20dfd3128b15c293e170fd88afaa3aa5b8ef1e56c",
+      "byteSize": 1523
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/src/Root.tsx",
+      "digest": "413396e0f3bb3b50d8dac12861b98403771d13336c84b03ecf5e4ecbae2f0383",
+      "byteSize": 12140
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/src/Visuals.tsx",
+      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
+      "byteSize": 8575
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/timeline.json",
+      "digest": "13df3ce250e17c960d48efe3746ba3f0e772e65776c14648799feb76bae71c3a",
+      "byteSize": 17580
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/tsconfig.json",
+      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
+      "byteSize": 397
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/01-operating-model.mmd",
+      "digest": "564efc20830e4241980e9751342b2d4b1e67c6612f7104ec00001a4c69735782",
+      "byteSize": 175
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/01-operating-model.png",
+      "digest": "2a349e67618c2e85b0a5a913e09b0cb7306e01e5574170bc01523c47401add43",
+      "byteSize": 53755
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/02-identity-boundaries.excalidraw.json",
+      "digest": "ce205d6caae0a844ea7c9a22c4984247312eea80c6ab12e10dc8fdd468488420",
+      "byteSize": 1480
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/02-identity-boundaries.png",
+      "digest": "ae03e8f375caf8f4ddd2d4182e17d06cd87b5a73099df267156893b3bc5970b1",
+      "byteSize": 77497
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/03-pilot.marp.md",
+      "digest": "dc9e4277afafc04b1305f81fbf2e0cf122fdebe20d9cbdc6f78657ba0c515e07",
+      "byteSize": 139
+    },
+    {
+      "path": "qc/revisions/release-r1/outputs/remotion/visuals/03-pilot.png",
+      "digest": "8714a4e800e66e4ecabfd9d7e7c0d69a9682c091a6cfb539caae05dbd45c6c95",
+      "byteSize": 51456
+    },
+    {
+      "path": "qc/revisions/release-r1/parity-manifest.json",
+      "digest": "4b596350a361057c56d9cab3128afa650c2edae4af97af1ee8e0fe1657ebc958",
+      "byteSize": 14903
+    },
+    {
+      "path": "qc/revisions/release-r1/release-plan.json",
+      "digest": "e662c01a8deda459462beab35260ab61e2756bd060d7af782a7d0db286ddd1a9",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/revisions/release-r1/render-spec.json",
+      "digest": "053e7d1328f853dcae7bfdb4f22d1e8a63de979a3a92f5b0ec66c03aace4fc2d",
+      "byteSize": 633
+    },
+    {
+      "path": "qc/revisions/release-r2/approval-manifest.json",
+      "digest": "69e1f74de1b5a0c6fa3a305c2a8d0a35882463af4ef768fee2990eaf4c38e576",
+      "byteSize": 325
+    },
+    {
+      "path": "qc/revisions/release-r2/asset-inventory.json",
+      "digest": "ec708049509d508fd7924892659aa9daa6a0a8c41be1823fc4e6f1d96a6fa5ef",
+      "byteSize": 1271
+    },
+    {
+      "path": "qc/revisions/release-r2/content-ir.json",
+      "digest": "63f05ecebbe508e598f21bb7ac4aedc5749026265029b585ef746124df4dc8fb",
+      "byteSize": 10732
+    },
+    {
+      "path": "qc/revisions/release-r2/domain-pack.json",
+      "digest": "9d4c044eb94a56420260a2fef8dcf2eac0dad41a0c5424820b8a30305577a238",
+      "byteSize": 8557
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/deck.deck.json",
+      "digest": "82440a407130cb15318bf2e877ef5d44678fcdba2a83ab2553b70f6ed767f9a3",
+      "byteSize": 262129
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/deck.pptx",
+      "digest": "322c6fff3b3c2178020504a5719b8be751fe531401cfb4e8f1f451f2403cfd90",
+      "byteSize": 248477
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/document.docx",
+      "digest": "c1a9445bbdbe39f81902dcbd4accaaa7b8bcc55c158c89b89413ae2561e8b3e6",
+      "byteSize": 199584
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/document.pdf",
+      "digest": "eb2632c3dc0edf0073ac2ed552f9ca999d3f4cfeb3903a2cc31e1f98b999e2b3",
+      "byteSize": 146638
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/index.html",
+      "digest": "ff9827ea59fc233cf2fb0ce47de3e71a7dae36ce77dfdf0da0989257f56a2242",
+      "byteSize": 254461
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/raster.jpg",
+      "digest": "ddd6d03b6a942e4c822e5b3fe15ed9e80cbb9db874a6a3e85b74f0e8ffb535b0",
+      "byteSize": 303107
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/raster.png",
+      "digest": "be6ed7ebbabb8f561bed6829493527074c62a0423790d2179345f21974e2073c",
+      "byteSize": 235105
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/asset-manifest.json",
+      "digest": "1fd046a553bce78c766b09a80234694ab753c690c3dd7592bc2a0e9065ad253b",
+      "byteSize": 1019
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/audio/narration-metadata.json",
+      "digest": "c5540de20feb3c55df52f80fc0135254125b114e76cc33f2f0b3466fbe23a430",
+      "byteSize": 9198
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/dist/render.mp4",
+      "digest": "637f0a6b276142be4de9fba209cede80eb1b14ddc58323044a23c974694a6338",
+      "byteSize": 11339822
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/package.json",
+      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
+      "byteSize": 677
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/assets/microsoft-autopilot-agents/audio.wav",
+      "digest": "d1c1d46651fa7bcdbd21fd5556d766ae34da97d7c8b3b54d82624ad1efa20199",
+      "byteSize": 12403244
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
+      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
+      "byteSize": 20380
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
+      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
+      "byteSize": 20320
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
+      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
+      "byteSize": 20232
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
+      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
+      "byteSize": 20212
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
+      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
+      "byteSize": 65732
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
+      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
+      "byteSize": 17488
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
+      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
+      "byteSize": 1292
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
+      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
+      "byteSize": 2816
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
+      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
+      "byteSize": 9856
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
+      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
+      "byteSize": 2656
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
+      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
+      "byteSize": 2104
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
+      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
+      "byteSize": 8712
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
+      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
+      "byteSize": 824
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
+      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
+      "byteSize": 24956
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
+      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
+      "byteSize": 13296
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
+      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
+      "byteSize": 12220
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
+      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
+      "byteSize": 70668
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
+      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
+      "byteSize": 1416
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
+      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
+      "byteSize": 10676
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
+      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
+      "byteSize": 8392
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
+      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
+      "byteSize": 11104
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
+      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
+      "byteSize": 15476
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
+      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
+      "byteSize": 16476
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
+      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
+      "byteSize": 6116
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
+      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
+      "byteSize": 56156
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/qc/audio-qa.json",
+      "digest": "6a94c6b5cc4916eb6b6c570b932420849135f8c3c3cf83a209f3e7aba6f9a3e1",
+      "byteSize": 4505
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "3100eb6a63cfec6c051c3a6935d16a312074b70e42de5b0693a89eae9a2698d7",
+      "byteSize": 447205
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/qc/mp4-qc.json",
+      "digest": "1ab7d2fbbae543a9c6482cd4958db738083f2d4819c153326990ea23b501bb7d",
+      "byteSize": 3567
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/qc/render-receipt.json",
+      "digest": "9a542c446e18c9d70ecee3a34bff026f628cbbbeabfc5a8166e674dce5f8b22b",
+      "byteSize": 367
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/remotion.config.ts",
+      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
+      "byteSize": 351
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/render-plan.json",
+      "digest": "5c1b69e0fa48308a5d9cbd2560a9c1359ee309fc68adafa625bec3f0b6302118",
+      "byteSize": 2070
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/requirements.lock.txt",
+      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+      "byteSize": 5663
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/scripts/audio-qa.mjs",
+      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
+      "byteSize": 17077
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/scripts/render-mp4.mjs",
+      "digest": "215b53f086144a92a0c7c915c6f0ec553a1f5c74578fb73e1f7fc8779f56422b",
+      "byteSize": 14532
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/scripts/synthesize-audio.mjs",
+      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
+      "byteSize": 1703
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/scripts/synthesize-audio.py",
+      "digest": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
+      "byteSize": 23490
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/scripts/verify-mp4.mjs",
+      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
+      "byteSize": 5728
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/speech/narration-manifest.json",
+      "digest": "77829a3fbf5532d08c921bb9311c3fd3b67facf6aa23444e04497e23cbcc2a1b",
+      "byteSize": 3019
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/src/content.json",
+      "digest": "63f05ecebbe508e598f21bb7ac4aedc5749026265029b585ef746124df4dc8fb",
+      "byteSize": 10732
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/src/index.tsx",
+      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
+      "byteSize": 93
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/src/palette.ts",
+      "digest": "0932becd27782e62187246a20dfd3128b15c293e170fd88afaa3aa5b8ef1e56c",
+      "byteSize": 1523
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/src/Root.tsx",
+      "digest": "59463a46f3fe256834bff14ba6e7b18138d9289b8713229b4db32db018bc8859",
+      "byteSize": 12304
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/src/Visuals.tsx",
+      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
+      "byteSize": 8575
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/timeline.json",
+      "digest": "a55db7ab27de899b3644521492dd86fcccceeeac067262a42e3278c7251b580f",
+      "byteSize": 17082
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/tsconfig.json",
+      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
+      "byteSize": 397
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/01-operating-model.mmd",
+      "digest": "564efc20830e4241980e9751342b2d4b1e67c6612f7104ec00001a4c69735782",
+      "byteSize": 175
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/01-operating-model.png",
+      "digest": "2a349e67618c2e85b0a5a913e09b0cb7306e01e5574170bc01523c47401add43",
+      "byteSize": 53755
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/02-identity-boundaries.excalidraw.json",
+      "digest": "ce205d6caae0a844ea7c9a22c4984247312eea80c6ab12e10dc8fdd468488420",
+      "byteSize": 1480
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/02-identity-boundaries.png",
+      "digest": "cec6ca84b727c37bd2c02b65721b5aa56260e1388b930927f1918bdaef2d11eb",
+      "byteSize": 76605
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/03-pilot.marp.md",
+      "digest": "dc9e4277afafc04b1305f81fbf2e0cf122fdebe20d9cbdc6f78657ba0c515e07",
+      "byteSize": 139
+    },
+    {
+      "path": "qc/revisions/release-r2/outputs/remotion/visuals/03-pilot.png",
+      "digest": "8714a4e800e66e4ecabfd9d7e7c0d69a9682c091a6cfb539caae05dbd45c6c95",
+      "byteSize": 51456
+    },
+    {
+      "path": "qc/revisions/release-r2/parity-manifest.json",
+      "digest": "34d2ea12b4df1ff5e7a3871e805ff96dc08af1ee02e401be9c8aab509a535803",
+      "byteSize": 14903
+    },
+    {
+      "path": "qc/revisions/release-r2/release-plan.json",
+      "digest": "318e26df4d0f72ecb17e3e9e59588bab6015fa2e7207cc071f6a0b816cff016a",
+      "byteSize": 764
+    },
+    {
+      "path": "qc/revisions/release-r2/render-spec.json",
+      "digest": "bf3f2db8b99aef35efc9efeab6c35db0865f9195ee9d11dd9f7ffe8499187424",
+      "byteSize": 633
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0",
+      "byteSize": 4410
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "812119730c9c223d77eb25da54d2a0a4d60da1a31dfabe6e329ebc69c464e887",
+      "byteSize": 446839
+    },
+    {
+      "path": "release/outputs/remotion/qc/mp4-qc.json",
+      "digest": "685c2cf12521ac2c68ef3f933ebec14f0b0b8702d2d2481f04353116e6f99255",
+      "byteSize": 3567
+    },
+    {
+      "path": "release/outputs/remotion/qc/render-receipt.json",
+      "digest": "e4f83784df695b27b1da3d0c28742f2e58eadc8d63534821b4f9df574f684f1d",
+      "byteSize": 367
+    }
+  ]
+}

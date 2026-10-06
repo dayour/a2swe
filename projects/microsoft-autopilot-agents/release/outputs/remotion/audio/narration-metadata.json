@@ -1,0 +1,157 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": -2.8054468470539717e-12,
+      "highFrequencyRatio8k": 0.0005344115470714214,
+      "rmsDbfs": -27.71813681094022,
+      "spectralFlatness": 4.521438424311278e-05
+    },
+    "before": {
+      "dcOffset": 1.6014968423405662e-05,
+      "highFrequencyRatio8k": 0.0005344057089409289,
+      "rmsDbfs": -27.717541200559857,
+      "spectralFlatness": 4.520983770070394e-05
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/microsoft-autopilot-agents/audio.wav",
+  "audioSha256": "7030b96cb3658427fde5f72fcc479f8b8cd52d5ba43adfbc00328dff164c50bf",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
+  "durationSeconds": 61.525,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "92b838ac891f28c9c062038746a5de94d8a672cbe88c4dab2b676a163b15cc3e",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.6014976608978785e-05,
+    "peak": 0.7357913851737976,
+    "rms": 0.0411165506040128
+  },
+  "requestedDurationSeconds": 75.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 11.475,
+      "index": 0,
+      "sceneId": "title",
+      "startSeconds": 0.25,
+      "text": "Bottom line: Copilot Autopilot is a bounded standing role, not a chatbot. Pilot privately with one owner, scoped access, cost guardrail and review."
+    },
+    {
+      "endSeconds": 27.2,
+      "index": 1,
+      "sceneId": "operating-model",
+      "startSeconds": 12.025,
+      "text": "The shift is from asking for an answer to assigning a standing role. Autopilot brings identity, memory and a workspace; leaders still own objectives and boundaries. Governance changes with the unit of delegation."
+    },
+    {
+      "endSeconds": 43.8,
+      "index": 2,
+      "sceneId": "identity-boundaries",
+      "startSeconds": 27.75,
+      "text": "Foundry is an architectural lens, not proof of identical implementation. Identity anchors the standing role; the organization still bounds interactions, access and actions, with a manager accountable for the role."
+    },
+    {
+      "endSeconds": 61.025,
+      "index": 3,
+      "sceneId": "pilot",
+      "startSeconds": 44.35,
+      "text": "Pilot one recurring workflow with one team and owner. Reuse blueprint logic, but scope each instance to its own permissions and assignment. While Autopilot is private preview, require a stop condition and review before expansion."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: k\u02c8Op\u02ccIl\u0259t \u02c8\u0254TOp\u02ccIl\u0259t \u026az \u0250 b\u02c8Wnd\u1d7bd st\u02c8\u00e6nd\u026a\u014b \u0279\u02c8Ol, n\u02cc\u0251t \u0250 \u02a7\u02c8\u00e6tb\u02cc\u0251t. p\u02c8Il\u0259t p\u0279\u02c8Iv\u0259tli w\u026a\u00f0 w\u02c8\u028cn \u02c8On\u0259\u0279, sk\u02c8Opd \u02c8\u00e6ks\u02cc\u025bs, k\u02c8\u0254st \u0261\u02c8\u0251\u0279d\u0279Al \u00e6nd \u0279\u0259vj\u02c8u."
+      ],
+      [
+        "\u00f0\u0259 \u0283\u02c8\u026aft \u026az f\u0279\u028cm \u02c8\u00e6sk\u026a\u014b f\u0254\u0279 \u0250n \u02c8\u00e6ns\u0259\u0279 t\u028a \u0259s\u02c8In\u026a\u014b \u0250 st\u02c8\u00e6nd\u026a\u014b \u0279\u02c8Ol. \u02c8\u0254TOp\u02ccIl\u0259t b\u0279\u02c8\u026a\u014bz Id\u02c8\u025bnt\u0259Ti, m\u02c8\u025bm\u0259\u0279i \u00e6nd \u0250 w\u02c8\u025c\u0279ksp\u02ccAs; l\u02c8id\u0259\u0279z st\u02c8\u026al \u02c8On \u0259b\u02a4\u02c8\u025bkt\u026avz \u00e6nd b\u02c8Wnd\u0259\u0279iz. \u0261\u02c8\u028cv\u0259\u0279n\u0259ns \u02a7\u02c8An\u02a4\u1d7bz w\u026a\u00f0 \u00f0\u0259 j\u02c8un\u0259t \u028cv d\u02cc\u025bl\u0259\u0261\u02c8A\u0283\u0259n."
+      ],
+      [
+        "f\u02c8Wnd\u0279i \u026az \u0250n \u02cc\u0251\u0279k\u0259t\u02c8\u025bk\u02a7\u0259\u0279\u0259l l\u02c8\u025bnz, n\u02cc\u0251t p\u0279\u02c8uf \u028cv Id\u02c8\u025bnt\u0259k\u1d4al \u02cc\u026ampl\u0259m\u0259nt\u02c8A\u0283\u0259n. Id\u02c8\u025bnt\u0259Ti \u02c8\u00e6\u014bk\u0259\u0279z \u00f0\u0259 st\u02c8\u00e6nd\u026a\u014b \u0279\u02c8Ol; \u00f0i \u02cc\u0254\u0279\u0261\u0259n\u0259z\u02c8A\u0283\u0259n st\u02c8\u026al b\u02c8Wndz \u02cc\u026ant\u0259\u0279\u02c8\u00e6k\u0283\u0259nz, \u02c8\u00e6ks\u02cc\u025bs \u00e6nd \u02c8\u00e6k\u0283\u0259nz, w\u026a\u00f0 \u0250 m\u02c8\u00e6n\u026a\u02a4\u0259\u0279 \u0259k\u02c8Wnt\u0259b\u0259l f\u0254\u0279 \u00f0\u0259 \u0279\u02c8Ol."
+      ],
+      [
+        "p\u02c8Il\u0259t w\u02c8\u028cn \u0279\u0259k\u02c8\u025c\u0279\u026a\u014b w\u02c8\u025c\u0279kfl\u02ccO w\u026a\u00f0 w\u02c8\u028cn t\u02c8im \u00e6nd \u02c8On\u0259\u0279. \u0279ij\u02c8uz bl\u02c8up\u0279\u02cc\u026ant l\u02c8\u0251\u02a4\u026ak, b\u02cc\u028ct sk\u02c8Op \u02c8i\u02a7 \u02c8\u026anst\u1d4ans t\u028a \u026ats \u02c8On p\u0259\u0279m\u02c8\u026a\u0283\u0259nz \u00e6nd \u0259s\u02c8Inm\u0259nt. w\u02ccIl \u02c8\u0254TOp\u02ccIl\u0259t \u026az p\u0279\u02c8Iv\u0259t p\u0279\u02c8ivj\u02ccu, \u0279\u0259kw\u02c8I\u0259\u0279 \u0250 st\u02c8\u0251p k\u0259nd\u02c8\u026a\u0283\u0259n \u00e6nd \u0279\u0259vj\u02c8u b\u0259f\u02c8\u0254\u0279 \u026aksp\u02c8\u00e6n\u0283\u0259n."
+      ]
+    ],
+    "phonemesSha256": "a870430b20c62ef8bfd8a922eec0355abb66c384fcfbd220f2833294de9a59ff",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: Copilot Autopilot is a bounded standing role, not a chatbot. Pilot privately with one owner, scoped access, cost guardrail and review.",
+      "The shift is from asking for an answer to assigning a standing role. Autopilot brings identity, memory and a workspace; leaders still own objectives and boundaries. Governance changes with the unit of delegation.",
+      "Foundry is an architectural lens, not proof of identical implementation. Identity anchors the standing role; the organization still bounds interactions, access and actions, with a manager accountable for the role.",
+      "Pilot one recurring workflow with one team and owner. Reuse blueprint logic, but scope each instance to its own permissions and assignment. While Autopilot is private preview, require a stop condition and review before expansion."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five"
+    },
+    "speed": 1
+  }
+}

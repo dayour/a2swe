@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "microsoft-autopilot-agents",
+  "projectId": "microsoft-autopilot-agents",
+  "updatedAt": "2026-10-06T00:43:02.102Z",
+  "domainDigest": "293c06d00035e921e8f4bf84768b515d6de917530d4fdc75fa83a2fee9108601",
+  "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
+  "stage": "delivery",
+  "gates": [
+    {
+      "name": "domain",
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "9d4c044eb94a56420260a2fef8dcf2eac0dad41a0c5424820b8a30305577a238"
+    },
+    {
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "34c4f0824bd9abf9bb7b50ccf5b935c30420363c97ddac36a7fe031dbd3c8abc"
+    },
+    {
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0"
+    },
+    {
+      "name": "release",
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "7f5c30493db14f36c67da1ab71953b01095cfc30d82b54c53613ef87bf6af449"
+    }
+  ],
+  "stages": [
+    {
+      "name": "scaffold",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [],
+      "evidencePaths": ["agent/SWE_AGENT.md"]
+    },
+    {
+      "name": "research",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["scaffold"],
+      "evidencePaths": ["release/domain-pack.json"]
+    },
+    {
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["research"],
+      "evidencePaths": ["release/content-ir.json", "release/render-spec.json"]
+    },
+    {
+      "name": "render",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["content"],
+      "evidencePaths": [
+        "release/outputs/remotion/dist/render.mp4",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx"
+      ]
+    },
+    {
+      "name": "qc",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["render"],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "release/parity-manifest.json"
+      ]
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": ["qc"],
+      "evidencePaths": ["release/asset-inventory.json", "release/release-plan.json"]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "9fc5c240c011a3055ad3b5094fbf7c95a2ce485cc8ba67ee5b9b3e4f240ef07e",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "9d4c044eb94a56420260a2fef8dcf2eac0dad41a0c5424820b8a30305577a238",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "34c4f0824bd9abf9bb7b50ccf5b935c30420363c97ddac36a7fe031dbd3c8abc",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "4cf62553742e8466f42439015ea72908983b0ec15495f58a55474539a97793a3",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "1dd04e453077d4e6411ee69e1dc0710bcd3bcd24e751fd8471740f71e53cedd7",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "f4da6dc80b04137705c8e2ba348211bdf6cfbfdb473845e9a2e569b4cee5b7cd",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "812119730c9c223d77eb25da54d2a0a4d60da1a31dfabe6e329ebc69c464e887",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "7f5c30493db14f36c67da1ab71953b01095cfc30d82b54c53613ef87bf6af449",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "de1c8801225429e148d1f5689cd04e39fe47ba501343c985d4581456a64c6376",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "835ea06cef712c94d1142a1b5ac0ac97c9b727bab7b25b21bbcff4702aa95b9c",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    }
+  ],
+  "blockers": [],
+  "nextAction": "Use the verified release package for the executive engagement; publication and distribution remain outside a2swe."
+}

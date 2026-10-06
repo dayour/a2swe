@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2201,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Autopilot Agents: decide the operating model before the rollout",
+      "body": "Bottom line: treat Copilot Autopilot as a bounded standing role, not a better chatbot. Approve one private-preview pilot only where a named leader owns the goal, access boundary, cost and outcomes.",
+      "narration": "Bottom line: treat Copilot Autopilot as a bounded standing role, not a better chatbot. Approve one private-preview pilot only where a named leader owns the goal, access boundary, cost and outcomes.",
+      "claims": [
+        "Copilot Autopilot, previously called Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set its objective and boundaries and remain informed and in control.",
+        "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
+        "As an architectural lens, Microsoft Foundry defines an autopilot by a persistent standing role and its own identity, security profile and accountable manager, not by a changing feature list.",
+        "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take.",
+        "The Foundry blueprint model separates reusable agent logic and infrastructure from team-specific business access, with each created instance receiving its own identity, permissions and assignment."
+      ],
+      "claimSources": [
+        "[ev-01] Introducing the new Copilot with Home, Code and Autopilot",
+        "[ev-04] Introducing the new Copilot with Home, Code and Autopilot",
+        "[ev-05] What is an autopilot in Microsoft Foundry?",
+        "[ev-07] What is an autopilot in Microsoft Foundry?",
+        "[ev-08] What is an autopilot in Microsoft Foundry?"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Approve one narrow private-preview pilot only when a named business leader owns the goal, access boundary, cost guardrail, exception path and outcome review.",
+      "startFrame": 0,
+      "durationInFrames": 468,
+      "endFrame": 468,
+      "speechStartFrame": 8,
+      "speechEndFrame": 460
+    },
+    {
+      "id": "operating-model",
+      "kind": "section",
+      "title": "1. Change the unit of delegation",
+      "body": "The shift is from asking for an answer to assigning a standing role. Autopilot was announced with identity, memory, a computer and workspace; leaders still set objectives and boundaries. That changes governance, not just productivity.",
+      "narration": "The shift is from asking for an answer to assigning a standing role. Autopilot was announced with identity, memory, a computer and workspace; leaders still set objectives and boundaries. That changes governance, not just productivity.",
+      "claims": [
+        "Copilot Autopilot, previously called Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set its objective and boundaries and remain informed and in control."
+      ],
+      "claimSources": [
+        "[ev-01] Introducing the new Copilot with Home, Code and Autopilot"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  ask[\"ASK<br/>One request\"] --> role[\"ASSIGN<br/>Standing role\"]\n  role --> work[\"WORK<br/>Persistent context\"]\n  work --> owner[\"OWN<br/>Human accountability\"]",
+        "caption": "The operating-model shift: from one request to a bounded standing role with human accountability."
+      },
+      "visualId": "01-operating-model",
+      "decision": "Approve one narrow private-preview pilot only when a named business leader owns the goal, access boundary, cost guardrail, exception path and outcome review.",
+      "startFrame": 468,
+      "durationInFrames": 517,
+      "endFrame": 985,
+      "speechStartFrame": 476,
+      "speechEndFrame": 976
+    },
+    {
+      "id": "identity-boundaries",
+      "kind": "section",
+      "title": "2. Govern identity before capability",
+      "body": "Foundry provides an architectural lens, not proof that every implementation is identical: identity establishes the role, while capability can change. The organization controls interactions, access and actions, and an accountable manager remains essential.",
+      "narration": "Foundry provides an architectural lens, not proof that every implementation is identical: identity establishes the role, while capability can change. The organization controls interactions, access and actions, and an accountable manager remains essential.",
+      "claims": [
+        "As an architectural lens, Microsoft Foundry defines an autopilot by a persistent standing role and its own identity, security profile and accountable manager, not by a changing feature list.",
+        "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take."
+      ],
+      "claimSources": [
+        "[ev-05] What is an autopilot in Microsoft Foundry?",
+        "[ev-07] What is an autopilot in Microsoft Foundry?"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Identity anchors the role; goals, access and actions remain bounded by the organization.",
+        "source": "[{\"type\":\"ellipse\",\"id\":\"identity\",\"x\":380,\"y\":20,\"width\":360,\"height\":150,\"strokeColor\":\"#16b8c8\",\"backgroundColor\":\"#103a52\",\"fillStyle\":\"solid\",\"roughness\":1,\"strokeWidth\":4,\"label\":{\"text\":\"IDENTITY\\nNamed role\",\"fontSize\":36,\"strokeColor\":\"#f4fbff\"}},{\"type\":\"rectangle\",\"id\":\"goal\",\"x\":0,\"y\":250,\"width\":280,\"height\":130,\"strokeColor\":\"#46d3c5\",\"backgroundColor\":\"#0d2c45\",\"fillStyle\":\"solid\",\"roughness\":1,\"strokeWidth\":3,\"label\":{\"text\":\"GOAL\\nDefined\",\"fontSize\":32,\"strokeColor\":\"#f4fbff\"}},{\"type\":\"rectangle\",\"id\":\"access\",\"x\":420,\"y\":250,\"width\":280,\"height\":130,\"strokeColor\":\"#46d3c5\",\"backgroundColor\":\"#0d2c45\",\"fillStyle\":\"solid\",\"roughness\":1,\"strokeWidth\":3,\"label\":{\"text\":\"ACCESS\\nScoped\",\"fontSize\":32,\"strokeColor\":\"#f4fbff\"}},{\"type\":\"rectangle\",\"id\":\"actions\",\"x\":840,\"y\":250,\"width\":280,\"height\":130,\"strokeColor\":\"#46d3c5\",\"backgroundColor\":\"#0d2c45\",\"fillStyle\":\"solid\",\"roughness\":1,\"strokeWidth\":3,\"label\":{\"text\":\"ACTIONS\\nBounded\",\"fontSize\":32,\"strokeColor\":\"#f4fbff\"}},{\"type\":\"arrow\",\"x\":460,\"y\":170,\"width\":-300,\"height\":80,\"start\":{\"id\":\"identity\"},\"end\":{\"id\":\"goal\"},\"strokeColor\":\"#16b8c8\",\"strokeWidth\":4,\"roughness\":1},{\"type\":\"arrow\",\"x\":560,\"y\":170,\"width\":0,\"height\":80,\"start\":{\"id\":\"identity\"},\"end\":{\"id\":\"access\"},\"strokeColor\":\"#16b8c8\",\"strokeWidth\":4,\"roughness\":1},{\"type\":\"arrow\",\"x\":660,\"y\":170,\"width\":320,\"height\":80,\"start\":{\"id\":\"identity\"},\"end\":{\"id\":\"actions\"},\"strokeColor\":\"#16b8c8\",\"strokeWidth\":4,\"roughness\":1}]"
+      },
+      "visualId": "02-identity-boundaries",
+      "decision": "Approve one narrow private-preview pilot only when a named business leader owns the goal, access boundary, cost guardrail, exception path and outcome review.",
+      "startFrame": 985,
+      "durationInFrames": 594,
+      "endFrame": 1579,
+      "speechStartFrame": 993,
+      "speechEndFrame": 1571
+    },
+    {
+      "id": "pilot",
+      "kind": "section",
+      "title": "3. Pilot the role, not the technology",
+      "body": "Pilot one recurring workflow with one team and one accountable owner. Reuse a blueprint for logic, but scope each instance to its own permissions and assignment. Because Copilot Autopilot remains private preview, require a stop condition and outcome review before expansion.",
+      "narration": "Pilot one recurring workflow with one team and one accountable owner. Reuse a blueprint for logic, but scope each instance to its own permissions and assignment. Because Copilot Autopilot remains private preview, require a stop condition and outcome review before expansion.",
+      "claims": [
+        "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
+        "The Foundry blueprint model separates reusable agent logic and infrastructure from team-specific business access, with each created instance receiving its own identity, permissions and assignment."
+      ],
+      "claimSources": [
+        "[ev-04] Introducing the new Copilot with Home, Code and Autopilot",
+        "[ev-08] What is an autopilot in Microsoft Foundry?"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "What is an autopilot in Microsoft Foundry?",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "A narrow, accountable private-preview pilot with explicit expansion gates.",
+        "source": "# PILOT GATE\n\n| 1 ROLE | 1 TEAM | 1 OWNER |\n|---|---|---|\n| Recurring work | Scoped access | Stop condition |\n\n## EXPAND ONLY AFTER REVIEW"
+      },
+      "visualId": "03-pilot",
+      "decision": "Approve one narrow private-preview pilot only when a named business leader owns the goal, access boundary, cost guardrail, exception path and outcome review.",
+      "startFrame": 1579,
+      "durationInFrames": 622,
+      "endFrame": 2201,
+      "speechStartFrame": 1587,
+      "speechEndFrame": 2186
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: treat Copilot Autopilot as a bounded standing role, not a better chatbot.",
+      "startFrame": 8,
+      "endFrame": 206,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Approve one private-preview pilot only where a named leader owns the goal, access boundary, cost and outcomes.",
+      "startFrame": 206,
+      "endFrame": 460,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "The shift is from asking for an answer to assigning a standing role.",
+      "startFrame": 476,
+      "endFrame": 623,
+      "sourceSegmentIndex": 1,
+      "sceneId": "operating-model"
+    },
+    {
+      "text": "Autopilot was announced with identity, memory, a computer and workspace; leaders still set objectives and boundaries.",
+      "startFrame": 623,
+      "endFrame": 875,
+      "sourceSegmentIndex": 1,
+      "sceneId": "operating-model"
+    },
+    {
+      "text": "That changes governance, not just productivity.",
+      "startFrame": 875,
+      "endFrame": 976,
+      "sourceSegmentIndex": 1,
+      "sceneId": "operating-model"
+    },
+    {
+      "text": "Foundry provides an architectural lens, not proof that every implementation is identical: identity establishes the role, while capability can change.",
+      "startFrame": 993,
+      "endFrame": 1332,
+      "sourceSegmentIndex": 2,
+      "sceneId": "identity-boundaries"
+    },
+    {
+      "text": "The organization controls interactions, access and actions, and an accountable manager remains essential.",
+      "startFrame": 1332,
+      "endFrame": 1571,
+      "sourceSegmentIndex": 2,
+      "sceneId": "identity-boundaries"
+    },
+    {
+      "text": "Pilot one recurring workflow with one team and one accountable owner.",
+      "startFrame": 1587,
+      "endFrame": 1739,
+      "sourceSegmentIndex": 3,
+      "sceneId": "pilot"
+    },
+    {
+      "text": "Reuse a blueprint for logic, but scope each instance to its own permissions and assignment.",
+      "startFrame": 1739,
+      "endFrame": 1939,
+      "sourceSegmentIndex": 3,
+      "sceneId": "pilot"
+    },
+    {
+      "text": "Because Copilot Autopilot remains private preview, require a stop condition and outcome review before expansion.",
+      "startFrame": 1939,
+      "endFrame": 2186,
+      "sourceSegmentIndex": 3,
+      "sceneId": "pilot"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 4,
+    "cueCount": 10
+  }
+}

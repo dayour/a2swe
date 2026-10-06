@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "renderId": "microsoft-autopilot-agents-r1",
+  "contentDigest": "6387de4b9694399e840522d266a9e1e443f7008d535bf9e32380eaab6879d142",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "theme": {
+    "name": "executive-blue-teal",
+    "background": "#071B2D",
+    "foreground": "#F4FBFF",
+    "accent": "#16B8C8",
+    "fontFamily": "Arial"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 75,
+    "sampleRate": 48000
+  }
+}

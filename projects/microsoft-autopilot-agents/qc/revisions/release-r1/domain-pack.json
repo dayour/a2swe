@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "microsoft-autopilot-agents",
+  "kind": "tool",
+  "canonicalName": "Microsoft Autopilot Agents",
+  "asOf": "2026-10-05",
+  "windowStart": "2026-01-05",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-copilot-announcement",
+      "domainId": "microsoft-autopilot-agents",
+      "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+      "publisher": "Microsoft",
+      "title": "Introducing the new Copilot with Home, Code and Autopilot",
+      "publicationDate": "2026-09-25",
+      "modifiedDate": "2026-10-02",
+      "retrievedAt": "2026-10-06T00:22:16.157Z",
+      "dateEvidence": "HTML metadata records article:published_time 2026-09-25T12:03:50Z and article:modified_time 2026-10-02T22:21:00Z.",
+      "contentHash": "db92117efc9cba5004eb5acec67f4e685ba33e6e1b87adc3bc9c61600b391a4e"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-foundry-autopilot",
+      "domainId": "microsoft-autopilot-agents",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview",
+      "publisher": "Microsoft Learn",
+      "title": "What is an autopilot in Microsoft Foundry?",
+      "publicationDate": "2026-08-25",
+      "modifiedDate": "2026-08-26",
+      "retrievedAt": "2026-10-06T00:22:16.312Z",
+      "dateEvidence": "Page metadata records ms.date 2026-08-25 and updated_at 2026-08-26T22:14:00Z.",
+      "contentHash": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-copilot-announcement",
+      "sourceDigest": "db92117efc9cba5004eb5acec67f4e685ba33e6e1b87adc3bc9c61600b391a4e",
+      "locator": "Autopilot section, opening sentence",
+      "quote": "Autopilot, previously called Scout, is your digital teammate.",
+      "quoteDigest": "583fdb9f28edf7868f02965431248292ad58768c5e8b040a93115c505d14306c"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-copilot-announcement",
+      "sourceDigest": "db92117efc9cba5004eb5acec67f4e685ba33e6e1b87adc3bc9c61600b391a4e",
+      "locator": "Autopilot section, identity paragraph",
+      "quote": "Autopilot lives in your tenant with its own identity, memory, computer and workspace, and it’s built on Microsoft IQ so it understands how your organization actually works.",
+      "quoteDigest": "ac90813d021ebdba75085df8174f806b70810baa90bbb7135385b9e206eeb867"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-copilot-announcement",
+      "sourceDigest": "db92117efc9cba5004eb5acec67f4e685ba33e6e1b87adc3bc9c61600b391a4e",
+      "locator": "Autopilot section, control statement",
+      "quote": "You set the objective and boundaries; Autopilot handles the rest while keeping you informed and in control.",
+      "quoteDigest": "1eb57dadcd45b45f39a7223a0958ca2f9e264693261cff9f00bb04e7e685be37"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-copilot-announcement",
+      "sourceDigest": "db92117efc9cba5004eb5acec67f4e685ba33e6e1b87adc3bc9c61600b391a4e",
+      "locator": "Announcement introduction, availability statement",
+      "quote": "Home and Code will start rolling out in our Frontier program in the coming weeks and Autopilot is expanding to private preview at the end of the month.",
+      "quoteDigest": "2e983e7c37aee0cec4e60fa7f289cd58ba4874ac3ee9de02d495e1d7bb2354bf"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "Opening definition",
+      "quote": "An autopilot is a type of agent that works under its own identity as a persistent, named member of your organization. It holds a standing role rather than answering one request at a time. It has its own security profile in your tenant and a manager who's responsible for it.",
+      "quoteDigest": "61f98219c02d457443d20af86515ffc3175aed242786514ef0673af389de1f63"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "What doesn't define an autopilot",
+      "quote": "Capabilities describe an autopilot. Identity establishes it.",
+      "quoteDigest": "a82bfdd2404c58e311aa2703c09397af7f41027b49df3046160d9aa9ca724eb2"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "What doesn't define an autopilot, autonomy paragraph",
+      "quote": "An autopilot doesn't have to be fully autonomous: your organization controls when it responds, who it can interact with, what it can access, and which actions it can take.",
+      "quoteDigest": "cbce5c0f9bbfe7436b37e66e8ec06fada5475706c647cfed8a6e97665f129568"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "Why you build a blueprint, not an autopilot",
+      "quote": "You don't build an autopilot. You build a blueprint that teams use to create their own autopilot instances, each with its own identity and its own team-scoped access.",
+      "quoteDigest": "0c05c4a78cdc4762062531869c6d634afefba6be120c220d82c7059fb3614430"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "Blueprint access boundary",
+      "quote": "What it never grants is access to a specific team's business resources.",
+      "quoteDigest": "79733bd8de5ae10b3f054921cbf6bef13102cf81bf1a903140a4814d4ee962aa"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceId": "src-foundry-autopilot",
+      "sourceDigest": "23e211ae678f5cdd20c5f572fe6cdedc9df451ae36a7df106f9363723f93e2be",
+      "locator": "Blueprint instance boundary",
+      "quote": "Every instance created from the blueprint has its own identity, permissions, and assignment.",
+      "quoteDigest": "39e066016bc8b5ddc16cca341ae1a42fb6142406d0c88b30cce36930a032c750"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Copilot Autopilot, previously called Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set its objective and boundaries and remain informed and in control.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-03"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
+      "evidenceIds": [
+        "ev-04"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "As an architectural lens, Microsoft Foundry defines an autopilot by a persistent standing role and its own identity, security profile and accountable manager, not by a changing feature list.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take.",
+      "evidenceIds": [
+        "ev-07"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "The Foundry blueprint model separates reusable agent logic and infrastructure from team-specific business access, with each created instance receiving its own identity, permissions and assignment.",
+      "evidenceIds": [
+        "ev-08",
+        "ev-09",
+        "ev-10"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The public announcement does not provide general-availability timing for Copilot Autopilot.",
+    "The Foundry identity and blueprint model is used only as an architectural lens; the sources do not establish that every Copilot Autopilot implementation is identical.",
+    "No customer outcome, savings estimate or production operating metric was provided by the selected sources.",
+    "This project intentionally excludes Windows Autopilot device provisioning and private enterprise records."
+  ]
+}
