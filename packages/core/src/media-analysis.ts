@@ -642,7 +642,7 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
     }
     images.chunks = chunkImages;
   }
-  const frameRecords: { kind: string; timeSeconds: number; path: string }[] = [];
+  const frameRecords: { kind: string; timeSeconds: number }[] = [];
   if (probe.video) {
     const duration = probe.durationSeconds;
     const plan: { kind: string; time: number }[] = [];
@@ -651,16 +651,25 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
       plan.push({ kind: 'before transition', time: cut - 0.6 }, { kind: 'during transition', time: cut }, { kind: 'after transition', time: cut + 0.8 });
     }
     for (const fraction of [0.1, 0.3, 0.5, 0.7, 0.9]) plan.push({ kind: `p${Math.round(fraction * 100)}`, time: fraction * duration });
+    const extracted: { kind: string; timeSeconds: number; file: string }[] = [];
     for (const [index, item] of plan.entries()) {
       const time = round(Math.min(duration - 0.05, Math.max(0, item.time)), 3);
-      const name = `frames/${String(index + 1).padStart(2, '0')}-${item.kind.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}.jpg`;
-      extractFrame(input, time, path.join(out, name));
-      frameRecords.push({ kind: item.kind, timeSeconds: time, path: name });
+      const file = path.join(out, 'frames', `${String(index + 1).padStart(2, '0')}.jpg`);
+      extractFrame(input, time, file);
+      extracted.push({ kind: item.kind, timeSeconds: time, file });
+      frameRecords.push({ kind: item.kind, timeSeconds: time });
     }
-    await contactSheet(frameRecords.filter((frame) => !frame.kind.startsWith('p')).map((frame) => ({ file: path.join(out, frame.path), label: `${frame.timeSeconds.toFixed(2)}s  ${frame.kind}` })),
+    await contactSheet(extracted.filter((frame) => !frame.kind.startsWith('p')).map((frame) => ({ file: frame.file, label: `${frame.timeSeconds.toFixed(2)}s  ${frame.kind}` })),
       path.join(out, 'contact-sheet.jpg'));
+    // Proportional frames at 10/30/50/70/90% feed the cross-revision frame grid; the raw frames live only inside the two composites.
+    const proportional = extracted.filter((frame) => /^p\d+$/.test(frame.kind));
+    const thumbs = await Promise.all(proportional.map((frame) => sharp(frame.file).resize(320, 180, { fit: 'contain', background: '#000' }).toBuffer()));
+    await sharp({ create: { width: 320 * Math.max(1, thumbs.length), height: 180, channels: 3, background: '#000' } })
+      .composite(thumbs.map((thumb, index) => ({ input: thumb, left: index * 320, top: 0 }))).jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(out, 'frame-strip.jpg'));
     images.contactSheet = 'contact-sheet.jpg';
+    images.frameStrip = 'frame-strip.jpg';
   }
+  await rm(path.join(out, 'frames'), { recursive: true, force: true });
   const audioReport = audio ? { ...audio, levels: undefined } : null;
   if (audioReport) delete (audioReport as { levels?: unknown }).levels;
   const report = {

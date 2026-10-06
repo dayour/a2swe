@@ -20,7 +20,7 @@ interface ResolvedAsset {
   filename?: string;
 }
 
-const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-6';
+const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-7';
 export const MP4_ADAPTER = REMOTION_MP4_ADAPTER;
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 interface VoiceProfile { id: string; name: string; language: 'a' | 'b'; speed: number }
@@ -117,7 +117,7 @@ function citationFor(content: ContentIR, evidenceId: string): ContentIR['citatio
 }
 
 function citationLabel(content: ContentIR, evidenceId: string): string {
-  return '[' + evidenceId + '] ' + citationFor(content, evidenceId).sourceTitle;
+  return citationFor(content, evidenceId).sourceTitle;
 }
 
 function claimFor(content: ContentIR, claimId: string): ContentIR['claims'][number] {

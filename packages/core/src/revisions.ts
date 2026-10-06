@@ -303,7 +303,9 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
       const stem = path.basename(output.path, path.extname(output.path));
       const directory = path.join(analysisRoot, revision.title, stem);
       const cached = existsSync(path.join(directory, 'analysis.json')) ? await json<MediaAnalysisReport>(path.join(directory, 'analysis.json')) : null;
-      const report = !options.force && cached?.input.sha256 === output.digest ? cached
+      // Reports from before frame strips were composited are re-measured so the grid never depends on raw frame files.
+      const current = cached?.input.sha256 === output.digest && (!cached.probe.video || typeof cached.images.frameStrip === 'string');
+      const report = !options.force && current ? cached!
         : await analyzeMedia(path.join(project, 'renders', revision.title, output.path), directory,
           { label: `${revision.title} ${stem === revision.title ? '' : stem.slice(revision.title.length + 1)}`.trim(), scenes: output.scenes as AnalysisScene[] | undefined });
       rows.push({ revision, output, report, directory });
@@ -336,15 +338,8 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
     const label = `${row.report.label} | ${row.report.probe.video?.width}x${row.report.probe.video?.height} | ${fmt(row.report.audio?.loudness.integratedLufs, 1, ' LUFS')}`;
     if (typeof row.report.images.spectrogram === 'string') spectra.push(await labeledStrip(path.join(row.directory, row.report.images.spectrogram), label, 1600, 300));
     if (typeof row.report.images.layers === 'string') layers.push(await labeledStrip(path.join(row.directory, row.report.images.layers), row.report.label, 1600, 300));
-    const proportional = row.report.video?.frames.filter((frame) => /^p\d+$/.test(frame.kind)) ?? [];
-    if (proportional.length) {
-      const thumbs = await Promise.all(proportional.map((frame) => sharp(path.join(row.directory, frame.path)).resize(320, 180, { fit: 'contain', background: '#000' }).toBuffer()));
-      const strip = await sharp({ create: { width: 320 * thumbs.length, height: 180, channels: 3, background: '#000' } })
-        .composite(thumbs.map((input, index) => ({ input, left: index * 320, top: 0 }))).png().toBuffer();
-      const temporary = path.join(analysisRoot, `.grid-${row.revision.title}.png`);
-      await writeFile(temporary, strip);
-      grids.push(await labeledStrip(temporary, `${row.report.label}  (10% / 30% / 50% / 70% / 90%)`, 1600, 180));
-      await rm(temporary, { force: true });
+    if (typeof row.report.images.frameStrip === 'string') {
+      grids.push(await labeledStrip(path.join(row.directory, row.report.images.frameStrip), `${row.report.label}  (10% / 30% / 50% / 70% / 90%)`, 1600, 180));
     }
   }
   await stackImages(spectra, path.join(analysisRoot, 'spectrogram-stack.jpg'));

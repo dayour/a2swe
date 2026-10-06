@@ -493,7 +493,7 @@ function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, tota
     (picture ? [] : slide.claims.slice(0, 3)).forEach((claim, claimIndex) => {
       const fit = pptFit(claim, 5105000, cardHeight - 300000, slide.claims.length > 1 ? 1600 : 2000, 1200);
       const paragraphs = [pptParagraph(pptRun(fit.text, fit.size, false, foreground), 400)];
-      if (slide.claimSources[claimIndex]) paragraphs.push(pptParagraph(pptRun(slide.claimSources[claimIndex], 1100, false, muted)));
+      if (slide.claimSources[claimIndex]) paragraphs.push(pptParagraph(pptRun(slide.claimSources[claimIndex].replace(/^\[[^\]]+\]\s*/, ''), 1100, false, muted)));
       shapes.push(pptShape(id++, `Claim ${claimIndex + 1}`, 6400000, 1750000 + claimIndex * (cardHeight + 150000), 5105000, cardHeight, paragraphs,
         { fill: surface, line: border, geometry: 'roundRect' }, 'ctr'));
     });
@@ -595,7 +595,10 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
         }) ?? [];
     const slidePictures = sectionAssets(content, assetMap, slide.assetIds).filter((item): item is ResolvedAsset & { filename: string; bytes: Buffer; mediaType: SupportedImageMediaType } => Boolean(item.bytes && item.filename && item.mediaType))
       .map((item, pictureIndex) => ({ relId: `rIdImage${pictureIndex + 1}`, asset: item.asset, target: `../media/${item.filename}`, ...imageDimensions(item.bytes, item.mediaType) }));
-    const footer = slide.kind === 'section' ? `Sources: ${citations.slice(0, 3).map((line) => line.split(': ')[0]).join('  ·  ')}` : spec.renderId;
+    // Slides show distinct source titles; evidence IDs stay in the speaker notes for traceability.
+    const sectionSources = slide.kind === 'section' ? [...new Set(content.sections.find((section) => section.sectionId === slide.id)?.claimIds
+      .flatMap((id) => claimFor(content, id).evidenceIds).map((evidenceId) => citationFor(content, evidenceId).sourceTitle) ?? [])] : [];
+    const footer = slide.kind === 'section' ? `Sources: ${sectionSources.slice(0, 3).join('  ·  ')}${sectionSources.length > 3 ? `  ·  +${sectionSources.length - 3} more` : ''}` : spec.renderId;
     files.push({ name: `ppt/slides/slide${index + 1}.xml`, bytes: Buffer.from(pptSlideXml({ kind: slide.kind, title: slide.title, body: slide.body, claims: slide.claims,
       claimSources: slide.claimSources, footer, sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
       ...slidePictures.map((picture) => ({ id: picture.relId, type: `${OFFICE_REL}/image`, target: picture.target }))])) });
@@ -603,7 +606,7 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
     files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
     files.push({ name: `ppt/notesSlides/_rels/notesSlide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdSlide', type: `${OFFICE_REL}/slide`, target: `../slides/slide${index + 1}.xml` }])) });
   });
-  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-5' };
+  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-6' };
 }
 
 function wp(textValue: string, style?: string, keepNext = false): string {
