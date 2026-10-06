@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -2.8054468470539717e-12,
-      "highFrequencyRatio8k": 0.0005344115470714214,
-      "rmsDbfs": -27.71813681094022,
-      "spectralFlatness": 4.521438424311278e-05
+      "dcOffset": -2.321053071963064e-12,
+      "highFrequencyRatio8k": 0.00051107381476561,
+      "rmsDbfs": -27.71668680309012,
+      "spectralFlatness": 4.45201513335538e-05
     },
     "before": {
-      "dcOffset": 1.6014968423405662e-05,
-      "highFrequencyRatio8k": 0.0005344057089409289,
-      "rmsDbfs": -27.717541200559857,
-      "spectralFlatness": 4.520983770070394e-05
+      "dcOffset": 1.5483095921808854e-05,
+      "highFrequencyRatio8k": 0.0005110682383401106,
+      "rmsDbfs": -27.716089718837647,
+      "spectralFlatness": 4.451733664530175e-05
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/microsoft-autopilot-agents/audio.wav",
-  "audioSha256": "7030b96cb3658427fde5f72fcc479f8b8cd52d5ba43adfbc00328dff164c50bf",
+  "audioSha256": "483608212285c957016a23d928e4f59ff724e03aca98501183cde637ba48be90",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -78,9 +78,9 @@
   "producerSha256": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.6014976608978785e-05,
-    "peak": 0.7357913851737976,
-    "rms": 0.0411165506040128
+    "dc": 1.5483090825893343e-05,
+    "peak": 0.7649869918823242,
+    "rms": 0.041123432583996054
   },
   "requestedDurationSeconds": 75.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

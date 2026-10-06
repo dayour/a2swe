@@ -22,7 +22,10 @@ project/
 ├── qc/
 │   ├── index.json
 │   ├── audio/<profile>/       # matched WAVs, metadata and comparison.json
-│   └── releases/             # retained audit releases
+│   ├── native-office/        # source-bound Office renders
+│   ├── video-frames/         # source-bound decoded frame previews
+│   ├── production-review.json
+│   └── revisions/            # local superseded candidates, not current QC
 └── release/
 ```
 
@@ -60,6 +63,16 @@ visuals and is bound by the parity manifest.
 The project QC index links to release-internal reports without moving them out
 of their digest-bound package. Shared model configuration and profiles belong
 in `library/assets/speech/`, not in a cross-project QC folder.
+
+Raw intake bodies and superseded candidate packages remain local under
+`intake/` and `qc/revisions/`. The current-QC index explicitly excludes revision
+archives; published packages contain the final outputs, concise evidence,
+provenance, and current review artifacts rather than duplicate full renders or
+wholesale copies of source pages.
+
+Git preserves the exact bytes of canonical inputs, release outputs, runbooks,
+and QC records. Automatic line-ending conversion would invalidate source hashes
+and evidence references when checking out the same package on another platform.
 
 ## Legacy template layout
 

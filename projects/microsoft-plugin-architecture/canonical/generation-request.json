@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Microsoft Plugin Architecture",
+  "kind": "framework",
+  "brief": "Create a polished executive engagement package titled Microsoft Plugin Architecture, scoped to Microsoft and GitHub Copilot extensibility as of 2026-10-05. Lead with the decision to standardize reusable skills and MCP integrations while selecting the right host-specific packaging and governance. Do not imply one interchangeable Microsoft plugin format. Distinguish three routes: Copilot Cowork skills/connectors in an M365 app package; MCP/API custom actions within Microsoft 365 declarative agents; GitHub Copilot Agent Plugins 1.0 portable skills/MCP plus client-specific components. Legacy Copilot plugins remain supported where documented; REST API plugins are not obsolete. Do not conflate these with Dataverse .NET plug-ins or Windows provisioning. Explain reuse, integration boundaries and operational ownership, then recommend a small governed plugin portfolio with explicit host compatibility. Use only the listed public official sources and their public references, never private tenant messages or local PDFs. Create a project-specific domain SWE agent and all eight outputs through existing core. Target a 60-90 second, 120-160 word executive video; Arial and a refined blue/violet palette. Use a meaningful original three-route comparison and skills-to-tools-to-data diagram with few short LARGE labels, not dense tiny boxes or code walls. Keep section bodies concise and narration equal to the title summary plus section bodies in order with blank-line separation, for measured scene alignment. Use speech-only pronunciation overrides for Microsoft 365, MCP and API when needed, preserving written text. Inspect encoded video/audio, captions, spectrograms, assets and native editable presentations; fix defects without weakening gates or creating duplicate scripts/tests. Keep raw fetched pages local; retain concise cited evidence/provenance. Preserve intermediates only under qc/revisions; final package at release. Verify all formats and the runbook before completion.",
+  "audience": "Executive decision-makers",
+  "sources": [
+    "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development",
+    "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins",
+    "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+  ],
+  "libraryPaths": [],
+  "voiceProfile": "am_michael",
+  "speed": 1,
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "mode": "auto",
+  "id": "microsoft-plugin-architecture"
+}

@@ -3,68 +3,68 @@
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "renderSpecDigest": "b026cc560aca243b4bc9caa6f65fdf987d8f253fc69d5f308c36fc05158d3f88",
   "releaseDigest": "7140c73c89ca538ec5d4a21f7c9eec22daa8ce44e3f3abdeceef2d9168ff6110",
-  "assetInventoryDigest": "55babcbac10057d54fe9679217bf28d0834e6780f9b11b20fd6599fba915e13d",
+  "assetInventoryDigest": "90cbdd8d90814bb8ce0d189df38c231be45788594533db2c8482e9a3615d69cd",
   "outputs": [
     {
       "format": "html",
       "path": "outputs/index.html",
-      "digest": "cc60491587b77204247090ea6eac9e60f1e99b2a18e3c7d3f36acc893d35e09a",
+      "digest": "f9f01c6b54af1ace1e05b3854a1b2bba714e4ec7ec9b94523b89eb7f1d5e42ad",
       "mediaType": "text/html; charset=utf-8",
-      "byteSize": 257216,
+      "byteSize": 255556,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-html-accessible-2"
     },
     {
       "format": "adaptiveDeck",
       "path": "outputs/deck.deck.json",
-      "digest": "a4c4cecaa19c4824f5f9ed5ffe9d780dc84594b29039fa7cdf2533baf92e365d",
+      "digest": "e543545a49af20f5b6ed0bd997073ba921680df3539fac3494c86ca85138f3ed",
       "mediaType": "application/vnd.adaptive-deck+json; charset=utf-8",
-      "byteSize": 264802,
+      "byteSize": 263142,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-adaptive-deck-schema-2"
     },
     {
       "format": "pptx",
       "path": "outputs/deck.pptx",
-      "digest": "1dd04e453077d4e6411ee69e1dc0710bcd3bcd24e751fd8471740f71e53cedd7",
+      "digest": "fa85ae4ded86f3196301b5e4fde33609fb5d9fe63c840e6cf239fe2a21d9dfc7",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "byteSize": 250432,
+      "byteSize": 249187,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-pptx-ooxml-4"
     },
     {
       "format": "docx",
       "path": "outputs/document.docx",
-      "digest": "f4da6dc80b04137705c8e2ba348211bdf6cfbfdb473845e9a2e569b4cee5b7cd",
+      "digest": "66467529820894cc120a0626a43b395e1c577e1ed178088da41b582396ac7aea",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "byteSize": 201597,
+      "byteSize": 200352,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-docx-ooxml-4"
     },
     {
       "format": "pdf",
       "path": "outputs/document.pdf",
-      "digest": "c4743bc2280643cb0388aca374993fb975a0e2702cac7992cd3bd19d34a6dec7",
+      "digest": "b284db0b0f34c27d9d454dccf898ff822eb06c02649b1f8367f3af2aa7d765c3",
       "mediaType": "application/pdf",
-      "byteSize": 148416,
+      "byteSize": 147462,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-pdf-searchable-4"
     },
     {
       "format": "png",
       "path": "outputs/raster.png",
-      "digest": "17056dfd7e1c426d366e01b686867373daf1088f16d8148a5ffc164f636def26",
+      "digest": "b8d664708d32b22781ac6f0e5f23786f5d291cf6e52a5baca99d28c0d5258de9",
       "mediaType": "image/png",
-      "byteSize": 229514,
+      "byteSize": 229066,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-png-raster-1080p-2"
     },
     {
       "format": "jpeg",
       "path": "outputs/raster.jpg",
-      "digest": "b1413a9e5a6ce43bad67221a5df82f97b041a61faa7ff96d62ae58bca0ae5059",
+      "digest": "73d630d984bd5cb78a46ab3ec11e29123b345d592985d14f578e37cf4c48bee5",
       "mediaType": "image/jpeg",
-      "byteSize": 296694,
+      "byteSize": 296615,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-jpeg-raster-1080p-2"
     },
@@ -170,9 +170,9 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/scripts/render-mp4.mjs",
-      "digest": "215b53f086144a92a0c7c915c6f0ec553a1f5c74578fb73e1f7fc8779f56422b",
+      "digest": "54245d042777f4919ab5f4b97c4ec01b0ace13a8dd3dd1084b52f309b01f8202",
       "mediaType": "text/javascript",
-      "byteSize": 14532,
+      "byteSize": 14530,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-remotion-mp4-adapter-3"
     },
@@ -269,9 +269,9 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/visuals/02-identity-boundaries.png",
-      "digest": "c055fe7a662cb9aba1cfa3eb67685c73627df1d6a08de9c20fcb032880173df6",
+      "digest": "5538dad333787d88122b6a07ccf5142bde6e9d90f9578aadb154798a0b13bfa6",
       "mediaType": "image/png",
-      "byteSize": 78700,
+      "byteSize": 77455,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-remotion-mp4-adapter-3"
     },
@@ -287,7 +287,7 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/public/assets/microsoft-autopilot-agents/audio.wav",
-      "digest": "7030b96cb3658427fde5f72fcc479f8b8cd52d5ba43adfbc00328dff164c50bf",
+      "digest": "483608212285c957016a23d928e4f59ff724e03aca98501183cde637ba48be90",
       "mediaType": "audio/wav",
       "byteSize": 11812844,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
@@ -296,25 +296,25 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/audio/narration-metadata.json",
-      "digest": "c6392639b85cadafbb2ee6bb936fe147d744ba5731f442bcaf374c36d7edf5ae",
+      "digest": "bf78af9f4325f7e11c65132af958cb1c6f31895bc0b42b15f0ab35491b1f6144",
       "mediaType": "application/json",
-      "byteSize": 9001,
+      "byteSize": 8999,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-remotion-mp4-adapter-3"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/dist/render.mp4",
-      "digest": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+      "digest": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
       "mediaType": "video/mp4",
-      "byteSize": 11291663,
+      "byteSize": 11324472,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-remotion-mp4-adapter-3"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/render-receipt.json",
-      "digest": "e4f83784df695b27b1da3d0c28742f2e58eadc8d63534821b4f9df574f684f1d",
+      "digest": "cb57a0ccd1d2c1cefc5c221dc8f97c8a4f7499799084bd2c6f76b67b4a088e81",
       "mediaType": "application/json",
       "byteSize": 367,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
@@ -323,7 +323,7 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/audio-qa.json",
-      "digest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0",
+      "digest": "b23045c5eae9004ee740ffcf13c53fa0edfd1779a5af1a0427421a4098167cf3",
       "mediaType": "application/json",
       "byteSize": 4410,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
@@ -332,16 +332,16 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "812119730c9c223d77eb25da54d2a0a4d60da1a31dfabe6e329ebc69c464e887",
+      "digest": "012b8d9c8e690202a47770f9a5c21c63c3ac49ac3b514eb91b6c6f470c7654b7",
       "mediaType": "image/svg+xml",
-      "byteSize": 446839,
+      "byteSize": 446842,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
       "adapter": "a2swe-remotion-mp4-adapter-3"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/mp4-qc.json",
-      "digest": "685c2cf12521ac2c68ef3f933ebec14f0b0b8702d2d2481f04353116e6f99255",
+      "digest": "029443363733767bf1d950341cf8c2675a615a1519a108ddab95d7cfb69799a5",
       "mediaType": "application/json",
       "byteSize": 3567,
       "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",

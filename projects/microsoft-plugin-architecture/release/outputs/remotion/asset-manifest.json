@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "audio": {
+    "required": true,
+    "path": "public/assets/microsoft-plugin-architecture/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "05ecdf45223573ec64294d7b334b1fc1ea9e2b1d29358875cca11f24bae1c225",
+    "expectedDurationSeconds": 63.475,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "Microsoft 365": "Microsoft three sixty five",
+        "MCP": "M C P",
+        "API": "A P I"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": []
+}

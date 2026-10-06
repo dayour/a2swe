@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Power Platform Community Conference",
+  "kind": "topic",
+  "brief": "Create a polished executive engagement package about Power Platform Community Conference 2026, as of 2026-10-05. Lead with the decision to send a focused cross-functional team with a governed AI/app/automation pilot objective; label this as a recommendation, not a measured outcome. Ground October 27-29, 2026 and MGM Grand Las Vegas in the official Microsoft announcement. The event is upcoming, not a recap. Do not repeat expired registration prices or invent ROI, customer results or announcements. Explain why agents, apps, automation, trusted data and governance matter to executive execution. Use only the listed public primary sources and their public references, not private email, Teams, CRM or local PDF material. Create the project-specific domain SWE agent and all eight formats through existing a2swe core. Aim for a concise 60-90 second executive video with 120-160 spoken words, a bottom-line opening, three substantive points and a clear next action. Use Arial and a purposeful dark-green/teal derived design, not an alleged official template. Include meaningful original diagrams: conference-week timeline and learning-to-pilot flow. Use Mermaid, Marp or Excalidraw where useful, and real asset bundles with provenance. Keep labels and citations readable, slides editable, captions based on actual narration. Fix weak layouts, pronunciation, timing and quality failures at the source; no new test scripts or duplicate renderer. Keep raw fetched HTML local and retain concise evidence/provenance rather than wholesale page copies. Verify the release and runbook.",
+  "audience": "Executive decision-makers",
+  "sources": [
+    "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/",
+    "https://powerplatformconf.com/faq"
+  ],
+  "libraryPaths": [],
+  "voiceProfile": "am_michael",
+  "speed": 1,
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "mode": "auto",
+  "id": "power-platform-community-conference"
+}

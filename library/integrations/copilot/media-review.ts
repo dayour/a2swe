@@ -321,7 +321,7 @@ export class MediaReviewService {
     const [reviewId, ...parts] = remainder.split('/');
     const state = this.requireReview(reviewId);
     if (!state.studioRoot) throw new Error('studio_not_open');
-    const relative = parts.join('/') || 'index.html';
+    const relative = decodeURIComponent(parts.join('/') || 'index.html');
     const file = await safeChildPath(state.studioRoot, relative);
     return serveFile(file, mediaType(file), request, response);
   }
@@ -468,7 +468,7 @@ export class MediaReviewService {
       : Array.isArray(value.cues) ? value.cues
       : Array.isArray(value.subtitles) ? value.subtitles
       : [];
-    return raw.map((cue, index) => cueFromUnknown(cue, index, toRepoRelative(this.workspace, file))).filter((cue): cue is ReviewSubtitleCue => Boolean(cue));
+    return raw.map((cue, index) => cueFromUnknown(cue, index, toRepoRelative(this.workspace, file), numberValue(value.fps))).filter((cue): cue is ReviewSubtitleCue => Boolean(cue));
   }
 
   private async cuesFromNarrationMetadata(file: string): Promise<ReviewSubtitleCue[]> {
@@ -608,10 +608,9 @@ async function serveFile(file: string, type: string, request: http.IncomingMessa
 async function safeChildPath(root: string, relative: string): Promise<string> {
   const cleaned = relative || 'index.html';
   if (cleaned.includes('\0')) throw new Error('invalid_path');
-  const absolute = path.resolve(root, cleaned);
+  const absolute = await realpath(path.resolve(root, cleaned));
   const realRoot = await realpath(root);
-  const realParent = await realpath(path.dirname(absolute));
-  const rel = path.relative(realRoot, realParent);
+  const rel = path.relative(realRoot, absolute);
   if (rel.startsWith('..') || path.isAbsolute(rel)) throw new Error('path_outside_studio_root');
   return absolute;
 }
@@ -628,6 +627,10 @@ function mediaType(file: string): string {
   if (extension === '.svg') return 'image/svg+xml';
   if (extension === '.js') return 'text/javascript';
   if (extension === '.css') return 'text/css';
+  if (extension === '.ttf') return 'font/ttf';
+  if (extension === '.otf') return 'font/otf';
+  if (extension === '.woff') return 'font/woff';
+  if (extension === '.woff2') return 'font/woff2';
   if (extension === '.html') return 'text/html; charset=utf-8';
   if (extension === '.json') return 'application/json';
   if (extension === '.vtt') return 'text/vtt';
@@ -639,11 +642,17 @@ function projectIdFromPath(workspace: string, absolutePath: string): string | un
   return parts[0] === 'projects' ? parts[1] : undefined;
 }
 
-function cueFromUnknown(value: unknown, index: number, sourcePath: string): ReviewSubtitleCue | undefined {
+function cueFromUnknown(value: unknown, index: number, sourcePath: string, fps?: number): ReviewSubtitleCue | undefined {
   if (!value || typeof value !== 'object') return undefined;
   const record = value as Record<string, unknown>;
-  const start = numberValue(record.startSeconds ?? record.start ?? record.from ?? record.startTime);
-  const end = numberValue(record.endSeconds ?? record.end ?? record.to ?? record.endTime);
+  const frames = record.startFrame !== undefined || record.endFrame !== undefined;
+  let start = numberValue(record.startSeconds ?? record.start ?? record.from ?? record.startTime);
+  let end = numberValue(record.endSeconds ?? record.end ?? record.to ?? record.endTime);
+  if (frames) {
+    if (fps === undefined || !Number.isFinite(fps) || fps <= 0) throw new Error(`review_timeline_fps_invalid: ${sourcePath}`);
+    start = numberValue(record.startFrame) / fps;
+    end = numberValue(record.endFrame) / fps;
+  }
   const text = typeof record.text === 'string' ? record.text
     : typeof record.narration === 'string' ? record.narration
     : typeof record.caption === 'string' ? record.caption

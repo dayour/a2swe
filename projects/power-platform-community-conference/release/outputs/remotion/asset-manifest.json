@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "audio": {
+    "required": true,
+    "path": "public/assets/power-platform-community-conference/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "4d84cd96ad31774ac35a0e4207c06dd1e3f3b9fc9c296ba5d9e34c360fbc2fce",
+    "expectedDurationSeconds": 71.7,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "PPCC": "P P C C"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": [
+    {
+      "assetId": "executive-pilot-team",
+      "role": "diagram",
+      "mediaType": "image/png",
+      "alt": "Three-step executive flow from a focused team to one chosen opportunity and one governed pilot.",
+      "digest": "b11568b5fddfe3c95b61837a7c27c333c91a1e8ce86a8507291438b450cb641a",
+      "path": "public/assets/power-platform-community-conference/executive-pilot-team-b11568b5fddf.png",
+      "availableInPackage": true,
+      "requiredForRender": true
+    }
+  ]
+}

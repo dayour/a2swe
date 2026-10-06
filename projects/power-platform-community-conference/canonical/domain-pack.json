@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "power-platform-community-conference",
+  "kind": "topic",
+  "canonicalName": "Power Platform Community Conference",
+  "asOf": "2026-10-05",
+  "windowStart": "2026-01-05",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-microsoft-announcement",
+      "domainId": "power-platform-community-conference",
+      "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/",
+      "publisher": "Microsoft Power Platform Blog",
+      "title": "Register now for PPCC 2026: Come for the learning, stay for the community",
+      "publicationDate": "2026-08-13",
+      "modifiedDate": null,
+      "retrievedAt": "2026-10-05T23:21:29.581Z",
+      "dateEvidence": "article:published_time and awa-publishedDate metadata in the fetched page",
+      "contentHash": "036d3949be21c18761be9b25a12c151506884232d534ce1086ea841f3e7e7c33"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-ppcc-faq",
+      "domainId": "power-platform-community-conference",
+      "canonicalUrl": "https://powerplatformconf.com/faq",
+      "publisher": "Power Platform Community Conference",
+      "title": "FAQ | PPCC26",
+      "publicationDate": null,
+      "modifiedDate": null,
+      "retrievedAt": "2026-10-05T23:21:29.710Z",
+      "dateEvidence": "No publication or modification date was established in the fetched page.",
+      "contentHash": "52e156ef057ee7ec81c01bdf7e7dc906fbbd9a072dc62a78a1b81877f5adc63f"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-microsoft-announcement",
+      "sourceDigest": "036d3949be21c18761be9b25a12c151506884232d534ce1086ea841f3e7e7c33",
+      "locator": "article body, opening section",
+      "quote": "From October 27–29, 2026 at the MGM Grand in Las Vegas, solution makers from all around the world will come together to learn, connect, and build what’s next with Microsoft 365 Copilot, agents, apps, automation, and data.",
+      "quoteDigest": "4b44b33f65643ee528b9393f6de846a33f2cb8452ca83bb51ec0aa807c0f196d"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-microsoft-announcement",
+      "sourceDigest": "036d3949be21c18761be9b25a12c151506884232d534ce1086ea841f3e7e7c33",
+      "locator": "article body, Learn. Build. Make it real.",
+      "quote": "At PPCC, you’ll learn how agents, apps, workflows, automation, and trusted data systems can work together as complete, governed business solutions.",
+      "quoteDigest": "4ff6623a285d36947a1cbfd403d7d2794ef0922bcb089ba680dc6f4ce13e1499"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-ppcc-faq",
+      "sourceDigest": "52e156ef057ee7ec81c01bdf7e7dc906fbbd9a072dc62a78a1b81877f5adc63f",
+      "locator": "FAQ answer: What is the Power Platform Community Conference?",
+      "quote": "The conference focuses on real implementation. Sessions cover how teams design, build, and scale solutions in practice, including architecture, governance, and AI-driven scenarios.",
+      "quoteDigest": "07ac18cec111f5e013524d999a50aa2d3f019b46053d038dcb61a4353d4060c8"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-ppcc-faq",
+      "sourceDigest": "52e156ef057ee7ec81c01bdf7e7dc906fbbd9a072dc62a78a1b81877f5adc63f",
+      "locator": "FAQ answer: When and where is the conference taking place?",
+      "quote": "Additional workshops take place on: October 25-26 (pre-conference) October 30 (post-conference)",
+      "quoteDigest": "30184b473606bb2acfd27fcf4121edc11b37dd8f6c2fdc750e5cbb0a3aff4f3b"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-ppcc-faq",
+      "sourceDigest": "52e156ef057ee7ec81c01bdf7e7dc906fbbd9a072dc62a78a1b81877f5adc63f",
+      "locator": "FAQ answer: How do workshops work?",
+      "quote": "Workshops are separate, instructor-led sessions designed for deeper, applied learning.",
+      "quoteDigest": "f666cc5c93447dee374dd75527c42e9369e69a0519c6826af8014cad263ad096"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+      "evidenceIds": [
+        "ev-01"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+      "evidenceIds": [
+        "ev-01"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+      "evidenceIds": [
+        "ev-02"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios.",
+      "evidenceIds": [
+        "ev-03"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "Applied workshops run October 25-26 and October 30, outside the main conference.",
+      "evidenceIds": [
+        "ev-04",
+        "ev-05"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The package does not claim measured ROI, customer outcomes, attendance outcomes, or unannounced product news.",
+    "Registration pricing is intentionally omitted because the request prohibits repeating expired prices.",
+    "The FAQ page did not expose a verified publication or modification date.",
+    "No private email, Teams, CRM, tenant data, or local PDF material was used.",
+    "The recommendation to send a focused team is an editorial proposal, not an observed result."
+  ]
+}

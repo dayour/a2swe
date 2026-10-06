@@ -1,4 +1,25 @@
 {
+  "power-platform-community-conference": {
+    "title": "Power Platform Community Conference",
+    "description": "A decision-first executive briefing on PPCC 2026, with primary-source event facts, a focused attendance plan, and eight generated presentation formats.",
+    "note": "Reviewed 71.744-second 1080p release with Michael narration, six native PowerPoint slides, four Word/PDF pages, and source-bound video previews.",
+    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "blockers": []
+  },
+  "microsoft-autopilot-agents": {
+    "title": "Microsoft Autopilot Agents",
+    "description": "An executive briefing on Copilot Autopilot, its private-preview scope, accountable agent identities, and a bounded pilot. Foundry is explicitly an architectural lens, not an implementation-equivalence claim.",
+    "note": "Reviewed 61.589-second 1080p release with Michael narration, five native PowerPoint slides, four Word/PDF pages, and all eight output formats.",
+    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "blockers": []
+  },
+  "microsoft-plugin-architecture": {
+    "title": "Microsoft Plugin Architecture",
+    "description": "An executive comparison of Cowork packages, declarative-agent MCP/API actions, and GitHub Copilot plugins. Separates reusable skills and MCP configuration from host-specific delivery contracts.",
+    "note": "Eight-format package with explicit REST API and legacy-plugin support, editable slides, source citations, and project-local native Office and media review evidence.",
+    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "blockers": []
+  },
   "datadog-cowork-plugin": {
     "title": "Datadog Cowork plugin",
     "description": "A core-managed 1080p explainer built end to end by the a2swe pipeline: cited DomainPack, ContentIR, Kokoro ONNX narration, Remotion video with mermaid, excalidraw and marp visuals, and eight verified output formats.",

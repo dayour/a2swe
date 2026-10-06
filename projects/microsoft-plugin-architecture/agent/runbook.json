@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "microsoft-plugin-architecture",
+  "projectId": "microsoft-plugin-architecture",
+  "updatedAt": "2026-10-06T01:22:55.246Z",
+  "domainDigest": "a1a966a6ace0758a5e5d6a57f2e82916912c3f9be70d17247ed7b8b1c8d49f63",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "stage": "delivery",
+  "gates": [
+    {
+      "name": "domain",
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "7a5be1c65e09533b50f8d8a51f9e888073642cd7ec1eb29b3ab47c71180f8af2"
+    },
+    {
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "e04a1928356b3396dad8f829c7f233cfa3f3d0d2d1eb18ada1ec767c6d2b3654"
+    },
+    {
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "00ac9f145134d5bcc4f2eb9bdd4bad5aab56a5b30a0e753a6cca0566310a1d52"
+    },
+    {
+      "name": "native-office",
+      "status": "passed",
+      "evidencePath": "qc/native-office/native-render.json",
+      "evidenceDigest": "bd873861d76e79f5abcb13b78e45938a845b2e0d4daaccc3b61ec184528b0a26"
+    },
+    {
+      "name": "release",
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "56f795097a56153f80c06afb24e0bea4ab1dc99aacd4665d655f0b8f9db47047"
+    }
+  ],
+  "stages": [
+    {
+      "name": "scaffold",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [],
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
+    },
+    {
+      "name": "research",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "release/domain-pack.json"
+      ]
+    },
+    {
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
+    },
+    {
+      "name": "render",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "content"
+      ],
+      "evidencePaths": [
+        "release/outputs/remotion/dist/render.mp4",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx"
+      ]
+    },
+    {
+      "name": "qc",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "render"
+      ],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "qc/native-office/native-render.json",
+        "release/parity-manifest.json"
+      ]
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "d57d8911c7001e5a5ac2e897b04d913f733bef8a784643143849641a60ace5cd",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "7a5be1c65e09533b50f8d8a51f9e888073642cd7ec1eb29b3ab47c71180f8af2",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "e04a1928356b3396dad8f829c7f233cfa3f3d0d2d1eb18ada1ec767c6d2b3654",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "d0d5006a20a29b964b064b6a5975e2a869b9d55633c9b4de99ae3d7b7cf94cb1",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "257a497e6e2b4d5e72fe07d68d8b0ce6125012ac39cb6efbaea6067636b21b88",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "27533384bcaf7940477a8e2728313431f103bdcb00df12be9f045b5086f88e27",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "b0026ecde13a9f99035d7c31c22c3af9e3e675c148036879459acbf2188474fb",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "00ac9f145134d5bcc4f2eb9bdd4bad5aab56a5b30a0e753a6cca0566310a1d52",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "15d0890ac6ab4ae234496c891b0f91cac1c05c8871912e34cae0d0e7f14ed007",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "56f795097a56153f80c06afb24e0bea4ab1dc99aacd4665d655f0b8f9db47047",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "fe7bfe218a00f591a8f38f6f494536637c20d721365cad9eb587eb420e010d3f",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "f5509ac0e792bb86e5101b0e069ede898c905f94d4adfa98ebb875c3451c9e04",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "qc/native-office/native-render.json",
+      "digest": "bd873861d76e79f5abcb13b78e45938a845b2e0d4daaccc3b61ec184528b0a26",
+      "mediaType": "application/json",
+      "stage": "qc"
+    }
+  ],
+  "blockers": [],
+  "nextAction": "Use the verified release package for executive decision-making; publication and distribution remain outside a2swe."
+}

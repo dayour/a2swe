@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "microsoft-autopilot-agents",
   "projectId": "microsoft-autopilot-agents",
-  "updatedAt": "2026-10-06T00:43:02.102Z",
+  "updatedAt": "2026-10-06T01:38:59.017Z",
   "domainDigest": "293c06d00035e921e8f4bf84768b515d6de917530d4fdc75fa83a2fee9108601",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "stage": "delivery",
@@ -23,13 +23,13 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0"
+      "evidenceDigest": "b23045c5eae9004ee740ffcf13c53fa0edfd1779a5af1a0427421a4098167cf3"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "7f5c30493db14f36c67da1ab71953b01095cfc30d82b54c53613ef87bf6af449"
+      "evidenceDigest": "9500d4e796086b83d6727eb2a8541ac86031d602021d1823e741ece3e2f95daf"
     }
   ],
   "stages": [
@@ -38,27 +38,40 @@
       "status": "complete",
       "owner": "a2swe",
       "dependencies": [],
-      "evidencePaths": ["agent/SWE_AGENT.md"]
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
     },
     {
       "name": "research",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["scaffold"],
-      "evidencePaths": ["release/domain-pack.json"]
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "release/domain-pack.json"
+      ]
     },
     {
       "name": "content",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["research"],
-      "evidencePaths": ["release/content-ir.json", "release/render-spec.json"]
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
     },
     {
       "name": "render",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["content"],
+      "dependencies": [
+        "content"
+      ],
       "evidencePaths": [
         "release/outputs/remotion/dist/render.mp4",
         "release/outputs/deck.pptx",
@@ -69,7 +82,9 @@
       "name": "qc",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["render"],
+      "dependencies": [
+        "render"
+      ],
       "evidencePaths": [
         "release/outputs/remotion/qc/audio-qa.json",
         "release/outputs/remotion/qc/audio-spectrogram.svg",
@@ -80,8 +95,13 @@
       "name": "delivery",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["qc"],
-      "evidencePaths": ["release/asset-inventory.json", "release/release-plan.json"]
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
     }
   ],
   "artifacts": [
@@ -111,43 +131,43 @@
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+      "digest": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "1dd04e453077d4e6411ee69e1dc0710bcd3bcd24e751fd8471740f71e53cedd7",
+      "digest": "fa85ae4ded86f3196301b5e4fde33609fb5d9fe63c840e6cf239fe2a21d9dfc7",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "f4da6dc80b04137705c8e2ba348211bdf6cfbfdb473845e9a2e569b4cee5b7cd",
+      "digest": "66467529820894cc120a0626a43b395e1c577e1ed178088da41b582396ac7aea",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "0dcadccd93073a75da885aabb24818d464e9e4b24d0c565f720fe89683996fe0",
+      "digest": "b23045c5eae9004ee740ffcf13c53fa0edfd1779a5af1a0427421a4098167cf3",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "812119730c9c223d77eb25da54d2a0a4d60da1a31dfabe6e329ebc69c464e887",
+      "digest": "012b8d9c8e690202a47770f9a5c21c63c3ac49ac3b514eb91b6c6f470c7654b7",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "7f5c30493db14f36c67da1ab71953b01095cfc30d82b54c53613ef87bf6af449",
+      "digest": "9500d4e796086b83d6727eb2a8541ac86031d602021d1823e741ece3e2f95daf",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "de1c8801225429e148d1f5689cd04e39fe47ba501343c985d4581456a64c6376",
+      "digest": "3dc39cb0d655139445dbff82224d7045b17360738fab7da5e2f952e4de5401f0",
       "mediaType": "application/json",
       "stage": "delivery"
     },

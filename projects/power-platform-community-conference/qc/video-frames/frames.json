@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "release/outputs/remotion/dist/render.mp4",
+  "sourceSha256": "668f543de75ae269d073efb100757b5947f03a78eaa4ca4fe5b90f335f515f10",
+  "frames": [
+    {
+      "sceneId": "title",
+      "requestedTimeSeconds": 7.533333333333333,
+      "path": "scene-01.png",
+      "sha256": "8922d8904d73cf00158e810ccc39ed92d1740b77ceebda6bbe3fc295575183ae"
+    },
+    {
+      "sceneId": "decision",
+      "requestedTimeSeconds": 22.833333333333332,
+      "path": "scene-02.png",
+      "sha256": "bc51592db933b458c66791db4469acf35d8dfd929b7512897821f82ceb39629d"
+    },
+    {
+      "sceneId": "conference-week",
+      "requestedTimeSeconds": 35.96666666666667,
+      "path": "scene-03.png",
+      "sha256": "ff4dd25aaf8891f92a306cd0006c6b26ca8dcb1341f38a31f73c08fa2a8dddad"
+    },
+    {
+      "sceneId": "execution-value",
+      "requestedTimeSeconds": 47.96666666666667,
+      "path": "scene-04.png",
+      "sha256": "9e96f4a0e3fa72a6652d1773934c9d7133c0641330d3ba5cc9265e01c69fd9d3"
+    },
+    {
+      "sceneId": "next-action",
+      "requestedTimeSeconds": 63.13333333333333,
+      "path": "scene-05.png",
+      "sha256": "c99ca03c1d4b0480ac46da57cdf0b68ebe6dac99e6f733f90cdb0be9e06d40e1"
+    }
+  ]
+}

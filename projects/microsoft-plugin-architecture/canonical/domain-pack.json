@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "microsoft-plugin-architecture",
+  "kind": "framework",
+  "canonicalName": "Microsoft Plugin Architecture",
+  "asOf": "2026-10-05",
+  "windowStart": "2026-01-05",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-cowork",
+      "domainId": "microsoft-plugin-architecture",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development",
+      "publisher": "Microsoft Learn",
+      "title": "Build plugins for Copilot Cowork",
+      "publicationDate": "2026-10-02",
+      "modifiedDate": "2026-10-02",
+      "retrievedAt": "2026-10-06T00:46:44.482Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-02 and updated_at 2026-10-02T22:37:00Z.",
+      "contentHash": "5724ff68e26e818234bc093fa78947a8eee78273244c833ef6d05487f63c5a3d"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-m365-actions",
+      "domainId": "microsoft-plugin-architecture",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins",
+      "publisher": "Microsoft Learn",
+      "title": "MCP and API plugins for declarative agents",
+      "publicationDate": "2026-09-30",
+      "modifiedDate": "2026-09-30",
+      "retrievedAt": "2026-10-06T00:46:44.749Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-30 and updated_at 2026-09-30T11:54:00Z.",
+      "contentHash": "0ae34f69fcf22ecc80f05921b27f5cc42e5088755121aa70fa130f7aea2dc1ad"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-github-plugins",
+      "domainId": "microsoft-plugin-architecture",
+      "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins",
+      "publisher": "GitHub Docs",
+      "title": "About GitHub Copilot plugins",
+      "publicationDate": null,
+      "modifiedDate": null,
+      "retrievedAt": "2026-10-06T00:46:44.903Z",
+      "dateEvidence": "The selected public page did not expose a publication or modification date in the fetched document.",
+      "contentHash": "cd835b233acfcb9984fac32068d634e163762de47873cd01e54ca3827ae4c203"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-cowork",
+      "sourceDigest": "5724ff68e26e818234bc093fa78947a8eee78273244c833ef6d05487f63c5a3d",
+      "locator": "Opening extensibility definition",
+      "quote": "Microsoft Copilot Cowork supports extensibility through M365 App Packages—the same distribution mechanism used by Teams apps, Copilot agents, and Office add-ins.",
+      "quoteDigest": "770513737f071b726b9cd9caae05bf752c89403fdcd75664350f22f89105df74"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-cowork",
+      "sourceDigest": "5724ff68e26e818234bc093fa78947a8eee78273244c833ef6d05487f63c5a3d",
+      "locator": "Opening capability list and packaging statement",
+      "quote": "Both are packaged together in a standard Microsoft 365 app package and distributed through the Microsoft 365 App Store.",
+      "quoteDigest": "a223407cf8f8c6aa74fef06fccecf2550f44580bbd7c4230cc2936995253f49a"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-cowork",
+      "sourceDigest": "5724ff68e26e818234bc093fa78947a8eee78273244c833ef6d05487f63c5a3d",
+      "locator": "What you'll build, skills portability statement",
+      "quote": "Skills use the Agent Skills open standard—the same format supported by Claude Code, Visual Studio Code Copilot, Gemini CLI, Cursor, JetBrains Junie, and 30+ other AI tools.",
+      "quoteDigest": "3e17f7a8659d480067d5a0d06261180071387739068e333dc1f8c80411324e3b"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-m365-actions",
+      "sourceDigest": "0ae34f69fcf22ecc80f05921b27f5cc42e5088755121aa70fa130f7aea2dc1ad",
+      "locator": "Opening definition",
+      "quote": "MCP and API plugins are custom actions that enable declarative agents in Microsoft 365 Copilot to interact with Model Context Protocol (MCP) servers or REST APIs that have an OpenAPI description.",
+      "quoteDigest": "f807b953a8ba5b5b72df247e04ca74a90e61437e76272077193f572faafd0f2c"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-m365-actions",
+      "sourceDigest": "0ae34f69fcf22ecc80f05921b27f5cc42e5088755121aa70fa130f7aea2dc1ad",
+      "locator": "Important note on host boundary",
+      "quote": "MCP and API plugins are supported as actions within declarative agents. They aren't enabled as standalone experiences in Microsoft 365 Copilot.",
+      "quoteDigest": "6133b555835e4d2a96deb14b8839ec55503a598642a94da96df61302b0e706d8"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-m365-actions",
+      "sourceDigest": "0ae34f69fcf22ecc80f05921b27f5cc42e5088755121aa70fa130f7aea2dc1ad",
+      "locator": "How Copilot discovers MCP server tools",
+      "quote": "REST API plugins always use the tools defined in the plugin manifest.",
+      "quoteDigest": "95f265d29cf299b4191ea42d025e8924cb9ca677e83674759b6711543b4ff9c5"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-github-plugins",
+      "sourceDigest": "cd835b233acfcb9984fac32068d634e163762de47873cd01e54ca3827ae4c203",
+      "locator": "Plugin formats, Agent Plugins 1.0",
+      "quote": "Agent Plugins 1.0 is a portable format for sharing skills and MCP server configurations across compatible clients.",
+      "quoteDigest": "124efd5f89155a7bdcaeceb71a80e541b1aaa8a3f73ba27e971bf81bb618c2d3"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-github-plugins",
+      "sourceDigest": "cd835b233acfcb9984fac32068d634e163762de47873cd01e54ca3827ae4c203",
+      "locator": "Agent Plugins 1.0 structure",
+      "quote": "Other components, including agents, hooks, commands, and LSP servers, are client-specific.",
+      "quoteDigest": "afe69e4b5f031da6274a88b36784528f4f3044b247da08d2e9efa3882db91e32"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-github-plugins",
+      "sourceDigest": "cd835b233acfcb9984fac32068d634e163762de47873cd01e54ca3827ae4c203",
+      "locator": "Plugin formats, support statement",
+      "quote": "Both formats are supported. Adding $schema changes how Copilot interprets the manifest and discovers components. Plugins without $schema continue to load as legacy plugins.",
+      "quoteDigest": "129f1c12f11ce813600b891507ca7f91d59150e19bef627bcb8c1993d8cfbe9f"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+      "evidenceIds": ["ev-01", "ev-02", "ev-04", "ev-05", "ev-07"],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific.",
+      "evidenceIds": ["ev-03", "ev-07", "ev-08"],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
+      "evidenceIds": ["ev-01", "ev-02"],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
+      "evidenceIds": ["ev-04", "ev-05", "ev-06"],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported.",
+      "evidenceIds": ["ev-07", "ev-08", "ev-09"],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected sources do not establish universal compatibility for every skill, MCP server, authentication method or client.",
+    "The package recommends governance and portfolio ownership as a proposed operating model; the sources do not prescribe one enterprise organization design.",
+    "No customer outcome, savings estimate or production operating metric was provided by the selected sources.",
+    "This project intentionally excludes Dataverse .NET plug-ins, Windows provisioning, private tenant records and local PDFs."
+  ]
+}

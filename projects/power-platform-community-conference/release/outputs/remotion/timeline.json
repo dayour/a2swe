@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2151,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "PPCC 2026: turn conference learning into one governed pilot",
+      "body": "PPCC 2026 is an upcoming opportunity to connect agents, apps, automation, trusted data, and governance to a concrete executive pilot decision.",
+      "narration": "PPCC 2026 is an upcoming opportunity to connect agents, apps, automation, trusted data, and governance to a concrete executive pilot decision.",
+      "claims": [
+        "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+        "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+        "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+        "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios.",
+        "Applied workshops run October 25-26 and October 30, outside the main conference."
+      ],
+      "claimSources": [
+        "[ev-01] Register now for PPCC 2026: Come for the learning, stay for the community",
+        "[ev-01] Register now for PPCC 2026: Come for the learning, stay for the community",
+        "[ev-02] Register now for PPCC 2026: Come for the learning, stay for the community",
+        "[ev-03] FAQ | PPCC26",
+        "[ev-04] FAQ | PPCC26"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+          "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+          "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        }
+      ],
+      "assetIds": [
+        "executive-pilot-team"
+      ],
+      "visual": null,
+      "visualId": null,
+      "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+      "startFrame": 0,
+      "durationInFrames": 452,
+      "endFrame": 452,
+      "speechStartFrame": -1,
+      "speechEndFrame": -1
+    },
+    {
+      "id": "decision",
+      "kind": "section",
+      "title": "Bottom line: send a focused team with one pilot objective",
+      "body": "Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.",
+      "narration": "Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.",
+      "claims": [
+        "Microsoft frames PPCC around Copilot, agents, apps, automation, and data."
+      ],
+      "claimSources": [
+        "[ev-01] Register now for PPCC 2026: Come for the learning, stay for the community"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+          "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/"
+        }
+      ],
+      "assetIds": [
+        "executive-pilot-team"
+      ],
+      "visual": null,
+      "visualId": null,
+      "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+      "startFrame": 452,
+      "durationInFrames": 466,
+      "endFrame": 918,
+      "speechStartFrame": 451,
+      "speechEndFrame": 451
+    },
+    {
+      "id": "conference-week",
+      "kind": "section",
+      "title": "Use the full conference week deliberately",
+      "body": "Main conference: October 27-29 at the MGM Grand in Las Vegas. Workshops: October 25-26 and October 30.",
+      "narration": "Main conference: October 27-29 at the MGM Grand in Las Vegas. Workshops: October 25-26 and October 30.",
+      "claims": [
+        "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+        "Applied workshops run October 25-26 and October 30, outside the main conference."
+      ],
+      "claimSources": [
+        "[ev-01] Register now for PPCC 2026: Come for the learning, stay for the community",
+        "[ev-04] FAQ | PPCC26"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+          "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  pre[\"OCT 25-26<br/>WORKSHOPS\"] --> main[\"OCT 27-29<br/>MAIN CONFERENCE\"] --> post[\"OCT 30<br/>WORKSHOPS\"]",
+        "caption": "Conference-week timeline: applied workshops bracket the October 27-29 main conference."
+      },
+      "visualId": "02-conference-week",
+      "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+      "startFrame": 918,
+      "durationInFrames": 322,
+      "endFrame": 1240,
+      "speechStartFrame": 917,
+      "speechEndFrame": 917
+    },
+    {
+      "id": "execution-value",
+      "kind": "section",
+      "title": "Connect innovation ambition to execution controls",
+      "body": "PPCC connects agents, apps, automation, and trusted data with implementation, architecture, governance, and AI-driven scenarios.",
+      "narration": "PPCC connects agents, apps, automation, and trusted data with implementation, architecture, governance, and AI-driven scenarios.",
+      "claims": [
+        "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+        "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios."
+      ],
+      "claimSources": [
+        "[ev-02] Register now for PPCC 2026: Come for the learning, stay for the community",
+        "[ev-03] FAQ | PPCC26"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+          "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  learn[\"LEARN\"] --> choose[\"CHOOSE\"] --> govern[\"GOVERN\"] --> pilot[\"PILOT\"]",
+        "caption": "Learning-to-pilot flow: narrow the opportunity, ground it in trusted data, set controls, then test."
+      },
+      "visualId": "03-execution-value",
+      "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+      "startFrame": 1240,
+      "durationInFrames": 398,
+      "endFrame": 1638,
+      "speechStartFrame": 1239,
+      "speechEndFrame": 1239
+    },
+    {
+      "id": "next-action",
+      "kind": "section",
+      "title": "Require one pilot charter after the event",
+      "body": "Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot. Expansion should depend on that evidence, not conference enthusiasm.",
+      "narration": "Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot. Expansion should depend on that evidence, not conference enthusiasm.",
+      "claims": [
+        "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios."
+      ],
+      "claimSources": [
+        "[ev-03] FAQ | PPCC26"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "FAQ | PPCC26",
+          "canonicalUrl": "https://powerplatformconf.com/faq"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+      "startFrame": 1638,
+      "durationInFrames": 513,
+      "endFrame": 2151,
+      "speechStartFrame": 1637,
+      "speechEndFrame": 1637
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: recommend sending a focused cross-functional team to PPCC 2026 with one objective: return with a governed AI, app, and automation pilot proposal.",
+      "startFrame": 8,
+      "endFrame": 428,
+      "sourceSegmentIndex": 0
+    },
+    {
+      "text": "This is a recommendation, not a measured outcome.",
+      "startFrame": 445,
+      "endFrame": 550,
+      "sourceSegmentIndex": 1
+    },
+    {
+      "text": "Treat the event as a structured learning sprint for business, platform, data, and risk leaders.",
+      "startFrame": 550,
+      "endFrame": 753,
+      "sourceSegmentIndex": 1
+    },
+    {
+      "text": "PPCC runs October 27 through 29 at the MGM Grand in Las Vegas.",
+      "startFrame": 770,
+      "endFrame": 951,
+      "sourceSegmentIndex": 2
+    },
+    {
+      "text": "Applied workshops run before and after the main conference.",
+      "startFrame": 951,
+      "endFrame": 1124,
+      "sourceSegmentIndex": 2
+    },
+    {
+      "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+      "startFrame": 1141,
+      "endFrame": 1314,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "The program connects those capabilities to trusted data, implementation, architecture, and governance.",
+      "startFrame": 1314,
+      "endFrame": 1556,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "That is the bridge from innovation ambition to execution controls.",
+      "startFrame": 1556,
+      "endFrame": 1712,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "After the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure.",
+      "startFrame": 1729,
+      "endFrame": 2009,
+      "sourceSegmentIndex": 4
+    },
+    {
+      "text": "Expand only when that evidence supports the next decision.",
+      "startFrame": 2009,
+      "endFrame": 2136,
+      "sourceSegmentIndex": 4
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "weighted-duration-no-semantic-alignment",
+    "sceneIdsPresent": false,
+    "segmentCount": 5,
+    "cueCount": 10
+  }
+}

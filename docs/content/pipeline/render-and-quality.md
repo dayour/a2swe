@@ -38,6 +38,14 @@ The generated project enforces:
 `npm run render` synthesizes missing or stale audio, renders the MP4, and reruns
 encoded-media QC. `npm run qc` rechecks an existing render.
 
+Captions use measured narration segments and sentence boundaries that preserve
+decimal versions such as `1.0`. The desktop review player and documentation
+library read the resulting frame-based timeline cues, so previews use the same
+text and timing as the video rather than a separately reconstructed transcript.
+
+Managed renders reuse installed packages but keep each project's mutable
+Webpack cache isolated. Concurrent releases do not clear another render's cache.
+
 ## Managed QC
 
 The managed MP4 QC verifies:

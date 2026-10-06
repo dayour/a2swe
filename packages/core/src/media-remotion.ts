@@ -1,4 +1,4 @@
-import { cpSync, createReadStream, existsSync, readFileSync, symlinkSync, unlinkSync } from 'node:fs';
+import { cpSync, createReadStream, existsSync, readFileSync, readdirSync, symlinkSync } from 'node:fs';
 import { readFile, mkdir, mkdtemp, writeFile, copyFile, rm, rename } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -1313,8 +1313,8 @@ function audioMetadataValid(audioPath) {
 }
 
 function subtitleSentences(text) {
-  const parts = String(text).match(/[^.!?]+[.!?]+["')\\]]*\\s*|[^.!?]+$/g) || [String(text)];
-  return parts.map((part) => part.trim()).filter(Boolean);
+  return Array.from(new Intl.Segmenter('en', { granularity: 'sentence' }).segment(String(text)),
+    (part) => part.segment.trim()).filter(Boolean);
 }
 
 function buildSubtitleCues(segments, fps, durationFrames) {
@@ -1674,7 +1674,7 @@ ${usesVisuals ? `Config.overrideWebpackConfig((config) => ({
 
 const EXCALIDRAW_FONT_SOURCE = ['@excalidraw', 'excalidraw', 'dist', 'prod', 'fonts'];
 
-async function prepareRuntime(root: string, content: ContentIR): Promise<() => void> {
+async function prepareRuntime(root: string, content: ContentIR): Promise<() => Promise<void>> {
   const dependencies = path.join(root, 'node_modules');
   let temporaryDependencies = false;
   const installed = path.join(REPOSITORY_ROOT, 'template', 'node_modules');
@@ -1688,16 +1688,32 @@ async function prepareRuntime(root: string, content: ContentIR): Promise<() => v
         throw new Error(`mp4_dependency_unavailable: ${name}@${version}; install generated package dependencies or restore template/node_modules`);
       }
     }
-    symlinkSync(installed, dependencies, process.platform === 'win32' ? 'junction' : 'dir');
+    await mkdir(dependencies);
     temporaryDependencies = true;
   }
-  if (content.sections.some((section) => section.visual?.kind === 'excalidraw')) {
-    const source = path.join(installed, ...EXCALIDRAW_FONT_SOURCE);
-    if (!existsSync(source)) throw new Error('excalidraw_fonts_unavailable: restore template/node_modules');
-    // Xiaolai is a 12 MB CJK face; the pipeline is English-only.
-    cpSync(source, path.join(root, 'public', 'excalidraw', 'fonts'), { recursive: true, filter: (file) => !file.includes(`${path.sep}Xiaolai`) });
+  const cleanup = async () => {
+    if (temporaryDependencies) await rm(dependencies, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 });
+  };
+  try {
+    if (temporaryDependencies) {
+      // Share packages, never the mutable Webpack cache used by concurrent project renders.
+      for (const entry of readdirSync(installed, { withFileTypes: true })) {
+        if (entry.isDirectory() && entry.name !== '.cache') {
+          symlinkSync(path.join(installed, entry.name), path.join(dependencies, entry.name), process.platform === 'win32' ? 'junction' : 'dir');
+        }
+      }
+    }
+    if (content.sections.some((section) => section.visual?.kind === 'excalidraw')) {
+      const source = path.join(installed, ...EXCALIDRAW_FONT_SOURCE);
+      if (!existsSync(source)) throw new Error('excalidraw_fonts_unavailable: restore template/node_modules');
+      // Xiaolai is a 12 MB CJK face; the pipeline is English-only.
+      cpSync(source, path.join(root, 'public', 'excalidraw', 'fonts'), { recursive: true, filter: (file) => !file.includes(`${path.sep}Xiaolai`) });
+    }
+  } catch (error) {
+    await cleanup();
+    throw error;
   }
-  return () => { if (temporaryDependencies) unlinkSync(dependencies); };
+  return cleanup;
 }
 
 function remotionCli(root: string, args: string[], label: string, timeout: number): void {
@@ -1720,7 +1736,7 @@ export async function renderVisualStills(releaseRoot: string, content: ContentIR
       const stem = visualStem(content, section.sectionId);
       remotionCli(root, ['still', 'src/index.tsx', `visual-${stem}`, `visuals/${stem}.png`, '--log=error'], `visual_render_failed(${section.sectionId})`, 10 * 60 * 1000);
     }
-  } finally { cleanup(); }
+  } finally { await cleanup(); }
   const files: AdapterFile[] = [];
   for (const section of visuals) {
     const relative = `visuals/${visualStem(content, section.sectionId)}.png`;
@@ -1838,7 +1854,7 @@ export async function renderEncodedMp4(releaseRoot: string, content: ContentIR):
     if (result.error || result.status !== 0) {
       throw new Error(`mp4_render_failed: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(0, 4000)}`);
     }
-  } finally { cleanup(); }
+  } finally { await cleanup(); }
   const outputs = [
     ['render-plan.json', 'application/json'],
     ['timeline.json', 'application/json'],

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "reviewedAt": "2026-10-06T01:37:36.262Z",
+  "releaseDigest": "af8b56b23d01cc17df881759f634c57fa8d16a622775d7c33b769e98e47d97c6",
+  "videoSha256": "668f543de75ae269d073efb100757b5947f03a78eaa4ca4fe5b90f335f515f10",
+  "audioSha256": "aeec1189c771677428fa8edf927a00200490168f3c4f69d5bdcd61ccb6f9bb1b",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "nativeOffice": "qc/native-office/final/native-render.json",
+  "videoFrames": "qc/video-frames",
+  "audio": {
+    "valid": true,
+    "findings": [],
+    "durationSeconds": 71.744,
+    "speechRmsDbfs": -23.363888,
+    "peakDbfs": -1.03921,
+    "highFrequencyRatio8k": 0.003658,
+    "rawDc": 0.000015431793144671246,
+    "voice": "am_michael",
+    "cleanupActions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ]
+  },
+  "reviewType": "automated measurements plus visual inspection; no subjective listening claim",
+  "repairs": [
+    "Persisted normalized stills before hashing.",
+    "Shortened executive claims and diagram labels.",
+    "Picture-forward slide layout and larger video diagram presentation.",
+    "Grouped document citations and fixed Word image identity/aspect ratio."
+  ],
+  "result": "verified"
+}

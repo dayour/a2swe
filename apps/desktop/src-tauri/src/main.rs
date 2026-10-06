@@ -246,7 +246,7 @@ impl BridgeManager {
             }
         }
         let timeout = if method == "tools.call" {
-            Duration::from_secs(1800)
+            Duration::from_secs(2100)
         } else if method == "project.generate" {
             Duration::from_secs(600)
         } else if method == "review.frame" || method == "review.spectrogram" {

@@ -1,0 +1,163 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": -1.7111050423790353e-11,
+      "highFrequencyRatio8k": 0.0030279888059249766,
+      "rmsDbfs": -27.821199060197436,
+      "spectralFlatness": 8.269853763394377e-05
+    },
+    "before": {
+      "dcOffset": 1.5431793144671246e-05,
+      "highFrequencyRatio8k": 0.0030273479301886944,
+      "rmsDbfs": -27.820600321603088,
+      "spectralFlatness": 8.267432645184467e-05
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/power-platform-community-conference/audio.wav",
+  "audioSha256": "aeec1189c771677428fa8edf927a00200490168f3c4f69d5bdcd61ccb6f9bb1b",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "durationSeconds": 71.7,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "4d84cd96ad31774ac35a0e4207c06dd1e3f3b9fc9c296ba5d9e34c360fbc2fce",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.5431792223032904e-05,
+    "peak": 0.5424427390098572,
+    "rms": 0.04063229533115996
+  },
+  "requestedDurationSeconds": 75.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 14.275,
+      "index": 0,
+      "startSeconds": 0.25,
+      "text": "Bottom line: recommend sending a focused cross-functional team to PPCC 2026 with one objective: return with a governed AI, app, and automation pilot proposal."
+    },
+    {
+      "endSeconds": 25.1,
+      "index": 1,
+      "startSeconds": 14.825,
+      "text": "This is a recommendation, not a measured outcome. Treat the event as a structured learning sprint for business, platform, data, and risk leaders."
+    },
+    {
+      "endSeconds": 37.475,
+      "index": 2,
+      "startSeconds": 25.65,
+      "text": "PPCC runs October 27 through 29 at the MGM Grand in Las Vegas. Applied workshops run before and after the main conference."
+    },
+    {
+      "endSeconds": 57.075,
+      "index": 3,
+      "startSeconds": 38.025,
+      "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data. The program connects those capabilities to trusted data, implementation, architecture, and governance. That is the bridge from innovation ambition to execution controls."
+    },
+    {
+      "endSeconds": 71.2,
+      "index": 4,
+      "startSeconds": 57.625,
+      "text": "After the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure. Expand only when that evidence supports the next decision."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: \u0279\u02cc\u025bk\u0259m\u02c8\u025bnd s\u02c8\u025bnd\u026a\u014b \u0250 f\u02c8Ok\u0259st k\u0279\u02cc\u0254sf\u02c8\u028c\u014bk\u0283\u1d4an\u0259l t\u02c8im t\u0259 p\u02c8i p\u02c8i s\u02c8i s\u02c8i tw\u02c8\u025bnti tw\u02c8\u025bnti s\u02c8\u026aks w\u026a\u00f0 w\u02c8\u028cn \u0259b\u02a4\u02c8\u025bkt\u026av: \u0279\u0259t\u02c8\u025c\u0279n w\u026a\u00f0 \u0250 \u0261\u02c8\u028cv\u0259\u0279nd \u02c8A\u02ccI, \u02c8\u00e6p, \u00e6nd \u02cc\u0254T\u0259m\u02c8A\u0283\u0259n p\u02c8Il\u0259t p\u0279\u0259p\u02c8Oz\u1d4al."
+      ],
+      [
+        "\u00f0\u02cc\u026as \u026az \u0250 \u0279\u02cc\u025bk\u0259m\u0259nd\u02c8A\u0283\u0259n, n\u02cc\u0251t \u0250 m\u02c8\u025b\u0292\u0259\u0279d \u02c8Wtk\u02cc\u028cm. t\u0279\u02c8it \u00f0i \u0259v\u02c8\u025bnt \u00e6z \u0250 st\u0279\u02c8\u028ck\u02a7\u0259\u0279d l\u02c8\u025c\u0279n\u026a\u014b sp\u0279\u02c8\u026ant f\u0254\u0279 b\u02c8\u026azn\u0259s, pl\u02c8\u00e6tf\u02cc\u0254\u0279m, d\u02c8AT\u0259, \u00e6nd \u0279\u02c8\u026ask l\u02c8id\u0259\u0279z."
+      ],
+      [
+        "p\u02c8i p\u02c8i s\u02c8i s\u02c8i \u0279\u02c8\u028cnz \u0251kt\u02c8Ob\u0259\u0279 tw\u02c8\u025bnti s\u02c8\u025bv\u0259n \u03b8\u0279u tw\u02c8\u025bnti n\u02c8In \u00e6t \u00f0i \u02cc\u025bm\u02a4\u02cci\u02c8\u025bm \u0261\u0279\u02c8\u00e6nd \u026an l\u02cc\u0251z v\u02c8A\u0261\u0259s. \u0259pl\u02c8Id w\u02c8\u025c\u0279k\u0283\u02cc\u0251ps \u0279\u02c8\u028cn b\u0259f\u02c8\u0254\u0279 \u00e6nd \u02c8\u00e6ft\u0259\u0279 \u00f0\u0259 m\u02c8An k\u02c8\u0251nf\u0259\u0279\u0259ns."
+      ],
+      [
+        "m\u02c8Ik\u0279\u0259s\u02cc\u0251ft f\u0279\u02c8Amz p\u02c8i p\u02c8i s\u02c8i s\u02c8i \u0259\u0279\u02c8Wnd k\u02c8Op\u02ccIl\u0259t, \u02c8A\u02a4\u1d4ants, \u02c8\u00e6ps, \u02cc\u0254T\u0259m\u02c8A\u0283\u0259n, \u00e6nd d\u02c8AT\u0259. \u00f0\u0259 p\u0279\u02c8O\u0261\u0279\u02cc\u00e6m k\u0259n\u02c8\u025bkts \u00f0Oz k\u02ccAp\u0259b\u02c8\u026al\u0259Tiz t\u0259 t\u0279\u02c8\u028cst\u1d7bd d\u02c8AT\u0259, \u02cc\u026ampl\u0259m\u0259nt\u02c8A\u0283\u0259n, \u02c8\u0251\u0279k\u0259t\u02cc\u025bk\u02a7\u0259\u0279, \u00e6nd \u0261\u02c8\u028cv\u0259\u0279n\u0259ns. \u00f0\u02c8\u00e6t \u026az \u00f0\u0259 b\u0279\u02c8\u026a\u02a4 f\u0279\u028cm \u02cc\u026an\u0259v\u02c8A\u0283\u0259n \u00e6mb\u02c8\u026a\u0283\u0259n t\u028a \u02cc\u025bks\u0259kj\u02c8u\u0283\u0259n k\u0259nt\u0279\u02c8Olz."
+      ],
+      [
+        "\u02c8\u00e6ft\u0259\u0279 \u00f0i \u0259v\u02c8\u025bnt, \u0279\u0259kw\u02c8I\u0259\u0279 w\u02c8\u028cn p\u02c8Il\u0259t \u02a7\u02c8\u0251\u0279T\u0259\u0279 n\u02c8Am\u026a\u014b \u00f0\u0259 w\u02c8\u025c\u0279kfl\u02ccO, \u02c8On\u0259\u0279, t\u0279\u02c8\u028cst\u1d7bd d\u02c8AT\u0259, \u0261\u02c8\u0251\u0279d\u0279Alz, \u00e6nd \u0250 t\u02c8\u025bst\u0259b\u1d4al s\u0259ks\u02c8\u025bs m\u02c8\u025b\u0292\u0259\u0279. \u026aksp\u02c8\u00e6nd \u02c8Onli w\u02cc\u025bn \u00f0\u02c8\u00e6t \u02c8\u025bv\u0259d\u1d4ans s\u0259p\u02c8\u0254\u0279ts \u00f0\u0259 n\u02c8\u025bkst d\u0259s\u02c8\u026a\u0292\u1d4an."
+      ]
+    ],
+    "phonemesSha256": "fb49d1192cb66b5598229216352dabda7819e8dd384edab890492c119b6a9624",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: recommend sending a focused cross-functional team to P P C C 2026 with one objective: return with a governed AI, app, and automation pilot proposal.",
+      "This is a recommendation, not a measured outcome. Treat the event as a structured learning sprint for business, platform, data, and risk leaders.",
+      "P P C C runs October 27 through 29 at the MGM Grand in Las Vegas. Applied workshops run before and after the main conference.",
+      "Microsoft frames P P C C around Copilot, agents, apps, automation, and data. The program connects those capabilities to trusted data, implementation, architecture, and governance. That is the bridge from innovation ambition to execution controls.",
+      "After the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure. Expand only when that evidence supports the next decision."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "Cowork": "co-work",
+      "PPCC": "P P C C"
+    },
+    "speed": 1
+  }
+}

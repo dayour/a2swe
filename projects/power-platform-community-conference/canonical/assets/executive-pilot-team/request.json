@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "assetId": "executive-pilot-team",
+  "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
+  "purpose": "evaluation",
+  "method": "diagram",
+  "role": "diagram",
+  "prompt": "A focused cross-functional conference team selects one business opportunity and turns it into one governed pilot.",
+  "title": "Team to pilot",
+  "alt": "Three-step executive flow from a focused team to one chosen opportunity and one governed pilot.",
+  "width": 1920,
+  "height": 1080,
+  "seed": 2026,
+  "palette": [
+    "#071f1b",
+    "#f2fbf8",
+    "#18a999"
+  ],
+  "nodes": [
+    {
+      "symbol": "review",
+      "label": "TEAM",
+      "detail": "Business + technology"
+    },
+    {
+      "symbol": "artifact",
+      "label": "FOCUS",
+      "detail": "One opportunity"
+    },
+    {
+      "symbol": "code",
+      "label": "PILOT",
+      "detail": "Governed test"
+    }
+  ]
+}

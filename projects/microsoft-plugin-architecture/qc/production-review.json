@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "reviewedAt": "2026-10-06T01:23:00Z",
+  "releaseDigest": "31107e7708a85908491932708fb7e8f677ae5e2058b2bd9e2d8c96591be450d1",
+  "videoSha256": "257a497e6e2b4d5e72fe07d68d8b0ce6125012ac39cb6efbaea6067636b21b88",
+  "audioSha256": "52826ab35052f0f4e1ad1f1afc41a6f057ecd7ff429a2db69dd922b0d229c8b5",
+  "formats": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"],
+  "nativeOffice": "qc/native-office/native-render.json",
+  "videoFrames": "qc/video-frames/frames.json",
+  "nativeReview": {
+    "player": "Tauri WebView2",
+    "dimensions": [1920, 1080],
+    "seekSeconds": 45.85,
+    "frameCaptureSeconds": 45.85,
+    "subtitleCues": 10,
+    "spectrogramDimensions": [1280, 720]
+  },
+  "audio": {
+    "valid": true,
+    "findings": [],
+    "durationSeconds": 63.552,
+    "speechRmsDbfs": -24.108296,
+    "peakDbfs": -1.033872,
+    "highFrequencyRatio8k": 0.003307,
+    "rawDc": 0.000014265195204643533,
+    "voice": "am_michael",
+    "cleanupActions": ["speech_dc_highpass", "speech_boundary_fade"]
+  },
+  "reviewType": "automated measurements plus visual inspection; no subjective listening claim",
+  "repairs": [
+    "Shortened the decision, section bodies and claims instead of hiding truncated text.",
+    "Separated supported REST API and legacy plugin routes into their own section.",
+    "Preserved decimal version 1.0 in one caption sentence.",
+    "Used the same frame-based subtitle cues in video, native review and documentation.",
+    "Rendered six PowerPoint slides and five Word/PDF pages; inspected scene midpoints and all four transitions."
+  ],
+  "result": "verified"
+}

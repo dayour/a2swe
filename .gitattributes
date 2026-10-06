@@ -2,3 +2,6 @@
 *.pdf binary
 projects/*/release/** -text whitespace=cr-at-eol
 projects/*/agent/SWE_AGENT.md -text whitespace=cr-at-eol
+projects/*/agent/runbook.json -text whitespace=cr-at-eol
+projects/*/canonical/** -text whitespace=cr-at-eol
+projects/*/qc/** -text whitespace=cr-at-eol

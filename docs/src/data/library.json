@@ -439,6 +439,80 @@
       "state": "Generated"
     },
     {
+      "id": "microsoft-autopilot-agents",
+      "title": "Microsoft Autopilot Agents",
+      "description": "An executive briefing on Copilot Autopilot, its private-preview scope, accountable agent identities, and a bounded pilot. Foundry is explicitly an architectural lens, not an implementation-equivalence claim.",
+      "note": "Reviewed 61.589-second 1080p release with Michael narration, five native PowerPoint slides, four Word/PDF pages, and all eight output formats.",
+      "evidence": [
+        "projects/microsoft-autopilot-agents/canonical/domain-pack.json",
+        "projects/microsoft-autopilot-agents/agent/runbook.json",
+        "projects/microsoft-autopilot-agents/release/parity-manifest.json",
+        "projects/microsoft-autopilot-agents/qc/production-review.json",
+        "projects/microsoft-autopilot-agents/qc/index.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "microsoft-autopilot-agents/render.mp4",
+          "projectId": "microsoft-autopilot-agents",
+          "title": "Microsoft Autopilot Agents render",
+          "revision": "render",
+          "source": "projects/microsoft-autopilot-agents/release/outputs/remotion/dist/render.mp4",
+          "movie": "library/videos/microsoft-autopilot-agents/render.mp4",
+          "poster": "library/posters/microsoft-autopilot-agents-render.mp4.jpg",
+          "captions": "library/captions/microsoft-autopilot-agents.vtt",
+          "digest": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
+          "bytes": 11324472,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 61.533333,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/microsoft-autopilot-agents/release/outputs/remotion/qc/mp4-qc.json",
+          "state": "Generated"
+        }
+      ],
+      "state": "Generated"
+    },
+    {
+      "id": "microsoft-plugin-architecture",
+      "title": "Microsoft Plugin Architecture",
+      "description": "An executive comparison of Cowork packages, declarative-agent MCP/API actions, and GitHub Copilot plugins. Separates reusable skills and MCP configuration from host-specific delivery contracts.",
+      "note": "Eight-format package with explicit REST API and legacy-plugin support, editable slides, source citations, and project-local native Office and media review evidence.",
+      "evidence": [
+        "projects/microsoft-plugin-architecture/canonical/domain-pack.json",
+        "projects/microsoft-plugin-architecture/agent/runbook.json",
+        "projects/microsoft-plugin-architecture/release/parity-manifest.json",
+        "projects/microsoft-plugin-architecture/qc/production-review.json",
+        "projects/microsoft-plugin-architecture/qc/index.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "microsoft-plugin-architecture/render.mp4",
+          "projectId": "microsoft-plugin-architecture",
+          "title": "Microsoft Plugin Architecture render",
+          "revision": "render",
+          "source": "projects/microsoft-plugin-architecture/release/outputs/remotion/dist/render.mp4",
+          "movie": "library/videos/microsoft-plugin-architecture/render.mp4",
+          "poster": "library/posters/microsoft-plugin-architecture-render.mp4.jpg",
+          "captions": "library/captions/microsoft-plugin-architecture.vtt",
+          "digest": "257a497e6e2b4d5e72fe07d68d8b0ce6125012ac39cb6efbaea6067636b21b88",
+          "bytes": 10534190,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 63.5,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/microsoft-plugin-architecture/release/outputs/remotion/qc/mp4-qc.json",
+          "state": "Generated"
+        }
+      ],
+      "state": "Generated"
+    },
+    {
       "id": "power-platform-2026",
       "title": "Power Platform 2026",
       "description": "A separate narrated Power Platform engineering explainer with rendered revisions, research, and storyboard.",
@@ -574,6 +648,43 @@
         }
       ],
       "state": "Generated"
+    },
+    {
+      "id": "power-platform-community-conference",
+      "title": "Power Platform Community Conference",
+      "description": "A decision-first executive briefing on PPCC 2026, with primary-source event facts, a focused attendance plan, and eight generated presentation formats.",
+      "note": "Reviewed 71.744-second 1080p release with Michael narration, six native PowerPoint slides, four Word/PDF pages, and source-bound video previews.",
+      "evidence": [
+        "projects/power-platform-community-conference/canonical/domain-pack.json",
+        "projects/power-platform-community-conference/agent/runbook.json",
+        "projects/power-platform-community-conference/release/parity-manifest.json",
+        "projects/power-platform-community-conference/qc/production-review.json",
+        "projects/power-platform-community-conference/qc/index.json"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "power-platform-community-conference/render.mp4",
+          "projectId": "power-platform-community-conference",
+          "title": "Power Platform Community Conference render",
+          "revision": "render",
+          "source": "projects/power-platform-community-conference/release/outputs/remotion/dist/render.mp4",
+          "movie": "library/videos/power-platform-community-conference/render.mp4",
+          "poster": "library/posters/power-platform-community-conference-render.mp4.jpg",
+          "captions": "library/captions/power-platform-community-conference.vtt",
+          "digest": "668f543de75ae269d073efb100757b5947f03a78eaa4ca4fe5b90f335f515f10",
+          "bytes": 11090006,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 71.7,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/power-platform-community-conference/release/outputs/remotion/qc/mp4-qc.json",
+          "state": "Generated"
+        }
+      ],
+      "state": "Generated"
     }
   ],
   "templates": [
@@ -601,7 +712,20 @@
       "tags": [],
       "recipe": null,
       "image": null,
-      "digest": "29dc86fa328c10c62c1740c67f63cc0ee69f5705cd6193e3a4b9ac24a43d6f20"
+      "digest": "48fe4f2f4821008f27679062111566035479a0005282162b59f526a916137c10"
+    },
+    {
+      "id": "library/agents/a2swe-executive-engagement.agent.md",
+      "title": "a2swe-executive-engagement",
+      "category": "Agents",
+      "description": "Build source-backed executive briefings and domain SWE agents for products, customers, markets and industries, then generate and review the real presentation and media outputs.",
+      "preview": "agent",
+      "source": "library/agents/a2swe-executive-engagement.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "image": null,
+      "digest": "772fe66aa1a4aa9436fb431e6affa4a198a4458045e19104df51f687cef0f98b"
     },
     {
       "id": "projects/agent-365/agent/SWE_AGENT.md",
@@ -679,6 +803,21 @@
       "digest": "7f66bc306a06209e1450a4fce2aacd8766b568c7d0fc65da2b7b254ef94dd67d"
     },
     {
+      "id": "projects/microsoft-autopilot-agents/agent/SWE_AGENT.md",
+      "title": "Microsoft Autopilot Agents companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Check the recorded evidence before reuse.",
+      "preview": "agent",
+      "source": "projects/microsoft-autopilot-agents/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "microsoft-autopilot-agents"
+      ],
+      "recipe": null,
+      "image": null,
+      "digest": "9fc5c240c011a3055ad3b5094fbf7c95a2ce485cc8ba67ee5b9b3e4f240ef07e"
+    },
+    {
       "id": "projects/microsoft/agent/SWE_AGENT.md",
       "title": "Microsoft companion",
       "category": "Agents",
@@ -692,6 +831,36 @@
       "recipe": null,
       "image": null,
       "digest": "f404147be99d89428b2659f2a36bd5dd6c930ff7ac3039706c5cd0bdfce9fb5a"
+    },
+    {
+      "id": "projects/microsoft-plugin-architecture/agent/SWE_AGENT.md",
+      "title": "Microsoft Plugin Architecture companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Check the recorded evidence before reuse.",
+      "preview": "agent",
+      "source": "projects/microsoft-plugin-architecture/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "microsoft-plugin-architecture"
+      ],
+      "recipe": null,
+      "image": null,
+      "digest": "d57d8911c7001e5a5ac2e897b04d913f733bef8a784643143849641a60ace5cd"
+    },
+    {
+      "id": "projects/power-platform-community-conference/agent/SWE_AGENT.md",
+      "title": "Power Platform Community Conference companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Check the recorded evidence before reuse.",
+      "preview": "agent",
+      "source": "projects/power-platform-community-conference/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "power-platform-community-conference"
+      ],
+      "recipe": null,
+      "image": null,
+      "digest": "237a2b8a623f98e9f508a29f5819f077a2788c5f65ffbc4376e901306a9beef6"
     },
     {
       "id": ".github/agents/power-platform-swe.agent.md",
@@ -1658,7 +1827,7 @@
       "tags": [],
       "recipe": null,
       "image": null,
-      "digest": "ace11e799c6cc7624c1e50a71cd7b1715323f146f34bc00684b73dba2d046b9a"
+      "digest": "73df8067a112bf87dd5e742d133ec32ccced81ad2d89f519d3e3dfa6283940eb"
     },
     {
       "id": "library/plugins/a2swe/agents/a2swe-audio-qa.agent.md",
@@ -1684,7 +1853,20 @@
       "tags": [],
       "recipe": null,
       "image": null,
-      "digest": "8ee5e8df1a28678e75a28904cc74fb1d91c204fd888be5bbb7d75f8ab6b3412b"
+      "digest": "200cac89edfff773b874d389903930f8b1f16a7d7c3ea3a1516ac78a102389e5"
+    },
+    {
+      "id": "library/plugins/a2swe/agents/a2swe-executive-engagement.agent.md",
+      "title": "Agents",
+      "category": "Plugins",
+      "description": "Plugin integration recipe. Review host and permission requirements before applying.",
+      "preview": "agent",
+      "source": "library/plugins/a2swe/agents/a2swe-executive-engagement.agent.md",
+      "symbol": null,
+      "tags": [],
+      "recipe": null,
+      "image": null,
+      "digest": "3cb91de6c1123166e986d54d9954424da573293417c1ed3339b4331124f9ff74"
     },
     {
       "id": "library/plugins/templates/learn-tech-advisor/README.md",
@@ -1796,7 +1978,7 @@
       ],
       "recipe": null,
       "image": null,
-      "digest": "ee3cb302777be777c0eeda5c650516b4b2fc4c90f4cca17c78d24bb76c2256d8"
+      "digest": "dd4ea56a3bc7a833f25679d81245a4cf68eb53cd792a06f911b29711398a3611"
     },
     {
       "id": "library/skills/agent-evaluation-designer/SKILL.md",

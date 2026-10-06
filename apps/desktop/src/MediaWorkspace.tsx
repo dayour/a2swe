@@ -96,7 +96,7 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
     onActivate();
     try {
       const element = media.current;
-      if (!element) throw new Error('Open a playable video or audio output before playback control');
+      if (!element || element.dataset.reviewId !== data.reviewId) throw new Error('The requested media player is not ready for playback control');
       if (element.readyState === 0) await new Promise<void>((resolve, reject) => {
         const timer = window.setTimeout(() => finish(new Error('Media metadata did not load')), 7000);
         const finish = (error?: Error) => {clearTimeout(timer);element.removeEventListener('loadedmetadata', loaded);element.removeEventListener('error', failed);error ? reject(error) : resolve();};
@@ -136,21 +136,27 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
   }, [applyControl, applyState, onActivate, reportError]);
   async function open(item: ReviewListItem) {
     setBusy(true);
-    try { const result = await bridgeRequest<{state: ReviewState}>('review.open', {projectId, path: item.path, kind: item.kind});applyState(result.state); }
+    const previous = current.current?.reviewId;
+    try {
+      const result = await bridgeRequest<{state: ReviewState}>('review.open', {projectId, path: item.path, kind: item.kind});
+      if (current.current?.reviewId === previous || current.current?.reviewId === result.state.reviewId) applyState(result.state);
+    }
     catch (error) {reportError(error);} finally {setBusy(false);}
   }
   async function image(kind: 'frame' | 'spectrogram') {
     if (!review) return;
+    const captureTime = media.current?.dataset.reviewId === review.reviewId ? media.current.currentTime : time;
     setBusy(true);
     try {
-      const result = await bridgeRequest<ImageResult>(`review.${kind}`, {reviewId: review.reviewId, ...(kind === 'frame' ? {timeSeconds: time} : {})});
+      const result = await bridgeRequest<ImageResult>(`review.${kind}`, {reviewId: review.reviewId, ...(kind === 'frame' ? {timeSeconds: captureTime} : {})});
+      if (current.current?.reviewId !== review.reviewId) return;
       const url = `data:${result.mimeType};base64,${result.data}`;
-      if (kind === 'frame') {setFrame(url);setFrameTime(time);} else setSpectrogram(url);
+      if (kind === 'frame') {setFrame(url);setFrameTime(captureTime);} else setSpectrogram(url);
     } catch (error) {reportError(error);} finally {setBusy(false);}
   }
   function reportPlayback(force = false) {
     const element = media.current, state = current.current;
-    if (!element || !state) return;
+    if (!element || !state || element.dataset.reviewId !== state.reviewId) return;
     setTime(element.currentTime);
     if (!force && Date.now() - lastUpdate.current < 750) return;
     lastUpdate.current = Date.now();
@@ -177,13 +183,13 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
     </aside><div className="media-inspector">
       {review?.media?.url ? <>
         <div className="media-stage">
-          {review.media.kind === 'video' ? <video key={review.reviewId} ref={element => {media.current = element;}} src={review.media.url}
+          {review.media.kind === 'video' ? <video key={review.reviewId} data-review-id={review.reviewId} ref={element => {media.current = element;}} src={review.media.url}
             controls playsInline preload="metadata" onTimeUpdate={() => reportPlayback()} onPlay={() => reportPlayback(true)} onPause={() => reportPlayback(true)}
-            onSeeked={() => reportPlayback(true)} onLoadedMetadata={() => setDuration(media.current?.duration ?? 0)}
+            onSeeked={() => reportPlayback(true)} onLoadedMetadata={() => {setDuration(media.current?.duration ?? 0);reportPlayback(true);}}
             onError={() => reportError('Video could not be decoded. Check the selected artifact and media service.')} />
-            : review.media.kind === 'audio' ? <audio key={review.reviewId} ref={element => {media.current = element;}} src={review.media.url} controls preload="metadata"
+            : review.media.kind === 'audio' ? <audio key={review.reviewId} data-review-id={review.reviewId} ref={element => {media.current = element;}} src={review.media.url} controls preload="metadata"
                 onTimeUpdate={() => reportPlayback()} onPlay={() => reportPlayback(true)} onPause={() => reportPlayback(true)} onSeeked={() => reportPlayback(true)}
-                onLoadedMetadata={() => setDuration(media.current?.duration ?? 0)} onError={() => reportError('Audio could not be decoded.')} />
+                onLoadedMetadata={() => {setDuration(media.current?.duration ?? 0);reportPlayback(true);}} onError={() => reportError('Audio could not be decoded.')} />
               : <img src={review.media.url} alt={review.media.path}/>}
           {selectedCue && (captionOverlay || review.media.kind === 'audio') && <p className="review-caption">{selectedCue.text}</p>}
         </div>

@@ -36,3 +36,7 @@ __pycache__/
 library/assets/product_knowledgebase/
 library/assets/knowledge/
 docs/static/library/assets/
+
+# Raw intake and superseded production candidates stay local.
+projects/*/intake/
+projects/*/qc/revisions/

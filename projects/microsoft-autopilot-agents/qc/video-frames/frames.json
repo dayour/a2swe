@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "release/outputs/remotion/dist/render.mp4",
+  "sourceSha256": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
+  "frames": [
+    {
+      "sceneId": "title",
+      "requestedTimeSeconds": 5.883333333333334,
+      "path": "scene-01.png",
+      "sha256": "7a3b49536c02ef24406e69a80383d58542130748036fd11b9f8c856b1ebb14b4"
+    },
+    {
+      "sceneId": "operating-model",
+      "requestedTimeSeconds": 19.633333333333333,
+      "path": "scene-02.png",
+      "sha256": "f4ffbd28e749a2f227b24197c3cbd0c187eca41234b03fa35b634392a3542fc1"
+    },
+    {
+      "sceneId": "identity-boundaries",
+      "requestedTimeSeconds": 35.8,
+      "path": "scene-03.png",
+      "sha256": "dacd5ca3a3fdf69a7b51a41f4c0427719a7a811a304d0564d5ba06b787938f5b"
+    },
+    {
+      "sceneId": "pilot",
+      "requestedTimeSeconds": 52.81666666666667,
+      "path": "scene-04.png",
+      "sha256": "59efa8301ecafe6ab0925ae459eb73fac24c154ab68018ffd21b2c9c988b6778"
+    }
+  ]
+}

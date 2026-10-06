@@ -28,13 +28,14 @@ export async function indexProjectQc(directory: string) {
       if (!entry.isFile()) continue;
       const filename = path.join(entry.parentPath, entry.name);
       const relative = path.relative(project, filename).split(path.sep).join('/');
-      if (relative === 'qc/index.json' || relative.endsWith('.tmp') || relative.split('/').some((part) => part.startsWith('.'))) continue;
+      if (relative === 'qc/index.json' || relative.startsWith('qc/revisions/') || relative.endsWith('.tmp') || relative.split('/').some((part) => part.startsWith('.'))) continue;
       const bytes = await readFile(filename);
       entries.push({ path: relative, digest: sha256(bytes), byteSize: bytes.length });
     }
   }
   const index = { schemaVersion: '1.0.0', projectId: path.basename(project),
-    status: 'indexed_not_quality_approved', entries: entries.sort((a, b) => a.path.localeCompare(b.path)) };
+    status: 'indexed_not_quality_approved', excludedRoots: ['qc/revisions/'],
+    entries: entries.sort((a, b) => a.path.localeCompare(b.path)) };
   const staging = path.join(qc, 'index.json.tmp');
   await writeFile(staging, `${JSON.stringify(index, null, 2)}\n`);
   await rename(staging, path.join(qc, 'index.json'));

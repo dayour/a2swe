@@ -98,11 +98,23 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
     let captions = null;
     const subsPath = `${prefix}/src/common/subs.ts`;
     const narrationPath = `${prefix}/release/outputs/remotion/audio/narration-metadata.json`;
-    if (index === 0 && coreRelease && existsSync(absolute(narrationPath))) {
+    const timelinePath = `${prefix}/release/outputs/remotion/timeline.json`;
+    const timeline = coreRelease && existsSync(absolute(timelinePath)) ? json(absolute(timelinePath)) : null;
+    if (index === 0 && coreRelease && timeline?.subtitleCues?.length) {
+      if (!Number.isFinite(timeline.fps) || timeline.fps <= 0) throw new Error(`Invalid caption frame rate: ${timelinePath}`);
+      captions = `library/captions/${id}.vtt`;
+      write(path.join(docs, 'static', captions), `WEBVTT\n\n${timeline.subtitleCues.map(cue => {
+        if (!Number.isFinite(cue.startFrame) || !Number.isFinite(cue.endFrame) || cue.endFrame <= cue.startFrame || !cue.text?.trim()) {
+          throw new Error(`Invalid caption cue: ${timelinePath}`);
+        }
+        return `${vttTime(cue.startFrame, timeline.fps)} --> ${vttTime(cue.endFrame, timeline.fps)}\n${cue.text}\n`;
+      }).join('\n')}`);
+    } else if (index === 0 && coreRelease && existsSync(absolute(narrationPath))) {
       // Core releases time captions from measured speech: each narration segment is split into sentences by length.
       const cues = [];
       for (const segment of json(absolute(narrationPath)).segments ?? []) {
-        const sentences = segment.text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map((s) => s.trim()).filter(Boolean) ?? [segment.text];
+        const sentences = Array.from(new Intl.Segmenter('en', {granularity: 'sentence'}).segment(segment.text),
+          (part) => part.segment.trim()).filter(Boolean);
         const total = sentences.reduce((sum, s) => sum + s.length, 0) || 1;
         let cursor = segment.startSeconds;
         for (const sentence of sentences) {

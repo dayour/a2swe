@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "power-platform-community-conference",
+  "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
+  "title": "PPCC 2026: turn conference learning into one governed pilot",
+  "audience": "Executive decision-makers",
+  "decision": "Recommendation: send a focused team to PPCC 2026 to return with one governed AI, app, and automation pilot charter.",
+  "language": "en",
+  "summary": "PPCC 2026 is an upcoming opportunity to connect agents, apps, automation, trusted data, and governance to a concrete executive pilot decision.",
+  "claims": [
+    {
+      "claimId": "c1",
+      "text": "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+      "evidenceIds": [
+        "ev-01"
+      ]
+    },
+    {
+      "claimId": "c2",
+      "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+      "evidenceIds": [
+        "ev-01"
+      ]
+    },
+    {
+      "claimId": "c3",
+      "text": "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+      "evidenceIds": [
+        "ev-02"
+      ]
+    },
+    {
+      "claimId": "c4",
+      "text": "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios.",
+      "evidenceIds": [
+        "ev-03"
+      ]
+    },
+    {
+      "claimId": "c5",
+      "text": "Applied workshops run October 25-26 and October 30, outside the main conference.",
+      "evidenceIds": [
+        "ev-04",
+        "ev-05"
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "evidenceId": "ev-01",
+      "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+      "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/",
+      "retrievedAt": "2026-10-05T23:21:29.581Z"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceTitle": "Register now for PPCC 2026: Come for the learning, stay for the community",
+      "canonicalUrl": "https://www.microsoft.com/en-us/power-platform/blog/2026/08/13/register-now-for-ppcc-2026-come-for-the-learning-stay-for-the-community/",
+      "retrievedAt": "2026-10-05T23:21:29.581Z"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceTitle": "FAQ | PPCC26",
+      "canonicalUrl": "https://powerplatformconf.com/faq",
+      "retrievedAt": "2026-10-05T23:21:29.710Z"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceTitle": "FAQ | PPCC26",
+      "canonicalUrl": "https://powerplatformconf.com/faq",
+      "retrievedAt": "2026-10-05T23:21:29.710Z"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceTitle": "FAQ | PPCC26",
+      "canonicalUrl": "https://powerplatformconf.com/faq",
+      "retrievedAt": "2026-10-05T23:21:29.710Z"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "executive-pilot-team",
+      "digest": "b11568b5fddfe3c95b61837a7c27c333c91a1e8ce86a8507291438b450cb641a",
+      "mediaType": "image/png",
+      "alt": "Three-step executive flow from a focused team to one chosen opportunity and one governed pilot.",
+      "role": "diagram"
+    }
+  ],
+  "sections": [
+    {
+      "sectionId": "decision",
+      "title": "Bottom line: send a focused team with one pilot objective",
+      "body": "Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.",
+      "claimIds": [
+        "c2"
+      ],
+      "assetIds": [
+        "executive-pilot-team"
+      ],
+      "speakerNotes": "State clearly that this is a recommendation, not a measured outcome."
+    },
+    {
+      "sectionId": "conference-week",
+      "title": "Use the full conference week deliberately",
+      "body": "Main conference: October 27-29 at the MGM Grand in Las Vegas. Workshops: October 25-26 and October 30.",
+      "claimIds": [
+        "c1",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Show the sequence without discussing registration prices.",
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  pre[\"OCT 25-26<br/>WORKSHOPS\"] --> main[\"OCT 27-29<br/>MAIN CONFERENCE\"] --> post[\"OCT 30<br/>WORKSHOPS\"]",
+        "caption": "Conference-week timeline: applied workshops bracket the October 27-29 main conference."
+      }
+    },
+    {
+      "sectionId": "execution-value",
+      "title": "Connect innovation ambition to execution controls",
+      "body": "PPCC connects agents, apps, automation, and trusted data with implementation, architecture, governance, and AI-driven scenarios.",
+      "claimIds": [
+        "c3",
+        "c4"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Keep the focus on executive execution rather than a product feature list.",
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  learn[\"LEARN\"] --> choose[\"CHOOSE\"] --> govern[\"GOVERN\"] --> pilot[\"PILOT\"]",
+        "caption": "Learning-to-pilot flow: narrow the opportunity, ground it in trusted data, set controls, then test."
+      }
+    },
+    {
+      "sectionId": "next-action",
+      "title": "Require one pilot charter after the event",
+      "body": "Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot. Expansion should depend on that evidence, not conference enthusiasm.",
+      "claimIds": [
+        "c4"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Close with the proposed deliverable and avoid inventing an owner or deadline."
+    }
+  ],
+  "voice": {
+    "profileId": "am_michael",
+    "speed": 1,
+    "style": "concise, calm executive briefing",
+    "narration": "Bottom line: recommend sending a focused cross-functional team to PPCC 2026 with one objective: return with a governed AI, app, and automation pilot proposal.\n\nThis is a recommendation, not a measured outcome. Treat the event as a structured learning sprint for business, platform, data, and risk leaders.\n\nPPCC runs October 27 through 29 at the MGM Grand in Las Vegas. Applied workshops run before and after the main conference.\n\nMicrosoft frames PPCC around Copilot, agents, apps, automation, and data. The program connects those capabilities to trusted data, implementation, architecture, and governance. That is the bridge from innovation ambition to execution controls.\n\nAfter the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure. Expand only when that evidence supports the next decision.",
+    "pronunciations": {
+      "PPCC": "P P C C"
+    },
+    "externalTransfer": false
+  }
+}

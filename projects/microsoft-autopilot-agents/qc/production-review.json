@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-autopilot-agents",
+  "reviewedAt": "2026-10-06T01:38:58.971Z",
+  "releaseDigest": "7140c73c89ca538ec5d4a21f7c9eec22daa8ce44e3f3abdeceef2d9168ff6110",
+  "videoSha256": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
+  "audioSha256": "483608212285c957016a23d928e4f59ff724e03aca98501183cde637ba48be90",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "nativeOffice": "qc/native-office/native-render.json",
+  "videoFrames": "qc/video-frames",
+  "audio": {
+    "valid": true,
+    "findings": [],
+    "durationSeconds": 61.589333,
+    "speechRmsDbfs": -26.241894,
+    "peakDbfs": -1.030154,
+    "highFrequencyRatio8k": 0.001844,
+    "rawDc": 0.000015483095921808854,
+    "voice": "am_michael",
+    "cleanupActions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ]
+  },
+  "reviewType": "automated measurements plus visual inspection; no subjective listening claim",
+  "repairs": [
+    "Preserved private-preview caveat and separated Foundry architectural lens.",
+    "Used Mermaid, Excalidraw and Marp visuals with readable labels."
+  ],
+  "result": "verified"
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "microsoft-plugin-architecture",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "text": "Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.\n\nCowork uses a Microsoft 365 app package. Declarative agents use MCP or REST API actions. GitHub Copilot uses plugin packages with portable and client-specific parts.\n\nReuse skill logic and MCP configuration where tested. Keep authentication, manifests, discovery and client-only components inside each host package.\n\nREST API actions remain supported in declarative agents. Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.\n\nAssign one owner per capability and service. Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+  "segments": [
+    {
+      "text": "Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Cowork uses a Microsoft 365 app package. Declarative agents use MCP or REST API actions. GitHub Copilot uses plugin packages with portable and client-specific parts.",
+      "sceneId": "three-routes"
+    },
+    {
+      "text": "Reuse skill logic and MCP configuration where tested. Keep authentication, manifests, discovery and client-only components inside each host package.",
+      "sceneId": "reuse-boundary"
+    },
+    {
+      "text": "REST API actions remain supported in declarative agents. Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.",
+      "sceneId": "supported-paths"
+    },
+    {
+      "text": "Assign one owner per capability and service. Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+      "sceneId": "portfolio"
+    }
+  ],
+  "narrationSha256": "05ecdf45223573ec64294d7b334b1fc1ea9e2b1d29358875cca11f24bae1c225",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five",
+      "MCP": "M C P",
+      "API": "A P I"
+    }
+  },
+  "outputWav": "public/assets/microsoft-plugin-architecture/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 75,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

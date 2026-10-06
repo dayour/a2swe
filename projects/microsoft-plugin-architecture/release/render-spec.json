@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "renderId": "microsoft-plugin-architecture-r2",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "theme": {
+    "name": "executive-blue-violet",
+    "background": "#08142D",
+    "foreground": "#F7F4FF",
+    "accent": "#8B5CF6",
+    "fontFamily": "Arial"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 75,
+    "sampleRate": 48000
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "power-platform-community-conference",
+  "projectId": "power-platform-community-conference",
+  "updatedAt": "2026-10-06T01:37:37.247Z",
+  "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "stage": "delivery",
+  "gates": [
+    {
+      "name": "domain",
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "6f072f4395913d51e6ab5c04e04ba40c03c6db2adb40ade5a80ad898adad6728"
+    },
+    {
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "ab2f62851695b8b6d7768c75c7ac0ee3c569fc89d950f16158710ad25defb082"
+    },
+    {
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "31a3768243eea85095a61c3f1d4b00354801461530d304ad377d9ae142717fa2"
+    },
+    {
+      "name": "release",
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "6e71c7412c51c51d48d3db34824d9e82d3c90f45f08986cca7568fbb7733a042"
+    }
+  ],
+  "stages": [
+    {
+      "name": "scaffold",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [],
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
+    },
+    {
+      "name": "research",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "release/domain-pack.json"
+      ]
+    },
+    {
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
+    },
+    {
+      "name": "render",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "content"
+      ],
+      "evidencePaths": [
+        "release/outputs/index.html",
+        "release/outputs/deck.deck.json",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx",
+        "release/outputs/document.pdf",
+        "release/outputs/raster.png",
+        "release/outputs/raster.jpg",
+        "release/outputs/remotion/dist/render.mp4"
+      ]
+    },
+    {
+      "name": "qc",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "render"
+      ],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "release/parity-manifest.json"
+      ]
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "237a2b8a623f98e9f508a29f5819f077a2788c5f65ffbc4376e901306a9beef6",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "6f072f4395913d51e6ab5c04e04ba40c03c6db2adb40ade5a80ad898adad6728",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "ab2f62851695b8b6d7768c75c7ac0ee3c569fc89d950f16158710ad25defb082",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "83e438424eb35acdd86e7427920e14240364f74b96aaadd0c8b853725bf89b63",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/index.html",
+      "digest": "db0b6581c9b20be90b34a78bb850690d78b294a16ee40485f8489e697f7bc075",
+      "mediaType": "text/html",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.deck.json",
+      "digest": "cd275c59b4e7fcdaf6db34b0bd58112444658251a575eded145d6ec7cad83e20",
+      "mediaType": "application/json",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "8f46f52f1bb31df18788e691f0303441a55216b31bc342b5ab53b88d2a85208e",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "15aca947d0a01e3dc0e0b230cc807a09191f85b6a756e1b9ac240f3a016322e7",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.pdf",
+      "digest": "2701ab2f72acaf04fd5c734ba7d4a75a6a5e78d9f4f89e5bb6be7fda726ab0d0",
+      "mediaType": "application/pdf",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.png",
+      "digest": "919bb2cdc7d5b96ae010fded5a915ce0c27717dcdaddb756c50ac277ce16cd72",
+      "mediaType": "image/png",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.jpg",
+      "digest": "57ba81b608c90c22c0f04a4b292e59159f48cd980d95ac8358f963d60454f34f",
+      "mediaType": "image/jpeg",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "668f543de75ae269d073efb100757b5947f03a78eaa4ca4fe5b90f335f515f10",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "31a3768243eea85095a61c3f1d4b00354801461530d304ad377d9ae142717fa2",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "b85a4bf23a6917ea76c862072fb3eebff083efbaa864074dc7d1874134cb41f5",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "6e71c7412c51c51d48d3db34824d9e82d3c90f45f08986cca7568fbb7733a042",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "efc595480de20fcb826077dee426d8cb5215072614a8f34b06194c7681ae6749",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "5e8c3673a138c975c1a76a03df057b404173788f0453355206236d2be732a9f1",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    }
+  ],
+  "blockers": [],
+  "nextAction": "Use the verified release package for the executive decision; publication and distribution remain outside a2swe."
+}

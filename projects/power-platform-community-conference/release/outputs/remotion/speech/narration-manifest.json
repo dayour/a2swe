@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "power-platform-community-conference",
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "text": "Bottom line: recommend sending a focused cross-functional team to PPCC 2026 with one objective: return with a governed AI, app, and automation pilot proposal.\n\nThis is a recommendation, not a measured outcome. Treat the event as a structured learning sprint for business, platform, data, and risk leaders.\n\nPPCC runs October 27 through 29 at the MGM Grand in Las Vegas. Applied workshops run before and after the main conference.\n\nMicrosoft frames PPCC around Copilot, agents, apps, automation, and data. The program connects those capabilities to trusted data, implementation, architecture, and governance. That is the bridge from innovation ambition to execution controls.\n\nAfter the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure. Expand only when that evidence supports the next decision.",
+  "segments": [
+    {
+      "text": "Bottom line: recommend sending a focused cross-functional team to PPCC 2026 with one objective: return with a governed AI, app, and automation pilot proposal."
+    },
+    {
+      "text": "This is a recommendation, not a measured outcome. Treat the event as a structured learning sprint for business, platform, data, and risk leaders."
+    },
+    {
+      "text": "PPCC runs October 27 through 29 at the MGM Grand in Las Vegas. Applied workshops run before and after the main conference."
+    },
+    {
+      "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data. The program connects those capabilities to trusted data, implementation, architecture, and governance. That is the bridge from innovation ambition to execution controls."
+    },
+    {
+      "text": "After the event, require one pilot charter naming the workflow, owner, trusted data, guardrails, and a testable success measure. Expand only when that evidence supports the next decision."
+    }
+  ],
+  "narrationSha256": "4d84cd96ad31774ac35a0e4207c06dd1e3f3b9fc9c296ba5d9e34c360fbc2fce",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "PPCC": "P P C C"
+    }
+  },
+  "outputWav": "public/assets/power-platform-community-conference/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 75,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

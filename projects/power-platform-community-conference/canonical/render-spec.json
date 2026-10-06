@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "renderId": "power-platform-community-conference-r1",
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "theme": {
+    "name": "executive-dark-green-teal",
+    "background": "#071f1b",
+    "foreground": "#f2fbf8",
+    "accent": "#18a999",
+    "fontFamily": "Arial, sans-serif"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSeconds": 75,
+    "sampleRate": 48000
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 1905,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Microsoft Plugin Architecture: reuse the core, govern each host",
+      "body": "Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.",
+      "narration": "Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.",
+      "claims": [
+        "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+        "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific.",
+        "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
+        "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
+        "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported."
+      ],
+      "claimSources": [
+        "[ev-01] Build plugins for Copilot Cowork",
+        "[ev-03] Build plugins for Copilot Cowork",
+        "[ev-01] Build plugins for Copilot Cowork",
+        "[ev-04] MCP and API plugins for declarative agents",
+        "[ev-07] About GitHub Copilot plugins"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Standardize skills and MCP; govern compatibility and ownership per host.",
+      "startFrame": 0,
+      "durationInFrames": 257,
+      "endFrame": 257,
+      "speechStartFrame": 8,
+      "speechEndFrame": 248
+    },
+    {
+      "id": "three-routes",
+      "kind": "section",
+      "title": "1. Choose the host route",
+      "body": "Cowork uses a Microsoft 365 app package. Declarative agents use MCP or REST API actions. GitHub Copilot uses plugin packages with portable and client-specific parts.",
+      "narration": "Cowork uses a Microsoft 365 app package. Declarative agents use MCP or REST API actions. GitHub Copilot uses plugin packages with portable and client-specific parts.",
+      "claims": [
+        "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+        "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
+        "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest."
+      ],
+      "claimSources": [
+        "[ev-01] Build plugins for Copilot Cowork",
+        "[ev-01] Build plugins for Copilot Cowork",
+        "[ev-04] MCP and API plugins for declarative agents"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  cowork[\"COWORK<br/>M365 APP\"]\n  agent[\"DECLARATIVE AGENT<br/>MCP OR API\"]\n  github[\"GITHUB COPILOT<br/>AGENT PLUGIN\"]\n  cowork --- agent --- github",
+        "caption": "Three host routes share concepts, but each has a distinct delivery contract."
+      },
+      "visualId": "01-three-routes",
+      "decision": "Standardize skills and MCP; govern compatibility and ownership per host.",
+      "startFrame": 257,
+      "durationInFrames": 469,
+      "endFrame": 726,
+      "speechStartFrame": 265,
+      "speechEndFrame": 717
+    },
+    {
+      "id": "reuse-boundary",
+      "kind": "section",
+      "title": "2. Reuse the core, not the wrapper",
+      "body": "Reuse skill logic and MCP configuration where tested. Keep authentication, manifests, discovery and client-only components inside each host package.",
+      "narration": "Reuse skill logic and MCP configuration where tested. Keep authentication, manifests, discovery and client-only components inside each host package.",
+      "claims": [
+        "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific."
+      ],
+      "claimSources": [
+        "[ev-03] Build plugins for Copilot Cowork"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "A governed reusable core connects skills to tools and data while host wrappers own policy and packaging.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"skills\",\"x\":80,\"y\":40,\"width\":960,\"height\":120,\"strokeColor\":\"#8B5CF6\",\"backgroundColor\":\"#24154A\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"SKILLS\\nReusable intent and workflow\",\"fontSize\":34,\"strokeColor\":\"#F7F4FF\"}},{\"type\":\"rectangle\",\"id\":\"tools\",\"x\":80,\"y\":230,\"width\":960,\"height\":120,\"strokeColor\":\"#4F8CFF\",\"backgroundColor\":\"#102B55\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TOOLS\\nMCP or API contracts\",\"fontSize\":34,\"strokeColor\":\"#F7F4FF\"}},{\"type\":\"rectangle\",\"id\":\"data\",\"x\":80,\"y\":420,\"width\":960,\"height\":120,\"strokeColor\":\"#63D7FF\",\"backgroundColor\":\"#0C3448\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"DATA\\nOwned systems and policy\",\"fontSize\":34,\"strokeColor\":\"#F7F4FF\"}},{\"type\":\"arrow\",\"x\":560,\"y\":160,\"width\":0,\"height\":70,\"start\":{\"id\":\"skills\"},\"end\":{\"id\":\"tools\"},\"strokeColor\":\"#8B5CF6\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":560,\"y\":350,\"width\":0,\"height\":70,\"start\":{\"id\":\"tools\"},\"end\":{\"id\":\"data\"},\"strokeColor\":\"#4F8CFF\",\"strokeWidth\":5,\"roughness\":0}]"
+      },
+      "visualId": "02-reuse-boundary",
+      "decision": "Standardize skills and MCP; govern compatibility and ownership per host.",
+      "startFrame": 726,
+      "durationInFrames": 387,
+      "endFrame": 1113,
+      "speechStartFrame": 734,
+      "speechEndFrame": 1104
+    },
+    {
+      "id": "supported-paths",
+      "kind": "section",
+      "title": "3. Preserve supported paths",
+      "body": "REST API actions remain supported in declarative agents. Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.",
+      "narration": "REST API actions remain supported in declarative agents. Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.",
+      "claims": [
+        "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
+        "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported."
+      ],
+      "claimSources": [
+        "[ev-04] MCP and API plugins for declarative agents",
+        "[ev-07] About GitHub Copilot plugins"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Modern portability does not make supported REST API or legacy plugin routes obsolete.",
+        "source": "# KEEP SUPPORTED PATHS\n\n| REST API | AGENT PLUGINS 1.0 | LEGACY |\n|---|---|---|\n| Supported | Portable core | Still loads |\n\n## MODERNIZE WITHOUT FALSE OBSOLESCENCE"
+      },
+      "visualId": "03-supported-paths",
+      "decision": "Standardize skills and MCP; govern compatibility and ownership per host.",
+      "startFrame": 1113,
+      "durationInFrames": 384,
+      "endFrame": 1497,
+      "speechStartFrame": 1121,
+      "speechEndFrame": 1488
+    },
+    {
+      "id": "portfolio",
+      "kind": "section",
+      "title": "4. Govern a small portfolio",
+      "body": "Assign one owner per capability and service. Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+      "narration": "Assign one owner per capability and service. Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+      "claims": [
+        "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+        "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific."
+      ],
+      "claimSources": [
+        "[ev-01] Build plugins for Copilot Cowork",
+        "[ev-03] Build plugins for Copilot Cowork"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "MCP and API plugins for declarative agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Build plugins for Copilot Cowork",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-plugin-development"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "About GitHub Copilot plugins",
+          "canonicalUrl": "https://docs.github.com/en/copilot/concepts/agents/about-plugins"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "A small governed portfolio makes compatibility and operational ownership explicit.",
+        "source": "# GOVERN THE PORTFOLIO\n\n| OWNER | HOSTS | SERVICE |\n|---|---|---|\n| Capability | Compatibility | MCP / API |\n\n## ADD ROUTES ONLY WITH DEMAND + CONTROLS"
+      },
+      "visualId": "04-portfolio",
+      "decision": "Standardize skills and MCP; govern compatibility and ownership per host.",
+      "startFrame": 1497,
+      "durationInFrames": 408,
+      "endFrame": 1905,
+      "speechStartFrame": 1505,
+      "speechEndFrame": 1889
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.",
+      "startFrame": 8,
+      "endFrame": 248,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Cowork uses a Microsoft 365 app package.",
+      "startFrame": 265,
+      "endFrame": 376,
+      "sourceSegmentIndex": 1,
+      "sceneId": "three-routes"
+    },
+    {
+      "text": "Declarative agents use MCP or REST API actions.",
+      "startFrame": 376,
+      "endFrame": 506,
+      "sourceSegmentIndex": 1,
+      "sceneId": "three-routes"
+    },
+    {
+      "text": "GitHub Copilot uses plugin packages with portable and client-specific parts.",
+      "startFrame": 506,
+      "endFrame": 717,
+      "sourceSegmentIndex": 1,
+      "sceneId": "three-routes"
+    },
+    {
+      "text": "Reuse skill logic and MCP configuration where tested.",
+      "startFrame": 734,
+      "endFrame": 867,
+      "sourceSegmentIndex": 2,
+      "sceneId": "reuse-boundary"
+    },
+    {
+      "text": "Keep authentication, manifests, discovery and client-only components inside each host package.",
+      "startFrame": 867,
+      "endFrame": 1104,
+      "sourceSegmentIndex": 2,
+      "sceneId": "reuse-boundary"
+    },
+    {
+      "text": "REST API actions remain supported in declarative agents.",
+      "startFrame": 1121,
+      "endFrame": 1263,
+      "sourceSegmentIndex": 3,
+      "sceneId": "supported-paths"
+    },
+    {
+      "text": "Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.",
+      "startFrame": 1263,
+      "endFrame": 1488,
+      "sourceSegmentIndex": 3,
+      "sceneId": "supported-paths"
+    },
+    {
+      "text": "Assign one owner per capability and service.",
+      "startFrame": 1505,
+      "endFrame": 1611,
+      "sourceSegmentIndex": 4,
+      "sceneId": "portfolio"
+    },
+    {
+      "text": "Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+      "startFrame": 1611,
+      "endFrame": 1889,
+      "sourceSegmentIndex": 4,
+      "sceneId": "portfolio"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 5,
+    "cueCount": 10
+  }
+}
