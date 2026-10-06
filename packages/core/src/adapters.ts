@@ -460,8 +460,8 @@ function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, tota
   const width = 10820400;
   if (slide.kind === 'title') {
     shapes.push(pptShape(id++, 'Title', left, 900000, width, 2000000, [headline({ cx: width, cy: 2000000 }, 5000, 3000)], {}, 'ctr'));
-    const summary = pptFit(slide.body, 9600000, 1200000, 2400, 1600);
-    shapes.push(pptShape(id++, 'Summary', left, 3000000, 9600000, 1200000, [pptParagraph(pptRun(summary.text, summary.size, false, muted))]));
+    const summary = pptFit(slide.body, 9600000, 1400000, 2400, 1400);
+    shapes.push(pptShape(id++, 'Summary', left, 3000000, 9600000, 1400000, [pptParagraph(pptRun(summary.text, summary.size, false, muted))]));
     if (slide.decision) {
       const decision = pptFit(slide.decision, width, 1000000, 2000, 1400);
       shapes.push(pptShape(id++, 'Decision', left, 4500000, width, 1000000,
@@ -606,7 +606,7 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
     files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
     files.push({ name: `ppt/notesSlides/_rels/notesSlide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdSlide', type: `${OFFICE_REL}/slide`, target: `../slides/slide${index + 1}.xml` }])) });
   });
-  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-6' };
+  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-7' };
 }
 
 function wp(textValue: string, style?: string, keepNext = false): string {
