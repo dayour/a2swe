@@ -1,7 +1,7 @@
 import { cpSync, createReadStream, existsSync, readFileSync, readdirSync, symlinkSync } from 'node:fs';
 import { readFile, mkdir, mkdtemp, writeFile, copyFile, rm, rename } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
+import { createHash, randomInt } from 'node:crypto';
 import { createServer } from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -1849,15 +1849,21 @@ function remotionCli(root: string, args: string[], label: string, timeout: numbe
 }
 
 // Concurrent renders must not share Remotion's default bundle-server port 3000, or one render's browser loads another render's chunks.
-function freePort(): Promise<number> {
-  return new Promise((resolve, reject) => {
+// Ports come from 20000-29999, below the Windows dynamic range where Hyper-V reserves blocks, and must be free on every host Remotion tests.
+async function freePort(): Promise<number> {
+  const free = (port: number, host: string) => new Promise<boolean>((resolve) => {
     const server = createServer();
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address();
-      server.close(() => (address && typeof address === 'object' ? resolve(address.port) : reject(new Error('free_port_unavailable'))));
-    });
+    server.unref();
+    server.once('error', (error: NodeJS.ErrnoException) => resolve(['EADDRNOTAVAIL', 'EAFNOSUPPORT'].includes(error.code ?? '')));
+    server.listen({ port, host, exclusive: true }, () => server.close(() => resolve(true)));
   });
+  for (let attempt = 0; attempt < 64; attempt += 1) {
+    const port = 20000 + randomInt(10000);
+    let available = true;
+    for (const host of ['::1', '127.0.0.1', '::', '0.0.0.0']) if (!(await free(port, host))) { available = false; break; }
+    if (available) return port;
+  }
+  throw new Error('free_port_unavailable');
 }
 
 // Renders each mermaid, excalidraw or marp section once as a settled PNG so every document format embeds the same image the video shows.

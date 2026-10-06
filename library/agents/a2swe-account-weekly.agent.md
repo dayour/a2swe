@@ -15,8 +15,10 @@ private engagement data and must stay in a Git-ignored workspace.
 
 1. Capture a fresh read-only intake with the LayeredCards kit. Never write back
    to CRM, Success Hub or Microsoft 365.
-2. Import it into the project. The importer stores a hashed text rendering of
-   every record and makes each quote a verbatim line of that rendering:
+2. Import it into the project. The importer accepts a kit customer folder with
+   either `intake.json` or a `card-data.json` package (live CRM snapshot plus a
+   dated engagement tracker). It stores a hashed text rendering of every record
+   and makes each quote a verbatim line of that rendering:
 
    ```powershell
    node packages/core/src/cli.ts account-import --source KIT/customers/<id> --root <customer-project>
@@ -49,6 +51,10 @@ private engagement data and must stay in a Git-ignored workspace.
   supported by the cited evidence spans; cite all of them.
 - Distinguish CRM status, Success Hub health and recent signals. Project-level
   health does not cancel a blocked use case or a true-down risk.
+- Tracker rows are a dated working snapshot. Present their proposed health,
+  owners and dates as proposals, never as CRM records.
+- Diagrams must not imply sequence or causation the records do not state. Use
+  grouped boxes for status and stage counts, and arrows only for real order.
 - Microsoft 365 and news summaries are intake paraphrases. Do not present them
   as quotations, and do not infer sentiment, dates or owners they do not state.
 - Name accountable owners only when the record names them and the name matters
