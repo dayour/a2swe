@@ -187,7 +187,11 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
   }
 }
 
-export async function verifyRelease(directory: string): Promise<FormatParityManifest> {
+// Planned by the adapter, then rewritten by the media render with measured durations and digests.
+export const MUTABLE_MEDIA_PATHS: readonly string[] = ['outputs/remotion/render-plan.json', 'outputs/remotion/timeline.json',
+  'outputs/remotion/asset-manifest.json'];
+
+export async function verifyRelease(directory: string, options: { probeMedia?: boolean } = {}): Promise<FormatParityManifest> {
   const root = path.resolve(directory);
   const content = validate('ContentIR', JSON.parse(await readFile(path.join(root, 'content-ir.json'), 'utf8')));
   const domain = validate('DomainPack', JSON.parse(await readFile(path.join(root, 'domain-pack.json'), 'utf8')));
@@ -221,8 +225,7 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
   if (digest(inventory) !== digest(assetInventory(content, embeds, stills))
     || inventory.entries.length !== embeds.length + stills.length) throw new Error('release_asset_inventory_mismatch');
   const expectedFiles = renderFiles(content, renderSpec, { assetEmbeds: embeds, strictAssetEmbeds: true, visualImages });
-  const mutableMediaPaths = new Set(['outputs/remotion/render-plan.json', 'outputs/remotion/timeline.json',
-    'outputs/remotion/asset-manifest.json']);
+  const mutableMediaPaths = new Set(MUTABLE_MEDIA_PATHS);
   const producedMedia = renderSpec.formats.includes('remotion') ? [
     ...visualPaths.map((visualPath) => ({ path: visualPath, mediaType: 'image/png' })),
     { path: `outputs/remotion/public/assets/${content.contentId}/audio.wav`, mediaType: 'audio/wav' },
@@ -248,7 +251,7 @@ export async function verifyRelease(directory: string): Promise<FormatParityMani
     if (sha256(bytes) !== output.digest || bytes.length !== output.byteSize || output.contentDigest !== parity.contentDigest) throw new Error('release_output_mismatch');
   }
   if (renderSpec.formats.includes('remotion')) {
-    verifyEncodedMp4(root);
+    if (options.probeMedia !== false) verifyEncodedMp4(root);
     const mediaRoot = path.join(root, 'outputs', 'remotion');
     const audio = JSON.parse(await readFile(path.join(mediaRoot, 'audio', 'narration-metadata.json'), 'utf8'));
     const timeline = JSON.parse(await readFile(path.join(mediaRoot, 'timeline.json'), 'utf8'));

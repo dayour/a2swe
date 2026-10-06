@@ -27,7 +27,8 @@
     "desktop:check": "npm --prefix apps/desktop run build && cargo check --locked --manifest-path apps/desktop/src-tauri/Cargo.toml",
     "contracts:generate": "node scripts/generate-contracts.mjs",
     "contracts:check": "node scripts/generate-contracts.mjs --check",
-    "assets:proof": "node scripts/asset-proof.mjs"
+    "assets:proof": "node scripts/asset-proof.mjs",
+    "knowledge:graph": "node packages/core/src/cli.ts knowledge-graph --root . --out docs/audit/knowledge-graph.json"
   },
   "dependencies": {
     "@napi-rs/canvas": "1.0.9",

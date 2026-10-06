@@ -54,6 +54,20 @@ chunk with limited overlap; keep tables and citations intact. Pack only the doma
 summary and task-relevant immutable chunks. Changed source/policy invalidates dependents.
 The passive file inventory is not this semantic index and is not blanket import approval.
 
+## Evidence Knowledge Graph
+
+`npm run knowledge:graph` writes `docs/audit/knowledge-graph.json` from Git-tracked bytes,
+executable verifiers and lexical code queries. It records schema atoms (shape signature,
+`shapeId`, patterns, JSON-pointer fields, consumers), modules, adapters, formats, visuals,
+voices, projects, skills, agents, plugins and workflows, plus typed edges. Each gap carries
+its own evidence and disappears when its predicate stops matching. Markdown, runbook gates
+and QC labels are recorded as claims; `releaseVerification`, `adapterDrift` and
+`qcIndexEvidence` on project nodes come from `verifyRelease` (without the ffprobe stage),
+adapter regeneration and digest checks. Content comparisons are line-ending neutral because
+`core.autocrlf` changes working-tree bytes; release and QC bytes are compared exactly.
+The output has no timestamps and is byte-stable for one revision; it is not the A01
+chunk/token index above.
+
 ## Verified Reuse Anchors
 
 - knowledge-corpus-curator: bounded ZIP validation/extraction and corpus inventory.

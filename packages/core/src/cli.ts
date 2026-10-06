@@ -45,7 +45,7 @@ async function main(): Promise<void> {
     endpoint: { type: 'string' }, checkpoint: { type: 'string' }, url: { type: 'string' }, domain: { type: 'string' },
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
     content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' },
-    engine: { type: 'string' }, voice: { type: 'string' }
+    engine: { type: 'string' }, voice: { type: 'string' }, 'skip-media-probe': { type: 'boolean' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -76,7 +76,8 @@ async function main(): Promise<void> {
       '  asset-verify --root DIRECTORY',
       '  release-plan --content CONTENT_IR --render RENDER_SPEC --approval APPROVAL_MANIFEST --out NEW_FILE',
       '  release-produce --domain READY_DOMAIN --content CONTENT_IR --render RENDER_SPEC --approval APPROVAL_MANIFEST [--assets BUNDLE_DIRECTORY] --out NEW_DIRECTORY',
-      '  release-verify --root DIRECTORY',
+      '  release-verify --root DIRECTORY [--skip-media-probe]',
+      '  knowledge-graph --root REPOSITORY --out FILE',
       '  asset-job-submit --file REQUEST --domain DOMAIN [--state DIRECTORY]',
       '  asset-job-run --id TASK [--state DIRECTORY]',
       '  asset-job-export --id TASK --out NEW_DIRECTORY [--state DIRECTORY]',
@@ -103,6 +104,13 @@ async function main(): Promise<void> {
   if (command === 'qc-index') {
     const { indexProjectQc } = await import('./release.ts');
     console.log(JSON.stringify(await indexProjectQc(required('root')), null, 2));
+    return;
+  }
+  if (command === 'knowledge-graph') {
+    const { buildKnowledgeGraph } = await import('./knowledge-graph.ts');
+    const graph = await buildKnowledgeGraph(required('root'), { exclude: [required('out')] });
+    await writeJson(required('out'), graph);
+    console.log(JSON.stringify({ output: required('out'), ...graph.summary }));
     return;
   }
   if (command === 'domain-certify') {
@@ -189,8 +197,9 @@ async function main(): Promise<void> {
   if (['release-plan', 'release-produce', 'release-verify'].includes(command)) {
     const release = await import('./release.ts');
     if (command === 'release-verify') {
-      const parity = await release.verifyRelease(required('root'));
-      console.log(JSON.stringify({ valid: true, releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, outputs: parity.outputs.length }));
+      const parity = await release.verifyRelease(required('root'), { probeMedia: !values['skip-media-probe'] });
+      console.log(JSON.stringify({ valid: true, releaseDigest: parity.releaseDigest, contentDigest: parity.contentDigest, outputs: parity.outputs.length,
+        mediaProbe: values['skip-media-probe'] ? 'skipped' : 'verified' }));
       return;
     }
     const content = JSON.parse(await readFile(required('content'), 'utf8'));
