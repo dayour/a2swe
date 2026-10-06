@@ -1,4 +1,5 @@
 .github/agents/agent-365-swe.agent.md text eol=lf
+packages/core/src/contracts.generated.d.ts text eol=lf
 *.pdf binary
 projects/*/release/** -text whitespace=cr-at-eol
 projects/*/agent/SWE_AGENT.md -text whitespace=cr-at-eol
