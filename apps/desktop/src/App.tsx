@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react';
+import {Fragment, useCallback, useEffect, useState} from 'react';
 import {ArrowUpRight, Bot, CircleAlert, Film, FolderOpen, FolderPlus, Library, MessageSquare, Search, Send, Settings2, ShieldCheck, Sparkles, Square, Waves, Wrench, X} from 'lucide-react';
 import {invoke} from '@tauri-apps/api/core';
 import {getCurrentWindow} from '@tauri-apps/api/window';
@@ -131,7 +131,10 @@ function Console() {
     <div className="workspace-layout"><aside className="sidebar"><div className="sidebar-section-title">Workspace</div>
       <button className="workspace-card" onClick={() => setSettingsOpen(true)}><FolderOpen size={17}/><span className="workspace-copy">{settings?.workspace ?? 'Select checkout'}</span></button>
       <div className="sidebar-section-title projects-heading">Projects · {projects.length}</div>
-      <div className="project-list">{projects.map(project => <button key={project.id} className={`project-item ${selectedProject === project.id ? 'selected' : ''}`} onClick={() => setSelectedProject(project.id)}><span className="project-avatar">{project.name[0]}</span><span>{project.name}</span></button>)}</div>
+      <div className="project-list">{projects.map((project, index) => <Fragment key={project.id}>
+        {project.group && project.group !== projects[index - 1]?.group ? <div className="sidebar-section-title">{project.group.split('/').at(-1)}</div> : null}
+        <button className={`project-item ${selectedProject === project.id ? 'selected' : ''}`} title={project.path} onClick={() => setSelectedProject(project.id)}><span className="project-avatar">{project.name[0]}</span><span>{project.name}</span></button>
+      </Fragment>)}</div>
       <button className="primary-button new-project-button" disabled={!isNative} onClick={() => setNewProjectOpen(true)}><FolderPlus size={15}/> New project</button>
       <button className="secondary-button" disabled={!isNative || busy} onClick={() => void action(refresh)}>Refresh context</button>
       <div className="sidebar-footer"><ShieldCheck size={14}/><span>Workspace tools · explicit permissions</span></div>

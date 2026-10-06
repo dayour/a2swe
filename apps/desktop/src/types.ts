@@ -4,8 +4,10 @@ export type Project = {
   id: string;
   name: string;
   path: string;
+  group?: string;
   hasCanonical?: boolean;
   hasQc?: boolean;
+  hasRelease?: boolean;
 };
 
 export type LibraryItem = {

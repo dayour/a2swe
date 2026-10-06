@@ -199,16 +199,35 @@ export async function discoverLibraryResources(workspace: string): Promise<Libra
   return resources.sort((a, b) => a.uri.localeCompare(b.uri));
 }
 
+// A project folder holds canonical inputs, a runbook or a release; grouping folders such as executive_status_updates/Customers are walked.
+const PROJECT_MARKERS = [['canonical', 'domain-pack.json'], ['agent', 'runbook.json'], ['release', 'parity-manifest.json']] as const;
+const PROJECT_SEARCH_DEPTH = 3;
+
+async function isProjectDirectory(dir: string): Promise<boolean> {
+  for (const marker of PROJECT_MARKERS) if (await exists(path.join(dir, ...marker))) return true;
+  return false;
+}
+
 export async function discoverProjects(workspace: string) {
-  const projectDirs = await listImmediateDirectories(path.join(workspace, 'projects'));
-  const projects = await Promise.all(projectDirs.map(async (dir) => {
-    const id = path.basename(dir);
-    const metadata = await readJsonFile<{ name?: string }>(path.join(dir, 'project.json'), {});
-    const hasCanonical = await exists(path.join(dir, 'canonical.json')) || await exists(path.join(dir, 'domain.json'));
-    const hasQc = await exists(path.join(dir, 'qc-index.json')) || await exists(path.join(dir, 'qc', 'index.json'));
-    return { id, name: metadata.name ?? id, path: toRepoRelative(workspace, dir), hasCanonical, hasQc };
+  const root = path.join(workspace, 'projects');
+  const found: string[] = [];
+  const visit = async (dir: string, depth: number): Promise<void> => {
+    for (const child of await listImmediateDirectories(dir)) {
+      if (await isProjectDirectory(child)) found.push(child);
+      else if (depth < PROJECT_SEARCH_DEPTH && !['node_modules', 'qc', 'renders', 'release'].includes(path.basename(child))) await visit(child, depth + 1);
+    }
+  };
+  await visit(root, 1);
+  const projects = await Promise.all(found.map(async (dir) => {
+    // The id is the folder path under projects/, so nested projects resolve as projects/<id> everywhere.
+    const id = path.relative(root, dir).split(path.sep).join('/');
+    const domain = await readJsonFile<{ canonicalName?: string }>(path.join(dir, 'canonical', 'domain-pack.json'), {});
+    const group = id.includes('/') ? id.slice(0, id.lastIndexOf('/')) : undefined;
+    return { id, name: domain.canonicalName ?? path.basename(dir), path: toRepoRelative(workspace, dir), ...(group ? { group } : {}),
+      hasCanonical: await exists(path.join(dir, 'canonical', 'domain-pack.json')), hasQc: await exists(path.join(dir, 'qc', 'index.json')),
+      hasRelease: await exists(path.join(dir, 'release', 'parity-manifest.json')) };
   }));
-  return { projects };
+  return { projects: projects.sort((a, b) => (a.group ?? '').localeCompare(b.group ?? '') || a.name.localeCompare(b.name)) };
 }
 
 async function exists(file: string): Promise<boolean> {
@@ -409,7 +428,7 @@ type JsonSchema = { type?: string; properties?: Record<string, JsonSchema>; requ
 export const CALLABLE_TOOL_SCHEMAS: Array<{ name: string; description: string; inputSchema: JsonSchema }> = [
   { name: 'context', description: 'Refresh and return workspace, projects, tools, core commands, library catalog, and active project context.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'context.refresh', description: 'Alias for context; forces a fresh read of project/library/knowledge metadata from disk.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
-  { name: 'projects', description: 'Return {projects:[{id,name,path,hasCanonical,hasQc}]} from the workspace.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+  { name: 'projects', description: 'Return {projects:[{id,name,path,group?,hasCanonical,hasQc,hasRelease}]} from the workspace; id is the folder path under projects/.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'library', description: 'Return repository library agents, skills, plugins, assets, documents, profiles, and resource URIs.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'knowledge.search', description: 'Search library/assets/knowledge/catalog.json chunks/assets/documents.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, limit: { type: 'number', default: 10 } }, required: ['query'], additionalProperties: false } },
   { name: 'intake', description: 'Store draft source/domain intake. URL inputs are SSRF-guarded public fetches; free text becomes a draft query with no invented claims. Optional sources support later agent enrichment.', inputSchema: { type: 'object', properties: { input: { type: 'string' }, projectId: { type: 'string' }, name: { type: 'string' }, kind: { type: 'string' }, sources: { type: 'array', items: { type: 'string' } } }, required: ['input'], additionalProperties: false } },

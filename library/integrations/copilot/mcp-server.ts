@@ -63,7 +63,7 @@ export async function createA2sweMcpServer(workspace: string) {
 
   server.registerTool('a2swe.projects', {
     title: 'List a2swe projects',
-    description: 'List local projects as {projects:[{id,name,path,hasCanonical,hasQc}]}.',
+    description: 'List local projects as {projects:[{id,name,path,group?,hasCanonical,hasQc,hasRelease}]}; id is the folder path under projects/, including nested customer projects.',
     inputSchema: z.object({}),
     annotations: READ_ONLY_TOOL
   }, async () => jsonContent(await discoverProjects(workspace)));
