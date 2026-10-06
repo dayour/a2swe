@@ -1,0 +1,9 @@
+{
+  "input": "copilot-v4.mp4",
+  "output": "copilot-v6.mp4",
+  "sample_rate": 48000,
+  "measured_lag_samples": 2048,
+  "applied_offset_seconds": -0.042666666666666665,
+  "audio_similarity_before_alignment": 0.9999845027923584,
+  "method": "lossless stream-copy remux; run verify_video.py on the result"
+}

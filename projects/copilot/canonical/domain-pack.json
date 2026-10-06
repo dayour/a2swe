@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "copilot",
+  "kind": "topic",
+  "canonicalName": "Microsoft Copilot family",
+  "asOf": "2026-10-06",
+  "windowStart": "2026-01-06",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-copilot-chat",
+      "domainId": "copilot",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview",
+      "publisher": "Microsoft Learn",
+      "title": "Overview of Microsoft Copilot Chat",
+      "publicationDate": "2026-09-09",
+      "modifiedDate": "2026-09-10",
+      "retrievedAt": "2026-10-06T20:16:25.109Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-09T00:00:00Z and updated_at 2026-09-10T20:32:00Z.",
+      "contentHash": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-m365-copilot",
+      "domainId": "copilot",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview",
+      "publisher": "Microsoft Learn",
+      "title": "What is Microsoft Copilot?",
+      "publicationDate": "2026-10-01",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:25.380Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-01T00:00:00Z and updated_at 2026-10-01T20:39:00Z.",
+      "contentHash": "f85658bedc37b5c4742ddb0b5871525342b7f9af5ad15588d185a0b02b34d20d"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-github-copilot",
+      "domainId": "copilot",
+      "canonicalUrl": "https://github.com/features/copilot",
+      "publisher": "GitHub",
+      "title": "GitHub Copilot · Your AI coding agent · GitHub",
+      "publicationDate": null,
+      "modifiedDate": null,
+      "retrievedAt": "2026-10-06T20:16:25.831Z",
+      "dateEvidence": "The selected public page did not expose a publication or modification date in the fetched document.",
+      "contentHash": "cd314c5be026bcce9bf961d510b33ff4ec16d956dc88b8f2c400c6938eec5ca9"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-copilot-studio",
+      "domainId": "copilot",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+      "publisher": "Microsoft Learn",
+      "title": "Overview - Microsoft Copilot Studio",
+      "publicationDate": "2026-09-25",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:25.952Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-25T00:00:00Z and updated_at 2026-10-01T19:03:00Z.",
+      "contentHash": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-copilot-chat",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "What you can do with Copilot Chat",
+      "quote": "Copilot Chat can help users: Research and summarize information from the web. Generate and rewrite content. Analyze uploaded files and documents. Create images. Interact with agents. Ask questions about supported organizational content in specific Microsoft 365 experiences.",
+      "quoteDigest": "cc66165996cf92684d122af005606fcf8b1b76b6caace1783362af872057304c"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-copilot-chat",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "How grounding works in Copilot Chat",
+      "quote": "The information available to Copilot Chat depends on where users access Copilot Chat and whether they have a Microsoft 365 Copilot license.",
+      "quoteDigest": "67b79407fdfc42d093d24999f41e5459ba71abda51c1ccf60fdf98db6632d8c4"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-m365-copilot",
+      "sourceDigest": "f85658bedc37b5c4742ddb0b5871525342b7f9af5ad15588d185a0b02b34d20d",
+      "locator": "Common Copilot experience foundations",
+      "quote": "Grounding in web and/or organizational data ( Microsoft Graph and Work IQ ) Access scoped by user permissions (security and compliance enforced)",
+      "quoteDigest": "17b2139b845322b1746b1b47ae60789da9f07cfc433b85f22bbbed965a310609"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-m365-copilot",
+      "sourceDigest": "f85658bedc37b5c4742ddb0b5871525342b7f9af5ad15588d185a0b02b34d20d",
+      "locator": "Microsoft 365 Copilot license comparison",
+      "quote": "You have the Microsoft 365 Copilot add-on license with priority access to the full experience of Copilot in Word, Excel, PowerPoint, and OneNote.",
+      "quoteDigest": "a233f8654f3db1c17c28d4908a543a7ee86c81d77248a38f424cf45f4a72a532"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-github-copilot",
+      "sourceDigest": "cd314c5be026bcce9bf961d510b33ff4ec16d956dc88b8f2c400c6938eec5ca9",
+      "locator": "Workflow positioning",
+      "quote": "AI that works where you do, whether in your editor, on the command line, or across GitHub.",
+      "quoteDigest": "419ce319ef63f046fb3908f6fb9bcf5b5bf1bfaf7e4fe7e7885f100278b6b37b"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-github-copilot",
+      "sourceDigest": "cd314c5be026bcce9bf961d510b33ff4ec16d956dc88b8f2c400c6938eec5ca9",
+      "locator": "Copilot in the editor",
+      "quote": "Copilot in your editor does it all, from explaining concepts and completing code, to proposing edits and validating files with agent mode.",
+      "quoteDigest": "8e024d4f6662eed5b5b8946d182ee4d38817e7dc6b6fca5be22d9b3ab92ada3f"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-copilot-studio",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Opening definition",
+      "quote": "Microsoft Copilot Studio is a graphical, low-code studio for building and managing AI-powered agents and workflows.",
+      "quoteDigest": "897f89be9ac3b0c7dbf0437924f78204bc9e23dd93285d442cfabd23715f6601"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-copilot-studio",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Build and connect agents",
+      "quote": "Build agents and workflows, connect them to your organization's data and systems, and publish them to the channels where your users already work.",
+      "quoteDigest": "109b172a31fae61090fae81d917a9aa4446c7b668f7ee67df6fe548f431f2857"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Copilot Chat supports research, content generation, file analysis, images, agents, and supported organizational questions.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Microsoft 365 Copilot is shaped by organizational grounding, user permissions, compliance controls, work-app access, and license level.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-04"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "GitHub Copilot supports coding work in editors, the command line, and GitHub, including completing code, edits, validation, and workflow support.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Copilot Studio is a low-code route for building agents and workflows connected to organizational data, systems, and channels.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "The executive choice is job first, then access, licensing, grounding, and output scope.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-03",
+        "ev-04",
+        "ev-05",
+        "ev-07",
+        "ev-08"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected public sources do not enumerate every tenant setting, add-on SKU, price, regional availability condition, or admin policy.",
+    "The sources do not verify any private organization permissions, data sensitivity labels, connector configuration, or deployed agent behavior.",
+    "The GitHub Copilot marketing page did not expose a publication or modification date in the fetched document.",
+    "The legacy statement that generated code requires human review was not retained as a sourced claim because the selected GitHub page did not state it verbatim."
+  ]
+}

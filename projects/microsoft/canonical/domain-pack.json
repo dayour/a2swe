@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "microsoft",
+  "kind": "company",
+  "canonicalName": "Microsoft",
+  "asOf": "2026-10-06",
+  "windowStart": "2026-01-06",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-windows",
+      "domainId": "microsoft",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview",
+      "publisher": "Microsoft Learn",
+      "title": "Windows 11 overview for administrators | Microsoft Learn",
+      "publicationDate": "2026-07-15",
+      "modifiedDate": "2026-07-21",
+      "retrievedAt": "2026-10-06T20:19:06.862Z",
+      "dateEvidence": "Page metadata records ms.date 2026-07-15T00:00:00Z and updated_at 2026-07-21T09:20:00Z.",
+      "contentHash": "086b6eab542cc107dda69ddb79bdcb55b62aac18c8beaf9b798b00f507b8cc6d"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-m365",
+      "domainId": "microsoft",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide",
+      "publisher": "Microsoft Learn",
+      "title": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+      "publicationDate": "2025-11-18",
+      "modifiedDate": "2026-09-01",
+      "retrievedAt": "2026-10-06T20:18:34.313Z",
+      "dateEvidence": "Page metadata records ms.date 2025-11-18T00:00:00Z and updated_at 2026-09-01T20:51:00Z.",
+      "contentHash": "1f2cf2101941b5b4c9812a28625b98a6fe2e8bf94626d2a9b3e64833c550c880"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-azure",
+      "domainId": "microsoft",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/azure/",
+      "publisher": "Microsoft Learn",
+      "title": "Azure documentation | Microsoft Learn",
+      "publicationDate": "2026-07-21",
+      "modifiedDate": "2026-09-22",
+      "retrievedAt": "2026-10-06T20:18:00.053Z",
+      "dateEvidence": "Page metadata records ms.date 2026-07-21T00:00:00Z and updated_at 2026-09-22T22:21:00Z.",
+      "contentHash": "12a862f78c0ff894af0cd3b8b3849d4e78a00c0bb7370f361cefbea049355794"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-copilot",
+      "domainId": "microsoft",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview",
+      "publisher": "Microsoft Learn",
+      "title": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+      "publicationDate": "2026-09-09",
+      "modifiedDate": "2026-09-10",
+      "retrievedAt": "2026-10-06T20:16:50.269Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-09T00:00:00Z and updated_at 2026-09-10T20:32:00Z.",
+      "contentHash": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-windows",
+      "sourceDigest": "086b6eab542cc107dda69ddb79bdcb55b62aac18c8beaf9b798b00f507b8cc6d",
+      "locator": "Opening definition",
+      "quote": "Windows 11 is a client operating system and includes features that organizations should know about.",
+      "quoteDigest": "d3a439560e8ccaa945a3ef1c72d947b1dd9e8b283ea5da698bae28a0b91b9ad6"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-windows",
+      "sourceDigest": "086b6eab542cc107dda69ddb79bdcb55b62aac18c8beaf9b798b00f507b8cc6d",
+      "locator": "Productivity and work environment statement",
+      "quote": "Windows 11 offers innovations focused on enhancing end-user productivity, and is designed to support today's hybrid work environment.",
+      "quoteDigest": "6e86573db7d040a230b57251856f644c219f1296a3dd4433bb4d6f86f4d43a1b"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-m365",
+      "sourceDigest": "1f2cf2101941b5b4c9812a28625b98a6fe2e8bf94626d2a9b3e64833c550c880",
+      "locator": "Enterprise components introduction",
+      "quote": "Microsoft 365 for enterprise consists of:",
+      "quoteDigest": "328468277a0cc3f1ae886cb4d9140eb0fcd19ea6507d3062377e8e16f62273c0"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-m365",
+      "sourceDigest": "1f2cf2101941b5b4c9812a28625b98a6fe2e8bf94626d2a9b3e64833c550c880",
+      "locator": "Apps and online services component",
+      "quote": "Includes both Microsoft 365 Apps for enterprise, the latest Office apps for your PC and Mac (such as Word, Excel, PowerPoint, Outlook, and others), and a full suite of online services for email, file storage and collaboration, meetings, and more.",
+      "quoteDigest": "f807001846d9b32d5211d96bfc09de39093f014eb4b8dd05b365249a43dd40e1"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-azure",
+      "sourceDigest": "12a862f78c0ff894af0cd3b8b3849d4e78a00c0bb7370f361cefbea049355794",
+      "locator": "Azure documentation description",
+      "quote": "Learn how to build and manage powerful applications using Microsoft Azure services. Get documentation, example code, tutorials, and more.",
+      "quoteDigest": "c7e6c52263b91e6dea778bb10bc725e8c1d006f6b840c9948706e30cb6266722"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-azure",
+      "sourceDigest": "12a862f78c0ff894af0cd3b8b3849d4e78a00c0bb7370f361cefbea049355794",
+      "locator": "Product category list",
+      "quote": "Browse Azure products Popular AI + Machine Learning Analytics Compute Containers Databases Developer Tools DevOps Hybrid + multicloud Identity Integration Internet of Things Management and Governance Media Migration Mixed Reality Mobile Networking Security Storage Virtual Desktop Infrastructure Web",
+      "quoteDigest": "384a1679886e705c2734997e845dc8f275b9bc5f1739982069e7741be325570e"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-copilot",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "Copilot Chat opening definition",
+      "quote": "Microsoft Copilot Chat is a secure AI chat experience available to eligible Microsoft 365 users.",
+      "quoteDigest": "45594d82cd56c9bf9e63811ac223058239b3b7f2de67319b5ae964e5dc4c3250"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-copilot",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "Copilot Chat task support statement",
+      "quote": "It combines large language models (LLMs), enterprise-grade protections, and grounding from web data and, in specific contexts , organizational data to help users find information, create content, and complete tasks.",
+      "quoteDigest": "820d585c16d64968e038dbdf349bbd227d190693c762b70417f60bf936d99012"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-copilot",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "Access and licensing statement",
+      "quote": "The information available to Copilot Chat depends on where users access Copilot Chat and whether they have a Microsoft 365 Copilot license.",
+      "quoteDigest": "67b79407fdfc42d093d24999f41e5459ba71abda51c1ccf60fdf98db6632d8c4"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceId": "src-copilot",
+      "sourceDigest": "04d10402e9c4d88b09675050e03bbf880cf45a382fad7a1cdcfcb891343a8411",
+      "locator": "Service capacity statement",
+      "quote": "This means it's subject to service capacity availability to ensure the product works well for everyone.",
+      "quoteDigest": "429a90dbf4fc8895912f2b4963bfbfb3dc4f54b90b96db6154343c9d3492bae2"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Windows 11 is the client operating-system layer for PC experience and user productivity.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Microsoft 365 combines Office apps with online services for email, file storage, collaboration and meetings.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-04"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Azure is the cloud-services layer for building and managing applications, including AI, compute and storage categories.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Copilot Chat provides AI assistance to eligible Microsoft 365 users for information, content and tasks.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "Copilot capability and grounding depend on access point, service capacity and Microsoft 365 Copilot licensing.",
+      "evidenceIds": [
+        "ev-09",
+        "ev-10"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c6",
+      "wording": "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-04",
+        "ev-05",
+        "ev-07"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected public sources do not enumerate every Microsoft product family, SKU, region, preview or tenant configuration.",
+    "The package does not verify a specific organization's license assignments, admin settings, data residency requirements or procurement entitlements.",
+    "Azure evidence comes from the documentation hub and category listing; service-level architecture, pricing, limits and SLAs require separate confirmation.",
+    "Copilot evidence is scoped to Copilot Chat and Microsoft 365 licensing context; other Copilot-branded products may have different requirements."
+  ]
+}

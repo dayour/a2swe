@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-studio-2026",
+  "title": "copilot-studio-2026-04",
+  "year": 2026,
+  "number": 4,
+  "createdAt": "2026-09-21T18:48:47.052Z",
+  "pipeline": "legacy-template",
+  "status": "superseded",
+  "source": "renders/copilot-studio-2026-v4.mp4",
+  "outputs": [
+    {
+      "path": "copilot-studio-2026-04-raw.mp4",
+      "role": "video-raw",
+      "digest": "2f2fd43417e33113559ad455b6c831077ce506ece59b4de7ebf89b6ebb0fd9f8",
+      "byteSize": 19638285,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.576,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "unknown",
+        "voiceName": "Microsoft Mark"
+      }
+    },
+    {
+      "path": "copilot-studio-2026-04.alignment.json",
+      "role": "metadata",
+      "digest": "0a4ca6cef64410431f54c2bbc88f6076d73df1bbd53d73ece1d72cdefbe9ff45",
+      "byteSize": 340,
+      "mediaType": "application/json"
+    },
+    {
+      "path": "copilot-studio-2026-04.mp4",
+      "role": "video",
+      "digest": "2cfa39441a8f4240efe3f42420c35229e54c4ea3faae2b4ec88611a7c2220544",
+      "byteSize": 19638301,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.533,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "unknown",
+        "voiceName": "Microsoft Mark"
+      }
+    }
+  ],
+  "notes": [
+    "Audio/video alignment remux of copilot-studio-2026-v4-raw.mp4 with -0.0427 s offset.",
+    "Narration voice recorded by script/timeline.json for copilot-studio-2026's latest legacy timeline."
+  ]
+}

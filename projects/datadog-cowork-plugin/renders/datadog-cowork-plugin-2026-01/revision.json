@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "datadog-cowork-plugin",
+  "title": "datadog-cowork-plugin-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-09-30T03:21:59.356Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "release",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "outputs": [
+    {
+      "path": "datadog-cowork-plugin-2026-01.mp4",
+      "role": "video",
+      "digest": "6c7aa200daad147284bdfb8037077746a2553c70407bbc2787a616cd7ab18747",
+      "byteSize": 15010473,
+      "mediaType": "video/mp4",
+      "durationSeconds": 89.024,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx"
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 10.233
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 10.233,
+          "endSeconds": 23.9
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 23.9,
+          "endSeconds": 38.067
+        },
+        {
+          "id": "setup",
+          "startSeconds": 38.067,
+          "endSeconds": 51.5
+        },
+        {
+          "id": "access",
+          "startSeconds": 51.5,
+          "endSeconds": 63.333
+        },
+        {
+          "id": "control",
+          "startSeconds": 63.333,
+          "endSeconds": 72.033
+        },
+        {
+          "id": "risk",
+          "startSeconds": 72.033,
+          "endSeconds": 88.967
+        }
+      ],
+      "releaseDigest": "7f847a3121e4799421d3c2a5123045a6b9cc912fffb090f2d7f9652e218b30bc",
+      "package": "release"
+    }
+  ],
+  "notes": [
+    "Imported from release."
+  ]
+}

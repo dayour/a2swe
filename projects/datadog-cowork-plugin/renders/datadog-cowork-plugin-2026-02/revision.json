@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "datadog-cowork-plugin",
+  "title": "datadog-cowork-plugin-2026-02",
+  "year": 2026,
+  "number": 2,
+  "createdAt": "2026-10-05T16:57:46.153Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/releases/release-audit",
+  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "outputs": [
+    {
+      "path": "datadog-cowork-plugin-2026-02.mp4",
+      "role": "video",
+      "digest": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
+      "byteSize": 15031741,
+      "mediaType": "video/mp4",
+      "durationSeconds": 88.96,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx"
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 10.2
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 10.2,
+          "endSeconds": 23.833
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 23.833,
+          "endSeconds": 38
+        },
+        {
+          "id": "setup",
+          "startSeconds": 38,
+          "endSeconds": 51.433
+        },
+        {
+          "id": "access",
+          "startSeconds": 51.433,
+          "endSeconds": 63.267
+        },
+        {
+          "id": "control",
+          "startSeconds": 63.267,
+          "endSeconds": 71.967
+        },
+        {
+          "id": "risk",
+          "startSeconds": 71.967,
+          "endSeconds": 88.9
+        }
+      ],
+      "releaseDigest": "7f847a3121e4799421d3c2a5123045a6b9cc912fffb090f2d7f9652e218b30bc",
+      "package": "qc/releases/release-audit"
+    }
+  ],
+  "notes": [
+    "Imported from qc/releases/release-audit."
+  ]
+}

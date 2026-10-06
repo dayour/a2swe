@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "title": "microsoft-plugin-architecture-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-10-06T00:54:44.253Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/microsoft-plugin-architecture-2026-01",
+  "contentDigest": "6501ab761ef190a9847786649259e51571144a06f87fd8eb8bde882359fb44b8",
+  "outputs": [
+    {
+      "path": "microsoft-plugin-architecture-2026-01.mp4",
+      "role": "video",
+      "digest": "f538487cfea555b8527485653d1871aa67b5cf429ec5e6435c79e561b373a9e0",
+      "byteSize": 12656983,
+      "mediaType": "video/mp4",
+      "durationSeconds": 82.325,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 14,
+          "endSeconds": 36.367
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 36.367,
+          "endSeconds": 60.033
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 60.033,
+          "endSeconds": 82.267
+        }
+      ],
+      "releaseDigest": "9ae696e054da08eeab789f4c6aa43d39eed4338839349e021538ef455ab8cc2f",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-01"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-01.vtt",
+      "role": "captions",
+      "digest": "ed38aa299ce2cb113f1a52580407d8c70745c392122281982d1a5a61e8d927cb",
+      "byteSize": 1413,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/release-r1."
+  ]
+}

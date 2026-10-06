@@ -1,9 +1,0 @@
-# Excerpts captured by a2swe on 2026-09-29 from the URL below; markup and links removed, wording verbatim.
-# Source: https://docs.datadoghq.com/mcp_server/setup/
-Set Up the Datadog MCP Server
-Install the Datadog Connector from the Claude Connectors Directory. The official connector is the recommended way to connect Datadog to Claude (including Claude Cowork) and includes MCP Apps for in-product visualizations. If you previously added Datadog as a custom connector, remove it to avoid conflicts.
-Complete the OAuth login flow when prompted.
-Verify that you have the required permissions for the Datadog resources you want to access.
-Install the Datadog plugin from the official Anthropic Plugin Marketplace. The plugin packages the Datadog MCP Server with bundled skills and auto-updates when new plugin versions ship.
-During setup, select your Datadog site and complete OAuth login.
-Datadog MCP Server is not supported for your selected Datadog site (app.ddog-gov.com, us2.ddog-gov.com).

@@ -1,37 +1,29 @@
-# Copilot Studio 2026 production video
+# Copilot Studio 2026
 
-Completed source-grounded Remotion production for a 40.53-second English explainer.
+Copilot Studio 2026: govern intent-to-action agents. Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.
 
-## Contract
+## Layout
 
-- Output target: 1920x1080, 30fps, 30-45 seconds.
-- Language: English narration.
-- Media policy: original code-drawn visuals only; no external logos, screenshots, stock footage, icons, or downloaded media.
-- Outputs: versioned and non-overwriting under `renders/` and `qc/`.
-- QC: timeline-driven media verification through `scripts/verify_video.py` after rendering.
-- Approvals: do not fabricate or imply human approval. `human_listening_review` and `pilot_approval` remain pending unless a human explicitly supplies them.
+- `canonical/`: Core-managed DomainPack, content IR, render spec, and approval manifest.
+- `research/`: Source receipts and research packets used to build the DomainPack.
+- `renders/`: Every render round, with one `revision.json` per revision folder.
+- `qc/analysis/`: Measured spectrogram, loudness, layer, and comparison evidence.
+- `intake/`: Source inputs kept outside the canonical contracts.
+- `agent/`: Project SWE agent instructions for this core-managed package.
+- `release/`: Final eight output formats after promotion.
 
-## Production inputs and build
+The research packet now lives in `research/content-packet-2026-09-18/`. Keep that packet in `research/` and do not restore the retired per-project runtime.
+
+## Revisions
+
+`renders/` keeps each render round as `copilot-studio-2026-NN/` with `revision.json`. The imported legacy revisions `copilot-studio-2026-01` through `copilot-studio-2026-04` came from the retired per-project workspace. Revisions 02, 03, and 04 note audio/video remuxes; `copilot-studio-2026-04` records Microsoft Mark, a Windows SAPI voice, for the latest legacy narration. The earlier imported revisions do not record a voice. The newest core-managed revision has four voice variants: Michael, Heart, and Bella on Kokoro ONNX, and Michael on PyTorch Kokoro. `qc/analysis/report.md` holds the measured comparison.
+
+## Refresh
 
 ```powershell
-npm run check:inputs
-npm run audio
-npm run typecheck
-npx remotion bundle src/index.ts --out-dir build_production_next
+node packages\core\src\cli.ts canonical-bind --root projects\copilot-studio-2026
+node packages\core\src\cli.ts revision-produce --root projects\copilot-studio-2026
+node packages\core\src\cli.ts revisions-analyze --root projects\copilot-studio-2026
+node packages\core\src\cli.ts office-render --root projects\copilot-studio-2026
+node packages\core\src\cli.ts runbook-project --root projects\copilot-studio-2026
 ```
-
-- Grounding packet: `research/content-packet-2026-09-18/`
-- Normalized narration/storyboard/timing: `script/`, `storyboard.md`
-- Local narration engine: Windows System.Speech (`Microsoft Mark`, rate 3)
-- Scene implementation: `src/ProductionVideo.tsx`
-
-## Current review candidate
-
-- Movie: `renders/copilot-studio-2026-v4.mp4`
-- Candidate metadata: `qc/review-candidate-v4.json`
-- Media verification: `qc/media-v4.json`
-- Motion verification: `qc/motion-v4.txt`
-- Frame metrics: `qc/frame-metrics-v4.md`
-- Contact sheets: `qc/overview-v4.jpg`, `qc/SC01-v4.jpg` through `qc/SC06-v4.jpg`, and `renders/sheet_v4.html`
-
-This is a review candidate only. Human listening review and pilot approval remain pending.

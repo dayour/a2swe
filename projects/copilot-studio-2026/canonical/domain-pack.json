@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "copilot-studio-2026",
+  "kind": "tool",
+  "canonicalName": "Microsoft Copilot Studio 2026",
+  "asOf": "2026-10-06",
+  "windowStart": "2026-01-06",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-overview",
+      "domainId": "copilot-studio-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+      "publisher": "Microsoft Learn",
+      "title": "Overview - Microsoft Copilot Studio",
+      "publicationDate": "2026-09-25",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:38.547Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-25T00:00:00Z and updated_at 2026-10-01T19:03:00Z.",
+      "contentHash": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-generative-orchestration",
+      "domainId": "copilot-studio-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions",
+      "publisher": "Microsoft Learn",
+      "title": "Orchestrate agent behavior with generative AI",
+      "publicationDate": "2026-08-26",
+      "modifiedDate": "2026-08-28",
+      "retrievedAt": "2026-10-06T20:16:38.738Z",
+      "dateEvidence": "Page metadata records ms.date 2026-08-26T00:00:00Z and updated_at 2026-08-28T01:03:00Z.",
+      "contentHash": "808aac35d90a62d9066d2ffb6d0f6b675805fcc3ef804981272b94bbe098e50c"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-tools-custom-agent",
+      "domainId": "copilot-studio-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent",
+      "publisher": "Microsoft Learn",
+      "title": "Add tools to custom agents",
+      "publicationDate": "2026-10-01",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:38.897Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-01T00:00:00Z and updated_at 2026-10-01T19:03:00Z.",
+      "contentHash": "c076da07500c2a3ea8701adc166d46fc38489fd4117da8428fe910c87ab3f6f8"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-security-governance",
+      "domainId": "copilot-studio-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+      "publisher": "Microsoft Learn",
+      "title": "Security and governance",
+      "publicationDate": "2026-08-04",
+      "modifiedDate": "2026-10-01",
+      "retrievedAt": "2026-10-06T20:16:39.025Z",
+      "dateEvidence": "Page metadata records ms.date 2026-08-04T00:00:00Z and updated_at 2026-10-01T19:03:00Z.",
+      "contentHash": "9e79a45f730570d74ff3284f45d90ef9b5caa8e6fe7c55a043a3bcd1f29984ba"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-overview",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Opening definition",
+      "quote": "Microsoft Copilot Studio is a graphical, low-code studio for building and managing AI-powered agents and workflows.",
+      "quoteDigest": "897f89be9ac3b0c7dbf0437924f78204bc9e23dd93285d442cfabd23715f6601"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-overview",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Opening integration and publishing statement",
+      "quote": "Build agents and workflows, connect them to your organization's data and systems, and publish them to the channels where your users already work.",
+      "quoteDigest": "109b172a31fae61090fae81d917a9aa4446c7b668f7ee67df6fe548f431f2857"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-overview",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Agent flows definition",
+      "quote": "Agent flows are the established flow format in Copilot Studio, with an authoring experience similar to Power Automate but native to Copilot Studio.",
+      "quoteDigest": "c0e17dee0093d9c5ac49b473fb7702e06660d60febc7821c288291d049409735"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-generative-orchestration",
+      "sourceDigest": "808aac35d90a62d9066d2ffb6d0f6b675805fcc3ef804981272b94bbe098e50c",
+      "locator": "Default orchestration statement",
+      "quote": "By default, new agents use generative orchestration.",
+      "quoteDigest": "cef1a3644d357bba2be5db0cee5563bdaf36844d0c8e6c37b7f24f9011a503c3"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-generative-orchestration",
+      "sourceDigest": "808aac35d90a62d9066d2ffb6d0f6b675805fcc3ef804981272b94bbe098e50c",
+      "locator": "Selection behavior statement",
+      "quote": "An agent that uses generative orchestration can choose the best tools, knowledge, topics, and other agents to answer user queries or respond to event triggers.",
+      "quoteDigest": "2a46cf2f487321276e9c7cc759eb059b883f690ca25044ec0863e6df64fc947c"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-generative-orchestration",
+      "sourceDigest": "808aac35d90a62d9066d2ffb6d0f6b675805fcc3ef804981272b94bbe098e50c",
+      "locator": "Input and response behavior",
+      "quote": "If the agent selects multiple tools, agents, or topics, it calls them in sequence, after generating any questions to ask the user for missing information.",
+      "quoteDigest": "f73046ea7120e4f64e7a350a8b4e1cce227569f5fbab4c2385265e83ec6d8217"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-tools-custom-agent",
+      "sourceDigest": "c076da07500c2a3ea8701adc166d46fc38489fd4117da8428fe910c87ab3f6f8",
+      "locator": "Tools as external-system building blocks",
+      "quote": "Tools are building blocks that let your agent interact with external systems.",
+      "quoteDigest": "1fd737ae5e588fc24c0609164af011619da870f800d5bd93cb46f148b5310633"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-tools-custom-agent",
+      "sourceDigest": "c076da07500c2a3ea8701adc166d46fc38489fd4117da8428fe910c87ab3f6f8",
+      "locator": "Tool mechanisms list",
+      "quote": "You can use the following mechanisms to add tools to your agent: Connector: Connect to proprietary APIs and services by using Power Platform Connectors to pull in data or carry out actions. Prebuilt connector: Choose from a selection of preset connections to thousands of popular APIs from both Microsoft and non-Microsoft services. Custom connector: Define a connection to a custom service or system to enable custom tool options by using Power Platform Connectors. The connector needs view and share permissions for the organization for the agent to use the connector. Agent flow: Define an agent flow, including one or more actions to carry out. Prompt: Single turn model-based prompt that can reference knowledge you provide and generate code to analyze data. REST API: Define a connection to a REST API, and select one or more API endpoints and methods to add as tools. Model Context Protocol: Connect to an MCP server to access tools and resources. Computer use: Lets your agent interact with any system that has a graphical user interface, for websites and desktop apps, selecting buttons, choosing menus, and entering text into fields on the screen.",
+      "quoteDigest": "bec6826d2434299c527dc7fbadba5ccf95e9f13ceb8fc06d7505ff050919d906"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-tools-custom-agent",
+      "sourceDigest": "c076da07500c2a3ea8701adc166d46fc38489fd4117da8428fe910c87ab3f6f8",
+      "locator": "Governance policies restrict tools",
+      "quote": "Your organization can use governance policies to restrict which tools and connectors are available in Copilot Studio.",
+      "quoteDigest": "aef040773ad51113a593ef49941d81d8afbc1e011ba1990d6d627118b9d24e7f"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceId": "src-security-governance",
+      "sourceDigest": "9e79a45f730570d74ff3284f45d90ef9b5caa8e6fe7c55a043a3bcd1f29984ba",
+      "locator": "Security and governance overview",
+      "quote": "Copilot Studio follows a number of security and governance controls and processes, including geographic data residency, data loss prevention (DLP), multiple standards certifications, regulatory compliance, environment routing, and regional customization.",
+      "quoteDigest": "a7d1ebd7047a3190cc7f56b03f2c68bf7b986c8b637dfc4fb33d7d647fec647f"
+    },
+    {
+      "evidenceId": "ev-11",
+      "sourceId": "src-security-governance",
+      "sourceDigest": "9e79a45f730570d74ff3284f45d90ef9b5caa8e6fe7c55a043a3bcd1f29984ba",
+      "locator": "Agent 365 and Entra identities",
+      "quote": "Microsoft Agent 365 serves as a central control plane to observe, govern, and secure Copilot Studio agents. For organizations that onboard Agent 365, Copilot Studio agents can be represented as identities in Microsoft Entra.",
+      "quoteDigest": "85e4b1c640b9c294079b2bc1da51957fdf250b79c520bc0b511fddee3b7a208b"
+    },
+    {
+      "evidenceId": "ev-12",
+      "sourceId": "src-security-governance",
+      "sourceDigest": "9e79a45f730570d74ff3284f45d90ef9b5caa8e6fe7c55a043a3bcd1f29984ba",
+      "locator": "Data policy control scope",
+      "quote": "Admins can use data policies in the Power Platform admin center to govern the use and availability of Copilot Studio features and agent capabilities, including: Maker and user authentication Knowledge sources Actions, connectors, and skills HTTP requests Publication to channels Azure Monitor Application Insights Triggers",
+      "quoteDigest": "fa4725fa81d7fbe492c4e17dfec4935963005b679f3475349f0c061b8278c84c"
+    },
+    {
+      "evidenceId": "ev-13",
+      "sourceId": "src-security-governance",
+      "sourceDigest": "9e79a45f730570d74ff3284f45d90ef9b5caa8e6fe7c55a043a3bcd1f29984ba",
+      "locator": "Audit logs control scope",
+      "quote": "Admins have full visibility into maker audit logs in Microsoft Purview. Agent 365 complements this with centralized agent inventory and lifecycle context that can be correlated with audit records.",
+      "quoteDigest": "318b5c1227fbd5df98b4c7f99af0417c6d7ffa7f0753432e1e30fd689e13bb15"
+    },
+    {
+      "evidenceId": "ev-14",
+      "sourceId": "src-overview",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Production management framing",
+      "quote": "As you move from building to running solutions in production, Copilot Studio helps you monitor, govern, and improve them:",
+      "quoteDigest": "73ea8319b70132d95c49e219b268cf1281ebbe7170335c58390a463cef8f6e2c"
+    },
+    {
+      "evidenceId": "ev-15",
+      "sourceId": "src-overview",
+      "sourceDigest": "ef431441dd8a179b2ccaae073e6161dead701d64a752eeade0d8548fd2953d21",
+      "locator": "Evaluation and administration bullets",
+      "quote": "Evaluations — validate quality with test sets and a shared grader library before and after you publish. Administration — inventory, secure, and manage agents across your organization, with role-based access and cost management.",
+      "quoteDigest": "c043b2a7aa6d42f2a02bd274313737bb67a545945fb7180c09264331ba370c15"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Copilot Studio is a low-code studio for agents, workflows and agent flows that connect to business data and publish to work channels.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-03"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Generative orchestration lets agents choose tools, knowledge, topics or other agents, ask for missing inputs and compose responses.",
+      "evidenceIds": [
+        "ev-04",
+        "ev-05",
+        "ev-06"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Tools move intent to action through connectors, agent flows, prompts, REST APIs, MCP and computer use, with policy restrictions available.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08",
+        "ev-09"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Enterprise control includes data policies, audit visibility, Agent 365 governance, Entra agent identities and security controls.",
+      "evidenceIds": [
+        "ev-10",
+        "ev-11",
+        "ev-12",
+        "ev-13"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates.",
+      "evidenceIds": [
+        "ev-09",
+        "ev-10",
+        "ev-14",
+        "ev-15"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected sources do not prove tenant-specific availability, licensing, rollout timing, or regional feature access for any customer.",
+    "No customer ROI, adoption metric, production incident rate, or approved business case is provided by the selected sources.",
+    "The package does not rely on Microsoft blog imagery, product screenshots, customer marks, or private tenant records.",
+    "Release-plan and monthly status details from the legacy packet are not included as claims unless supported by the four fetched sources."
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "agent-365",
+  "domainDigest": "1ffba7ea24b83570f916e48f86838d9bbf1a712fcbc924ef98f9ff861919a54d",
+  "title": "Agent 365: pilot the control plane first",
+  "audience": "Executive decision-makers",
+  "decision": "Pilot one accountable agent before scaling governance.",
+  "language": "en",
+  "summary": "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.",
+  "claims": [
+    {
+      "claimId": "c1",
+      "text": "Agent 365 is a centralized control plane for observing, governing, and securing AI agents.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ]
+    },
+    {
+      "claimId": "c2",
+      "text": "Observation should pair agent inventory with audited traces for interactions, inference events, and tool usage.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-04"
+      ]
+    },
+    {
+      "claimId": "c3",
+      "text": "Governance and security connect lifecycle controls, Entra permissions, Purview protection, and Defender detection.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ]
+    },
+    {
+      "claimId": "c4",
+      "text": "SDK integration extends existing agents with enterprise capabilities without creating or hosting the agent.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08"
+      ]
+    },
+    {
+      "claimId": "c5",
+      "text": "A pilot must verify prerequisites, licenses, preview limits, and telemetry before scaling.",
+      "evidenceIds": [
+        "ev-09",
+        "ev-10",
+        "ev-11",
+        "ev-12"
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "evidenceId": "ev-01",
+      "sourceTitle": "Microsoft Agent 365 - Service Descriptions",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-agent-365/microsoft-agent-365",
+      "retrievedAt": "2026-10-06T20:16:49.112Z"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceTitle": "Microsoft Agent 365 overview",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "retrievedAt": "2026-10-06T20:16:48.334Z"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceTitle": "Microsoft Agent 365 overview",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "retrievedAt": "2026-10-06T20:16:48.334Z"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceTitle": "Microsoft Agent 365 SDK and CLI",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/",
+      "retrievedAt": "2026-10-06T20:16:48.694Z"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceTitle": "Microsoft Agent 365 overview",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "retrievedAt": "2026-10-06T20:16:48.334Z"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceTitle": "Microsoft Agent 365 overview",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "retrievedAt": "2026-10-06T20:16:48.334Z"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceTitle": "Microsoft Agent 365 SDK and CLI",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/",
+      "retrievedAt": "2026-10-06T20:16:48.694Z"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceTitle": "Microsoft Agent 365 SDK and CLI",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/",
+      "retrievedAt": "2026-10-06T20:16:48.694Z"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceTitle": "Quickstart: Connect an Existing Agent to Agent 365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started",
+      "retrievedAt": "2026-10-06T20:16:49.394Z"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceTitle": "Quickstart: Connect an Existing Agent to Agent 365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started",
+      "retrievedAt": "2026-10-06T20:16:49.394Z"
+    },
+    {
+      "evidenceId": "ev-11",
+      "sourceTitle": "Quickstart: Connect an Existing Agent to Agent 365",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-agent-365/developer/get-started",
+      "retrievedAt": "2026-10-06T20:16:49.394Z"
+    },
+    {
+      "evidenceId": "ev-12",
+      "sourceTitle": "Microsoft Agent 365 - Service Descriptions",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-agent-365/microsoft-agent-365",
+      "retrievedAt": "2026-10-06T20:16:49.112Z"
+    }
+  ],
+  "assets": [],
+  "sections": [
+    {
+      "sectionId": "control-plane",
+      "title": "1. Name the control plane",
+      "body": "Agent 365 is the control plane for AI agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+      "claimIds": [
+        "c1",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: service description calls Agent 365 a centralized control plane; overview states observe, govern, and secure. Interpretation: ownership and access questions make the pilot accountable.",
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  owner[\"OWNER\"]\n  agent[\"AGENT\"]\n  access[\"ACCESS\"]\n  trace[\"ACTION TRACE\"]\n  owner --> agent --> access --> trace",
+        "caption": "Frame the pilot with ownership, access, and traceability before scale."
+      }
+    },
+    {
+      "sectionId": "observe-traces",
+      "title": "2. Observe traced work",
+      "body": "Observe with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.",
+      "claimIds": [
+        "c2"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: overview describes real-time visibility into the agentic environment; SDK guidance describes audited, traceable interactions, inference events, and tool usage.",
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Inventory plus telemetry turns agent activity into traceable evidence.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"registry\",\"x\":90,\"y\":70,\"width\":900,\"height\":105,\"strokeColor\":\"#3B82F6\",\"backgroundColor\":\"#0B1B3A\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"REGISTRY\\nALL AGENTS\",\"fontSize\":34,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"telemetry\",\"x\":90,\"y\":250,\"width\":900,\"height\":105,\"strokeColor\":\"#60A5FA\",\"backgroundColor\":\"#102A55\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TELEMETRY\\nTRACES\",\"fontSize\":34,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"evidence\",\"x\":90,\"y\":430,\"width\":900,\"height\":105,\"strokeColor\":\"#93C5FD\",\"backgroundColor\":\"#143866\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TOOL CALLS\\nEVIDENCE\",\"fontSize\":34,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"arrow\",\"x\":540,\"y\":175,\"width\":0,\"height\":75,\"start\":{\"id\":\"registry\"},\"end\":{\"id\":\"telemetry\"},\"strokeColor\":\"#3B82F6\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":540,\"y\":355,\"width\":0,\"height\":75,\"start\":{\"id\":\"telemetry\"},\"end\":{\"id\":\"evidence\"},\"strokeColor\":\"#60A5FA\",\"strokeWidth\":5,\"roughness\":0}]"
+      }
+    },
+    {
+      "sectionId": "govern-secure",
+      "title": "3. Govern and secure access",
+      "body": "Govern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.",
+      "claimIds": [
+        "c3"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: overview connects registry, Microsoft 365 admin center, Entra, and Purview with lifecycle and permissions; the secure section identifies Defender threat detection.",
+      "visual": {
+        "kind": "marp",
+        "caption": "Use the Microsoft control stack as one governed access path.",
+        "source": "# GOVERN + SECURE\n\n| ENTRA | PURVIEW | DEFENDER |\n|---|---|---|\n| ACCESS | DATA | THREATS |\n\n## REVIEW BEFORE ROLLOUT"
+      }
+    },
+    {
+      "sectionId": "accountable-pilot",
+      "title": "4. Pilot before expansion",
+      "body": "Keep the current agent and add only needed SDK pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review.",
+      "claimIds": [
+        "c4",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: the SDK extends existing agents without creating or hosting them. The quickstart and service description make validation, assigned licenses, preview status, and plan availability explicit checks.",
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart TB\n  pilot[\"ONE PILOT\"]\n  checks[\"VERIFY LIMITS\"]\n  evidence[\"TRACE EVIDENCE\"]\n  scale[\"SCALE LATER\"]\n  pilot --> checks --> evidence --> scale",
+        "caption": "Start small, prove the controls, and expand only from evidence."
+      }
+    }
+  ],
+  "voice": {
+    "style": "calm, decisive executive briefing",
+    "profileId": "am_michael",
+    "speed": 1,
+    "pronunciations": {
+      "AI": "A I",
+      "SDK": "S D K",
+      "MCP": "M C P"
+    },
+    "narration": "Bottom line: use Agent 365 as the control plane for one accountable pilot; verify ownership, access, action traces, licenses, and preview limits before scaling.\n\nAgent 365 is the control plane for AI agents. Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.\n\nObserve with a registry, activity, and health first. Add telemetry so each request, model step, tool call, and error has a trace for operators, not guesswork.\n\nGovern and secure access as one path. Pair lifecycle review, Entra controls, Purview data checks, and Defender signals for every agent before wider rollout.\n\nKeep the current agent and add only needed SDK pieces. Pilot one owned use case, verify licenses and preview limits, then scale only from evidence and review.",
+    "externalTransfer": false
+  }
+}

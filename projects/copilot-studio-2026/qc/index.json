@@ -2,216 +2,2479 @@
   "schemaVersion": "1.0.0",
   "projectId": "copilot-studio-2026",
   "status": "indexed_not_quality_approved",
+  "excludedRoots": [
+    "qc/revisions/"
+  ],
   "entries": [
     {
-      "path": "qc/audio-v4.txt",
-      "digest": "60e8e936802782eed6af16760c60d2a1f17bc5d37e913b966f22c4e5698a82e8",
-      "byteSize": 3776
+      "path": "qc/analysis/comparison.json",
+      "digest": "983191eb5419616d0a7a68dece8064db6517bf3a63ab9987ac57336e8adfae32",
+      "byteSize": 10780
     },
     {
-      "path": "qc/dependency-report-v1.json",
-      "digest": "01219b623da543fb0baee9072c25af8d2ad62c15b04dcba424b1bb9a89f01b06",
-      "byteSize": 976
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/analysis.json",
+      "digest": "25f8542d22e966e6d9349bf5b8ab34f57875974b503ca23fb7cd5a70f896a998",
+      "byteSize": 16525
     },
     {
-      "path": "qc/dependency-report-v2.json",
-      "digest": "5d4a50fd2007e68191bc1d677529baf879b8d7b80b63084097a223abcc172f3b",
-      "byteSize": 837
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/01-chunk-01.jpg",
+      "digest": "34346b57487715e53b541d766fc803aae1ae7d2f7a8684cb0d89077920ad2ca0",
+      "byteSize": 72264
     },
     {
-      "path": "qc/dependency-report-v3.json",
-      "digest": "2121c2a616e7c18bf16ce4309f4c8ce147742436bd1cebbd114effa2c25cb6c4",
-      "byteSize": 837
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/02-chunk-02.jpg",
+      "digest": "7b0d9135e8efabcc079c7dcd6341c068e39de039e52164f98be3a24d2dd06f8b",
+      "byteSize": 92976
     },
     {
-      "path": "qc/dependency-report-v4.json",
-      "digest": "be3c3ebaaff894087a0501b8503098ac1878229ab45c08f142d54d71f3d6ddd9",
-      "byteSize": 837
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/03-chunk-03.jpg",
+      "digest": "815eaf7a2d59204522439c378436c6313d68032393469c6a5b36e52653936dbd",
+      "byteSize": 87488
     },
     {
-      "path": "qc/dependency-report-v5.json",
-      "digest": "d57d381cad7bee52c6c5dbe587dc95bd6b6d665c8610940bf9a0b5f973a20800",
-      "byteSize": 837
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/04-chunk-04.jpg",
+      "digest": "7d88457006f695b8c0ce7615250116dd808201a53ed38ddd158b3284cf682edb",
+      "byteSize": 87846
     },
     {
-      "path": "qc/dependency-report-v6.json",
-      "digest": "a4d479d73a3e563b954f67f0eadcf6696505ce1f638f71a95b13029fe25d393b",
-      "byteSize": 796
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/05-chunk-05.jpg",
+      "digest": "14d4be22dc8b013d41f4026c535d98253bd8394d82d952701a4d4c5a48c6806a",
+      "byteSize": 82593
     },
     {
-      "path": "qc/frame-count-v1.txt",
-      "digest": "115c547e51b9d25d0b9c954ff70092cfb57e101467fe262f97ed355ba18a9dbb",
-      "byteSize": 6
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/06-chunk-06.jpg",
+      "digest": "760c5d196333af80fd15f4e920f76e5384908cc12c48ffb83116463cf0be0e6d",
+      "byteSize": 85410
     },
     {
-      "path": "qc/frame-count-v2.txt",
-      "digest": "115c547e51b9d25d0b9c954ff70092cfb57e101467fe262f97ed355ba18a9dbb",
-      "byteSize": 6
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/07-chunk-07.jpg",
+      "digest": "6efb84603055ef1247158deb7bb706fd05e2a53504215c7d3ecebff996f7c9c7",
+      "byteSize": 88511
     },
     {
-      "path": "qc/frame-count-v3.txt",
-      "digest": "115c547e51b9d25d0b9c954ff70092cfb57e101467fe262f97ed355ba18a9dbb",
-      "byteSize": 6
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/08-chunk-08.jpg",
+      "digest": "7072a28d25a66cbcbbbeb1475776b1f6881502f264fd88e998f2f33da83ff03e",
+      "byteSize": 88950
     },
     {
-      "path": "qc/frame-count-v4.txt",
-      "digest": "115c547e51b9d25d0b9c954ff70092cfb57e101467fe262f97ed355ba18a9dbb",
-      "byteSize": 6
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/chunks/09-chunk-09.jpg",
+      "digest": "8a6a7ddc8427ef23aa923a5392e199d9bafb7424fb8456d5cced4de9cabc78b1",
+      "byteSize": 75698
     },
     {
-      "path": "qc/frame-metrics-v1.md",
-      "digest": "715bd455e2f3d1641b444e5e30186845673a70365594113063d6fda401a6da24",
-      "byteSize": 928
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/contact-sheet.jpg",
+      "digest": "dac604d6374c1e29e5730f815976c524f333953cad01ba865338a5c5b5d6251e",
+      "byteSize": 359989
     },
     {
-      "path": "qc/frame-metrics-v2.md",
-      "digest": "efcfd861d70c4cbd96ada715271b1dead7768c1baf3daaa5f67b26072c54f36c",
-      "byteSize": 856
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/01-mid-chunk-01.jpg",
+      "digest": "c44cfdb990152eb5c8913783b3e1417abc1d678b092acab4fe8a336690089685",
+      "byteSize": 34665
     },
     {
-      "path": "qc/frame-metrics-v3.md",
-      "digest": "24577fa89101c63050ae90c5bcc1a4380846945cf72b2b47224f741d5b0e4277",
-      "byteSize": 848
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/02-mid-chunk-02.jpg",
+      "digest": "bd11afd193022cf2640c9c26a7f4add58a30ae8e553055f64f4d1b07aaf88ded",
+      "byteSize": 47818
     },
     {
-      "path": "qc/frame-metrics-v4.md",
-      "digest": "83cc8247f4d02b62f2cf4011272bfa190cd51367c84c8bdc00a69ff69f1940d7",
-      "byteSize": 825
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/03-mid-chunk-03.jpg",
+      "digest": "bbb4c3c2f18942234ee6edd6ae72eb43c4789f308450b3f6903c1551cbb07629",
+      "byteSize": 35123
     },
     {
-      "path": "qc/media-v3.json",
-      "digest": "7027c6fbdacffe66cde205160e4dfeeeca210df2d72d35da2bdbf98ac61a3424",
-      "byteSize": 4650
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/04-mid-chunk-04.jpg",
+      "digest": "b52cd982abc034ee415c48b3418f8deb1a37dcc10423ebd290e0631c71216d97",
+      "byteSize": 49712
     },
     {
-      "path": "qc/media-v4.json",
-      "digest": "fc7e07a6e80c44d416c32af4b750ca70fc4474aab12bad052ff6a843e0097308",
-      "byteSize": 4650
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/05-mid-chunk-05.jpg",
+      "digest": "39ea7827be89270468f0e1c77c35675c980b2fe010837190b860fb5ed68cd16b",
+      "byteSize": 38665
     },
     {
-      "path": "qc/motion-v1.txt",
-      "digest": "00af3b0c7a05101ade894a1fbb700c54b324fe2ab23ad2c9976b17d105367ae7",
-      "byteSize": 604
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/06-mid-chunk-06.jpg",
+      "digest": "1bbefcec2bdbc4cb131044f2b2aed5ac5cc24bfbfd6c527816e317393eadbd67",
+      "byteSize": 45671
     },
     {
-      "path": "qc/motion-v2.txt",
-      "digest": "c323d5fb470bf8df3caec882e0cc9c784e982cd223085e4bab8fb1accd317819",
-      "byteSize": 446
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/07-mid-chunk-07.jpg",
+      "digest": "923b6978f7d6fa4433e0c13628b32eeaf36b10350853e548487c132e6e6d418d",
+      "byteSize": 56142
     },
     {
-      "path": "qc/motion-v3.txt",
-      "digest": "9ed269f12191380b0274ba83c147de86b182da983e6f82aac4459329c6a06527",
-      "byteSize": 405
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/08-mid-chunk-08.jpg",
+      "digest": "633a901ba52ea94ce8ff88b05c6f07f11c445e7166632d50155ab55555c6c156",
+      "byteSize": 57111
     },
     {
-      "path": "qc/motion-v4.txt",
-      "digest": "f7f3a9bd2044c0bf373e348e733388b59b810ca8597f4fedddf685f79f7d9605",
-      "byteSize": 309
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/09-mid-chunk-09.jpg",
+      "digest": "409fce70daa3edc2cbeeacd58451734d67d6c4421d512225bb9c76622e73b472",
+      "byteSize": 48886
     },
     {
-      "path": "qc/overview-v3.jpg",
-      "digest": "2ff99a8f0bbb744c7a480f1a1b02a80ae0cb7a23ee48bb2e894e73f16a2c70fc",
-      "byteSize": 332981
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/10-before-transition.jpg",
+      "digest": "d444c31e252ee8efd3c0f234fcf0a556c61a36c8ae900e629a2ccb0f0128bb14",
+      "byteSize": 11661
     },
     {
-      "path": "qc/overview-v4.jpg",
-      "digest": "afb2a45f6ceffca355d5d895e920e75a1aeeb338ca0ce852632187611b533567",
-      "byteSize": 331570
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/11-during-transition.jpg",
+      "digest": "60e9c94f08b9e2c5adf9275ff065d459dd3fb9b4c3f4c5847cc3076b1be1cd03",
+      "byteSize": 28585
     },
     {
-      "path": "qc/review-candidate-v4.json",
-      "digest": "a0de088f86f897bd1cd7103ee5c0893faa36a81d5e01042798bc847c269b22cd",
-      "byteSize": 2986
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/12-after-transition.jpg",
+      "digest": "72fdc9c6610361dc2049443783c0a874c1c7609217c1849bbeded9c14ccddff4",
+      "byteSize": 32172
     },
     {
-      "path": "qc/SC01-v3.jpg",
-      "digest": "2e59e971618d5f1086afda0f4663fae30916dc7a56f4561dfee940454c9918c5",
-      "byteSize": 183284
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/13-before-transition.jpg",
+      "digest": "28b7e2c4fe6d046de4df39e46549e2f226b07b8011f6e406a2dc993100ca0d59",
+      "byteSize": 36751
     },
     {
-      "path": "qc/SC01-v4.jpg",
-      "digest": "2e59e971618d5f1086afda0f4663fae30916dc7a56f4561dfee940454c9918c5",
-      "byteSize": 183284
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/14-during-transition.jpg",
+      "digest": "e1849d17a3297c03e4c6b8dcc70609b90fa6a14512486fcdf26cebec555b4227",
+      "byteSize": 34005
     },
     {
-      "path": "qc/SC02-v3.jpg",
-      "digest": "6996833dee53e4b3e59de6a8082538b5f13c3fb8da2ccc5e45069738c800bd3d",
-      "byteSize": 237614
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/15-after-transition.jpg",
+      "digest": "7d78171e675340058f9dfc62b2a00d73073c20d83d7ebcdada3f4fc241d52841",
+      "byteSize": 28898
     },
     {
-      "path": "qc/SC02-v4.jpg",
-      "digest": "6996833dee53e4b3e59de6a8082538b5f13c3fb8da2ccc5e45069738c800bd3d",
-      "byteSize": 237614
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/16-before-transition.jpg",
+      "digest": "55755d40b7d4f601b8abaacdb52ba7236fa53d814fc1fab78b7c2395e4a71e87",
+      "byteSize": 33986
     },
     {
-      "path": "qc/SC03-v3.jpg",
-      "digest": "7d49a896f3f63aa43af86c51b2929ae72c0303a399a435545a851cb7aab22db8",
-      "byteSize": 257269
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/17-during-transition.jpg",
+      "digest": "2230082951e9a00aed08f851eee775c1945694ac55ee8b67c861b72745344392",
+      "byteSize": 20466
     },
     {
-      "path": "qc/SC03-v4.jpg",
-      "digest": "7d49a896f3f63aa43af86c51b2929ae72c0303a399a435545a851cb7aab22db8",
-      "byteSize": 257269
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/18-after-transition.jpg",
+      "digest": "93624ff6a3ae8906a5176aeeef64479b74c4a63f33193d128d975bb24283fd8b",
+      "byteSize": 36661
     },
     {
-      "path": "qc/SC04-v3.jpg",
-      "digest": "206e75246dc7ace3e2a7fc8e4f991be1f501adace11c34ae9e4ce50a67b07f02",
-      "byteSize": 239329
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/19-before-transition.jpg",
+      "digest": "00a8d311387cf7dde28eb4d6affd2a984b17018a491c67df810a941b6d8e84bc",
+      "byteSize": 38058
     },
     {
-      "path": "qc/SC04-v4.jpg",
-      "digest": "4af52ddfaf2b4f578259dc91a0b838781063a96e4045fcc5728e8658c3cc3f18",
-      "byteSize": 239172
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/20-during-transition.jpg",
+      "digest": "186b01316aa388be08715981402c0139d0b48ebb9cbe94df27a9b6b692278949",
+      "byteSize": 45845
     },
     {
-      "path": "qc/SC05-v3.jpg",
-      "digest": "a88ec34c8d050334c65adde8c1b523bb7cd49e2e61365a470d671a5c21ad7ec6",
-      "byteSize": 269095
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/21-after-transition.jpg",
+      "digest": "e3ea40930db8bdd19480d20d6da351b88dc923cca97270d5287836cefa6a6587",
+      "byteSize": 49425
     },
     {
-      "path": "qc/SC05-v4.jpg",
-      "digest": "c06371429829e38f2419a27dc965e0883f5d6fe5c2a465a85908e02e05f32251",
-      "byteSize": 270494
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/22-before-transition.jpg",
+      "digest": "b2938434a527550d665f824d044b618b031e1c8c82b51f22123cf712dc3be8b3",
+      "byteSize": 49851
     },
     {
-      "path": "qc/SC06-v3.jpg",
-      "digest": "fc552e7f8ef907b39d05212cad38885581c28df35e780604da825b3b8c4a8fff",
-      "byteSize": 236294
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/23-during-transition.jpg",
+      "digest": "bb7c86276019f987d0cf1dd80540382677032feb77bc743b322a3a61e1f42b61",
+      "byteSize": 49894
     },
     {
-      "path": "qc/SC06-v4.jpg",
-      "digest": "fc552e7f8ef907b39d05212cad38885581c28df35e780604da825b3b8c4a8fff",
-      "byteSize": 236294
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/24-after-transition.jpg",
+      "digest": "1bb629552441adacc868adafaaea564524eebca1618f9df776e845b0089f55c7",
+      "byteSize": 48009
     },
     {
-      "path": "qc/stills-v1/scene-1.jpg",
-      "digest": "9d5900165a1305f733a6e91914efed02a7d2faa7d7c9c3fddd944e173778f303",
-      "byteSize": 136079
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/25-before-transition.jpg",
+      "digest": "383333e3360bb41075833d1b8f0f756132b52a87c3070b66cfdfa4ca6e30d5bd",
+      "byteSize": 47984
     },
     {
-      "path": "qc/stills-v1/scene-2.jpg",
-      "digest": "45f63ca2688774bbb2ef7eb3998ff6adb20055eaf1a28ac7654421184588312b",
-      "byteSize": 179122
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/26-during-transition.jpg",
+      "digest": "30d2d52a8d7b80395ae95601639b001c6e45bfbaed87647395bf4953dea21fa5",
+      "byteSize": 30794
     },
     {
-      "path": "qc/stills-v1/scene-3.jpg",
-      "digest": "f98719d1a03a504faaa2775d38540d2cdc38757775e4e190a7d04ea0f6e897e8",
-      "byteSize": 173685
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/27-after-transition.jpg",
+      "digest": "7ea32a3954c520b2a1f27483bde5c3b06b380e16d67b7a35165f8dd947674296",
+      "byteSize": 42746
     },
     {
-      "path": "qc/stills-v1/scene-4.jpg",
-      "digest": "53053881fd9313b2817f19c5e2f4029dda52d365ed470b372940f7a4061a5e65",
-      "byteSize": 160887
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/28-p10.jpg",
+      "digest": "b7d684685cd6448df3f90aa809ad21389a1adf08d1b12fabb00531b2a4ba179a",
+      "byteSize": 29334
     },
     {
-      "path": "qc/stills-v1/scene-5.jpg",
-      "digest": "d17e3ce1302af2297f7579fbe4f3f3c2b76ae2716b89b3ae4b4805c235ae4625",
-      "byteSize": 191541
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/29-p30.jpg",
+      "digest": "97125465a65fc63c52de8f7cd367ada4825cb661998d836b8e13f2781f72f43e",
+      "byteSize": 48473
     },
     {
-      "path": "qc/stills-v1/scene-6.jpg",
-      "digest": "c113d4ad45fe02c5557fd9eb815518fdda16c9230cbac78f8515da2c23b93009",
-      "byteSize": 138931
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/30-p50.jpg",
+      "digest": "0561bcd6dfc341b2d50e6ce9b080ce0f8722d4f9c72deb5bf96a024f69e63958",
+      "byteSize": 45869
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/31-p70.jpg",
+      "digest": "d10b05fadfff620fcf73b8b0b7b245d09e01b52629571ecafe8470c741439efc",
+      "byteSize": 55942
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/frames/32-p90.jpg",
+      "digest": "2f827c914d16de6fe110b8e284f1f0473498747d8bfa972f6fcdbd4cb2f4138a",
+      "byteSize": 40875
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/layers.png",
+      "digest": "2e4c5d41ee7042e4bd4d12844e35994acc2f3b5a51cdf5f30810e07045aaa97d",
+      "byteSize": 76439
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/spectrogram-speech.jpg",
+      "digest": "84a3faf638b6f12d77d9495e9c3bd4bc3998a03c27959fc76a49c7df1694c31e",
+      "byteSize": 232252
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/spectrogram.jpg",
+      "digest": "fddf5ca886c99ab83c3f5b4d37ffb817b2c0ef5a6a21bd851e869589a5156b31",
+      "byteSize": 192246
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/waveform.png",
+      "digest": "565827dce42658ed982be41088c6f11285ef484462158fca33ecd412fe0d4a85",
+      "byteSize": 8790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/analysis.json",
+      "digest": "87c3f51da9a12fd237c8eae8b457ce22ced0904d7ff2627e2164b828377a632f",
+      "byteSize": 16274
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/01-chunk-01.jpg",
+      "digest": "34346b57487715e53b541d766fc803aae1ae7d2f7a8684cb0d89077920ad2ca0",
+      "byteSize": 72264
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/02-chunk-02.jpg",
+      "digest": "7b0d9135e8efabcc079c7dcd6341c068e39de039e52164f98be3a24d2dd06f8b",
+      "byteSize": 92976
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/03-chunk-03.jpg",
+      "digest": "815eaf7a2d59204522439c378436c6313d68032393469c6a5b36e52653936dbd",
+      "byteSize": 87488
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/04-chunk-04.jpg",
+      "digest": "7d88457006f695b8c0ce7615250116dd808201a53ed38ddd158b3284cf682edb",
+      "byteSize": 87846
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/05-chunk-05.jpg",
+      "digest": "14d4be22dc8b013d41f4026c535d98253bd8394d82d952701a4d4c5a48c6806a",
+      "byteSize": 82593
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/06-chunk-06.jpg",
+      "digest": "760c5d196333af80fd15f4e920f76e5384908cc12c48ffb83116463cf0be0e6d",
+      "byteSize": 85410
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/07-chunk-07.jpg",
+      "digest": "6efb84603055ef1247158deb7bb706fd05e2a53504215c7d3ecebff996f7c9c7",
+      "byteSize": 88511
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/08-chunk-08.jpg",
+      "digest": "7072a28d25a66cbcbbbeb1475776b1f6881502f264fd88e998f2f33da83ff03e",
+      "byteSize": 88950
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/chunks/09-chunk-09.jpg",
+      "digest": "8a6a7ddc8427ef23aa923a5392e199d9bafb7424fb8456d5cced4de9cabc78b1",
+      "byteSize": 75698
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/contact-sheet.jpg",
+      "digest": "edf1529650453cecf25d259b5fa43688055f6cadb321cc717f3819c436325a1a",
+      "byteSize": 363890
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/01-mid-chunk-01.jpg",
+      "digest": "63ba6da2e61f00d19496126129b1dc0a4dfbee7982f5d1b59822c636700aba8c",
+      "byteSize": 34475
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/02-mid-chunk-02.jpg",
+      "digest": "3d10165d9fbc874752bccf528ddb904a2ed643bbbb7d0dcb8512945c85ed2228",
+      "byteSize": 46709
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/03-mid-chunk-03.jpg",
+      "digest": "1b913bf38676822cbc0e6c148ccc3c151798a120207119a69786dae0caa21575",
+      "byteSize": 34820
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/04-mid-chunk-04.jpg",
+      "digest": "4916fcf608e07413ba6f1d83285616af5bf9bcf913ef84725f82be68073866ae",
+      "byteSize": 48954
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/05-mid-chunk-05.jpg",
+      "digest": "d58cf6044900ba3bf82e1057f4bcc376b14fec5480c5a918b32d1fb09840d248",
+      "byteSize": 38315
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/06-mid-chunk-06.jpg",
+      "digest": "8dc337712e42c8da24df13abb528ab10da86f3b389469b7e3fafdf6b266ddade",
+      "byteSize": 45235
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/07-mid-chunk-07.jpg",
+      "digest": "7f0073781722b3faf6ff00d98dc7386092673f3aca0e588ff447e90a36ae6cda",
+      "byteSize": 55360
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/08-mid-chunk-08.jpg",
+      "digest": "546e3aca5094fba277f0243c66cc2732b1c3ad1a9885de035885c2b1801eb10d",
+      "byteSize": 56118
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/09-mid-chunk-09.jpg",
+      "digest": "2d33a9945338d00b1680a0b0572291f9dcd79d278d25b4f6c68dd2f8df82d9b2",
+      "byteSize": 48277
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/10-before-transition.jpg",
+      "digest": "14a5eba6d727a24a74eaadcdb7450adb2ecae32c91b3a8a14a6369e434d3fa1e",
+      "byteSize": 11761
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/11-during-transition.jpg",
+      "digest": "31c1489cdf7902a85ec010b50c93786645a976c195e754de8434282f723896f0",
+      "byteSize": 28277
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/12-after-transition.jpg",
+      "digest": "aae0313d273c74abe6ecc820ad1b4b904e8bd5b2accb23d71ba0055bd16beb1e",
+      "byteSize": 31906
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/13-before-transition.jpg",
+      "digest": "634b43e78d35192ea84ad979d59ba07ca78a327d1e4c33b50dfd29c0a3e1c398",
+      "byteSize": 36472
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/14-during-transition.jpg",
+      "digest": "71f4a0d7f8d67d7ac563297ef89810cf635a568319c3f8dcce4b6dec478cb102",
+      "byteSize": 33428
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/15-after-transition.jpg",
+      "digest": "8eafd3d9237e54241dd5a77d6514948fa41fee5eb05fc344af79887761314915",
+      "byteSize": 28248
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/16-before-transition.jpg",
+      "digest": "7e48f384080f38cb3621172f17cd1407de9f70011d1c7161d74ca7a43f599fe8",
+      "byteSize": 33293
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/17-during-transition.jpg",
+      "digest": "fee90ade6763481611be69f851ee242db5194aff48e9b76fa6c667b981d2da23",
+      "byteSize": 20594
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/18-after-transition.jpg",
+      "digest": "a8cd75f542433eeb7c2bf72ad4c062ab9ab9ee1560215b2ccf5edf29fb388bdc",
+      "byteSize": 35937
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/19-before-transition.jpg",
+      "digest": "f67aa19bf5716dd230658eb865cf2539899041c3f178dd4caff6fa4379252e5f",
+      "byteSize": 37327
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/20-during-transition.jpg",
+      "digest": "df23fce190589ba362bcd50f7f476eaa315749b2016b2eee8f352b3c499f30d5",
+      "byteSize": 44694
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/21-after-transition.jpg",
+      "digest": "4598b2c3caee6e1d2b06ccf2efd3348f84a38f2003929489f101236de69f8ead",
+      "byteSize": 48318
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/22-before-transition.jpg",
+      "digest": "ec2870fd56310dd00fd8af2f2946b28521223148d9e2d8a74cb264cf3fc7824b",
+      "byteSize": 48629
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/23-during-transition.jpg",
+      "digest": "35b68a0a1f161a9081304ff3ee27cd853fb2779b351c2b85e88cff6a4017eea8",
+      "byteSize": 48694
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/24-after-transition.jpg",
+      "digest": "3a98d636e21b45fe05a34ac25b0517c921e5e2687810d5d2319b5dcaa3b83d53",
+      "byteSize": 46820
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/25-before-transition.jpg",
+      "digest": "a03eb9656bee7fafa014b0c50473e0c2c36a3e50a6d7b804264fc1011715f65b",
+      "byteSize": 46850
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/26-during-transition.jpg",
+      "digest": "d00b43e591101cc51e4aa07dfd5df8b8fa124f6a015f9f913e38254bffa61a95",
+      "byteSize": 30680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/27-after-transition.jpg",
+      "digest": "006208a76082da68dd66bcb695397f62f25a86dde87fb24632058cfaf68c99ce",
+      "byteSize": 41821
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/28-p10.jpg",
+      "digest": "ae806192fa3017e16376b311cd394a60e330d79f9f1c8bcfc5a0ab25663a0d37",
+      "byteSize": 28961
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/29-p30.jpg",
+      "digest": "60b07436e4743c4117244a1713abfaebef4c8fee88671ac7092bdf6a15fcdadb",
+      "byteSize": 47647
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/30-p50.jpg",
+      "digest": "5f514c76705b92d3b95cc77c237e80e79fcc24f9a4ec2b936560b9807e691972",
+      "byteSize": 45529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/31-p70.jpg",
+      "digest": "9964a3aaa0d06ed0254ad1a9be59d11c7384d7597c50bcabfcd38c54c12683ee",
+      "byteSize": 55007
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/frames/32-p90.jpg",
+      "digest": "38e6595710f8ab68c0994cb318b02cb145faf1070a5831f5a9149a69b01a8d36",
+      "byteSize": 40315
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/layers.png",
+      "digest": "261f2250b7ce506b28add56b5081e2bb411ebe3d32540b8ecf62f1a6fc094310",
+      "byteSize": 80582
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/spectrogram-speech.jpg",
+      "digest": "84a3faf638b6f12d77d9495e9c3bd4bc3998a03c27959fc76a49c7df1694c31e",
+      "byteSize": 232252
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/spectrogram.jpg",
+      "digest": "fddf5ca886c99ab83c3f5b4d37ffb817b2c0ef5a6a21bd851e869589a5156b31",
+      "byteSize": 192246
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02-raw/waveform.png",
+      "digest": "565827dce42658ed982be41088c6f11285ef484462158fca33ecd412fe0d4a85",
+      "byteSize": 8790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/analysis.json",
+      "digest": "512395b012a7795a09cbd7627f463fece9464149c47a8f48de7a80b8b781eb6e",
+      "byteSize": 16261
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/01-chunk-01.jpg",
+      "digest": "245aa720d33b5a9d423e60277c3657ed5ae7767af0d42122cdca3c9c6831b4aa",
+      "byteSize": 72993
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/02-chunk-02.jpg",
+      "digest": "bd9604afa512e38b32febb6942450fecc9bc8cf5dde782af55a912600e9c5a3d",
+      "byteSize": 93069
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/03-chunk-03.jpg",
+      "digest": "2b3844e58d98ec39a942063ff0341b9c596e37d4a0c197c93bab0e8102e5dc89",
+      "byteSize": 87437
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/04-chunk-04.jpg",
+      "digest": "e05c5f7f04862d5326f3ccb292cd4ebd5757575aa6262a0cc5128fda1a21c9e2",
+      "byteSize": 87233
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/05-chunk-05.jpg",
+      "digest": "19a4f492b212478a3aa89e3c47d22bf84b730ee380704ef51fa1e6668bdaf1fd",
+      "byteSize": 82805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/06-chunk-06.jpg",
+      "digest": "1ece96703d675e528918955ac0ddc00c7ad93c3c71dfde481dfa4d150a6f545f",
+      "byteSize": 85125
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/07-chunk-07.jpg",
+      "digest": "895679ddeb0229ae06124323c05c90e0fa3009117650e14ce50808bf11c176c9",
+      "byteSize": 88717
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/08-chunk-08.jpg",
+      "digest": "d8a64f06ec2dd16dac4f9012e42955001211611b3e7a843f2d3dba1f8a2e17f2",
+      "byteSize": 89270
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/chunks/09-chunk-09.jpg",
+      "digest": "e224ce8478c9f45f6529722f289192ed5c1932b08077de6ffa0528e1489e8787",
+      "byteSize": 74928
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/contact-sheet.jpg",
+      "digest": "3af6e8a8b6a47d92a55c4649ef8eed7aac65024b356be2c1876d6c60c7123a43",
+      "byteSize": 363852
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/01-mid-chunk-01.jpg",
+      "digest": "63ba6da2e61f00d19496126129b1dc0a4dfbee7982f5d1b59822c636700aba8c",
+      "byteSize": 34475
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/02-mid-chunk-02.jpg",
+      "digest": "3d10165d9fbc874752bccf528ddb904a2ed643bbbb7d0dcb8512945c85ed2228",
+      "byteSize": 46709
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/03-mid-chunk-03.jpg",
+      "digest": "1b913bf38676822cbc0e6c148ccc3c151798a120207119a69786dae0caa21575",
+      "byteSize": 34820
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/04-mid-chunk-04.jpg",
+      "digest": "4916fcf608e07413ba6f1d83285616af5bf9bcf913ef84725f82be68073866ae",
+      "byteSize": 48954
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/05-mid-chunk-05.jpg",
+      "digest": "d58cf6044900ba3bf82e1057f4bcc376b14fec5480c5a918b32d1fb09840d248",
+      "byteSize": 38315
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/06-mid-chunk-06.jpg",
+      "digest": "8dc337712e42c8da24df13abb528ab10da86f3b389469b7e3fafdf6b266ddade",
+      "byteSize": 45235
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/07-mid-chunk-07.jpg",
+      "digest": "7f0073781722b3faf6ff00d98dc7386092673f3aca0e588ff447e90a36ae6cda",
+      "byteSize": 55360
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/08-mid-chunk-08.jpg",
+      "digest": "546e3aca5094fba277f0243c66cc2732b1c3ad1a9885de035885c2b1801eb10d",
+      "byteSize": 56118
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/09-mid-chunk-09.jpg",
+      "digest": "56e169c00937fd2dd02c9b902571766918872d33f34dec44fea8fad4b8439049",
+      "byteSize": 48415
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/10-before-transition.jpg",
+      "digest": "14a5eba6d727a24a74eaadcdb7450adb2ecae32c91b3a8a14a6369e434d3fa1e",
+      "byteSize": 11761
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/11-during-transition.jpg",
+      "digest": "31c1489cdf7902a85ec010b50c93786645a976c195e754de8434282f723896f0",
+      "byteSize": 28277
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/12-after-transition.jpg",
+      "digest": "aae0313d273c74abe6ecc820ad1b4b904e8bd5b2accb23d71ba0055bd16beb1e",
+      "byteSize": 31906
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/13-before-transition.jpg",
+      "digest": "634b43e78d35192ea84ad979d59ba07ca78a327d1e4c33b50dfd29c0a3e1c398",
+      "byteSize": 36472
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/14-during-transition.jpg",
+      "digest": "71f4a0d7f8d67d7ac563297ef89810cf635a568319c3f8dcce4b6dec478cb102",
+      "byteSize": 33428
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/15-after-transition.jpg",
+      "digest": "8eafd3d9237e54241dd5a77d6514948fa41fee5eb05fc344af79887761314915",
+      "byteSize": 28248
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/16-before-transition.jpg",
+      "digest": "7e48f384080f38cb3621172f17cd1407de9f70011d1c7161d74ca7a43f599fe8",
+      "byteSize": 33293
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/17-during-transition.jpg",
+      "digest": "fee90ade6763481611be69f851ee242db5194aff48e9b76fa6c667b981d2da23",
+      "byteSize": 20594
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/18-after-transition.jpg",
+      "digest": "a8cd75f542433eeb7c2bf72ad4c062ab9ab9ee1560215b2ccf5edf29fb388bdc",
+      "byteSize": 35937
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/19-before-transition.jpg",
+      "digest": "f67aa19bf5716dd230658eb865cf2539899041c3f178dd4caff6fa4379252e5f",
+      "byteSize": 37327
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/20-during-transition.jpg",
+      "digest": "df23fce190589ba362bcd50f7f476eaa315749b2016b2eee8f352b3c499f30d5",
+      "byteSize": 44694
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/21-after-transition.jpg",
+      "digest": "4598b2c3caee6e1d2b06ccf2efd3348f84a38f2003929489f101236de69f8ead",
+      "byteSize": 48318
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/22-before-transition.jpg",
+      "digest": "ec2870fd56310dd00fd8af2f2946b28521223148d9e2d8a74cb264cf3fc7824b",
+      "byteSize": 48629
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/23-during-transition.jpg",
+      "digest": "35b68a0a1f161a9081304ff3ee27cd853fb2779b351c2b85e88cff6a4017eea8",
+      "byteSize": 48694
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/24-after-transition.jpg",
+      "digest": "3a98d636e21b45fe05a34ac25b0517c921e5e2687810d5d2319b5dcaa3b83d53",
+      "byteSize": 46820
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/25-before-transition.jpg",
+      "digest": "a03eb9656bee7fafa014b0c50473e0c2c36a3e50a6d7b804264fc1011715f65b",
+      "byteSize": 46850
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/26-during-transition.jpg",
+      "digest": "d00b43e591101cc51e4aa07dfd5df8b8fa124f6a015f9f913e38254bffa61a95",
+      "byteSize": 30680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/27-after-transition.jpg",
+      "digest": "006208a76082da68dd66bcb695397f62f25a86dde87fb24632058cfaf68c99ce",
+      "byteSize": 41821
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/28-p10.jpg",
+      "digest": "ae806192fa3017e16376b311cd394a60e330d79f9f1c8bcfc5a0ab25663a0d37",
+      "byteSize": 28961
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/29-p30.jpg",
+      "digest": "d652a7b1fe995d493e1624f4a89ca03a4a48cfdd399fe0cb91dfebde6d505643",
+      "byteSize": 47661
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/30-p50.jpg",
+      "digest": "5f514c76705b92d3b95cc77c237e80e79fcc24f9a4ec2b936560b9807e691972",
+      "byteSize": 45529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/31-p70.jpg",
+      "digest": "da652ea4807b6cbb9149277f1ea897810c4fc09ed3107c1c37d3cf570284656d",
+      "byteSize": 54969
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/frames/32-p90.jpg",
+      "digest": "a4c5909707d1ec33c4004bc89e54c87f474517531b80caa30e574dc351e64a34",
+      "byteSize": 40255
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/layers.png",
+      "digest": "aa189bdcbf4777efba5fa316e58c5816be87c9817419baf901b2d2b00195bad2",
+      "byteSize": 80304
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/spectrogram-speech.jpg",
+      "digest": "cdb466ef6e58ae0b580268b34e05b3a2657a2d47d66966af7ff495432e0ac984",
+      "byteSize": 231805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/spectrogram.jpg",
+      "digest": "cf92ea38d08802ac433db4499b833c0075766f01008ca22882928710b74f75ed",
+      "byteSize": 192165
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-02/copilot-studio-2026-02/waveform.png",
+      "digest": "c3b294ab820bbd835841ce7f04f3abfabda454dce85bc592d9111e35dfda8780",
+      "byteSize": 8813
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/analysis.json",
+      "digest": "564a9ea84719a0c3a26db0d8012134901f1836fe525f4d048fa3c02ff863a5d5",
+      "byteSize": 16272
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/01-chunk-01.jpg",
+      "digest": "34346b57487715e53b541d766fc803aae1ae7d2f7a8684cb0d89077920ad2ca0",
+      "byteSize": 72264
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/02-chunk-02.jpg",
+      "digest": "7b0d9135e8efabcc079c7dcd6341c068e39de039e52164f98be3a24d2dd06f8b",
+      "byteSize": 92976
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/03-chunk-03.jpg",
+      "digest": "815eaf7a2d59204522439c378436c6313d68032393469c6a5b36e52653936dbd",
+      "byteSize": 87488
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/04-chunk-04.jpg",
+      "digest": "7d88457006f695b8c0ce7615250116dd808201a53ed38ddd158b3284cf682edb",
+      "byteSize": 87846
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/05-chunk-05.jpg",
+      "digest": "14d4be22dc8b013d41f4026c535d98253bd8394d82d952701a4d4c5a48c6806a",
+      "byteSize": 82593
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/06-chunk-06.jpg",
+      "digest": "760c5d196333af80fd15f4e920f76e5384908cc12c48ffb83116463cf0be0e6d",
+      "byteSize": 85410
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/07-chunk-07.jpg",
+      "digest": "6efb84603055ef1247158deb7bb706fd05e2a53504215c7d3ecebff996f7c9c7",
+      "byteSize": 88511
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/08-chunk-08.jpg",
+      "digest": "7072a28d25a66cbcbbbeb1475776b1f6881502f264fd88e998f2f33da83ff03e",
+      "byteSize": 88950
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/chunks/09-chunk-09.jpg",
+      "digest": "8a6a7ddc8427ef23aa923a5392e199d9bafb7424fb8456d5cced4de9cabc78b1",
+      "byteSize": 75698
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/contact-sheet.jpg",
+      "digest": "24c82eb6135d1ae88be5e87f5c7f5db516eed658ad7d0165686b62c22e26e547",
+      "byteSize": 368590
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/01-mid-chunk-01.jpg",
+      "digest": "2a2b98d9654fbdcd3fac37b1d23aabfdbf8ab5dd2072af0bffa510a2a307a0cc",
+      "byteSize": 34838
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/02-mid-chunk-02.jpg",
+      "digest": "e4b0ec54f66f8115edbd34f2d0de3a6d4d5b96c052e94629025ce76ad477656b",
+      "byteSize": 46943
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/03-mid-chunk-03.jpg",
+      "digest": "91b6f6f472b7a0126fc85ed19c01077dc3bd4b319e5d4075111941f4f61ec4a7",
+      "byteSize": 35559
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/04-mid-chunk-04.jpg",
+      "digest": "afff531e965ce82bbfda0604a63f2cd97aa1e08332540d0baaa150940e71d2f9",
+      "byteSize": 49207
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/05-mid-chunk-05.jpg",
+      "digest": "d32d5fc9c4a8a2ea9f27e99de029a9b776a1718f494e231fccf0a8c8fe06f3dc",
+      "byteSize": 38655
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/06-mid-chunk-06.jpg",
+      "digest": "c81dbb9be898645479776b53b62ab57ee63347d02f17c7f797a91c4298a6d772",
+      "byteSize": 46242
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/07-mid-chunk-07.jpg",
+      "digest": "6e1a2ab2b601da264b1a662f47c6ebbfe589251f2e04229c19f1a20888235091",
+      "byteSize": 55372
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/08-mid-chunk-08.jpg",
+      "digest": "244bd2b68c8baee84f3344d1f73f60ef5666784225b2648a8c0d7d657f453a9e",
+      "byteSize": 56282
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/09-mid-chunk-09.jpg",
+      "digest": "189d05bc54d5b534753a585e3d835c8f2971777d3a9eb0cf872acee61e3dccc2",
+      "byteSize": 48640
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/10-before-transition.jpg",
+      "digest": "f67fc0373be4eedf0f023a37c4b6d484ed86e249581f3a6f3e6c3f348ff4bd19",
+      "byteSize": 15408
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/11-during-transition.jpg",
+      "digest": "59197a78f7673b919a268582cea22ca4a68d7c43abff8a2fdfce8608ee72d6e7",
+      "byteSize": 28792
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/12-after-transition.jpg",
+      "digest": "f804f04d63cd83e5fb09aef09d4529fe1373baf8f64a65c34c9c0bc0fbb087a2",
+      "byteSize": 32485
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/13-before-transition.jpg",
+      "digest": "eb1be13cd21c1c5498ca0d667025ebd41590591d119421eb5fe753054d5d2666",
+      "byteSize": 36885
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/14-during-transition.jpg",
+      "digest": "66c2425560916d0c5dd8ea4da7ae8a2a3fb21ca4cdbd8a51d82562c21b760594",
+      "byteSize": 33900
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/15-after-transition.jpg",
+      "digest": "52912e59f30de05258a23dae663f6a21f724586f070c2b55f2e08a509ca47b53",
+      "byteSize": 28770
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/16-before-transition.jpg",
+      "digest": "ef78d3894585b1aaa8717bd4bf618ff245f9c9e2fdb5f3d467f9c55c984fca3c",
+      "byteSize": 33977
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/17-during-transition.jpg",
+      "digest": "3f47020cd5ea401aa07b281725300e17cc99738a53d7fae3f60399364a635c1e",
+      "byteSize": 21305
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/18-after-transition.jpg",
+      "digest": "fd3620963c87dc5df37c97aad365d60ef8d1ea1117da4c47dbaba7d0706f6a6a",
+      "byteSize": 36489
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/19-before-transition.jpg",
+      "digest": "046b82b95c1eb1b5665b6a68033501b72587ffff7ce0da9326cadf3862222310",
+      "byteSize": 37529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/20-during-transition.jpg",
+      "digest": "0635862a6144d57665927583fa56b717779caf447fa08b01a7d31e83a2978e5c",
+      "byteSize": 44929
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/21-after-transition.jpg",
+      "digest": "d6a29a0f0b680c3045def6b61dfaed4ff1adc478d642d9361cd5c7921a88916c",
+      "byteSize": 48680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/22-before-transition.jpg",
+      "digest": "dce317c7b35a3c04dd7677e4f33211966668151d2264930d8dfd00d4d1bbb04f",
+      "byteSize": 48825
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/23-during-transition.jpg",
+      "digest": "b714c835c8ccb731cd8c9cc739e74820f1c372f8d75a8ae61213f71b19af0211",
+      "byteSize": 48963
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/24-after-transition.jpg",
+      "digest": "978cc5e8948832c80b954548c623599d94ccc8fc7aae245df6a5645effa2a4cc",
+      "byteSize": 47239
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/25-before-transition.jpg",
+      "digest": "4c3c0ae440fbe2cd908db7b7565787c6f540b8cb10c0df413fc68d6fe9b11d76",
+      "byteSize": 47358
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/26-during-transition.jpg",
+      "digest": "27a1757e8cc54c2f8a49395ca7292e32320764bed6fda098d9acb2a89fe83f86",
+      "byteSize": 31591
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/27-after-transition.jpg",
+      "digest": "e60edad4c4010ff0fd015d31ab2ad933c5af2b5903cc43b3fad91e43d8de12d0",
+      "byteSize": 42504
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/28-p10.jpg",
+      "digest": "7fb64c0566371ec41a5f91118a088feef8bf49e62320c68a40daaa42e565304d",
+      "byteSize": 29768
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/29-p30.jpg",
+      "digest": "4f16327d9983988517e234c2f69389076ced846961333e42702b4fe62f538e16",
+      "byteSize": 47945
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/30-p50.jpg",
+      "digest": "7154efc6c55eb707422ef4ee2fa96b71814c0c090c247a73a71eb85f5eac9773",
+      "byteSize": 45810
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/31-p70.jpg",
+      "digest": "b8b1510d88427e34e4a6ff531904947a97da7e71c59d138e4d87d0b608fbbabc",
+      "byteSize": 55059
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/frames/32-p90.jpg",
+      "digest": "5cea57d1310efda44f6479ad48befbc4d5386894ac1fb4822b581e3243900737",
+      "byteSize": 40793
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/layers.png",
+      "digest": "35582202526df421eac1683dc3a246d8a04fdd7f10ac8ab5effbfa418ba62ff0",
+      "byteSize": 79811
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/spectrogram-speech.jpg",
+      "digest": "84a3faf638b6f12d77d9495e9c3bd4bc3998a03c27959fc76a49c7df1694c31e",
+      "byteSize": 232252
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/spectrogram.jpg",
+      "digest": "fddf5ca886c99ab83c3f5b4d37ffb817b2c0ef5a6a21bd851e869589a5156b31",
+      "byteSize": 192246
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03-raw/waveform.png",
+      "digest": "565827dce42658ed982be41088c6f11285ef484462158fca33ecd412fe0d4a85",
+      "byteSize": 8790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/analysis.json",
+      "digest": "a635f7d2d5239ca30c69e24d2f175dee92bf149761ce572149d840ea1e85dfd8",
+      "byteSize": 16259
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/01-chunk-01.jpg",
+      "digest": "245aa720d33b5a9d423e60277c3657ed5ae7767af0d42122cdca3c9c6831b4aa",
+      "byteSize": 72993
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/02-chunk-02.jpg",
+      "digest": "bd9604afa512e38b32febb6942450fecc9bc8cf5dde782af55a912600e9c5a3d",
+      "byteSize": 93069
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/03-chunk-03.jpg",
+      "digest": "2b3844e58d98ec39a942063ff0341b9c596e37d4a0c197c93bab0e8102e5dc89",
+      "byteSize": 87437
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/04-chunk-04.jpg",
+      "digest": "e05c5f7f04862d5326f3ccb292cd4ebd5757575aa6262a0cc5128fda1a21c9e2",
+      "byteSize": 87233
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/05-chunk-05.jpg",
+      "digest": "19a4f492b212478a3aa89e3c47d22bf84b730ee380704ef51fa1e6668bdaf1fd",
+      "byteSize": 82805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/06-chunk-06.jpg",
+      "digest": "1ece96703d675e528918955ac0ddc00c7ad93c3c71dfde481dfa4d150a6f545f",
+      "byteSize": 85125
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/07-chunk-07.jpg",
+      "digest": "895679ddeb0229ae06124323c05c90e0fa3009117650e14ce50808bf11c176c9",
+      "byteSize": 88717
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/08-chunk-08.jpg",
+      "digest": "d8a64f06ec2dd16dac4f9012e42955001211611b3e7a843f2d3dba1f8a2e17f2",
+      "byteSize": 89270
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/chunks/09-chunk-09.jpg",
+      "digest": "e224ce8478c9f45f6529722f289192ed5c1932b08077de6ffa0528e1489e8787",
+      "byteSize": 74928
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/contact-sheet.jpg",
+      "digest": "fb13cb101a333db7edabb0ca873077443a3117eaa92d7a36a6289851529ae657",
+      "byteSize": 368605
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/01-mid-chunk-01.jpg",
+      "digest": "2a2b98d9654fbdcd3fac37b1d23aabfdbf8ab5dd2072af0bffa510a2a307a0cc",
+      "byteSize": 34838
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/02-mid-chunk-02.jpg",
+      "digest": "e4b0ec54f66f8115edbd34f2d0de3a6d4d5b96c052e94629025ce76ad477656b",
+      "byteSize": 46943
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/03-mid-chunk-03.jpg",
+      "digest": "91b6f6f472b7a0126fc85ed19c01077dc3bd4b319e5d4075111941f4f61ec4a7",
+      "byteSize": 35559
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/04-mid-chunk-04.jpg",
+      "digest": "afff531e965ce82bbfda0604a63f2cd97aa1e08332540d0baaa150940e71d2f9",
+      "byteSize": 49207
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/05-mid-chunk-05.jpg",
+      "digest": "d32d5fc9c4a8a2ea9f27e99de029a9b776a1718f494e231fccf0a8c8fe06f3dc",
+      "byteSize": 38655
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/06-mid-chunk-06.jpg",
+      "digest": "c81dbb9be898645479776b53b62ab57ee63347d02f17c7f797a91c4298a6d772",
+      "byteSize": 46242
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/07-mid-chunk-07.jpg",
+      "digest": "6e1a2ab2b601da264b1a662f47c6ebbfe589251f2e04229c19f1a20888235091",
+      "byteSize": 55372
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/08-mid-chunk-08.jpg",
+      "digest": "244bd2b68c8baee84f3344d1f73f60ef5666784225b2648a8c0d7d657f453a9e",
+      "byteSize": 56282
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/09-mid-chunk-09.jpg",
+      "digest": "5adbd8248ca679d8fad10546d03c7c463e7d620ea398e97ce7a6613947fbc2f5",
+      "byteSize": 48839
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/10-before-transition.jpg",
+      "digest": "f67fc0373be4eedf0f023a37c4b6d484ed86e249581f3a6f3e6c3f348ff4bd19",
+      "byteSize": 15408
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/11-during-transition.jpg",
+      "digest": "59197a78f7673b919a268582cea22ca4a68d7c43abff8a2fdfce8608ee72d6e7",
+      "byteSize": 28792
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/12-after-transition.jpg",
+      "digest": "f804f04d63cd83e5fb09aef09d4529fe1373baf8f64a65c34c9c0bc0fbb087a2",
+      "byteSize": 32485
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/13-before-transition.jpg",
+      "digest": "eb1be13cd21c1c5498ca0d667025ebd41590591d119421eb5fe753054d5d2666",
+      "byteSize": 36885
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/14-during-transition.jpg",
+      "digest": "66c2425560916d0c5dd8ea4da7ae8a2a3fb21ca4cdbd8a51d82562c21b760594",
+      "byteSize": 33900
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/15-after-transition.jpg",
+      "digest": "52912e59f30de05258a23dae663f6a21f724586f070c2b55f2e08a509ca47b53",
+      "byteSize": 28770
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/16-before-transition.jpg",
+      "digest": "ef78d3894585b1aaa8717bd4bf618ff245f9c9e2fdb5f3d467f9c55c984fca3c",
+      "byteSize": 33977
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/17-during-transition.jpg",
+      "digest": "3f47020cd5ea401aa07b281725300e17cc99738a53d7fae3f60399364a635c1e",
+      "byteSize": 21305
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/18-after-transition.jpg",
+      "digest": "fd3620963c87dc5df37c97aad365d60ef8d1ea1117da4c47dbaba7d0706f6a6a",
+      "byteSize": 36489
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/19-before-transition.jpg",
+      "digest": "046b82b95c1eb1b5665b6a68033501b72587ffff7ce0da9326cadf3862222310",
+      "byteSize": 37529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/20-during-transition.jpg",
+      "digest": "0635862a6144d57665927583fa56b717779caf447fa08b01a7d31e83a2978e5c",
+      "byteSize": 44929
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/21-after-transition.jpg",
+      "digest": "d6a29a0f0b680c3045def6b61dfaed4ff1adc478d642d9361cd5c7921a88916c",
+      "byteSize": 48680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/22-before-transition.jpg",
+      "digest": "dce317c7b35a3c04dd7677e4f33211966668151d2264930d8dfd00d4d1bbb04f",
+      "byteSize": 48825
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/23-during-transition.jpg",
+      "digest": "b714c835c8ccb731cd8c9cc739e74820f1c372f8d75a8ae61213f71b19af0211",
+      "byteSize": 48963
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/24-after-transition.jpg",
+      "digest": "978cc5e8948832c80b954548c623599d94ccc8fc7aae245df6a5645effa2a4cc",
+      "byteSize": 47239
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/25-before-transition.jpg",
+      "digest": "4c3c0ae440fbe2cd908db7b7565787c6f540b8cb10c0df413fc68d6fe9b11d76",
+      "byteSize": 47358
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/26-during-transition.jpg",
+      "digest": "27a1757e8cc54c2f8a49395ca7292e32320764bed6fda098d9acb2a89fe83f86",
+      "byteSize": 31591
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/27-after-transition.jpg",
+      "digest": "e60edad4c4010ff0fd015d31ab2ad933c5af2b5903cc43b3fad91e43d8de12d0",
+      "byteSize": 42504
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/28-p10.jpg",
+      "digest": "7fb64c0566371ec41a5f91118a088feef8bf49e62320c68a40daaa42e565304d",
+      "byteSize": 29768
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/29-p30.jpg",
+      "digest": "93d0e85824282d87c27f7c47d8ad11bc4eff63fcc8b5f51874045d1fac6195ef",
+      "byteSize": 48074
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/30-p50.jpg",
+      "digest": "7154efc6c55eb707422ef4ee2fa96b71814c0c090c247a73a71eb85f5eac9773",
+      "byteSize": 45810
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/31-p70.jpg",
+      "digest": "37df9390a4b9e099e22d751771d8f8adbbf91d7905740941f4c54a654ad2412a",
+      "byteSize": 55009
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/frames/32-p90.jpg",
+      "digest": "68ca8ffa1626d2b456760efdd800b25bbb60c5eca491a37f9d0ba4e889300031",
+      "byteSize": 40666
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/layers.png",
+      "digest": "5973c345fca909b366e987e4e04e8dc9ed2863fe75a7a465317cdbd43b4caeec",
+      "byteSize": 79507
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/spectrogram-speech.jpg",
+      "digest": "cdb466ef6e58ae0b580268b34e05b3a2657a2d47d66966af7ff495432e0ac984",
+      "byteSize": 231805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/spectrogram.jpg",
+      "digest": "cf92ea38d08802ac433db4499b833c0075766f01008ca22882928710b74f75ed",
+      "byteSize": 192165
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-03/copilot-studio-2026-03/waveform.png",
+      "digest": "c3b294ab820bbd835841ce7f04f3abfabda454dce85bc592d9111e35dfda8780",
+      "byteSize": 8813
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/analysis.json",
+      "digest": "7175f119308e13e24ad3bcb4ffce79b2bca60b668780964580382935f5273025",
+      "byteSize": 16349
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/01-chunk-01.jpg",
+      "digest": "34346b57487715e53b541d766fc803aae1ae7d2f7a8684cb0d89077920ad2ca0",
+      "byteSize": 72264
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/02-chunk-02.jpg",
+      "digest": "7b0d9135e8efabcc079c7dcd6341c068e39de039e52164f98be3a24d2dd06f8b",
+      "byteSize": 92976
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/03-chunk-03.jpg",
+      "digest": "815eaf7a2d59204522439c378436c6313d68032393469c6a5b36e52653936dbd",
+      "byteSize": 87488
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/04-chunk-04.jpg",
+      "digest": "7d88457006f695b8c0ce7615250116dd808201a53ed38ddd158b3284cf682edb",
+      "byteSize": 87846
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/05-chunk-05.jpg",
+      "digest": "14d4be22dc8b013d41f4026c535d98253bd8394d82d952701a4d4c5a48c6806a",
+      "byteSize": 82593
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/06-chunk-06.jpg",
+      "digest": "760c5d196333af80fd15f4e920f76e5384908cc12c48ffb83116463cf0be0e6d",
+      "byteSize": 85410
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/07-chunk-07.jpg",
+      "digest": "6efb84603055ef1247158deb7bb706fd05e2a53504215c7d3ecebff996f7c9c7",
+      "byteSize": 88511
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/08-chunk-08.jpg",
+      "digest": "7072a28d25a66cbcbbbeb1475776b1f6881502f264fd88e998f2f33da83ff03e",
+      "byteSize": 88950
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/chunks/09-chunk-09.jpg",
+      "digest": "8a6a7ddc8427ef23aa923a5392e199d9bafb7424fb8456d5cced4de9cabc78b1",
+      "byteSize": 75698
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/contact-sheet.jpg",
+      "digest": "c52f25c5fe232577d1b6a69d56fdbb5361c28af1d6341515299c15bb3116e937",
+      "byteSize": 369309
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/01-mid-chunk-01.jpg",
+      "digest": "2a2b98d9654fbdcd3fac37b1d23aabfdbf8ab5dd2072af0bffa510a2a307a0cc",
+      "byteSize": 34838
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/02-mid-chunk-02.jpg",
+      "digest": "e4b0ec54f66f8115edbd34f2d0de3a6d4d5b96c052e94629025ce76ad477656b",
+      "byteSize": 46943
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/03-mid-chunk-03.jpg",
+      "digest": "91b6f6f472b7a0126fc85ed19c01077dc3bd4b319e5d4075111941f4f61ec4a7",
+      "byteSize": 35559
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/04-mid-chunk-04.jpg",
+      "digest": "afff531e965ce82bbfda0604a63f2cd97aa1e08332540d0baaa150940e71d2f9",
+      "byteSize": 49207
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/05-mid-chunk-05.jpg",
+      "digest": "1b23737a360cae74a7bf3872159d12361707b28175812bf3c903322ddac16c26",
+      "byteSize": 38767
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/06-mid-chunk-06.jpg",
+      "digest": "34eced1ea8a4d75191505551c9b60458a707f264d950a3186758e47dfcf85fd7",
+      "byteSize": 45778
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/07-mid-chunk-07.jpg",
+      "digest": "7c9cc6c4466d656d04d580cc50a068057c2bf953f644e71f14533b5f6afb9c13",
+      "byteSize": 55956
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/08-mid-chunk-08.jpg",
+      "digest": "541c6d9d3db9239d8f3c36c97d854cfc8d2be61f3da05057fee94efe3fc8eb6e",
+      "byteSize": 55748
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/09-mid-chunk-09.jpg",
+      "digest": "189d05bc54d5b534753a585e3d835c8f2971777d3a9eb0cf872acee61e3dccc2",
+      "byteSize": 48640
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/10-before-transition.jpg",
+      "digest": "f67fc0373be4eedf0f023a37c4b6d484ed86e249581f3a6f3e6c3f348ff4bd19",
+      "byteSize": 15408
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/11-during-transition.jpg",
+      "digest": "59197a78f7673b919a268582cea22ca4a68d7c43abff8a2fdfce8608ee72d6e7",
+      "byteSize": 28792
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/12-after-transition.jpg",
+      "digest": "f804f04d63cd83e5fb09aef09d4529fe1373baf8f64a65c34c9c0bc0fbb087a2",
+      "byteSize": 32485
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/13-before-transition.jpg",
+      "digest": "eb1be13cd21c1c5498ca0d667025ebd41590591d119421eb5fe753054d5d2666",
+      "byteSize": 36885
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/14-during-transition.jpg",
+      "digest": "66c2425560916d0c5dd8ea4da7ae8a2a3fb21ca4cdbd8a51d82562c21b760594",
+      "byteSize": 33900
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/15-after-transition.jpg",
+      "digest": "52912e59f30de05258a23dae663f6a21f724586f070c2b55f2e08a509ca47b53",
+      "byteSize": 28770
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/16-before-transition.jpg",
+      "digest": "ef78d3894585b1aaa8717bd4bf618ff245f9c9e2fdb5f3d467f9c55c984fca3c",
+      "byteSize": 33977
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/17-during-transition.jpg",
+      "digest": "3f47020cd5ea401aa07b281725300e17cc99738a53d7fae3f60399364a635c1e",
+      "byteSize": 21305
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/18-after-transition.jpg",
+      "digest": "fd3620963c87dc5df37c97aad365d60ef8d1ea1117da4c47dbaba7d0706f6a6a",
+      "byteSize": 36489
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/19-before-transition.jpg",
+      "digest": "046b82b95c1eb1b5665b6a68033501b72587ffff7ce0da9326cadf3862222310",
+      "byteSize": 37529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/20-during-transition.jpg",
+      "digest": "0635862a6144d57665927583fa56b717779caf447fa08b01a7d31e83a2978e5c",
+      "byteSize": 44929
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/21-after-transition.jpg",
+      "digest": "d6a29a0f0b680c3045def6b61dfaed4ff1adc478d642d9361cd5c7921a88916c",
+      "byteSize": 48680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/22-before-transition.jpg",
+      "digest": "dce317c7b35a3c04dd7677e4f33211966668151d2264930d8dfd00d4d1bbb04f",
+      "byteSize": 48825
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/23-during-transition.jpg",
+      "digest": "b714c835c8ccb731cd8c9cc739e74820f1c372f8d75a8ae61213f71b19af0211",
+      "byteSize": 48963
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/24-after-transition.jpg",
+      "digest": "978cc5e8948832c80b954548c623599d94ccc8fc7aae245df6a5645effa2a4cc",
+      "byteSize": 47239
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/25-before-transition.jpg",
+      "digest": "4c3c0ae440fbe2cd908db7b7565787c6f540b8cb10c0df413fc68d6fe9b11d76",
+      "byteSize": 47358
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/26-during-transition.jpg",
+      "digest": "27a1757e8cc54c2f8a49395ca7292e32320764bed6fda098d9acb2a89fe83f86",
+      "byteSize": 31591
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/27-after-transition.jpg",
+      "digest": "e60edad4c4010ff0fd015d31ab2ad933c5af2b5903cc43b3fad91e43d8de12d0",
+      "byteSize": 42504
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/28-p10.jpg",
+      "digest": "7fb64c0566371ec41a5f91118a088feef8bf49e62320c68a40daaa42e565304d",
+      "byteSize": 29768
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/29-p30.jpg",
+      "digest": "4f16327d9983988517e234c2f69389076ced846961333e42702b4fe62f538e16",
+      "byteSize": 47945
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/30-p50.jpg",
+      "digest": "36651b2073621fb05801b02b8d2ed6a0bb868a00ecdd47818bb53b63487040e1",
+      "byteSize": 45424
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/31-p70.jpg",
+      "digest": "296ec36f5586f55e9d59e46933c85abbe743de9f8dc4eee0798e2f018cf666ad",
+      "byteSize": 54371
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/frames/32-p90.jpg",
+      "digest": "5cea57d1310efda44f6479ad48befbc4d5386894ac1fb4822b581e3243900737",
+      "byteSize": 40793
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/layers.png",
+      "digest": "f57701195cfd976a0a9df2d4b95f160cb78fb80c02fdd6d5836d0a131603813e",
+      "byteSize": 80362
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/spectrogram-speech.jpg",
+      "digest": "84a3faf638b6f12d77d9495e9c3bd4bc3998a03c27959fc76a49c7df1694c31e",
+      "byteSize": 232252
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/spectrogram.jpg",
+      "digest": "fddf5ca886c99ab83c3f5b4d37ffb817b2c0ef5a6a21bd851e869589a5156b31",
+      "byteSize": 192246
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04-raw/waveform.png",
+      "digest": "565827dce42658ed982be41088c6f11285ef484462158fca33ecd412fe0d4a85",
+      "byteSize": 8790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/analysis.json",
+      "digest": "ae87beddfb06a2e6f71182b3154edc2f754e2eaacd6661cef44749d125c2b7cd",
+      "byteSize": 16336
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/01-chunk-01.jpg",
+      "digest": "245aa720d33b5a9d423e60277c3657ed5ae7767af0d42122cdca3c9c6831b4aa",
+      "byteSize": 72993
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/02-chunk-02.jpg",
+      "digest": "bd9604afa512e38b32febb6942450fecc9bc8cf5dde782af55a912600e9c5a3d",
+      "byteSize": 93069
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/03-chunk-03.jpg",
+      "digest": "2b3844e58d98ec39a942063ff0341b9c596e37d4a0c197c93bab0e8102e5dc89",
+      "byteSize": 87437
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/04-chunk-04.jpg",
+      "digest": "e05c5f7f04862d5326f3ccb292cd4ebd5757575aa6262a0cc5128fda1a21c9e2",
+      "byteSize": 87233
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/05-chunk-05.jpg",
+      "digest": "19a4f492b212478a3aa89e3c47d22bf84b730ee380704ef51fa1e6668bdaf1fd",
+      "byteSize": 82805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/06-chunk-06.jpg",
+      "digest": "1ece96703d675e528918955ac0ddc00c7ad93c3c71dfde481dfa4d150a6f545f",
+      "byteSize": 85125
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/07-chunk-07.jpg",
+      "digest": "895679ddeb0229ae06124323c05c90e0fa3009117650e14ce50808bf11c176c9",
+      "byteSize": 88717
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/08-chunk-08.jpg",
+      "digest": "d8a64f06ec2dd16dac4f9012e42955001211611b3e7a843f2d3dba1f8a2e17f2",
+      "byteSize": 89270
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/chunks/09-chunk-09.jpg",
+      "digest": "e224ce8478c9f45f6529722f289192ed5c1932b08077de6ffa0528e1489e8787",
+      "byteSize": 74928
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/contact-sheet.jpg",
+      "digest": "88038859181f7bdf51f35b96289a2403446b61395c951d38fce769dad2cfc1da",
+      "byteSize": 369263
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/01-mid-chunk-01.jpg",
+      "digest": "2a2b98d9654fbdcd3fac37b1d23aabfdbf8ab5dd2072af0bffa510a2a307a0cc",
+      "byteSize": 34838
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/02-mid-chunk-02.jpg",
+      "digest": "e4b0ec54f66f8115edbd34f2d0de3a6d4d5b96c052e94629025ce76ad477656b",
+      "byteSize": 46943
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/03-mid-chunk-03.jpg",
+      "digest": "91b6f6f472b7a0126fc85ed19c01077dc3bd4b319e5d4075111941f4f61ec4a7",
+      "byteSize": 35559
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/04-mid-chunk-04.jpg",
+      "digest": "afff531e965ce82bbfda0604a63f2cd97aa1e08332540d0baaa150940e71d2f9",
+      "byteSize": 49207
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/05-mid-chunk-05.jpg",
+      "digest": "1b23737a360cae74a7bf3872159d12361707b28175812bf3c903322ddac16c26",
+      "byteSize": 38767
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/06-mid-chunk-06.jpg",
+      "digest": "34eced1ea8a4d75191505551c9b60458a707f264d950a3186758e47dfcf85fd7",
+      "byteSize": 45778
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/07-mid-chunk-07.jpg",
+      "digest": "7c9cc6c4466d656d04d580cc50a068057c2bf953f644e71f14533b5f6afb9c13",
+      "byteSize": 55956
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/08-mid-chunk-08.jpg",
+      "digest": "541c6d9d3db9239d8f3c36c97d854cfc8d2be61f3da05057fee94efe3fc8eb6e",
+      "byteSize": 55748
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/09-mid-chunk-09.jpg",
+      "digest": "5adbd8248ca679d8fad10546d03c7c463e7d620ea398e97ce7a6613947fbc2f5",
+      "byteSize": 48839
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/10-before-transition.jpg",
+      "digest": "f67fc0373be4eedf0f023a37c4b6d484ed86e249581f3a6f3e6c3f348ff4bd19",
+      "byteSize": 15408
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/11-during-transition.jpg",
+      "digest": "59197a78f7673b919a268582cea22ca4a68d7c43abff8a2fdfce8608ee72d6e7",
+      "byteSize": 28792
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/12-after-transition.jpg",
+      "digest": "f804f04d63cd83e5fb09aef09d4529fe1373baf8f64a65c34c9c0bc0fbb087a2",
+      "byteSize": 32485
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/13-before-transition.jpg",
+      "digest": "eb1be13cd21c1c5498ca0d667025ebd41590591d119421eb5fe753054d5d2666",
+      "byteSize": 36885
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/14-during-transition.jpg",
+      "digest": "66c2425560916d0c5dd8ea4da7ae8a2a3fb21ca4cdbd8a51d82562c21b760594",
+      "byteSize": 33900
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/15-after-transition.jpg",
+      "digest": "52912e59f30de05258a23dae663f6a21f724586f070c2b55f2e08a509ca47b53",
+      "byteSize": 28770
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/16-before-transition.jpg",
+      "digest": "ef78d3894585b1aaa8717bd4bf618ff245f9c9e2fdb5f3d467f9c55c984fca3c",
+      "byteSize": 33977
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/17-during-transition.jpg",
+      "digest": "3f47020cd5ea401aa07b281725300e17cc99738a53d7fae3f60399364a635c1e",
+      "byteSize": 21305
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/18-after-transition.jpg",
+      "digest": "fd3620963c87dc5df37c97aad365d60ef8d1ea1117da4c47dbaba7d0706f6a6a",
+      "byteSize": 36489
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/19-before-transition.jpg",
+      "digest": "046b82b95c1eb1b5665b6a68033501b72587ffff7ce0da9326cadf3862222310",
+      "byteSize": 37529
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/20-during-transition.jpg",
+      "digest": "0635862a6144d57665927583fa56b717779caf447fa08b01a7d31e83a2978e5c",
+      "byteSize": 44929
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/21-after-transition.jpg",
+      "digest": "d6a29a0f0b680c3045def6b61dfaed4ff1adc478d642d9361cd5c7921a88916c",
+      "byteSize": 48680
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/22-before-transition.jpg",
+      "digest": "dce317c7b35a3c04dd7677e4f33211966668151d2264930d8dfd00d4d1bbb04f",
+      "byteSize": 48825
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/23-during-transition.jpg",
+      "digest": "b714c835c8ccb731cd8c9cc739e74820f1c372f8d75a8ae61213f71b19af0211",
+      "byteSize": 48963
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/24-after-transition.jpg",
+      "digest": "978cc5e8948832c80b954548c623599d94ccc8fc7aae245df6a5645effa2a4cc",
+      "byteSize": 47239
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/25-before-transition.jpg",
+      "digest": "4c3c0ae440fbe2cd908db7b7565787c6f540b8cb10c0df413fc68d6fe9b11d76",
+      "byteSize": 47358
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/26-during-transition.jpg",
+      "digest": "27a1757e8cc54c2f8a49395ca7292e32320764bed6fda098d9acb2a89fe83f86",
+      "byteSize": 31591
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/27-after-transition.jpg",
+      "digest": "e60edad4c4010ff0fd015d31ab2ad933c5af2b5903cc43b3fad91e43d8de12d0",
+      "byteSize": 42504
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/28-p10.jpg",
+      "digest": "7fb64c0566371ec41a5f91118a088feef8bf49e62320c68a40daaa42e565304d",
+      "byteSize": 29768
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/29-p30.jpg",
+      "digest": "93d0e85824282d87c27f7c47d8ad11bc4eff63fcc8b5f51874045d1fac6195ef",
+      "byteSize": 48074
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/30-p50.jpg",
+      "digest": "36651b2073621fb05801b02b8d2ed6a0bb868a00ecdd47818bb53b63487040e1",
+      "byteSize": 45424
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/31-p70.jpg",
+      "digest": "91456b04770cddd3f95bb42b3b69cbc4a0e61040538bb05d248a4039be12d633",
+      "byteSize": 54134
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/frames/32-p90.jpg",
+      "digest": "68ca8ffa1626d2b456760efdd800b25bbb60c5eca491a37f9d0ba4e889300031",
+      "byteSize": 40666
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/layers.png",
+      "digest": "8905ebeac83fb35e1b887324accc7be4f8f1aa9652e3a12611eafa2eff94c8c0",
+      "byteSize": 80054
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/spectrogram-speech.jpg",
+      "digest": "cdb466ef6e58ae0b580268b34e05b3a2657a2d47d66966af7ff495432e0ac984",
+      "byteSize": 231805
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/spectrogram.jpg",
+      "digest": "cf92ea38d08802ac433db4499b833c0075766f01008ca22882928710b74f75ed",
+      "byteSize": 192165
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-04/copilot-studio-2026-04/waveform.png",
+      "digest": "c3b294ab820bbd835841ce7f04f3abfabda454dce85bc592d9111e35dfda8780",
+      "byteSize": 8813
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/analysis.json",
+      "digest": "aec9ee4aa829b8a3e01cbf15962845162a069985291be802a4b2b20d23722d83",
+      "byteSize": 14140
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "8b81fb162b8363beace05c110db629c8039c42866df616801957ca7e5cd52e90",
+      "byteSize": 95179
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "2e52a552353027930f7d34ce3fb9563ee1bae31728402c2a3d7c2bbc78826413",
+      "byteSize": 96031
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "ecf5615f4f8230fb43d590dbc0e7149ff058a9c8b5e2e30c5207f935705476d5",
+      "byteSize": 95352
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "1405d0c0c9febdb43b4b27e09d319a7776764016157286265b39c5d258862e32",
+      "byteSize": 92132
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "b40eca6b5f3f1f3b7889ede5c4648fac5428aec39b8d38cbe9b7bcd6e6189cb5",
+      "byteSize": 91602
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "8cd2da3312cadf18e6489ae6c13cd1e7bfe7eca9e04ed2fa628fb8cfefb04523",
+      "byteSize": 414580
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/01-mid-title.jpg",
+      "digest": "236db993b20558ab3e254e6b47fec0aafe4dbb3567356d1f58e5795540566be3",
+      "byteSize": 77693
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/02-mid-managed-build.jpg",
+      "digest": "3c86c9b94e9172f13f6b85706911dbf4b8526c827ac8780a85263a14f424c7ba",
+      "byteSize": 69541
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/03-mid-orchestrate-choices.jpg",
+      "digest": "f4e0cd1e5c82741757b3c85376a51a1dc327ae48dc0f221a17e153ca5cda6625",
+      "byteSize": 75905
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/04-mid-tools-execute.jpg",
+      "digest": "2f62a7098582f204b90b7a019a39ef829e823372329dddea66de29ee7fdd7813",
+      "byteSize": 71352
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/05-mid-govern-platform.jpg",
+      "digest": "43dff897aa8e5735ac992d6ee15593555d11742d14d8907dbb9bceb3d6626cf1",
+      "byteSize": 70019
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/06-before-transition.jpg",
+      "digest": "6facc81187034b626b6fb3b4bbcb0b65bb3c78975000502878a02709d3b5a589",
+      "byteSize": 6441
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/07-during-transition.jpg",
+      "digest": "9c36691d5511c7f8048d8aceb8caace41caf2a06443a8dbdd3b6601b245ad59f",
+      "byteSize": 16193
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/08-after-transition.jpg",
+      "digest": "54d2d5da08f72e5496330be2d6ba5ce61b3fe5d20d91141f611ebec8bd080abc",
+      "byteSize": 74356
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/09-before-transition.jpg",
+      "digest": "9f9cb83a68f9889d047711c8a2a88a02f50bf615c73fd785f75209b10f71fb92",
+      "byteSize": 77754
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/10-during-transition.jpg",
+      "digest": "170d553817540e706f47879e761e44183faef32eefde98a9e55fecd1521acca9",
+      "byteSize": 37070
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/11-after-transition.jpg",
+      "digest": "73a59aba59997142d287be297f721273d7ddc6118c8a9df03b577b8066785714",
+      "byteSize": 56968
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/12-before-transition.jpg",
+      "digest": "47f1275ecf51b063402d17e9b58b473b0321fa56b22093f9bfd6b2bd0e3e44d5",
+      "byteSize": 66069
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/13-during-transition.jpg",
+      "digest": "01f36476f7771c4b84b7223626cf7a416225067debec588ba6a09da5830d8166",
+      "byteSize": 69754
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/14-after-transition.jpg",
+      "digest": "dc3ab96acda5e17163c41a67726ff8bd958cf31e3d8205b84ab4978e58964d40",
+      "byteSize": 69587
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/15-before-transition.jpg",
+      "digest": "1f75cfd6c0f8658cbabcf2fa5b39b0ee27a15dabff96994590c159ec91e1ba53",
+      "byteSize": 69997
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/16-during-transition.jpg",
+      "digest": "45cc888d419b38b6602d4668abde76f3e1e79698f882d33df35c0142a2589d8b",
+      "byteSize": 49074
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/17-after-transition.jpg",
+      "digest": "0db2279c18155453dbe86f530eb531921db7cef0ddf85a7cc6c09dea57bb1dff",
+      "byteSize": 45824
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/18-before-transition.jpg",
+      "digest": "d99c60e7078e0bc69464a6e24b4a9c202291e6d4715c5be92e773619a882d7b1",
+      "byteSize": 67045
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/19-during-transition.jpg",
+      "digest": "395e149528a681588ffbd1354fe7192fd10ac86acdca9a0dffaf8dfa6f929d52",
+      "byteSize": 75753
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/20-after-transition.jpg",
+      "digest": "223af95b6d8664867ab8d308a476ffadc5e60efa2201721f8aba9919aadf60d7",
+      "byteSize": 75683
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/21-before-transition.jpg",
+      "digest": "7de98e22eecbdf8703658c1fcaecbbaa8fd312fc93464ac976e6b98960158376",
+      "byteSize": 76391
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/22-during-transition.jpg",
+      "digest": "046416065344412d59466b78519414ce3cb14ae8716cd6d3fbf2b70e17ce85ca",
+      "byteSize": 35469
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/23-after-transition.jpg",
+      "digest": "4b715b1b47f42662968ab676bf3e03ffcf077c1fb8ac8d02c4d9a9f7212e2e1b",
+      "byteSize": 53281
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/24-p10.jpg",
+      "digest": "e3673e3226e21e5f2d5deb0e929d585e9fe3da3cfb74e6aa65459e3cf5ba8140",
+      "byteSize": 77672
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/25-p30.jpg",
+      "digest": "e64903a1bec8ad7b4a21d8b43dd259d6ab7bbb7c225e58e66a9c53b0b956eeb1",
+      "byteSize": 69764
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/26-p50.jpg",
+      "digest": "b7f71e7b176367e31ad46572e5fbe4d1bf0530ba798cd6dd12962e801d935048",
+      "byteSize": 75756
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/27-p70.jpg",
+      "digest": "eba6b65f0d68588d0c2d1f14ca52ad07eedcfdaf12d33cca5566c0192f96249f",
+      "byteSize": 71651
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/frames/28-p90.jpg",
+      "digest": "3f389f5b23380c0a30d0dcb592044b19ee8f188d390e3a0a1498e758bdb38064",
+      "byteSize": 70226
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/layers.png",
+      "digest": "066e37ef3681a3ce486f55b899150c32a09421145477cfcebf5fc7177fb5da9b",
+      "byteSize": 76647
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "11ea4e38a45d4d79ee1b16cc5980ff32573d8f8222b36bdf549f07aaf267bc25",
+      "byteSize": 258895
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "a39df7f12232a0575fc19fdbada5b0d67c13e25d02f6feebd3ad186bac55b12e",
+      "byteSize": 173660
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_bella-kokoro_onnx/waveform.png",
+      "digest": "2b64cdd02bddb9ce7c020d754716b521fdc0db11ccb12e7a52681d2197e639a8",
+      "byteSize": 10181
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/analysis.json",
+      "digest": "53b3f7d19a4c78f24536a0e735832a69b05bbaa2d584379e4910bcaa1e564a7b",
+      "byteSize": 14035
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "beae46b356969a42611e6aa8304a835e1f74719159a26a06ef115accdbf9a3ae",
+      "byteSize": 93995
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "4358c58caa36d5c927f7756dd8d72290aeac37869dad3571a18a536d9caf1f3c",
+      "byteSize": 94840
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "0eb28ffde963f0008503b7780c44a02f7e48f566daef8e71de2c099116cc12e8",
+      "byteSize": 94417
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "35b2a3211765ea6ce26cd51c52ef6942fb84aca62e2f8d2a4b97c669da3d6027",
+      "byteSize": 96772
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "cae76cb79d0c1bf417bd65c4922d40dbe54e92d6d4450e27d62f69710e7c84e2",
+      "byteSize": 90293
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "910ea86166a6181948382611a7e222f1f9d827a893a3eec4ae9d4b889774f126",
+      "byteSize": 421223
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/01-mid-title.jpg",
+      "digest": "4ab8c727267cba42b32c2f019661bdc3aef088c1b937be8c9ac341a35065e54a",
+      "byteSize": 77037
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/02-mid-managed-build.jpg",
+      "digest": "7b0d79f81c19623516e7f5dfaef23334ea53d26e95312c9ee8b4ee58d953d1d1",
+      "byteSize": 69601
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/03-mid-orchestrate-choices.jpg",
+      "digest": "3eff8399b6f17c9fd302b73d4188698e1869e6bfa4d9c670b676790c1abd8a1b",
+      "byteSize": 75891
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/04-mid-tools-execute.jpg",
+      "digest": "e218d645e6a13adf72b30c6d711aedb0c032252185a810cd9c50fa7cb79d9d30",
+      "byteSize": 71185
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/05-mid-govern-platform.jpg",
+      "digest": "77d26959bc5d37490ab29ece855dbbddb5a2e17bce74ed50a548d9b60326a2ed",
+      "byteSize": 70357
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/06-before-transition.jpg",
+      "digest": "6facc81187034b626b6fb3b4bbcb0b65bb3c78975000502878a02709d3b5a589",
+      "byteSize": 6441
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/07-during-transition.jpg",
+      "digest": "f1dd08d623b1997faa9d23c3c7594057f168eb7fe8336ed2dfad89cde8326cda",
+      "byteSize": 16188
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/08-after-transition.jpg",
+      "digest": "b5fb5cb5d51e12bdf9ff86889252be005b35c7c8e6ad2c4f51e79f17eb1d5c26",
+      "byteSize": 74348
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/09-before-transition.jpg",
+      "digest": "5a31053e73279c1b4faaeb42d925e25d47a3c6e4de384d2aa0aaf4c263a08fee",
+      "byteSize": 77672
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/10-during-transition.jpg",
+      "digest": "e93fae9ff005393b9afdf2891f3a0e87c052ae56c628bcb67e10da85c4d23c19",
+      "byteSize": 72254
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/11-after-transition.jpg",
+      "digest": "4e61f3757c3cd8e6e42ab4e39e84daa11922b77e5c491502139e2efe6af1a1ce",
+      "byteSize": 49324
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/12-before-transition.jpg",
+      "digest": "976b74e49f13f0c19e325f9bf48679671e675b84bd5e279c849880f2946d8561",
+      "byteSize": 65669
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/13-during-transition.jpg",
+      "digest": "de11888bef37a692b571127358d0ae035725d1bfe7421bea82e08290bdca767a",
+      "byteSize": 69608
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/14-after-transition.jpg",
+      "digest": "6b1fc6ad6dd501f39ec7c7a54dd962c354f2d3c87a8b5fca89702e0a30a16c72",
+      "byteSize": 69778
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/15-before-transition.jpg",
+      "digest": "3987d5ecbf7f2ff8c615109c1bfa89ab807015a5f9d00af3778183003a0ec807",
+      "byteSize": 70032
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/16-during-transition.jpg",
+      "digest": "bbf910372c7a90c66bf8df998ba7f5d807b3f28a7c5ba408c1a2f89e3c3a61a7",
+      "byteSize": 41039
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/17-after-transition.jpg",
+      "digest": "49ac5d86ec8f1a1ca6ad635e094f73b9d160d91c41eac5ecb9712cdb8b743bd9",
+      "byteSize": 48957
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/18-before-transition.jpg",
+      "digest": "88741fb328477b54a51820048b4a3f30ce266688148d531efe392bdac58eba1b",
+      "byteSize": 66395
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/19-during-transition.jpg",
+      "digest": "037b392effd85862ef145df1ae8d29bf7f65387df84afe8ea79c1fceeeaebf1a",
+      "byteSize": 75231
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/20-after-transition.jpg",
+      "digest": "7b02a165ba4725dea785a1aeed43e30f4290c65893d0c67abfb9cb51214d7797",
+      "byteSize": 75790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/21-before-transition.jpg",
+      "digest": "8620905363e6b92b7b34881775fa682945f7b5f50955c0aa7c1cbfbcee63bf13",
+      "byteSize": 76118
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/22-during-transition.jpg",
+      "digest": "40af83c85784f535aef4c330f418639b23839469fdc056accfeafe19aa4197dc",
+      "byteSize": 48324
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/23-after-transition.jpg",
+      "digest": "0349f186b2532ac6b1f26e11218cf617376b709b4b30bbc31d14aecf6fa7b1b1",
+      "byteSize": 47348
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/24-p10.jpg",
+      "digest": "4d079714b6dbe045b313c655732fb864731274a6ddf81f2fd5ef90e3609eccd3",
+      "byteSize": 77860
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/25-p30.jpg",
+      "digest": "1b217ff3effc56e94c666528d4d1bb9e5ba3cac8c3d765690411639ab4c58e33",
+      "byteSize": 69596
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/26-p50.jpg",
+      "digest": "e2fcf9cc91e3c9aee4012d0bffb25f850eb291789ff45405121abc71a71a1f33",
+      "byteSize": 75660
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/27-p70.jpg",
+      "digest": "5a25da1dd8e1f96434d0274b93db6194bc617f9b8d37b014819190e6f33a4abe",
+      "byteSize": 71406
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/frames/28-p90.jpg",
+      "digest": "ccdb342e48cf280c08c34ef674f536d236d2539048fc2c13de687fccc6b67bce",
+      "byteSize": 70528
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/layers.png",
+      "digest": "e5b5f8d352a16a3d6e659bcb3f1d7848463e2a6c605fcf3cbd61c8775118dde7",
+      "byteSize": 79245
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "881380c5c9aafc099eb3afda1af28c243920b018c6b470d7d484065cb7285d79",
+      "byteSize": 259629
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "0c02669a40a56b6e52e79f723e0d9ed8a0242d4302d1ceb09497947d612e7928",
+      "byteSize": 171833
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-af_heart-kokoro_onnx/waveform.png",
+      "digest": "2e578bb6057ef17d6e75194f0aa495f2ae1f3dbcf93c3fa71597e1433b9d5b89",
+      "byteSize": 10223
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "digest": "cde47d11ef50635061a0aa0e2c22f4686a6d0a3b320570ebeba4d5f3610eda8b",
+      "byteSize": 14287
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "a5a118913f987eda99144fc1a7ce277c1cfff163694af6da714b6526f1c29a55",
+      "byteSize": 94706
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "9c0e6c2a83796f250b59cacd8b93b4095b33edbad6a5ae3fda16ac7a0f0e0b1b",
+      "byteSize": 95537
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "4a788d55bc0f51e2958761c2e70ced070cbc03f01758f363e1133bc1b96956bd",
+      "byteSize": 94476
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "9ae46d8c309566f673b420749b34ba522dd26dc8f12cb422c79741e813f1e0f3",
+      "byteSize": 89277
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "eccd43df6fd1641d09a979d6198dc73dd85e7a9ac195df2ed0ad611c6412a050",
+      "byteSize": 89990
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "744a9b29b7f6c6a837f5beae717823d225184db92e73756665b717a4ba3548a9",
+      "byteSize": 412874
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/01-mid-title.jpg",
+      "digest": "8650cf624baf1b4171a19d0ab0cb1516e668e9de7294ff0fd83f99e64a8f6946",
+      "byteSize": 77912
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/02-mid-managed-build.jpg",
+      "digest": "935c9dc1fff6474c1999bc5ea8d7075f8212cb930aa7c9b9ee0c70d724b0226c",
+      "byteSize": 69471
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/03-mid-orchestrate-choices.jpg",
+      "digest": "a2f229c7d6a9a6cd01f6f44694d042cee658a81c59cda486498d97f09b2bcb21",
+      "byteSize": 75889
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/04-mid-tools-execute.jpg",
+      "digest": "5d60e8d1839242f3a924fa2b1da2a46cd75c241f4ae9527d38e1b2a033501d0b",
+      "byteSize": 71674
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/05-mid-govern-platform.jpg",
+      "digest": "d0a7ccc44a5081175ab833a5566282720ade0f555f98b16c5cf4d469dc6652b3",
+      "byteSize": 70357
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/06-before-transition.jpg",
+      "digest": "6facc81187034b626b6fb3b4bbcb0b65bb3c78975000502878a02709d3b5a589",
+      "byteSize": 6441
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/07-during-transition.jpg",
+      "digest": "5dac6a366c9bf15788746d4efc23f1b0e72adc95c044142648de0a5ff7fcfe87",
+      "byteSize": 16197
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/08-after-transition.jpg",
+      "digest": "9c4581a5c4c36a0d296a636714e892ea58cffb4d4ce411fabea9114be8e9c55a",
+      "byteSize": 74348
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/09-before-transition.jpg",
+      "digest": "6d8ff88d3fd8f4f0d4b613c24b1ca2a1e2e8667306e87b166a764184a11f6526",
+      "byteSize": 77744
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/10-during-transition.jpg",
+      "digest": "290d95e17c8fb6d4512351b03e3e1b6cd774e4da5079226682f02eb1e2e8fbb6",
+      "byteSize": 41863
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/11-after-transition.jpg",
+      "digest": "e4cc9b42c790638fd3a0a4194b71df19a8c2cc64afea59b7fd23155a391e7b4f",
+      "byteSize": 53719
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/12-before-transition.jpg",
+      "digest": "91bdc23f1f98577ab724c9304788599f3b57daa91ebf725d913c4a568aad00bb",
+      "byteSize": 66059
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/13-during-transition.jpg",
+      "digest": "45e061b733aa46d34eadecdf2749cdf2ed1a43582a2b15c222e5d8f42790394f",
+      "byteSize": 69790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/14-after-transition.jpg",
+      "digest": "d5b109f1bed2f196ea4a6185e8c3e476b84ddcc6b8c1aab172c8b9918b1a327f",
+      "byteSize": 69819
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/15-before-transition.jpg",
+      "digest": "12c6c3dc7ed2d1b8f70b0ca8ed9de23b4f53ed37b98e9eb6616d3dc9d02a7f37",
+      "byteSize": 70026
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/16-during-transition.jpg",
+      "digest": "f9895cae9f7a7b5b7ec84b8bc1edb4305239df3eb154a73af60c5b569d56da8b",
+      "byteSize": 36726
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/17-after-transition.jpg",
+      "digest": "87fbe4f73abc811daed274238e2630e1e5117b1635e6218c3556abee7d1025d4",
+      "byteSize": 51105
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/18-before-transition.jpg",
+      "digest": "ae3059b34c7a5cb73ef730d527aac5ae8f4ab529e70bf27adc58296d6c30edbd",
+      "byteSize": 67211
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/19-during-transition.jpg",
+      "digest": "c0a4153ccec9c475b3e32bba76deebc80e57610801290bae94d8329c54c4e94c",
+      "byteSize": 67171
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/20-after-transition.jpg",
+      "digest": "cd4261421c565e940ef0ab1322636255813758af7383e82f53ef56d4c1753249",
+      "byteSize": 75751
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/21-before-transition.jpg",
+      "digest": "39e18d3139fcc898d42c23dfdebbca7c035d1d5c1a7b030f477621cade713ed7",
+      "byteSize": 76205
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/22-during-transition.jpg",
+      "digest": "53dbf6fc57535ef677b7a3926e0c35f1fea3a33153dc5f56742b38822f8bb7aa",
+      "byteSize": 48791
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/23-after-transition.jpg",
+      "digest": "7afd70d5ceb8fbe60f2f3830db13f97031f46412f02180ad007864616696b4ee",
+      "byteSize": 47638
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/24-p10.jpg",
+      "digest": "844f57d0953cfa75ae76c32ef465f7d6846974f3380c169011c544ec99b62b6c",
+      "byteSize": 77821
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/25-p30.jpg",
+      "digest": "1b3fd706d45c487a08ff9f157d408ac7b6d78965701be36d441c720605e4e45b",
+      "byteSize": 69289
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/26-p50.jpg",
+      "digest": "fde91a1ea5ecbde96f2647fc72eb88eaed299956e6d89b9090df4efd04fd5b18",
+      "byteSize": 76576
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/27-p70.jpg",
+      "digest": "1c0a5b0aab28074d0f6c9e8c34174cf7e9f5480d274b65d676b8c70755855a96",
+      "byteSize": 71376
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/frames/28-p90.jpg",
+      "digest": "1af29f85b491fac1cc1e210d464d12213a2da8838248702dd37587807f503601",
+      "byteSize": 70236
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/layers.png",
+      "digest": "c2c02be5893236cb5e259870b7907de48909d638859561ce3569b4257c78965e",
+      "byteSize": 80534
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "be0a94fc39dcfbd8d8c519cffe602a27427029e369cd80978ade36ae2a7004aa",
+      "byteSize": 248852
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "cad463141cd37fbf659cc3a4ee44dc4c091e777ffc4569db710761c79dfda8a9",
+      "byteSize": 165689
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro_onnx/waveform.png",
+      "digest": "0c658a9fab5c038b29db51a856d043ef87e944f848dffdaed185db174e9bf363",
+      "byteSize": 10476
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/analysis.json",
+      "digest": "2e851abac3bf9091b05c914473ea62c9425689caaad0c6ff22aafadc6486f931",
+      "byteSize": 14278
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "62163399c181864aabc90c1c2e5d884db56740db4f0e649521cc82c03204789b",
+      "byteSize": 94162
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/chunks/02-managed-build.jpg",
+      "digest": "e723afc3b77844e8045d692602544b621bffa828286e6cdfbd0b8c4da33b9daa",
+      "byteSize": 95626
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/chunks/03-orchestrate-choices.jpg",
+      "digest": "8163b1f132ea8595ecfef19582ba7e8f8891400827a5adedc58db94da40220aa",
+      "byteSize": 94493
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/chunks/04-tools-execute.jpg",
+      "digest": "3b38402a1f12c470adb34138628935ce4b4e662fc86732d978891731cca24f28",
+      "byteSize": 90073
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/chunks/05-govern-platform.jpg",
+      "digest": "bf24350681fb549266a764c3626239c1c89a9e8d3dd1e91825f8aa90528e7157",
+      "byteSize": 90117
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "4d7639d2aeb976c8d62af5fddf77ac09a727504378554d6f1b7761dfec761ba2",
+      "byteSize": 412994
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/01-mid-title.jpg",
+      "digest": "8650cf624baf1b4171a19d0ab0cb1516e668e9de7294ff0fd83f99e64a8f6946",
+      "byteSize": 77912
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/02-mid-managed-build.jpg",
+      "digest": "935c9dc1fff6474c1999bc5ea8d7075f8212cb930aa7c9b9ee0c70d724b0226c",
+      "byteSize": 69471
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/03-mid-orchestrate-choices.jpg",
+      "digest": "364936b335499e602e56a5ddf72a3ac626cbb946ae0617dcb1c3ffafafd9ef46",
+      "byteSize": 75856
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/04-mid-tools-execute.jpg",
+      "digest": "5d60e8d1839242f3a924fa2b1da2a46cd75c241f4ae9527d38e1b2a033501d0b",
+      "byteSize": 71674
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/05-mid-govern-platform.jpg",
+      "digest": "d0a7ccc44a5081175ab833a5566282720ade0f555f98b16c5cf4d469dc6652b3",
+      "byteSize": 70357
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/06-before-transition.jpg",
+      "digest": "6facc81187034b626b6fb3b4bbcb0b65bb3c78975000502878a02709d3b5a589",
+      "byteSize": 6441
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/07-during-transition.jpg",
+      "digest": "5dac6a366c9bf15788746d4efc23f1b0e72adc95c044142648de0a5ff7fcfe87",
+      "byteSize": 16197
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/08-after-transition.jpg",
+      "digest": "9c4581a5c4c36a0d296a636714e892ea58cffb4d4ce411fabea9114be8e9c55a",
+      "byteSize": 74348
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/09-before-transition.jpg",
+      "digest": "6d8ff88d3fd8f4f0d4b613c24b1ca2a1e2e8667306e87b166a764184a11f6526",
+      "byteSize": 77744
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/10-during-transition.jpg",
+      "digest": "290d95e17c8fb6d4512351b03e3e1b6cd774e4da5079226682f02eb1e2e8fbb6",
+      "byteSize": 41863
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/11-after-transition.jpg",
+      "digest": "e4cc9b42c790638fd3a0a4194b71df19a8c2cc64afea59b7fd23155a391e7b4f",
+      "byteSize": 53719
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/12-before-transition.jpg",
+      "digest": "91bdc23f1f98577ab724c9304788599f3b57daa91ebf725d913c4a568aad00bb",
+      "byteSize": 66059
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/13-during-transition.jpg",
+      "digest": "45e061b733aa46d34eadecdf2749cdf2ed1a43582a2b15c222e5d8f42790394f",
+      "byteSize": 69790
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/14-after-transition.jpg",
+      "digest": "d5b109f1bed2f196ea4a6185e8c3e476b84ddcc6b8c1aab172c8b9918b1a327f",
+      "byteSize": 69819
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/15-before-transition.jpg",
+      "digest": "2c5b42613d5db0a327d62e9d8c06873dcce4e938d94a33a0540c53fa2e7d8eaa",
+      "byteSize": 70030
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/16-during-transition.jpg",
+      "digest": "0532c0a5a1b51dfa77ed94673d85d64cdc8fde9b219126681d9441eea4ef73a0",
+      "byteSize": 36718
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/17-after-transition.jpg",
+      "digest": "c625462bbe43777f1f04fdabddc47166eae82221b835b01ee0581e31473e9ecc",
+      "byteSize": 51165
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/18-before-transition.jpg",
+      "digest": "948f837b9e50036e1fed7391cd752779a88f4ee5a7d35bf92ca938e462143a73",
+      "byteSize": 67242
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/19-during-transition.jpg",
+      "digest": "09e6c089d0bdca9a813508eac5968fdb3fadd83e3e1ba4fcb6d7102b437bac73",
+      "byteSize": 67190
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/20-after-transition.jpg",
+      "digest": "5ceef3cde1824b2f7e2a96d620b729b565ded7a9d62c9eca61c17378ae0a10d7",
+      "byteSize": 75779
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/21-before-transition.jpg",
+      "digest": "59624f457fe0f712ba37a06fd66c319d1e517c055455bd3ab62e3979dc66cc68",
+      "byteSize": 76192
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/22-during-transition.jpg",
+      "digest": "62a464c554b6aef8adb7c3248c2c43e2570cd893ae3ed2c7245df1d8d11cc2b2",
+      "byteSize": 48753
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/23-after-transition.jpg",
+      "digest": "4dfc31a9ca8c3cb8f3171a1ad9668cdd93b135e8034c99463eaa72f058201fd0",
+      "byteSize": 47714
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/24-p10.jpg",
+      "digest": "844f57d0953cfa75ae76c32ef465f7d6846974f3380c169011c544ec99b62b6c",
+      "byteSize": 77821
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/25-p30.jpg",
+      "digest": "1b3fd706d45c487a08ff9f157d408ac7b6d78965701be36d441c720605e4e45b",
+      "byteSize": 69289
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/26-p50.jpg",
+      "digest": "46297c6e75fe04e88c4861a618818749f9bcb12321c49be81cfa3136efcbdc67",
+      "byteSize": 76578
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/27-p70.jpg",
+      "digest": "1c0a5b0aab28074d0f6c9e8c34174cf7e9f5480d274b65d676b8c70755855a96",
+      "byteSize": 71376
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/frames/28-p90.jpg",
+      "digest": "1af29f85b491fac1cc1e210d464d12213a2da8838248702dd37587807f503601",
+      "byteSize": 70236
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/layers.png",
+      "digest": "813884cde867228878a7b375334b6c86c9530a415f6b7c78005bbaba43a797f3",
+      "byteSize": 78792
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "aad6ee15708f21955ef9e2c1fe151c017ba98691cd16785b33c7889059b48c42",
+      "byteSize": 248995
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/spectrogram.jpg",
+      "digest": "d77c92599a5f0de1d4af5c6158baef869d562a5f670089f8d26f630189170f71",
+      "byteSize": 165603
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/waveform.png",
+      "digest": "a2c2f20556f371ba533a8da40bdcfd4d574d19ebd321c109422dac675f747124",
+      "byteSize": 10473
+    },
+    {
+      "path": "qc/analysis/frames-grid.jpg",
+      "digest": "48815710bbc5560604cbcc5bb1a6e1207bd5c7c2bc065966cc99d178d85c1132",
+      "byteSize": 373085
+    },
+    {
+      "path": "qc/analysis/layers-stack.jpg",
+      "digest": "5eab263f45ca1a312f2ba14179c9da5b68e95e0fbc04e53de8cdd8b970a13799",
+      "byteSize": 389421
+    },
+    {
+      "path": "qc/analysis/report.md",
+      "digest": "ff74aa0d3346d29a02741dfc0de50930e13797d973bb3ee60cc833a578454254",
+      "byteSize": 9658
+    },
+    {
+      "path": "qc/analysis/spectrogram-stack.jpg",
+      "digest": "17177d415937e7496d25236dd96e8d8aeb99a1507d4df5682d2ec6b5044e48f7",
+      "byteSize": 603129
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "e29a865c14ec6a893e5e8c9f12ae13631c2c432a1e25efa9cc0269c83814f26b",
+      "byteSize": 5115
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "1545318403e59caad4ea0fd2c851846947bdec86ae888d08b29202dc382aa2af",
+      "byteSize": 445962
+    },
+    {
+      "path": "release/outputs/remotion/qc/mp4-qc.json",
+      "digest": "464296e5f733e61424944a9d24c8da76ad652d6a3c7fdef1fd8c33704a390d97",
+      "byteSize": 3567
+    },
+    {
+      "path": "release/outputs/remotion/qc/render-receipt.json",
+      "digest": "43fb6bb1cdbd333ab5f37e5de803434a7d814aae243b354e9c39aa55c7deafde",
+      "byteSize": 367
     }
   ]
 }

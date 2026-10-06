@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "title": "power-platform-community-conference-2026-04",
+  "year": 2026,
+  "number": 4,
+  "createdAt": "2026-10-05T23:43:44.676Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/power-platform-community-conference-2026-04",
+  "contentDigest": "735ec71e7c6c274f33ab1ee29d3d98a10414c2ef3a0ccb4ee4130d8130ea058e",
+  "outputs": [
+    {
+      "path": "power-platform-community-conference-2026-04.mp4",
+      "role": "video",
+      "digest": "f7bdb615b840ec4e2acadff40431cfc0287ad8836ba9760af061e80833788033",
+      "byteSize": 12587018,
+      "mediaType": "video/mp4",
+      "durationSeconds": 75.413,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-04.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "decision",
+          "startSeconds": 14.1,
+          "endSeconds": 31.6
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 31.6,
+          "endSeconds": 43.6
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 43.6,
+          "endSeconds": 59.333
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 59.333,
+          "endSeconds": 75.367
+        }
+      ],
+      "releaseDigest": "ea94919c41d067f934588f730e90aea8973d24b0930f7c2023b8815c500b37d0",
+      "package": "qc/revisions/power-platform-community-conference-2026-04"
+    },
+    {
+      "path": "power-platform-community-conference-2026-04.vtt",
+      "role": "captions",
+      "digest": "b2414fa95beeecb2d3a6c1898bed0636cd6f85973204cf3c8c692bc8ee87ef87",
+      "byteSize": 1202,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/r4-timing-refinement."
+  ]
+}

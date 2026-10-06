@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-autopilot-agents",
+  "title": "microsoft-autopilot-agents-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-10-06T00:30:50.682Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/microsoft-autopilot-agents-2026-01",
+  "contentDigest": "6387de4b9694399e840522d266a9e1e443f7008d535bf9e32380eaab6879d142",
+  "outputs": [
+    {
+      "path": "microsoft-autopilot-agents-2026-01.mp4",
+      "role": "video",
+      "digest": "b85a071fd5e799e08045fa8418bdd8f0c230b03e73b0a8c7d486f4a8afe904a1",
+      "byteSize": 12752734,
+      "mediaType": "video/mp4",
+      "durationSeconds": 73.429,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-autopilot-agents-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15.6
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 15.6,
+          "endSeconds": 32.833
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 32.833,
+          "endSeconds": 52.633
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 52.633,
+          "endSeconds": 73.367
+        }
+      ],
+      "releaseDigest": "1cc14ab7cdbc95f2025ea3e9d933aed9774cd086058c08e77c287df443f2243f",
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-01"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-01.vtt",
+      "role": "captions",
+      "digest": "ea2b2dee79de24adb1445c3275dba37c9f0c4736cdbe3fddf68d52505b0b3513",
+      "byteSize": 1281,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/release-r1."
+  ]
+}

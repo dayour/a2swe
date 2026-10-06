@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot",
+  "title": "copilot-2026-06",
+  "year": 2026,
+  "number": 6,
+  "createdAt": "2026-09-16T02:26:15.139Z",
+  "pipeline": "legacy-template",
+  "status": "current",
+  "source": "renders/copilot-v6.mp4",
+  "outputs": [
+    {
+      "path": "copilot-2026-06.alignment.json",
+      "role": "metadata",
+      "digest": "f88900303c5b75e46bb03eb6cc77b41e06f14e9965ea663d04b72ed9fc12b93f",
+      "byteSize": 312,
+      "mediaType": "application/json"
+    },
+    {
+      "path": "copilot-2026-06.mp4",
+      "role": "video",
+      "digest": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+      "byteSize": 5563277,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.016,
+      "width": 1280,
+      "height": 720,
+      "voice": {
+        "engine": "edge-neural",
+        "voiceName": "en-US-AndrewNeural"
+      }
+    }
+  ],
+  "notes": [
+    "Audio/video alignment remux of copilot-v4.mp4 with -0.0427 s offset.",
+    "Narration voice recorded by script/timeline.json for copilot's latest legacy timeline.",
+    "Video bytes are identical to copilot-2026-05."
+  ]
+}

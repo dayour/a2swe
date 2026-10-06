@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "title": "microsoft-plugin-architecture-2026-03",
+  "year": 2026,
+  "number": 3,
+  "createdAt": "2026-10-06T01:17:09.193Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/microsoft-plugin-architecture-2026-03",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "outputs": [
+    {
+      "path": "microsoft-plugin-architecture-2026-03.mp4",
+      "role": "video",
+      "digest": "257a497e6e2b4d5e72fe07d68d8b0ce6125012ac39cb6efbaea6067636b21b88",
+      "byteSize": 10534190,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-03.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "releaseDigest": "31107e7708a85908491932708fb7e8f677ae5e2058b2bd9e2d8c96591be450d1",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-03"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-03.vtt",
+      "role": "captions",
+      "digest": "be56387805d77b5c41c24259e8bbe4e96804c26ae8480fd6e1ced5b7be2a67f1",
+      "byteSize": 1037,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from release."
+  ]
+}

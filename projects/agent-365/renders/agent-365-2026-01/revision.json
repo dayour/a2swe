@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "agent-365",
+  "title": "agent-365-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-09-22T20:35:45.074Z",
+  "pipeline": "legacy-template",
+  "status": "current",
+  "source": "renders/agent-365-candidate.mp4",
+  "outputs": [
+    {
+      "path": "agent-365-2026-01.mp4",
+      "role": "video",
+      "digest": "d1f89a8ba22103e6963734a3421c3deacbec6a55dabef98bb4adafbd2a9b5203",
+      "byteSize": 4508676,
+      "mediaType": "video/mp4",
+      "durationSeconds": 62.677,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      }
+    },
+    {
+      "path": "agent-365-2026-01.pptx",
+      "role": "presentation",
+      "digest": "9ec6aef7230372ac1132b895407dec8674063ddaef8bde40b039108996e46a50",
+      "byteSize": 144838,
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    }
+  ],
+  "notes": [
+    "Narration voice recorded by script/timeline.json for agent-365's latest legacy timeline."
+  ]
+}

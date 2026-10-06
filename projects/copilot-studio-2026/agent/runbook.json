@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "copilot-studio-2026",
+  "projectId": "copilot-studio-2026",
+  "updatedAt": "2026-10-06T21:54:15.967Z",
+  "domainDigest": "bfc030cc8e8f14f86a164aad9db24305bcde8f292e79ed09452bf138fab97624",
+  "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
+  "stage": "qc",
+  "gates": [
+    {
+      "name": "domain",
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "6d58f1d3fe8674c46e834bec96894cab831a783426f1d5234999c6091c867a16"
+    },
+    {
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "a5f493b6fec3adb9d6afaec1da7b5f5948c76f37418ff1d663e2ca39240df378"
+    },
+    {
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "e29a865c14ec6a893e5e8c9f12ae13631c2c432a1e25efa9cc0269c83814f26b"
+    },
+    {
+      "name": "native-office",
+      "status": "pending",
+      "evidencePath": null,
+      "evidenceDigest": null
+    },
+    {
+      "name": "media-analysis",
+      "status": "pending",
+      "evidencePath": null,
+      "evidenceDigest": null
+    },
+    {
+      "name": "release",
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "9b80b8229ef2c9885dd4a231f5493b15c3287c3c268aec54204e19547a03cd93"
+    }
+  ],
+  "stages": [
+    {
+      "name": "scaffold",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [],
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
+    },
+    {
+      "name": "research",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "canonical/domain-pack.json",
+        "release/domain-pack.json"
+      ]
+    },
+    {
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "canonical/content-ir.json",
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
+    },
+    {
+      "name": "render",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "content"
+      ],
+      "evidencePaths": [
+        "release/outputs/index.html",
+        "release/outputs/deck.deck.json",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx",
+        "release/outputs/document.pdf",
+        "release/outputs/raster.png",
+        "release/outputs/raster.jpg",
+        "release/outputs/remotion/dist/render.mp4"
+      ]
+    },
+    {
+      "name": "qc",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "render"
+      ],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "release/parity-manifest.json"
+      ]
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "23a60c0800ef9c323b5c7347f2a9cb905bca457a46cb037909301f271e6f0651",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "canonical/domain-pack.json",
+      "digest": "6d58f1d3fe8674c46e834bec96894cab831a783426f1d5234999c6091c867a16",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "6d58f1d3fe8674c46e834bec96894cab831a783426f1d5234999c6091c867a16",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "canonical/content-ir.json",
+      "digest": "a5f493b6fec3adb9d6afaec1da7b5f5948c76f37418ff1d663e2ca39240df378",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "a5f493b6fec3adb9d6afaec1da7b5f5948c76f37418ff1d663e2ca39240df378",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "25096799e4af85e5d0a488ccbb67ec19601fa68b614752b41d4a321df0ed7180",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/index.html",
+      "digest": "ddfca201f592669150038e0a4809a70a50da9347352fa32ea092b1c390d9b466",
+      "mediaType": "text/html",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.deck.json",
+      "digest": "4ad80a8ec8ff4f4d1051705012d4518d9056d80e4a980b7b031507edbfc518a5",
+      "mediaType": "application/json",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "fc8f058602d99fe4de74c58c078a9f36ed73bf6889be7c77ca5b56719c15b32a",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "1df32202b4e0e3f1d5ceb24772310565185a09fa727c2337a4bcef158fe96700",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.pdf",
+      "digest": "02cec21755bede5e457662d753de4ff51565b8736e64f55276030d7dd54db477",
+      "mediaType": "application/pdf",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.png",
+      "digest": "f52fa392ffffe9716c068edcf6e0ee53d4e9cf484ad135d0bbd0c3d1de8a549d",
+      "mediaType": "image/png",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.jpg",
+      "digest": "402f37682106e845562af9756399469468b726d53070f0f1eb6995a2d60fc176",
+      "mediaType": "image/jpeg",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "bb95f15e0ace1ad2a60b07fbd2abe8def6807b4bcb62d93cc8ac9dc975b06523",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "e29a865c14ec6a893e5e8c9f12ae13631c2c432a1e25efa9cc0269c83814f26b",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "1545318403e59caad4ea0fd2c851846947bdec86ae888d08b29202dc382aa2af",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "9b80b8229ef2c9885dd4a231f5493b15c3287c3c268aec54204e19547a03cd93",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "66d218d51b26c038463e6dbfd92921013a82b971bc5837ab8c4ebd652442e93c",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "ea5409aa735f74f9073086c8b8956583ca0278ec43421039b4fe262ee5d3e10b",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    }
+  ],
+  "blockers": [
+    "native-office evidence is not bound to the current release.",
+    "media-analysis evidence is not bound to the current release."
+  ],
+  "nextAction": "Produce current evidence for: native-office, media-analysis."
+}

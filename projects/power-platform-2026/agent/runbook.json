@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "1.0.0",
+  "runbookId": "power-platform-2026",
+  "projectId": "power-platform-2026",
+  "updatedAt": "2026-10-06T21:54:11.595Z",
+  "domainDigest": "feb03a68a7a71432e7961b889446cf9e9d8c27badf233e9aea54b35a7f72331c",
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "stage": "qc",
+  "gates": [
+    {
+      "name": "domain",
+      "status": "passed",
+      "evidencePath": "release/domain-pack.json",
+      "evidenceDigest": "dd1e188c3f91dd275e33ef9166c2f726028a8eb77430a818fad52e464613f665"
+    },
+    {
+      "name": "content",
+      "status": "passed",
+      "evidencePath": "release/content-ir.json",
+      "evidenceDigest": "8715ec70dfd06614fae112f2b6a9716e398d1745eebcfb68c1fa676a831aa386"
+    },
+    {
+      "name": "audio",
+      "status": "passed",
+      "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
+      "evidenceDigest": "1daa4060a64676dabe2ebb6eab1e0dea96c4ea6b846ec0d53420dd084fc41b0e"
+    },
+    {
+      "name": "native-office",
+      "status": "pending",
+      "evidencePath": null,
+      "evidenceDigest": null
+    },
+    {
+      "name": "media-analysis",
+      "status": "pending",
+      "evidencePath": null,
+      "evidenceDigest": null
+    },
+    {
+      "name": "release",
+      "status": "passed",
+      "evidencePath": "release/parity-manifest.json",
+      "evidenceDigest": "ca73166720ae9a3487f5b66fc08e693f0ff4c30488a43b545008b4cb306f6436"
+    }
+  ],
+  "stages": [
+    {
+      "name": "scaffold",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [],
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
+    },
+    {
+      "name": "research",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "canonical/domain-pack.json",
+        "release/domain-pack.json"
+      ]
+    },
+    {
+      "name": "content",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "canonical/content-ir.json",
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
+    },
+    {
+      "name": "render",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "content"
+      ],
+      "evidencePaths": [
+        "release/outputs/index.html",
+        "release/outputs/deck.deck.json",
+        "release/outputs/deck.pptx",
+        "release/outputs/document.docx",
+        "release/outputs/document.pdf",
+        "release/outputs/raster.png",
+        "release/outputs/raster.jpg",
+        "release/outputs/remotion/dist/render.mp4"
+      ]
+    },
+    {
+      "name": "qc",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "render"
+      ],
+      "evidencePaths": [
+        "release/outputs/remotion/qc/audio-qa.json",
+        "release/outputs/remotion/qc/audio-spectrogram.svg",
+        "release/parity-manifest.json"
+      ]
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "owner": "a2swe",
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "agent/SWE_AGENT.md",
+      "digest": "548d466c94a0efac9ea5dc7da2993be74957cd9a58458e896aff6bef55f6e7e1",
+      "mediaType": "text/markdown",
+      "stage": "scaffold"
+    },
+    {
+      "path": "canonical/domain-pack.json",
+      "digest": "dd1e188c3f91dd275e33ef9166c2f726028a8eb77430a818fad52e464613f665",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "release/domain-pack.json",
+      "digest": "dd1e188c3f91dd275e33ef9166c2f726028a8eb77430a818fad52e464613f665",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
+      "path": "canonical/content-ir.json",
+      "digest": "8715ec70dfd06614fae112f2b6a9716e398d1745eebcfb68c1fa676a831aa386",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/content-ir.json",
+      "digest": "8715ec70dfd06614fae112f2b6a9716e398d1745eebcfb68c1fa676a831aa386",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/render-spec.json",
+      "digest": "ac1bc65cee8d50ad408b230fc87885f7c6521462364a4d84e376a91b7d20647d",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/index.html",
+      "digest": "2a01ec0dace5d8017d493ae3455b023a3674498461be274c3789127ff1ca88a5",
+      "mediaType": "text/html",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.deck.json",
+      "digest": "172597b8786a920efe64c66f4629b05a4dc96a7bfc4f43f4804e1ca91a56f08f",
+      "mediaType": "application/json",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.pptx",
+      "digest": "d988d42b0072be5c17b84a34ecaefdcaac6cf39c1d263e8275c72df97d670290",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.docx",
+      "digest": "95504ef8583ccc1a7c4c0714add6239a5423259e3eb4e59aecde72b026fa3769",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/document.pdf",
+      "digest": "fd642c747ff91d7c4a4ecd7f88efd0d1a7ff637325a0b726a990d3607afe7649",
+      "mediaType": "application/pdf",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.png",
+      "digest": "d74b43c60436dec0cf8a3001eeb470cc4f214b604adbddb967190c00bdaee924",
+      "mediaType": "image/png",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.jpg",
+      "digest": "89c24eacddb06a7a6a9b1393ebc8e7a45cb93a010ba5807e7ce548e21f5660df",
+      "mediaType": "image/jpeg",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "1b6a9f1c9c97688dc3ead518a75e13560fb7e02edbdef7caad7804dc2dd5e8fc",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-qa.json",
+      "digest": "1daa4060a64676dabe2ebb6eab1e0dea96c4ea6b846ec0d53420dd084fc41b0e",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "c711be45ff37811d26c64d63851041b8116e2d7a690da1185711fa670d881094",
+      "mediaType": "image/svg+xml",
+      "stage": "qc"
+    },
+    {
+      "path": "release/parity-manifest.json",
+      "digest": "ca73166720ae9a3487f5b66fc08e693f0ff4c30488a43b545008b4cb306f6436",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "release/asset-inventory.json",
+      "digest": "d8a435cd2ce531007e546c563ea602dac30feb9050dd63003e785653a1ed0a65",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    },
+    {
+      "path": "release/release-plan.json",
+      "digest": "8b1cd7cb5c16b8ac627e6178c4aecdb076b96ed927b4818c2096d0d152b9a298",
+      "mediaType": "application/json",
+      "stage": "delivery"
+    }
+  ],
+  "blockers": [
+    "native-office evidence is not bound to the current release.",
+    "media-analysis evidence is not bound to the current release."
+  ],
+  "nextAction": "Produce current evidence for: native-office, media-analysis."
+}

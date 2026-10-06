@@ -2,7 +2,680 @@
   "schemaVersion": "1.0.0",
   "projectId": "datadog-cowork-plugin",
   "status": "indexed_not_quality_approved",
+  "excludedRoots": [
+    "qc/revisions/"
+  ],
   "entries": [
+    {
+      "path": "qc/analysis/comparison.json",
+      "digest": "61d21d42a548121c9c17e52f266d3eb4c3f100faecc48e0267ac99d19d9278d9",
+      "byteSize": 2936
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/analysis.json",
+      "digest": "46e8fd3dc711a4b95a222077cd79abe0270ff405ce63b6792c474ba48a729240",
+      "byteSize": 15768
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/01-title.jpg",
+      "digest": "10d396bed91ed19d3c5e93f91dd4d42fa7e0c7c57c281370a794e1152196f357",
+      "byteSize": 89317
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/02-what-it-is.jpg",
+      "digest": "bc40ad72f2e82bb21287509fa93ba50f65e6015641e459c9039fa373f327993a",
+      "byteSize": 85572
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/03-where-it-runs.jpg",
+      "digest": "09eb6214ebc854e910dead6f7953f953cf81e4af35eca3533b7b4817be6d1163",
+      "byteSize": 86267
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/04-setup.jpg",
+      "digest": "bdfda8e09fd7b6461ded5cdf533475aeba92fcd3ea289604a3f05b20750497dd",
+      "byteSize": 92258
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/05-access.jpg",
+      "digest": "e49193777a0a3677856519a657b1cc8962586279dd4410665a0580ec1d8a92b7",
+      "byteSize": 92170
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/06-control.jpg",
+      "digest": "b9549530e5ba70d3060b78b4cbb4b1cd1561312709d028b48ccd67cc0415ec44",
+      "byteSize": 86343
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/chunks/07-risk.jpg",
+      "digest": "e92ae6209893335a2a50b996456e087faa4268742d1d1c92fc2f0c5d6a39951d",
+      "byteSize": 88551
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/contact-sheet.jpg",
+      "digest": "52b228002b3008960efc0fdcaa5069eb1cefde4672a0ad2542933da8752ea0bd",
+      "byteSize": 442407
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/01-mid-title.jpg",
+      "digest": "94b56cf2727d6c5cce3664db4cce842ff18443365cb3b3df5e040d81deb5833c",
+      "byteSize": 66643
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/02-mid-what-it-is.jpg",
+      "digest": "f07c5e693a23e0cd4230558f8ded15e202c3128982251500cf1c0e056c590fee",
+      "byteSize": 61415
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/03-mid-where-it-runs.jpg",
+      "digest": "998a20d8d51e13374acc3406099c162dfe4d4a184eea242189a240af91414df1",
+      "byteSize": 75829
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/04-mid-setup.jpg",
+      "digest": "9da76f84a2fa5af560aba63d5936ff8e5dc5d37ff2bf7a438811ce2237d2fe9c",
+      "byteSize": 64605
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/05-mid-access.jpg",
+      "digest": "4bb8e99064f8b2ffb7a303da0e9c4cb3e53a2144051a8ff6ca8f3f5d9419b4fe",
+      "byteSize": 70226
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/06-mid-control.jpg",
+      "digest": "8bc8e897817f17a567823a5b308507a91c62f0b9fead763fe3b3967e8a1a7bb4",
+      "byteSize": 50377
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/07-mid-risk.jpg",
+      "digest": "77de3816e63e1fa59f3edd18a1a1d8d49ccacfbf47fd90935ae36abe5e9dbed8",
+      "byteSize": 69526
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/08-before-transition.jpg",
+      "digest": "9207430f18459713529ab8770a1a77c02fc58645ca2ff3f10a98fbd8696713fa",
+      "byteSize": 6589
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/09-during-transition.jpg",
+      "digest": "984e49ac58d7d79771f81b267878367394a8a5b158500db2de45811e2fe0e07e",
+      "byteSize": 38218
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/10-after-transition.jpg",
+      "digest": "f8d33219ed640e56dd3ebc901f973e02076bdb9d298c20c98b7842149735a2a5",
+      "byteSize": 60020
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/11-before-transition.jpg",
+      "digest": "94a5b471980a0105fc1df8551a7d498dc1ee2f7d8b3ca741e318c87f1e90fb8c",
+      "byteSize": 62027
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/12-during-transition.jpg",
+      "digest": "a72c2453ba4864a4d6a9657da47d887886c027b11240c01c8143f37c0c189282",
+      "byteSize": 66749
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/13-after-transition.jpg",
+      "digest": "ad0bf15f7721aef236f255ee1158af87755ac47d6c919852915e4b0515a5d59f",
+      "byteSize": 66735
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/14-before-transition.jpg",
+      "digest": "80edd31fcc07c64a21a75768cb36d9ec351a116422b80bc508ab08bf0ead1344",
+      "byteSize": 67393
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/15-during-transition.jpg",
+      "digest": "1eb1e0e7ec0273a87132eed276461b274cfe26ed9f8c7e456c8e63852ea34b1c",
+      "byteSize": 44865
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/16-after-transition.jpg",
+      "digest": "f0d28473cdb9be5a7d021ac2f471ebb59b52e9a02e675008333aa189c141119e",
+      "byteSize": 45526
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/17-before-transition.jpg",
+      "digest": "42218cc60f858ce3b9ee9cb3c5125e5c282109512a3e6baca6a2f504d35cfe19",
+      "byteSize": 61599
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/18-during-transition.jpg",
+      "digest": "69537fb0eadcc11ccfccb3fc892394ae2b1563889a9a8e3c3a67f1974fd1b2bf",
+      "byteSize": 24296
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/19-after-transition.jpg",
+      "digest": "e59b4ae784819c34d5278259b2a80ccada9b0e4da8d8e3edf80ef6529b93185a",
+      "byteSize": 58964
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/20-before-transition.jpg",
+      "digest": "48d74f2b295e9a7c6ac3af03a9f69023d891e94e4ae213ae25654489a3cdbc4f",
+      "byteSize": 75846
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/21-during-transition.jpg",
+      "digest": "47318b9af45ba764ae857e5b55effcf648f13de4e3adff87fccf267ee691a6db",
+      "byteSize": 76216
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/22-after-transition.jpg",
+      "digest": "3789d1bae9114998e71bc4f1ff55dda5a2009128c23a4c04d2ea7d0d604170af",
+      "byteSize": 72469
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/23-before-transition.jpg",
+      "digest": "6b82e7c5dbe9798a90560ea72e42492fa227990305e1a5e6c0f03aec9e6b02e8",
+      "byteSize": 71984
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/24-during-transition.jpg",
+      "digest": "ec87ace1bba79f78a0af4a607113185a31276991d53a48d3cb48abfed7b7c511",
+      "byteSize": 52410
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/25-after-transition.jpg",
+      "digest": "3edf50b7a1121ce98e6acad3ffb91e02e401a74f30fcbb38eaa5669643ea5396",
+      "byteSize": 38559
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/26-p10.jpg",
+      "digest": "8072941ca9b9438cb94187be4c5789367ee70049ddff43d51ab9b3d650d00814",
+      "byteSize": 67536
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/27-p30.jpg",
+      "digest": "e53f2e19885db217cf613d442d9b08d3d7cb3ce6c6787d702f2bf32a8f006bd1",
+      "byteSize": 75110
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/28-p50.jpg",
+      "digest": "a2000e5a4d5b9757dcbda5bf8e05eedf1eeba8e8c90750dc658cb925ccfd6ba5",
+      "byteSize": 64232
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/29-p70.jpg",
+      "digest": "76077c787179a98b4f20a69b5830dac6cdeb775b71b2cc537019dc0e4ccbd38f",
+      "byteSize": 69779
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/frames/30-p90.jpg",
+      "digest": "8c64e26aadbbe5d4db0f0b08c77525eec45618d260d2924c0df48b93fb5c0664",
+      "byteSize": 69817
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/layers.png",
+      "digest": "3564dbe122b6af84cedd7a1fa4e62833f662430c2ea5e2a2a64929cb886d19a8",
+      "byteSize": 84089
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/spectrogram-speech.jpg",
+      "digest": "338f8ff0ac287d08d592b83d15c69d334cf55233c4ba4e47afa86d791ea5766b",
+      "byteSize": 239252
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/spectrogram.jpg",
+      "digest": "c6910e6db7badb0d45702d497ffdffe1e5d2fca4b480341fec8c81a90fa3c995",
+      "byteSize": 174464
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/waveform.png",
+      "digest": "1620a007ac65d94256e6bbc2b325476a619e2e52d6ca56720ed76baf25ca7b86",
+      "byteSize": 10034
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/analysis.json",
+      "digest": "6cea9427843dd00796ac12df971e57cf0ffb49be8f411b4404a3f5456ec83bb3",
+      "byteSize": 15857
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/01-title.jpg",
+      "digest": "800beee8c5483c48e79e51dec843d4bd29f3fcd8997eef75b84bf815a8091946",
+      "byteSize": 88928
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/02-what-it-is.jpg",
+      "digest": "71d4dd1f202c44c1d03351921c9086786f0cff6e41243dc5abe4241381a36079",
+      "byteSize": 93104
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/03-where-it-runs.jpg",
+      "digest": "886022916af0d7e2cb12fe2f7f49ce80dbb8408d202f5df17d7a58637d0cff40",
+      "byteSize": 86180
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/04-setup.jpg",
+      "digest": "916b55594f10847b823607866fdb6a48f02b935db6b4c86d7cfab9c974e379b1",
+      "byteSize": 92525
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/05-access.jpg",
+      "digest": "3dcb677d351c8d705efafb50497648da0f25b25172c00a00aca9a29917ae1be8",
+      "byteSize": 92270
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/06-control.jpg",
+      "digest": "cb14cbb0e79e49d663f9eba1be3f5b57a8ea07c4268ef32d746a5f174bd48646",
+      "byteSize": 85999
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/chunks/07-risk.jpg",
+      "digest": "b6c4035b49fe6d31f45d9e6a9bef033a90912594a4d66abf855d9708a07bd71c",
+      "byteSize": 88444
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/contact-sheet.jpg",
+      "digest": "02c61fc8c74660f6497a23dea90f7d7daf8b97d0d82c6c0230cbcee3260d7d13",
+      "byteSize": 440870
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/01-mid-title.jpg",
+      "digest": "51abdcd06479cbcc6299b26cff6ea9051083f1c51e72d054ee68f23b5da46cf8",
+      "byteSize": 66782
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/02-mid-what-it-is.jpg",
+      "digest": "71862aeeec9ef1c1961adebf6db5e9b1f2e9e630c05869aafb0fda9a06e1335d",
+      "byteSize": 61960
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/03-mid-where-it-runs.jpg",
+      "digest": "d12ac0fb5de5590be295ec13f721af0b6b45a5c9eb0e18e042a69c4f982b5fe0",
+      "byteSize": 76005
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/04-mid-setup.jpg",
+      "digest": "6bd863339ada7746f65d7dc2bb882d3ee5c2ea4ec56f71896e2a8466fb84c389",
+      "byteSize": 63769
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/05-mid-access.jpg",
+      "digest": "1ecc9c992e7f23473f61f1ffefa028fa4b55421d724324ee8947b1d4be296044",
+      "byteSize": 69022
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/06-mid-control.jpg",
+      "digest": "883a43fdacce1d7d1f0d94ab2554fc9e5125982467e7bc748934c904a3c86cfb",
+      "byteSize": 50475
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/07-mid-risk.jpg",
+      "digest": "fe28d4708185930a1002c7930740581784aed28c81ac3b049f647659e7e968d9",
+      "byteSize": 69194
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/08-before-transition.jpg",
+      "digest": "9207430f18459713529ab8770a1a77c02fc58645ca2ff3f10a98fbd8696713fa",
+      "byteSize": 6589
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/09-during-transition.jpg",
+      "digest": "984e49ac58d7d79771f81b267878367394a8a5b158500db2de45811e2fe0e07e",
+      "byteSize": 38218
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/10-after-transition.jpg",
+      "digest": "f8d33219ed640e56dd3ebc901f973e02076bdb9d298c20c98b7842149735a2a5",
+      "byteSize": 60020
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/11-before-transition.jpg",
+      "digest": "29d260e3d2acc07d35a8d5fcdd62d60e01bffcd6518c622398a7ff499ae32d6f",
+      "byteSize": 62098
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/12-during-transition.jpg",
+      "digest": "513b8d4122e6da7496c32fb68daa99e34e61a86382e34768831c10e1026a32ca",
+      "byteSize": 66738
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/13-after-transition.jpg",
+      "digest": "96121580f422f011b4be4ab57ac4dafe6cc671803e33555b3aab59daae9e1a35",
+      "byteSize": 66777
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/14-before-transition.jpg",
+      "digest": "b75c1dc5d2aee7563dbda6aab15d5a7d8dd13ca3df24cea48c2c46cf88c0ade5",
+      "byteSize": 67414
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/15-during-transition.jpg",
+      "digest": "dc89bd77bed587fe9509ff930eddf53d2b6d5abed293db47ab03770ed27c4112",
+      "byteSize": 40817
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/16-after-transition.jpg",
+      "digest": "1f77cf4f2d0437f1fcc1639c550a4dec68767d546e444338f24481956970e0ae",
+      "byteSize": 47703
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/17-before-transition.jpg",
+      "digest": "85bda64c309734d979f17ec0cb5dac3ac294258b17f502def0e5171cd43e6af4",
+      "byteSize": 62133
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/18-during-transition.jpg",
+      "digest": "405559fdcc839776655646a6f42f195d1b5a248e1555dfb12c6534a28e24d9ae",
+      "byteSize": 41317
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/19-after-transition.jpg",
+      "digest": "eb020b60a243fc06cca04f8b7056694c181deb204c86767d709110c000ce37a6",
+      "byteSize": 51288
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/20-before-transition.jpg",
+      "digest": "3e8b67bd30aba4b9e59247272fef3c8ba9a56b70cd41762de2e4907270f4db4a",
+      "byteSize": 75892
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/21-during-transition.jpg",
+      "digest": "5975c8a80e5c7adbdda4d298fe496624089ddafeb108346dc9bee4b0f7724501",
+      "byteSize": 76451
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/22-after-transition.jpg",
+      "digest": "913fc0b6867afcfbacbb9ab51340d799612e137da0f56787633c2d7d3d5ef889",
+      "byteSize": 72485
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/23-before-transition.jpg",
+      "digest": "9027821c7befe706c5a5c5309d097de428785418f6cb7e4128cfafb77b488cfd",
+      "byteSize": 71988
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/24-during-transition.jpg",
+      "digest": "c60912841e030657539a4e4f346e37411bb4b93a2aa662f66becaba9f8863669",
+      "byteSize": 45322
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/25-after-transition.jpg",
+      "digest": "b80175537ca23195d534c0b3531f499c5e58609971cfef2209db331848e53109",
+      "byteSize": 41729
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/26-p10.jpg",
+      "digest": "56f1cae97db92b7b82fbdc8d506aba5680ac978d777ff3ce542aaad403264e49",
+      "byteSize": 67478
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/27-p30.jpg",
+      "digest": "a8bf019f1e64180ab2cf8be39cef7a4c6a840bb6742c91f53c3db9552c37910c",
+      "byteSize": 75656
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/28-p50.jpg",
+      "digest": "5791b38e03a280d4d2eda528a68d72ad2816bfdca3b031e76ffa6339e6bd4415",
+      "byteSize": 63210
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/29-p70.jpg",
+      "digest": "6a5d5ead9803384da6de66310d37e4be9db2cc1bec251012d8e7b335de55b86c",
+      "byteSize": 68787
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/frames/30-p90.jpg",
+      "digest": "e9b4200def7f218956acec8c8777ccadf71b33b50236c40eea1c5934f25c92bd",
+      "byteSize": 69481
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/layers.png",
+      "digest": "eb55a039057ed80da9a4af9b06c1c5ffd83adb869365993c4b70c30136560efb",
+      "byteSize": 81381
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/spectrogram-speech.jpg",
+      "digest": "f9fb1dc7c5798448185ce018a1b47017a8d36087ea3edbee671e66bb3f287b89",
+      "byteSize": 238177
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/spectrogram.jpg",
+      "digest": "8f50c0c5022e3ba0772f7d75e9610a4107ab5a7f3046deeef24e5e8545fec802",
+      "byteSize": 169754
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02/waveform.png",
+      "digest": "2cc263bd8e2634ed0fab854fdcaabdddbe91783a047f49503086b3b97ee24530",
+      "byteSize": 9978
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/analysis.json",
+      "digest": "eab5d2323c066ba13c27581d78aafdb9c3784e426d81da68cd15d9aae1a30870",
+      "byteSize": 15936
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/01-title.jpg",
+      "digest": "8cb9ed385179a5092a6922ae40c9acc7d9fd2d83b68063119489e71f4f10fe65",
+      "byteSize": 89287
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/02-what-it-is.jpg",
+      "digest": "25ef0ac426f7a759611aeff0ff83aa5c176703f7182fc055b9df57c74d01067c",
+      "byteSize": 86234
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/03-where-it-runs.jpg",
+      "digest": "7b495eca36ccb43404e583fb2a1ac56a3b477f35fb6be41d19d7cba877e86759",
+      "byteSize": 86413
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/04-setup.jpg",
+      "digest": "ee5cc90ab864e792b839a1e7e092335c276a49b869969db5a3759f90dd38f2d9",
+      "byteSize": 92106
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/05-access.jpg",
+      "digest": "339e4ab98272dabde5a08a4e74e4322e8c8802d83eda093a020f75ef5c5278eb",
+      "byteSize": 92168
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/06-control.jpg",
+      "digest": "d71f620fb8252da94f6eb3d99f1ed9aee023ee67ae4a41045de422820826b78d",
+      "byteSize": 86198
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/chunks/07-risk.jpg",
+      "digest": "accabbe3832237f8ee29b59b5e1348599a430abf4a2088664dfc17fbbf27a269",
+      "byteSize": 88719
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/contact-sheet.jpg",
+      "digest": "e8af66ef8945eee5d09ad26c3c9da25d91c1c6a1abae3ab28b8f091fc9ccd841",
+      "byteSize": 446864
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/01-mid-title.jpg",
+      "digest": "a33898c500b8ee5062dfeaddcffb9f7ad4f01c855e50ddc97ab7aee9647eba45",
+      "byteSize": 66660
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/02-mid-what-it-is.jpg",
+      "digest": "7daf82beb18329ce2d862ddd1603a14350c9e10c830e16562819f33957697c3c",
+      "byteSize": 61891
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/03-mid-where-it-runs.jpg",
+      "digest": "5ac1fb46ae44a0aba233196159a493ccaa972eabf1ea1536c18ea86310052aff",
+      "byteSize": 76035
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/04-mid-setup.jpg",
+      "digest": "abe3badd19c56e549a5514d8da079281397b197b3d938321d1b0f747c4b1aa02",
+      "byteSize": 63902
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/05-mid-access.jpg",
+      "digest": "6a74c546728ad4e9eca1d9b6f26e063b79bbfb61558592b0d25153ced1ee1ecf",
+      "byteSize": 68990
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/06-mid-control.jpg",
+      "digest": "95edcc911a0a8a71e2ba0d08031c431a218c91f6de0c41a09e457970cbd6f706",
+      "byteSize": 50438
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/07-mid-risk.jpg",
+      "digest": "a8a690e89fb6e1ce8f761a001bb360371e1536122148ce3407c5f248564f4e7d",
+      "byteSize": 69240
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/08-before-transition.jpg",
+      "digest": "9207430f18459713529ab8770a1a77c02fc58645ca2ff3f10a98fbd8696713fa",
+      "byteSize": 6589
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/09-during-transition.jpg",
+      "digest": "984e49ac58d7d79771f81b267878367394a8a5b158500db2de45811e2fe0e07e",
+      "byteSize": 38218
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/10-after-transition.jpg",
+      "digest": "f8d33219ed640e56dd3ebc901f973e02076bdb9d298c20c98b7842149735a2a5",
+      "byteSize": 60020
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/11-before-transition.jpg",
+      "digest": "60a918bc8796230a90e04c4e3e0a1d9caa8d6840a669dfac893e2ab0ca87119f",
+      "byteSize": 62066
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/12-during-transition.jpg",
+      "digest": "d2a582d1f3f1025f9754a19f5db621f3e4c0eee14da94dcbdd040b91fcda6436",
+      "byteSize": 66714
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/13-after-transition.jpg",
+      "digest": "ad89c9a602322f91e23df420de3e46bb1109792a1f44fa76d3db048ee8377f1f",
+      "byteSize": 66740
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/14-before-transition.jpg",
+      "digest": "8e5158ba854bde34b7adb4a8cc4b578396a1d2e7ba17b9011e16b615998119cb",
+      "byteSize": 57076
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/15-during-transition.jpg",
+      "digest": "efd40b4be85996a06df124dfd250cc71487237d216c0245cc6096ed00bb8d6f3",
+      "byteSize": 37065
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/16-after-transition.jpg",
+      "digest": "24f50ebce9df523bf8c5ef9e63ababa70232cad2e4c3df813227b1886e7e56d7",
+      "byteSize": 58140
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/17-before-transition.jpg",
+      "digest": "283210bcdc04a331679691f8b358079063b6eb0b31b742fc51f78aa955b9a8ae",
+      "byteSize": 62377
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/18-during-transition.jpg",
+      "digest": "691f41d1833806a406a040c53431aca605bcaa90ee4068dd74054f1c1e40ec91",
+      "byteSize": 66617
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/19-after-transition.jpg",
+      "digest": "def985382fc2c5d23bd584215d16a6f61e2741680229e8d6ba50782ecf1d0473",
+      "byteSize": 72624
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/20-before-transition.jpg",
+      "digest": "f55188ce36650421824eec17c8ee3ed7a1ee5db05efa7c89ecb076d3f343b69d",
+      "byteSize": 75947
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/21-during-transition.jpg",
+      "digest": "8881446f3345a8b591685880d2bbf56e0b919486b13fbc23409307a6fc7a2ae0",
+      "byteSize": 76303
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/22-after-transition.jpg",
+      "digest": "4515192f28b3cb62403333eeef92e2345218b7b0b3615fd53a88f4d36d82beaa",
+      "byteSize": 72403
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/23-before-transition.jpg",
+      "digest": "cfb23ab48823feed3b1c460ff59a6b0a0b762c2c599aca780113f7a18d29eab5",
+      "byteSize": 62619
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/24-during-transition.jpg",
+      "digest": "71943d9f9bb55d92ed47967757256d55dc3734c5004482a6e29bab5aa422209e",
+      "byteSize": 32323
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/25-after-transition.jpg",
+      "digest": "6dfb031c271c45161983a67700ffcf2eab6aaa6890957f1fdf2571465d500cf7",
+      "byteSize": 53386
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/26-p10.jpg",
+      "digest": "71feceef58a64c792c5c738a24d26a8d779ca88388724cfefbc243a89fb0af54",
+      "byteSize": 67557
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/27-p30.jpg",
+      "digest": "60241d243b520586385c4c1310c852d05f7e9cf8971376cf836b7ac1f33aea9d",
+      "byteSize": 75217
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/28-p50.jpg",
+      "digest": "5c9be19fe25557daf35a662b370c4f5ff525d1bda82b95927112c703ecd1d5c9",
+      "byteSize": 63444
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/29-p70.jpg",
+      "digest": "a5164e9db74cb57fb2892f1c1b65bbd2dbf7c990e4d83f50600cdd7c5900515e",
+      "byteSize": 68810
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/frames/30-p90.jpg",
+      "digest": "911b1c3881648ade842b737b09ca29ef72c4f2c259f714e570aa107d0bfe6069",
+      "byteSize": 69480
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/layers.png",
+      "digest": "61073342ccac240282947137caa31c3b790b8d6830bce9b9181e50ae258988e4",
+      "byteSize": 82897
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/spectrogram-speech.jpg",
+      "digest": "bef7fb4f304592beed046c5f13bfe8152348e1b39bff352f842c224fdce7c651",
+      "byteSize": 238131
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/spectrogram.jpg",
+      "digest": "9d150a1c2d22ee5692740be39eddbe8d7e5fe7a55e0b5b7ed4f480729a3c71bc",
+      "byteSize": 169710
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03/waveform.png",
+      "digest": "7df3005ef3e11e13a8797ce8da5b278b95f493fdfb99c3ef5dbb236aee7e7e7a",
+      "byteSize": 10030
+    },
+    {
+      "path": "qc/analysis/frames-grid.jpg",
+      "digest": "ba8321758cf5e937a6fc1fc2c39de5b96e6e02e82a012a74afbaec42c7c04928",
+      "byteSize": 151295
+    },
+    {
+      "path": "qc/analysis/layers-stack.jpg",
+      "digest": "14c67de14e85ad3a9343ce602a8c7ab20c2511a655aecea625379bf11b2b1769",
+      "byteSize": 140870
+    },
+    {
+      "path": "qc/analysis/report.md",
+      "digest": "036ae81df398595398c3083f7e96b1189d1636ea6eb75ae14944c24dbc7c5b5e",
+      "byteSize": 3300
+    },
+    {
+      "path": "qc/analysis/spectrogram-stack.jpg",
+      "digest": "5283f8546160e74323f07f7d2c034fc22da6938b31dc21e901af5805f953ba14",
+      "byteSize": 212635
+    },
     {
       "path": "qc/audio/am_michael/comparison.json",
       "digest": "78ec8eba07a5a5c57e60ca2cfc027e2a6a86c6b4f2e736a074fd941c3ad97677",
@@ -37,376 +710,6 @@
       "path": "qc/models/onnx-repair/verification.json",
       "digest": "b9d97580ce979fcf943de0db6e1a38b0cca8a066dd90bd92873d7d5587f70ce6",
       "byteSize": 4445
-    },
-    {
-      "path": "qc/releases/release-audit-v2/approval-manifest.json",
-      "digest": "3f642fdfb2531389cdd62ea3aba49c16e72c94ca36b17ad8860c60461704955b",
-      "byteSize": 752
-    },
-    {
-      "path": "qc/releases/release-audit-v2/asset-inputs/mcp-flow.png",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
-      "byteSize": 81884
-    },
-    {
-      "path": "qc/releases/release-audit-v2/asset-inventory.json",
-      "digest": "f7a829470e3b50fbe8fd4bdff19a35b7b9093664f68ad2927e1b92b80046cf85",
-      "byteSize": 1902
-    },
-    {
-      "path": "qc/releases/release-audit-v2/content-ir.json",
-      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
-      "byteSize": 12805
-    },
-    {
-      "path": "qc/releases/release-audit-v2/domain-pack.json",
-      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
-      "byteSize": 11502
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/deck.deck.json",
-      "digest": "314bc5214ff8a4539849f404d33c5b7ec6648d6a389767fdca75acd47fdb3cc9",
-      "byteSize": 652993
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/deck.pptx",
-      "digest": "14f20edd23e50f896b4b0d5d20234fae1f5ddfc04533e8899d80201827df92e2",
-      "byteSize": 568922
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/document.docx",
-      "digest": "a1b12e3938ca3ca1ba88cc741b445d8ea3339595cda05cd76689e8de4e2d7550",
-      "byteSize": 496447
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/document.pdf",
-      "digest": "9d6f8338816b457eb10bdfeafec27426f1d16736e4bd2c53e765713993d20091",
-      "byteSize": 263431
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/index.html",
-      "digest": "cdd24cf9b838405dbf3231ad6625e1abb5004c7d66b2654c557658e756402247",
-      "byteSize": 639939
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/raster.jpg",
-      "digest": "c1abf3bc07f212dfc757492c201e160b6ff00df5df13dddd454f912252ca7701",
-      "byteSize": 263424
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/raster.png",
-      "digest": "6df29fa8c0b89cbf6f30e3cb4dcabf8a9b429d804a073031b471b6143ef1db6b",
-      "byteSize": 226361
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/asset-manifest.json",
-      "digest": "86c316c28d138401105f1151db37911e54d86e527d0480a597e75c9607ebc7b7",
-      "byteSize": 1257
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/audio/narration-metadata.json",
-      "digest": "0dacb953bf05d37b12a7dbd856a44bd5bf825b247daa84e40e2cf8fb5fdc438b",
-      "byteSize": 4557
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/dist/render.mp4",
-      "digest": "6ae265094e1a0647784c0d71ae488408f1428ebe3b5972465b92427a24fb41d2",
-      "byteSize": 14637035
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/package.json",
-      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
-      "byteSize": 677
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/assets/datadog-cowork-plugin/audio.wav",
-      "digest": "529ad211fea4254f5cfcc7524383fd2673a9acb4e9b2ef9bba6765e5fe0847bf",
-      "byteSize": 17085100
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/assets/datadog-cowork-plugin/mcp-flow-4177aa1687b3.png",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
-      "byteSize": 81884
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
-      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
-      "byteSize": 20380
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
-      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
-      "byteSize": 20320
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
-      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
-      "byteSize": 20232
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
-      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
-      "byteSize": 20212
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
-      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
-      "byteSize": 65732
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
-      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
-      "byteSize": 17488
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
-      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
-      "byteSize": 1292
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
-      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
-      "byteSize": 2816
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
-      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
-      "byteSize": 9856
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
-      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
-      "byteSize": 2656
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
-      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
-      "byteSize": 2104
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
-      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
-      "byteSize": 8712
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
-      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
-      "byteSize": 824
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
-      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
-      "byteSize": 24956
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
-      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
-      "byteSize": 13296
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
-      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
-      "byteSize": 12220
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
-      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
-      "byteSize": 70668
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
-      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
-      "byteSize": 1416
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
-      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
-      "byteSize": 10676
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
-      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
-      "byteSize": 8392
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
-      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
-      "byteSize": 11104
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
-      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
-      "byteSize": 15476
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
-      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
-      "byteSize": 16476
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
-      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
-      "byteSize": 6116
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
-      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
-      "byteSize": 56156
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/audio-qa.json",
-      "digest": "c7ee5afb3589fadb1e316dd12f4896f63fdef8e3c1fe19a17a680371929f2fd9",
-      "byteSize": 2061
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "1dc4721ee2bf497e6a2b2b46c59eb24ad8d4268344708a46355f98c43ed30c98",
-      "byteSize": 445931
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/mp4-qc.json",
-      "digest": "3d3e3744ed66c141e0175772e8da10c8b8c104ff7a782e321e6bd59199c6b470",
-      "byteSize": 3566
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/qc/render-receipt.json",
-      "digest": "41f0c8a5d1fa6a170203472448cd033ac869d571a4297b7c4ecf4939f145e991",
-      "byteSize": 385
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/remotion.config.ts",
-      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
-      "byteSize": 351
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/render-plan.json",
-      "digest": "34cde49d8553a27d0aae955d022cfc0c52014a00c071540beeb9d4dc4a45a465",
-      "byteSize": 2060
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/requirements.lock.txt",
-      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
-      "byteSize": 5663
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/audio-qa.mjs",
-      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
-      "byteSize": 17077
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/render-mp4.mjs",
-      "digest": "badbf99e790fba288478e2a7c3f880be5aad859c36a6ae71e4ef4ffb0c9554a3",
-      "byteSize": 8598
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/synthesize-audio.mjs",
-      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
-      "byteSize": 1703
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/synthesize-audio.py",
-      "digest": "270a29b40f7651d504e5bad57697a0e9d4dffb9481a48c0baf6dda0d5d9ebe76",
-      "byteSize": 19743
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/scripts/verify-mp4.mjs",
-      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
-      "byteSize": 5728
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/speech/narration-manifest.json",
-      "digest": "4a0d26e2404835f95b6ddfea987b8e1f58872be5530c8c1d48eef4815432940b",
-      "byteSize": 3335
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/src/content.json",
-      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
-      "byteSize": 12805
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/src/index.tsx",
-      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
-      "byteSize": 93
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/src/palette.ts",
-      "digest": "c654487aadb0c4435f5226206490d24e9e68c191ebe0c2b505da63503a636e36",
-      "byteSize": 1538
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/src/Root.tsx",
-      "digest": "f6dc5ec55212a7d2ea44434c665b72314b1072dd67177cc9f5d07f4b38c2a793",
-      "byteSize": 12298
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/src/Visuals.tsx",
-      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
-      "byteSize": 8575
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/timeline.json",
-      "digest": "2acba9f94dbd21ccc7bd0873b3d392d4da7d347494bf4fa7cb8cbc3f08799839",
-      "byteSize": 18054
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/tsconfig.json",
-      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
-      "byteSize": 397
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/01-what-it-is.mmd",
-      "digest": "bd57989d57aae21fd7592d07893ee577539cd7d6b9d0f032db4054088c88dab5",
-      "byteSize": 213
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/01-what-it-is.png",
-      "digest": "02701015e9bf87965d6b5f8ba842d0643bc9b0872f7579fcf69ec467f408ab9c",
-      "byteSize": 83094
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/03-setup.mmd",
-      "digest": "62fa30d258ad54cf1edf6f03f07beeaf4e09c7216456f32dcfa802ad90346b60",
-      "byteSize": 214
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/03-setup.png",
-      "digest": "d86356b9ae0fca2d9f9db4266eb3cbae3bf99d33f6ef4a3518ddc423957add66",
-      "byteSize": 92957
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/04-access.excalidraw.json",
-      "digest": "966714bbacf5232a1550053ae434023065398b108efb1ee7fe21c64fe84aeda8",
-      "byteSize": 1212
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/04-access.png",
-      "digest": "d780408aaa3242decb62ff39017b287b7dde0c95311d3c25e7f6dfc9339faff0",
-      "byteSize": 115242
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/06-risk.marp.md",
-      "digest": "df4b214beab0f897872b4ae31115e505e3c34d4ec61d99d3707a529abb9d4a4f",
-      "byteSize": 212
-    },
-    {
-      "path": "qc/releases/release-audit-v2/outputs/remotion/visuals/06-risk.png",
-      "digest": "3e49a5f78a2909a655dd9ca2914c9b065392d8ab99ef5480758dd62885cf2fc9",
-      "byteSize": 95673
-    },
-    {
-      "path": "qc/releases/release-audit-v2/parity-manifest.json",
-      "digest": "958075101327ff69e17cbb5570dd2f238b8289b66afbeef85cb054a5a35f25a4",
-      "byteSize": 16028
-    },
-    {
-      "path": "qc/releases/release-audit-v2/release-plan.json",
-      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
-      "byteSize": 764
-    },
-    {
-      "path": "qc/releases/release-audit-v2/render-spec.json",
-      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
-      "byteSize": 643
     },
     {
       "path": "qc/releases/release-audit/approval-manifest.json",
