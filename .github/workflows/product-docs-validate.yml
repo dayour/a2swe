@@ -54,13 +54,6 @@ jobs:
       - name: Build documentation
         working-directory: docs
         run: npm run build
-      - name: Validate product documentation anchors
-        shell: bash
-        run: |
-          set -euo pipefail
-          grep -R "agent-first source toolkit" README.md docs/content/overview.md
-          grep -R "evaluation-only asset proof" README.md docs/content/overview.md
-          grep -R "Active 720p Remotion/Python video adapter" README.md
-          grep -R "active 720p Remotion/Python video profile" docs/content/specifications/system-contract.md
-          ! grep -RiE "legacy renderer|legacy video|legacy 720p" README.md SKILL.md BRAND_CONTENT_SPEC.md reference docs/content
-          grep -R ".a2swe" docs/content/architecture/system-overview.md docs/content/architecture/data-flow.md
+      - name: Validate source-backed catalog and layout contracts
+        working-directory: docs
+        run: npm test
