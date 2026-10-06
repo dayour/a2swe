@@ -55,6 +55,9 @@ private engagement data and must stay in a Git-ignored workspace.
   owners and dates as proposals, never as CRM records.
 - Diagrams must not imply sequence or causation the records do not state. Use
   grouped boxes for status and stage counts, and arrows only for real order.
+- Write every body, box and caption for the executive reader. Never place
+  authoring or presenter guidance such as tone advice or "keep X separate" in
+  the content; state the fact or the ask instead.
 - Microsoft 365 and news summaries are intake paraphrases. Do not present them
   as quotations, and do not infer sentiment, dates or owners they do not state.
 - Name accountable owners only when the record names them and the name matters
