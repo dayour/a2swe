@@ -454,19 +454,21 @@ function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, tota
   } else {
     shapes.push(pptShape(id++, 'Title', left, 420000, width, 1150000, [headline({ cx: width, cy: 1150000 }, 4000, 2400)], {}, 'ctr'));
     const picture = slide.pictures[0];
-    const bodyHeight = picture ? 1400000 : 3900000;
-    const body = pptFit(slide.body, 5300000, bodyHeight, picture ? 2000 : 2600, 1400);
-    shapes.push(pptShape(id++, 'Body', left, 1750000, 5300000, bodyHeight, [pptParagraph(pptRun(body.text, body.size, false, foreground))]));
+    const bodyHeight = 3900000;
+    const bodyWidth = picture ? 3900000 : 5300000;
+    const body = pptFit(slide.body, bodyWidth, bodyHeight, 2600, 1800);
+    shapes.push(pptShape(id++, 'Body', left, 1750000, bodyWidth, bodyHeight, [pptParagraph(pptRun(body.text, body.size, false, foreground))]));
     shapes.push(`<p:sp><p:nvSpPr><p:cNvPr id="${id++}" name="Accent rule"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="${left - 137160}" y="1800000"/><a:ext cx="45720" cy="${bodyHeight - 100000}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="${accent}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr></p:sp>`);
     if (picture) {
-      const maxWidth = 5300000;
-      const maxHeight = 2850000;
+      const maxWidth = 6500000;
+      const maxHeight = 4200000;
       const scale = Math.min(maxWidth / picture.width, maxHeight / picture.height);
-      shapes.push(pptPicture(id++, `Asset ${picture.asset.assetId}`, picture.relId, picture.asset.alt, left, 3300000,
+      const height = Math.round(picture.height * scale);
+      shapes.push(pptPicture(id++, `Asset ${picture.asset.assetId}`, picture.relId, picture.asset.alt, 5000000, 1750000 + Math.round((maxHeight - height) / 2),
         Math.round(picture.width * scale), Math.round(picture.height * scale)));
     }
     const cardHeight = slide.claims.length > 2 ? 1300000 : 1500000;
-    slide.claims.slice(0, 3).forEach((claim, claimIndex) => {
+    (picture ? [] : slide.claims.slice(0, 3)).forEach((claim, claimIndex) => {
       const fit = pptFit(claim, 5105000, cardHeight - 300000, slide.claims.length > 1 ? 1600 : 2000, 1200);
       const paragraphs = [pptParagraph(pptRun(fit.text, fit.size, false, foreground), 400)];
       if (slide.claimSources[claimIndex]) paragraphs.push(pptParagraph(pptRun(slide.claimSources[claimIndex], 1100, false, muted)));
@@ -500,12 +502,23 @@ function pptThemeXml(spec: RenderSpec): string {
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><a:theme xmlns:a="${DRAWING_NS}" name="${name}"><a:themeElements><a:clrScheme name="${name}"><a:dk1><a:srgbClr val="${foreground}"/></a:dk1><a:lt1><a:srgbClr val="${background}"/></a:lt1><a:dk2><a:srgbClr val="1F1F1F"/></a:dk2><a:lt2><a:srgbClr val="F8F8F8"/></a:lt2><a:accent1><a:srgbClr val="${accent}"/></a:accent1><a:accent2><a:srgbClr val="5B9BD5"/></a:accent2><a:accent3><a:srgbClr val="70AD47"/></a:accent3><a:accent4><a:srgbClr val="FFC000"/></a:accent4><a:accent5><a:srgbClr val="C00000"/></a:accent5><a:accent6><a:srgbClr val="7030A0"/></a:accent6><a:hlink><a:srgbClr val="${accent}"/></a:hlink><a:folHlink><a:srgbClr val="7F7F7F"/></a:folHlink></a:clrScheme><a:fontScheme name="${name}"><a:majorFont><a:latin typeface="${font}"/><a:ea typeface=""/><a:cs typeface=""/></a:majorFont><a:minorFont><a:latin typeface="${font}"/><a:ea typeface=""/><a:cs typeface=""/></a:minorFont></a:fontScheme><a:fmtScheme name="${name}"><a:fillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="50000"/><a:satMod val="300000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:tint val="37000"/><a:satMod val="300000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="1"/></a:gradFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:shade val="51000"/><a:satMod val="130000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="93000"/><a:satMod val="130000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="0"/></a:gradFill></a:fillStyleLst><a:lnStyleLst><a:ln w="6350" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="19050" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln></a:lnStyleLst><a:effectStyleLst><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst><a:outerShdw blurRad="57150" dist="19050" dir="5400000" algn="ctr" rotWithShape="0"><a:srgbClr val="000000"><a:alpha val="63000"/></a:srgbClr></a:outerShdw></a:effectLst></a:effectStyle></a:effectStyleLst><a:bgFillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:solidFill><a:schemeClr val="phClr"><a:tint val="95000"/><a:satMod val="170000"/></a:schemeClr></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="93000"/><a:satMod val="150000"/><a:shade val="98000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="63000"/><a:satMod val="120000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="5400000" scaled="0"/></a:gradFill></a:bgFillStyleLst></a:fmtScheme></a:themeElements><a:objectDefaults/><a:extraClrSchemeLst/></a:theme>`;
 }
 
+function citationGroups(content: ContentIR): (ContentIR['citations'][number] & { evidenceIds: string[] })[] {
+  const groups = new Map<string, ContentIR['citations'][number] & { evidenceIds: string[] }>();
+  for (const citation of content.citations) {
+    const key = `${citation.canonicalUrl}\n${citation.retrievedAt}`;
+    const existing = groups.get(key);
+    if (existing) existing.evidenceIds.push(citation.evidenceId);
+    else groups.set(key, { ...citation, evidenceIds: [citation.evidenceId] });
+  }
+  return [...groups.values()];
+}
+
 function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
   const assetMap = resolveAssetEmbeds(content, options);
   const embeddedAssets = embeddedImageAssets(assetMap);
   const sourceLabel = (evidenceId: string) => `[${evidenceId}] ${citationFor(content, evidenceId).sourceTitle}`;
-  const uniqueSources = [...new Map(content.citations.map((citation) => [citation.canonicalUrl,
-    { title: citation.sourceTitle, url: citation.canonicalUrl, retrievedAt: citation.retrievedAt }])).values()];
+  const uniqueSources = citationGroups(content).map(citation =>
+    ({ title: citation.sourceTitle, url: citation.canonicalUrl, retrievedAt: citation.retrievedAt }));
   const slideModels = [
     { id: 'title', kind: 'title' as const, title: content.title, body: content.summary, decision: content.decision, notes: displayNarration(content.voice.narration),
       claims: content.claims.map((claim) => claim.text), claimSources: content.claims.map((claim) => sourceLabel(claim.evidenceIds[0])), assetIds: [] as string[] },
@@ -562,10 +575,11 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
     files.push({ name: `ppt/slides/slide${index + 1}.xml`, bytes: Buffer.from(pptSlideXml({ kind: slide.kind, title: slide.title, body: slide.body, claims: slide.claims,
       claimSources: slide.claimSources, footer, sources: uniqueSources, decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
       ...slidePictures.map((picture) => ({ id: picture.relId, type: `${OFFICE_REL}/image`, target: picture.target }))])) });
-    files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, slide.notes, citations)) });
+    const notes = [slide.notes, ...slide.claims.map((claim, claimIndex) => `Evidence: ${claim} ${slide.claimSources[claimIndex] ?? ''}`)].join('\n\n');
+    files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
     files.push({ name: `ppt/notesSlides/_rels/notesSlide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdSlide', type: `${OFFICE_REL}/slide`, target: `../slides/slide${index + 1}.xml` }])) });
   });
-  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-3' };
+  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-4' };
 }
 
 function wp(textValue: string, style?: string, keepNext = false): string {
@@ -573,11 +587,14 @@ function wp(textValue: string, style?: string, keepNext = false): string {
 }
 
 function hyperlink(textValue: string, relId: string): string {
-  return `<w:p><w:hyperlink r:id="${relId}" w:history="1"><w:r><w:rPr><w:rStyle w:val="Hyperlink"/></w:rPr><w:t>${text(textValue)}</w:t></w:r></w:hyperlink></w:p>`;
+  return `<w:p><w:pPr><w:keepLines/></w:pPr><w:hyperlink r:id="${relId}" w:history="1"><w:r><w:rPr><w:rStyle w:val="Hyperlink"/></w:rPr><w:t>${text(textValue)}</w:t></w:r></w:hyperlink></w:p>`;
 }
 
-function docxPicture(asset: ContentIR['assets'][number], relId: string, drawingId: number): string {
-  return `<w:p><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="4572000" cy="2571750"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:docPr id="${drawingId}" name="${attr(asset.assetId)}" descr="${attr(asset.alt)}"/><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="${drawingId}" name="${attr(asset.assetId)}" descr="${attr(asset.alt)}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${attr(relId)}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="4572000" cy="2571750"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
+function docxPicture(asset: ContentIR['assets'][number], relId: string, drawingId: number, dimensions: { width: number; height: number }): string {
+  const scale = Math.min(5486400 / dimensions.width, 3086100 / dimensions.height);
+  const cx = Math.round(dimensions.width * scale);
+  const cy = Math.round(dimensions.height * scale);
+  return `<w:p><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:docPr id="${drawingId}" name="${attr(asset.assetId)}" descr="${attr(asset.alt)}"/><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="${drawingId}" name="${attr(asset.assetId)}" descr="${attr(asset.alt)}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${attr(relId)}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`;
 }
 
 function docxStyles(spec: RenderSpec): string {
@@ -597,11 +614,13 @@ function docxStyles(spec: RenderSpec): string {
 function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
   const assetMap = resolveAssetEmbeds(content, options);
   const embeddedAssets = embeddedImageAssets(assetMap);
-  const citationRels = content.citations.map((citation, index) => ({ id: `rId${index + 2}`, type: `${OFFICE_REL}/hyperlink`, target: citation.canonicalUrl, targetMode: 'External' as const }));
+  const sources = citationGroups(content);
+  const citationRels = sources.map((citation, index) => ({ id: `rId${index + 2}`, type: `${OFFICE_REL}/hyperlink`, target: citation.canonicalUrl, targetMode: 'External' as const }));
   const assetRelOffset = citationRels.length + 2;
   const assetRels = embeddedAssets.map((asset, index) => ({ id: `rId${assetRelOffset + index}`, type: `${OFFICE_REL}/image`, target: `media/${asset.filename}` }));
   // The TOC field carries a rendered result so it reads correctly before Word refreshes it.
   const tocEntries = ['Executive Summary', ...content.sections.map((section) => section.title), 'Citations'];
+  let drawingId = 100;
   const body = [
     wp(content.title, 'Title'),
     wp('Contents', 'Heading1'),
@@ -619,15 +638,16 @@ function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
       ...section.claimIds.map((id) => wp(claimFor(content, id).text)),
       wp('Speaker notes', 'Heading2'),
       wp(section.speakerNotes),
-      ...(section.assetIds.length ? [wp('Assets and alt text', 'Heading2'), ...sectionAssets(content, assetMap, section.assetIds).flatMap((item, assetIndex) => {
+      ...(section.assetIds.length ? [wp('Assets and alt text', 'Heading2'), ...sectionAssets(content, assetMap, section.assetIds).flatMap((item) => {
         const relIndex = embeddedAssets.findIndex((embedded) => embedded.asset.assetId === item.asset.assetId);
         return relIndex >= 0
-          ? [wp(`${item.asset.assetId}: ${item.asset.alt}`, undefined, true), docxPicture(item.asset, assetRels[relIndex].id, 100 + assetIndex)]
+          ? [wp(`${item.asset.assetId}: ${item.asset.alt}`, undefined, true), docxPicture(item.asset, assetRels[relIndex].id, drawingId++,
+            imageDimensions(embeddedAssets[relIndex].bytes, embeddedAssets[relIndex].mediaType))]
           : [wp(`${item.asset.assetId}: ${item.asset.alt} (digest-only reference; raster bytes not supplied to DOCX adapter)`)];
       })] : [])
     ]),
     wp('Citations', 'Heading1'),
-    ...content.citations.map((citation, index) => hyperlink(`${citation.sourceTitle} (${citation.retrievedAt})`, `rId${index + 2}`)),
+    ...sources.map((citation, index) => hyperlink(`[${citation.evidenceIds.join(', ')}] ${citation.sourceTitle} (retrieved ${citation.retrievedAt})`, `rId${index + 2}`)),
     '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>'
   ].join('');
   const files: ZipFile[] = [
@@ -641,7 +661,7 @@ function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
   for (const asset of embeddedAssets) {
     files.push({ name: `word/media/${asset.filename}`, bytes: asset.bytes });
   }
-  return { format: 'docx', path: 'outputs/document.docx', mediaType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', bytes: zip(files), adapter: 'a2swe-docx-ooxml-3' };
+  return { format: 'docx', path: 'outputs/document.docx', mediaType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', bytes: zip(files), adapter: 'a2swe-docx-ooxml-4' };
 }
 
 const WIN_ANSI: Record<string, string> = {
@@ -922,8 +942,11 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
     pushPdfBlock(lines, section.speakerNotes);
   });
   pushPdfBlock(lines, 'Citations', { font: 'F2', size: 14, leading: 19, gapBefore: 14 });
-  content.citations.forEach((citation) => pushPdfBlock(lines,
-    `[${citation.evidenceId}] ${citation.sourceTitle} ${citation.canonicalUrl} retrieved ${citation.retrievedAt}`));
+  citationGroups(content).forEach((citation) => {
+    const start = lines.length;
+    pushPdfBlock(lines, `[${citation.evidenceIds.join(', ')}] ${citation.sourceTitle} ${citation.canonicalUrl} retrieved ${citation.retrievedAt}`);
+    for (let index = start; index < lines.length - 1; index++) lines[index].keepWithNext = true;
+  });
   const pages = paginatePdfLines(lines).map((pageLines) => ({
     stream: pageLines.map((line) => line.image
       ? `q ${line.image.width.toFixed(3)} 0 0 ${line.image.height.toFixed(3)} ${PDF_MARGIN} ${(line.y - line.image.height).toFixed(3)} cm /${line.image.name} Do Q`
@@ -960,7 +983,7 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
   const xref = Buffer.byteLength(output, 'binary');
   output += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n${offsets.slice(1).map((offset) => `${String(offset).padStart(10, '0')} 00000 n `).join('\n')}\n`;
   output += `trailer << /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
-  return { format: 'pdf', path: 'outputs/document.pdf', mediaType: 'application/pdf', bytes: Buffer.from(output, 'binary'), adapter: 'a2swe-pdf-searchable-3' };
+  return { format: 'pdf', path: 'outputs/document.pdf', mediaType: 'application/pdf', bytes: Buffer.from(output, 'binary'), adapter: 'a2swe-pdf-searchable-4' };
 }
 
 function withVisualImages(content: ContentIR, options: AdapterRenderOptions): { content: ContentIR; options: AdapterRenderOptions } {

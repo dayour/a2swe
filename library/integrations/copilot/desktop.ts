@@ -732,6 +732,7 @@ class DesktopBridge {
           'Generate all requested output formats; the default is the agent plus all eight presentation formats including narrated 1080p video.',
           'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
           'Run project QC and core verification gates relevant to selected formats.',
+          'Keep the final package at PROJECT/release and retain failed or superseded candidates under PROJECT/qc/revisions, not loose release-vN directories at the project root.',
           'Review actual rendered frames, subtitles and audio/spectrogram evidence. Repair unreadable layouts, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
           'Preserve citations/provenance and avoid protected/private source transfer.'
         ]
@@ -740,7 +741,11 @@ class DesktopBridge {
   }
 
   private async fileExists(file: string) {
-    try { await access(file, constants.F_OK); return true; } catch { return false; }
+    try { await access(file, constants.F_OK); return true; }
+    catch (error) {
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') return false;
+      throw error;
+    }
   }
 
   private throwIfGenerationCancelled(signal: AbortSignal) {
