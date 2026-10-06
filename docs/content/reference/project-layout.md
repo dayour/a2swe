@@ -1,6 +1,6 @@
 ---
 title: Project layout
-description: Minimal core authoring inputs, digest-bound release inventory, and legacy compatibility layout.
+description: Core authoring inputs, revision folders, digest-bound release inventory, and QC evidence.
 ---
 
 ## Core-managed authoring layout
@@ -18,16 +18,41 @@ project/
 │           ├── asset.json
 │           └── asset.png
 ├── agent/
-│   └── runbook.json
+│   ├── runbook.json
+│   └── SWE_AGENT.md          # project agent instructions
+├── renders/
+│   └── <project>-<year>-<NN>/ # one folder per revision
+│       ├── revision.json      # RenderRevision manifest
+│       ├── <title>-<voice>-<engine>.mp4
+│       └── <title>-<voice>-<engine>.vtt
 ├── qc/
 │   ├── index.json
+│   ├── analysis/             # spectrogram, loudness and video-layer evidence per revision
 │   ├── audio/<profile>/       # matched WAVs, metadata and comparison.json
 │   ├── native-office/        # source-bound Office renders
 │   ├── video-frames/         # source-bound decoded frame previews
 │   ├── production-review.json
-│   └── revisions/            # local superseded candidates, not current QC
+│   └── revisions/<title>/    # local superseded and variant packages, not current QC
 └── release/
 ```
+
+## Revisions
+
+A revision is one render round. `revision-produce` renders a full release for
+each voice and engine variant, writes the videos and captions to
+`renders/<project>-<year>-<NN>/`, and records digests, durations, voices and
+release digests in `revision.json`. The base name drops a trailing year from
+the project ID, so `copilot-studio-2026` produces `copilot-studio-2026-01`.
+
+The first variant is promoted to `release/`. The previous release moves to
+`qc/revisions/<its revision title>/`. A file held open by a viewer or Office app
+stops the promotion before anything moves; close it and run `revision-promote`.
+`revision-promote` also switches the release to another variant of the same
+revision.
+
+`revisions-analyze` measures every revision video and writes
+`qc/analysis/report.md`, `comparison.json`, stacked spectrogram, frame and layer
+images, and per-video evidence under `qc/analysis/<title>/<video>/`.
 
 ## Managed release output layout
 
@@ -73,9 +98,3 @@ wholesale copies of source pages.
 Git preserves the exact bytes of canonical inputs, release outputs, runbooks,
 and QC records. Automatic line-ending conversion would invalidate source hashes
 and evidence references when checking out the same package on another platform.
-
-## Legacy template layout
-
-Pass `--legacy` to the template script to copy the old `script/`, `src/`,
-`qc/`, and `renders/` structure for 720p projects. Do not copy it into
-core-managed projects.

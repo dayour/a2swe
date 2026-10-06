@@ -1,5 +1,5 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
 import { validate, validateContentAgainstDomain } from './contracts.ts';
@@ -15,6 +15,47 @@ function styleDigest(spec: RenderSpec): string {
 
 function voiceDigest(content: ContentIR): string {
   return digest(content.voice);
+}
+
+/** A project's identity is its canonical domain ID; folder names such as customer display names may differ. */
+export function projectIdOf(directory: string): string {
+  const project = path.resolve(directory);
+  const domain = path.join(project, 'canonical', 'domain-pack.json');
+  if (existsSync(domain)) {
+    const id = (JSON.parse(readFileSync(domain, 'utf8')) as { domainId?: unknown }).domainId;
+    if (typeof id === 'string' && /^[a-z0-9][a-z0-9-]{0,79}$/.test(id)) return id;
+  }
+  return path.basename(project);
+}
+
+/** Binds canonical ContentIR, RenderSpec and ApprovalManifest digests to the current DomainPack and content. */
+export async function bindCanonicalInputs(directory: string) {
+  const project = path.resolve(directory);
+  const canonical = path.join(project, 'canonical');
+  const read = async (name: string) => JSON.parse(await readFile(path.join(canonical, name), 'utf8'));
+  const domain = validate('DomainPack', await read('domain-pack.json'));
+  const content = await read('content-ir.json');
+  content.domainDigest = digest(domain);
+  content.voice.narration = [content.summary, ...content.sections.map((section: { body: string }) => section.body)].join('\n\n');
+  validateContentAgainstDomain(content, domain);
+  const contentDigest = digest(content);
+  const existingRender = existsSync(path.join(canonical, 'render-spec.json')) ? await read('render-spec.json') : null;
+  const theme = existsSync(path.join(canonical, 'render-theme.json')) ? await read('render-theme.json') : existingRender?.theme;
+  if (!theme) throw new Error('canonical_render_theme_missing');
+  const words = String(content.voice.narration).split(/\s+/).filter(Boolean).length;
+  const renderSpec = validate('RenderSpec', existingRender ? { ...existingRender, contentDigest, theme } : {
+    schemaVersion: '1.0.0', renderId: `${domain.domainId}-r1`, contentDigest,
+    formats: ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'], theme,
+    viewport: { width: 1280, height: 720 }, video: { width: 1920, height: 1080, fps: 30, durationSeconds: Math.max(20, Math.round(words / 2.4)), sampleRate: 48000 }
+  });
+  const existingApproval = existsSync(path.join(canonical, 'approval-manifest.json')) ? await read('approval-manifest.json') : null;
+  const approval = validate('ApprovalManifest', { schemaVersion: '1.0.0', manifestId: existingApproval?.manifestId ?? `${domain.domainId}-assets`,
+    domainDigest: digest(domain), contentDigest, reviewedAt: new Date().toISOString(), selectedAssets: existingApproval?.selectedAssets ?? [] });
+  const plan = createReleasePlan(content, renderSpec, approval);
+  for (const [name, value] of [['content-ir.json', content], ['render-spec.json', renderSpec], ['approval-manifest.json', approval]] as const) {
+    await writeFile(path.join(canonical, name), `${JSON.stringify(value, null, 2)}\n`);
+  }
+  return { projectId: domain.domainId, domainDigest: digest(domain), contentDigest, releaseDigest: plan.releaseDigest, narrationWords: words };
 }
 
 export async function indexProjectQc(directory: string) {
@@ -33,7 +74,7 @@ export async function indexProjectQc(directory: string) {
       entries.push({ path: relative, digest: sha256(bytes), byteSize: bytes.length });
     }
   }
-  const index = { schemaVersion: '1.0.0', projectId: path.basename(project),
+  const index = { schemaVersion: '1.0.0', projectId: projectIdOf(project),
     status: 'indexed_not_quality_approved', excludedRoots: ['qc/revisions/'],
     entries: entries.sort((a, b) => a.path.localeCompare(b.path)) };
   const staging = path.join(qc, 'index.json.tmp');
@@ -182,7 +223,8 @@ export async function writeRelease(directory: string, contentInput: unknown, ren
     }
     return parity;
   } catch (error) {
-    await rm(root, { recursive: true, force: true });
+    // Cleanup retries briefly for child processes that are still exiting and never replaces the original failure.
+    await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }).catch(() => undefined);
     throw error;
   }
 }

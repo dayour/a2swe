@@ -76,7 +76,11 @@ export class MediaReviewService {
     for (const root of roots) files.push(...await this.walkFiles(root));
     const qcCount = files.filter((file) => /qc|parity|runbook|manifest/i.test(file) && file.endsWith('.json')).length;
     const items: ReviewListItem[] = [];
-    for (const file of files) {
+    // Revision renders are the reviewable history; local package archives, analysis frames and runtime bundles would only duplicate them.
+    const excluded = /\/(qc\/revisions|qc\/releases|node_modules|build_production|qc\/analysis\/[^/]+\/[^/]+\/(frames|chunks)|outputs\/remotion\/public|public\/assets)\//;
+    const rank = (repoPath: string) => (repoPath.includes('/renders/') ? 0 : repoPath.includes('/release/') ? 1 : 2);
+    for (const file of files.sort((a, b) => rank(toRepoRelative(this.workspace, a)) - rank(toRepoRelative(this.workspace, b)) || b.localeCompare(a))) {
+      if (excluded.test(`/${toRepoRelative(this.workspace, file)}`)) continue;
       const extension = path.extname(file).toLowerCase();
       let kind: ReviewKind | undefined;
       if (VIDEO_EXTENSIONS.has(extension)) kind = 'video';
@@ -478,11 +482,13 @@ export class MediaReviewService {
 
   private async findSpectrograms(_projectId: string | undefined, nearFile: string): Promise<string[]> {
     const roots = [path.dirname(nearFile), path.resolve(path.dirname(nearFile), '..')];
+    const revision = /^(.*[\\/]projects[\\/][^\\/]+)[\\/]renders[\\/]([^\\/]+)[\\/]([^\\/]+)$/.exec(nearFile);
+    if (revision) roots.unshift(path.join(revision[1], 'qc', 'analysis', revision[2], path.basename(revision[3], path.extname(revision[3]))));
     const files: string[] = [];
     for (const root of roots) {
       try {
         for (const file of await this.walkFiles(root)) {
-          if (/spectrogram\.(svg|png|jpg|jpeg)$/i.test(file)) files.push(file);
+          if (/spectrogram(-speech)?\.(svg|png|jpg|jpeg)$/i.test(file)) files.push(file);
         }
       } catch { /* ignore */ }
     }

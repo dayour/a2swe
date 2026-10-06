@@ -44,29 +44,14 @@ creates only a draft domain and evidence-tracked Runbook:
 node template\scripts\new_project.cjs projects\my-explainer my-explainer
 ```
 
-The copied 720p runtime is an explicit compatibility option:
-
-```powershell
-node template\scripts\new_project.cjs projects\my-explainer my-explainer --legacy
-```
-
-That compatibility workspace includes:
-
-- the Remotion composition shell;
-- shared visual and overlay primitives;
-- `G1` through `G8` scene-group extension points;
-- narration, timing, storyboard, motion, frame, and media scripts;
-- the SWE companion ledger;
-- production rules and dependency locks;
-- fonts and project asset namespaces.
-
-The scaffold refuses to overwrite an existing destination.
+The scaffold refuses to overwrite an existing destination. Every project renders
+through the core release adapters; no project carries its own copied runtime.
 
 ## Template categories
 
 | Category | Examples | Reuse boundary |
 | --- | --- | --- |
-| Project | Core `project-init`; `template/` only with `--legacy` | Minimal authoring inputs by default; copied 720p runtime only by request |
+| Project | Core `project-init` | Minimal authoring inputs; the core adapters own rendering |
 | Visual | Shared components in `template/src/common/` | Drawing, typography, animation, backgrounds |
 | Editorial | Overlay, chapter, HUD, rail, and ending patterns | Presentation behavior, not project claims |
 | Workflow | Companion ledger and production rules | Stage definitions, gates, and evidence fields |

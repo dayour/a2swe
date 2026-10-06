@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import { digest, parseDate, safeRelativePath, sha256, windowStart } from './canonical.ts';
-import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 
-export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 const schema = JSON.parse(readFileSync(new URL('../schemas/contracts.schema.json', import.meta.url), 'utf8'));
 const validator = new Ajv2020({ allErrors: true, strict: true });
 validator.addSchema(schema);
@@ -11,7 +11,8 @@ validator.addSchema(schema);
 type Contracts = {
   AssetRequest: AssetRequest; AssetRecord: AssetRecord; AssetInventory: AssetInventory; ContentIR: ContentIR; DomainPack: DomainPack;
   FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; ApprovalManifest: ApprovalManifest;
-  Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem; GenerationRequest: GenerationRequest
+  Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem; GenerationRequest: GenerationRequest;
+  RenderRevision: RenderRevision
 };
 
 export function isContractName(name: string): name is keyof Contracts {
@@ -30,6 +31,7 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'AssetInventory') validateInventory(value as AssetInventory);
   if (name === 'ReleasePlan') validateReleasePlan(value as ReleasePlan);
   if (name === 'Runbook') validateRunbook(value as Runbook);
+  if (name === 'RenderRevision') validateRenderRevision(value as RenderRevision);
   if (name === 'GenerationRequest') {
     const request = value as GenerationRequest;
     if (!request.name.trim() || !request.brief.trim() || (request.audience !== undefined && !request.audience.trim())) throw new Error('empty_generation_request');
@@ -210,6 +212,24 @@ function validateParity(manifest: FormatParityManifest): void {
   for (const output of manifest.outputs) {
     if (!safeRelativePath(output.path)) throw new Error('unsafe_output_path');
     if (output.contentDigest !== manifest.contentDigest) throw new Error('format_parity_content_mismatch');
+  }
+}
+
+export function revisionTitle(projectId: string, year: number, number: number): string {
+  const base = projectId.endsWith(`-${year}`) ? projectId.slice(0, -String(year).length - 1) : projectId;
+  return `${base}-${year}-${String(number).padStart(2, '0')}`;
+}
+
+function validateRenderRevision(revision: RenderRevision): void {
+  validateInstant(revision.createdAt);
+  if (revision.title !== revisionTitle(revision.projectId, revision.year, revision.number)) throw new Error('invalid_revision_title');
+  if (!safeRelativePath(revision.source)) throw new Error('unsafe_revision_source');
+  const outputs = uniqueBy(revision.outputs, (output) => output.path);
+  if (!revision.outputs.some((output) => output.role === 'video')) throw new Error('revision_requires_video');
+  for (const output of revision.outputs) {
+    if (output.captions && outputs.get(output.captions)?.role !== 'captions') throw new Error('invalid_revision_captions');
+    if (output.package && !safeRelativePath(output.package)) throw new Error('unsafe_revision_package');
+    for (const scene of output.scenes ?? []) if (scene.endSeconds <= scene.startSeconds) throw new Error('invalid_revision_scene');
   }
 }
 

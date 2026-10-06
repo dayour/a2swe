@@ -46,28 +46,30 @@ const add = (source, category, name, description, preview, symbol = null, tags =
     digest: hash(readFileSync(absolute(source))),
   });
 };
-const vttTime = (frame, fps) => {
-  const ms = Math.round(frame / fps * 1000);
-  return `${String(Math.floor(ms / 3600000)).padStart(2, '0')}:${String(Math.floor(ms / 60000) % 60).padStart(2, '0')}:${String(Math.floor(ms / 1000) % 60).padStart(2, '0')}.${String(ms % 1000).padStart(3, '0')}`;
-};
 
-for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}).filter((d) => d.isDirectory()).sort((a, b) => a.name.localeCompare(b.name))) {
+const isProject = (dir) => ['canonical', 'agent', 'renders', 'release'].some((name) => existsSync(path.join(dir, name)));
+for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true})
+  .filter((d) => d.isDirectory() && isProject(path.join(root, 'projects', d.name))).sort((a, b) => a.name.localeCompare(b.name))) {
   const id = dir.name;
   const prefix = `projects/${id}`;
   const notes = projectNotes[id] ?? {title: title(id), description: 'Repository project.', note: 'No curated completion record.', blockers: [], evidence: []};
   const renderDir = absolute(`${prefix}/renders`);
-  const releaseDir = absolute(`${prefix}/release/outputs/remotion`);
-  const isMovie = (f) => /\.(mp4|webm|mov)$/i.test(f);
-  // Videos come from hand-built projects (renders/) and from core-managed releases (release/outputs/remotion/dist).
-  const files = [...(existsSync(renderDir) ? walk(renderDir) : []), ...(existsSync(`${releaseDir}/dist`) ? walk(`${releaseDir}/dist`) : [])]
-    .filter(isMovie).sort((a, b) => b.localeCompare(a, 'en', {numeric: true}));
-  const revisions = files.map((file, index) => {
+  // Revision manifests are the render history; the site deploys the current and previous accepted revisions to stay within Pages limits.
+  const manifests = existsSync(renderDir) ? readdirSync(renderDir, {withFileTypes: true})
+    .filter((entry) => entry.isDirectory() && existsSync(path.join(renderDir, entry.name, 'revision.json')))
+    .map((entry) => json(path.join(renderDir, entry.name, 'revision.json'))).sort((a, b) => b.year - a.year || b.number - a.number) : [];
+  const current = manifests.find((revision) => revision.status === 'current');
+  const previous = manifests.find((revision) => revision !== current && revision.status === 'superseded');
+  const entries = manifests.flatMap((revision) => revision.outputs.filter((output) => output.role === 'video').map((output) => ({revision, output})));
+  const revisions = entries.map(({revision: manifest, output}) => {
+    const file = path.join(renderDir, manifest.title, output.path);
     const source = relative(file);
     discoveredMovies.add(source);
-    const name = path.basename(file);
+    const name = output.path;
     const revisionId = `${id}/${name}`;
     const digest = hash(readFileSync(file));
     const bytes = statSync(file).size;
+    if (digest !== output.digest) throw new Error(`Revision manifest digest mismatch: ${source}`);
     const poster = `library/posters/${id}-${name}.jpg`;
     if (refresh && (metadata[source]?.digest !== digest || metadata[source]?.bytes !== bytes
       || !existsSync(path.join(docs, 'static', poster)))) {
@@ -86,58 +88,33 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       throw new Error(`Unindexed or changed movie: ${source}. Run npm --prefix docs run library:refresh with FFMPEG and FFPROBE configured.`);
     }
     if (!existsSync(path.join(docs, 'static', poster))) throw new Error(`Missing poster: ${poster}`);
-    const movie = `library/videos/${id}/${name}`;
-    const destination = path.join(docs, 'static', movie);
-    mkdirSync(path.dirname(destination), {recursive: true});
-    copyFileSync(file, destination);
-    const revision = name.match(/-(v\d+)\./i)?.[1] ?? path.parse(name).name;
-    const coreRelease = source.startsWith(`${prefix}/release/`);
-    const reportPath = coreRelease ? `${prefix}/release/outputs/remotion/qc/mp4-qc.json` : `${prefix}/qc/media-${revision}.json`;
-    const report = existsSync(absolute(reportPath)) ? json(absolute(reportPath)) : null;
-    const reportMatches = (report?.sha256 ?? report?.outputSha256)?.toLowerCase() === digest;
-    let captions = null;
-    const subsPath = `${prefix}/src/common/subs.ts`;
-    const narrationPath = `${prefix}/release/outputs/remotion/audio/narration-metadata.json`;
-    const timelinePath = `${prefix}/release/outputs/remotion/timeline.json`;
-    const timeline = coreRelease && existsSync(absolute(timelinePath)) ? json(absolute(timelinePath)) : null;
-    if (index === 0 && coreRelease && timeline?.subtitleCues?.length) {
-      if (!Number.isFinite(timeline.fps) || timeline.fps <= 0) throw new Error(`Invalid caption frame rate: ${timelinePath}`);
-      captions = `library/captions/${id}.vtt`;
-      write(path.join(docs, 'static', captions), `WEBVTT\n\n${timeline.subtitleCues.map(cue => {
-        if (!Number.isFinite(cue.startFrame) || !Number.isFinite(cue.endFrame) || cue.endFrame <= cue.startFrame || !cue.text?.trim()) {
-          throw new Error(`Invalid caption cue: ${timelinePath}`);
-        }
-        return `${vttTime(cue.startFrame, timeline.fps)} --> ${vttTime(cue.endFrame, timeline.fps)}\n${cue.text}\n`;
-      }).join('\n')}`);
-    } else if (index === 0 && coreRelease && existsSync(absolute(narrationPath))) {
-      // Core releases time captions from measured speech: each narration segment is split into sentences by length.
-      const cues = [];
-      for (const segment of json(absolute(narrationPath)).segments ?? []) {
-        const sentences = Array.from(new Intl.Segmenter('en', {granularity: 'sentence'}).segment(segment.text),
-          (part) => part.segment.trim()).filter(Boolean);
-        const total = sentences.reduce((sum, s) => sum + s.length, 0) || 1;
-        let cursor = segment.startSeconds;
-        for (const sentence of sentences) {
-          const span = (segment.endSeconds - segment.startSeconds) * sentence.length / total;
-          cues.push(`${vttTime(Math.round(cursor * 1000), 1000)} --> ${vttTime(Math.round((cursor + span) * 1000), 1000)}\n${sentence}\n`);
-          cursor += span;
-        }
-      }
-      captions = `library/captions/${id}.vtt`;
-      write(path.join(docs, 'static', captions), `WEBVTT\n\n${cues.join('\n')}`);
-    } else if (index === 0 && existsSync(absolute(subsPath))) {
-      const cues = [...text(subsPath).matchAll(/\{from:\s*(\d+),\s*to:\s*(\d+),\s*text:\s*("(?:\\.|[^"\\])*")\}/g)];
-      if (!cues.length) throw new Error(`Cannot parse subtitle source: ${subsPath}`);
-      captions = `library/captions/${id}.vtt`;
-      write(path.join(docs, 'static', captions), `WEBVTT\n\n${cues.map((m) => `${vttTime(Number(m[1]), data.fps)} --> ${vttTime(Number(m[2]) + 1, data.fps)}\n${JSON.parse(m[3])}\n`).join('\n')}`);
+    const published = manifest === current || manifest === previous;
+    let movie = null;
+    if (published) {
+      movie = `library/videos/${id}/${name}`;
+      const destination = path.join(docs, 'static', movie);
+      mkdirSync(path.dirname(destination), {recursive: true});
+      copyFileSync(file, destination);
     }
-    return {id: revisionId, projectId: id, title: `${notes.title} ${revision}`, revision, source, movie, poster, captions,
-      ...data, latest: index === 0, qc: reportMatches ? reportPath : null, state: index === 0 ? 'Generated' : 'Historical revision'};
+    const voice = output.voice ? [output.voice.voiceName ?? output.voice.profileId, output.voice.engine].filter(Boolean).join(' / ') : null;
+    const revision = name.slice(0, -path.extname(name).length);
+    const stem = revision;
+    const reportPath = `${prefix}/qc/analysis/${manifest.title}/${stem}/analysis.json`;
+    const report = existsSync(absolute(reportPath)) ? json(absolute(reportPath)) : null;
+    const reportMatches = report?.input?.sha256 === digest;
+    let captions = null;
+    if (published && output.captions) {
+      captions = `library/captions/${id}/${output.captions}`;
+      write(path.join(docs, 'static', captions), readFileSync(path.join(renderDir, manifest.title, output.captions), 'utf8'));
+    }
+    return {id: revisionId, projectId: id, title: `${notes.title} ${manifest.title}${voice ? ` (${voice})` : ''}`, revision, revisionTitle: manifest.title,
+      voice, source, movie, poster, captions, ...data, latest: manifest === current, qc: reportMatches ? reportPath : null,
+      state: manifest === current ? 'Current revision' : manifest.status === 'rejected' ? 'Rejected candidate' : 'Historical revision'};
   });
   const evidence = notes.evidence.map((p) => `${prefix}/${p}`);
   for (const source of evidence) if (!existsSync(absolute(source))) throw new Error(`Missing project evidence: ${source}`);
   projects.push({id, ...notes, evidence, revisions, state: revisions.length ? 'Generated' : 'Not rendered'});
-  const storyboard = [`${prefix}/storyboard.md`, `${prefix}/script/content-packet-2026-09-18/storyboard.md`, `${prefix}/brief.md`].find((p) => existsSync(absolute(p)));
+  const storyboard = [`${prefix}/canonical/content-ir.json`, `${prefix}/brief.md`].find((p) => existsSync(absolute(p)));
   if (storyboard) add(storyboard, 'Storylines', `${notes.title} storyline`, 'Adapt the scene sequence and narrative structure. Re-research claims before reuse.', 'storyline', null, [id]);
   const agent = `${prefix}/agent/SWE_AGENT.md`;
   if (existsSync(absolute(agent))) add(agent, 'Agents', `${notes.title} companion`, 'Project companion instructions and production state. Check the recorded evidence before reuse.', 'agent', null, [id]);
@@ -146,7 +123,7 @@ if (refresh) {
   for (const source of Object.keys(metadata)) if (!discoveredMovies.has(source)) delete metadata[source];
   write(metadataPath, metadata);
 }
-const expectedMovies = new Set(projects.flatMap((project) => project.revisions.map((video) => path.join(docs, 'static', video.movie))));
+const expectedMovies = new Set(projects.flatMap((project) => project.revisions.filter((video) => video.movie).map((video) => path.join(docs, 'static', video.movie))));
 const generatedMovies = path.join(mediaOut, 'videos');
 if (existsSync(generatedMovies)) {
   for (const file of walk(generatedMovies)) {
@@ -188,10 +165,10 @@ if (existsSync(generatedMovies)) {
   if (existsSync(knowledgePreviewRoot)) for (const file of walk(knowledgePreviewRoot)) if (!knowledgePreviews.has(file)) unlinkSync(file);
 }
 
-add('template/agent/SWE_AGENT.md', 'Agents', 'Legacy production companion', 'Copied 720p template ledger; use the core Runbook for new projects.', 'agent', null, ['legacy']);
+add('template/agent/SWE_AGENT.md', 'Agents', 'Project companion starter', 'Portable projection of agent/runbook.json for resuming a project. Populate it from the project gates and recorded evidence.', 'agent');
 add('.github/agents/power-platform-swe.agent.md', 'Agents', 'Power Platform SWE (candidate)', 'Read/search-only architecture and test-planning agent. Not certified domain expertise or a media producer.', 'agent');
 add('packages/core/src/cli.ts', 'Projects', 'Core-managed project scaffold', 'Initialize a draft domain and evidence-tracked Runbook with project-init; no copied runtime or empty output folders.', 'layout');
-add('template/package.json', 'Projects', 'Legacy 720p Remotion scaffold', 'Explicit --legacy compatibility path with a copied runtime and scripts.', 'layout', null, ['legacy']);
+add('template/package.json', 'Projects', 'Shared Remotion runtime', 'Pinned Remotion, headless Chrome and font dependencies the core 1080p MP4 adapter uses for every release workspace.', 'layout');
 for (const file of walk(path.join(root, 'library', 'agents')).filter((f) => /\.agent\.md$/i.test(f))) {
   const source = relative(file);
   const body = readFileSync(file, 'utf8');

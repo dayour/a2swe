@@ -333,13 +333,15 @@ export async function workspaceList(workspace: string, repoPath = '.', depth = 2
 
 export const CORE_COMMANDS = [
   'capabilities', 'inventory', 'snapshot', 'validate', 'runbook-verify', 'domain-init', 'project-init',
-  'voice-profiles', 'audio-render', 'qc-index', 'domain-certify', 'job-submit', 'job-status', 'job-events',
+  'voice-profiles', 'audio-render', 'qc-index', 'media-analyze', 'revisions-organize', 'revisions-analyze', 'revision-produce',
+  'revision-promote', 'office-render', 'runbook-project', 'account-import', 'canonical-bind', 'domain-certify', 'job-submit', 'job-status', 'job-events',
   'asset-generate', 'asset-import', 'asset-fetch', 'asset-verify', 'release-plan', 'release-produce',
   'release-verify', 'asset-job-submit', 'asset-job-run', 'asset-job-export', 'asset-diffusion-submit',
   'asset-diffusion-collect'
 ] as const;
 
 const CORE_WRITE_OPTIONS = new Set(['out', 'state']);
+const CORE_FLAG_OPTIONS = new Set(['force', 'keep-release']);
 const CORE_PATH_OPTIONS_BY_COMMAND: Partial<Record<(typeof CORE_COMMANDS)[number], readonly string[]>> = {
   inventory: ['root', 'out'],
   snapshot: ['root', 'out'],
@@ -349,6 +351,15 @@ const CORE_PATH_OPTIONS_BY_COMMAND: Partial<Record<(typeof CORE_COMMANDS)[number
   'project-init': ['out'],
   'audio-render': ['root'],
   'qc-index': ['root'],
+  'media-analyze': ['file', 'out'],
+  'revisions-organize': ['root'],
+  'revisions-analyze': ['root'],
+  'revision-produce': ['root'],
+  'revision-promote': ['root'],
+  'office-render': ['root'],
+  'runbook-project': ['root'],
+  'account-import': ['source', 'root'],
+  'canonical-bind': ['root'],
   'domain-certify': ['file', 'review', 'approvals', 'trust', 'out'],
   'job-submit': ['file', 'state'],
   'job-status': ['state'],
@@ -380,7 +391,15 @@ const CORE_COMMAND_TIMEOUTS: Partial<Record<(typeof CORE_COMMANDS)[number], numb
   'asset-job-export': 5 * 60_000,
   'runbook-verify': 5 * 60_000,
   'qc-index': 5 * 60_000,
-  'validate': 2 * 60_000,
+  'media-analyze': 15 * 60_000,
+  'revisions-organize': 10 * 60_000,
+  'revisions-analyze': 60 * 60_000,
+  'revision-produce': 120 * 60_000,
+  'revision-promote': 15 * 60_000,
+  'office-render': 15 * 60_000,
+  'runbook-project': 5 * 60_000,
+  'account-import': 2 * 60_000,
+  'canonical-bind': 2 * 60_000,
   'capabilities': 30_000,
   'voice-profiles': 30_000
 };
@@ -429,6 +448,15 @@ export const CORE_COMMAND_SCHEMAS: Record<(typeof CORE_COMMANDS)[number], { desc
   'voice-profiles': { description: 'List supported voice profiles.', required: [], options: {} },
   'audio-render': { description: 'Render project audio when dependencies are available.', required: ['root'], options: { root: 'Project directory', engine: 'both|kokoro|kokoro_onnx', voice: 'Voice profile ID' } },
   'qc-index': { description: 'Index project QC artifacts.', required: ['root'], options: { root: 'Project directory' } },
+  'media-analyze': { description: 'Measure one audio/video file: calibrated spectrograms, chunked spectrograms, EBU R128 loudness, noise floor, hum, speech spectrum, transitions and per-layer video activity.', required: ['file', 'out'], options: { file: 'Media file', out: 'Output analysis directory (replaced)' } },
+  'revisions-organize': { description: 'Import existing renders and release packages into renders/<project>-<year>-<NN>/ with RenderRevision manifests.', required: ['root'], options: { root: 'Project directory' } },
+  'revisions-analyze': { description: 'Analyze every revision video and write qc/analysis comparison evidence and report.', required: ['root'], options: { root: 'Project directory', force: 'true to re-analyze cached digests' } },
+  'revision-produce': { description: 'Render a new revision with one full core release per voice/engine variant and promote the first variant to release/.', required: ['root'], options: { root: 'Project directory with canonical inputs', variants: 'Comma list of PROFILE:ENGINE (kokoro_onnx|kokoro)', 'keep-release': 'true to skip promotion' } },
+  'revision-promote': { description: 'Promote one rendered revision variant into release/, archiving the previous release; resumes a promotion blocked by a locked file.', required: ['root', 'id'], options: { root: 'Project directory', id: 'Revision title, for example project-2026-04', voice: 'Variant PROFILE-ENGINE, for example af_heart-kokoro_onnx (default: first variant)' } },
+  'account-import': { description: 'Import a LayeredCards customer intake into canonical sources, a ready DomainPack with verbatim evidence, and a brand render theme.', required: ['source', 'root'], options: { source: 'LayeredCards customer directory', root: 'Project directory to create or refresh' } },
+  'canonical-bind': { description: 'Rebind canonical content-ir, render-spec and approval-manifest digests after authoring edits and validate them.', required: ['root'], options: { root: 'Project directory' } },
+  'office-render': { description: 'Render release PPTX/DOCX with native Microsoft Office (Windows) and write qc/native-office evidence.', required: ['root'], options: { root: 'Project directory' } },
+  'runbook-project': { description: 'Project agent/runbook.json from the verified release and current review evidence.', required: ['root'], options: { root: 'Project directory' } },
   'domain-certify': { description: 'Create optional signed domain certification from review/approvals/trust policy.', required: ['file', 'review', 'approvals', 'trust'], options: { file: 'Domain JSON', review: 'Review report JSON', approvals: 'Approval signatures JSON', trust: 'Trust policy JSON', out: 'Optional new output JSON file' } },
   'job-submit': { description: 'Submit a local durable job from file.', required: ['file'], options: { file: 'Task/request file', state: 'State directory' } },
   'job-status': { description: 'Read local durable job status.', required: ['id'], options: { id: 'Task ID', state: 'State directory' } },
@@ -463,6 +491,11 @@ export async function runCoreCommand(workspace: string, command: string, options
   for (const [key, value] of Object.entries(options)) {
     if (!/^[a-z][a-z0-9-]*$/.test(key)) throw new Error(`invalid_option: ${key}`);
     if (!allowed.has(key)) throw new Error(`unsupported_core_option: ${command}.${key}`);
+    if (CORE_FLAG_OPTIONS.has(key)) {
+      if (value === true || value === 'true') args.push(`--${key}`);
+      else if (value !== false && value !== 'false' && value !== undefined && value !== null) throw new Error(`invalid_option_value: ${key}`);
+      continue;
+    }
     if (typeof value === 'boolean') {
       throw new Error(`invalid_option_value: ${key}`);
     }

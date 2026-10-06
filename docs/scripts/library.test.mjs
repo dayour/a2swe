@@ -23,7 +23,8 @@ const sample = () => ({schemaVersion: 1, id: 'review-1', createdAt: '2026-09-21T
   status: 'unadjudicated', origin: 'browser-local-human-feedback'});
 
 test('every repository project appears, including unfinished projects', () => {
-  const projects = readdirSync(path.join(root, 'projects'), {withFileTypes: true}).filter((p) => p.isDirectory()).map((p) => p.name).sort();
+  const isProject = (name) => ['canonical', 'agent', 'renders', 'release'].some((part) => existsSync(path.join(root, 'projects', name, part)));
+  const projects = readdirSync(path.join(root, 'projects'), {withFileTypes: true}).filter((p) => p.isDirectory() && isProject(p.name)).map((p) => p.name).sort();
   assert.deepEqual(catalog.projects.map((p) => p.id).sort(), projects);
   for (const project of catalog.projects) {
     assert.equal(project.state, project.revisions.length ? 'Generated' : 'Not rendered');
@@ -31,32 +32,34 @@ test('every repository project appears, including unfinished projects', () => {
     assert.ok(project.evidence.every((p) => existsSync(path.join(root, p))));
   }
 });
-test('all retained movies are indexed and copied byte-for-byte for GitHub Pages', () => {
-  const sources = catalog.projects.flatMap((p) => {
-    return ['renders', 'release/outputs/remotion/dist'].flatMap((sub) => {
-      const dir = path.join(root, 'projects', p.id, ...sub.split('/'));
-      return existsSync(dir) ? walk(dir).filter((f) => /\.(mp4|webm|mov)$/i.test(f)).map((f) => path.relative(root, f).split(path.sep).join('/')) : [];
-    });
+test('every revision render is indexed and the current and previous revisions are copied byte-for-byte for GitHub Pages', () => {
+  const manifests = catalog.projects.flatMap((p) => {
+    const dir = path.join(root, 'projects', p.id, 'renders');
+    return existsSync(dir) ? readdirSync(dir, {withFileTypes: true}).filter((entry) => entry.isDirectory() && existsSync(path.join(dir, entry.name, 'revision.json')))
+      .map((entry) => ({project: p.id, folder: entry.name, manifest: JSON.parse(readFileSync(path.join(dir, entry.name, 'revision.json'), 'utf8'))})) : [];
   });
+  const sources = manifests.flatMap(({project, folder, manifest}) => manifest.outputs.filter((output) => output.role === 'video')
+    .map((output) => `projects/${project}/renders/${folder}/${output.path}`));
   assert.ok(videos.length > 0);
   assert.deepEqual(videos.map((v) => v.source).sort(), sources.sort());
+  for (const project of catalog.projects) {
+    const published = new Set(project.revisions.filter((video) => video.movie).map((video) => video.revisionTitle));
+    assert.ok(published.size <= 2, `${project.id} publishes more than the current and previous revisions`);
+    if (project.revisions.length) assert.ok(project.revisions.some((video) => video.latest && video.movie));
+  }
   assert.deepEqual(walk(path.join(docs, 'static', 'library', 'videos')).sort(),
-    videos.map((v) => path.join(docs, 'static', v.movie)).sort());
+    videos.filter((v) => v.movie).map((v) => path.join(docs, 'static', v.movie)).sort());
   assert.equal(new Set(videos.map((v) => v.id)).size, videos.length);
   for (const video of videos) {
     const source = readFileSync(path.join(root, video.source));
-    const deployed = readFileSync(path.join(docs, 'static', video.movie));
     assert.equal(sha(source), video.digest);
-    assert.equal(sha(deployed), video.digest);
+    if (video.movie) assert.equal(sha(readFileSync(path.join(docs, 'static', video.movie))), video.digest);
     assert.equal(source.length, video.bytes);
     assert.ok(video.duration > 0 && video.fps > 0 && video.width > 0 && video.height > 0);
     assert.ok(existsSync(path.join(docs, 'static', video.poster)));
     assert.notEqual(video.state, 'approved');
-    if (video.qc) {
-      const report = JSON.parse(readFileSync(path.join(root, video.qc), 'utf8'));
-      assert.equal((report.sha256 ?? report.outputSha256).toLowerCase(), video.digest);
-    }
-    if (video.captions) assert.match(readFileSync(path.join(docs, 'static', video.captions), 'utf8'), /^WEBVTT\n\n\d{2}:\d{2}:\d{2}\.\d{3} -->/);
+    if (video.qc) assert.equal(JSON.parse(readFileSync(path.join(root, video.qc), 'utf8')).input.sha256, video.digest);
+    if (video.captions) assert.match(readFileSync(path.join(docs, 'static', video.captions), 'utf8'), /^WEBVTT\r?\n\r?\n\d{2}:\d{2}:\d{2}\.\d{3} -->/);
   }
 });
 test('all skills, including nested Office skills, have source-backed template entries', () => {

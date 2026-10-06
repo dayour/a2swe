@@ -11,7 +11,7 @@ export type Video = Project['revisions'][number];
 export type Template = Omit<(typeof catalog.templates)[number], 'image'> & {
   image?: {path: string; width: number; height: number; source: string; page: number} | null;
 };
-export const videos = catalog.projects.flatMap((project) => project.revisions);
+export const videos = catalog.projects.flatMap((project) => project.revisions).filter((video) => video.movie);
 export const sourceUrl = (source: string) =>
   `https://github.com/dayour/a2swe/blob/main/${source.split('/').map(encodeURIComponent).join('/')}`;
 export const minutes = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math.round(seconds % 60)).padStart(2, '0')}`;
@@ -58,9 +58,15 @@ export function AssetPreview({item}: {item: Template}) {
 
 export function Player({video}: {video: Video}) {
   const [failed, setFailed] = useState(false);
-  const movie = useBaseUrl(`/${video.movie}`);
+  const movie = useBaseUrl(`/${video.movie ?? ''}`);
   const poster = useBaseUrl(`/${video.poster}`);
   const captions = useBaseUrl(`/${video.captions ?? ''}`);
+  if (!video.movie) {
+    return <div className="library-player">
+      <Poster video={video} />
+      <p className="library-notice">Older revisions stay in the repository to keep the site small. <SourceLink source={video.source}>Open the source movie</SourceLink></p>
+    </div>;
+  }
   return <div className="library-player">
     <video key={video.id} controls playsInline preload="metadata" poster={poster} aria-label={video.title} onError={() => setFailed(true)}>
       <source src={movie} type={video.movie.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />

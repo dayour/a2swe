@@ -54,6 +54,17 @@ The managed release path supports:
 `auto` prefers Kokoro ONNX when ONNX model paths exist. It uses PyTorch Kokoro
 only when the `A2SWE_KOKORO_*` model paths exist.
 
+Both engines produce 24 kHz speech from the same Misaki phonemes and voice
+tensor. The producer resamples it to the 48 kHz video rate with a steep Kaiser
+anti-imaging filter, so no mirrored speech energy appears between 12 and 14 kHz.
+It then masters the narration to -16 LUFS integrated (ITU-R BS.1770-4) through a
+4x-oversampled true-peak limiter at -1.5 dBTP. Audio QA fails a render outside
+-16 ±1 LU or above -1 dBTP.
+
+Voice profiles live in `library/assets/speech/voice-profiles.json`: Michael
+(default), Heart and Bella. `revision-produce` renders each as a full variant so
+reviewers can compare voices and engines on identical content.
+
 ## Caption normalization
 
 Captions are burned into the video output. Spoken-form spellings remain useful for
@@ -70,6 +81,3 @@ assistant transfer path. It requires `--allow-copilot-transfer`, writes a new
 result file with exclusive create semantics, disables tools and file hooks for
 the evaluator session, and records denied permission kinds. Use it only when the
 project policy permits Copilot processing of the supplied domain pack.
-
-The retained legacy template can still support additional engine choices, but that
-path is separate from the managed core release flow.

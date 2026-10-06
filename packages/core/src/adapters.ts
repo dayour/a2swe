@@ -396,6 +396,28 @@ function pptFit(value: string, widthEmu: number, heightEmu: number, maxSize: num
 
 interface PptShapeStyle { fill?: string; line?: string; geometry?: 'rect' | 'roundRect' }
 
+const PPT_BODY_WIDTH = 10820400;
+const PPT_SOURCES_HEIGHT = 4300000;
+
+interface PptSource { title: string; url: string; retrievedAt: string }
+
+// Splits the source list into slide pages whose estimated wrapped height fits the Sources box, so no citation is clipped or overflows.
+function pptSourcePages(sources: PptSource[], widthEmu: number, heightEmu: number): PptSource[][] {
+  const usableWidth = (widthEmu - 365760) / 12700;
+  const usableHeight = (heightEmu - 182880) / 12700;
+  const lines = (chars: number, points: number) => Math.max(1, Math.ceil(chars / Math.floor(usableWidth / (points * 0.55))));
+  const height = (source: PptSource) => lines(source.title.length + 22, 14) * 14 * 1.3 + lines(source.url.length, 11) * 11 * 1.3 + 9;
+  const pages: PptSource[][] = [[]];
+  let used = 0;
+  for (const source of sources) {
+    const needed = height(source);
+    if (used + needed > usableHeight && pages[pages.length - 1].length) { pages.push([]); used = 0; }
+    pages[pages.length - 1].push(source);
+    used += needed;
+  }
+  return pages;
+}
+
 function pptShape(id: number, name: string, x: number, y: number, cx: number, cy: number, paragraphs: string[], style: PptShapeStyle = {}, anchor: 't' | 'ctr' = 't'): string {
   const fill = style.fill ? `<a:solidFill><a:srgbClr val="${style.fill}"/></a:solidFill>` : '<a:noFill/>';
   const line = style.line ? `<a:ln w="12700"><a:solidFill><a:srgbClr val="${style.line}"/></a:solidFill></a:ln>` : '<a:ln><a:noFill/></a:ln>';
@@ -448,9 +470,9 @@ function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, tota
     }
   } else if (slide.kind === 'citations') {
     shapes.push(pptShape(id++, 'Title', left, 420000, width, 1000000, [headline({ cx: width, cy: 1000000 }, 4000, 2400)], {}, 'ctr'));
-    const items = slide.sources.map((source) => pptParagraph(pptRun(source.title, 1800, true, foreground) + pptRun(`  retrieved ${source.retrievedAt.slice(0, 10)}`, 1200, false, muted), 0)
-      + pptParagraph(pptRun(source.url, 1400, false, accent), 1400));
-    shapes.push(pptShape(id++, 'Sources', left, 1700000, width, 4300000, items));
+    const items = slide.sources.map((source) => pptParagraph(pptRun(source.title, 1400, true, foreground) + pptRun(`  retrieved ${source.retrievedAt.slice(0, 10)}`, 1100, false, muted), 0)
+      + pptParagraph(pptRun(source.url, 1100, false, accent), 900));
+    shapes.push(pptShape(id++, 'Sources', left, 1700000, width, PPT_SOURCES_HEIGHT, items));
   } else {
     shapes.push(pptShape(id++, 'Title', left, 420000, width, 1150000, [headline({ cx: width, cy: 1150000 }, 4000, 2400)], {}, 'ctr'));
     const picture = slide.pictures[0];
@@ -519,6 +541,7 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
   const sourceLabel = (evidenceId: string) => `[${evidenceId}] ${citationFor(content, evidenceId).sourceTitle}`;
   const uniqueSources = citationGroups(content).map(citation =>
     ({ title: citation.sourceTitle, url: citation.canonicalUrl, retrievedAt: citation.retrievedAt }));
+  const sourcePages = pptSourcePages(uniqueSources, PPT_BODY_WIDTH, PPT_SOURCES_HEIGHT);
   const slideModels = [
     { id: 'title', kind: 'title' as const, title: content.title, body: content.summary, decision: content.decision, notes: displayNarration(content.voice.narration),
       claims: content.claims.map((claim) => claim.text), claimSources: content.claims.map((claim) => sourceLabel(claim.evidenceIds[0])), assetIds: [] as string[] },
@@ -527,8 +550,9 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
       return { id: section.sectionId, kind: 'section' as const, title: section.title, body: section.body, decision: undefined as string | undefined, notes: section.speakerNotes,
         claims: claims.map((claim) => claim.text), claimSources: claims.map((claim) => sourceLabel(claim.evidenceIds[0])), assetIds: section.assetIds };
     }),
-    { id: 'citations', kind: 'citations' as const, title: 'Sources. Every claim traces to one.', body: '', decision: undefined as string | undefined,
-      notes: 'Sources for every claim in this deck.', claims: [] as string[], claimSources: [] as string[], assetIds: [] as string[] }
+    ...sourcePages.map((sources, page) => ({ id: page ? `citations-${page + 1}` : 'citations', kind: 'citations' as const,
+      title: page ? 'Sources. Continued.' : 'Sources. Every claim traces to one.', body: '', decision: undefined as string | undefined,
+      notes: 'Sources for every claim in this deck.', claims: [] as string[], claimSources: [] as string[], assetIds: [] as string[], sources }))
   ];  const slideRelIds = slideModels.map((_, i) => `rId${i + 2}`);
   const themeRelId = `rId${slideModels.length + 2}`;
   const presPropsRelId = `rId${slideModels.length + 3}`;
@@ -573,13 +597,13 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
       .map((item, pictureIndex) => ({ relId: `rIdImage${pictureIndex + 1}`, asset: item.asset, target: `../media/${item.filename}`, ...imageDimensions(item.bytes, item.mediaType) }));
     const footer = slide.kind === 'section' ? `Sources: ${citations.slice(0, 3).map((line) => line.split(': ')[0]).join('  ·  ')}` : spec.renderId;
     files.push({ name: `ppt/slides/slide${index + 1}.xml`, bytes: Buffer.from(pptSlideXml({ kind: slide.kind, title: slide.title, body: slide.body, claims: slide.claims,
-      claimSources: slide.claimSources, footer, sources: uniqueSources, decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
+      claimSources: slide.claimSources, footer, sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
       ...slidePictures.map((picture) => ({ id: picture.relId, type: `${OFFICE_REL}/image`, target: picture.target }))])) });
     const notes = [slide.notes, ...slide.claims.map((claim, claimIndex) => `Evidence: ${claim} ${slide.claimSources[claimIndex] ?? ''}`)].join('\n\n');
     files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
     files.push({ name: `ppt/notesSlides/_rels/notesSlide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdSlide', type: `${OFFICE_REL}/slide`, target: `../slides/slide${index + 1}.xml` }])) });
   });
-  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-4' };
+  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-5' };
 }
 
 function wp(textValue: string, style?: string, keepNext = false): string {

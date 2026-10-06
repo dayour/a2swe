@@ -53,10 +53,12 @@ extraction or browsing.
   overview images, and a core-managed 1080p Remotion MP4 project
 - Re-run release verification, including encoded MP4 QC when the release includes
   the Remotion output
+- Render multi-voice revisions into `renders/<project>-<year>-<NN>/` and measure
+  every revision with spectrogram, loudness and video-layer analysis
 
-The repository also retains an older template-based 720p video pipeline under
-`template/`. That path remains useful for hand-built branded videos, but it is the
-legacy path, not the core-managed production path.
+`template/` holds the shared Remotion runtime, fonts and Python lock that the
+core MP4 adapter installs into each release workspace. Projects do not carry
+their own copy.
 
 ## Install
 
@@ -96,7 +98,7 @@ node packages/core/src/cli.ts project-init `
 ```
 
 The default `node template\scripts\new_project.cjs <new-directory> <slug>` also
-calls `project-init`. Neither path copies the 720p runtime, creates empty
+calls `project-init`. Neither path copies a runtime, creates empty
 `stills/` or `renders/` folders, or overwrites an existing destination.
 Each project gets a `qc/index.json` evidence inventory.
 Complete `canonical/domain-pack.json` by adding sources, evidence spans,
@@ -259,6 +261,13 @@ spectrogram marks scene cuts and reports boundary measurements. These
 measurements do not replace listening for perceptual quality. Audio QA
 threshold overrides can only tighten the built-in limits.
 
+The producer resamples 24 kHz speech to the 48 kHz video rate with a steep
+Kaiser anti-imaging filter, so no mirrored speech energy appears above 12 kHz.
+It then masters the narration to -16 LUFS integrated (ITU-R BS.1770-4) through
+a smooth 4x-oversampled true-peak limiter at -1.5 dBTP and records the gain in
+the narration metadata. Audio QA fails a render outside -16 ±1 LU or above
+-1 dBTP.
+
 ## Visuals inside sections
 
 Each `ContentSection` can include an optional `visual` object:
@@ -299,10 +308,21 @@ Human review remains optional and external to the core state model.
 Facts still require cited evidence. Unknowns must be recorded as unknowns, not
 invented. Freshness for recent claims uses a trailing nine-calendar-month window.
 
-## Legacy template note
+## Revisions and media analysis
 
-The older 720p template pipeline still exists under `template/`, including
-`template/scripts` and `tts_build.py`. The `new_project.cjs` compatibility
-copy requires `--legacy`. Use it only when you need the older hand-built
-branded-video workflow. The core adapter described above is the managed 1080p
-path.
+Each render round is a revision. `revision-produce` renders one full release per
+voice and engine variant and promotes the first variant to `release/`:
+
+```powershell
+npm run a2swe -- revision-produce --root projects\microsoft-plugin-architecture
+npm run a2swe -- revisions-analyze --root projects\microsoft-plugin-architecture
+npm run a2swe -- revision-promote --root projects\microsoft-plugin-architecture --id microsoft-plugin-architecture-2026-04 --voice af_heart-kokoro_onnx
+```
+
+The default variants are Michael, Heart and Bella on Kokoro ONNX plus Michael on
+PyTorch Kokoro. Videos and captions go to `renders/<project>-<year>-<NN>/` with a
+`revision.json` manifest. `revisions-analyze` writes `qc/analysis/report.md` with
+EBU R128 loudness, true peak, pause noise floor, high-frequency energy,
+spectrograms with legends, scene and freeze detection, and per-zone layer motion
+for every revision. `revisions-organize` imports older renders into the same
+layout.

@@ -13,7 +13,8 @@ export type CoreContract =
   | FormatParityManifest
   | ReleasePlan
   | Runbook
-  | GenerationRequest;
+  | GenerationRequest
+  | RenderRevision;
 export type Identifier = string;
 export type RelativePath = string;
 export type Digest = string;
@@ -1215,4 +1216,52 @@ export interface GenerationRequest {
         "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ];
   mode: "guided" | "auto";
+}
+export interface RenderRevision {
+  schemaVersion: "1.0.0";
+  projectId: string;
+  title: string;
+  year: number;
+  number: number;
+  createdAt: IsoInstant;
+  pipeline: "legacy-template" | "core-release";
+  status: "current" | "superseded" | "rejected";
+  source: RelativePath;
+  contentDigest?: Digest;
+  /**
+   * @minItems 1
+   * @maxItems 40
+   */
+  outputs: [RevisionOutput, ...RevisionOutput[]];
+  /**
+   * @maxItems 40
+   */
+  notes: string[];
+}
+export interface RevisionOutput {
+  path: string;
+  role: "video" | "video-raw" | "captions" | "presentation" | "metadata";
+  digest: Digest;
+  byteSize: number;
+  mediaType: string;
+  durationSeconds?: number;
+  width?: number;
+  height?: number;
+  voice?: RevisionVoice;
+  captions?: string;
+  releaseDigest?: Digest;
+  package?: RelativePath;
+  /**
+   * @maxItems 80
+   */
+  scenes?: {
+    id: Identifier;
+    startSeconds: number;
+    endSeconds: number;
+  }[];
+}
+export interface RevisionVoice {
+  engine: "kokoro_onnx" | "kokoro" | "edge-neural" | "windows-sapi" | "unknown";
+  profileId?: string;
+  voiceName?: string;
 }

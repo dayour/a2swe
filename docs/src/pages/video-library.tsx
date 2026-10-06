@@ -15,15 +15,15 @@ function RevisionViewer({video, onClose}: {video: Video; onClose: () => void}) {
     <label className="library-field">Compare another revision
       <select value={compare} onChange={(event) => setCompare(event.target.value)}>
         <option value="">No comparison</option>
-        {project.revisions.filter((item) => item.id !== video.id).map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
+        {project.revisions.filter((item) => item.id !== video.id && item.movie).map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
       </select>
     </label>
-    <p className="library-meta">Independent playback controls let you pause and seek each revision. Videos include burned-in subtitles; English captions are provided for the latest revisions.</p>
+    <p className="library-meta">Independent playback controls let you pause and seek each revision. The current revision includes one full render per narration voice and engine, with English captions.</p>
     {other?.digest === video.digest && <p className="library-notice">These revisions contain identical movie bytes (matching SHA-256).</p>}
     <details><summary>File integrity and evidence</summary>
       <p>SHA-256 <code className="library-digest">{video.digest}</code></p>
       <div className="library-actions"><SourceLink source={video.source}>Source movie</SourceLink>
-        {video.qc ? <SourceLink source={video.qc}>Matching media QC report</SourceLink> : <span>No matching media QC report recorded.</span>}
+        {video.qc ? <SourceLink source={video.qc}>Matching media analysis</SourceLink> : <span>No matching media analysis recorded.</span>}
         {project.evidence.map((source) => <SourceLink key={source} source={source} />)}
       </div>
     </details>
@@ -44,7 +44,7 @@ function ProjectCard({project, video, onPlay}: {project: Project; video?: Video;
       <h2>{video ? video.title : project.title}</h2><p>{project.description}</p>
       {selected && !video && <label className="library-field">Revision
         <select value={revisionId} onChange={(event) => setRevisionId(event.target.value)}>
-          {project.revisions.map((item) => <option key={item.id} value={item.id}>{item.revision}{item.latest ? ' / latest candidate' : ' / historical'}</option>)}
+          {project.revisions.map((item) => <option key={item.id} value={item.id}>{item.revision}{item.voice ? ` / ${item.voice}` : ''}{item.latest ? ' / current' : item.movie ? ' / previous' : ' / repository only'}</option>)}
         </select>
       </label>}
       {selected ? <div className="library-actions">
@@ -67,8 +67,8 @@ export default function VideoLibrary() {
     `${project.title} ${project.description} ${project.revisions.map((v) => v.title).join(' ')}`.toLowerCase().includes(query.toLowerCase()));
   const count = projects.reduce((total, project) => total + (allRevisions ? Math.max(1, project.revisions.length) : 1), 0);
   return <LibraryShell title="Video Library" description="Watch the work. Compare the iterations. See exactly what shipped as a candidate and what is still waiting to be made.">
-    <Stats items={[{value: videos.length, label: 'Playable revisions'}, {value: catalog.projects.length, label: 'Projects'}, {value: catalog.projects.filter((p) => !p.revisions.length).length, label: 'Not rendered'}]} />
-    <p className="library-notice">Copilot is the earlier family-overview pilot; Copilot Studio 2026 and Power Platform 2026 are separate projects. Datadog Cowork plugin is generated end to end by the core release pipeline. <Link to="/docs/platform/video-library">Catalog contract</Link></p>
+    <Stats items={[{value: videos.length, label: 'Playable renders'}, {value: catalog.projects.flatMap((p) => p.revisions).length, label: 'Recorded renders'}, {value: catalog.projects.length, label: 'Projects'}]} />
+    <p className="library-notice">Every project keeps its render history in <code>renders/&lt;project&gt;-&lt;year&gt;-&lt;NN&gt;/</code>. The current revision provides one full render per narration voice and engine; older revisions remain in the repository with their measured analysis. <Link to="/docs/platform/video-library">Catalog contract</Link></p>
     <div className="library-toolbar">
       <label className="library-field library-search">Search projects<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Copilot, Datadog, Microsoft..." /></label>
       <label className="library-field">Production state<select value={filter} onChange={(event) => setFilter(event.target.value)}><option value="all">All projects</option><option value="rendered">Has video</option><option value="blocked">Not rendered</option></select></label>

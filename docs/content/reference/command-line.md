@@ -1,6 +1,6 @@
 ---
 title: Command-line reference
-description: Current a2swe core commands and the separate retained legacy template commands.
+description: Current a2swe core commands and template workspace maintenance commands.
 ---
 
 ## Core commands
@@ -34,6 +34,15 @@ Run these from the repository root.
 | `node packages/core/src/cli.ts release-plan --content CONTENT --render RENDER --approval APPROVAL --out FILE` | Create a release plan |
 | `node packages/core/src/cli.ts release-produce --domain DOMAIN --content CONTENT --render RENDER --approval APPROVAL [--assets DIR] --out DIR` | Produce a release package |
 | `node packages/core/src/cli.ts release-verify --root DIR` | Verify a release package |
+| `node packages/core/src/cli.ts canonical-bind --root PROJECT` | Rebind canonical content, render spec and approval digests after authoring edits |
+| `node packages/core/src/cli.ts revision-produce --root PROJECT [--variants PROFILE:ENGINE,...] [--keep-release]` | Render one full release per voice variant into `renders/<project>-<year>-<NN>/` and promote the first |
+| `node packages/core/src/cli.ts revision-promote --root PROJECT --id TITLE [--voice PROFILE-ENGINE]` | Promote a revision variant into `release/`, or resume a promotion a locked file stopped |
+| `node packages/core/src/cli.ts revisions-organize --root PROJECT` | Import existing renders and packages into revision folders |
+| `node packages/core/src/cli.ts revisions-analyze --root PROJECT [--force]` | Measure every revision video and write `qc/analysis/report.md` |
+| `node packages/core/src/cli.ts media-analyze --file MEDIA --out DIR` | Spectrograms, loudness, pauses, scene, freeze and layer measurements for one file |
+| `node packages/core/src/cli.ts office-render --root PROJECT` | Render the release PPTX and DOCX with native PowerPoint and Word on Windows |
+| `node packages/core/src/cli.ts runbook-project --root PROJECT` | Project `agent/runbook.json` gates from the verified release and current evidence |
+| `node packages/core/src/cli.ts account-import --source CUSTOMER_DIR --root PROJECT` | Import a LayeredCards account intake or card-data package as a ready DomainPack |
 
 ## Release behavior
 
@@ -65,9 +74,10 @@ project selector refreshes the working context, while its Tools catalog exposes
 argument schemas for the actual core commands. SDK tool approvals control
 execution, not editorial or publication sign-offs.
 
-## Legacy template commands
+## Template workspace commands
 
-Use these only for the retained 720p template workflow:
+`template/` holds the shared Remotion runtime and visual components. These
+commands maintain it; project rendering goes through the core commands above.
 
 ```powershell
 npm --prefix template ci
@@ -76,5 +86,3 @@ npm --prefix template run studio
 node template\scripts\new_project.cjs <destination> <slug>
 python template\scripts\test_pipeline.py -v
 ```
-
-That path is separate from the managed core release workflow.

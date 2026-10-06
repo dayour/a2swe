@@ -2,68 +2,122 @@
   "power-platform-community-conference": {
     "title": "Power Platform Community Conference",
     "description": "A decision-first executive briefing on PPCC 2026, with primary-source event facts, a focused attendance plan, and eight generated presentation formats.",
-    "note": "Reviewed 71.744-second 1080p release with Michael narration, six native PowerPoint slides, four Word/PDF pages, and source-bound video previews.",
-    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "note": "1080p executive briefing with six native PowerPoint slides and four Word/PDF pages. The newest revision renders four full releases (Michael, Heart and Bella on Kokoro ONNX; Michael on PyTorch Kokoro) mastered to -16 LUFS, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "canonical/domain-pack.json",
+      "agent/runbook.json",
+      "release/parity-manifest.json",
+      "qc/production-review.json",
+      "qc/index.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "microsoft-autopilot-agents": {
     "title": "Microsoft Autopilot Agents",
     "description": "An executive briefing on Copilot Autopilot, its private-preview scope, accountable agent identities, and a bounded pilot. Foundry is explicitly an architectural lens, not an implementation-equivalence claim.",
-    "note": "Reviewed 61.589-second 1080p release with Michael narration, five native PowerPoint slides, four Word/PDF pages, and all eight output formats.",
-    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "note": "1080p executive briefing with all eight output formats. The newest revision renders four full releases (Michael, Heart and Bella on Kokoro ONNX; Michael on PyTorch Kokoro) mastered to -16 LUFS, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "canonical/domain-pack.json",
+      "agent/runbook.json",
+      "release/parity-manifest.json",
+      "qc/production-review.json",
+      "qc/index.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "microsoft-plugin-architecture": {
     "title": "Microsoft Plugin Architecture",
     "description": "An executive comparison of Cowork packages, declarative-agent MCP/API actions, and GitHub Copilot plugins. Separates reusable skills and MCP configuration from host-specific delivery contracts.",
-    "note": "Eight-format package with explicit REST API and legacy-plugin support, editable slides, source citations, and project-local native Office and media review evidence.",
-    "evidence": ["canonical/domain-pack.json", "agent/runbook.json", "release/parity-manifest.json", "qc/production-review.json", "qc/index.json"],
+    "note": "Eight-format package with explicit REST API and legacy-plugin support, editable slides and source citations. The newest revision renders four full releases (Michael, Heart and Bella on Kokoro ONNX; Michael on PyTorch Kokoro) mastered to -16 LUFS, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "canonical/domain-pack.json",
+      "agent/runbook.json",
+      "release/parity-manifest.json",
+      "qc/production-review.json",
+      "qc/index.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "datadog-cowork-plugin": {
     "title": "Datadog Cowork plugin",
     "description": "A core-managed 1080p explainer built end to end by the a2swe pipeline: cited DomainPack, ContentIR, Kokoro ONNX narration, Remotion video with mermaid, excalidraw and marp visuals, and eight verified output formats.",
-    "note": "The existing video predates the current audio repair. Project QC contains a fresh matched-voice Kokoro/ONNX comparison. Raw research source files are absent from this checkout; quoted evidence remains in the DomainPack.",
-    "evidence": ["canonical/domain-pack.json", "canonical/content-ir.json", "release/parity-manifest.json", "qc/index.json", "qc/audio/am_michael/comparison.json"],
+    "note": "Core-managed 1080p explainer with Mermaid, Excalidraw and Marp visuals. Raw research source files are absent from this checkout; quoted evidence remains in the DomainPack. The newest revision renders four full releases (Michael, Heart and Bella on Kokoro ONNX; Michael on PyTorch Kokoro) mastered to -16 LUFS, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "release/parity-manifest.json",
+      "qc/index.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "copilot": {
     "title": "Copilot",
-    "description": "A six-scene tour of Copilot Chat, Microsoft 365 Copilot, GitHub Copilot, and Copilot Studio. This is the earlier Copilot-family pilot, separate from Copilot Studio 2026.",
-    "note": "Six retained revisions; v6 is the latest. Earlier revisions are iteration evidence.",
-    "evidence": ["delivery.md", "storyboard.md", "research/research.md", "asset-manifest.json"],
+    "description": "An executive tour of Copilot Chat, Microsoft 365 Copilot, GitHub Copilot and Copilot Studio, grounded in official Microsoft Learn and GitHub sources. Separate from Copilot Studio 2026.",
+    "note": "Migrated from a retired per-project Remotion workspace to core canonical inputs. Earlier revisions are imported history; the newest revision renders four voice variants through the core 1080p adapter, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "README.md",
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "agent/runbook.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "microsoft": {
     "title": "Microsoft",
-    "description": "A narrated Microsoft explainer pilot with three retained production revisions.",
-    "note": "Three retained revisions; v3 is the latest. See the delivery and QC records for each revision.",
-    "evidence": ["delivery.md", "storyboard.md", "research/research.md", "asset-manifest.json"],
+    "description": "An executive overview of Microsoft's Windows, Microsoft 365, Copilot and Azure platform, grounded in official Microsoft sources.",
+    "note": "Migrated from a retired per-project Remotion workspace to core canonical inputs. Earlier revisions are imported history; the newest revision renders four voice variants through the core 1080p adapter, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "README.md",
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "agent/runbook.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "copilot-studio-2026": {
     "title": "Copilot Studio 2026",
-    "description": "A separate 1920 x 1080, 30-45 second project with researched narration and a code-drawn production scaffold.",
-    "note": "Four rendered revisions with measured timing; v4 is the latest.",
-    "evidence": ["README.md", "script/timeline.json", "script/narration.txt", "storyboard.md", "agent/SWE_AGENT.md"],
+    "description": "An executive briefing on Copilot Studio agents: generative orchestration, tools, and security and governance controls, grounded in Microsoft Learn sources.",
+    "note": "Migrated from a retired per-project Remotion workspace to core canonical inputs. Earlier revisions are imported history; the newest revision renders four voice variants through the core 1080p adapter, and qc/analysis/report.md compares every revision. The research packet lives in research/content-packet-2026-09-18/.",
+    "evidence": [
+      "README.md",
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "agent/runbook.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
   "power-platform-2026": {
     "title": "Power Platform 2026",
-    "description": "A separate narrated Power Platform engineering explainer with rendered revisions, research, and storyboard.",
-    "note": "v6 restores the custom local Kokoro am_liam voice at speed 1.0 with shorter narration and model-token captions. Python 3.14 and both Kokoro model paths are verified. This is distinct from the earlier power-platform review package.",
-    "evidence": ["REVIEW.md", "research/research.md", "storyboard.md", "audio/narration-v6.metadata.json", "qc/media-v6.json"],
+    "description": "An engineering briefing on Power Platform ALM: solutions, pipelines and data policies, grounded in Microsoft Learn sources.",
+    "note": "Migrated from a retired per-project Remotion workspace to core canonical inputs. Earlier revisions are imported history; the newest revision renders four voice variants through the core 1080p adapter, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "README.md",
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "agent/runbook.json",
+      "qc/analysis/report.md"
+    ],
     "blockers": []
   },
-  "power-platform": {
-    "title": "Power Platform",
-    "description": "An engineering-agent and explainer review package: domain research, proposed 60-second narration, and evaluation evidence.",
-    "note": "The delivery record explicitly calls the missing MP4 an unmet deliverable. This review package is not a substitute for the video.",
-    "evidence": ["delivery.md", "brief.md", "qc/comparison.md"],
-    "blockers": [
-      "No TTS, timeline, stills, or MP4 was produced.",
-      "Content and local voice selection remain proposed, not approved.",
-      "Domain readiness, selected-component approval, and release gates remain unresolved in the delivery record."
-    ]
+  "agent-365": {
+    "title": "Agent 365",
+    "description": "An executive briefing on Microsoft Agent 365: agent identity, governance and the developer path for connecting existing agents, with a runnable project agent under agent/.",
+    "note": "Migrated from a retired per-project Remotion workspace to core canonical inputs. Earlier revisions are imported history; the newest revision renders four voice variants through the core 1080p adapter, and qc/analysis/report.md compares every revision.",
+    "evidence": [
+      "README.md",
+      "canonical/domain-pack.json",
+      "canonical/content-ir.json",
+      "agent/runbook.json",
+      "qc/analysis/report.md",
+      "agent/README.md"
+    ],
+    "blockers": []
   }
 }

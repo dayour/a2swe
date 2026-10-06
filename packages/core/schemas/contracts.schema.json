@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://a2swe.local/contracts/1.3.1",
+  "$id": "https://a2swe.local/contracts/1.4.0",
   "title": "CoreContract",
   "oneOf": [
     { "$ref": "#/$defs/LibraryEntry" },
@@ -17,9 +17,64 @@
     { "$ref": "#/$defs/FormatParityManifest" },
     { "$ref": "#/$defs/ReleasePlan" },
     { "$ref": "#/$defs/Runbook" },
-    { "$ref": "#/$defs/GenerationRequest" }
+    { "$ref": "#/$defs/GenerationRequest" },
+    { "$ref": "#/$defs/RenderRevision" }
   ],
   "$defs": {
+    "RenderRevision": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "projectId", "title", "year", "number", "createdAt", "pipeline", "status", "source", "outputs", "notes"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "projectId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$" },
+        "title": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,99}-[0-9]{4}-[0-9]{2,3}$" },
+        "year": { "type": "integer", "minimum": 2000, "maximum": 2999 },
+        "number": { "type": "integer", "minimum": 1, "maximum": 999 },
+        "createdAt": { "$ref": "#/$defs/IsoInstant" },
+        "pipeline": { "enum": ["legacy-template", "core-release"] },
+        "status": { "enum": ["current", "superseded", "rejected"] },
+        "source": { "$ref": "#/$defs/RelativePath" },
+        "contentDigest": { "$ref": "#/$defs/Digest" },
+        "outputs": { "type": "array", "minItems": 1, "maxItems": 40, "items": { "$ref": "#/$defs/RevisionOutput" } },
+        "notes": { "type": "array", "maxItems": 40, "items": { "type": "string", "minLength": 1, "maxLength": 1000 } }
+      }
+    },
+    "RevisionOutput": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "role", "digest", "byteSize", "mediaType"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,159}$" },
+        "role": { "enum": ["video", "video-raw", "captions", "presentation", "metadata"] },
+        "digest": { "$ref": "#/$defs/Digest" },
+        "byteSize": { "type": "integer", "minimum": 1 },
+        "mediaType": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "durationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "width": { "type": "integer", "minimum": 1, "maximum": 7680 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 4320 },
+        "voice": { "$ref": "#/$defs/RevisionVoice" },
+        "captions": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,159}$" },
+        "releaseDigest": { "$ref": "#/$defs/Digest" },
+        "package": { "$ref": "#/$defs/RelativePath" },
+        "scenes": { "type": "array", "maxItems": 80, "items": {
+          "type": "object", "additionalProperties": false,
+          "required": ["id", "startSeconds", "endSeconds"],
+          "properties": {
+            "id": { "$ref": "#/$defs/Identifier" },
+            "startSeconds": { "type": "number", "minimum": 0 },
+            "endSeconds": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        } }
+      }
+    },
+    "RevisionVoice": {
+      "type": "object", "additionalProperties": false,
+      "required": ["engine"],
+      "properties": {
+        "engine": { "enum": ["kokoro_onnx", "kokoro", "edge-neural", "windows-sapi", "unknown"] },
+        "profileId": { "type": "string", "pattern": "^[ab][fm]_[a-z0-9_]+$", "maxLength": 80 },
+        "voiceName": { "type": "string", "minLength": 1, "maxLength": 200 }
+      }
+    },
     "GenerationRequest": {
       "type": "object", "additionalProperties": false,
       "required": ["schemaVersion", "id", "name", "kind", "brief", "sources", "libraryPaths", "voiceProfile", "speed", "formats", "mode"],

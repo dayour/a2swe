@@ -45,7 +45,7 @@ async function main(): Promise<void> {
     endpoint: { type: 'string' }, checkpoint: { type: 'string' }, url: { type: 'string' }, domain: { type: 'string' },
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
     content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' },
-    engine: { type: 'string' }, voice: { type: 'string' }
+    engine: { type: 'string' }, voice: { type: 'string' }, variants: { type: 'string' }, force: { type: 'boolean' }, 'keep-release': { type: 'boolean' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -66,6 +66,15 @@ async function main(): Promise<void> {
       '  voice-profiles',
       '  audio-render --root PROJECT_DIRECTORY [--engine both|kokoro|kokoro_onnx] [--voice PROFILE_ID]',
       '  qc-index --root PROJECT_DIRECTORY',
+      '  media-analyze --file MEDIA --out NEW_DIRECTORY',
+      '  revisions-organize --root PROJECT_DIRECTORY',
+      '  revisions-analyze --root PROJECT_DIRECTORY [--force]',
+      '  revision-produce --root PROJECT_DIRECTORY [--variants am_michael:kokoro_onnx,af_heart:kokoro_onnx,af_bella:kokoro_onnx,am_michael:kokoro] [--keep-release]',
+      '  revision-promote --root PROJECT_DIRECTORY --id REVISION_TITLE [--voice PROFILE-ENGINE]',
+      '  office-render --root PROJECT_DIRECTORY',
+      '  runbook-project --root PROJECT_DIRECTORY',
+      '  account-import --source LAYERED_CARDS_CUSTOMER_DIRECTORY --root PROJECT_DIRECTORY',
+      '  canonical-bind --root PROJECT_DIRECTORY',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
       '  job-status --id TASK [--state DIRECTORY]',
@@ -103,6 +112,42 @@ async function main(): Promise<void> {
   if (command === 'qc-index') {
     const { indexProjectQc } = await import('./release.ts');
     console.log(JSON.stringify(await indexProjectQc(required('root')), null, 2));
+    return;
+  }
+  if (command === 'media-analyze') {
+    const { analyzeMedia } = await import('./media-analysis.ts');
+    const report = await analyzeMedia(required('file'), required('out'));
+    console.log(JSON.stringify({ out: path.resolve(required('out')), probe: report.probe, loudness: report.audio?.loudness ?? null, findings: report.findings }, null, 2));
+    return;
+  }
+  if (['revisions-organize', 'revisions-analyze', 'revision-produce', 'revision-promote'].includes(command)) {
+    const revisions = await import('./revisions.ts');
+    const root = required('root');
+    const result = command === 'revisions-organize' ? await revisions.organizeRevisions(root)
+      : command === 'revisions-analyze' ? await revisions.analyzeRevisions(root, { force: values.force === true })
+        : command === 'revision-promote' ? await revisions.promoteRevision(root, required('id'), values.voice)
+          : await revisions.produceRevision(root, { variants: revisions.parseVariants(values.variants), promote: values['keep-release'] !== true });
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+  if (command === 'office-render') {
+    const { renderNativeOffice } = await import('./office.ts');
+    console.log(JSON.stringify(await renderNativeOffice(required('root')), null, 2));
+    return;
+  }
+  if (command === 'runbook-project') {
+    const { projectRunbook } = await import('./runbook.ts');
+    console.log(JSON.stringify(await projectRunbook(required('root'))));
+    return;
+  }
+  if (command === 'account-import') {
+    const { importAccountIntake } = await import('./account-intake.ts');
+    console.log(JSON.stringify(await importAccountIntake(required('source'), required('root')), null, 2));
+    return;
+  }
+  if (command === 'canonical-bind') {
+    const { bindCanonicalInputs } = await import('./release.ts');
+    console.log(JSON.stringify(await bindCanonicalInputs(required('root'))));
     return;
   }
   if (command === 'domain-certify') {

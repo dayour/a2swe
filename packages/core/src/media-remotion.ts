@@ -2,6 +2,7 @@ import { cpSync, createReadStream, existsSync, readFileSync, readdirSync, symlin
 import { readFile, mkdir, mkdtemp, writeFile, copyFile, rm, rename } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { createServer } from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digest, sha256 } from './canonical.ts';
@@ -19,7 +20,7 @@ interface ResolvedAsset {
   filename?: string;
 }
 
-const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-3';
+const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-6';
 export const MP4_ADAPTER = REMOTION_MP4_ADAPTER;
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 interface VoiceProfile { id: string; name: string; language: 'a' | 'b'; speed: number }
@@ -631,8 +632,89 @@ def resample_to_target(audio, sample_rate: int, target_rate: int):
     np, _, resample_poly = import_audio_deps()
     if sample_rate == target_rate:
         return np.asarray(audio, dtype=np.float32)
+    from scipy.signal import firwin, kaiserord
     divisor = math.gcd(sample_rate, target_rate)
-    return np.asarray(resample_poly(audio, target_rate // divisor, sample_rate // divisor), dtype=np.float32)
+    up, down = target_rate // divisor, sample_rate // divisor
+    # SciPy's default 21-tap-per-phase Kaiser filter leaves spectral images within 2 kHz above the source Nyquist.
+    # This steep design keeps speech below 0.92 of the lower Nyquist and rejects images by about 100 dB.
+    nyquist = min(sample_rate, target_rate) / 2.0
+    design_rate = sample_rate * up
+    transition = nyquist / 12.0
+    numtaps, beta = kaiserord(100.0, transition / (0.5 * design_rate))
+    numtaps = max(numtaps | 1, 2 * 10 * max(up, down) + 1)
+    taps = firwin(numtaps, nyquist - transition / 2.0, window=('kaiser', beta), fs=design_rate)
+    return np.asarray(resample_poly(audio, up, down, window=taps), dtype=np.float32)
+
+
+TARGET_LUFS = -16.0
+TRUE_PEAK_CEILING_DBTP = -1.5
+
+
+def integrated_loudness(mono, sample_rate: int, channels: int) -> float:
+    """ITU-R BS.1770-4 gated loudness for identical channels at 48 kHz."""
+    np, _, _ = import_audio_deps()
+    from scipy.signal import lfilter
+    if sample_rate != 48000:
+        fail('loudness measurement requires 48 kHz audio')
+    shelf = lfilter([1.53512485958697, -2.69169618940638, 1.19839281085285], [1.0, -1.69065929318241, 0.73248077421585], mono)
+    weighted = lfilter([1.0, -2.0, 1.0], [1.0, -1.99004745483398, 0.99007225036621], shelf)
+    block = int(0.4 * sample_rate)
+    step = int(0.1 * sample_rate)
+    if weighted.size < block:
+        return -70.0
+    cumulative = np.concatenate(([0.0], np.cumsum(np.square(weighted))))
+    starts = np.arange(0, weighted.size - block + 1, step)
+    power = (cumulative[starts + block] - cumulative[starts]) / block * channels
+    loudness = -0.691 + 10.0 * np.log10(np.maximum(power, 1e-30))
+    absolute = power[loudness > -70.0]
+    if absolute.size == 0:
+        return -70.0
+    relative_gate = -0.691 + 10.0 * math.log10(float(np.mean(absolute))) - 10.0
+    gated = power[(loudness > -70.0) & (loudness > relative_gate)]
+    return float(-0.691 + 10.0 * math.log10(float(np.mean(gated))))
+
+
+def true_peak(array) -> float:
+    np, _, resample_poly = import_audio_deps()
+    return float(np.max(np.abs(resample_poly(array, 4, 1)))) if array.size else 0.0
+
+
+def master_loudness(audio, sample_rate: int, channels: int):
+    """Normalize narration to the online-video loudness target with a smooth 4x-oversampled true-peak limiter."""
+    np, _, resample_poly = import_audio_deps()
+    from scipy.ndimage import minimum_filter1d, uniform_filter1d
+    source = np.asarray(audio, dtype=np.float64)
+    before = integrated_loudness(source, sample_rate, channels)
+    ceiling = 10.0 ** (TRUE_PEAK_CEILING_DBTP / 20.0)
+    window = 2 * int(0.01 * sample_rate) + 1
+    gain_db = TARGET_LUFS - before
+    limited = source
+    smooth = np.ones(source.size)
+    for _ in range(4):
+        gained = source * (10.0 ** (gain_db / 20.0))
+        envelope = np.abs(resample_poly(gained, 4, 1))[: gained.size * 4].reshape(-1, 4).max(axis=1)
+        required = np.minimum(1.0, ceiling / np.maximum(envelope, 1e-12))
+        # Holding the minimum over the averaging span guarantees the smoothed gain never exceeds what a peak requires.
+        smooth = uniform_filter1d(minimum_filter1d(required, size=window, mode='nearest'), size=window, mode='nearest')
+        limited = gained * smooth
+        peak = true_peak(limited)
+        if peak > ceiling:
+            limited = limited * (ceiling / peak)
+        after = integrated_loudness(limited, sample_rate, channels)
+        if abs(after - TARGET_LUFS) <= 0.2:
+            break
+        gain_db += TARGET_LUFS - after
+    return limited.astype(np.float32), {
+        'standard': 'ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak',
+        'targetLufs': TARGET_LUFS,
+        'truePeakCeilingDbtp': TRUE_PEAK_CEILING_DBTP,
+        'inputLufs': round(before, 2),
+        'gainDb': round(gain_db, 2),
+        'maxLimiterReductionDb': round(float(-20.0 * np.log10(max(float(np.min(smooth)), 1e-12))), 2),
+        'limitedSampleRatio': round(float(np.mean(smooth < 0.999)), 5),
+        'outputLufs': round(integrated_loudness(limited, sample_rate, channels), 2),
+        'outputTruePeakDbtp': round(20.0 * math.log10(max(true_peak(limited), 1e-12)), 2),
+    }
 
 
 def rms_dbfs(audio) -> float:
@@ -715,8 +797,8 @@ def write_wav(path: Path, audio, sample_rate: int, channels: int) -> None:
         fail('speech engine returned non-finite audio samples')
     if not np.any(array):
         fail('speech engine returned entirely silent audio')
-    peak = float(np.max(np.abs(array))) or 1.0
-    array = array / peak * 0.89
+    if float(np.max(np.abs(array))) > 1.0:
+        fail('mastered narration exceeds full scale')
     if channels == 2:
         array = np.stack([array, array], axis=1)
     elif channels != 1:
@@ -766,6 +848,7 @@ def main() -> None:
     output_channels = int(payload['channels'])
     audio = resample_to_target(samples, input_rate, output_rate)
     audio, cleanup_info = cleanup_audio(audio, output_rate, timings)
+    audio, mastering_info = master_loudness(audio, output_rate, output_channels)
     output_wav = root / str(payload['outputWav'])
     write_wav(output_wav, audio, output_rate, output_channels)
     duration = probe_duration(output_wav)
@@ -800,6 +883,7 @@ def main() -> None:
         'forks': forks,
         'cleanupPolicy': cleanup_info['policy'],
         'audioCleanup': cleanup_info,
+        'mastering': mastering_info,
         'rawAudio': {'dc': float(np.mean(samples, dtype=np.float64)),
                      'rms': float(np.sqrt(np.mean(samples.astype(np.float64) ** 2))),
                      'peak': float(np.max(np.abs(samples)))},
@@ -842,7 +926,7 @@ function run(command, args, label, options = {}) {
   const result = spawnSync(command, args, { cwd: root, encoding: null, maxBuffer: 96 * 1024 * 1024, windowsHide: true, ...options });
   if (result.error) fail(label + ' executable failed to start: ' + result.error.message);
   if (result.status !== 0) {
-    const detail = Buffer.concat([result.stderr || Buffer.alloc(0), result.stdout || Buffer.alloc(0)]).toString('utf8').trim().slice(0, 4000);
+    const detail = Buffer.concat([result.stdout || Buffer.alloc(0), result.stderr || Buffer.alloc(0)]).toString('utf8').trim().slice(-4000);
     fail(label + ' exited with ' + result.status + ': ' + detail);
   }
   return result.stdout;
@@ -1122,16 +1206,36 @@ const overall = summarize('overall', samples);
 const speech = summarize('speech', speechSamples);
 const silence = summarize('nonSpeechGaps', silenceSamples);
 const interiorSilence = summarize('nonSpeechGapInteriors', interiorSamples);
+const loudnessRun = spawnSync(ffmpeg, ['-hide_banner', '-nostats', '-i', path.isAbsolute(input) ? input : path.join(root, input), '-map', '0:a:0', '-af', 'ebur128=peak=true:framelog=quiet', '-f', 'null', '-'],
+  { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
+if (loudnessRun.error || loudnessRun.status !== 0) fail('ffmpeg loudness measurement failed: ' + (loudnessRun.error?.message || String(loudnessRun.stderr || '').slice(-2000)));
+const loudnessSummary = String(loudnessRun.stderr || '');
+function loudnessValue(pattern) {
+  const match = pattern.exec(loudnessSummary.slice(loudnessSummary.lastIndexOf('Summary:')));
+  return match ? Number(match[1]) : Number.NaN;
+}
+const loudness = {
+  integratedLufs: loudnessValue(/I:\\s+(-?[\\d.]+)\\s+LUFS/),
+  loudnessRangeLu: loudnessValue(/LRA:\\s+(-?[\\d.]+)\\s+LU/),
+  truePeakDbtp: loudnessValue(/Peak:\\s+(-?[\\d.]+)\\s+dBFS/)
+};
 const thresholds = {
   gapBoundaryGuardSeconds,
   maxSourceBoundaryJumpDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_JUMP_DBFS', -55),
   maxSourceEdgeRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_EDGE_RMS_DBFS', -60),
   maxSilenceRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SILENCE_RMS_DBFS', -55),
   maxSpeechHighFrequencyRatio8k: strictThreshold('A2SWE_AUDIO_QA_MAX_SPEECH_HF_RATIO_8K', 0.03),
-  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true)
+  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true),
+  targetLufs: -16,
+  maxLoudnessDeviationLu: strictThreshold('A2SWE_AUDIO_QA_MAX_LOUDNESS_DEVIATION_LU', 1),
+  maxTruePeakDbtp: strictThreshold('A2SWE_AUDIO_QA_MAX_TRUE_PEAK_DBTP', -1)
 };
 const snr = rounded(speech.rmsDbfs - interiorSilence.rmsDbfs);
 const findings = [];
+if (!Number.isFinite(loudness.integratedLufs) || Math.abs(loudness.integratedLufs - thresholds.targetLufs) > thresholds.maxLoudnessDeviationLu) {
+  findings.push('integrated loudness is outside the online-video target');
+}
+if (!Number.isFinite(loudness.truePeakDbtp) || loudness.truePeakDbtp > thresholds.maxTruePeakDbtp) findings.push('true peak exceeds the encoded-audio ceiling');
 if (sourceBoundaries.maxJumpDbfs > thresholds.maxSourceBoundaryJumpDbfs ||
   Math.max(sourceBoundaries.maxOnsetRmsDbfs, sourceBoundaries.maxTailRmsDbfs) > thresholds.maxSourceEdgeRmsDbfs) {
   findings.push('source speech boundaries contain a DC step or abrupt transition');
@@ -1152,7 +1256,8 @@ const report = {
   producer: metadata.producer,
   engine: metadata.engine,
   voice: metadata.voice,
-  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr },
+  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr, loudness },
+  mastering: metadata.mastering ?? null,
   thresholds,
   findings,
   valid,
@@ -1198,7 +1303,7 @@ function run(command, args, label, options = {}) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true, ...options });
   if (result.error) fail(\`\${label} executable failed to start: \${result.error.message}\`);
   if (result.status !== 0) {
-    const detail = (result.stderr || result.stdout || '').trim().slice(0, 4000);
+    const detail = (result.stderr || result.stdout || '').trim().slice(-4000);
     fail(\`\${label} exited with \${result.status}: \${detail}\`);
   }
   return result.stdout;
@@ -1440,7 +1545,9 @@ mkdirSync(path.dirname(output), { recursive: true });
 if (existsSync(output) && process.env.A2SWE_OVERWRITE_MP4 !== '1') fail(\`refusing to overwrite existing MP4: \${plan.encodedMp4Path}\`);
 const qcPath = path.join(root, 'qc', 'mp4-qc.json');
 if (existsSync(qcPath)) unlinkSync(qcPath);
-run(process.execPath, [remotion, 'render', 'src/index.tsx', content.contentId, plan.encodedMp4Path, '--codec=h264', '--crf=16', '--pixel-format=yuv420p', '--log=error'], 'Remotion render');
+run(process.execPath, [remotion, 'render', 'src/index.tsx', content.contentId, plan.encodedMp4Path, '--codec=h264', '--crf=16', '--pixel-format=yuv420p', '--log=error', '--timeout=120000',
+  ...(process.env.A2SWE_BROWSER_EXECUTABLE ? ['--browser-executable=' + process.env.A2SWE_BROWSER_EXECUTABLE] : []),
+  ...(/^[0-9]+$/.test(process.env.A2SWE_REMOTION_PORT ?? '') ? ['--port=' + process.env.A2SWE_REMOTION_PORT] : [])], 'Remotion render');
 const outputHash = sha256File(output);
 mkdirSync(path.join(root, 'qc'), { recursive: true });
 writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
@@ -1481,7 +1588,7 @@ function fail(message) {
 function run(command, args, label) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
   if (result.error) fail(\`\${label} executable failed to start: \${result.error.message}\`);
-  if (result.status !== 0) fail(\`\${label} exited with \${result.status}: \${(result.stderr || result.stdout || '').trim().slice(0, 4000)}\`);
+  if (result.status !== 0) fail(\`\${label} exited with \${result.status}: \${(result.stderr || result.stdout || '').trim().slice(-4000)}\`);
   return result.stdout;
 }
 
@@ -1698,7 +1805,7 @@ async function prepareRuntime(root: string, content: ContentIR): Promise<() => P
     if (temporaryDependencies) {
       // Share packages, never the mutable Webpack cache used by concurrent project renders.
       for (const entry of readdirSync(installed, { withFileTypes: true })) {
-        if (entry.isDirectory() && entry.name !== '.cache') {
+        if (entry.isDirectory() && entry.name !== '.cache' && entry.name !== '.remotion') {
           symlinkSync(path.join(installed, entry.name), path.join(dependencies, entry.name), process.platform === 'win32' ? 'junction' : 'dir');
         }
       }
@@ -1716,13 +1823,41 @@ async function prepareRuntime(root: string, content: ContentIR): Promise<() => P
   return cleanup;
 }
 
-function remotionCli(root: string, args: string[], label: string, timeout: number): void {
-  const result = spawnSync(process.execPath, [path.join('node_modules', '@remotion', 'cli', 'remotion-cli.js'), ...args], {
+// Deep release folders push a junctioned browser path past the Windows process-path limit; launch the shared browser by its real path.
+function sharedBrowserExecutable(): string | undefined {
+  const base = path.join(REPOSITORY_ROOT, 'template', 'node_modules', '.remotion', 'chrome-headless-shell');
+  if (!existsSync(base)) return undefined;
+  const name = process.platform === 'win32' ? 'chrome-headless-shell.exe' : 'chrome-headless-shell';
+  for (const platform of readdirSync(base, { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
+    for (const build of readdirSync(path.join(base, platform.name), { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
+      const candidate = path.join(base, platform.name, build.name, name);
+      if (existsSync(candidate)) return candidate;
+    }
+  }
+  return undefined;
+}
+
+function remotionCli(root: string, args: string[], label: string, timeout: number, port?: number): void {
+  const browser = sharedBrowserExecutable();
+  const result = spawnSync(process.execPath, [path.join('node_modules', '@remotion', 'cli', 'remotion-cli.js'), ...args,
+    ...(browser ? [`--browser-executable=${browser}`] : []), ...(port ? [`--port=${port}`] : [])], {
     cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout, windowsHide: true
   });
   if (result.error || result.status !== 0) {
-    throw new Error(`${label}: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(0, 4000)}`);
+    throw new Error(`${label}: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(-4000)}`);
   }
+}
+
+// Concurrent renders must not share Remotion's default bundle-server port 3000, or one render's browser loads another render's chunks.
+function freePort(): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const server = createServer();
+    server.once('error', reject);
+    server.listen(0, '127.0.0.1', () => {
+      const address = server.address();
+      server.close(() => (address && typeof address === 'object' ? resolve(address.port) : reject(new Error('free_port_unavailable'))));
+    });
+  });
 }
 
 // Renders each mermaid, excalidraw or marp section once as a settled PNG so every document format embeds the same image the video shows.
@@ -1732,9 +1867,10 @@ export async function renderVisualStills(releaseRoot: string, content: ContentIR
   if (!visuals.length) return [];
   const cleanup = await prepareRuntime(root, content);
   try {
+    const port = await freePort();
     for (const section of visuals) {
       const stem = visualStem(content, section.sectionId);
-      remotionCli(root, ['still', 'src/index.tsx', `visual-${stem}`, `visuals/${stem}.png`, '--log=error'], `visual_render_failed(${section.sectionId})`, 10 * 60 * 1000);
+      remotionCli(root, ['still', 'src/index.tsx', `visual-${stem}`, `visuals/${stem}.png`, '--log=error', '--timeout=120000'], `visual_render_failed(${section.sectionId})`, 10 * 60 * 1000, port);
     }
   } finally { await cleanup(); }
   const files: AdapterFile[] = [];
@@ -1848,11 +1984,14 @@ export async function renderEncodedMp4(releaseRoot: string, content: ContentIR):
   const root = path.join(path.resolve(releaseRoot), 'outputs', 'remotion');
   const cleanup = await prepareRuntime(root, content);  try {
     const env = await speechEnvironment(process.env.A2SWE_TTS_ENGINE ?? process.env.TTS_ENGINE ?? 'auto');
+    const browser = sharedBrowserExecutable();
+    if (browser && !env.A2SWE_BROWSER_EXECUTABLE) env.A2SWE_BROWSER_EXECUTABLE = browser;
+    env.A2SWE_REMOTION_PORT = String(await freePort());
     const result = spawnSync(process.execPath, ['scripts/render-mp4.mjs'], {
       cwd: root, env, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout: 30 * 60 * 1000, windowsHide: true
     });
     if (result.error || result.status !== 0) {
-      throw new Error(`mp4_render_failed: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(0, 4000)}`);
+      throw new Error(`mp4_render_failed: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(-4000)}`);
     }
   } finally { await cleanup(); }
   const outputs = [
@@ -1882,6 +2021,6 @@ export function verifyEncodedMp4(releaseRoot: string): void {
     cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout: 120000, windowsHide: true
   });
   if (result.error || result.status !== 0) {
-    throw new Error(`mp4_qc_failed: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(0, 4000)}`);
+    throw new Error(`mp4_qc_failed: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(-4000)}`);
   }
 }

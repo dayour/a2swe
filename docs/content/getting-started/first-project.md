@@ -92,12 +92,15 @@ visual stills under `outputs/remotion/visuals/`. One selected PNG can accompany
 several generated Mermaid, Excalidraw, and Marp visuals. The parity manifest
 binds this inventory, and release verification rehashes every referenced file.
 
-## Legacy template path
+## Revisions
 
-The older copied 720p template scaffold remains an explicit compatibility path:
+Render a new revision once the canonical inputs validate. Each variant is a full
+release rendered with a different voice or speech engine:
 
 ```powershell
-node template\scripts\new_project.cjs projects\vector-databases vector-databases --legacy
+node packages/core/src/cli.ts revision-produce --root projects/datadog-cowork-plugin
+node packages/core/src/cli.ts revisions-analyze --root projects/datadog-cowork-plugin
 ```
 
-Use that only when you explicitly need the legacy hand-built branded-video path.
+The videos land in `renders/datadog-cowork-plugin-<year>-<NN>/` with a
+`revision.json` manifest. The first variant is promoted to `release/`.

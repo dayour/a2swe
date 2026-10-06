@@ -2,20 +2,36 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Validate Power Platform Kokoro v6",
+			"label": "a2swe: produce project revision",
 			"type": "shell",
-			"command": "$env:PATH = 'C:\\Users\\dayour\\AppData\\Local\\nvm\\v24.8.0;' + $env:PATH; & '.\\.venv\\Scripts\\python.exe' -m unittest discover -s template\\scripts -p test_pipeline.py -v; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & '.\\.venv\\Scripts\\python.exe' -m unittest discover -s projects\\power-platform-2026\\scripts -p 'test_*.py' -v; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm --prefix template run typecheck; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm --prefix projects\\power-platform-2026 run build",
+			"command": "node packages/core/src/cli.ts revision-produce --root projects/${input:project}",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "a2swe: analyze project revisions",
+			"type": "shell",
+			"command": "node packages/core/src/cli.ts revisions-analyze --root projects/${input:project}",
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "test"
 		},
 		{
-			"label": "Render Power Platform v6",
+			"label": "a2swe: verify project release",
 			"type": "shell",
-			"command": "$env:PATH = 'C:\\Users\\dayour\\AppData\\Local\\nvm\\v24.8.0;' + $env:PATH; npm --prefix projects\\power-platform-2026 run render",
+			"command": "node packages/core/src/cli.ts release-verify --root projects/${input:project}/release",
 			"isBackground": false,
 			"problemMatcher": [],
-			"group": "build"
+			"group": "test"
+		}
+	],
+	"inputs": [
+		{
+			"id": "project",
+			"type": "promptString",
+			"description": "Project folder under projects/",
+			"default": "microsoft-plugin-architecture"
 		}
 	]
 }

@@ -40,3 +40,6 @@ docs/static/library/assets/
 # Raw intake and superseded production candidates stay local.
 projects/*/intake/
 projects/*/qc/revisions/
+
+# Customer executive status updates contain private engagement data and stay local.
+projects/executive_status_updates/
