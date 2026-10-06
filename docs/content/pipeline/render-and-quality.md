@@ -1,6 +1,6 @@
 ---
 title: Render and quality control
-description: Produce and verify the managed 1080p release path and keep the older template checks separate.
+description: Produce and verify the managed 1080p release, master its audio, and measure every revision.
 ---
 
 ## Managed release render
@@ -44,7 +44,18 @@ library read the resulting frame-based timeline cues, so previews use the same
 text and timing as the video rather than a separately reconstructed transcript.
 
 Managed renders reuse installed packages but keep each project's mutable
-Webpack cache isolated. Concurrent releases do not clear another render's cache.
+Webpack cache isolated. Concurrent releases do not clear another render's cache,
+and each render binds its own bundle-server port from 20000-29999 after checking
+it on every loopback host, so parallel renders never load each other's chunks.
+
+## Audio mastering
+
+Kokoro produces 24 kHz speech. The producer resamples it to 48 kHz with a steep
+Kaiser anti-imaging filter, then masters it to -16 LUFS integrated (ITU-R
+BS.1770-4) through a 4x-oversampled true-peak limiter at -1.5 dBTP. The
+narration metadata records the gain and limiter activity. Audio QA fails a
+render outside -16 ±1 LU or above -1 dBTP, in addition to its noise-floor,
+signal-to-noise, high-frequency and boundary checks.
 
 ## Managed QC
 
@@ -57,6 +68,31 @@ The managed MP4 QC verifies:
 
 `release-verify` also rechecks the package digests and reruns MP4 QC.
 
+## Revision analysis
+
+`revisions-analyze` measures every video in `renders/` and writes
+`qc/analysis/`. For each video it records:
+
+- EBU R128 integrated loudness, loudness range and true peak
+- speech activity, pause lengths, noise floor and speech-to-silence ratio
+- Welch spectrum metrics, including high-frequency energy above 8 kHz
+- mains hum prominence and stereo correlation
+- scene cuts, black frames and frozen frames
+- per-zone layer motion and edge detail
+
+It also writes full and speech-band spectrograms with legends, per-section
+spectrogram chunks, a contact sheet, a proportional frame strip, and a layer
+activity image. `qc/analysis/report.md` compares every revision, with stacked
+spectrogram, frame and layer images.
+
+## Native Office QA
+
+`office-render` opens the release PPTX and DOCX in Microsoft PowerPoint and Word
+on Windows, exports slides and pages, and reports any text frame whose rendered
+text exceeds its shape. The project runbook passes the `native-office` gate only
+when the rendered file digests match the release and no text overflows. Slides
+show readable source titles; evidence IDs stay in the speaker notes.
+
 ## Visual output coupling
 
 When sections include `visual` blocks and the release requests `remotion`, the
@@ -67,9 +103,3 @@ overview images then embed those PNGs.
 
 Human review remains useful for readability, pacing, and style. It is optional and
 separate from the automated verification path.
-
-## Legacy template QC
-
-The older template still retains its own storyboard, motion, frame, and encoded
-media scripts for 720p projects. Keep those checks scoped to legacy template
-projects.

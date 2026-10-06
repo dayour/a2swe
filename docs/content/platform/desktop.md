@@ -83,9 +83,13 @@ unverified project complete. Stop also cancels initialization/source intake
 before a model turn starts.
 
 Select the local a2swe checkout and a project before starting a session. The
-agent can discover projects, core tools, library instructions, voice profiles,
-and imported knowledge assets. Read tool activity and errors in the UI rather
-than treating a generated answer as proof that a command ran.
+project list includes nested projects, such as customer overviews under
+`projects/executive_status_updates/Customers/`, grouped under their folder name.
+A project is any folder with `canonical/domain-pack.json`, `agent/runbook.json`
+or a release. The agent can discover projects, core tools, library
+instructions, voice profiles, and imported knowledge assets. Read tool activity
+and errors in the UI rather than treating a generated answer as proof that a
+command ran.
 
 The core remains responsible for schemas, source evidence, asset generation,
 speech, releases, and QC. Read and write tools operate on the selected workspace.
@@ -99,9 +103,10 @@ sandboxed local frame without native filesystem or shell privileges. The
 selected project's compiled Studio can also be opened when its bundle exists.
 
 Media review lists real video, audio and image outputs from the selected
-project. Its player supports seeking, subtitle inspection, decoded-frame
-capture and measured audio spectrograms. The transcript overlay is optional
-because produced videos can already contain burned-in captions.
+project, with revision renders first and spectrograms from `qc/analysis`. Its
+player supports seeking, subtitle inspection, decoded-frame capture and
+measured audio spectrograms. The transcript overlay is optional because
+produced videos already contain burned-in captions.
 
 The floating agent uses MCP `review.*` tools against the same review service.
 Playback controls require acknowledgement from the real UI; the model cannot
