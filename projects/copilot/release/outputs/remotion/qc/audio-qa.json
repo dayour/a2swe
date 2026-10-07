@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-7",
+  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "input": "dist/render.mp4",
+  "inputSha256": "3abcbea7a8df01d7cb5b4c89c1f13e8410ec6b61fb6805e149bdd61e6a501bf0",
+  "sourceAudioSha256": "c8b3cfc95b712201eba4e8f6ced54be9d166dfcb0f06bc6a62680403996f2051",
+  "sampleRate": 48000,
+  "durationSeconds": 65.152,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "bˈɑTəm lˈIn: kˈOpˌIlət ɪz ɐ fˈæmᵊli, nˌɑt wˈʌn tˈul; ʧˈuz ʧˈæt, mˈIkɹəsˌɑft θɹˈi sˈɪksti fˈIv, ɡˈɪt hˈʌb, ɔɹ stˈudiO bI ʤˈɑb, ðˈɛn vˈɛɹəfˌI ˈæksˌɛs, lˈIsᵊnsɪŋ, ænd ɡɹˈWndɪŋ."
+      ],
+      [
+        "kˈOpˌIlət ʧˈæt fˈɪts ɹˈisˌɜɹʧ ænd dɹˈæftɪŋ. ˌɪt kæn sˈʌməɹˌIz wˈɛb ˌɪnfəɹmˈAʃən, ɹˈiɹˌIt kˈɑntɛnt, ˈænᵊlˌIz fˈIlz, kɹiˈAt ˈɪmɪʤᵻz, jˈuz ˈAʤᵊnts, ænd ˈæsk səpˈɔɹTᵻd wˈɜɹk kwˈɛsʧᵊnz."
+      ],
+      [
+        "mˈIkɹəsˌɑft θɹˈi sˈɪksti fˈIv kˈOpˌIlət bɹˈɪŋz ɐ ˌI ˈɪntu wˈɜɹk ˈæps. ɡɹˈWndɪŋ, jˈuzəɹ pəɹmˈɪʃənz, kəmplˈIəns kəntɹˈOlz ænd lˈIsᵊns lˈɛvᵊl ʃˈAp wˌʌt ɪt kæn ˈænsəɹ fɔɹ ˈiʧ pˈɜɹsᵊn."
+      ],
+      [
+        "ɡˈɪt hˈʌb kˈOpˌIlət fˈɪts kˈOdɪŋ wˈɜɹkflˌOz ɪn dəvˈɛləpəɹ tˈulz. kˈOpˌIlət stˈudiO bˈɪldz ˈAʤᵊnts ænd wˈɜɹkflˌOz kənˈɛktᵻd tʊ ˌɔɹɡənəzˈAʃənᵊl dˈATə, sˈɪstəmz, ænd ʧˈænᵊlz fɔɹ tˈimz."
+      ],
+      [
+        "mˌAk ðə dəsˈɪʒᵊn ˈæftəɹ ðə fˈɪt ɪz klˈɪɹ. ʧˈɛk pəɹmˈɪʃənz, lˈIsᵊns tˈɪɹ, ænd ɡɹˈWndɪŋ sˌO lˈidəɹz nˈO wˌʌt ˈiʧ ˈWtpˌʊt kæn ænd kənˈɑt jˈuz ɪn pɹˈæktəs."
+      ]
+    ],
+    "phonemesSha256": "91de1d0d9b025d79353b90fe0a7d5a79ef0adcf2591bf6f29d9d3eaea6350899",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft three sixty five, Git Hub, or Studio by job, then verify access, licensing, and grounding.",
+      "Copilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.",
+      "Microsoft three sixty five Copilot brings A I into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.",
+      "Git Hub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.",
+      "Make the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 65.152,
+      "rmsDbfs": -19.696935,
+      "peakDbfs": -1.492557,
+      "highFrequencyRatio8k": 0.002654,
+      "spectralFlatness": 0.000001
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 62.125,
+      "rmsDbfs": -19.490322,
+      "peakDbfs": -1.492557,
+      "highFrequencyRatio8k": 0.002874,
+      "spectralFlatness": 0.000001
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 3.027,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 1.827,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "sourceBoundaries": {
+      "label": "sourceSpeechBoundaries",
+      "segmentsChecked": 5,
+      "edgeWindowSeconds": 0.01,
+      "maxOnsetRmsDbfs": -240,
+      "maxTailRmsDbfs": -240,
+      "maxJumpDbfs": -240
+    },
+    "snrSpeechVsSilenceDb": 220.509678,
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 3.2,
+      "truePeakDbtp": -1.5
+    }
+  },
+  "mastering": {
+    "gainDb": 8.55,
+    "inputLufs": -24.21,
+    "limitedSampleRatio": 0.02245,
+    "maxLimiterReductionDb": 6.35,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSourceBoundaryJumpDbfs": -55,
+    "maxSourceEdgeRmsDbfs": -60,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45,
+    "targetLufs": -16,
+    "maxLoudnessDeviationLu": 1,
+    "maxTruePeakDbtp": -1
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}

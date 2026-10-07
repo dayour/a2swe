@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "audio": {
+    "required": true,
+    "path": "public/assets/copilot/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "e22e3b47447061447b43fa93573fb82eb75de0ec44617c59774b885c416a158a",
+    "expectedDurationSeconds": 65.075,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "Microsoft 365": "Microsoft three sixty five",
+        "GitHub": "Git Hub",
+        "AI": "A I"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": []
+}

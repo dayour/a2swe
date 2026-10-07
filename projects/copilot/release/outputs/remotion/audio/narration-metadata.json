@@ -1,0 +1,181 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": 1.9845316796135437e-12,
+      "highFrequencyRatio8k": 0.0003023715395533595,
+      "rmsDbfs": -27.836734504251215,
+      "spectralFlatness": 3.942615982567658e-08
+    },
+    "before": {
+      "dcOffset": 1.0307789125363342e-05,
+      "highFrequencyRatio8k": 0.00030235985441058724,
+      "rmsDbfs": -27.83612990828648,
+      "spectralFlatness": 3.405373012713888e-08
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/copilot/audio.wav",
+  "audioSha256": "c8b3cfc95b712201eba4e8f6ced54be9d166dfcb0f06bc6a62680403996f2051",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "durationSeconds": 65.075,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.55,
+    "inputLufs": -24.21,
+    "limitedSampleRatio": 0.02245,
+    "maxLimiterReductionDb": 6.35,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "e22e3b47447061447b43fa93573fb82eb75de0ec44617c59774b885c416a158a",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.0307795654216737e-05,
+    "peak": 0.650765597820282,
+    "rms": 0.04057125432732866
+  },
+  "requestedDurationSeconds": 70.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 13.025,
+      "index": 0,
+      "sceneId": "title",
+      "startSeconds": 0.25,
+      "text": "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft 365, GitHub, or Studio by job, then verify access, licensing, and grounding."
+    },
+    {
+      "endSeconds": 26.425,
+      "index": 1,
+      "sceneId": "choose-by-job",
+      "startSeconds": 13.575,
+      "text": "Copilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions."
+    },
+    {
+      "endSeconds": 40.025,
+      "index": 2,
+      "sceneId": "govern-access",
+      "startSeconds": 26.975,
+      "text": "Microsoft 365 Copilot brings AI into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person."
+    },
+    {
+      "endSeconds": 53.525,
+      "index": 3,
+      "sceneId": "builder-routes",
+      "startSeconds": 40.575,
+      "text": "GitHub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams."
+    },
+    {
+      "endSeconds": 64.575,
+      "index": 4,
+      "sceneId": "decision-checks",
+      "startSeconds": 54.075,
+      "text": "Make the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: k\u02c8Op\u02ccIl\u0259t \u026az \u0250 f\u02c8\u00e6m\u1d4ali, n\u02cc\u0251t w\u02c8\u028cn t\u02c8ul; \u02a7\u02c8uz \u02a7\u02c8\u00e6t, m\u02c8Ik\u0279\u0259s\u02cc\u0251ft \u03b8\u0279\u02c8i s\u02c8\u026aksti f\u02c8Iv, \u0261\u02c8\u026at h\u02c8\u028cb, \u0254\u0279 st\u02c8udiO bI \u02a4\u02c8\u0251b, \u00f0\u02c8\u025bn v\u02c8\u025b\u0279\u0259f\u02ccI \u02c8\u00e6ks\u02cc\u025bs, l\u02c8Is\u1d4ans\u026a\u014b, \u00e6nd \u0261\u0279\u02c8Wnd\u026a\u014b."
+      ],
+      [
+        "k\u02c8Op\u02ccIl\u0259t \u02a7\u02c8\u00e6t f\u02c8\u026ats \u0279\u02c8is\u02cc\u025c\u0279\u02a7 \u00e6nd d\u0279\u02c8\u00e6ft\u026a\u014b. \u02cc\u026at k\u00e6n s\u02c8\u028cm\u0259\u0279\u02ccIz w\u02c8\u025bb \u02cc\u026anf\u0259\u0279m\u02c8A\u0283\u0259n, \u0279\u02c8i\u0279\u02ccIt k\u02c8\u0251nt\u025bnt, \u02c8\u00e6n\u1d4al\u02ccIz f\u02c8Ilz, k\u0279i\u02c8At \u02c8\u026am\u026a\u02a4\u1d7bz, j\u02c8uz \u02c8A\u02a4\u1d4ants, \u00e6nd \u02c8\u00e6sk s\u0259p\u02c8\u0254\u0279T\u1d7bd w\u02c8\u025c\u0279k kw\u02c8\u025bs\u02a7\u1d4anz."
+      ],
+      [
+        "m\u02c8Ik\u0279\u0259s\u02cc\u0251ft \u03b8\u0279\u02c8i s\u02c8\u026aksti f\u02c8Iv k\u02c8Op\u02ccIl\u0259t b\u0279\u02c8\u026a\u014bz \u0250 \u02ccI \u02c8\u026antu w\u02c8\u025c\u0279k \u02c8\u00e6ps. \u0261\u0279\u02c8Wnd\u026a\u014b, j\u02c8uz\u0259\u0279 p\u0259\u0279m\u02c8\u026a\u0283\u0259nz, k\u0259mpl\u02c8I\u0259ns k\u0259nt\u0279\u02c8Olz \u00e6nd l\u02c8Is\u1d4ans l\u02c8\u025bv\u1d4al \u0283\u02c8Ap w\u02cc\u028ct \u026at k\u00e6n \u02c8\u00e6ns\u0259\u0279 f\u0254\u0279 \u02c8i\u02a7 p\u02c8\u025c\u0279s\u1d4an."
+      ],
+      [
+        "\u0261\u02c8\u026at h\u02c8\u028cb k\u02c8Op\u02ccIl\u0259t f\u02c8\u026ats k\u02c8Od\u026a\u014b w\u02c8\u025c\u0279kfl\u02ccOz \u026an d\u0259v\u02c8\u025bl\u0259p\u0259\u0279 t\u02c8ulz. k\u02c8Op\u02ccIl\u0259t st\u02c8udiO b\u02c8\u026aldz \u02c8A\u02a4\u1d4ants \u00e6nd w\u02c8\u025c\u0279kfl\u02ccOz k\u0259n\u02c8\u025bkt\u1d7bd t\u028a \u02cc\u0254\u0279\u0261\u0259n\u0259z\u02c8A\u0283\u0259n\u1d4al d\u02c8AT\u0259, s\u02c8\u026ast\u0259mz, \u00e6nd \u02a7\u02c8\u00e6n\u1d4alz f\u0254\u0279 t\u02c8imz."
+      ],
+      [
+        "m\u02ccAk \u00f0\u0259 d\u0259s\u02c8\u026a\u0292\u1d4an \u02c8\u00e6ft\u0259\u0279 \u00f0\u0259 f\u02c8\u026at \u026az kl\u02c8\u026a\u0279. \u02a7\u02c8\u025bk p\u0259\u0279m\u02c8\u026a\u0283\u0259nz, l\u02c8Is\u1d4ans t\u02c8\u026a\u0279, \u00e6nd \u0261\u0279\u02c8Wnd\u026a\u014b s\u02ccO l\u02c8id\u0259\u0279z n\u02c8O w\u02cc\u028ct \u02c8i\u02a7 \u02c8Wtp\u02cc\u028at k\u00e6n \u00e6nd k\u0259n\u02c8\u0251t j\u02c8uz \u026an p\u0279\u02c8\u00e6kt\u0259s."
+      ]
+    ],
+    "phonemesSha256": "91de1d0d9b025d79353b90fe0a7d5a79ef0adcf2591bf6f29d9d3eaea6350899",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft three sixty five, Git Hub, or Studio by job, then verify access, licensing, and grounding.",
+      "Copilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.",
+      "Microsoft three sixty five Copilot brings A I into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.",
+      "Git Hub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.",
+      "Make the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "AI": "A I",
+      "Cowork": "co-work",
+      "GitHub": "Git Hub",
+      "Microsoft 365": "Microsoft three sixty five"
+    },
+    "speed": 1
+  }
+}

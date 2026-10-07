@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "copilot",
+  "domainDigest": "f4aa766cd23f3047709bc41a57456295d158bd73d868bdac321e685011de205d",
+  "title": "Copilot: choose the right AI assistant for the job",
+  "audience": "Executive decision-makers",
+  "decision": "Choose by job; verify access, licensing, grounding, and output scope.",
+  "language": "en",
+  "summary": "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft 365, GitHub, or Studio by job, then verify access, licensing, and grounding.",
+  "claims": [
+    {
+      "claimId": "c1",
+      "text": "Copilot Chat supports research, content generation, file analysis, images, agents, and supported organizational questions.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ]
+    },
+    {
+      "claimId": "c2",
+      "text": "Microsoft 365 Copilot is shaped by organizational grounding, user permissions, compliance controls, work-app access, and license level.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-04"
+      ]
+    },
+    {
+      "claimId": "c3",
+      "text": "GitHub Copilot supports coding work in editors, the command line, and GitHub, including completing code, edits, validation, and workflow support.",
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ]
+    },
+    {
+      "claimId": "c4",
+      "text": "Copilot Studio is a low-code route for building agents and workflows connected to organizational data, systems, and channels.",
+      "evidenceIds": [
+        "ev-07",
+        "ev-08"
+      ]
+    },
+    {
+      "claimId": "c5",
+      "text": "The executive choice is job first, then access, licensing, grounding, and output scope.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-03",
+        "ev-04",
+        "ev-05",
+        "ev-07",
+        "ev-08"
+      ]
+    }
+  ],
+  "citations": [
+    {
+      "evidenceId": "ev-01",
+      "sourceTitle": "Overview of Microsoft Copilot Chat",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview",
+      "retrievedAt": "2026-10-06T20:16:25.109Z"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceTitle": "Overview of Microsoft Copilot Chat",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview",
+      "retrievedAt": "2026-10-06T20:16:25.109Z"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceTitle": "What is Microsoft Copilot?",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview",
+      "retrievedAt": "2026-10-06T20:16:25.380Z"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceTitle": "What is Microsoft Copilot?",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview",
+      "retrievedAt": "2026-10-06T20:16:25.380Z"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceTitle": "GitHub Copilot · Your AI coding agent · GitHub",
+      "canonicalUrl": "https://github.com/features/copilot",
+      "retrievedAt": "2026-10-06T20:16:25.831Z"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceTitle": "GitHub Copilot · Your AI coding agent · GitHub",
+      "canonicalUrl": "https://github.com/features/copilot",
+      "retrievedAt": "2026-10-06T20:16:25.831Z"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceTitle": "Overview - Microsoft Copilot Studio",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+      "retrievedAt": "2026-10-06T20:16:25.952Z"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceTitle": "Overview - Microsoft Copilot Studio",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+      "retrievedAt": "2026-10-06T20:16:25.952Z"
+    }
+  ],
+  "assets": [],
+  "sections": [
+    {
+      "sectionId": "choose-by-job",
+      "title": "1. Choose by job",
+      "body": "Copilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.",
+      "claimIds": [
+        "c1",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: ev-01 lists Copilot Chat research, generation, file analysis, images, agents, and supported organizational questions. Interpretation: make the task the first routing filter.",
+      "visual": {
+        "kind": "mermaid",
+        "caption": "Route Copilot choices by the job the leader needs done.",
+        "source": "flowchart LR\n  chat[\"CHAT<br/>RESEARCH + DRAFT\"]\n  m365[\"M365<br/>WORK DATA\"]\n  github[\"GITHUB<br/>CODE\"]\n  studio[\"STUDIO<br/>AGENTS\"]\n  chat --- m365 --- github --- studio"
+      }
+    },
+    {
+      "sectionId": "govern-access",
+      "title": "2. Govern access",
+      "body": "Microsoft 365 Copilot brings AI into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.",
+      "claimIds": [
+        "c2",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: ev-03 documents grounding, organizational data, user permissions, and compliance; ev-04 ties the full work-app experience to the Microsoft 365 Copilot add-on license.",
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Access governance makes the permitted information boundary explicit.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"permissions\",\"x\":80,\"y\":60,\"width\":300,\"height\":160,\"strokeColor\":\"#8FA3A0\",\"backgroundColor\":\"#1C2322\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"PERMISSIONS\\nWHO CAN SEE\",\"fontSize\":34,\"strokeColor\":\"#F4F7F5\"}},{\"type\":\"rectangle\",\"id\":\"license\",\"x\":490,\"y\":60,\"width\":300,\"height\":160,\"strokeColor\":\"#8FA3A0\",\"backgroundColor\":\"#1C2322\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"LICENSE\\nWHO CAN USE\",\"fontSize\":34,\"strokeColor\":\"#F4F7F5\"}},{\"type\":\"rectangle\",\"id\":\"grounding\",\"x\":900,\"y\":60,\"width\":300,\"height\":160,\"strokeColor\":\"#55C2B8\",\"backgroundColor\":\"#143633\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"GROUNDING\\nWHAT IT CAN USE\",\"fontSize\":34,\"strokeColor\":\"#F4F7F5\"}},{\"type\":\"arrow\",\"x\":380,\"y\":140,\"width\":110,\"height\":0,\"start\":{\"id\":\"permissions\"},\"end\":{\"id\":\"license\"},\"strokeColor\":\"#55C2B8\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":790,\"y\":140,\"width\":110,\"height\":0,\"start\":{\"id\":\"license\"},\"end\":{\"id\":\"grounding\"},\"strokeColor\":\"#55C2B8\",\"strokeWidth\":5,\"roughness\":0}]"
+      }
+    },
+    {
+      "sectionId": "builder-routes",
+      "title": "3. Separate builders",
+      "body": "GitHub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.",
+      "claimIds": [
+        "c3",
+        "c4"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: ev-05 and ev-06 place GitHub Copilot in coding surfaces; ev-07 and ev-08 define Copilot Studio as a low-code agent and workflow builder connected to organizational systems.",
+      "visual": {
+        "kind": "marp",
+        "caption": "Coding assistance and business-agent building are different routes.",
+        "source": "# SEPARATE BUILDERS\n\n| GITHUB | STUDIO |\n|---|---|\n| CODE | AGENTS |\n| DEV TOOLS | WORK SYSTEMS |\n\n## DO NOT SWAP JOBS"
+      }
+    },
+    {
+      "sectionId": "decision-checks",
+      "title": "4. Run decision checks",
+      "body": "Make the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+      "claimIds": [
+        "c2",
+        "c5"
+      ],
+      "assetIds": [],
+      "speakerNotes": "Evidence: ev-02 and ev-03 show available information depends on access point, license, grounding, and permissions. Interpretation: output scope should be part of the executive decision gate.",
+      "visual": {
+        "kind": "marp",
+        "caption": "The final executive gate checks fit, access, licensing and grounding.",
+        "source": "# DECISION CHECK\n\n| JOB | ACCESS | LICENSE |\n|---|---|---|\n| FIT | PERMIT | ENTITLE |\n\n## KNOW OUTPUT SCOPE"
+      }
+    }
+  ],
+  "voice": {
+    "style": "calm, decisive executive briefing",
+    "profileId": "am_michael",
+    "speed": 1,
+    "pronunciations": {
+      "Microsoft 365": "Microsoft three sixty five",
+      "GitHub": "Git Hub",
+      "AI": "A I"
+    },
+    "narration": "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft 365, GitHub, or Studio by job, then verify access, licensing, and grounding.\n\nCopilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.\n\nMicrosoft 365 Copilot brings AI into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.\n\nGitHub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.\n\nMake the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+    "externalTransfer": false
+  }
+}

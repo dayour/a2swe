@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "copilot",
+  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "text": "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft 365, GitHub, or Studio by job, then verify access, licensing, and grounding.\n\nCopilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.\n\nMicrosoft 365 Copilot brings AI into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.\n\nGitHub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.\n\nMake the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+  "segments": [
+    {
+      "text": "Bottom line: Copilot is a family, not one tool; choose Chat, Microsoft 365, GitHub, or Studio by job, then verify access, licensing, and grounding.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Copilot Chat fits research and drafting. It can summarize web information, rewrite content, analyze files, create images, use agents, and ask supported work questions.",
+      "sceneId": "choose-by-job"
+    },
+    {
+      "text": "Microsoft 365 Copilot brings AI into work apps. Grounding, user permissions, compliance controls and license level shape what it can answer for each person.",
+      "sceneId": "govern-access"
+    },
+    {
+      "text": "GitHub Copilot fits coding workflows in developer tools. Copilot Studio builds agents and workflows connected to organizational data, systems, and channels for teams.",
+      "sceneId": "builder-routes"
+    },
+    {
+      "text": "Make the decision after the fit is clear. Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+      "sceneId": "decision-checks"
+    }
+  ],
+  "narrationSha256": "e22e3b47447061447b43fa93573fb82eb75de0ec44617c59774b885c416a158a",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five",
+      "GitHub": "Git Hub",
+      "AI": "A I"
+    }
+  },
+  "outputWav": "public/assets/copilot/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 70,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

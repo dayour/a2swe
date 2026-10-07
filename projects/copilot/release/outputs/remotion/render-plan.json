@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "renderer": "remotion",
+  "encodedMp4": "core-managed-on-render",
+  "encodedMp4Path": "dist/render.mp4",
+  "dependencyMode": "local-only; no automatic package install, model download, or cloud speech fallback; Python 3.14 local Kokoro/Kokoro-ONNX model paths required",
+  "reason": "Core invokes this 1080p Remotion MP4 project during production. The renderer synthesizes digest-bound narration with local Python 3.14 Kokoro ONNX (or explicit Kokoro/Misaki), measures the resulting WAV, derives scene frames, encodes MP4, and requires encoded-media QC.",
+  "composition": {
+    "id": "copilot",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationInFrames": 1953,
+    "sampleRate": 48000
+  },
+  "paths": {
+    "entryPoint": "src/index.tsx",
+    "rootComponent": "src/Root.tsx",
+    "content": "src/content.json",
+    "timeline": "timeline.json",
+    "assetManifest": "asset-manifest.json",
+    "audio": "public/assets/copilot/audio.wav",
+    "narrationManifest": "speech/narration-manifest.json",
+    "narrationMetadata": "audio/narration-metadata.json",
+    "audioQaScript": "scripts/audio-qa.mjs",
+    "audioQaReport": "qc/audio-qa.json",
+    "audioSpectrogram": "qc/audio-spectrogram.svg",
+    "requirementsLock": "requirements.lock.txt",
+    "tsconfig": "tsconfig.json",
+    "remotionConfig": "remotion.config.ts",
+    "audioScript": "scripts/synthesize-audio.mjs",
+    "audioProducer": "scripts/synthesize-audio.py",
+    "renderScript": "scripts/render-mp4.mjs",
+    "verifyScript": "scripts/verify-mp4.mjs",
+    "qcReport": "qc/mp4-qc.json",
+    "renderOutput": "dist/render.mp4"
+  },
+  "commands": {
+    "install": "npm install --ignore-scripts",
+    "preview": "npm run preview",
+    "typecheck": "npm run typecheck",
+    "audio": "npm run audio",
+    "audioQa": "npm run audio:qa",
+    "render": "npm run render",
+    "qc": "npm run qc"
+  },
+  "template": "a2swe-production-template-v3"
+}

@@ -1,0 +1,7 @@
+# DECISION CHECK
+
+| JOB | ACCESS | LICENSE |
+|---|---|---|
+| FIT | PERMIT | ENTITLE |
+
+## KNOW OUTPUT SCOPE
