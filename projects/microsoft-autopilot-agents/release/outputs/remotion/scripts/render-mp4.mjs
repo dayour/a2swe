@@ -18,7 +18,7 @@ function run(command, args, label, options = {}) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true, ...options });
   if (result.error) fail(`${label} executable failed to start: ${result.error.message}`);
   if (result.status !== 0) {
-    const detail = (result.stderr || result.stdout || '').trim().slice(0, 4000);
+    const detail = (result.stderr || result.stdout || '').trim().slice(-4000);
     fail(`${label} exited with ${result.status}: ${detail}`);
   }
   return result.stdout;
@@ -260,12 +260,14 @@ mkdirSync(path.dirname(output), { recursive: true });
 if (existsSync(output) && process.env.A2SWE_OVERWRITE_MP4 !== '1') fail(`refusing to overwrite existing MP4: ${plan.encodedMp4Path}`);
 const qcPath = path.join(root, 'qc', 'mp4-qc.json');
 if (existsSync(qcPath)) unlinkSync(qcPath);
-run(process.execPath, [remotion, 'render', 'src/index.tsx', content.contentId, plan.encodedMp4Path, '--codec=h264', '--crf=16', '--pixel-format=yuv420p', '--log=error'], 'Remotion render');
+run(process.execPath, [remotion, 'render', 'src/index.tsx', content.contentId, plan.encodedMp4Path, '--codec=h264', '--crf=16', '--pixel-format=yuv420p', '--log=error', '--timeout=120000',
+  ...(process.env.A2SWE_BROWSER_EXECUTABLE ? ['--browser-executable=' + process.env.A2SWE_BROWSER_EXECUTABLE] : []),
+  ...(/^[0-9]+$/.test(process.env.A2SWE_REMOTION_PORT ?? '') ? ['--port=' + process.env.A2SWE_REMOTION_PORT] : [])], 'Remotion render');
 const outputHash = sha256File(output);
 mkdirSync(path.join(root, 'qc'), { recursive: true });
 writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
   schemaVersion: '1.0.0',
-  adapter: 'a2swe-remotion-mp4-adapter-3',
+  adapter: 'a2swe-remotion-mp4-adapter-9',
   contentDigest: plan.contentDigest,
   output: plan.encodedMp4Path,
   outputSha256: outputHash,
@@ -277,5 +279,5 @@ writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
 }, null, 2) + '\n');
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg'], 'encoded audio spectrogram QA');
 run(process.execPath, ['scripts/verify-mp4.mjs'], 'encoded MP4 QC');
-console.log(JSON.stringify({ output: plan.encodedMp4Path, sha256: outputHash, adapter: 'a2swe-remotion-mp4-adapter-3',
+console.log(JSON.stringify({ output: plan.encodedMp4Path, sha256: outputHash, adapter: 'a2swe-remotion-mp4-adapter-9',
   qc: 'qc/mp4-qc.json', audioQa: 'qc/audio-qa.json', audioSpectrogram: 'qc/audio-spectrogram.svg', narrationDurationSeconds: audioProbe.duration }));

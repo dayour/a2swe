@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-3",
+  "adapter": "a2swe-remotion-mp4-adapter-9",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "input": "dist/render.mp4",
-  "inputSha256": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
-  "sourceAudioSha256": "483608212285c957016a23d928e4f59ff724e03aca98501183cde637ba48be90",
+  "inputSha256": "469e1d223541227321a35226755ae4f6a60028508d9d2c9c654d2b6af646b0f2",
+  "sourceAudioSha256": "6f3040ae4b1eb67a4a1551e5f966ea98bb39128f5308eec8bebdba35e4bd59b7",
   "sampleRate": 48000,
   "durationSeconds": 61.589333,
   "producer": "scripts/synthesize-audio.py",
@@ -41,18 +41,18 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 61.589333,
-      "rmsDbfs": -26.419237,
-      "peakDbfs": -1.030154,
-      "highFrequencyRatio8k": 0.002572,
-      "spectralFlatness": 0.000004
+      "rmsDbfs": -19.659312,
+      "peakDbfs": -1.496343,
+      "highFrequencyRatio8k": 0.00273,
+      "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 59.125,
-      "rmsDbfs": -26.241894,
-      "peakDbfs": -1.030154,
-      "highFrequencyRatio8k": 0.001844,
-      "spectralFlatness": 0.000005
+      "rmsDbfs": -19.481969,
+      "peakDbfs": -1.496343,
+      "highFrequencyRatio8k": 0.002216,
+      "spectralFlatness": 0.000001
     },
     "silence": {
       "label": "nonSpeechGaps",
@@ -78,7 +78,23 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 213.758106
+    "snrSpeechVsSilenceDb": 220.518031,
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 2.7,
+      "truePeakDbtp": -1.5
+    }
+  },
+  "mastering": {
+    "gainDb": 8.53,
+    "inputLufs": -24.13,
+    "limitedSampleRatio": 0.03059,
+    "maxLimiterReductionDb": 7.31,
+    "outputLufs": -16.05,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16,
+    "truePeakCeilingDbtp": -1.5
   },
   "thresholds": {
     "gapBoundaryGuardSeconds": 0.1,
@@ -86,7 +102,10 @@
     "maxSourceEdgeRmsDbfs": -60,
     "maxSilenceRmsDbfs": -55,
     "maxSpeechHighFrequencyRatio8k": 0.03,
-    "minSpeechVsSilenceSnrDb": 45
+    "minSpeechVsSilenceSnrDb": 45,
+    "targetLufs": -16,
+    "maxLoudnessDeviationLu": 1,
+    "maxTruePeakDbtp": -1
   },
   "findings": [],
   "valid": true,

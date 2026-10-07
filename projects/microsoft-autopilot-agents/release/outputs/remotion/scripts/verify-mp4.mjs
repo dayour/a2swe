@@ -16,7 +16,7 @@ function fail(message) {
 function run(command, args, label) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
   if (result.error) fail(`${label} executable failed to start: ${result.error.message}`);
-  if (result.status !== 0) fail(`${label} exited with ${result.status}: ${(result.stderr || result.stdout || '').trim().slice(0, 4000)}`);
+  if (result.status !== 0) fail(`${label} exited with ${result.status}: ${(result.stderr || result.stdout || '').trim().slice(-4000)}`);
   return result.stdout;
 }
 
@@ -72,7 +72,7 @@ if (!Number.isFinite(duration) || duration < expectedDuration - durationToleranc
   fail(`expected narration duration ${expectedDuration}s through video duration ${videoDuration}s plus AAC padding ${aacPadding}s, got ${duration}s`);
 }
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg', '--verify-only'], 'encoded audio spectrogram QA');
-const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-3', file: plan.encodedMp4Path,
+const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-9', file: plan.encodedMp4Path,
   contentDigest: plan.contentDigest, outputSha256, video, audio, container: { ...probe.format, filename: plan.encodedMp4Path } };
 const qcPath = path.join(root, 'qc', 'mp4-qc.json');
 if (process.argv.includes('--verify-only')) {
@@ -88,4 +88,4 @@ if (process.argv.includes('--verify-only')) {
   mkdirSync(path.join(root, 'qc'), { recursive: true });
   writeFileSync(qcPath, JSON.stringify(report, null, 2) + '\n');
 }
-console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-3' }));
+console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-9' }));

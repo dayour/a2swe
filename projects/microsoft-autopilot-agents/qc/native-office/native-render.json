@@ -1,20 +1,25 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft-autopilot-agents",
+  "checkedAt": "2026-10-07T00:51:20.531Z",
   "pptx": {
-    "overflow": [],
-    "slides": 5,
     "renderer": "Microsoft PowerPoint",
     "version": "16.0",
-    "sha256": "fa85ae4ded86f3196301b5e4fde33609fb5d9fe63c840e6cf239fe2a21d9dfc7",
-    "preview": "qc/native-office/slides"
+    "slides": 5,
+    "overflow": [],
+    "sha256": "4455875e3b01f23746070c08d77e31b3e3c3fe7f6e6ddce3f270acaefbf48192",
+    "preview": "qc/native-office/slides-contact.jpg"
   },
   "docx": {
-    "pdf": "qc/native-office/document-native.pdf",
-    "pages": 4,
-    "version": "16.0",
     "renderer": "Microsoft Word",
-    "sha256": "66467529820894cc120a0626a43b395e1c577e1ed178088da41b582396ac7aea"
+    "version": "16.0",
+    "pages": 4,
+    "sha256": "a329c9b0708fe2caed148769ce563e56b0f98c7655749a4ca851dc6331a48e09",
+    "pdf": "qc/native-office/document-native.pdf",
+    "preview": "qc/native-office/word-contact.jpg"
   },
-  "checkedAt": "2026-10-06T01:38:06.5923306Z"
+  "corePdf": {
+    "pages": 4,
+    "preview": "qc/native-office/core-contact.jpg"
+  }
 }

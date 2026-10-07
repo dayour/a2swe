@@ -6,8 +6,8 @@
   "number": 4,
   "createdAt": "2026-10-06T01:36:54.557Z",
   "pipeline": "core-release",
-  "status": "current",
-  "source": "release",
+  "status": "superseded",
+  "source": "qc/revisions/microsoft-autopilot-agents-2026-04",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "outputs": [
     {
@@ -48,7 +48,7 @@
         }
       ],
       "releaseDigest": "7140c73c89ca538ec5d4a21f7c9eec22daa8ce44e3f3abdeceef2d9168ff6110",
-      "package": "release"
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-04"
     },
     {
       "path": "microsoft-autopilot-agents-2026-04.vtt",

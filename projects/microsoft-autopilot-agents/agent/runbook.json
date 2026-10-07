@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "microsoft-autopilot-agents",
   "projectId": "microsoft-autopilot-agents",
-  "updatedAt": "2026-10-06T01:38:59.017Z",
+  "updatedAt": "2026-10-07T00:51:21.119Z",
   "domainDigest": "293c06d00035e921e8f4bf84768b515d6de917530d4fdc75fa83a2fee9108601",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "stage": "delivery",
@@ -23,13 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "b23045c5eae9004ee740ffcf13c53fa0edfd1779a5af1a0427421a4098167cf3"
+      "evidenceDigest": "2d8bd33762fabe17e0ce5bd981069fbc61fac7f9107fedc1d60e2f40efac1ebf"
+    },
+    {
+      "name": "native-office",
+      "status": "passed",
+      "evidencePath": "qc/native-office/native-render.json",
+      "evidenceDigest": "af099c03859799f28a31570c234504b363548170ed688a079c27b96a8fa5cada"
+    },
+    {
+      "name": "media-analysis",
+      "status": "passed",
+      "evidencePath": "qc/analysis/microsoft-autopilot-agents-2026-05/microsoft-autopilot-agents-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "90daad5fa94b90d5b7313d8dc87b7794bd8f812225dd777c9ad21fd3f216133d"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "9500d4e796086b83d6727eb2a8541ac86031d602021d1823e741ece3e2f95daf"
+      "evidenceDigest": "fb1a0dd161c3983ced53dc084f1ce36e757dafd4f50697a50b3da4fb54b19dfb"
     }
   ],
   "stages": [
@@ -50,6 +62,7 @@
         "scaffold"
       ],
       "evidencePaths": [
+        "canonical/domain-pack.json",
         "release/domain-pack.json"
       ]
     },
@@ -61,6 +74,7 @@
         "research"
       ],
       "evidencePaths": [
+        "canonical/content-ir.json",
         "release/content-ir.json",
         "release/render-spec.json"
       ]
@@ -73,9 +87,14 @@
         "content"
       ],
       "evidencePaths": [
-        "release/outputs/remotion/dist/render.mp4",
+        "release/outputs/index.html",
+        "release/outputs/deck.deck.json",
         "release/outputs/deck.pptx",
-        "release/outputs/document.docx"
+        "release/outputs/document.docx",
+        "release/outputs/document.pdf",
+        "release/outputs/raster.png",
+        "release/outputs/raster.jpg",
+        "release/outputs/remotion/dist/render.mp4"
       ]
     },
     {
@@ -88,7 +107,9 @@
       "evidencePaths": [
         "release/outputs/remotion/qc/audio-qa.json",
         "release/outputs/remotion/qc/audio-spectrogram.svg",
-        "release/parity-manifest.json"
+        "release/parity-manifest.json",
+        "qc/native-office/native-render.json",
+        "qc/analysis/microsoft-autopilot-agents-2026-05/microsoft-autopilot-agents-2026-05-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -112,10 +133,22 @@
       "stage": "scaffold"
     },
     {
+      "path": "canonical/domain-pack.json",
+      "digest": "f1b4fed28bb2c4f15c0e9f8429340fda5343d5926a85aa0211095a614b559bb9",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
       "path": "release/domain-pack.json",
       "digest": "9d4c044eb94a56420260a2fef8dcf2eac0dad41a0c5424820b8a30305577a238",
       "mediaType": "application/json",
       "stage": "research"
+    },
+    {
+      "path": "canonical/content-ir.json",
+      "digest": "1be9de52d74e706bb20ac0a8852eb08cc3430d0a2c224669e4874396a490db20",
+      "mediaType": "application/json",
+      "stage": "content"
     },
     {
       "path": "release/content-ir.json",
@@ -125,59 +158,101 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "4cf62553742e8466f42439015ea72908983b0ec15495f58a55474539a97793a3",
+      "digest": "156920c66cd746400dc0d166210141b6e092d09fa21e91d3329d6410d5da1ada",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
-      "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "20e7309551fdd6751a7a2164b5e1c09ceb5414aa0af0ad0e53f667cd7f2b1cec",
-      "mediaType": "video/mp4",
+      "path": "release/outputs/index.html",
+      "digest": "98cbc7666cb99f8a33b4c1ef3416499865d7f0e6dc408beae4f6a4a64d5cffb9",
+      "mediaType": "text/html",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.deck.json",
+      "digest": "7ec164a6eb435f687c314856a9a33e4ff41ce9df4b0a2af5300afc65b8aee806",
+      "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "fa85ae4ded86f3196301b5e4fde33609fb5d9fe63c840e6cf239fe2a21d9dfc7",
+      "digest": "4455875e3b01f23746070c08d77e31b3e3c3fe7f6e6ddce3f270acaefbf48192",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "66467529820894cc120a0626a43b395e1c577e1ed178088da41b582396ac7aea",
+      "digest": "a329c9b0708fe2caed148769ce563e56b0f98c7655749a4ca851dc6331a48e09",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
+      "path": "release/outputs/document.pdf",
+      "digest": "8e0777e1021cc0f788a70e2d7e3dfaaf8e0cdb32887c0ac4e06b5ae4d523cb0a",
+      "mediaType": "application/pdf",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.png",
+      "digest": "4c386e72b2fb77eab3f867622636c22c39eb4c1c7dee49e905ac50db0473f412",
+      "mediaType": "image/png",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.jpg",
+      "digest": "1c9cd0d8f526237c12f3e282bf2aa36d7db9b3276dbb605ebc4b1ea0acc303ca",
+      "mediaType": "image/jpeg",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "469e1d223541227321a35226755ae4f6a60028508d9d2c9c654d2b6af646b0f2",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "b23045c5eae9004ee740ffcf13c53fa0edfd1779a5af1a0427421a4098167cf3",
+      "digest": "2d8bd33762fabe17e0ce5bd981069fbc61fac7f9107fedc1d60e2f40efac1ebf",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "012b8d9c8e690202a47770f9a5c21c63c3ac49ac3b514eb91b6c6f470c7654b7",
+      "digest": "acc13e003256c7fb790ac4b893b987b7daf4206de53f4b9d2607ec09b3793a7a",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "9500d4e796086b83d6727eb2a8541ac86031d602021d1823e741ece3e2f95daf",
+      "digest": "fb1a0dd161c3983ced53dc084f1ce36e757dafd4f50697a50b3da4fb54b19dfb",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/native-office/native-render.json",
+      "digest": "af099c03859799f28a31570c234504b363548170ed688a079c27b96a8fa5cada",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-05/microsoft-autopilot-agents-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "digest": "90daad5fa94b90d5b7313d8dc87b7794bd8f812225dd777c9ad21fd3f216133d",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "3dc39cb0d655139445dbff82224d7045b17360738fab7da5e2f952e4de5401f0",
+      "digest": "c0909b23587dc3b0e42b93eaaf814b02ca5f48fc5434d1707a784131b457947a",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "835ea06cef712c94d1142a1b5ac0ac97c9b727bab7b25b21bbcff4702aa95b9c",
+      "digest": "5ffd8d5e20ec5d0256b837dcacd251b0dd4708d9bd8335e042e03655e34a0be0",
       "mediaType": "application/json",
       "stage": "delivery"
     }
   ],
   "blockers": [],
-  "nextAction": "Use the verified release package for the executive engagement; publication and distribution remain outside a2swe."
+  "nextAction": "Use the verified release and revision renders for the executive decision; publication and distribution remain outside a2swe."
 }
