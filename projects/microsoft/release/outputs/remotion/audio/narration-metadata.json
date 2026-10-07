@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -2.200245194372563e-12,
-      "highFrequencyRatio8k": 0.0009551289518501676,
-      "rmsDbfs": -27.857116763954487,
-      "spectralFlatness": 1.3125688752400728e-07
+      "dcOffset": -1.2724751807802193e-11,
+      "highFrequencyRatio8k": 0.0009594286796437395,
+      "rmsDbfs": -27.86121687937824,
+      "spectralFlatness": 1.2844712559215725e-07
     },
     "before": {
-      "dcOffset": 1.2157375749666244e-05,
-      "highFrequencyRatio8k": 0.0009550129853426109,
-      "rmsDbfs": -27.856383633477666,
-      "spectralFlatness": 1.210187725105721e-07
+      "dcOffset": 1.2190546840429306e-05,
+      "highFrequencyRatio8k": 0.0009593117812449184,
+      "rmsDbfs": -27.860473004959523,
+      "spectralFlatness": 1.1922778217318972e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/microsoft/audio.wav",
-  "audioSha256": "363fea366e1ddb65a9cfd9ddd5d44ed430842d805e1e39a1a92bc50555687bdd",
+  "audioSha256": "e4ab360ec2e589bff5fb44208a71827c505fe2c2c54a59d82af8db9dd1e5cab1",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,9 +66,9 @@
   "mastering": {
     "gainDb": 8.53,
     "inputLufs": -24.28,
-    "limitedSampleRatio": 0.02491,
-    "maxLimiterReductionDb": 4.44,
-    "outputLufs": -16.04,
+    "limitedSampleRatio": 0.02483,
+    "maxLimiterReductionDb": 4.34,
+    "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16.0,
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2157364710902104e-05,
-    "peak": 0.525287389755249,
-    "rms": 0.04047677076585891
+    "dc": 1.2190551157212323e-05,
+    "peak": 0.5194293260574341,
+    "rms": 0.04045771376062957
   },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

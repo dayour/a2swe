@@ -6,7 +6,7 @@
   "number": 4,
   "createdAt": "2026-10-07T00:08:44.062Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/microsoft-2026-04",
   "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "ddbaf9b9d6987000d6df2866f88f5bfffe51fa2b9713f61cf9b4d2b6095f12a3",
-      "package": "release",
+      "package": "qc/revisions/microsoft-2026-04/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",
