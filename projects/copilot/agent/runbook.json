@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "copilot",
   "projectId": "copilot",
-  "updatedAt": "2026-10-07T01:12:07.959Z",
+  "updatedAt": "2026-10-07T03:18:11.995Z",
   "domainDigest": "f4aa766cd23f3047709bc41a57456295d158bd73d868bdac321e685011de205d",
   "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "stage": "delivery",
@@ -23,25 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "5cd780389dd4889744124cafdfcf337aa9ddba89a81e76e66de9a6e7dad0b69b"
+      "evidenceDigest": "c01995169b71a703e066dc62f6270399050912f285fb2346eb9dc01ce6cecc93"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "e883277418625ad27527976b2a3be5ccb6f222d8aadfab7bd4a90a165752d439"
+      "evidenceDigest": "32c930b048b853389a143eae34716c0d236defe7e736164ba897751c9f18f2a3"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/copilot-2026-08/copilot-2026-08-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "4efc0a40b7d121c77d1082a8199cfc0b153a24b3a55bbcb7221032858ef4b765"
+      "evidencePath": "qc/analysis/copilot-2026-09/copilot-2026-09-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "45100c26e7b65e4e21fb09f286e527e10fce897efbfd2cc7a40343f5e9b34bb7"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "7d1890a75dfe0108ff4b73367cc522b038d5db26c3aa8be75d67466a41325b25"
+      "evidenceDigest": "c5717c9d67bd56dc4c06ce65e389124fe09dc88e45661a290a4d8d8d79254624"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/copilot-2026-08/copilot-2026-08-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/copilot-2026-09/copilot-2026-09-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -158,7 +158,7 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "d60036648fca4827abaf97b024127b47b954b3a98b786e340a9c1271b861e129",
+      "digest": "8b0b63e6b1f7c2fadfad47ef839a08976ae08aba78cfd8cb7b437a5d6a7b3f2c",
       "mediaType": "application/json",
       "stage": "content"
     },
@@ -176,7 +176,7 @@
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "021df4659cdd7cbe9387783fbfbfefc42b5aaa3c8f6cabd929ddc42d2d3c9b32",
+      "digest": "eb0df2f9675d8117a50e864470587ff050296e8c0068a1d147aa5bafc0f2dfca",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
@@ -194,49 +194,49 @@
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "2d98e9e042b29a9deaa7e1808a11d4b44a6f151aa1153c9ea04ac1667f87355f",
+      "digest": "52ed6af2556487e4797785a2238e645f64e941fefc7dbb44f5de852c5398cbe0",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "86975311f555f7219aa8b6f947e9ddae8a771c73405afd9f8ea1c23f0a954625",
+      "digest": "61159277cd13defd6403179328b49d488d2e8458c2487389bad3291414047443",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "90a8c62ec00ef527bfc41328bd7792ed816c194bd18abaf37952f64c2f5025f8",
+      "digest": "e1eb0ab1674e6a120372da37ac2f63e315954d76310ce508f704bbc348f866fc",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "5cd780389dd4889744124cafdfcf337aa9ddba89a81e76e66de9a6e7dad0b69b",
+      "digest": "c01995169b71a703e066dc62f6270399050912f285fb2346eb9dc01ce6cecc93",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "0282111d195db9201fd6b4f6c890f698be58669cc2990caddef40cfe274404e2",
+      "digest": "50777905bda98e618ff9e5dbd107d05b7dcda8653dd61a2d4e25be4a728056fa",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "7d1890a75dfe0108ff4b73367cc522b038d5db26c3aa8be75d67466a41325b25",
+      "digest": "c5717c9d67bd56dc4c06ce65e389124fe09dc88e45661a290a4d8d8d79254624",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "e883277418625ad27527976b2a3be5ccb6f222d8aadfab7bd4a90a165752d439",
+      "digest": "32c930b048b853389a143eae34716c0d236defe7e736164ba897751c9f18f2a3",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/copilot-2026-08/copilot-2026-08-am_michael-kokoro_onnx/analysis.json",
-      "digest": "4efc0a40b7d121c77d1082a8199cfc0b153a24b3a55bbcb7221032858ef4b765",
+      "path": "qc/analysis/copilot-2026-09/copilot-2026-09-am_michael-kokoro_onnx/analysis.json",
+      "digest": "45100c26e7b65e4e21fb09f286e527e10fce897efbfd2cc7a40343f5e9b34bb7",
       "mediaType": "application/json",
       "stage": "qc"
     },
@@ -248,7 +248,7 @@
     },
     {
       "path": "release/release-plan.json",
-      "digest": "e578013eb09b7b585dabc6abb8be6bcd759e7b6cc4ad68d4a18b9a0d650dffd2",
+      "digest": "b691ecd50249972379b0ffc263957e8626730555fcddf48a5020a9c2d95cd639",
       "mediaType": "application/json",
       "stage": "delivery"
     }

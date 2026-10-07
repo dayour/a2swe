@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -5.1903134568043185e-12,
-      "highFrequencyRatio8k": 0.0003091077210570671,
-      "rmsDbfs": -27.830860219996598,
-      "spectralFlatness": 4.209897018671824e-08
+      "dcOffset": -6.182579188190873e-12,
+      "highFrequencyRatio8k": 0.00030083367885897356,
+      "rmsDbfs": -27.83371114780868,
+      "spectralFlatness": 3.9679785493021856e-08
     },
     "before": {
-      "dcOffset": 1.0222597666142974e-05,
-      "highFrequencyRatio8k": 0.0003090955302286584,
-      "rmsDbfs": -27.83025523571584,
-      "spectralFlatness": 3.5545981558711366e-08
+      "dcOffset": 1.0571256098046433e-05,
+      "highFrequencyRatio8k": 0.0003008217374379685,
+      "rmsDbfs": -27.833105964931164,
+      "spectralFlatness": 3.483044807164626e-08
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/copilot/audio.wav",
-  "audioSha256": "686da66662159d6c375d32bf87732f039d05b7eec8e4bf827d228f5d6514433e",
+  "audioSha256": "604ecedf63438ef899abc5e4280dfe7ea650ed6ac41f06f651c635360a6e9301",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,8 +66,8 @@
   "mastering": {
     "gainDb": 8.55,
     "inputLufs": -24.2,
-    "limitedSampleRatio": 0.02219,
-    "maxLimiterReductionDb": 6.47,
+    "limitedSampleRatio": 0.02107,
+    "maxLimiterReductionDb": 6.4,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.0222599493278705e-05,
-    "peak": 0.6604127287864685,
-    "rms": 0.04059872029043998
+    "dc": 1.0571253118897225e-05,
+    "peak": 0.656441330909729,
+    "rms": 0.04058539338255882
   },
   "requestedDurationSeconds": 70.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

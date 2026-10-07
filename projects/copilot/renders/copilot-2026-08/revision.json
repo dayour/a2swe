@@ -6,7 +6,7 @@
   "number": 8,
   "createdAt": "2026-10-07T00:47:27.550Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/copilot-2026-08",
   "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "2c46405aba25df9215a719ba137dd506d871161699046c4752559ceec68ba6f4",
-      "package": "release",
+      "package": "qc/revisions/copilot-2026-08/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",
