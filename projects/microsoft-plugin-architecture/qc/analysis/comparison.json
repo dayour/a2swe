@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft-plugin-architecture",
-  "generatedAt": "2026-10-06T23:59:04.122Z",
+  "generatedAt": "2026-10-07T02:20:50.285Z",
   "rows": [
     {
       "title": "microsoft-plugin-architecture-2026-01",
@@ -110,7 +110,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-04-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -144,7 +144,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-04-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -179,7 +179,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-04-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -213,7 +213,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-04-am_michael-kokoro.mp4",
       "role": "video",
@@ -238,6 +238,143 @@
       "speechHf8k": 0.00316,
       "speechFlatness": 0.000103,
       "humProminenceDb": 8.1,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 9.838,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -69.4,
+      "snrDb": 50.87,
+      "speechRatio": 0.7769,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 769.5,
+      "speechHf8k": 0.003166,
+      "speechFlatness": 0.0001,
+      "humProminenceDb": 8.01,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 9.838,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 57.259,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -73.98,
+      "snrDb": 55.42,
+      "speechRatio": 0.7886,
+      "longestPauseSeconds": 1.325,
+      "speechCentroidHz": 811,
+      "speechHf8k": 0.024453,
+      "speechFlatness": 0.000161,
+      "humProminenceDb": 6.17,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 9.845,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 59.691,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 4.2,
+      "speechRmsDbfs": -18.35,
+      "noiseFloorDbfs": -78.77,
+      "snrDb": 60.42,
+      "speechRatio": 0.7703,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 639.7,
+      "speechHf8k": 0.02188,
+      "speechFlatness": 0.000117,
+      "humProminenceDb": 5.94,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 9.849,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-05-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -69.17,
+      "snrDb": 50.64,
+      "speechRatio": 0.7765,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 771.3,
+      "speechHf8k": 0.003163,
+      "speechFlatness": 0.000103,
+      "humProminenceDb": 7.96,
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.838,

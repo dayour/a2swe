@@ -6,7 +6,7 @@
   "number": 4,
   "createdAt": "2026-10-06T23:32:04.440Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/microsoft-plugin-architecture-2026-04",
   "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "4d5b40a1467aa40f510f2f30613c8fbc2581efd570cf8974b319779ef230d1fb",
-      "package": "release",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-04/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",

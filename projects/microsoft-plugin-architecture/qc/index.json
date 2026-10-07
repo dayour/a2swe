@@ -8,18 +8,18 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "32659e98e8af14fb697d77915feea819c82a3d525380bbe416e3da05a120e828",
-      "byteSize": 7669
+      "digest": "0a17ed3af0d3d9c3cf243aa48cdf57cebf66645b8ca9d7fb4fa42c9337f78d87",
+      "byteSize": 11990
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "83eab7bacf5e25214533c11690299f762dff89d428c1812533fd74bd6c195a4d",
-      "byteSize": 363348
+      "digest": "3f27eca7be7c61aa71c7dabdebefd512c953c9fc05de6753c1d3a1e97a67ca73",
+      "byteSize": 570159
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "3e0377adab41fe32489604a323d1a97691c6049574d9dd00475d6061d750f14d",
-      "byteSize": 339865
+      "digest": "e3fc1ff4590ae0e0a1dc67e259cba8ad6bd0209cef9197ac70e5e33c61d42b39",
+      "byteSize": 540980
     },
     {
       "path": "qc/analysis/microsoft-plugin-architecture-2026-01/microsoft-plugin-architecture-2026-01/analysis.json",
@@ -437,119 +437,359 @@
       "byteSize": 10209
     },
     {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/analysis.json",
+      "digest": "ff6587c00d7df728428155df89d198b9e60a518899d024b655d86af3e93e4362",
+      "byteSize": 12419
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "48a80f67f625bd2092b02bdc3256c796b05fd9c3ed3faa7dd2b9ed99daf37113",
+      "byteSize": 87164
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/chunks/02-three-routes.jpg",
+      "digest": "571a689d09b4d51ee952c6ae1edf0971d897d3b4700a15f3813af7917d1d9bdc",
+      "byteSize": 94299
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/chunks/03-reuse-boundary.jpg",
+      "digest": "b1d98ace8504a3f4ced808f42880aaeaf692074aceb9ce5fa5ccd4aa56390444",
+      "byteSize": 95808
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/chunks/04-supported-paths.jpg",
+      "digest": "5872e5cddbf3801b67db42e8e931af1d83abd80060d9ed0491ddc9c146041193",
+      "byteSize": 95499
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/chunks/05-portfolio.jpg",
+      "digest": "f4cc98962a7ba38d28fa7ed04670bd800723c15d03a5270600afc7d28b2f5ce5",
+      "byteSize": 94306
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "1d11cbc6e1bc444c8248ea5a96118dcdc5499a419d83abf6b5f7101ee8578827",
+      "byteSize": 399527
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "d56b09ab39ca5f1defbf3d3957ede105f89b5f69da500001f6fe4960e77735c8",
+      "byteSize": 44621
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/layers.png",
+      "digest": "f11f33870ca39ac7aeab935b2391107483fcefc717c57fbb8c598fd4485eef30",
+      "byteSize": 76366
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "d86d9159db980fc06e95c817d934b65e0ef5aee9b1fbb3cf51dbade75113aac0",
+      "byteSize": 256821
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "e027b52325e4d3a070d0deee0d7410a4295860c08ae1ad9eb01af131f8f56d26",
+      "byteSize": 171520
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_bella-kokoro_onnx/waveform.png",
+      "digest": "f3fa2a9da8c642964502c0e1a78a7d0c2ed130eb78f801e98585c60a45001f88",
+      "byteSize": 9969
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/analysis.json",
+      "digest": "420627298a0a94581289bf3e8a1a037240d0741262fdb3eef7a4a2847b8794bd",
+      "byteSize": 12580
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "7558cc87c5d3a5c572dc8c17e709ae5de85aa1085040989af3493e9632073092",
+      "byteSize": 85773
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/chunks/02-three-routes.jpg",
+      "digest": "975a7ee7ff977b203450f9c016a8711405e27c9778eb2e51adbc631c2364b907",
+      "byteSize": 93247
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/chunks/03-reuse-boundary.jpg",
+      "digest": "a00c8d09416114fe8f5b75278b293cc992797dfc6c4baa9ae6b3ff46bab06ef0",
+      "byteSize": 94412
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/chunks/04-supported-paths.jpg",
+      "digest": "bc8a15dce7c78548442c5a03e9eb6fa4c0bf8e458b9e4bf62e1f6ac226e8ed22",
+      "byteSize": 94874
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/chunks/05-portfolio.jpg",
+      "digest": "cf02dec2e5225f18718a698f997283ab4a6cf4354e3f8998fe04c3cc623d4f63",
+      "byteSize": 93539
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "e636e28edc1c4e7a123728e45cb08ca465383094b4e2e3513b3b9893702a641d",
+      "byteSize": 401577
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "2fe40b64edac45de952ead8546cb84c23604861269e02ca3c300af3730d79d54",
+      "byteSize": 44576
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/layers.png",
+      "digest": "56f9e2e7d32b890ea0eb5cd30cf268223d51678e54c0dc4e3b9ecd88bbe40705",
+      "byteSize": 82179
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "2584c1a038fca8c1c13136b71b89e1ee7c7dc71a8601ecc43aee8207e86e9d0a",
+      "byteSize": 255947
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "066ca3291d28c85dc90a149c03921e9a02919b5f64c91dd58458c99f440a7644",
+      "byteSize": 168600
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-af_heart-kokoro_onnx/waveform.png",
+      "digest": "6e00e5876bc5e3a7d9b6f2551e9f45611a1c53c2d60c51fe066ad03644c6dafb",
+      "byteSize": 10184
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "digest": "1fe462bb197c04e1974f890a094b3223b1b4f643799a9aa916a7464af8128106",
+      "byteSize": 12720
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "2f0894cd288731d08f3369e93dc184c87ed98acb891ec3d18dc015c69a5c6f56",
+      "byteSize": 86938
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/chunks/02-three-routes.jpg",
+      "digest": "91d5a935b471680577c28133cf8ca62be820302376995c5638fabcbbda7337bd",
+      "byteSize": 92006
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/chunks/03-reuse-boundary.jpg",
+      "digest": "1b9985e3d18207834940ba3ef1868d1ae176f7dd701e2c198385f7a3b382ffd5",
+      "byteSize": 94898
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/chunks/04-supported-paths.jpg",
+      "digest": "3df947d29989c172bfbee7d3fd55c58527406e2fb7a12afc85ebbd2dd0dd6753",
+      "byteSize": 96571
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/chunks/05-portfolio.jpg",
+      "digest": "3f705a3453f5638acd49995fe7d940916b593c413e64216e9951c9043790648c",
+      "byteSize": 94148
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "c4388ead81adf50a427ba1565fc2f2184b238781314d1e283ab965c3bf2687d9",
+      "byteSize": 398759
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "f30a27af84ce41aa09f51f8f22aac150ea5ce43cf28a6a03e971ceb5b13834fd",
+      "byteSize": 44504
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/layers.png",
+      "digest": "827a1fccc0f557674b70830cc0bb2e0a652c02c0838f2b82555ec80ae70a1820",
+      "byteSize": 80249
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "a980d7fdacdb3f11d3da36c04a838da696108b3f16336e6722efb65a2ffd1cbd",
+      "byteSize": 245530
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "e3c2aa909131e5d2867d4fbb4bce04c39cb26aeb4050f85b91116768312c8f73",
+      "byteSize": 162181
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/waveform.png",
+      "digest": "2ed6fb6d81d65ce24490dc07a0ef915335395c5aaa8e027e4178111d112b2705",
+      "byteSize": 10167
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/analysis.json",
+      "digest": "72ae4aaa6e1837f4e1044109f72fa4c5ff6223f1c2403ae551c00a3a20f64316",
+      "byteSize": 12727
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "07dd0a855f8c5f8dd8bfbee1c9c81f9d95bb195591510140a41d779a80266c31",
+      "byteSize": 86832
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/chunks/02-three-routes.jpg",
+      "digest": "19bf0962e78590c2ee6ffca143634b1d4455bf9f6f3077393374b621eedc07aa",
+      "byteSize": 92024
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/chunks/03-reuse-boundary.jpg",
+      "digest": "2358080845e46ca7cc20f196012235cb734d7323b2b4f28ced4e52fac2ac7ffc",
+      "byteSize": 95424
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/chunks/04-supported-paths.jpg",
+      "digest": "7549c27636169c6154cdbf74d8881afe57d3a1487e94f098032850ffb6f994c8",
+      "byteSize": 95667
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/chunks/05-portfolio.jpg",
+      "digest": "34cb93bc044441c4276de03134e39bbefc2681049df422fd6bafa2a49fabf0e9",
+      "byteSize": 93976
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "a67734e22f4f78aab3126966eafd252f90025685d5344531e283b847fa4b5605",
+      "byteSize": 402982
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/frame-strip.jpg",
+      "digest": "51a3058b9b22a3766fe6f5819acdc06719eda30912ceb6564e9866b3ee0e1b26",
+      "byteSize": 44522
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/layers.png",
+      "digest": "0d7d6d1c77ff8c54a8d51917260a607cb8ce99d8e8871e4804f20daf9b7f2bd5",
+      "byteSize": 79490
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "d8b3831d1d91ed56f5f8faf1933771e7124bf5f8ee3b393f83daf0c48cb394e5",
+      "byteSize": 245667
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/spectrogram.jpg",
+      "digest": "ea4123bf63210f1056d09250ae8e50ac371ad691aba0a708dfae4b759442f212",
+      "byteSize": 162596
+    },
+    {
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro/waveform.png",
+      "digest": "a3b4569f09c3c1ace0082d898dd9bdffac652750d4521b7e8e6247753273b292",
+      "byteSize": 10218
+    },
+    {
       "path": "qc/analysis/report.md",
-      "digest": "26ee77614ac195c1dcdab1e3a7b2b1188d6fe53e048e6c7dd756950217b0895b",
-      "byteSize": 8225
+      "digest": "7b44966aefe3d8ba4d134757d71a0c5e07ae4f3abc4aecac9ce039b11f873528",
+      "byteSize": 12454
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "d5eec1b12426a69438a0aec3b5cae510c73bf4a5b9a888a0fbfc0d006608eb11",
-      "byteSize": 501674
+      "digest": "b574abaf600974a9d92facca9e719182e2004415707db741f70898eb3a4a42bb",
+      "byteSize": 787845
     },
     {
-      "path": "qc/native-office/core-contact.png",
-      "digest": "65303fac675a49874495a211e7c973a7628ec3fa9125d925c8f0d286f34ed8bc",
-      "byteSize": 327961
-    },
-    {
-      "path": "qc/native-office/core-page-1.png",
-      "digest": "fb0033ca6dcd0875f7443553949f337c9788e6e57888ff8b311e4cbcae010f25",
-      "byteSize": 72625
-    },
-    {
-      "path": "qc/native-office/core-page-2.png",
-      "digest": "e25904d774266dca9d742ce9af332ea8c54cf60fb2e8b0fa20e211fcfc0a3472",
-      "byteSize": 49347
-    },
-    {
-      "path": "qc/native-office/core-page-3.png",
-      "digest": "4430a493b4e318d6c3c009a357259fad2442120e2a212de8ef3fa0cd7aa37095",
-      "byteSize": 60524
-    },
-    {
-      "path": "qc/native-office/core-page-4.png",
-      "digest": "25d2abc5b3b9287c1fb7e5c4468dfd7ceae6e81014736355eada9b29abf78fd2",
-      "byteSize": 59801
-    },
-    {
-      "path": "qc/native-office/core-page-5.png",
-      "digest": "c6522bb86f2b689ee98c07babc90f3f6eaab7778f9d1a43d6216659fba10215d",
-      "byteSize": 59366
+      "path": "qc/native-office/core-contact.jpg",
+      "digest": "e43d00c0cc92ae43f2f9ea30dfdf11a6da9ea22bc1ebacebb1976759b8d2773a",
+      "byteSize": 123380
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "a337972b911978c7257e19b23f3c650a901c5c9b61e9ba45b17843913b494e68",
-      "byteSize": 282470
+      "digest": "e83a62f0014393bdf5e99c5edc8936ac0b7952c23679b0f720733308760d9715",
+      "byteSize": 282464
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "bd873861d76e79f5abcb13b78e45938a845b2e0d4daaccc3b61ec184528b0a26",
-      "byteSize": 608
+      "digest": "953c61f35a0c68dd98adf70392cc073347e8660554ad6bfbceba13c788b37b06",
+      "byteSize": 735
     },
     {
-      "path": "qc/native-office/slides-contact.png",
-      "digest": "ebe06fd0483c54be2db70a34211d6aa8239462442afba0f614606719c13520e2",
-      "byteSize": 506788
+      "path": "qc/native-office/pages/core-01.png",
+      "digest": "77aa163d916f1eb3e0bbefff929f1bbc1caee5c39118f67164a87de6b18d7ba8",
+      "byteSize": 109766
+    },
+    {
+      "path": "qc/native-office/pages/core-02.png",
+      "digest": "46de5f804a26073564c8eae89999724d66fca853b6cfeefe2c4ff127a498a9ec",
+      "byteSize": 69825
+    },
+    {
+      "path": "qc/native-office/pages/core-03.png",
+      "digest": "ec2763c3fbdf454c9e3232ff94034853ca79e6df127d1b986aa909f22db39cf4",
+      "byteSize": 88220
+    },
+    {
+      "path": "qc/native-office/pages/core-04.png",
+      "digest": "40a86615cc44c4109d19295717cdc5ae73b7ec60ffb7a850f382cf859fa4fa49",
+      "byteSize": 85082
+    },
+    {
+      "path": "qc/native-office/pages/core-05.png",
+      "digest": "ce228d4b0c8e4cdd863dacb10ea481057029583c16037bcc7367d64ce934b39c",
+      "byteSize": 83300
+    },
+    {
+      "path": "qc/native-office/pages/word-01.png",
+      "digest": "204def3610b0f718813d1e8462fbc83e6a125e86781e83df44ff0c57be857efb",
+      "byteSize": 97858
+    },
+    {
+      "path": "qc/native-office/pages/word-02.png",
+      "digest": "287861af171c5e6995c42e5b5c7b129d016f227dd0591f0a9dd6fff23f7a526a",
+      "byteSize": 89545
+    },
+    {
+      "path": "qc/native-office/pages/word-03.png",
+      "digest": "f4303ecb18c4d86b3006c77e50d2dfbdf0ec29ac5ff3bc7e92b316e5c435b8d1",
+      "byteSize": 95158
+    },
+    {
+      "path": "qc/native-office/pages/word-04.png",
+      "digest": "bfbb74c4feaf3ae51510ddf4118f9321656c58c78ed1ca834d80601a11128d54",
+      "byteSize": 79041
+    },
+    {
+      "path": "qc/native-office/pages/word-05.png",
+      "digest": "d558cbfd1361fb4812f92736667d0124e2b817c761413e576bf7eabe9ec2d1f6",
+      "byteSize": 57023
+    },
+    {
+      "path": "qc/native-office/slides-contact.jpg",
+      "digest": "442d7e3625c52241af83ead1c5f7cdc37f2c8947a43422b96e57f14b8bed9bd3",
+      "byteSize": 187886
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "b23368074f87e206d3a4f57300cdd9f401a8e05742219c4fb69dbb49235ece7b",
-      "byteSize": 30880
+      "digest": "6d3339226275f151b0fb68e0f9ba29a5c1636a6f3430830ac5322a60b1a57310",
+      "byteSize": 31387
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "4a324e680fce36e55ea2e642869026de0020c1964c0d2f80e6ca7dab8e9b462c",
-      "byteSize": 109457
+      "digest": "f6f2908d2b22eb5fc832e8e15a39546049a19d06763fda5e64f838d6df4d98ab",
+      "byteSize": 109380
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "139ecbb4479d3b4089ee014e4ef505597ec6eab116281e2271aca26566987b91",
-      "byteSize": 129057
+      "digest": "cef595da6cfa666d318b5f9c607a730bf7ca0fb348be804278b68a54509f0cec",
+      "byteSize": 128535
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "59dfcda8fd435e74cb19531ff05b0294c19101584a1cdd0da0cf9d1edd2d71c2",
-      "byteSize": 129206
+      "digest": "855bafbebbb67f586f330b3aa923791d79a1aa0e743bd5cb881205f1cd0417df",
+      "byteSize": 127247
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "1a7718eaf5a2cd94618daef5f52d387925413c6d35b122a31174d583f6f4ff42",
-      "byteSize": 123954
+      "digest": "0f406936b023f5656eab3cb33f419c60a317a48b4f153e5ae839b1d0706ef1c9",
+      "byteSize": 123794
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "f814b3ca40a7fb9e9b9a788cb9c9af117a4847b71f2ef12334abf0d73fdd4d9f",
-      "byteSize": 28618
+      "digest": "ca98d5d9bd90b2003e23ea6394e65a34d6cc404c3a45156f8beeb183cf3daf99",
+      "byteSize": 23105
     },
     {
-      "path": "qc/native-office/word-contact.png",
-      "digest": "b504d8a07cddf259afd5920100249e7e9e17415dd0b3f4d345e51644083eace2",
-      "byteSize": 338687
-    },
-    {
-      "path": "qc/native-office/word-page-1.png",
-      "digest": "cf55bea523d86ba2544ad5732dbfb43d95bda72b1134c04264bb80ce19feab0d",
-      "byteSize": 69402
-    },
-    {
-      "path": "qc/native-office/word-page-2.png",
-      "digest": "caedb289f20ecafcd5559131672d48cfe5ccdb985f854729fe987cce0d9f121d",
-      "byteSize": 64094
-    },
-    {
-      "path": "qc/native-office/word-page-3.png",
-      "digest": "dc0c0716809fe5d8926bfabc8f31c7235807a5aecbda3d5e33b9abb265bfad0f",
-      "byteSize": 67054
-    },
-    {
-      "path": "qc/native-office/word-page-4.png",
-      "digest": "4cfc78675ce474e7a22cd2a345cae9fdd690255c54d870c05c192aad4ec9bc22",
-      "byteSize": 56574
-    },
-    {
-      "path": "qc/native-office/word-page-5.png",
-      "digest": "1daaea2b0bc8bd24e73c218a2d2e915cc7a336cb6953b4aa2b428a204d3ce13d",
-      "byteSize": 43706
+      "path": "qc/native-office/word-contact.jpg",
+      "digest": "5d6b3de5ad89fe1a9737d516e371504dbfb931503e79835958b785809c25a63c",
+      "byteSize": 122073
     },
     {
       "path": "qc/production-review.json",
@@ -643,23 +883,23 @@
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "df93ef0173e3762894d0e9953a376c3adc8f63dfb2f7c8a53036c2e76efa59f5",
-      "byteSize": 4892
+      "digest": "c5432135cb205255d5b4aa16929704ce3ed85e8bee667a696b87be6e20710b20",
+      "byteSize": 4891
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "ca96c8c942ae04907cdb477470e9e35e9edd8e4aac552297a0d5518e78323412",
-      "byteSize": 445947
+      "digest": "a9e72c46bfa6d51067f9ac5100c7c62d16d0d6f0b0706c4b3a9d502eee46a921",
+      "byteSize": 445942
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "6ff6060399a749954bce65caf94215486e0467188886642e611e88adb6a55cf5",
-      "byteSize": 3566
+      "digest": "ed9152b4faf42841672f2c5d26dcfa17d065027b2c2895ac20cc5f3e0a65d0ce",
+      "byteSize": 3567
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "ad4198ba800c4f6d4245385c8e8b53d535b80b95616d4947a41b183a62f3d373",
-      "byteSize": 367
+      "digest": "087efc916f484a44cdda503cd65de5a7cf53b4e0ef6701569dd7ad936ed3da5f",
+      "byteSize": 368
     }
   ]
 }
