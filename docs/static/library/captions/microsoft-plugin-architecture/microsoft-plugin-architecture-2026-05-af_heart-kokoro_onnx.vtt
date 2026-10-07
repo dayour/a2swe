@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.267 --> 00:00:07.400
+Bottom line: standardize skills and MCP, then govern compatibility and ownership for each host.
+
+00:00:07.967 --> 00:00:11.333
+Cowork uses a Microsoft 365 app package.
+
+00:00:11.333 --> 00:00:15.300
+Declarative agents use MCP or REST API actions.
+
+00:00:15.300 --> 00:00:21.733
+GitHub Copilot uses plugin packages with portable and client-specific parts.
+
+00:00:22.267 --> 00:00:26.233
+Reuse skill logic and MCP configuration where tested.
+
+00:00:26.233 --> 00:00:33.300
+Keep authentication, manifests, discovery and client-only components inside each host package.
+
+00:00:33.867 --> 00:00:38.100
+REST API actions remain supported in declarative agents.
+
+00:00:38.100 --> 00:00:44.867
+Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.
+
+00:00:45.433 --> 00:00:48.533
+Assign one owner per capability and service.
+
+00:00:48.533 --> 00:00:56.700
+Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.

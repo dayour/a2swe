@@ -1,0 +1,52 @@
+WEBVTT
+
+00:00:00.267 --> 00:00:01.900
+Datadog for Claude Cowork.
+
+00:00:01.900 --> 00:00:04.067
+Your telemetry, one question away.
+
+00:00:04.067 --> 00:00:09.267
+Here is what the plugin does, how it connects, and where a team should be careful.
+
+00:00:09.833 --> 00:00:15.900
+The Datadog Model Context Protocol server bridges your observability data to agents.
+
+00:00:15.900 --> 00:00:22.167
+Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.
+
+00:00:22.700 --> 00:00:30.433
+For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations.
+
+00:00:30.433 --> 00:00:35.700
+Claude Code installs the same server as a plugin from the official marketplace.
+
+00:00:36.267 --> 00:00:37.300
+Setup is short.
+
+00:00:37.300 --> 00:00:41.800
+Choose your Datadog site, then sign in with O Auth in the browser.
+
+00:00:41.800 --> 00:00:48.367
+Keys are an alternative, and any older manual server or custom connector should be removed first.
+
+00:00:48.933 --> 00:00:50.300
+Access is not widened.
+
+00:00:50.300 --> 00:00:59.233
+You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.
+
+00:00:59.767 --> 00:01:05.567
+Tool groups can be switched on or off, so a team can expose only the products it needs.
+
+00:01:05.567 --> 00:01:07.567
+Start with one narrow toolset.
+
+00:01:08.100 --> 00:01:10.967
+Treat the preview label as a rollout risk.
+
+00:01:10.967 --> 00:01:19.300
+The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported.
+
+00:01:19.300 --> 00:01:23.167
+Pilot with one team, keep permissions tight, then expand.
