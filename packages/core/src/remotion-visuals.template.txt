@@ -32,6 +32,12 @@ mermaid.initialize({
     actorTextColor: theme.foreground,
     signalColor: theme.foreground,
     signalTextColor: theme.foreground,
+    // Timeline and journey sections otherwise derive near-black fills from the base palette instead of the brand theme.
+    ...Object.fromEntries(Array.from({ length: 12 }, (_, index) => [
+      ['cScale' + index, mixHex(theme.accent, theme.background, index % 2 ? 0.3 : 0.2)],
+      ['cScaleLabel' + index, theme.foreground],
+      ['cScalePeer' + index, theme.accent]
+    ]).flat()),
     fontSize: '28px'
   },
   flowchart: { curve: 'basis', padding: 22, useMaxWidth: false, wrappingWidth: 300, nodeSpacing: 46, rankSpacing: 60 },
