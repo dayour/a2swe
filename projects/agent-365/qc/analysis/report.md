@@ -14,10 +14,14 @@ These are objective measurements. They do not replace listening and viewing.
 | Revision | Status | Output | Voice | Size | Duration | LUFS | True peak | Pause floor | Speech HF>8k | Longest pause | Findings |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | agent-365-2026-01 | superseded | agent-365-2026-01.mp4 | am_liam / kokoro | 1920x1080 | 62.7 s | -18.6 | -1.0 dBTP | -84.5 dBFS | 0.53% | 2.00 s | none |
-| agent-365-2026-02 | current | agent-365-2026-02-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.0 dBFS | 0.32% | 1.65 s | none |
-| agent-365-2026-02 | current | agent-365-2026-02-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 59.6 s | -16.1 | -1.5 dBTP | -67.6 dBFS | 2.24% | 1.38 s | none |
-| agent-365-2026-02 | current | agent-365-2026-02-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 63.1 s | -16.0 | -1.5 dBTP | -76.3 dBFS | 2.12% | 1.50 s | none |
-| agent-365-2026-02 | current | agent-365-2026-02-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.2 dBFS | 0.32% | 1.65 s | none |
+| agent-365-2026-02 | superseded | agent-365-2026-02-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.0 dBFS | 0.32% | 1.65 s | none |
+| agent-365-2026-02 | superseded | agent-365-2026-02-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 59.6 s | -16.1 | -1.5 dBTP | -67.6 dBFS | 2.24% | 1.38 s | none |
+| agent-365-2026-02 | superseded | agent-365-2026-02-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 63.1 s | -16.0 | -1.5 dBTP | -76.3 dBFS | 2.12% | 1.50 s | none |
+| agent-365-2026-02 | superseded | agent-365-2026-02-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.2 dBFS | 0.32% | 1.65 s | none |
+| agent-365-2026-03 | current | agent-365-2026-03-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.0 dBFS | 0.32% | 1.65 s | none |
+| agent-365-2026-03 | current | agent-365-2026-03-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 59.6 s | -16.1 | -1.5 dBTP | -67.5 dBFS | 2.24% | 1.38 s | none |
+| agent-365-2026-03 | current | agent-365-2026-03-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 63.1 s | -16.0 | -1.5 dBTP | -76.4 dBFS | 2.12% | 1.50 s | none |
+| agent-365-2026-03 | current | agent-365-2026-03-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.0 s | -16.1 | -1.5 dBTP | -65.0 dBFS | 0.32% | 1.65 s | none |
 
 ## Findings by revision
 
@@ -50,6 +54,30 @@ Evidence: [analysis](agent-365-2026-02/agent-365-2026-02-af_bella-kokoro_onnx/an
 * info: Left and right channels carry identical mono narration.
 
 Evidence: [analysis](agent-365-2026-02/agent-365-2026-02-am_michael-kokoro/analysis.json), [spectrogram](agent-365-2026-02/agent-365-2026-02-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](agent-365-2026-02/agent-365-2026-02-am_michael-kokoro/spectrogram-speech.jpg), [layers](agent-365-2026-02/agent-365-2026-02-am_michael-kokoro/layers.png), [frames](agent-365-2026-02/agent-365-2026-02-am_michael-kokoro/contact-sheet.jpg).
+
+### agent-365-2026-03 agent-365-2026-03-am_michael-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+
+Evidence: [analysis](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/analysis.json), [spectrogram](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/spectrogram.jpg), [speech spectrogram](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/spectrogram-speech.jpg), [layers](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/layers.png), [frames](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/contact-sheet.jpg).
+
+### agent-365-2026-03 agent-365-2026-03-af_heart-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+
+Evidence: [analysis](agent-365-2026-03/agent-365-2026-03-af_heart-kokoro_onnx/analysis.json), [spectrogram](agent-365-2026-03/agent-365-2026-03-af_heart-kokoro_onnx/spectrogram.jpg), [speech spectrogram](agent-365-2026-03/agent-365-2026-03-af_heart-kokoro_onnx/spectrogram-speech.jpg), [layers](agent-365-2026-03/agent-365-2026-03-af_heart-kokoro_onnx/layers.png), [frames](agent-365-2026-03/agent-365-2026-03-af_heart-kokoro_onnx/contact-sheet.jpg).
+
+### agent-365-2026-03 agent-365-2026-03-af_bella-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+
+Evidence: [analysis](agent-365-2026-03/agent-365-2026-03-af_bella-kokoro_onnx/analysis.json), [spectrogram](agent-365-2026-03/agent-365-2026-03-af_bella-kokoro_onnx/spectrogram.jpg), [speech spectrogram](agent-365-2026-03/agent-365-2026-03-af_bella-kokoro_onnx/spectrogram-speech.jpg), [layers](agent-365-2026-03/agent-365-2026-03-af_bella-kokoro_onnx/layers.png), [frames](agent-365-2026-03/agent-365-2026-03-af_bella-kokoro_onnx/contact-sheet.jpg).
+
+### agent-365-2026-03 agent-365-2026-03-am_michael-kokoro.mp4
+
+* info: Left and right channels carry identical mono narration.
+
+Evidence: [analysis](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro/analysis.json), [spectrogram](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro/spectrogram-speech.jpg), [layers](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro/layers.png), [frames](agent-365-2026-03/agent-365-2026-03-am_michael-kokoro/contact-sheet.jpg).
 
 ## Comparison images
 

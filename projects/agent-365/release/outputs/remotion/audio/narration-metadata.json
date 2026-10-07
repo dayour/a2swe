@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 2.935077311402856e-12,
-      "highFrequencyRatio8k": 0.00428404053784218,
-      "rmsDbfs": -27.910008331676575,
-      "spectralFlatness": 5.058449270408896e-07
+      "dcOffset": -1.5051677894513393e-13,
+      "highFrequencyRatio8k": 0.004361578202369797,
+      "rmsDbfs": -27.910854607124786,
+      "spectralFlatness": 5.051800546583419e-07
     },
     "before": {
-      "dcOffset": 1.2446609616745263e-05,
-      "highFrequencyRatio8k": 0.00428376346444462,
-      "rmsDbfs": -27.90937126615733,
-      "spectralFlatness": 4.868909560345338e-07
+      "dcOffset": 1.2675586731347721e-05,
+      "highFrequencyRatio8k": 0.004361295601989942,
+      "rmsDbfs": -27.910219892808733,
+      "spectralFlatness": 4.929898289815022e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/agent-365/audio.wav",
-  "audioSha256": "6346042b09041c1452fb2b0860eac50535f65b72f6f6c37b56aa03db05fa9b03",
+  "audioSha256": "8f0e61b5cffabee0c0e194764611bad4dfb3deb2116262018f443a273dc063bb",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -65,9 +65,9 @@
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
   "mastering": {
     "gainDb": 8.62,
-    "inputLufs": -24.39,
-    "limitedSampleRatio": 0.02821,
-    "maxLimiterReductionDb": 6.65,
+    "inputLufs": -24.38,
+    "limitedSampleRatio": 0.02972,
+    "maxLimiterReductionDb": 6.55,
     "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2446618187312076e-05,
-    "peak": 0.6659982800483704,
-    "rms": 0.04023084472166677
+    "dc": 1.2675584033079085e-05,
+    "peak": 0.6543419361114502,
+    "rms": 0.04022691697360216
   },
   "requestedDurationSeconds": 65.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

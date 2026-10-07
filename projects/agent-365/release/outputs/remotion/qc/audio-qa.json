@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-7",
+  "adapter": "a2swe-remotion-mp4-adapter-10",
   "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
   "input": "dist/render.mp4",
-  "inputSha256": "2842c7d8de14f06e185a7e9382ee3839c20a5ef42bee6dab3798d4f95d6fb127",
-  "sourceAudioSha256": "6346042b09041c1452fb2b0860eac50535f65b72f6f6c37b56aa03db05fa9b03",
+  "inputSha256": "452aead9f876b57e8163964626ecb8aeaf6c57cedd9791bce96f39153b3e0fdd",
+  "sourceAudioSha256": "8f0e61b5cffabee0c0e194764611bad4dfb3deb2116262018f443a273dc063bb",
   "sampleRate": 48000,
   "durationSeconds": 66.048,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 66.048,
-      "rmsDbfs": -19.553857,
-      "peakDbfs": -1.484896,
-      "highFrequencyRatio8k": 0.003357,
+      "rmsDbfs": -19.554048,
+      "peakDbfs": -1.485275,
+      "highFrequencyRatio8k": 0.003348,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 63.05,
-      "rmsDbfs": -19.352111,
-      "peakDbfs": -1.484896,
-      "highFrequencyRatio8k": 0.003307,
+      "rmsDbfs": -19.352302,
+      "peakDbfs": -1.485275,
+      "highFrequencyRatio8k": 0.003315,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,18 +82,18 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.647889,
+    "snrSpeechVsSilenceDb": 220.647698,
     "loudness": {
       "integratedLufs": -16.1,
-      "loudnessRangeLu": 3.2,
+      "loudnessRangeLu": 3.1,
       "truePeakDbtp": -1.5
     }
   },
   "mastering": {
     "gainDb": 8.62,
-    "inputLufs": -24.39,
-    "limitedSampleRatio": 0.02821,
-    "maxLimiterReductionDb": 6.65,
+    "inputLufs": -24.38,
+    "limitedSampleRatio": 0.02972,
+    "maxLimiterReductionDb": 6.55,
     "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
