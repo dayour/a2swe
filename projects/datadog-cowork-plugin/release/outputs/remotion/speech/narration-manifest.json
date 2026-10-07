@@ -1,20 +1,43 @@
 {
   "schemaVersion": "1.0.0",
   "contentId": "datadog-cowork-plugin",
-  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
   "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.\n\nThe Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.\n\nFor Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.\n\nSetup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.\n\nAccess is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.\n\nTool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.\n\nTreat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
   "segments": [
-    "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.",
-    "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
-    "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.",
-    "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.",
-    "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
-    "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.",
-    "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand."
+    {
+      "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful."
+    },
+    {
+      "text": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about."
+    },
+    {
+      "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace."
+    },
+    {
+      "text": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first."
+    },
+    {
+      "text": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider."
+    },
+    {
+      "text": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset."
+    },
+    {
+      "text": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand."
+    }
   ],
   "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
   "language": "en",
   "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work"
+    }
+  },
   "outputWav": "public/assets/datadog-cowork-plugin/audio.wav",
   "metadataPath": "audio/narration-metadata.json",
   "sampleRate": 48000,
@@ -29,7 +52,7 @@
     "kokoro": [
       "A2SWE_KOKORO_CONFIG",
       "A2SWE_KOKORO_WEIGHTS",
-      "A2SWE_KOKORO_VOICE_MODEL"
+      "KOKORO_ONNX_VOICES"
     ],
     "kokoro_onnx": [
       "KOKORO_ONNX_MODEL",

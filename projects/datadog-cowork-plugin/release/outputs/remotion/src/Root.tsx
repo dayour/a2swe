@@ -11,8 +11,10 @@ type TimelineScene = {
   id: string; kind: string; title: string; body: string; narration: string; decision: string; claims: string[]; claimSources: string[]; citations: Citation[];
   assetIds: string[]; visual: Visual | null; visualId: string | null; startFrame: number; durationInFrames: number; endFrame: number; speechStartFrame: number; speechEndFrame: number;
 };
+type SubtitleCue = { text: string; startFrame: number; endFrame: number; sourceSegmentIndex: number; sceneId?: string };
 type AssetRecord = { assetId: string; path: string; mediaType: string; role: string; alt: string };
 const scenes: TimelineScene[] = timeline.scenes as TimelineScene[];
+const subtitleCues: SubtitleCue[] = ((timeline as { subtitleCues?: SubtitleCue[] }).subtitleCues ?? []) as SubtitleCue[];
 const assets: AssetRecord[] = assetManifest.assets;
 const assetsById = new Map<string, AssetRecord>(assets.map((asset) => [asset.assetId, asset]));
 const audioPath = staticFile('assets/datadog-cowork-plugin/audio.wav');
@@ -35,18 +37,9 @@ function sentences(text: string): string[] {
 // Narration is written for speech ("H I P A A", "O Auth"); captions show the written form.
 const displayText = (text: string) => text.replace(/\b(?:[A-Z] )+[A-Z]\b/g, (spelled) => spelled.replace(/ /g, '')).replace(/\bO Auth\b/g, 'OAuth');
 
-function captionAt(scene: TimelineScene, frame: number): string {
-  const parts = sentences(displayText(scene.narration));
-  const total = parts.reduce((sum, part) => sum + part.length, 0) || 1;
-  const span = Math.max(1, scene.speechEndFrame - scene.speechStartFrame);
-  if (frame < scene.speechStartFrame || frame > scene.speechEndFrame) return '';
-  let cursor = scene.speechStartFrame;
-  for (const part of parts) {
-    const length = Math.max(1, Math.round((span * part.length) / total));
-    if (frame < cursor + length) return part;
-    cursor += length;
-  }
-  return parts[parts.length - 1] ?? '';
+function captionAt(frame: number): string {
+  const cue = subtitleCues.find((item) => frame >= item.startFrame && frame < item.endFrame);
+  return cue ? displayText(cue.text) : '';
 }
 
 function Backdrop() {
@@ -75,7 +68,7 @@ function ClaimCard({ claim, source, number, progress, large, compact }: { claim:
   return <div style={{ display: 'flex', gap: 20, padding: compact ? '14px 20px' : '20px 26px', borderRadius: 22, background: surface, border: '1px solid ' + line, opacity: progress, transform: 'translateY(' + (1 - progress) * 26 + 'px)' }}>
     <div style={{ flex: compact ? '0 0 44px' : '0 0 56px', height: compact ? 44 : 56, borderRadius: 28, background: accentAlpha(0.24), color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: compact ? 22 : 28, fontWeight: 800 }}>{number}</div>
     <div style={{ minWidth: 0 }}>
-      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(compact ? 3 : large ? 5 : 4) }}>{claim}</div>
+      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(compact ? 5 : large ? 5 : 4) }}>{claim}</div>
       {source ? <div style={{ marginTop: 6, fontSize: compact ? 15 : 17, color: muted, ...clip(1) }}>{source}</div> : null}
     </div>
   </div>;
@@ -86,17 +79,19 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
   const { fps } = useVideoConfig();
   const frame = scene.startFrame + local;
   const last = scene.durationInFrames - 1;
-  const fade = last < 24 ? 1 : interpolate(local, [0, 10, last - 10, last], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const fadeIn = last < 24 ? 1 : interpolate(local, [0, 10], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const fadeOut = last >= 24
+    ? interpolate(local, [last - 10, last], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) : 1;
+  const fade = fadeIn * fadeOut;
   const enter = (delay: number) => spring({ frame: local - delay, fps, config: { damping: 200 } });
-  const caption = captionAt(scene, frame);
   const sceneAssets = scene.assetIds.map((id) => assetsById.get(id)).filter((asset): asset is AssetRecord => Boolean(asset) && Boolean(asset?.mediaType.startsWith('image/'))).slice(0, 2);
   const isTitle = scene.kind === 'title';
   const isLast = index === scenes.length - 1;
-  const hasVisual = Boolean(scene.visual);
+  const hasVisual = Boolean(scene.visual) || sceneAssets.length > 0;
   const cardCount = hasVisual ? 1 : 3;
   return <AbsoluteFill style={{ fontFamily: primaryFont, color: theme.foreground, opacity: fade }}>
     <div style={{ position: 'absolute', top: 40, left: 96, right: 96, display: 'flex', justifyContent: 'space-between', fontSize: 20, letterSpacing: 4, textTransform: 'uppercase' }}>
-      <span style={{ color: theme.accent, fontWeight: 700 }}>{splitHeadline(content.title)[0]}</span>
+      <span style={{ color: theme.accent, fontWeight: 700 }}>{splitHeadline(content.title)[0].replace(/[:.]$/, '')}</span>
       <span style={{ color: muted }}>{String(index + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</span>
     </div>
     {isTitle ? <div style={{ position: 'absolute', left: 96, right: 96, top: 150 }}>
@@ -112,11 +107,8 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
       <div style={{ position: 'absolute', left: 96, right: 96, top: 380, height: 470, display: 'grid', gridTemplateColumns: hasVisual ? '600px 1fr' : '0.9fr 1.1fr', gap: hasVisual ? 48 : 64 }}>
         <div style={{ alignSelf: 'start', minWidth: 0 }}>
           <div style={{ borderLeft: '6px solid ' + theme.accent, paddingLeft: 30, opacity: enter(6) }}>
-            <p style={{ fontSize: hasVisual ? 32 : 38, lineHeight: 1.4, margin: 0, ...clip(isLast && !hasVisual ? 5 : hasVisual ? 4 : 7) }}>{scene.body}</p>
+            <p style={{ fontSize: hasVisual ? 30 : 38, lineHeight: hasVisual ? 1.32 : 1.4, margin: 0, ...clip(isLast && !hasVisual ? 5 : hasVisual ? 6 : 7) }}>{scene.body}</p>
             {isLast && !hasVisual ? <p style={{ fontSize: 28, lineHeight: 1.3, margin: '28px 0 0', color: theme.accent, fontWeight: 700, ...clip(3) }}>Decision: {scene.decision}</p> : null}
-            {!hasVisual ? sceneAssets.map((asset) => <div key={asset.assetId} style={{ marginTop: 28, opacity: enter(10) }}>
-              <Img src={assetSrc(asset)} alt={asset.alt} style={{ width: '100%', maxHeight: 250, objectFit: 'contain', borderRadius: 18, border: '1px solid ' + line }} />
-            </div>) : null}
           </div>
           {hasVisual ? <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
             {scene.claims.slice(0, cardCount).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(16 + claimIndex * 8)} large={false} compact />)}
@@ -124,14 +116,24 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
         </div>
         {hasVisual && scene.visual
           ? <div style={{ opacity: enter(4) }}><VisualPanel visual={scene.visual} id={scene.id} width={1080} height={470} frame={local} /></div>
+          : sceneAssets.length
+            ? <div style={{ display: 'grid', gridTemplateColumns: `repeat(${sceneAssets.length}, minmax(0, 1fr))`, gap: 16, opacity: enter(4), minWidth: 0 }}>
+              {sceneAssets.map(asset => <Img key={asset.assetId} src={assetSrc(asset)} alt={asset.alt}
+                style={{ width: '100%', height: 470, objectFit: 'contain', borderRadius: 18, border: '1px solid ' + line, background: surface }} />)}
+            </div>
           : <div style={{ display: 'flex', flexDirection: 'column', gap: 18, minWidth: 0 }}>
             {scene.claims.slice(0, cardCount).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(14 + claimIndex * 10)} large={scene.claims.length === 1} compact={false} />)}
           </div>}
       </div>
     </>}
-    {caption ? <div style={{ position: 'absolute', left: 160, right: 160, bottom: 92, padding: '18px 36px', borderRadius: 22, background: panelBackground, border: '1px solid ' + line, textAlign: 'center', fontSize: 40, lineHeight: 1.25, fontWeight: 700, ...clip(3) }}>{caption}</div> : null}
-    <div style={{ position: 'absolute', left: 96, right: 96, bottom: 32, fontSize: 18, color: muted, ...clip(1) }}>Sources: {scene.citations.slice(0, 3).map((citation) => '[' + citation.evidenceId + '] ' + citation.sourceTitle).join('  ·  ')}</div>
+    <div style={{ position: 'absolute', left: 96, right: 96, bottom: 32, fontSize: 18, color: muted, ...clip(1) }}>Sources: {[...new Set(scene.citations.map((citation) => citation.sourceTitle))].slice(0, 3).join('  ·  ')}</div>
   </AbsoluteFill>;
+}
+
+function GlobalCaption() {
+  const frame = useCurrentFrame();
+  const caption = captionAt(frame);
+  return caption ? <div style={{ position: 'absolute', left: 160, right: 160, bottom: 92, padding: '18px 36px', borderRadius: 22, background: panelBackground, border: '1px solid ' + line, textAlign: 'center', fontSize: 40, lineHeight: 1.25, fontWeight: 700, fontFamily: primaryFont, color: theme.foreground, ...clip(3) }}>{caption}</div> : null;
 }
 
 function Progress() {
@@ -143,6 +145,7 @@ export function Explainer() {
   return <AbsoluteFill>
     <Backdrop />
     {scenes.map((scene, index) => <Sequence key={index} from={scene.startFrame} durationInFrames={scene.durationInFrames}><SceneView scene={scene} index={index} /></Sequence>)}
+    <GlobalCaption />
     <Progress />
   </AbsoluteFill>;
 }

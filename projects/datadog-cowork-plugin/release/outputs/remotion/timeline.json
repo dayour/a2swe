@@ -4,14 +4,14 @@
   "width": 1920,
   "height": 1080,
   "sampleRate": 48000,
-  "durationInFrames": 2669,
+  "durationInFrames": 2751,
   "scenes": [
     {
       "id": "title",
       "kind": "title",
       "title": "Datadog for Claude Cowork. Observability by conversation.",
       "body": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.",
-      "narration": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.",
+      "narration": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.",
       "claims": [
         "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language.",
         "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
@@ -24,15 +24,15 @@
         "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites."
       ],
       "claimSources": [
-        "[ev-01] Datadog MCP Server",
-        "[ev-05] Set Up the Datadog MCP Server",
-        "[ev-06] Set Up the Datadog MCP Server",
-        "[ev-07] Set Up the Datadog MCP Server",
-        "[ev-14] Datadog Claude Code Plugin",
-        "[ev-10] Set Up the Datadog MCP Server",
-        "[ev-11] Datadog Claude Code Plugin",
-        "[ev-03] Datadog Claude Code Plugin",
-        "[ev-12] Datadog MCP Server"
+        "Datadog MCP Server",
+        "Set Up the Datadog MCP Server",
+        "Set Up the Datadog MCP Server",
+        "Set Up the Datadog MCP Server",
+        "Datadog Claude Code Plugin",
+        "Set Up the Datadog MCP Server",
+        "Datadog Claude Code Plugin",
+        "Datadog Claude Code Plugin",
+        "Datadog MCP Server"
       ],
       "citations": [
         {
@@ -118,22 +118,22 @@
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
       "startFrame": 0,
-      "durationInFrames": 307,
-      "endFrame": 307,
-      "speechStartFrame": 8,
-      "speechEndFrame": 299
+      "durationInFrames": 456,
+      "endFrame": 456,
+      "speechStartFrame": -1,
+      "speechEndFrame": -1
     },
     {
       "id": "what-it-is",
       "kind": "section",
       "title": "A bridge. Not a dashboard.",
       "body": "The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.",
-      "narration": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
+      "narration": "The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.",
       "claims": [
         "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language."
       ],
       "claimSources": [
-        "[ev-01] Datadog MCP Server"
+        "Datadog MCP Server"
       ],
       "citations": [
         {
@@ -155,25 +155,25 @@
       },
       "visualId": "01-what-it-is",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 307,
-      "durationInFrames": 410,
-      "endFrame": 717,
-      "speechStartFrame": 315,
-      "speechEndFrame": 709
+      "startFrame": 456,
+      "durationInFrames": 422,
+      "endFrame": 878,
+      "speechStartFrame": 455,
+      "speechEndFrame": 455
     },
     {
       "id": "where-it-runs",
       "kind": "section",
       "title": "Where it runs. Cowork and Claude Code.",
       "body": "Claude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.",
-      "narration": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.",
+      "narration": "Claude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.",
       "claims": [
         "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
         "Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates."
       ],
       "claimSources": [
-        "[ev-05] Set Up the Datadog MCP Server",
-        "[ev-06] Set Up the Datadog MCP Server"
+        "Set Up the Datadog MCP Server",
+        "Set Up the Datadog MCP Server"
       ],
       "citations": [
         {
@@ -193,25 +193,25 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 717,
-      "durationInFrames": 425,
-      "endFrame": 1142,
-      "speechStartFrame": 725,
-      "speechEndFrame": 1133
+      "startFrame": 878,
+      "durationInFrames": 390,
+      "endFrame": 1268,
+      "speechStartFrame": 877,
+      "speechEndFrame": 877
     },
     {
       "id": "setup",
       "kind": "section",
       "title": "Set up. Pick a site, sign in.",
       "body": "Choose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.",
-      "narration": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.",
+      "narration": "Choose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.",
       "claims": [
         "Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.",
         "Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts."
       ],
       "claimSources": [
-        "[ev-07] Set Up the Datadog MCP Server",
-        "[ev-14] Datadog Claude Code Plugin"
+        "Set Up the Datadog MCP Server",
+        "Datadog Claude Code Plugin"
       ],
       "citations": [
         {
@@ -243,23 +243,23 @@
       },
       "visualId": "03-setup",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1142,
-      "durationInFrames": 403,
-      "endFrame": 1545,
-      "speechStartFrame": 1150,
-      "speechEndFrame": 1537
+      "startFrame": 1268,
+      "durationInFrames": 396,
+      "endFrame": 1664,
+      "speechStartFrame": 1267,
+      "speechEndFrame": 1267
     },
     {
       "id": "access",
       "kind": "section",
       "title": "Access. Your permissions still apply.",
       "body": "You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.",
-      "narration": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
+      "narration": "You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.",
       "claims": [
         "You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider."
       ],
       "claimSources": [
-        "[ev-10] Set Up the Datadog MCP Server"
+        "Set Up the Datadog MCP Server"
       ],
       "citations": [
         {
@@ -281,23 +281,23 @@
       },
       "visualId": "04-access",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1545,
-      "durationInFrames": 355,
-      "endFrame": 1900,
-      "speechStartFrame": 1554,
-      "speechEndFrame": 1892
+      "startFrame": 1664,
+      "durationInFrames": 362,
+      "endFrame": 2026,
+      "speechStartFrame": 1663,
+      "speechEndFrame": 1663
     },
     {
       "id": "control",
       "kind": "section",
       "title": "Control. Choose the toolsets.",
       "body": "Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.",
-      "narration": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.",
+      "narration": "Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.",
       "claims": [
         "Groups of MCP tools can be enabled or disabled with the toolsets command."
       ],
       "claimSources": [
-        "[ev-11] Datadog Claude Code Plugin"
+        "Datadog Claude Code Plugin"
       ],
       "citations": [
         {
@@ -310,25 +310,25 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1900,
-      "durationInFrames": 261,
-      "endFrame": 2161,
-      "speechStartFrame": 1908,
-      "speechEndFrame": 2153
+      "startFrame": 2026,
+      "durationInFrames": 299,
+      "endFrame": 2325,
+      "speechStartFrame": 2025,
+      "speechEndFrame": 2025
     },
     {
       "id": "risk",
       "kind": "section",
       "title": "Risk. Preview, compliance, site limits.",
       "body": "The plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
-      "narration": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
+      "narration": "The plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
       "claims": [
         "The Datadog plugin and its marketplace listing are in Preview.",
         "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites."
       ],
       "claimSources": [
-        "[ev-03] Datadog Claude Code Plugin",
-        "[ev-12] Datadog MCP Server"
+        "Datadog Claude Code Plugin",
+        "Datadog MCP Server"
       ],
       "citations": [
         {
@@ -360,11 +360,124 @@
       },
       "visualId": "06-risk",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 2161,
-      "durationInFrames": 508,
-      "endFrame": 2669,
-      "speechStartFrame": 2170,
-      "speechEndFrame": 2653
+      "startFrame": 2325,
+      "durationInFrames": 426,
+      "endFrame": 2751,
+      "speechStartFrame": 2324,
+      "speechEndFrame": 2324
     }
-  ]
+  ],
+  "subtitleCues": [
+    {
+      "text": "Datadog for Claude Cowork.",
+      "startFrame": 8,
+      "endFrame": 63,
+      "sourceSegmentIndex": 0
+    },
+    {
+      "text": "Your telemetry, one question away.",
+      "startFrame": 63,
+      "endFrame": 135,
+      "sourceSegmentIndex": 0
+    },
+    {
+      "text": "Here is what the plugin does, how it connects, and where a team should be careful.",
+      "startFrame": 135,
+      "endFrame": 308,
+      "sourceSegmentIndex": 0
+    },
+    {
+      "text": "The Datadog Model Context Protocol server bridges your observability data to agents.",
+      "startFrame": 325,
+      "endFrame": 525,
+      "sourceSegmentIndex": 1
+    },
+    {
+      "text": "Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
+      "startFrame": 525,
+      "endFrame": 733,
+      "sourceSegmentIndex": 1
+    },
+    {
+      "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations.",
+      "startFrame": 749,
+      "endFrame": 998,
+      "sourceSegmentIndex": 2
+    },
+    {
+      "text": "Claude Code installs the same server as a plugin from the official marketplace.",
+      "startFrame": 998,
+      "endFrame": 1167,
+      "sourceSegmentIndex": 2
+    },
+    {
+      "text": "Setup is short.",
+      "startFrame": 1184,
+      "endFrame": 1217,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "Choose your Datadog site, then sign in with O Auth in the browser.",
+      "startFrame": 1217,
+      "endFrame": 1363,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "Keys are an alternative, and any older manual server or custom connector should be removed first.",
+      "startFrame": 1363,
+      "endFrame": 1578,
+      "sourceSegmentIndex": 3
+    },
+    {
+      "text": "Access is not widened.",
+      "startFrame": 1595,
+      "endFrame": 1641,
+      "sourceSegmentIndex": 4
+    },
+    {
+      "text": "You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
+      "startFrame": 1641,
+      "endFrame": 1945,
+      "sourceSegmentIndex": 4
+    },
+    {
+      "text": "Tool groups can be switched on or off, so a team can expose only the products it needs.",
+      "startFrame": 1962,
+      "endFrame": 2155,
+      "sourceSegmentIndex": 5
+    },
+    {
+      "text": "Start with one narrow toolset.",
+      "startFrame": 2155,
+      "endFrame": 2222,
+      "sourceSegmentIndex": 5
+    },
+    {
+      "text": "Treat the preview label as a rollout risk.",
+      "startFrame": 2238,
+      "endFrame": 2332,
+      "sourceSegmentIndex": 6
+    },
+    {
+      "text": "The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported.",
+      "startFrame": 2332,
+      "endFrame": 2607,
+      "sourceSegmentIndex": 6
+    },
+    {
+      "text": "Pilot with one team, keep permissions tight, then expand.",
+      "startFrame": 2607,
+      "endFrame": 2735,
+      "sourceSegmentIndex": 6
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "weighted-duration-no-semantic-alignment",
+    "sceneIdsPresent": false,
+    "segmentCount": 7,
+    "cueCount": 17
+  }
 }

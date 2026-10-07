@@ -16,7 +16,7 @@ function fail(message) {
 function run(command, args, label) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
   if (result.error) fail(`${label} executable failed to start: ${result.error.message}`);
-  if (result.status !== 0) fail(`${label} exited with ${result.status}: ${(result.stderr || result.stdout || '').trim().slice(0, 4000)}`);
+  if (result.status !== 0) fail(`${label} exited with ${result.status}: ${(result.stderr || result.stdout || '').trim().slice(-4000)}`);
   return result.stdout;
 }
 
@@ -50,6 +50,7 @@ if (receipt.output !== plan.encodedMp4Path || receipt.outputSha256 !== outputSha
   fail('encoded MP4 does not match its render receipt');
 }
 const probe = JSON.parse(run(ffprobe, ['-v', 'error', '-count_frames', '-show_streams', '-show_format', '-of', 'json', movie], 'ffprobe'));
+if (!probe.format) fail('MP4 container metadata is missing');
 const video = probe.streams?.find((stream) => stream.codec_type === 'video');
 const audio = probe.streams?.find((stream) => stream.codec_type === 'audio');
 if (!video) fail('MP4 has no video stream');
@@ -71,10 +72,20 @@ if (!Number.isFinite(duration) || duration < expectedDuration - durationToleranc
   fail(`expected narration duration ${expectedDuration}s through video duration ${videoDuration}s plus AAC padding ${aacPadding}s, got ${duration}s`);
 }
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg', '--verify-only'], 'encoded audio spectrogram QA');
-const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-3', file: plan.encodedMp4Path,
-  contentDigest: plan.contentDigest, outputSha256, video, audio, container: probe.format };
-if (!process.argv.includes('--verify-only')) {
+const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-8', file: plan.encodedMp4Path,
+  contentDigest: plan.contentDigest, outputSha256, video, audio, container: { ...probe.format, filename: plan.encodedMp4Path } };
+const qcPath = path.join(root, 'qc', 'mp4-qc.json');
+if (process.argv.includes('--verify-only')) {
+  if (!existsSync(qcPath)) fail('MP4 QC report is missing');
+  const recorded = JSON.parse(readFileSync(qcPath, 'utf8'));
+  if (recorded.adapter !== report.adapter || recorded.file !== report.file ||
+    recorded.contentDigest !== report.contentDigest || recorded.outputSha256 !== report.outputSha256 ||
+    recorded.container?.filename !== report.file || recorded.video?.codec_name !== video.codec_name ||
+    recorded.video?.nb_read_frames !== video.nb_read_frames || recorded.video?.width !== video.width ||
+    recorded.video?.height !== video.height || recorded.audio?.codec_name !== audio.codec_name ||
+    recorded.audio?.sample_rate !== audio.sample_rate) fail('MP4 QC report does not match the encoded media');
+} else {
   mkdirSync(path.join(root, 'qc'), { recursive: true });
-  writeFileSync(path.join(root, 'qc', 'mp4-qc.json'), JSON.stringify(report, null, 2) + '\n');
+  writeFileSync(qcPath, JSON.stringify(report, null, 2) + '\n');
 }
-console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-3' }));
+console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-8' }));

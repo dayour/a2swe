@@ -23,7 +23,7 @@ function run(command, args, label, options = {}) {
   const result = spawnSync(command, args, { cwd: root, encoding: null, maxBuffer: 96 * 1024 * 1024, windowsHide: true, ...options });
   if (result.error) fail(label + ' executable failed to start: ' + result.error.message);
   if (result.status !== 0) {
-    const detail = Buffer.concat([result.stderr || Buffer.alloc(0), result.stdout || Buffer.alloc(0)]).toString('utf8').trim().slice(0, 4000);
+    const detail = Buffer.concat([result.stdout || Buffer.alloc(0), result.stderr || Buffer.alloc(0)]).toString('utf8').trim().slice(-4000);
     fail(label + ' exited with ' + result.status + ': ' + detail);
   }
   return result.stdout;
@@ -170,6 +170,38 @@ function buildWindows(samples) {
   return { speech, silence };
 }
 
+function sourceBoundaryMetrics(samples, segments) {
+  if (!Array.isArray(segments) || !segments.length) fail('narration metadata has no speech segments');
+  const edgeSamples = Math.round(0.01 * sampleRate);
+  let maxOnsetRmsDbfs = -240;
+  let maxTailRmsDbfs = -240;
+  let maxJump = 0;
+  let previousEnd = 0;
+  for (const segment of segments) {
+    const startSeconds = Number(segment.startSeconds);
+    const endSeconds = Number(segment.endSeconds);
+    const start = Math.round(startSeconds * sampleRate);
+    const end = Math.round(endSeconds * sampleRate);
+    if (!Number.isFinite(startSeconds) || !Number.isFinite(endSeconds) || start <= previousEnd || end <= start || end >= samples.length) {
+      fail('narration metadata contains an invalid or overlapping speech segment');
+    }
+    const width = Math.min(edgeSamples, Math.floor((end - start) / 4));
+    if (width < 1) fail('speech segment is too short to measure its boundaries');
+    maxOnsetRmsDbfs = Math.max(maxOnsetRmsDbfs, rmsDbfs(samples.subarray(start, start + width)));
+    maxTailRmsDbfs = Math.max(maxTailRmsDbfs, rmsDbfs(samples.subarray(end - width, end)));
+    maxJump = Math.max(maxJump, Math.abs(samples[start] - samples[start - 1]), Math.abs(samples[end] - samples[end - 1]));
+    previousEnd = end;
+  }
+  return {
+    label: 'sourceSpeechBoundaries',
+    segmentsChecked: segments.length,
+    edgeWindowSeconds: 0.01,
+    maxOnsetRmsDbfs: rounded(maxOnsetRmsDbfs),
+    maxTailRmsDbfs: rounded(maxTailRmsDbfs),
+    maxJumpDbfs: rounded(20 * Math.log10(Math.max(maxJump, 1e-12)))
+  };
+}
+
 function rounded(value) {
   return Number.isFinite(value) ? Number(value.toFixed(6)) : value;
 }
@@ -217,7 +249,7 @@ function spectrogramSvg(samples, summary) {
   const top = 28;
   const size = 2048;
   const width = left + columns * cellW + 24;
-  const height = top + rows * cellH + 48;
+  const height = top + rows * cellH + 94;
   const rects = [];
   for (let column = 0; column < columns; column += 1) {
     const center = Math.round((column + 0.5) * samples.length / columns);
@@ -235,15 +267,28 @@ function spectrogramSvg(samples, summary) {
       rects.push('<rect x="' + (left + column * cellW) + '" y="' + y + '" width="' + cellW + '" height="' + cellH + '" fill="' + color(normalized) + '"/>');
     }
   }
+  const cuts = timeline.scenes.slice(1).map((scene) => {
+    const x = left + Math.round(scene.startFrame / timeline.durationInFrames * columns * cellW);
+    return '<line x1="' + x + '" x2="' + x + '" y1="' + top + '" y2="' + (top + rows * cellH) + '" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5 4"/>';
+  });
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((fraction) => {
+    const x = left + Math.round(fraction * columns * cellW);
+    return '<text x="' + x + '" y="' + (top + rows * cellH + 15) + '" text-anchor="middle" fill="#a8b3c7" font-family="Arial" font-size="10">' +
+      (fraction * samples.length / sampleRate).toFixed(0) + 's</text>';
+  });
   return '<svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '" viewBox="0 0 ' + width + ' ' + height + '" role="img" aria-labelledby="title desc">' +
     '<title id="title">Audio spectrogram QA</title><desc id="desc">Frequency energy over time for ' + escapeXml(input) + '</desc>' +
     '<rect width="100%" height="100%" fill="#0b1020"/><text x="16" y="18" fill="#e5eefc" font-family="Arial" font-size="13">a2swe audio QA: ' + escapeXml(input) + '</text>' +
-    '<text x="16" y="' + (height - 26) + '" fill="#a8b3c7" font-family="Arial" font-size="11">speech ' + summary.speech.rmsDbfs + ' dBFS; whole gap ' + summary.silence.rmsDbfs + ' dBFS; interior ' + summary.interiorSilence.rmsDbfs + ' dBFS; SNR ' + summary.snrSpeechVsSilenceDb + ' dB</text>' +
+    '<text x="16" y="' + (height - 43) + '" fill="#a8b3c7" font-family="Arial" font-size="11">speech ' + summary.speech.rmsDbfs + ' dBFS; whole gap ' + summary.silence.rmsDbfs + ' dBFS; interior ' + summary.interiorSilence.rmsDbfs + ' dBFS; SNR ' + summary.snrSpeechVsSilenceDb + ' dB</text>' +
+    '<text x="16" y="' + (height - 21) + '" fill="#fbbf24" font-family="Arial" font-size="11">source boundary jump ' + summary.sourceBoundaries.maxJumpDbfs + ' dBFS; edge RMS ' + Math.max(summary.sourceBoundaries.maxOnsetRmsDbfs, summary.sourceBoundaries.maxTailRmsDbfs) + ' dBFS; dashed lines: scene cuts</text>' +
     '<text x="8" y="' + (top + 10) + '" fill="#a8b3c7" font-family="Arial" font-size="10">24 kHz</text><text x="12" y="' + (top + rows * cellH) + '" fill="#a8b3c7" font-family="Arial" font-size="10">0 Hz</text>' +
-    rects.join('') + '</svg>\n';
+    rects.join('') + cuts.join('') + ticks.join('') + '</svg>\n';
 }
 
 const samples = decodeAudio(input);
+const sourceAudioSha256 = sha256File(manifest.audio.path);
+if (sourceAudioSha256 !== metadata.audioSha256) fail('source WAV digest does not match narration metadata');
+const sourceBoundaries = sourceBoundaryMetrics(decodeAudio(manifest.audio.path), metadata.segments);
 const windows = buildWindows(samples);
 const speechSamples = concatWindows(samples, windows.speech);
 const silenceSamples = concatWindows(samples, windows.silence);
@@ -258,29 +303,58 @@ const overall = summarize('overall', samples);
 const speech = summarize('speech', speechSamples);
 const silence = summarize('nonSpeechGaps', silenceSamples);
 const interiorSilence = summarize('nonSpeechGapInteriors', interiorSamples);
+const loudnessRun = spawnSync(ffmpeg, ['-hide_banner', '-nostats', '-i', path.isAbsolute(input) ? input : path.join(root, input), '-map', '0:a:0', '-af', 'ebur128=peak=true:framelog=quiet', '-f', 'null', '-'],
+  { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
+if (loudnessRun.error || loudnessRun.status !== 0) fail('ffmpeg loudness measurement failed: ' + (loudnessRun.error?.message || String(loudnessRun.stderr || '').slice(-2000)));
+const loudnessSummary = String(loudnessRun.stderr || '');
+function loudnessValue(pattern) {
+  const match = pattern.exec(loudnessSummary.slice(loudnessSummary.lastIndexOf('Summary:')));
+  return match ? Number(match[1]) : Number.NaN;
+}
+const loudness = {
+  integratedLufs: loudnessValue(/I:\s+(-?[\d.]+)\s+LUFS/),
+  loudnessRangeLu: loudnessValue(/LRA:\s+(-?[\d.]+)\s+LU/),
+  truePeakDbtp: loudnessValue(/Peak:\s+(-?[\d.]+)\s+dBFS/)
+};
 const thresholds = {
   gapBoundaryGuardSeconds,
+  maxSourceBoundaryJumpDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_JUMP_DBFS', -55),
+  maxSourceEdgeRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_EDGE_RMS_DBFS', -60),
   maxSilenceRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SILENCE_RMS_DBFS', -55),
   maxSpeechHighFrequencyRatio8k: strictThreshold('A2SWE_AUDIO_QA_MAX_SPEECH_HF_RATIO_8K', 0.03),
-  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true)
+  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true),
+  targetLufs: -16,
+  maxLoudnessDeviationLu: strictThreshold('A2SWE_AUDIO_QA_MAX_LOUDNESS_DEVIATION_LU', 1),
+  maxTruePeakDbtp: strictThreshold('A2SWE_AUDIO_QA_MAX_TRUE_PEAK_DBTP', -1)
 };
 const snr = rounded(speech.rmsDbfs - interiorSilence.rmsDbfs);
 const findings = [];
-if (interiorSilence.rmsDbfs > thresholds.maxSilenceRmsDbfs && snr < thresholds.minSpeechVsSilenceSnrDb) findings.push('non-speech gap interior noise exceeds configured floor');
+if (!Number.isFinite(loudness.integratedLufs) || Math.abs(loudness.integratedLufs - thresholds.targetLufs) > thresholds.maxLoudnessDeviationLu) {
+  findings.push('integrated loudness is outside the online-video target');
+}
+if (!Number.isFinite(loudness.truePeakDbtp) || loudness.truePeakDbtp > thresholds.maxTruePeakDbtp) findings.push('true peak exceeds the encoded-audio ceiling');
+if (sourceBoundaries.maxJumpDbfs > thresholds.maxSourceBoundaryJumpDbfs ||
+  Math.max(sourceBoundaries.maxOnsetRmsDbfs, sourceBoundaries.maxTailRmsDbfs) > thresholds.maxSourceEdgeRmsDbfs) {
+  findings.push('source speech boundaries contain a DC step or abrupt transition');
+}
+if (interiorSilence.rmsDbfs > thresholds.maxSilenceRmsDbfs) findings.push('non-speech gap interior noise exceeds configured floor');
+if (snr < thresholds.minSpeechVsSilenceSnrDb) findings.push('speech-to-silence SNR is below the configured minimum');
 if (speech.highFrequencyRatio8k > thresholds.maxSpeechHighFrequencyRatio8k && speech.spectralFlatness > 0.01) findings.push('speech band contains broadband high-frequency hiss/static signature');
 const valid = findings.length === 0;
 const report = {
   schemaVersion: '1.0.0',
-  adapter: 'a2swe-remotion-mp4-adapter-3',
+  adapter: 'a2swe-remotion-mp4-adapter-8',
   contentDigest: plan.contentDigest,
   input,
   inputSha256: sha256File(input),
+  sourceAudioSha256,
   sampleRate,
   durationSeconds: rounded(samples.length / sampleRate),
   producer: metadata.producer,
   engine: metadata.engine,
   voice: metadata.voice,
-  metrics: { overall, speech, silence, interiorSilence, snrSpeechVsSilenceDb: snr },
+  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr, loudness },
+  mastering: metadata.mastering ?? null,
   thresholds,
   findings,
   valid,
@@ -290,7 +364,8 @@ if (!valid) fail('audio QA failed: ' + findings.join('; ') + '; metrics=' + JSON
 if (verifyOnly) {
   if (!existsSync(path.join(root, reportPath))) fail('audio QA report is missing: ' + reportPath);
   const existing = JSON.parse(readFileSync(path.join(root, reportPath), 'utf8'));
-  if (existing.input !== report.input || existing.inputSha256 !== report.inputSha256 || existing.contentDigest !== report.contentDigest
+  if (existing.input !== report.input || existing.inputSha256 !== report.inputSha256 || existing.sourceAudioSha256 !== report.sourceAudioSha256
+    || existing.contentDigest !== report.contentDigest
     || JSON.stringify(existing.metrics) !== JSON.stringify(report.metrics)
     || JSON.stringify(existing.thresholds) !== JSON.stringify(report.thresholds) || existing.valid !== true) {
     fail('audio QA report does not match current encoded audio');
@@ -298,6 +373,6 @@ if (verifyOnly) {
 } else {
   mkdirSync(path.dirname(path.join(root, reportPath)), { recursive: true });
   writeFileSync(path.join(root, reportPath), JSON.stringify(report, null, 2) + '\n');
-  writeFileSync(path.join(root, spectrogramPath), spectrogramSvg(samples, { speech, silence, interiorSilence, snrSpeechVsSilenceDb: snr }));
+  writeFileSync(path.join(root, spectrogramPath), spectrogramSvg(samples, { speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr }));
 }
 console.log(JSON.stringify({ valid, input, qa: reportPath, spectrogram: spectrogramPath, findings }));

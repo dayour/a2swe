@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "runbookId": "datadog-cowork-plugin",
   "projectId": "datadog-cowork-plugin",
-  "updatedAt": "2026-09-30T03:28:43.549Z",
+  "updatedAt": "2026-10-07T00:40:47.905Z",
   "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
-  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
   "stage": "delivery",
   "gates": [
     {
@@ -17,19 +17,31 @@
       "name": "content",
       "status": "passed",
       "evidencePath": "release/content-ir.json",
-      "evidenceDigest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b"
+      "evidenceDigest": "4c315c8cffad45f7419256004981ee1e30fca8658dcf50db41b933e87c4aa0b4"
     },
     {
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "20238ac511e1f86048d41e91a0d5fb264d4722573e9f29f8e71945ec541db400"
+      "evidenceDigest": "88204628d8baaca01a627c3931305f9be782933da7fe316828f57854d1083663"
+    },
+    {
+      "name": "native-office",
+      "status": "passed",
+      "evidencePath": "qc/native-office/native-render.json",
+      "evidenceDigest": "8ed925f4076d1412a7d647ca667770d1a9b0e2c1dfa8918eac3e83d397660040"
+    },
+    {
+      "name": "media-analysis",
+      "status": "passed",
+      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "e578d1b9bf17d6790764e2f27cbdd65ac27604fd1b75e36ed467f0c746d7266f"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "b199d463e3a1801f926e77982aab79cbf69fb0650c30101932581ffc02e5477e"
+      "evidenceDigest": "2bbc4a5270dc597bee6304aef034fa3843144b03dcf9f7f843356116315eccc4"
     }
   ],
   "stages": [
@@ -38,50 +50,79 @@
       "status": "complete",
       "owner": "a2swe",
       "dependencies": [],
-      "evidencePaths": ["agent/SWE_AGENT.md"]
+      "evidencePaths": [
+        "agent/SWE_AGENT.md"
+      ]
     },
     {
       "name": "research",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["scaffold"],
-      "evidencePaths": ["release/domain-pack.json"]
+      "dependencies": [
+        "scaffold"
+      ],
+      "evidencePaths": [
+        "canonical/domain-pack.json",
+        "release/domain-pack.json"
+      ]
     },
     {
       "name": "content",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["research"],
-      "evidencePaths": ["release/content-ir.json", "release/render-spec.json"]
+      "dependencies": [
+        "research"
+      ],
+      "evidencePaths": [
+        "canonical/content-ir.json",
+        "release/content-ir.json",
+        "release/render-spec.json"
+      ]
     },
     {
       "name": "render",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["content"],
+      "dependencies": [
+        "content"
+      ],
       "evidencePaths": [
-        "release/outputs/remotion/dist/render.mp4",
+        "release/outputs/index.html",
+        "release/outputs/deck.deck.json",
         "release/outputs/deck.pptx",
-        "release/outputs/document.docx"
+        "release/outputs/document.docx",
+        "release/outputs/document.pdf",
+        "release/outputs/raster.png",
+        "release/outputs/raster.jpg",
+        "release/outputs/remotion/dist/render.mp4"
       ]
     },
     {
       "name": "qc",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["render"],
+      "dependencies": [
+        "render"
+      ],
       "evidencePaths": [
         "release/outputs/remotion/qc/audio-qa.json",
         "release/outputs/remotion/qc/audio-spectrogram.svg",
-        "release/parity-manifest.json"
+        "release/parity-manifest.json",
+        "qc/native-office/native-render.json",
+        "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
       "name": "delivery",
       "status": "complete",
       "owner": "a2swe",
-      "dependencies": ["qc"],
-      "evidencePaths": ["release/asset-inventory.json", "release/release-plan.json"]
+      "dependencies": [
+        "qc"
+      ],
+      "evidencePaths": [
+        "release/asset-inventory.json",
+        "release/release-plan.json"
+      ]
     }
   ],
   "artifacts": [
@@ -92,72 +133,126 @@
       "stage": "scaffold"
     },
     {
+      "path": "canonical/domain-pack.json",
+      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
       "path": "release/domain-pack.json",
       "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
       "mediaType": "application/json",
       "stage": "research"
     },
     {
-      "path": "release/content-ir.json",
+      "path": "canonical/content-ir.json",
       "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
-      "path": "release/render-spec.json",
-      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
+      "path": "release/content-ir.json",
+      "digest": "4c315c8cffad45f7419256004981ee1e30fca8658dcf50db41b933e87c4aa0b4",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
-      "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "6c7aa200daad147284bdfb8037077746a2553c70407bbc2787a616cd7ab18747",
-      "mediaType": "video/mp4",
+      "path": "release/render-spec.json",
+      "digest": "0ae54b73f6c385ec1156e203ac9cb2757321b0b0020e11e5f7ea699dfe182257",
+      "mediaType": "application/json",
+      "stage": "content"
+    },
+    {
+      "path": "release/outputs/index.html",
+      "digest": "06a0b98de6e492b0427df3a2aba5650245e4483ccf34b7fa2d10640ce8ba6ddd",
+      "mediaType": "text/html",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/deck.deck.json",
+      "digest": "26bbb4af21fbe2026a8058acc4e42598868b9c62a20e5fb4e30b81565ea9c756",
+      "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "984f8999dde6e5d49587f63a62c18c16439d7c6af277be91794f79f0f5d62723",
+      "digest": "76d3d9b0f48b7294e97eac0f25de6db09670cf4e25d874a804ca6c859399899a",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "24e44309473fabd4b489baec7969a2426edcac3801ee68cc241c441fd889dc12",
+      "digest": "aa98c300126d70680f752aafb644d191ec60a3fb36db4a9d59c6b53aa94a2e0b",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
+      "path": "release/outputs/document.pdf",
+      "digest": "586225b10b34fa9c92dcf979c09f34095c41de6dd918b15136b2056b37dd2179",
+      "mediaType": "application/pdf",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.png",
+      "digest": "ac92a9e42ff06bcf260eb8cde1d2432ddb230a4d404383d49f82f9989b1b53d5",
+      "mediaType": "image/png",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/raster.jpg",
+      "digest": "2212c95e0cc25b1e871abf4416516355e37dcab66d83e1924ede02694b52706a",
+      "mediaType": "image/jpeg",
+      "stage": "render"
+    },
+    {
+      "path": "release/outputs/remotion/dist/render.mp4",
+      "digest": "0c76479156215faf370f89a76e6dc2b4bbaa406fa5c19af83a4e59df1d23f258",
+      "mediaType": "video/mp4",
+      "stage": "render"
+    },
+    {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "20238ac511e1f86048d41e91a0d5fb264d4722573e9f29f8e71945ec541db400",
+      "digest": "88204628d8baaca01a627c3931305f9be782933da7fe316828f57854d1083663",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "e641580eafdad4b66a1a474e7d40beda3d26de72d64fabfa9c4d88a48db8db09",
+      "digest": "8cd45e6f9209db236fac789901612c57e6682db08060450220c59fdfb83d5942",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "b199d463e3a1801f926e77982aab79cbf69fb0650c30101932581ffc02e5477e",
+      "digest": "2bbc4a5270dc597bee6304aef034fa3843144b03dcf9f7f843356116315eccc4",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/native-office/native-render.json",
+      "digest": "8ed925f4076d1412a7d647ca667770d1a9b0e2c1dfa8918eac3e83d397660040",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "digest": "e578d1b9bf17d6790764e2f27cbdd65ac27604fd1b75e36ed467f0c746d7266f",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "2aace5f5eca94955fef345f9b2d4ef2c7d60f6996bbe57b3a49f87265a3911b7",
+      "digest": "fc4fa9d866e03b2a7fc80584ceb0f67e6d8f5b8fb6b3e87f1df6574fb59ac5ad",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
+      "digest": "9ed0cd4ea62b6a375438b89b1a03f321d97bfedaafe585b92dafee1a89cc5a21",
       "mediaType": "application/json",
       "stage": "delivery"
     }
   ],
   "blockers": [],
-  "nextAction": "Generate the next agent-specific status update with the core release pipeline; investigate any listener-reported audio transitions."
+  "nextAction": "Use the verified release and revision renders for the executive decision; publication and distribution remain outside a2swe."
 }

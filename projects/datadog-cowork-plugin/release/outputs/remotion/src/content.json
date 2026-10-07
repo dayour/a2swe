@@ -269,6 +269,7 @@
   "voice": {
     "style": "clear, calm engineering briefing",
     "narration": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.\n\nThe Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.\n\nFor Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.\n\nSetup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.\n\nAccess is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.\n\nTool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.\n\nTreat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
-    "externalTransfer": false
+    "externalTransfer": false,
+    "profileId": "am_michael"
   }
 }

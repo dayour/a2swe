@@ -6,8 +6,8 @@
   "number": 1,
   "createdAt": "2026-09-30T03:21:59.356Z",
   "pipeline": "core-release",
-  "status": "current",
-  "source": "release",
+  "status": "superseded",
+  "source": "qc/revisions/datadog-cowork-plugin-2026-01",
   "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
   "outputs": [
     {
@@ -60,7 +60,7 @@
         }
       ],
       "releaseDigest": "7f847a3121e4799421d3c2a5123045a6b9cc912fffb090f2d7f9652e218b30bc",
-      "package": "release"
+      "package": "qc/revisions/datadog-cowork-plugin-2026-01"
     }
   ],
   "notes": [

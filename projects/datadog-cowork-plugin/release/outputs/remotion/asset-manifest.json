@@ -1,15 +1,24 @@
 {
   "schemaVersion": "1.0.0",
-  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
   "audio": {
     "required": true,
     "path": "public/assets/datadog-cowork-plugin/audio.wav",
     "metadataPath": "audio/narration-metadata.json",
     "narrationManifestPath": "speech/narration-manifest.json",
     "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
-    "expectedDurationSeconds": 88.942,
+    "expectedDurationSeconds": 91.675,
     "maxDurationDriftSeconds": 0.06666666666666667,
     "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work"
+      }
+    },
     "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
     "digestBoundInContentIR": true,
     "command": "npm run audio"

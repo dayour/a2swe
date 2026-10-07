@@ -1,29 +1,47 @@
 {
   "audioCleanup": {
     "actions": [
-      "dc_offset_removed"
+      "speech_dc_highpass",
+      "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 3.7171088429488464e-10,
-      "highFrequencyRatio8k": 0.005521165012954864,
-      "rmsDbfs": -27.16671992304452,
-      "spectralFlatness": 0.0001146532989739765
+      "dcOffset": -1.6335606478623532e-11,
+      "highFrequencyRatio8k": 0.005046520633798134,
+      "rmsDbfs": -27.861220078975705,
+      "spectralFlatness": 3.0683101340585115e-07
     },
     "before": {
-      "dcOffset": 0.01865578256547451,
-      "highFrequencyRatio8k": 0.005521164958992624,
-      "rmsDbfs": -26.411454791965934,
-      "spectralFlatness": 0.00011465339005964869
+      "dcOffset": 1.4595588254451286e-05,
+      "highFrequencyRatio8k": 0.0050464498851572025,
+      "rmsDbfs": -27.860625773969822,
+      "spectralFlatness": 2.952841584721943e-07
     },
-    "mode": "auto"
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
   },
   "audioFile": "public/assets/datadog-cowork-plugin/audio.wav",
-  "audioSha256": "72b15cba4e36c1f6c68c6cdc67b0e2e4171a9e03c4b0dab35555add3ac6bb170",
+  "audioSha256": "e165f35daed8497a81fe5875800332ace4ecff6e02b60fb38df2d3c61f719c3a",
   "channels": 2,
-  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
-  "durationSeconds": 88.942,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
+  "durationSeconds": 91.675,
   "engine": "kokoro_onnx",
   "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
     "kokoro-onnx": {
       "installed_source": {
         "archive_info": {},
@@ -32,10 +50,30 @@
       "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
       "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
       "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
     }
   },
   "inputSampleRate": 24000,
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.61,
+    "inputLufs": -24.26,
+    "limitedSampleRatio": 0.02106,
+    "maxLimiterReductionDb": 5.27,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
   "models": {
     "voices": {
       "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
@@ -43,64 +81,113 @@
     },
     "weights": {
       "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
-      "sha256": "ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c"
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
     }
   },
   "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
   "producer": "scripts/synthesize-audio.py",
-  "producerSha256": "4a84f7a187d1bbe3bc4b4b9eb54111d5b57153447299e54de0243c3b47f6c1b4",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.4595590021471483e-05,
+    "peak": 0.5695177316665649,
+    "rms": 0.04045698763085197
+  },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
   "sampleRate": 48000,
   "schemaVersion": "1.0.0",
   "segments": [
     {
-      "endSeconds": 9.952666666666667,
+      "endSeconds": 10.275,
       "index": 0,
       "startSeconds": 0.25,
       "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful."
     },
     {
-      "endSeconds": 23.628666666666668,
+      "endSeconds": 24.425,
       "index": 1,
-      "startSeconds": 10.502666666666666,
+      "startSeconds": 10.825,
       "text": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about."
     },
     {
-      "endSeconds": 37.77733333333333,
+      "endSeconds": 38.9,
       "index": 2,
-      "startSeconds": 24.17866666666667,
+      "startSeconds": 24.975,
       "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace."
     },
     {
-      "endSeconds": 51.23866666666667,
+      "endSeconds": 52.6,
       "index": 3,
-      "startSeconds": 38.327333333333335,
+      "startSeconds": 39.45,
       "text": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first."
     },
     {
-      "endSeconds": 63.062666666666665,
+      "endSeconds": 64.85,
       "index": 4,
-      "startSeconds": 51.788666666666664,
+      "startSeconds": 53.15,
       "text": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider."
     },
     {
-      "endSeconds": 71.772,
+      "endSeconds": 74.05,
       "index": 5,
-      "startSeconds": 63.61266666666667,
+      "startSeconds": 65.4,
       "text": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset."
     },
     {
-      "endSeconds": 88.442,
+      "endSeconds": 91.175,
       "index": 6,
-      "startSeconds": 72.322,
+      "startSeconds": 74.6,
       "text": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand."
     }
   ],
   "voice": {
-    "lang": "en-us",
-    "speed": 1.0,
-    "voice": "am_michael"
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "d\u02c8AT\u0259d\u02cc\u0251\u0261 f\u0254\u0279 kl\u02c8\u0254d k\u02ccOw\u02c8\u025c\u0279k. j\u02cc\u028a\u0279 t\u0259l\u02c8\u025bm\u0259t\u0279i, w\u02c8\u028cn kw\u02c8\u025bs\u02a7\u1d4an \u0259w\u02c8A. h\u02c8\u026a\u0279 \u026az w\u02cc\u028ct \u00f0\u0259 pl\u02c8\u028c\u0261\u026an d\u02c8\u028cz, h\u02ccW \u026at k\u0259n\u02c8\u025bkts, \u00e6nd w\u02cc\u025b\u0279 \u0250 t\u02c8im \u0283\u02cc\u028ad bi k\u02c8\u025b\u0279f\u1d4al."
+      ],
+      [
+        "\u00f0\u0259 d\u02c8AT\u0259d\u02cc\u0251\u0261 m\u02c8\u0251d\u1d4al k\u02c8\u0251nt\u025bkst p\u0279\u02c8OT\u0259k\u02cc\u0254l s\u02c8\u025c\u0279v\u0259\u0279 b\u0279\u02c8\u026a\u02a4\u026az j\u028a\u0279 \u0259bz\u02cc\u025c\u0279v\u0259b\u02c8\u026al\u1d7bTi d\u02c8AT\u0259 t\u028a \u02c8A\u02a4\u1d4ants. l\u02c8\u0254\u0261z, m\u02c8\u025bt\u0279\u026aks, t\u0279\u02c8As\u1d7bz, d\u02c8\u00e6\u0283b\u02cc\u0254\u0279dz, \u00e6nd m\u02c8\u0251n\u0259T\u0259\u0279z b\u0259k\u02c8\u028cm \u03b8\u02c8\u026a\u014bz ju k\u00e6n s\u02c8\u026ampli \u02c8\u00e6sk \u0259b\u02c8Wt."
+      ],
+      [
+        "f\u02cc\u0254\u0279 kl\u02c8\u0254d, \u026ankl\u02c8ud\u026a\u014b k\u02ccOw\u02c8\u025c\u0279k, \u00f0i \u0259f\u02c8\u026a\u0283\u1d4al k\u0259n\u02c8\u025bkt\u0259\u0279 \u026az \u00f0\u0259 \u0279\u02cc\u025bk\u0259m\u02c8\u025bnd\u1d7bd p\u02c8\u00e6\u03b8, \u00e6nd \u026at \u02c8\u00e6dz \u026anp\u0279\u02c8\u0251d\u02cc\u028ckt v\u02cc\u026a\u0292\u0259l\u0259z\u02c8A\u0283\u0259nz. kl\u02c8\u0254d k\u02c8Od \u026anst\u02c8\u0254lz \u00f0\u0259 s\u02c8Am s\u02c8\u025c\u0279v\u0259\u0279 \u00e6z \u0250 pl\u02c8\u028c\u0261\u026an f\u0279\u028cm \u00f0i \u0259f\u02c8\u026a\u0283\u1d4al m\u02c8\u0251\u0279k\u0259tpl\u02ccAs."
+      ],
+      [
+        "s\u02c8\u025bT\u02cc\u028cp \u026az \u0283\u02c8\u0254\u0279t. \u02a7\u02c8uz j\u028a\u0279 d\u02c8AT\u0259d\u02cc\u0251\u0261 s\u02c8It, \u00f0\u02c8\u025bn s\u02c8In \u02c8\u026an w\u026a\u00f0 \u02c8O \u02c8\u0254\u03b8 \u026an \u00f0\u0259 b\u0279\u02c8Wz\u0259\u0279. k\u02c8iz \u0251\u0279 \u0250n \u0254lt\u02c8\u025c\u0279n\u0259T\u026av, \u00e6nd \u02c8\u025bni \u02c8Old\u0259\u0279 m\u02c8\u00e6nj\u0259w\u0259l s\u02c8\u025c\u0279v\u0259\u0279 \u0254\u0279 k\u02c8\u028cst\u0259m k\u0259n\u02c8\u025bkt\u0259\u0279 \u0283\u02cc\u028ad bi \u0279\u0259m\u02c8uvd f\u02c8\u025c\u0279st."
+      ],
+      [
+        "\u02c8\u00e6ks\u02cc\u025bs \u026az n\u02cc\u0251t w\u02c8Id\u0259nd. j\u02ccu st\u02c8\u026al n\u02c8id \u00f0\u0259 d\u02c8AT\u0259d\u02cc\u0251\u0261 p\u0259\u0279m\u02c8\u026a\u0283\u0259nz f\u0254\u0279 \u00f0\u0259 d\u02c8AT\u0259 ju kw\u02c8\u026a\u0279i, \u00e6nd \u00f0\u0259 pl\u02c8\u028c\u0261\u026an st\u02c8Ats \u00f0\u00e6t n\u02c8O d\u02c8AT\u0259d\u02cc\u0251\u0261 k\u0279\u0259d\u02c8\u025bn\u02a7\u1d4alz \u0251\u0279 s\u02c8\u025bnt t\u0259 \u00f0\u0259 m\u02c8\u0251d\u1d4al p\u0279\u0259v\u02c8Id\u0259\u0279."
+      ],
+      [
+        "t\u02c8ul \u0261\u0279\u02c8ups k\u00e6n bi sw\u02c8\u026a\u02a7t \u02cc\u0254n \u0254\u0279 \u02c8\u0254f, s\u02ccO \u0250 t\u02c8im k\u00e6n \u026aksp\u02c8Oz \u02c8Onli \u00f0\u0259 p\u0279\u02c8\u0251d\u02cc\u028ckts \u026at n\u02c8idz. st\u02c8\u0251\u0279t w\u026a\u00f0 w\u02c8\u028cn n\u02c8\u025b\u0279O t\u02c8uls\u025bt."
+      ],
+      [
+        "t\u0279\u02c8it \u00f0\u0259 p\u0279\u02c8ivj\u02ccu l\u02c8Ab\u0259l \u00e6z \u0250 \u0279\u02c8OlWt \u0279\u02c8\u026ask. \u00f0\u0259 s\u02c8\u025c\u0279v\u0259\u0279 \u026az \u02c8A\u02a7 \u02c8I p\u02c8i \u0250 \u02c8A \u02c8\u025bl\u0259\u02a4\u0259b\u1d4al, j\u02c8\u025bt ju \u02c8On k\u0259mpl\u02c8I\u0259ns f\u0254\u0279 \u00f0\u0259 t\u02c8ulz ju k\u0259n\u02c8\u025bkt, \u00e6nd \u0261\u02c8\u028cv\u0259\u0279nm\u0259nt s\u02c8Its \u0251\u0279 n\u02cc\u0251t s\u0259p\u02c8\u0254\u0279T\u1d7bd. p\u02c8Il\u0259t w\u026a\u00f0 w\u02c8\u028cn t\u02c8im, k\u02c8ip p\u0259\u0279m\u02c8\u026a\u0283\u0259nz t\u02c8It, \u00f0\u02c8\u025bn \u026aksp\u02c8\u00e6nd."
+      ]
+    ],
+    "phonemesSha256": "24ed675b337d53ef74c8bc380480b08f702ec9aefa5a5d962572eaeb98eee3a6",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Datadog for Claude co-work. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.",
+      "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
+      "For Claude, including co-work, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.",
+      "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.",
+      "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
+      "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.",
+      "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "Cowork": "co-work"
+    },
+    "speed": 1
   }
 }
