@@ -3,49 +3,47 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 2196,
+    "trackedFiles": 4074,
     "nodes": {
-      "adapter": 11,
-      "agent": 8,
-      "atom": 35,
-      "env": 28,
-      "file": 21,
+      "adapter": 8,
+      "agent": 9,
+      "atom": 38,
+      "env": 30,
+      "file": 20,
       "format": 8,
-      "module": 132,
+      "module": 130,
       "package": 20,
       "plugin": 1,
       "project": 9,
       "skill": 92,
-      "tree": 1,
       "visual": 3,
-      "voice": 4,
+      "voice": 3,
       "voice-engine": 2,
       "workflow": 3
     },
     "edges": {
-      "binds_digest_of": 20,
-      "branches_on": 48,
-      "composes": 70,
+      "binds_digest_of": 22,
+      "branches_on": 57,
+      "composes": 78,
       "contains": 3,
-      "depends_on": 80,
-      "forks": 5,
-      "hands_off_to": 3,
-      "imports": 198,
+      "depends_on": 83,
+      "hands_off_to": 4,
+      "imports": 212,
       "mirrors": 6,
       "produces": 8,
-      "reads": 25,
-      "reads_env": 32,
-      "shipped_by": 32,
-      "speaks_with": 4,
+      "reads": 24,
+      "reads_env": 37,
+      "shipped_by": 72,
+      "speaks_with": 9,
       "synthesizes_with": 2,
       "tests": 31,
-      "uses_contract": 74,
-      "uses_visual": 10
+      "uses_contract": 87,
+      "uses_visual": 25
     },
     "gaps": {
-      "critical": 1,
-      "high": 11,
-      "medium": 13,
+      "critical": 0,
+      "high": 7,
+      "medium": 8,
       "low": 2
     }
   },
@@ -57,12 +55,6 @@
       "attributes": {
         "current": true
       }
-    },
-    {
-      "id": "adapter:a2swe-docx-ooxml-3",
-      "type": "adapter",
-      "path": "a2swe-docx-ooxml-3",
-      "attributes": {}
     },
     {
       "id": "adapter:a2swe-docx-ooxml-4",
@@ -89,12 +81,6 @@
       }
     },
     {
-      "id": "adapter:a2swe-pdf-searchable-3",
-      "type": "adapter",
-      "path": "a2swe-pdf-searchable-3",
-      "attributes": {}
-    },
-    {
       "id": "adapter:a2swe-pdf-searchable-4",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
@@ -111,13 +97,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-pptx-ooxml-3",
-      "type": "adapter",
-      "path": "a2swe-pptx-ooxml-3",
-      "attributes": {}
-    },
-    {
-      "id": "adapter:a2swe-pptx-ooxml-4",
+      "id": "adapter:a2swe-pptx-ooxml-7",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -125,7 +105,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-remotion-mp4-adapter-3",
+      "id": "adapter:a2swe-remotion-mp4-adapter-10",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -142,6 +122,12 @@
       "id": "agent:.github/agents/power-platform-swe.agent.md",
       "type": "agent",
       "path": ".github/agents/power-platform-swe.agent.md",
+      "attributes": {}
+    },
+    {
+      "id": "agent:library/agents/a2swe-account-weekly.agent.md",
+      "type": "agent",
+      "path": "library/agents/a2swe-account-weekly.agent.md",
       "attributes": {}
     },
     {
@@ -198,35 +184,35 @@
             "pointer": "ApprovalManifest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "ApprovalManifest.manifestId",
             "type": "Identifier",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": false
           },
           {
             "pointer": "ApprovalManifest.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "ApprovalManifest.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "ApprovalManifest.reviewedAt",
             "type": "IsoInstant",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": true
           },
           {
@@ -257,21 +243,21 @@
             "pointer": "ArtifactRef.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "ArtifactRef.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "ArtifactRef.byteSize",
             "type": "integer",
             "required": true,
-            "consumers": 7,
+            "consumers": 9,
             "validated": false
           }
         ],
@@ -296,21 +282,21 @@
             "pointer": "AssetInventory.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "AssetInventory.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "AssetInventory.entries",
             "type": "array<AssetInventoryEntry>",
             "required": true,
-            "consumers": 8,
+            "consumers": 10,
             "validated": true
           }
         ],
@@ -342,35 +328,35 @@
             "pointer": "AssetInventoryEntry.kind",
             "type": "enum(selected|generated_visual)",
             "required": true,
-            "consumers": 17,
+            "consumers": 19,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.role",
             "type": "string",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.sourceDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": true
           },
           {
@@ -402,7 +388,7 @@
             "pointer": "AssetRecord.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -416,7 +402,7 @@
             "pointer": "AssetRecord.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -437,14 +423,14 @@
             "pointer": "AssetRecord.width",
             "type": "integer",
             "required": true,
-            "consumers": 8,
+            "consumers": 12,
             "validated": true
           },
           {
             "pointer": "AssetRecord.height",
             "type": "integer",
             "required": true,
-            "consumers": 8,
+            "consumers": 12,
             "validated": true
           },
           {
@@ -458,7 +444,7 @@
             "pointer": "AssetRecord.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           },
           {
@@ -504,7 +490,7 @@
             "pointer": "AssetRecord.createdAt",
             "type": "string",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
@@ -533,7 +519,7 @@
             "pointer": "AssetRecord.quality",
             "type": "object",
             "required": false,
-            "consumers": 1,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -588,7 +574,7 @@
             "pointer": "AssetRequest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -602,7 +588,7 @@
             "pointer": "AssetRequest.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -616,14 +602,14 @@
             "pointer": "AssetRequest.method",
             "type": "enum(diagram|diffusion|import)",
             "required": true,
-            "consumers": 11,
+            "consumers": 12,
             "validated": true
           },
           {
             "pointer": "AssetRequest.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           },
           {
@@ -637,7 +623,7 @@
             "pointer": "AssetRequest.title",
             "type": "string",
             "required": false,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
@@ -651,14 +637,14 @@
             "pointer": "AssetRequest.width",
             "type": "integer",
             "required": true,
-            "consumers": 8,
+            "consumers": 12,
             "validated": true
           },
           {
             "pointer": "AssetRequest.height",
             "type": "integer",
             "required": true,
-            "consumers": 8,
+            "consumers": 12,
             "validated": true
           },
           {
@@ -672,7 +658,7 @@
             "pointer": "AssetRequest.palette",
             "type": "array<string>",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": false
           },
           {
@@ -718,32 +704,32 @@
             "pointer": "Claim.claimId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "Claim.wording",
             "type": "string",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": true
           },
           {
             "pointer": "Claim.evidenceIds",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "Claim.disposition",
             "type": "enum(unreviewed|supported|contradicted|insufficient_evidence)",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
-        "typeConsumers": 1
+        "typeConsumers": 2
       }
     },
     {
@@ -770,14 +756,14 @@
             "pointer": "ContentAsset.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "ContentAsset.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -791,7 +777,7 @@
             "pointer": "ContentAsset.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           }
         ],
@@ -815,7 +801,7 @@
             "pointer": "ContentCitation.evidenceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -829,14 +815,14 @@
             "pointer": "ContentCitation.canonicalUrl",
             "type": "string",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "ContentCitation.retrievedAt",
             "type": "IsoInstant",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
@@ -860,21 +846,21 @@
             "pointer": "ContentClaim.claimId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "ContentClaim.text",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 18,
             "validated": true
           },
           {
             "pointer": "ContentClaim.evidenceIds",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
@@ -900,7 +886,7 @@
             "pointer": "ContentIR.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -914,14 +900,14 @@
             "pointer": "ContentIR.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "ContentIR.title",
             "type": "string",
             "required": true,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
@@ -949,14 +935,14 @@
             "pointer": "ContentIR.summary",
             "type": "string",
             "required": true,
-            "consumers": 8,
+            "consumers": 10,
             "validated": false
           },
           {
             "pointer": "ContentIR.claims",
             "type": "array<ContentClaim>",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -970,7 +956,7 @@
             "pointer": "ContentIR.assets",
             "type": "array<ContentAsset>",
             "required": true,
-            "consumers": 11,
+            "consumers": 12,
             "validated": true
           },
           {
@@ -984,11 +970,11 @@
             "pointer": "ContentIR.voice",
             "type": "VoiceSpec",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": false
           }
         ],
-        "typeConsumers": 6
+        "typeConsumers": 7
       }
     },
     {
@@ -1014,14 +1000,14 @@
             "pointer": "ContentSection.title",
             "type": "string",
             "required": true,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "ContentSection.body",
             "type": "string",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": false
           },
           {
@@ -1067,7 +1053,7 @@
         "shapeId": "473287f8298dba71",
         "shape": "string",
         "fields": [],
-        "typeConsumers": 12
+        "typeConsumers": 18
       }
     },
     {
@@ -1103,88 +1089,88 @@
             "pointer": "DomainPack.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "DomainPack.domainId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "DomainPack.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 17,
+            "consumers": 19,
             "validated": true
           },
           {
             "pointer": "DomainPack.canonicalName",
             "type": "string",
             "required": true,
-            "consumers": 2,
+            "consumers": 4,
             "validated": false
           },
           {
             "pointer": "DomainPack.asOf",
             "type": "Date",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
             "pointer": "DomainPack.windowStart",
             "type": "Date",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "DomainPack.timezone",
             "type": "const(\"UTC\")",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
             "pointer": "DomainPack.state",
             "type": "enum(draft|verifying|ready|stale|blocked|superseded)",
             "required": true,
-            "consumers": 15,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "DomainPack.sources",
             "type": "array<SourceDocument>",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
             "pointer": "DomainPack.evidence",
             "type": "array<EvidenceSpan>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
             "pointer": "DomainPack.claims",
             "type": "array<Claim>",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "DomainPack.knownGaps",
             "type": "array<string>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": false
           }
         ],
-        "typeConsumers": 7
+        "typeConsumers": 8
       }
     },
     {
@@ -1205,42 +1191,42 @@
             "pointer": "EvidenceSpan.evidenceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "EvidenceSpan.sourceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "EvidenceSpan.sourceDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": true
           },
           {
             "pointer": "EvidenceSpan.locator",
             "type": "string",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
             "pointer": "EvidenceSpan.quote",
             "type": "string",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": true
           },
           {
             "pointer": "EvidenceSpan.quoteDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": true
           }
         ],
@@ -1265,42 +1251,42 @@
             "pointer": "FormatOutput.format",
             "type": "enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": false
           },
           {
             "pointer": "FormatOutput.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
             "pointer": "FormatOutput.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "FormatOutput.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "FormatOutput.byteSize",
             "type": "integer",
             "required": true,
-            "consumers": 7,
+            "consumers": 9,
             "validated": false
           },
           {
             "pointer": "FormatOutput.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1332,14 +1318,14 @@
             "pointer": "FormatParityManifest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "FormatParityManifest.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1353,7 +1339,7 @@
             "pointer": "FormatParityManifest.releaseDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
@@ -1367,7 +1353,7 @@
             "pointer": "FormatParityManifest.outputs",
             "type": "array<FormatOutput>",
             "required": true,
-            "consumers": 8,
+            "consumers": 10,
             "validated": true
           }
         ],
@@ -1391,28 +1377,28 @@
             "pointer": "GenerationRequest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.id",
             "type": "string",
             "required": true,
-            "consumers": 15,
+            "consumers": 18,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.name",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 20,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 17,
+            "consumers": 19,
             "validated": true
           },
           {
@@ -1433,7 +1419,7 @@
             "pointer": "GenerationRequest.sources",
             "type": "array<string>",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -1522,21 +1508,21 @@
             "pointer": "LibraryEntry.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.id",
             "type": "Identifier",
             "required": true,
-            "consumers": 15,
+            "consumers": 18,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.kind",
             "type": "enum(agent|skill|plugin|asset|template|automation|archive)",
             "required": true,
-            "consumers": 17,
+            "consumers": 19,
             "validated": true
           },
           {
@@ -1564,14 +1550,14 @@
             "pointer": "LibraryEntry.contentHash",
             "type": "Digest",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.dependencies",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -1652,14 +1638,14 @@
             "pointer": "ReleasePlan.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "ReleasePlan.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1680,7 +1666,7 @@
             "pointer": "ReleasePlan.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -1701,7 +1687,7 @@
             "pointer": "ReleasePlan.releaseDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
@@ -1713,6 +1699,110 @@
           }
         ],
         "typeConsumers": 3
+      }
+    },
+    {
+      "id": "atom:RenderRevision",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/RenderRevision",
+      "attributes": {
+        "patterns": [
+          "root-contract",
+          "closed",
+          "versioned",
+          "digest-bound",
+          "digested-artifact",
+          "lifecycle"
+        ],
+        "shapeId": "621bc165d18a66c5",
+        "shape": "contentDigest?:Digest;createdAt:IsoInstant;notes:array<string>;number:integer;outputs:array<RevisionOutput>;pipeline:enum(legacy-template|core-release);projectId:string;schemaVersion:const(\"1.0.0\");source:RelativePath;status:enum(current|superseded|rejected);title:string;year:integer",
+        "fields": [
+          {
+            "pointer": "RenderRevision.schemaVersion",
+            "type": "const(\"1.0.0\")",
+            "required": true,
+            "consumers": 16,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.projectId",
+            "type": "string",
+            "required": true,
+            "consumers": 14,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.title",
+            "type": "string",
+            "required": true,
+            "consumers": 14,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.year",
+            "type": "integer",
+            "required": true,
+            "consumers": 1,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.number",
+            "type": "integer",
+            "required": true,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.createdAt",
+            "type": "IsoInstant",
+            "required": true,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.pipeline",
+            "type": "enum(legacy-template|core-release)",
+            "required": true,
+            "consumers": 1,
+            "validated": false
+          },
+          {
+            "pointer": "RenderRevision.status",
+            "type": "enum(current|superseded|rejected)",
+            "required": true,
+            "consumers": 25,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.source",
+            "type": "RelativePath",
+            "required": true,
+            "consumers": 11,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.contentDigest",
+            "type": "Digest",
+            "required": false,
+            "consumers": 6,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.outputs",
+            "type": "array<RevisionOutput>",
+            "required": true,
+            "consumers": 10,
+            "validated": true
+          },
+          {
+            "pointer": "RenderRevision.notes",
+            "type": "array<string>",
+            "required": true,
+            "consumers": 3,
+            "validated": false
+          }
+        ],
+        "typeConsumers": 2
       }
     },
     {
@@ -1733,21 +1823,21 @@
             "pointer": "RenderSpec.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "RenderSpec.renderId",
             "type": "Identifier",
             "required": true,
-            "consumers": 2,
+            "consumers": 4,
             "validated": false
           },
           {
             "pointer": "RenderSpec.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1761,7 +1851,7 @@
             "pointer": "RenderSpec.theme",
             "type": "object",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": false
           },
           {
@@ -1793,7 +1883,7 @@
             "pointer": "RenderSpec.viewport",
             "type": "object",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": false
           },
           {
@@ -1810,7 +1900,7 @@
             "pointer": "RenderSpec.video",
             "type": "object",
             "required": true,
-            "consumers": 1,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -1843,6 +1933,167 @@
       }
     },
     {
+      "id": "atom:RevisionOutput",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/RevisionOutput",
+      "attributes": {
+        "patterns": [
+          "sub-shape",
+          "closed",
+          "digest-bound",
+          "digested-artifact"
+        ],
+        "shapeId": "8c2f548f566fb983",
+        "shape": "byteSize:integer;captions?:string;digest:Digest;durationSeconds?:number;height?:integer;mediaType:string;package?:RelativePath;path:string;releaseDigest?:Digest;role:enum(video|video-raw|captions|presentation|metadata);scenes?:array<object>;scenes[].endSeconds:number;scenes[].id:Identifier;scenes[].startSeconds:number;voice?:RevisionVoice;width?:integer",
+        "fields": [
+          {
+            "pointer": "RevisionOutput.path",
+            "type": "string",
+            "required": true,
+            "consumers": 23,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.role",
+            "type": "enum(video|video-raw|captions|presentation|metadata)",
+            "required": true,
+            "consumers": 13,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.digest",
+            "type": "Digest",
+            "required": true,
+            "consumers": 22,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.byteSize",
+            "type": "integer",
+            "required": true,
+            "consumers": 9,
+            "validated": false
+          },
+          {
+            "pointer": "RevisionOutput.mediaType",
+            "type": "string",
+            "required": true,
+            "consumers": 16,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.durationSeconds",
+            "type": "number",
+            "required": false,
+            "consumers": 6,
+            "validated": false
+          },
+          {
+            "pointer": "RevisionOutput.width",
+            "type": "integer",
+            "required": false,
+            "consumers": 12,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.height",
+            "type": "integer",
+            "required": false,
+            "consumers": 12,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.voice",
+            "type": "RevisionVoice",
+            "required": false,
+            "consumers": 7,
+            "validated": false
+          },
+          {
+            "pointer": "RevisionOutput.captions",
+            "type": "string",
+            "required": false,
+            "consumers": 2,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.releaseDigest",
+            "type": "Digest",
+            "required": false,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.package",
+            "type": "RelativePath",
+            "required": false,
+            "consumers": 2,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.scenes",
+            "type": "array<object>",
+            "required": false,
+            "consumers": 4,
+            "validated": true
+          },
+          {
+            "pointer": "RevisionOutput.scenes[].id",
+            "type": "Identifier",
+            "required": true
+          },
+          {
+            "pointer": "RevisionOutput.scenes[].startSeconds",
+            "type": "number",
+            "required": true
+          },
+          {
+            "pointer": "RevisionOutput.scenes[].endSeconds",
+            "type": "number",
+            "required": true
+          }
+        ],
+        "typeConsumers": 1
+      }
+    },
+    {
+      "id": "atom:RevisionVoice",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/RevisionVoice",
+      "attributes": {
+        "patterns": [
+          "sub-shape",
+          "closed"
+        ],
+        "shapeId": "a69a0a97624642a0",
+        "shape": "engine:enum(kokoro_onnx|kokoro|edge-neural|windows-sapi|unknown);profileId?:string;voiceName?:string",
+        "fields": [
+          {
+            "pointer": "RevisionVoice.engine",
+            "type": "enum(kokoro_onnx|kokoro|edge-neural|windows-sapi|unknown)",
+            "required": true,
+            "consumers": 4,
+            "validated": false
+          },
+          {
+            "pointer": "RevisionVoice.profileId",
+            "type": "string",
+            "required": false,
+            "consumers": 3,
+            "validated": false
+          },
+          {
+            "pointer": "RevisionVoice.voiceName",
+            "type": "string",
+            "required": false,
+            "consumers": 1,
+            "validated": false
+          }
+        ],
+        "typeConsumers": 1
+      }
+    },
+    {
       "id": "atom:Runbook",
       "type": "atom",
       "path": "packages/core/schemas/contracts.schema.json#/$defs/Runbook",
@@ -1859,49 +2110,49 @@
             "pointer": "Runbook.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "Runbook.runbookId",
             "type": "Identifier",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
             "pointer": "Runbook.projectId",
             "type": "Identifier",
             "required": true,
-            "consumers": 11,
-            "validated": false
+            "consumers": 14,
+            "validated": true
           },
           {
             "pointer": "Runbook.updatedAt",
             "type": "IsoInstant",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
             "pointer": "Runbook.domainDigest",
             "type": "oneOf(Digest|null)",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "Runbook.contentDigest",
             "type": "oneOf(Digest|null)",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "Runbook.stage",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1929,14 +2180,14 @@
             "pointer": "Runbook.blockers",
             "type": "array<string>",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": false
           },
           {
             "pointer": "Runbook.nextAction",
             "type": "string",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           }
         ],
@@ -1961,28 +2212,28 @@
             "pointer": "RunbookArtifact.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
             "pointer": "RunbookArtifact.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "RunbookArtifact.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "RunbookArtifact.stage",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           }
         ],
@@ -2007,14 +2258,14 @@
             "pointer": "RunbookGate.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 17,
+            "consumers": 20,
             "validated": true
           },
           {
             "pointer": "RunbookGate.status",
             "type": "enum(pending|blocked|passed)",
             "required": true,
-            "consumers": 21,
+            "consumers": 25,
             "validated": true
           },
           {
@@ -2053,28 +2304,28 @@
             "pointer": "RunbookStage.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 17,
+            "consumers": 20,
             "validated": true
           },
           {
             "pointer": "RunbookStage.status",
             "type": "enum(not_started|in_progress|blocked|complete)",
             "required": true,
-            "consumers": 21,
+            "consumers": 25,
             "validated": true
           },
           {
             "pointer": "RunbookStage.owner",
             "type": "oneOf(string|null)",
             "required": true,
-            "consumers": 1,
+            "consumers": 4,
             "validated": false
           },
           {
             "pointer": "RunbookStage.dependencies",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2104,14 +2355,14 @@
             "pointer": "SectionVisual.kind",
             "type": "enum(mermaid|excalidraw|marp)",
             "required": true,
-            "consumers": 17,
+            "consumers": 19,
             "validated": true
           },
           {
             "pointer": "SectionVisual.source",
             "type": "string",
             "required": true,
-            "consumers": 8,
+            "consumers": 11,
             "validated": true
           },
           {
@@ -2158,7 +2409,7 @@
             "pointer": "SelectedAssetApproval.basis",
             "type": "string",
             "required": true,
-            "consumers": 0,
+            "consumers": 2,
             "validated": true
           },
           {
@@ -2179,7 +2430,7 @@
             "pointer": "SelectedAssetApproval.status",
             "type": "enum(pending|approved|rejected)",
             "required": true,
-            "consumers": 21,
+            "consumers": 25,
             "validated": true
           }
         ],
@@ -2205,77 +2456,77 @@
             "pointer": "SourceDocument.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "SourceDocument.sourceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "SourceDocument.domainId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "SourceDocument.canonicalUrl",
             "type": "string",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "SourceDocument.publisher",
             "type": "string",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": true
           },
           {
             "pointer": "SourceDocument.title",
             "type": "string",
             "required": true,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "SourceDocument.publicationDate",
             "type": "oneOf(Date|null)",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "SourceDocument.modifiedDate",
             "type": "oneOf(Date|null)",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "SourceDocument.retrievedAt",
             "type": "string",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "SourceDocument.dateEvidence",
             "type": "string",
             "required": true,
-            "consumers": 0,
+            "consumers": 1,
             "validated": true
           },
           {
             "pointer": "SourceDocument.contentHash",
             "type": "Digest",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           }
         ],
@@ -2301,7 +2552,7 @@
             "pointer": "TaskResult.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -2322,14 +2573,14 @@
             "pointer": "TaskResult.status",
             "type": "enum(succeeded|failed|blocked|cancelled|outcome_unknown)",
             "required": true,
-            "consumers": 21,
+            "consumers": 25,
             "validated": true
           },
           {
             "pointer": "TaskResult.outputs",
             "type": "array<ArtifactRef>",
             "required": true,
-            "consumers": 8,
+            "consumers": 10,
             "validated": true
           },
           {
@@ -2353,7 +2604,7 @@
             "pointer": "TaskResult.summary",
             "type": "string",
             "required": true,
-            "consumers": 8,
+            "consumers": 10,
             "validated": false
           }
         ],
@@ -2383,7 +2634,7 @@
             "pointer": "VoiceSpec.profileId",
             "type": "string",
             "required": false,
-            "consumers": 2,
+            "consumers": 3,
             "validated": false
           },
           {
@@ -2436,7 +2687,7 @@
             "pointer": "WorkItem.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 11,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -2457,21 +2708,21 @@
             "pointer": "WorkItem.domainId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "WorkItem.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "WorkItem.stage",
             "type": "enum(research|evaluation|production)",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -2492,7 +2743,7 @@
             "pointer": "WorkItem.dependencies",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2523,6 +2774,12 @@
       "id": "env:A2SWE_AUDIO_CLEANUP_LOWPASS_HZ",
       "type": "env",
       "path": "A2SWE_AUDIO_CLEANUP_LOWPASS_HZ",
+      "attributes": {}
+    },
+    {
+      "id": "env:A2SWE_BROWSER_EXECUTABLE",
+      "type": "env",
+      "path": "A2SWE_BROWSER_EXECUTABLE",
       "attributes": {}
     },
     {
@@ -2571,6 +2828,12 @@
       "id": "env:A2SWE_PYTHON",
       "type": "env",
       "path": "A2SWE_PYTHON",
+      "attributes": {}
+    },
+    {
+      "id": "env:A2SWE_REMOTION_PORT",
+      "type": "env",
+      "path": "A2SWE_REMOTION_PORT",
       "attributes": {}
     },
     {
@@ -2772,12 +3035,6 @@
       "attributes": {}
     },
     {
-      "id": "file:projects/agent-365/qc/source-receipts.json",
-      "type": "file",
-      "path": "projects/agent-365/qc/source-receipts.json",
-      "attributes": {}
-    },
-    {
       "id": "file:projects/agent-365/research/sources.json",
       "type": "file",
       "path": "projects/agent-365/research/sources.json",
@@ -2873,8 +3130,8 @@
       "attributes": {
         "role": "desktop-ui",
         "language": "typescript",
-        "lines": 221,
-        "sha256": "4eab6c103cd324ee151dd7104d307058f616aaf7b3ccc56794b2d34666ce20c5",
+        "lines": 224,
+        "sha256": "1e29d265fff35006be96d5e090889e8340f40055319b6970eaf9f030fdb16659",
         "exports": [
           "App"
         ],
@@ -2971,8 +3228,8 @@
       "attributes": {
         "role": "desktop-ui",
         "language": "typescript",
-        "lines": 57,
-        "sha256": "ffa47e4f85f0d088f9260a9fd1ecc979abede404806b973e09eae254347cbc46",
+        "lines": 59,
+        "sha256": "3edb720c12476e00b5dee15e50e376945f78f2085cf5e3004634e08ac8004aa8",
         "exports": [
           "Activity",
           "AppSettings",
@@ -3004,8 +3261,8 @@
       "attributes": {
         "role": "docs-script",
         "language": "javascript",
-        "lines": 232,
-        "sha256": "f95abab86223fedf15a4c5160db1c96b4d644ce38efa44757a788b1e17bd96fc"
+        "lines": 209,
+        "sha256": "dbded7f6f912124e2e99c0363e9a8d25cc32a779a56526f863e854f29e5a0b96"
       }
     },
     {
@@ -3015,8 +3272,8 @@
       "attributes": {
         "role": "test",
         "language": "javascript",
-        "lines": 101,
-        "sha256": "6d5488f34db7eed909704e34e1190b507af1e372223e0d2e2bc4ed37d43870d7"
+        "lines": 104,
+        "sha256": "131cc43a7b26e7b7c89dd6fe7ee1e1c969d5d5ca17073546e39b903167aed965"
       }
     },
     {
@@ -3059,8 +3316,8 @@
       "attributes": {
         "role": "docs-ui",
         "language": "typescript",
-        "lines": 118,
-        "sha256": "8db9fa85e5379057d5b19f0709437a674e857dae4cd8adfb01f8f66c62f2a83a",
+        "lines": 124,
+        "sha256": "8b93e424a8512e57404d4d7f943638489c68410ea3f28534d1013e5a897dca21",
         "exports": [
           "AssetPreview",
           "Blueprint",
@@ -3130,7 +3387,7 @@
         "role": "docs-ui",
         "language": "typescript",
         "lines": 85,
-        "sha256": "8c53498a2ec468f803711affd53921e9c21211dc53e22be9fe3b2b11a00d991e",
+        "sha256": "c9413d4051cb0e1ce8c6cea21f81c0c5d52f5f2eb69c5964922018bfeb39a9dd",
         "exports": [
           "VideoLibrary"
         ]
@@ -3167,8 +3424,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 760,
-        "sha256": "6f75569ef481404fb67065143ea6b2a86ce108014d61429e8a3c78d4bfb12038",
+        "lines": 821,
+        "sha256": "d4c8375327cda4d6999bf28f44d58a437027b88fd463c5b2f11241f662b002d0",
         "exports": [
           "BRIDGE_METHOD_SCHEMAS",
           "CALLABLE_TOOL_NAMES",
@@ -3218,7 +3475,7 @@
         "role": "integration",
         "language": "typescript",
         "lines": 267,
-        "sha256": "78763cace1d1b41ca97147373684e9563111558d76fccbf0bbb4de4a85562733",
+        "sha256": "d42fab5f017d5ae8ae96b073141160a17b2f6f12f10c5d25fd45444b15cff1c0",
         "exports": [
           "LOCAL_TOOL_NAMES",
           "callLocalTool",
@@ -3234,8 +3491,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 729,
-        "sha256": "5c9783dc3f453b7fcfddb1c02b1c7cc6a34cec1c705ecb071a3472499aaea379",
+        "lines": 735,
+        "sha256": "5712e1ed8e2726820c5aa34aa5b87fa5694a5a5ae1e1d170304e1e24be89ef82",
         "exports": [
           "MediaReviewClient",
           "MediaReviewService",
@@ -3428,14 +3685,30 @@
       }
     },
     {
+      "id": "module:packages/core/src/account-intake.ts",
+      "type": "module",
+      "path": "packages/core/src/account-intake.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 255,
+        "sha256": "c2c69a08bfbc9079f36c465f8bcf739d07f0a5f1b888003317cc56b613f8226c",
+        "exports": [
+          "accountTheme",
+          "importAccountIntake"
+        ],
+        "testCoverage": "none"
+      }
+    },
+    {
       "id": "module:packages/core/src/adapters.ts",
       "type": "module",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1024,
-        "sha256": "762678e361f1ccf3352f5b625f0cc19f73aebfd7b3956c9e209c619652148db7",
+        "lines": 1051,
+        "sha256": "413deb2c780d90d124f66fbad2b350167f7778b8a5c8b87d0fa38cc9cac664d9",
         "exports": [
           "AdapterAssetEmbed",
           "AdapterFile",
@@ -3536,8 +3809,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 310,
-        "sha256": "86e60748e9f7756e0955daf80c442a8486d00087f1ec02790aa723bce83ddbe4",
+        "lines": 356,
+        "sha256": "27a9646d30ea5d711333d709cb13a0822408986b3f88ebd9e274aa7b22ab0f53",
         "testCoverage": "none"
       }
     },
@@ -3548,8 +3821,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1219,
-        "sha256": "17a4fc12561c2b8e4e53ee2d63e478b5f9010fb979d3b2370a2d300e5ce4e0fe",
+        "lines": 1268,
+        "sha256": "834aa0b05e0037c1254a89a677314545d324d32d7080b56e793121a66b232543",
         "generated": true,
         "exports": [
           "ApprovalManifest",
@@ -3577,7 +3850,10 @@
           "LibraryEntry",
           "RelativePath",
           "ReleasePlan",
+          "RenderRevision",
           "RenderSpec",
+          "RevisionOutput",
+          "RevisionVoice",
           "Runbook",
           "RunbookArtifact",
           "RunbookGate",
@@ -3598,10 +3874,11 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 253,
-        "sha256": "2137aaf515fe14c2992883d364c66f38bf4181abfe288aafd4ecbc938bcc36e6",
+        "lines": 273,
+        "sha256": "4b671a3879841f2b3069daa46f81bac2e3c0c81177e6b8b4c8a2a14647fb6bac",
         "exports": [
           "isContractName",
+          "revisionTitle",
           "validate",
           "validateContentAgainstDomain"
         ],
@@ -3663,14 +3940,35 @@
       }
     },
     {
+      "id": "module:packages/core/src/media-analysis.ts",
+      "type": "module",
+      "path": "packages/core/src/media-analysis.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 701,
+        "sha256": "dbb18e2ad46c2d0b59f409b551cc75a6d2ef3bcb4541ca78d35e86bfa3df2bb0",
+        "exports": [
+          "ANALYSIS_THRESHOLDS",
+          "AnalysisFinding",
+          "AnalysisScene",
+          "MediaAnalysisOptions",
+          "MediaAnalysisReport",
+          "analyzeMedia",
+          "probeMedia"
+        ],
+        "testCoverage": "none"
+      }
+    },
+    {
       "id": "module:packages/core/src/media-remotion.ts",
       "type": "module",
       "path": "packages/core/src/media-remotion.ts",
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1892,
-        "sha256": "45d86156d7ee81fc6d126f2e9cac847818c55d8093bfbcda95109582886e7430",
+        "lines": 2041,
+        "sha256": "0c0ad0542e2367a5935c37113e9c64b981f177e1cdfa4c9061a1738e18b7fb65",
         "exports": [
           "MP4_ADAPTER",
           "remotion",
@@ -3684,36 +3982,59 @@
         "embeddedScripts": [
           {
             "owner": "synthesizeAudioWrapperScript",
-            "line": 275,
+            "line": 277,
             "lines": 33,
             "language": "javascript"
           },
           {
             "owner": "synthesizeAudioPython",
-            "line": 311,
-            "lines": 510,
+            "line": 313,
+            "lines": 593,
             "language": "python"
           },
           {
             "owner": "audioQaScript",
-            "line": 824,
-            "lines": 358,
+            "line": 909,
+            "lines": 379,
             "language": "javascript"
           },
           {
             "owner": "renderScript",
-            "line": 1185,
-            "lines": 282,
+            "line": 1291,
+            "lines": 284,
             "language": "javascript"
           },
           {
             "owner": "verifyScript",
-            "line": 1470,
+            "line": 1578,
             "lines": 92,
             "language": "javascript"
           }
         ],
         "testCoverage": "transitive"
+      }
+    },
+    {
+      "id": "module:packages/core/src/office.ts",
+      "type": "module",
+      "path": "packages/core/src/office.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 115,
+        "sha256": "60e863cb00074c8bf0e23681e803c3116a689b2be51a3007d3cfa19c4f19cd13",
+        "exports": [
+          "renderNativeOffice"
+        ],
+        "embeddedScripts": [
+          {
+            "owner": "OFFICE_SCRIPT",
+            "line": 14,
+            "lines": 29,
+            "language": "text"
+          }
+        ],
+        "testCoverage": "none"
       }
     },
     {
@@ -3776,16 +4097,39 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 266,
-        "sha256": "9e5d833ce3329b76fdb313b97e7923b29b0e8a75c1ac5d2b17a974d22a5f03f2",
+        "lines": 308,
+        "sha256": "bd96a5576ecc18e6101c91c283f2aa717994d1b2ac5618e3d642cc098bda8b3f",
         "exports": [
           "MUTABLE_MEDIA_PATHS",
+          "bindCanonicalInputs",
           "createReleasePlan",
           "indexProjectQc",
+          "projectIdOf",
           "verifyRelease",
           "writeRelease"
         ],
         "testCoverage": "direct"
+      }
+    },
+    {
+      "id": "module:packages/core/src/revisions.ts",
+      "type": "module",
+      "path": "packages/core/src/revisions.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 554,
+        "sha256": "75f1afc400dff85dbbc6762fd1a4d80578a37e0246b3b7f3edf786c250afa5b8",
+        "exports": [
+          "RevisionVariant",
+          "analyzeRevisions",
+          "listRevisions",
+          "organizeRevisions",
+          "parseVariants",
+          "produceRevision",
+          "promoteRevision"
+        ],
+        "testCoverage": "none"
       }
     },
     {
@@ -3795,9 +4139,10 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 52,
-        "sha256": "db4c992c9c3aaef969ce1dfc2b16cc8d55082a5929e53656018f81a19ad77581",
+        "lines": 142,
+        "sha256": "e97f6f6aa132c6d51a0cafa63d1778cf593600a7c5676ecf8ed41dbffe0d4a81",
         "exports": [
+          "projectRunbook",
           "verifyRunbook"
         ],
         "testCoverage": "none"
@@ -3840,72 +4185,6 @@
         "language": "javascript",
         "lines": 56,
         "sha256": "704d7e59136df314ce29e16807760c03ddd7c664556356093bf24e3afbc01bfa"
-      }
-    },
-    {
-      "id": "module:projects/agent-365/scripts/test_pipeline.py",
-      "type": "module",
-      "path": "projects/agent-365/scripts/test_pipeline.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 262,
-        "sha256": "1b9a5b4eda8b756014900dffee02825d6c82e1cb44670adc528a2bbf9e4b1f3f"
-      }
-    },
-    {
-      "id": "module:projects/copilot-studio-2026/scripts/test_pipeline.py",
-      "type": "module",
-      "path": "projects/copilot-studio-2026/scripts/test_pipeline.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 155,
-        "sha256": "2c69a2e72f16a85eb00deda18a04902db3e4f9cbbe3038f7c3a5346fd4065c87"
-      }
-    },
-    {
-      "id": "module:projects/copilot/scripts/test_pipeline.py",
-      "type": "module",
-      "path": "projects/copilot/scripts/test_pipeline.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 155,
-        "sha256": "2c69a2e72f16a85eb00deda18a04902db3e4f9cbbe3038f7c3a5346fd4065c87"
-      }
-    },
-    {
-      "id": "module:projects/microsoft/scripts/test_pipeline.py",
-      "type": "module",
-      "path": "projects/microsoft/scripts/test_pipeline.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 155,
-        "sha256": "2c69a2e72f16a85eb00deda18a04902db3e4f9cbbe3038f7c3a5346fd4065c87"
-      }
-    },
-    {
-      "id": "module:projects/power-platform-2026/scripts/test_pipeline.py",
-      "type": "module",
-      "path": "projects/power-platform-2026/scripts/test_pipeline.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 262,
-        "sha256": "1b9a5b4eda8b756014900dffee02825d6c82e1cb44670adc528a2bbf9e4b1f3f"
-      }
-    },
-    {
-      "id": "module:projects/power-platform-2026/scripts/test_project_audio.py",
-      "type": "module",
-      "path": "projects/power-platform-2026/scripts/test_project_audio.py",
-      "attributes": {
-        "role": "test",
-        "language": "python",
-        "lines": 35,
-        "sha256": "706fd26e096bd1debf3cf1b58e900db9b366288b33f76570953ab1f0019f30bc"
       }
     },
     {
@@ -5130,83 +5409,8 @@
       "type": "project",
       "path": "projects/agent-365",
       "attributes": {
-        "lineage": "template-fork",
-        "trackedFiles": 112,
-        "runbook": false,
-        "generationRequest": false,
-        "qcIndex": true,
-        "templateDrift": {
-          "same": 51,
-          "modified": 9,
-          "added": 2,
-          "removed": 0
-        },
-        "qcIndexEvidence": {
-          "entries": 10,
-          "stale": 0,
-          "crlfDigests": 1,
-          "missing": 0,
-          "unindexed": 0
-        }
-      }
-    },
-    {
-      "id": "project:copilot",
-      "type": "project",
-      "path": "projects/copilot",
-      "attributes": {
-        "lineage": "template-fork",
-        "trackedFiles": 114,
-        "runbook": false,
-        "generationRequest": false,
-        "qcIndex": true,
-        "templateDrift": {
-          "same": 42,
-          "modified": 14,
-          "added": 1,
-          "removed": 4
-        },
-        "qcIndexEvidence": {
-          "entries": 26,
-          "stale": 0,
-          "crlfDigests": 7,
-          "missing": 0,
-          "unindexed": 0
-        }
-      }
-    },
-    {
-      "id": "project:copilot-studio-2026",
-      "type": "project",
-      "path": "projects/copilot-studio-2026",
-      "attributes": {
-        "lineage": "template-fork",
-        "trackedFiles": 149,
-        "runbook": false,
-        "generationRequest": false,
-        "qcIndex": true,
-        "templateDrift": {
-          "same": 39,
-          "modified": 17,
-          "added": 5,
-          "removed": 4
-        },
-        "qcIndexEvidence": {
-          "entries": 42,
-          "stale": 0,
-          "crlfDigests": 22,
-          "missing": 0,
-          "unindexed": 0
-        }
-      }
-    },
-    {
-      "id": "project:datadog-cowork-plugin",
-      "type": "project",
-      "path": "projects/datadog-cowork-plugin",
-      "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 248,
+        "trackedFiles": 247,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5216,22 +5420,177 @@
             "domain": "passed",
             "content": "passed",
             "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 159,
+          "entries": 138,
           "stale": 0,
-          "crlfDigests": 4,
+          "crlfDigests": 0,
           "missing": 0,
           "unindexed": 0
         },
         "canonicalReleaseCopies": {
           "domain-pack": "identical",
           "content-ir": "identical",
-          "render-spec": "identical",
+          "render-spec": "diverged",
           "approval-manifest": "identical",
+          "release-plan": "release_only"
+        },
+        "content": {
+          "sections": 4,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp",
+            "mermaid"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:copilot",
+      "type": "project",
+      "path": "projects/copilot",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 375,
+        "runbook": true,
+        "generationRequest": false,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 258,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "identical",
+          "content-ir": "identical",
+          "render-spec": "diverged",
+          "approval-manifest": "identical",
+          "release-plan": "release_only"
+        },
+        "content": {
+          "sections": 4,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp",
+            "marp"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:copilot-studio-2026",
+      "type": "project",
+      "path": "projects/copilot-studio-2026",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 412,
+        "runbook": true,
+        "generationRequest": false,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 286,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "identical",
+          "content-ir": "identical",
+          "render-spec": "diverged",
+          "approval-manifest": "identical",
+          "release-plan": "release_only"
+        },
+        "content": {
+          "sections": 4,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp",
+            "marp"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:datadog-cowork-plugin",
+      "type": "project",
+      "path": "projects/datadog-cowork-plugin",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 376,
+        "runbook": true,
+        "generationRequest": false,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 270,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "identical",
+          "content-ir": "diverged",
+          "render-spec": "diverged",
+          "approval-manifest": "diverged",
           "release-plan": "release_only"
         },
         "content": {
@@ -5247,19 +5606,8 @@
             "marp"
           ]
         },
-        "releaseVerification": "release_output_manifest_mismatch",
-        "adapterDrift": [
-          "outputs/deck.pptx (a2swe-pptx-ooxml-3 -> a2swe-pptx-ooxml-4)",
-          "outputs/document.docx (a2swe-docx-ooxml-3 -> a2swe-docx-ooxml-4)",
-          "outputs/document.pdf (a2swe-pdf-searchable-3 -> a2swe-pdf-searchable-4)",
-          "outputs/remotion/speech/narration-manifest.json (same adapter id, different bytes)",
-          "outputs/remotion/scripts/synthesize-audio.py (same adapter id, different bytes)",
-          "outputs/remotion/scripts/audio-qa.mjs (same adapter id, different bytes)",
-          "outputs/remotion/scripts/render-mp4.mjs (same adapter id, different bytes)",
-          "outputs/remotion/scripts/verify-mp4.mjs (same adapter id, different bytes)",
-          "outputs/remotion/src/Root.tsx (same adapter id, different bytes)",
-          "outputs/remotion/src/palette.ts (line endings only)"
-        ]
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
       }
     },
     {
@@ -5267,85 +5615,10 @@
       "type": "project",
       "path": "projects/microsoft",
       "attributes": {
-        "lineage": "template-fork",
-        "trackedFiles": 102,
-        "runbook": false,
+        "lineage": "core-managed",
+        "trackedFiles": 269,
+        "runbook": true,
         "generationRequest": false,
-        "qcIndex": true,
-        "templateDrift": {
-          "same": 42,
-          "modified": 14,
-          "added": 1,
-          "removed": 4
-        },
-        "qcIndexEvidence": {
-          "entries": 17,
-          "stale": 0,
-          "crlfDigests": 5,
-          "missing": 0,
-          "unindexed": 0
-        }
-      }
-    },
-    {
-      "id": "project:microsoft-autopilot-agents",
-      "type": "project",
-      "path": "projects/microsoft-autopilot-agents",
-      "attributes": {
-        "lineage": "core-managed",
-        "trackedFiles": 105,
-        "runbook": true,
-        "generationRequest": true,
-        "qcIndex": true,
-        "runbookClaims": {
-          "stage": "delivery",
-          "gates": {
-            "domain": "passed",
-            "content": "passed",
-            "audio": "passed",
-            "release": "passed"
-          }
-        },
-        "runbookVerification": "artifact_digests_verified",
-        "qcIndexEvidence": {
-          "entries": 29,
-          "stale": 0,
-          "crlfDigests": 0,
-          "missing": 0,
-          "unindexed": 0
-        },
-        "canonicalReleaseCopies": {
-          "domain-pack": "same_digest_different_bytes",
-          "content-ir": "same_digest_different_bytes",
-          "render-spec": "same_digest_different_bytes",
-          "approval-manifest": "same_digest_different_bytes",
-          "release-plan": "identical"
-        },
-        "content": {
-          "sections": 3,
-          "assets": 0,
-          "audience": "Executive decision-makers",
-          "visuals": [
-            "mermaid",
-            "excalidraw",
-            "marp"
-          ]
-        },
-        "releaseVerification": "release_output_manifest_mismatch",
-        "adapterDrift": [
-          "outputs/remotion/src/palette.ts (line endings only)"
-        ]
-      }
-    },
-    {
-      "id": "project:microsoft-plugin-architecture",
-      "type": "project",
-      "path": "projects/microsoft-plugin-architecture",
-      "attributes": {
-        "lineage": "core-managed",
-        "trackedFiles": 120,
-        "runbook": true,
-        "generationRequest": true,
         "qcIndex": true,
         "runbookClaims": {
           "stage": "delivery",
@@ -5354,23 +5627,24 @@
             "content": "passed",
             "audio": "passed",
             "native-office": "passed",
+            "media-analysis": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 43,
+          "entries": 168,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
           "unindexed": 0
         },
         "canonicalReleaseCopies": {
-          "domain-pack": "same_digest_different_bytes",
-          "content-ir": "same_digest_different_bytes",
-          "render-spec": "same_digest_different_bytes",
-          "approval-manifest": "same_digest_different_bytes",
-          "release-plan": "identical"
+          "domain-pack": "identical",
+          "content-ir": "identical",
+          "render-spec": "diverged",
+          "approval-manifest": "identical",
+          "release-plan": "release_only"
         },
         "content": {
           "sections": 4,
@@ -5383,44 +5657,17 @@
             "marp"
           ]
         },
-        "releaseVerification": "release_output_manifest_mismatch",
-        "adapterDrift": [
-          "outputs/remotion/src/palette.ts (line endings only)"
-        ]
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
       }
     },
     {
-      "id": "project:power-platform-2026",
+      "id": "project:microsoft-autopilot-agents",
       "type": "project",
-      "path": "projects/power-platform-2026",
-      "attributes": {
-        "lineage": "template-fork",
-        "trackedFiles": 211,
-        "runbook": false,
-        "generationRequest": false,
-        "qcIndex": true,
-        "templateDrift": {
-          "same": 32,
-          "modified": 16,
-          "added": 6,
-          "removed": 12
-        },
-        "qcIndexEvidence": {
-          "entries": 79,
-          "stale": 0,
-          "crlfDigests": 41,
-          "missing": 0,
-          "unindexed": 0
-        }
-      }
-    },
-    {
-      "id": "project:power-platform-community-conference",
-      "type": "project",
-      "path": "projects/power-platform-community-conference",
+      "path": "projects/microsoft-autopilot-agents",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 87,
+        "trackedFiles": 271,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5430,12 +5677,14 @@
             "domain": "passed",
             "content": "passed",
             "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 32,
+          "entries": 166,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5444,9 +5693,161 @@
         "canonicalReleaseCopies": {
           "domain-pack": "same_digest_different_bytes",
           "content-ir": "same_digest_different_bytes",
-          "render-spec": "same_digest_different_bytes",
+          "render-spec": "diverged",
           "approval-manifest": "same_digest_different_bytes",
-          "release-plan": "identical"
+          "release-plan": "diverged"
+        },
+        "content": {
+          "sections": 3,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:microsoft-plugin-architecture",
+      "type": "project",
+      "path": "projects/microsoft-plugin-architecture",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 283,
+        "runbook": true,
+        "generationRequest": true,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 179,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "same_digest_different_bytes",
+          "content-ir": "same_digest_different_bytes",
+          "render-spec": "diverged",
+          "approval-manifest": "same_digest_different_bytes",
+          "release-plan": "diverged"
+        },
+        "content": {
+          "sections": 4,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp",
+            "marp"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:power-platform-2026",
+      "type": "project",
+      "path": "projects/power-platform-2026",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 388,
+        "runbook": true,
+        "generationRequest": false,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 267,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "identical",
+          "content-ir": "identical",
+          "render-spec": "diverged",
+          "approval-manifest": "identical",
+          "release-plan": "release_only"
+        },
+        "content": {
+          "sections": 4,
+          "assets": 0,
+          "audience": "Executive decision-makers",
+          "visuals": [
+            "mermaid",
+            "excalidraw",
+            "marp",
+            "mermaid"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
+      "id": "project:power-platform-community-conference",
+      "type": "project",
+      "path": "projects/power-platform-community-conference",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 341,
+        "runbook": true,
+        "generationRequest": true,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 241,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "same_digest_different_bytes",
+          "content-ir": "same_digest_different_bytes",
+          "render-spec": "diverged",
+          "approval-manifest": "same_digest_different_bytes",
+          "release-plan": "diverged"
         },
         "content": {
           "sections": 4,
@@ -5459,10 +5860,8 @@
             null
           ]
         },
-        "releaseVerification": "release_output_manifest_mismatch",
-        "adapterDrift": [
-          "outputs/remotion/src/palette.ts (line endings only)"
-        ]
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
       }
     },
     {
@@ -6570,12 +6969,6 @@
       }
     },
     {
-      "id": "tree:template",
-      "type": "tree",
-      "path": "template",
-      "attributes": {}
-    },
-    {
       "id": "visual:excalidraw",
       "type": "visual",
       "path": "packages/core/schemas/contracts.schema.json",
@@ -6606,22 +6999,22 @@
       "attributes": {}
     },
     {
-      "id": "voice:af_heart",
+      "id": "voice:af_bella",
       "type": "voice",
       "path": "library/assets/speech/voice-profiles.json",
       "attributes": {
-        "name": "Heart",
+        "name": "Bella",
         "language": "a",
         "speed": 1,
         "default": false
       }
     },
     {
-      "id": "voice:am_liam",
+      "id": "voice:af_heart",
       "type": "voice",
       "path": "library/assets/speech/voice-profiles.json",
       "attributes": {
-        "name": "Liam",
+        "name": "Heart",
         "language": "a",
         "speed": 1,
         "default": false
@@ -6637,12 +7030,6 @@
         "speed": 1,
         "default": true
       }
-    },
-    {
-      "id": "voice:registry-default",
-      "type": "voice",
-      "path": "registry-default",
-      "attributes": {}
     },
     {
       "id": "workflow:.github/workflows/core-validate.yml",
@@ -6737,12 +7124,12 @@
       "to": "format:png"
     },
     {
-      "from": "adapter:a2swe-pptx-ooxml-4",
+      "from": "adapter:a2swe-pptx-ooxml-7",
       "relation": "produces",
       "to": "format:pptx"
     },
     {
-      "from": "adapter:a2swe-remotion-mp4-adapter-3",
+      "from": "adapter:a2swe-remotion-mp4-adapter-10",
       "relation": "produces",
       "to": "format:remotion"
     },
@@ -6765,6 +7152,11 @@
       "from": "agent:library/plugins/a2swe/agents/a2swe-conductor.agent.md",
       "relation": "hands_off_to",
       "to": "agent:library/plugins/a2swe/agents/a2swe-audio-qa.agent.md"
+    },
+    {
+      "from": "agent:library/plugins/a2swe/agents/a2swe-conductor.agent.md",
+      "relation": "hands_off_to",
+      "to": "agent:library/plugins/a2swe/agents/a2swe-executive-engagement.agent.md"
     },
     {
       "from": "agent:library/plugins/a2swe/agents/a2swe-conductor.agent.md",
@@ -7072,6 +7464,31 @@
       "to": "atom:Digest"
     },
     {
+      "from": "atom:RenderRevision",
+      "relation": "binds_digest_of",
+      "to": "atom:ContentIR"
+    },
+    {
+      "from": "atom:RenderRevision",
+      "relation": "composes",
+      "to": "atom:Digest"
+    },
+    {
+      "from": "atom:RenderRevision",
+      "relation": "composes",
+      "to": "atom:IsoInstant"
+    },
+    {
+      "from": "atom:RenderRevision",
+      "relation": "composes",
+      "to": "atom:RelativePath"
+    },
+    {
+      "from": "atom:RenderRevision",
+      "relation": "composes",
+      "to": "atom:RevisionOutput"
+    },
+    {
       "from": "atom:RenderSpec",
       "relation": "binds_digest_of",
       "to": "atom:ContentIR"
@@ -7085,6 +7502,31 @@
       "from": "atom:RenderSpec",
       "relation": "composes",
       "to": "atom:Identifier"
+    },
+    {
+      "from": "atom:RevisionOutput",
+      "relation": "binds_digest_of",
+      "to": "atom:ReleasePlan"
+    },
+    {
+      "from": "atom:RevisionOutput",
+      "relation": "composes",
+      "to": "atom:Digest"
+    },
+    {
+      "from": "atom:RevisionOutput",
+      "relation": "composes",
+      "to": "atom:Identifier"
+    },
+    {
+      "from": "atom:RevisionOutput",
+      "relation": "composes",
+      "to": "atom:RelativePath"
+    },
+    {
+      "from": "atom:RevisionOutput",
+      "relation": "composes",
+      "to": "atom:RevisionVoice"
     },
     {
       "from": "atom:Runbook",
@@ -7779,6 +8221,11 @@
     {
       "from": "module:library/integrations/copilot/helpers.ts",
       "relation": "uses_contract",
+      "to": "atom:RenderRevision"
+    },
+    {
+      "from": "module:library/integrations/copilot/helpers.ts",
+      "relation": "uses_contract",
       "to": "atom:RenderSpec"
     },
     {
@@ -7930,6 +8377,31 @@
       "from": "module:library/integrations/copilot/session.ts",
       "relation": "imports",
       "to": "module:library/integrations/copilot/runtime.ts"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/contracts.ts"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "uses_contract",
+      "to": "atom:Claim"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "uses_contract",
+      "to": "atom:DomainPack"
     },
     {
       "from": "module:packages/core/src/adapters.ts",
@@ -8129,6 +8601,11 @@
     {
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/account-intake.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/approvals.ts"
     },
     {
@@ -8164,7 +8641,17 @@
     {
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/media-analysis.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/media-remotion.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/office.ts"
     },
     {
       "from": "module:packages/core/src/cli.ts",
@@ -8180,6 +8667,11 @@
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
       "to": "module:packages/core/src/release.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/revisions.ts"
     },
     {
       "from": "module:packages/core/src/cli.ts",
@@ -8387,6 +8879,26 @@
       "to": "module:packages/core/src/runbook.ts"
     },
     {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "depends_on",
+      "to": "package:sharp"
+    },
+    {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "reads_env",
+      "to": "env:FFMPEG_PATH"
+    },
+    {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "reads_env",
+      "to": "env:FFPROBE_PATH"
+    },
+    {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
+    },
+    {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "branches_on",
       "to": "format:png"
@@ -8469,6 +8981,11 @@
     {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
+      "to": "env:A2SWE_BROWSER_EXECUTABLE"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
       "to": "env:A2SWE_KOKORO_CONFIG"
     },
     {
@@ -8485,6 +9002,11 @@
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
       "to": "env:A2SWE_PYTHON"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
+      "to": "env:A2SWE_REMOTION_PORT"
     },
     {
       "from": "module:packages/core/src/media-remotion.ts",
@@ -8540,6 +9062,26 @@
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "uses_contract",
       "to": "atom:SectionVisual"
+    },
+    {
+      "from": "module:packages/core/src/office.ts",
+      "relation": "depends_on",
+      "to": "package:sharp"
+    },
+    {
+      "from": "module:packages/core/src/office.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/office.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/release.ts"
+    },
+    {
+      "from": "module:packages/core/src/office.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
     },
     {
       "from": "module:packages/core/src/public-raster.ts",
@@ -8644,6 +9186,41 @@
     {
       "from": "module:packages/core/src/release.ts",
       "relation": "branches_on",
+      "to": "format:adaptiveDeck"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:docx"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:html"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:jpeg"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:pdf"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:png"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
+      "to": "format:pptx"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "branches_on",
       "to": "format:remotion"
     },
     {
@@ -8689,6 +9266,11 @@
     {
       "from": "module:packages/core/src/release.ts",
       "relation": "uses_contract",
+      "to": "atom:Date"
+    },
+    {
+      "from": "module:packages/core/src/release.ts",
+      "relation": "uses_contract",
       "to": "atom:DomainPack"
     },
     {
@@ -8707,6 +9289,81 @@
       "to": "atom:RenderSpec"
     },
     {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "branches_on",
+      "to": "format:remotion"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "depends_on",
+      "to": "package:sharp"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/contracts.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/media-analysis.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/media-remotion.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/release.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/runbook.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "reads_env",
+      "to": "env:A2SWE_TTS_ENGINE"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "uses_contract",
+      "to": "atom:ContentIR"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "uses_contract",
+      "to": "atom:RenderRevision"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "uses_contract",
+      "to": "atom:RevisionOutput"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "uses_contract",
+      "to": "atom:RevisionVoice"
+    },
+    {
+      "from": "module:packages/core/src/runbook.ts",
+      "relation": "branches_on",
+      "to": "format:remotion"
+    },
+    {
       "from": "module:packages/core/src/runbook.ts",
       "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
@@ -8715,6 +9372,11 @@
       "from": "module:packages/core/src/runbook.ts",
       "relation": "imports",
       "to": "module:packages/core/src/contracts.ts"
+    },
+    {
+      "from": "module:packages/core/src/runbook.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
     },
     {
       "from": "module:packages/core/src/runbook.ts",
@@ -8770,11 +9432,6 @@
       "from": "module:projects/agent-365/agent/preflight.test.mjs",
       "relation": "reads",
       "to": "file:projects/agent-365/agent/fixtures/telemetry-ready.json"
-    },
-    {
-      "from": "module:projects/agent-365/agent/preflight.test.mjs",
-      "relation": "reads",
-      "to": "file:projects/agent-365/qc/source-receipts.json"
     },
     {
       "from": "module:projects/agent-365/agent/preflight.test.mjs",
@@ -9708,18 +10365,183 @@
     },
     {
       "from": "project:agent-365",
-      "relation": "forks",
-      "to": "tree:template"
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-4"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-2"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-4"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-2"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-7"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "uses_visual",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:agent-365",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
     },
     {
       "from": "project:copilot",
-      "relation": "forks",
-      "to": "tree:template"
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-4"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-2"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-4"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-2"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-7"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "uses_visual",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:copilot",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
     },
     {
       "from": "project:copilot-studio-2026",
-      "relation": "forks",
-      "to": "tree:template"
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-4"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-2"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-4"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-2"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-7"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "uses_visual",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:copilot-studio-2026",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -9729,7 +10551,7 @@
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-3"
+      "to": "adapter:a2swe-docx-ooxml-4"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -9744,7 +10566,7 @@
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-3"
+      "to": "adapter:a2swe-pdf-searchable-4"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -9754,17 +10576,17 @@
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-3"
+      "to": "adapter:a2swe-pptx-ooxml-7"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-3"
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "speaks_with",
-      "to": "voice:registry-default"
+      "to": "voice:am_michael"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -9783,8 +10605,63 @@
     },
     {
       "from": "project:microsoft",
-      "relation": "forks",
-      "to": "tree:template"
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-4"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-2"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-4"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-2"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-7"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "uses_visual",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:microsoft",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
     },
     {
       "from": "project:microsoft-autopilot-agents",
@@ -9819,12 +10696,12 @@
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-4"
+      "to": "adapter:a2swe-pptx-ooxml-7"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-3"
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
     },
     {
       "from": "project:microsoft-autopilot-agents",
@@ -9879,12 +10756,12 @@
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-4"
+      "to": "adapter:a2swe-pptx-ooxml-7"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-3"
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
     },
     {
       "from": "project:microsoft-plugin-architecture",
@@ -9908,8 +10785,63 @@
     },
     {
       "from": "project:power-platform-2026",
-      "relation": "forks",
-      "to": "tree:template"
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-4"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-2"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-4"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-2"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-7"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "uses_visual",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:power-platform-2026",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
     },
     {
       "from": "project:power-platform-community-conference",
@@ -9944,12 +10876,12 @@
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-4"
+      "to": "adapter:a2swe-pptx-ooxml-7"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-3"
+      "to": "adapter:a2swe-remotion-mp4-adapter-10"
     },
     {
       "from": "project:power-platform-community-conference",
@@ -9964,27 +10896,18 @@
   ],
   "gaps": [
     {
-      "id": "releases-fail-current-verification",
-      "severity": "critical",
-      "category": "pipeline",
-      "summary": "Committed releases no longer reproduce from their own canonical inputs with the current adapters; adapter ids were not bumped when generated bytes changed.",
-      "evidence": [
-        "projects/datadog-cowork-plugin/release: release_output_manifest_mismatch; 10 regenerated outputs differ: outputs/deck.pptx (a2swe-pptx-ooxml-3 -> a2swe-pptx-ooxml-4), outputs/document.docx (a2swe-docx-ooxml-3 -> a2swe-docx-ooxml-4), outputs/document.pdf (a2swe-pdf-searchable-3 -> a2swe-pdf-searchable-4), outputs/remotion/speech/narration-manifest.json (same adapter id, different bytes), outputs/remotion/scripts/synthesize-audio.py (same adapter id, different bytes), outputs/remotion/scripts/audio-qa.mjs (same adapter id, different bytes), ..."
-      ]
-    },
-    {
       "id": "closed-format-dispatch",
       "severity": "high",
       "category": "extensibility",
       "summary": "renderFiles dispatches 7 format branches in a fixed if/else chain; adding a format or swapping an adapter requires editing core, the schema enum, desktop UI and release verification.",
       "evidence": [
-        "packages/core/src/adapters.ts:1013",
-        "packages/core/src/adapters.ts:1014",
-        "packages/core/src/adapters.ts:1015",
-        "packages/core/src/adapters.ts:1016",
-        "packages/core/src/adapters.ts:1017",
-        "packages/core/src/adapters.ts:1018",
-        "packages/core/src/adapters.ts:1019"
+        "packages/core/src/adapters.ts:1040",
+        "packages/core/src/adapters.ts:1041",
+        "packages/core/src/adapters.ts:1042",
+        "packages/core/src/adapters.ts:1043",
+        "packages/core/src/adapters.ts:1044",
+        "packages/core/src/adapters.ts:1045",
+        "packages/core/src/adapters.ts:1046"
       ]
     },
     {
@@ -9993,11 +10916,12 @@
       "category": "quality",
       "summary": "Product modules embed programs of 25+ lines in template literals; they bypass typecheck, lint and unit tests and are emitted into every release.",
       "evidence": [
-        "packages/core/src/media-remotion.ts:275 synthesizeAudioWrapperScript (javascript, 33 lines)",
-        "packages/core/src/media-remotion.ts:311 synthesizeAudioPython (python, 510 lines)",
-        "packages/core/src/media-remotion.ts:824 audioQaScript (javascript, 358 lines)",
-        "packages/core/src/media-remotion.ts:1185 renderScript (javascript, 282 lines)",
-        "packages/core/src/media-remotion.ts:1470 verifyScript (javascript, 92 lines)"
+        "packages/core/src/media-remotion.ts:277 synthesizeAudioWrapperScript (javascript, 33 lines)",
+        "packages/core/src/media-remotion.ts:313 synthesizeAudioPython (python, 593 lines)",
+        "packages/core/src/media-remotion.ts:909 audioQaScript (javascript, 379 lines)",
+        "packages/core/src/media-remotion.ts:1291 renderScript (javascript, 284 lines)",
+        "packages/core/src/media-remotion.ts:1578 verifyScript (javascript, 92 lines)",
+        "packages/core/src/office.ts:14 OFFICE_SCRIPT (text, 29 lines)"
       ]
     },
     {
@@ -10006,10 +10930,11 @@
       "category": "composability",
       "summary": "Core runtime loads fonts, lockfiles or node_modules from the legacy template tree; the managed pipeline cannot run without template/.",
       "evidence": [
-        "library/integrations/copilot/media-review.ts:405 -> template/ (path.join)",
+        "library/integrations/copilot/media-review.ts:409 -> template/ (path.join)",
         "packages/core/src/assets.ts:13 -> template/public/fonts/NotoSansSC.ttf",
-        "packages/core/src/media-remotion.ts:62 -> template/requirements.lock.txt",
-        "packages/core/src/media-remotion.ts:1684 -> template/ (path.join)",
+        "packages/core/src/media-remotion.ts:64 -> template/requirements.lock.txt",
+        "packages/core/src/media-remotion.ts:1792 -> template/ (path.join)",
+        "packages/core/src/media-remotion.ts:1833 -> template/ (path.join)",
         "packages/core/src/raster-canvas.ts:12 -> template/public/fonts/NotoSansSC.ttf",
         "packages/core/src/raster-canvas.ts:13 -> template/public/fonts/Audiowide-Regular.ttf"
       ]
@@ -10020,16 +10945,7 @@
       "category": "composability",
       "summary": "Mermaid, Excalidraw and Marp visuals are rasterised only inside the Remotion path; HTML, Office, PDF and raster outputs lose diagrams unless video is also requested.",
       "evidence": [
-        "packages/core/src/release.ts:155"
-      ]
-    },
-    {
-      "id": "machine-specific-paths-runtime",
-      "severity": "high",
-      "category": "portability",
-      "summary": "Runtime code or manifests contain absolute user-profile paths.",
-      "evidence": [
-        "library/assets/speech/models.json:5"
+        "packages/core/src/release.ts:196"
       ]
     },
     {
@@ -10038,7 +10954,7 @@
       "category": "ui-composition",
       "summary": "ContentIR/RenderSpec have no layer, tile, grid or live-state atoms; visuals are one optional diagram per section and every adapter hard-codes its own layout.",
       "evidence": [
-        "packages/core/schemas/contracts.schema.json:392"
+        "packages/core/schemas/contracts.schema.json:447"
       ]
     },
     {
@@ -10053,59 +10969,21 @@
       ]
     },
     {
-      "id": "releases-committed-with-checkout-line-endings",
-      "severity": "high",
-      "category": "pipeline",
-      "summary": "Releases whose only drift is line endings: outputs were generated from CRLF-converted template text, so they fail byte verification on every checkout.",
-      "evidence": [
-        "projects/microsoft-autopilot-agents/release: release_output_manifest_mismatch; 1 regenerated outputs differ: outputs/remotion/src/palette.ts (line endings only)",
-        "projects/microsoft-plugin-architecture/release: release_output_manifest_mismatch; 1 regenerated outputs differ: outputs/remotion/src/palette.ts (line endings only)",
-        "projects/power-platform-community-conference/release: release_output_manifest_mismatch; 1 regenerated outputs differ: outputs/remotion/src/palette.ts (line endings only)"
-      ]
-    },
-    {
-      "id": "status-claims-contradicted",
-      "severity": "high",
-      "category": "claim-vs-evidence",
-      "summary": "Runbook gates or review receipts assert success that executable verification contradicts.",
-      "evidence": [
-        "projects/datadog-cowork-plugin/agent/runbook.json claims every gate passed; projects/datadog-cowork-plugin/release fails current verification (release_output_manifest_mismatch)",
-        "projects/microsoft-autopilot-agents/agent/runbook.json claims every gate passed; projects/microsoft-autopilot-agents/release fails current verification (release_output_manifest_mismatch)",
-        "projects/microsoft-autopilot-agents/qc/production-review.json result=\"verified\" while the release fails current verification",
-        "projects/microsoft-plugin-architecture/agent/runbook.json claims every gate passed; projects/microsoft-plugin-architecture/release fails current verification (release_output_manifest_mismatch)",
-        "projects/microsoft-plugin-architecture/qc/production-review.json result=\"verified\" while the release fails current verification",
-        "projects/power-platform-community-conference/agent/runbook.json claims every gate passed; projects/power-platform-community-conference/release fails current verification (release_output_manifest_mismatch)",
-        "projects/power-platform-community-conference/qc/production-review.json result=\"verified\" while the release fails current verification"
-      ]
-    },
-    {
-      "id": "template-forks-without-digest-chain",
-      "severity": "high",
-      "category": "lineage",
-      "summary": "Projects running private copies of the template runtime with no ContentIR/RenderSpec/release digest chain; outputs cannot be proven to derive from inputs.",
-      "evidence": [
-        "projects/agent-365 (112 tracked files, no canonical/release digest chain)",
-        "projects/copilot (114 tracked files, no canonical/release digest chain)",
-        "projects/copilot-studio-2026 (149 tracked files, no canonical/release digest chain)",
-        "projects/microsoft (102 tracked files, no canonical/release digest chain)",
-        "projects/power-platform-2026 (211 tracked files, no canonical/release digest chain)"
-      ]
-    },
-    {
       "id": "voice-batch-only",
       "severity": "high",
       "category": "voice",
       "summary": "Speech synthesis runs as a blocking subprocess that writes one WAV; there is no provider interface, streaming chunk contract or incremental caption seam.",
       "evidence": [
-        "packages/core/src/media-remotion.ts:294",
-        "packages/core/src/media-remotion.ts:299",
-        "packages/core/src/media-remotion.ts:846",
-        "packages/core/src/media-remotion.ts:1202",
-        "packages/core/src/media-remotion.ts:1486",
-        "packages/core/src/media-remotion.ts:1724",
-        "packages/core/src/media-remotion.ts:1816",
-        "packages/core/src/media-remotion.ts:1855",
-        "packages/core/src/media-remotion.ts:1885"
+        "packages/core/src/media-remotion.ts:296",
+        "packages/core/src/media-remotion.ts:301",
+        "packages/core/src/media-remotion.ts:931",
+        "packages/core/src/media-remotion.ts:1214",
+        "packages/core/src/media-remotion.ts:1308",
+        "packages/core/src/media-remotion.ts:1594",
+        "packages/core/src/media-remotion.ts:1847",
+        "packages/core/src/media-remotion.ts:1962",
+        "packages/core/src/media-remotion.ts:2004",
+        "packages/core/src/media-remotion.ts:2034"
       ]
     },
     {
@@ -10114,10 +10992,14 @@
       "category": "quality",
       "summary": "Core modules no test imports directly; transitive coverage only exercises happy paths of callers.",
       "evidence": [
-        "packages/core/src/cli.ts (none, 310 lines)",
-        "packages/core/src/media-remotion.ts (transitive, 1892 lines)",
+        "packages/core/src/account-intake.ts (none, 255 lines)",
+        "packages/core/src/cli.ts (none, 356 lines)",
+        "packages/core/src/media-analysis.ts (none, 701 lines)",
+        "packages/core/src/media-remotion.ts (transitive, 2041 lines)",
+        "packages/core/src/office.ts (none, 115 lines)",
         "packages/core/src/raster-canvas.ts (transitive, 181 lines)",
-        "packages/core/src/runbook.ts (none, 52 lines)"
+        "packages/core/src/revisions.ts (none, 554 lines)",
+        "packages/core/src/runbook.ts (none, 142 lines)"
       ]
     },
     {
@@ -10126,13 +11008,12 @@
       "category": "claim-vs-evidence",
       "summary": "Documentation points at repository paths that are not tracked (gitignored, moved or never committed).",
       "evidence": [
-        ".github/agents/power-platform-swe.agent.md:18 -> projects/power-platform/delivery.md",
-        ".github/agents/power-platform-swe.agent.md:19 -> projects/power-platform",
-        "README.md:37 -> library/assets/product_knowledgebase",
+        "README.md:37 -> library/assets/product_knowledgebase (gitignored)",
         "README.md:39 -> library/assets/knowledge/catalog.json (gitignored)",
-        "docs/content/platform/desktop.md:97 -> template/build_production (gitignored)",
-        "docs/content/platform/desktop.md:127 -> library/assets/product_knowledgebase",
-        "docs/content/platform/desktop.md:129 -> library/assets/knowledge"
+        "docs/content/platform/desktop.md:87 -> projects/executive_status_updates/Customers (gitignored)",
+        "docs/content/platform/desktop.md:101 -> template/build_production (gitignored)",
+        "docs/content/platform/desktop.md:132 -> library/assets/product_knowledgebase (gitignored)",
+        "docs/content/platform/desktop.md:134 -> library/assets/knowledge (gitignored)"
       ]
     },
     {
@@ -10144,12 +11025,13 @@
         "assertSupportedImageBytes: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "citationFor: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "claimFor: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
-        "contrast: packages/core/src/adapters.ts, packages/core/src/assets.ts",
+        "contactSheet: packages/core/src/media-analysis.ts, packages/core/src/office.ts",
+        "contrast: packages/core/src/account-intake.ts, packages/core/src/adapters.ts, packages/core/src/assets.ts",
         "imageExtension: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "resolveAssetEmbeds: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
-        "slug: library/integrations/copilot/desktop.ts, library/integrations/copilot/helpers.ts, packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
+        "slug: library/integrations/copilot/desktop.ts, library/integrations/copilot/helpers.ts, packages/core/src/account-intake.ts, packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "stableJson: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
-        "writeJson: packages/core/src/cli.ts, packages/core/src/release.ts"
+        "writeJson: packages/core/src/cli.ts, packages/core/src/release.ts, packages/core/src/revisions.ts"
       ]
     },
     {
@@ -10170,7 +11052,12 @@
       "category": "pipeline",
       "summary": "Core-managed projects without a durable GenerationRequest cannot reconstruct intent or defaults.",
       "evidence": [
-        "projects/datadog-cowork-plugin/canonical/generation-request.json"
+        "projects/agent-365/canonical/generation-request.json",
+        "projects/copilot/canonical/generation-request.json",
+        "projects/copilot-studio-2026/canonical/generation-request.json",
+        "projects/datadog-cowork-plugin/canonical/generation-request.json",
+        "projects/microsoft/canonical/generation-request.json",
+        "projects/power-platform-2026/canonical/generation-request.json"
       ]
     },
     {
@@ -10187,54 +11074,6 @@
       ]
     },
     {
-      "id": "naming-policy-final",
-      "severity": "medium",
-      "category": "consistency",
-      "summary": "Tracked paths use \"final\", which the naming policy forbids; prefer open-ended names such as current or release.",
-      "evidence": [
-        "projects/power-platform-community-conference/qc/native-office/final"
-      ]
-    },
-    {
-      "id": "nested-skills-invisible-to-copilot",
-      "severity": "medium",
-      "category": "extensibility",
-      "summary": "Copilot library discovery lists only immediate skill directories, so nested skills are visible to core inventory but not to the desktop/Copilot catalog.",
-      "evidence": [
-        "library/integrations/copilot/helpers.ts:159",
-        "library/skills/office/docx",
-        "library/skills/office/pdf",
-        "library/skills/office/pptx",
-        "library/skills/office/xlsx"
-      ]
-    },
-    {
-      "id": "plugin-mirror-drift",
-      "severity": "medium",
-      "category": "consistency",
-      "summary": "Plugin copies of library agents, skills or assets have diverged from their library source.",
-      "evidence": [
-        "library/plugins/a2swe/agents/a2swe-conductor.agent.md != library/agents/a2swe-conductor.agent.md",
-        "library/plugins/a2swe/agents/a2swe-executive-engagement.agent.md != library/agents/a2swe-executive-engagement.agent.md",
-        "library/plugins/a2swe/assets/runbook/README.md != library/assets/runbook/README.md",
-        "library/plugins/a2swe/assets/runbook/metadata.json != library/assets/runbook/metadata.json"
-      ]
-    },
-    {
-      "id": "qc-index-crlf-digests",
-      "severity": "medium",
-      "category": "portability",
-      "summary": "QC index digests were computed over CRLF working-tree bytes before qc/** became -text; content matches but no checkout verifies.",
-      "evidence": [
-        "projects/agent-365/qc/index.json: 1 of 10 digests match CRLF renderings of committed LF bytes",
-        "projects/copilot/qc/index.json: 7 of 26 digests match CRLF renderings of committed LF bytes",
-        "projects/copilot-studio-2026/qc/index.json: 22 of 42 digests match CRLF renderings of committed LF bytes",
-        "projects/datadog-cowork-plugin/qc/index.json: 4 of 159 digests match CRLF renderings of committed LF bytes",
-        "projects/microsoft/qc/index.json: 5 of 17 digests match CRLF renderings of committed LF bytes",
-        "projects/power-platform-2026/qc/index.json: 41 of 79 digests match CRLF renderings of committed LF bytes"
-      ]
-    },
-    {
       "id": "runtime-env-outside-contracts",
       "severity": "medium",
       "category": "consistency",
@@ -10242,15 +11081,17 @@
       "evidence": [
         "A2SWE_AUDIO_CLEANUP: packages/core/src/media-remotion.ts",
         "A2SWE_AUDIO_CLEANUP_LOWPASS_HZ: packages/core/src/media-remotion.ts",
+        "A2SWE_BROWSER_EXECUTABLE: packages/core/src/media-remotion.ts",
         "A2SWE_KOKORO_CONFIG: packages/core/src/media-remotion.ts",
         "A2SWE_KOKORO_WEIGHTS: packages/core/src/media-remotion.ts",
         "A2SWE_MEDIA_REVIEW_TOKEN: library/integrations/copilot/media-review.ts",
         "A2SWE_MEDIA_REVIEW_URL: library/integrations/copilot/media-review.ts",
         "A2SWE_OVERWRITE_MP4: packages/core/src/media-remotion.ts",
         "A2SWE_PYTHON: packages/core/src/media-remotion.ts",
-        "A2SWE_TTS_ENGINE: packages/core/src/media-remotion.ts",
-        "FFMPEG_PATH: library/integrations/copilot/media-review.ts, packages/core/src/media-remotion.ts",
-        "FFPROBE_PATH: packages/core/src/media-remotion.ts",
+        "A2SWE_REMOTION_PORT: packages/core/src/media-remotion.ts",
+        "A2SWE_TTS_ENGINE: packages/core/src/media-remotion.ts, packages/core/src/revisions.ts",
+        "FFMPEG_PATH: library/integrations/copilot/media-review.ts, packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
+        "FFPROBE_PATH: packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_MODEL: packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_VOICES: packages/core/src/media-remotion.ts",
         "TTS_ENGINE: packages/core/src/media-remotion.ts"
@@ -10262,28 +11103,7 @@
       "category": "schema",
       "summary": "Contract fields that no product module references outside schema validation; they are accepted, digested and shipped but never drive behaviour.",
       "evidence": [
-        "packages/core/schemas/contracts.schema.json#/$defs/ApprovalManifest/properties/manifestId (Identifier)",
-        "packages/core/schemas/contracts.schema.json#/$defs/ApprovalManifest/properties/reviewedAt (IsoInstant, validated only)",
-        "packages/core/schemas/contracts.schema.json#/$defs/AssetRequest/properties/purpose (const(\"evaluation\"))",
-        "packages/core/schemas/contracts.schema.json#/$defs/EvidenceSpan/properties/quoteDigest (Digest, validated only)",
-        "packages/core/schemas/contracts.schema.json#/$defs/RenderSpec/properties/viewport (object)",
-        "packages/core/schemas/contracts.schema.json#/$defs/Runbook/properties/blockers (array<string>)",
-        "packages/core/schemas/contracts.schema.json#/$defs/SelectedAssetApproval/properties/basis (string, validated only)",
-        "packages/core/schemas/contracts.schema.json#/$defs/SourceDocument/properties/publisher (string, validated only)",
-        "packages/core/schemas/contracts.schema.json#/$defs/SourceDocument/properties/dateEvidence (string, validated only)"
-      ]
-    },
-    {
-      "id": "template-fork-drift",
-      "severity": "medium",
-      "category": "lineage",
-      "summary": "Per-project template runtime forks that have diverged from template/; fixes do not propagate.",
-      "evidence": [
-        "projects/agent-365: 9 modified, 2 added, 0 removed, 51 identical vs template/{src,scripts}",
-        "projects/copilot: 14 modified, 1 added, 4 removed, 42 identical vs template/{src,scripts}",
-        "projects/copilot-studio-2026: 17 modified, 5 added, 4 removed, 39 identical vs template/{src,scripts}",
-        "projects/microsoft: 14 modified, 1 added, 4 removed, 42 identical vs template/{src,scripts}",
-        "projects/power-platform-2026: 16 modified, 6 added, 12 removed, 32 identical vs template/{src,scripts}"
+        "packages/core/schemas/contracts.schema.json#/$defs/AssetRequest/properties/purpose (const(\"evaluation\"))"
       ]
     },
     {
@@ -10292,7 +11112,6 @@
       "category": "lineage",
       "summary": "Complete superseded release trees kept beside the current release; consumers can pick a stale package.",
       "evidence": [
-        "projects/datadog-cowork-plugin/qc/releases/release-audit-v2",
         "projects/datadog-cowork-plugin/qc/releases/release-audit"
       ]
     },
@@ -10303,37 +11122,18 @@
       "summary": "Tracked artifacts and docs contain absolute user-profile paths.",
       "evidence": [
         ".vscode/settings.json:3",
-        ".vscode/tasks.json:7",
-        "projects/agent-365/audio/narration-metadata.json:8",
-        "projects/agent-365/script/timeline.json:8",
-        "projects/copilot-studio-2026/qc/media-v3.json:60",
-        "projects/copilot-studio-2026/qc/media-v4.json:60",
-        "projects/copilot/qc/media-v3.json:127",
-        "projects/copilot/qc/media-v6.json:127",
-        "projects/copilot/qc/models/onnx-repair/verification.json:17",
-        "projects/copilot/qc/models/verification.json:15",
+        "projects/agent-365/release/outputs/remotion/audio/narration-metadata.json:65",
+        "projects/copilot-studio-2026/release/outputs/remotion/audio/narration-metadata.json:65",
+        "projects/copilot/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/datadog-cowork-plugin/qc/audio/am_michael/kokoro.json:45",
         "projects/datadog-cowork-plugin/qc/audio/am_michael/kokoro_onnx.json:54",
         "projects/datadog-cowork-plugin/qc/models/onnx-repair/verification.json:5",
-        "projects/datadog-cowork-plugin/qc/releases/release-audit-v2/outputs/remotion/audio/narration-metadata.json:39",
         "projects/datadog-cowork-plugin/qc/releases/release-audit/outputs/remotion/audio/narration-metadata.json:39",
-        "projects/datadog-cowork-plugin/release/outputs/remotion/audio/narration-metadata.json:38",
-        "projects/datadog-cowork-plugin/release/outputs/remotion/qc/mp4-qc.json:121",
+        "projects/datadog-cowork-plugin/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/microsoft-autopilot-agents/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/microsoft-plugin-architecture/release/outputs/remotion/audio/narration-metadata.json:65",
-        "projects/microsoft/qc/media-v3.json:127",
-        "projects/microsoft/qc/models/onnx-repair/verification.json:17",
-        "projects/microsoft/qc/models/verification.json:15",
-        "projects/power-platform-2026/audio/history/v6/script/timeline.json:8",
-        "projects/power-platform-2026/audio/narration-metadata.json:8",
-        "projects/power-platform-2026/audio/narration-v6.metadata.json:8",
-        "projects/power-platform-2026/qc/media-v2.json:60",
-        "projects/power-platform-2026/qc/media-v3.json:60",
-        "projects/power-platform-2026/qc/media-v4.json:60",
-        "projects/power-platform-2026/qc/media-v5.json:60",
-        "projects/power-platform-2026/qc/media-v6.json:60",
-        "projects/power-platform-2026/qc/model-verification-v6/verification.json:52",
-        "projects/power-platform-2026/script/timeline.json:8",
+        "projects/microsoft/release/outputs/remotion/audio/narration-metadata.json:65",
+        "projects/power-platform-2026/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/power-platform-community-conference/release/outputs/remotion/audio/narration-metadata.json:65"
       ]
     }
