@@ -325,8 +325,89 @@ def resample_to_target(audio, sample_rate: int, target_rate: int):
     np, _, resample_poly = import_audio_deps()
     if sample_rate == target_rate:
         return np.asarray(audio, dtype=np.float32)
+    from scipy.signal import firwin, kaiserord
     divisor = math.gcd(sample_rate, target_rate)
-    return np.asarray(resample_poly(audio, target_rate // divisor, sample_rate // divisor), dtype=np.float32)
+    up, down = target_rate // divisor, sample_rate // divisor
+    # SciPy's default 21-tap-per-phase Kaiser filter leaves spectral images within 2 kHz above the source Nyquist.
+    # This steep design keeps speech below 0.92 of the lower Nyquist and rejects images by about 100 dB.
+    nyquist = min(sample_rate, target_rate) / 2.0
+    design_rate = sample_rate * up
+    transition = nyquist / 12.0
+    numtaps, beta = kaiserord(100.0, transition / (0.5 * design_rate))
+    numtaps = max(numtaps | 1, 2 * 10 * max(up, down) + 1)
+    taps = firwin(numtaps, nyquist - transition / 2.0, window=('kaiser', beta), fs=design_rate)
+    return np.asarray(resample_poly(audio, up, down, window=taps), dtype=np.float32)
+
+
+TARGET_LUFS = -16.0
+TRUE_PEAK_CEILING_DBTP = -1.5
+
+
+def integrated_loudness(mono, sample_rate: int, channels: int) -> float:
+    """ITU-R BS.1770-4 gated loudness for identical channels at 48 kHz."""
+    np, _, _ = import_audio_deps()
+    from scipy.signal import lfilter
+    if sample_rate != 48000:
+        fail('loudness measurement requires 48 kHz audio')
+    shelf = lfilter([1.53512485958697, -2.69169618940638, 1.19839281085285], [1.0, -1.69065929318241, 0.73248077421585], mono)
+    weighted = lfilter([1.0, -2.0, 1.0], [1.0, -1.99004745483398, 0.99007225036621], shelf)
+    block = int(0.4 * sample_rate)
+    step = int(0.1 * sample_rate)
+    if weighted.size < block:
+        return -70.0
+    cumulative = np.concatenate(([0.0], np.cumsum(np.square(weighted))))
+    starts = np.arange(0, weighted.size - block + 1, step)
+    power = (cumulative[starts + block] - cumulative[starts]) / block * channels
+    loudness = -0.691 + 10.0 * np.log10(np.maximum(power, 1e-30))
+    absolute = power[loudness > -70.0]
+    if absolute.size == 0:
+        return -70.0
+    relative_gate = -0.691 + 10.0 * math.log10(float(np.mean(absolute))) - 10.0
+    gated = power[(loudness > -70.0) & (loudness > relative_gate)]
+    return float(-0.691 + 10.0 * math.log10(float(np.mean(gated))))
+
+
+def true_peak(array) -> float:
+    np, _, resample_poly = import_audio_deps()
+    return float(np.max(np.abs(resample_poly(array, 4, 1)))) if array.size else 0.0
+
+
+def master_loudness(audio, sample_rate: int, channels: int):
+    """Normalize narration to the online-video loudness target with a smooth 4x-oversampled true-peak limiter."""
+    np, _, resample_poly = import_audio_deps()
+    from scipy.ndimage import minimum_filter1d, uniform_filter1d
+    source = np.asarray(audio, dtype=np.float64)
+    before = integrated_loudness(source, sample_rate, channels)
+    ceiling = 10.0 ** (TRUE_PEAK_CEILING_DBTP / 20.0)
+    window = 2 * int(0.01 * sample_rate) + 1
+    gain_db = TARGET_LUFS - before
+    limited = source
+    smooth = np.ones(source.size)
+    for _ in range(4):
+        gained = source * (10.0 ** (gain_db / 20.0))
+        envelope = np.abs(resample_poly(gained, 4, 1))[: gained.size * 4].reshape(-1, 4).max(axis=1)
+        required = np.minimum(1.0, ceiling / np.maximum(envelope, 1e-12))
+        # Holding the minimum over the averaging span guarantees the smoothed gain never exceeds what a peak requires.
+        smooth = uniform_filter1d(minimum_filter1d(required, size=window, mode='nearest'), size=window, mode='nearest')
+        limited = gained * smooth
+        peak = true_peak(limited)
+        if peak > ceiling:
+            limited = limited * (ceiling / peak)
+        after = integrated_loudness(limited, sample_rate, channels)
+        if abs(after - TARGET_LUFS) <= 0.2:
+            break
+        gain_db += TARGET_LUFS - after
+    return limited.astype(np.float32), {
+        'standard': 'ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak',
+        'targetLufs': TARGET_LUFS,
+        'truePeakCeilingDbtp': TRUE_PEAK_CEILING_DBTP,
+        'inputLufs': round(before, 2),
+        'gainDb': round(gain_db, 2),
+        'maxLimiterReductionDb': round(float(-20.0 * np.log10(max(float(np.min(smooth)), 1e-12))), 2),
+        'limitedSampleRatio': round(float(np.mean(smooth < 0.999)), 5),
+        'outputLufs': round(integrated_loudness(limited, sample_rate, channels), 2),
+        'outputTruePeakDbtp': round(20.0 * math.log10(max(true_peak(limited), 1e-12)), 2),
+    }
 
 
 def rms_dbfs(audio) -> float:
@@ -409,8 +490,8 @@ def write_wav(path: Path, audio, sample_rate: int, channels: int) -> None:
         fail('speech engine returned non-finite audio samples')
     if not np.any(array):
         fail('speech engine returned entirely silent audio')
-    peak = float(np.max(np.abs(array))) or 1.0
-    array = array / peak * 0.89
+    if float(np.max(np.abs(array))) > 1.0:
+        fail('mastered narration exceeds full scale')
     if channels == 2:
         array = np.stack([array, array], axis=1)
     elif channels != 1:
@@ -460,6 +541,7 @@ def main() -> None:
     output_channels = int(payload['channels'])
     audio = resample_to_target(samples, input_rate, output_rate)
     audio, cleanup_info = cleanup_audio(audio, output_rate, timings)
+    audio, mastering_info = master_loudness(audio, output_rate, output_channels)
     output_wav = root / str(payload['outputWav'])
     write_wav(output_wav, audio, output_rate, output_channels)
     duration = probe_duration(output_wav)
@@ -494,6 +576,7 @@ def main() -> None:
         'forks': forks,
         'cleanupPolicy': cleanup_info['policy'],
         'audioCleanup': cleanup_info,
+        'mastering': mastering_info,
         'rawAudio': {'dc': float(np.mean(samples, dtype=np.float64)),
                      'rms': float(np.sqrt(np.mean(samples.astype(np.float64) ** 2))),
                      'peak': float(np.max(np.abs(samples)))},

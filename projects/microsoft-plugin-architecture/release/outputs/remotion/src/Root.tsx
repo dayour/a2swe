@@ -91,7 +91,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
   const cardCount = hasVisual ? 1 : 3;
   return <AbsoluteFill style={{ fontFamily: primaryFont, color: theme.foreground, opacity: fade }}>
     <div style={{ position: 'absolute', top: 40, left: 96, right: 96, display: 'flex', justifyContent: 'space-between', fontSize: 20, letterSpacing: 4, textTransform: 'uppercase' }}>
-      <span style={{ color: theme.accent, fontWeight: 700 }}>{splitHeadline(content.title)[0]}</span>
+      <span style={{ color: theme.accent, fontWeight: 700 }}>{splitHeadline(content.title)[0].replace(/[:.]$/, '')}</span>
       <span style={{ color: muted }}>{String(index + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</span>
     </div>
     {isTitle ? <div style={{ position: 'absolute', left: 96, right: 96, top: 150 }}>
@@ -126,7 +126,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
           </div>}
       </div>
     </>}
-    <div style={{ position: 'absolute', left: 96, right: 96, bottom: 32, fontSize: 18, color: muted, ...clip(1) }}>Sources: {scene.citations.slice(0, 3).map((citation) => '[' + citation.evidenceId + '] ' + citation.sourceTitle).join('  ·  ')}</div>
+    <div style={{ position: 'absolute', left: 96, right: 96, bottom: 32, fontSize: 18, color: muted, ...clip(1) }}>Sources: {[...new Set(scene.citations.map((citation) => citation.sourceTitle))].slice(0, 3).join('  ·  ')}</div>
   </AbsoluteFill>;
 }
 
