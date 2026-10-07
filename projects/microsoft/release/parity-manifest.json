@@ -1,0 +1,369 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "renderSpecDigest": "33ac3e82fcb0de78169dfac552dd63187e78e9334091ad3653b921604b25ce96",
+  "releaseDigest": "ddbaf9b9d6987000d6df2866f88f5bfffe51fa2b9713f61cf9b4d2b6095f12a3",
+  "assetInventoryDigest": "e20c05d6578de6be7a50880c49456703ec172e218d6055207de93a0e05a1d0b1",
+  "outputs": [
+    {
+      "format": "html",
+      "path": "outputs/index.html",
+      "digest": "13519d6ef2d2548121056eb123d2dffc8472d3bdce348218668c547058f323bc",
+      "mediaType": "text/html; charset=utf-8",
+      "byteSize": 355438,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-html-accessible-2"
+    },
+    {
+      "format": "adaptiveDeck",
+      "path": "outputs/deck.deck.json",
+      "digest": "42321e8c1ddb4edd0247fc563a5b3b0759fce6bee080536de50b9996a02199d0",
+      "mediaType": "application/vnd.adaptive-deck+json; charset=utf-8",
+      "byteSize": 366835,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-adaptive-deck-schema-2"
+    },
+    {
+      "format": "pptx",
+      "path": "outputs/deck.pptx",
+      "digest": "9d044287cfba56b0e5fbf2e822c3ff9923f125da2a2a2b0d5b0771ba1812edcc",
+      "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "byteSize": 335272,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-pptx-ooxml-7"
+    },
+    {
+      "format": "docx",
+      "path": "outputs/document.docx",
+      "digest": "60c71771da19961c992a826af783f46836510d4a4c19147c4645b0bd5f154de7",
+      "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "byteSize": 277304,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-docx-ooxml-4"
+    },
+    {
+      "format": "pdf",
+      "path": "outputs/document.pdf",
+      "digest": "51ff7c0068db875b151347eb9533e5e3727a35d079a563b01fd8e87188db340b",
+      "mediaType": "application/pdf",
+      "byteSize": 204893,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-pdf-searchable-4"
+    },
+    {
+      "format": "png",
+      "path": "outputs/raster.png",
+      "digest": "0ae36213be7791b377b7048032c71bd701305348796b6141b2a801f6128a1155",
+      "mediaType": "image/png",
+      "byteSize": 200391,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-png-raster-1080p-2"
+    },
+    {
+      "format": "jpeg",
+      "path": "outputs/raster.jpg",
+      "digest": "b9897794c16af1583788b3fe36fc75404724e66b765822e5cd81cec15544a3a8",
+      "mediaType": "image/jpeg",
+      "byteSize": 235446,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-jpeg-raster-1080p-2"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/render-plan.json",
+      "digest": "b55137c7475e63ef52ed2fb21ef9cd01420982afb62063fd8836edbe7e307b91",
+      "mediaType": "application/json",
+      "byteSize": 2036,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/package.json",
+      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
+      "mediaType": "application/json",
+      "byteSize": 677,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/requirements.lock.txt",
+      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+      "mediaType": "text/plain",
+      "byteSize": 5663,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/timeline.json",
+      "digest": "664da819f5dee31cbb216895944335462183053d4d6d779bf81f4e9090b7454a",
+      "mediaType": "application/json",
+      "byteSize": 18519,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/asset-manifest.json",
+      "digest": "3d6ac6ef0a6f49a2a025904a4ec6bf0a0cbf1aa55250819be6afb07b94f68404",
+      "mediaType": "application/json",
+      "byteSize": 1025,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/speech/narration-manifest.json",
+      "digest": "9fd21706d383dab8186da9ed892b7e144c9e9802844ea0d35a927c382e6b5aad",
+      "mediaType": "application/json",
+      "byteSize": 2987,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/tsconfig.json",
+      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
+      "mediaType": "application/json",
+      "byteSize": 397,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/remotion.config.ts",
+      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
+      "mediaType": "text/typescript",
+      "byteSize": 351,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/scripts/synthesize-audio.mjs",
+      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
+      "mediaType": "text/javascript",
+      "byteSize": 1703,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/scripts/synthesize-audio.py",
+      "digest": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
+      "mediaType": "text/x-python",
+      "byteSize": 27768,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/scripts/audio-qa.mjs",
+      "digest": "5371d9dc3a65fc6994dfab70baa805627bc82bc6e98402c93d4d8abe9d8114fd",
+      "mediaType": "text/javascript",
+      "byteSize": 18603,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/scripts/render-mp4.mjs",
+      "digest": "d3b5a1ab5fd5fd0d25212fb6117835edacb9062673bb91a2eb39e194ec1825d4",
+      "mediaType": "text/javascript",
+      "byteSize": 14781,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/scripts/verify-mp4.mjs",
+      "digest": "faa93aadcd18d22c04ebf125b5d82252156e2438a8e3311863ee353fd42452fb",
+      "mediaType": "text/javascript",
+      "byteSize": 5726,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/src/content.json",
+      "digest": "45bb37cf5bbf5b028a7749031cb37ef0cd4be599e3c62c4814cdef5cdc9de1ae",
+      "mediaType": "application/json",
+      "byteSize": 10327,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/src/index.tsx",
+      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
+      "mediaType": "text/typescript",
+      "byteSize": 93,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/src/Root.tsx",
+      "digest": "39671f74429d49a598949af7136436842725281e1899a31404a1d0325148183d",
+      "mediaType": "text/typescript",
+      "byteSize": 12270,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/src/palette.ts",
+      "digest": "82b5e6bcc69b22280678794ca351f2550094f7776e4f179a846a4df6ea9d667f",
+      "mediaType": "text/typescript",
+      "byteSize": 1523,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/src/Visuals.tsx",
+      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
+      "mediaType": "text/typescript",
+      "byteSize": 8575,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/01-windows-layer.mmd",
+      "digest": "ab14b0f9a7493e40f76a9adadc2c602fb3362bdb1027746f4f6fe991bc648cb4",
+      "mediaType": "text/plain",
+      "byteSize": 191,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/02-work-layer.excalidraw.json",
+      "digest": "ed5344754e2d9c1c90ae78c18f00f2302187bb4927a4067a111216218e22eb39",
+      "mediaType": "application/json",
+      "byteSize": 1108,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/03-azure-layer.marp.md",
+      "digest": "3752ecda5b233c14556966879a5667daaf2bb9ce26a1afc7988aeeb3f154293e",
+      "mediaType": "text/markdown",
+      "byteSize": 98,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/04-copilot-layer.marp.md",
+      "digest": "c8cf0d8f4cbc0d3f1026e97835e378255e52e4f976ec209f4bee5a3a0ea61a70",
+      "mediaType": "text/markdown",
+      "byteSize": 111,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/01-windows-layer.png",
+      "digest": "e75dbbbbed0604012d4b0f71e0fa2f9e2da550d899ab47a6b112f8c3324b63e2",
+      "mediaType": "image/png",
+      "byteSize": 83933,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/02-work-layer.png",
+      "digest": "3412b9a8742383302e26cce083c55862a58b51e50f12ec1735f8f0bf52cc0d1a",
+      "mediaType": "image/png",
+      "byteSize": 75957,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/03-azure-layer.png",
+      "digest": "ca4b3284ef6241ad2ca18ae17336e783b9aed6a6cd10e0c17fed1c0bed4f6d3a",
+      "mediaType": "image/png",
+      "byteSize": 46441,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/visuals/04-copilot-layer.png",
+      "digest": "d8cb3de9aaeee9d985531a4d80bf744b4cc2d67ac16cbb8fe1a1b38a5b117f71",
+      "mediaType": "image/png",
+      "byteSize": 50281,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/public/assets/microsoft/audio.wav",
+      "digest": "363fea366e1ddb65a9cfd9ddd5d44ed430842d805e1e39a1a92bc50555687bdd",
+      "mediaType": "audio/wav",
+      "byteSize": 13003244,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/audio/narration-metadata.json",
+      "digest": "287cea80685ccff1feb89e1459ada8cd3025f16da33e1c4e4b2f7152afd18145",
+      "mediaType": "application/json",
+      "byteSize": 9735,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/dist/render.mp4",
+      "digest": "8d0d311dd2a463e0d4387d471af0fda62f5a0c73ecca4fd040cd589ade42e3b0",
+      "mediaType": "video/mp4",
+      "byteSize": 10516414,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/qc/render-receipt.json",
+      "digest": "0df76d7e5364178ce6cb96c70365d749aedda123af11e0011f79c9a6bbf18cdd",
+      "mediaType": "application/json",
+      "byteSize": 367,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/qc/audio-qa.json",
+      "digest": "7fbd5a534416ce7410ae62b2883e57ab5b200a7dcfcf864c63105e377cf41d00",
+      "mediaType": "application/json",
+      "byteSize": 5088,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/qc/audio-spectrogram.svg",
+      "digest": "b2a5325f32f6991cb955aa6d153d714fe3e03f33fedd4f0cc2af626b05f4477b",
+      "mediaType": "image/svg+xml",
+      "byteSize": 446101,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    },
+    {
+      "format": "remotion",
+      "path": "outputs/remotion/qc/mp4-qc.json",
+      "digest": "1df9a3aff94fa3d19262b084abc5e7ae61edccb8ff8ab7d71fcf8896c0c438e6",
+      "mediaType": "application/json",
+      "byteSize": 3566,
+      "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+      "adapter": "a2swe-remotion-mp4-adapter-7"
+    }
+  ]
+}

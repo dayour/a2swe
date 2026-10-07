@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "microsoft",
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "text": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early.\n\nStart with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.\n\nUse Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.\n\nUse Azure when applications need cloud services: compute, storage, data and AI categories. It is the builder layer for apps and managed resources for teams.\n\nTreat Copilot as AI assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments.",
+  "segments": [
+    {
+      "text": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.",
+      "sceneId": "windows-layer"
+    },
+    {
+      "text": "Use Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.",
+      "sceneId": "work-layer"
+    },
+    {
+      "text": "Use Azure when applications need cloud services: compute, storage, data and AI categories. It is the builder layer for apps and managed resources for teams.",
+      "sceneId": "azure-layer"
+    },
+    {
+      "text": "Treat Copilot as AI assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments.",
+      "sceneId": "copilot-layer"
+    }
+  ],
+  "narrationSha256": "f21760e44a662ea6990c89c21359c0216f622db2c58275ee5b633535ec83c3de",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five",
+      "AI": "A I"
+    }
+  },
+  "outputWav": "public/assets/microsoft/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 60,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

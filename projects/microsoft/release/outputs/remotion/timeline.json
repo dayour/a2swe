@@ -1,0 +1,383 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2032,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Microsoft: map needs to the right layer",
+      "body": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early.",
+      "narration": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early.",
+      "claims": [
+        "Windows 11 is the client operating-system layer for PC experience and user productivity.",
+        "Microsoft 365 combines Office apps with online services for email, file storage, collaboration and meetings.",
+        "Azure is the cloud-services layer for building and managing applications, including AI, compute and storage categories.",
+        "Copilot Chat provides AI assistance to eligible Microsoft 365 users for information, content and tasks.",
+        "Copilot capability and grounding depend on access point, service capacity and Microsoft 365 Copilot licensing.",
+        "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat."
+      ],
+      "claimSources": [
+        "Windows 11 overview for administrators | Microsoft Learn",
+        "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+        "Azure documentation | Microsoft Learn",
+        "Overview of Microsoft Copilot Chat | Microsoft Learn",
+        "Overview of Microsoft Copilot Chat | Microsoft Learn",
+        "Windows 11 overview for administrators | Microsoft Learn"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Map needs to the right layer and confirm entitlements before committing.",
+      "startFrame": 0,
+      "durationInFrames": 404,
+      "endFrame": 404,
+      "speechStartFrame": 8,
+      "speechEndFrame": 395
+    },
+    {
+      "id": "windows-layer",
+      "kind": "section",
+      "title": "1. Windows is the PC layer",
+      "body": "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.",
+      "narration": "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.",
+      "claims": [
+        "Windows 11 is the client operating-system layer for PC experience and user productivity.",
+        "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat."
+      ],
+      "claimSources": [
+        "Windows 11 overview for administrators | Microsoft Learn",
+        "Windows 11 overview for administrators | Microsoft Learn"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  win[\"WINDOWS<br/>PC LAYER\"]\n  m365[\"MICROSOFT 365<br/>WORK LAYER\"]\n  azure[\"AZURE<br/>APP LAYER\"]\n  copilot[\"COPILOT<br/>AI LAYER\"]\n  win --- m365 --- azure\n  m365 --- copilot",
+        "caption": "The decision map starts with the user endpoint, then separates work services, app services and AI assistance."
+      },
+      "visualId": "01-windows-layer",
+      "decision": "Map needs to the right layer and confirm entitlements before committing.",
+      "startFrame": 404,
+      "durationInFrames": 399,
+      "endFrame": 803,
+      "speechStartFrame": 412,
+      "speechEndFrame": 794
+    },
+    {
+      "id": "work-layer",
+      "kind": "section",
+      "title": "2. Microsoft 365 is work",
+      "body": "Use Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.",
+      "narration": "Use Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.",
+      "claims": [
+        "Microsoft 365 combines Office apps with online services for email, file storage, collaboration and meetings.",
+        "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat."
+      ],
+      "claimSources": [
+        "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+        "Windows 11 overview for administrators | Microsoft Learn"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Microsoft 365 groups common work capabilities into a productivity-services layer.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"apps\",\"x\":90,\"y\":60,\"width\":900,\"height\":110,\"strokeColor\":\"#7A8B8B\",\"backgroundColor\":\"#151A1A\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"OFFICE APPS\\nDocuments and mail\",\"fontSize\":34,\"strokeColor\":\"#F7F8F6\"}},{\"type\":\"rectangle\",\"id\":\"services\",\"x\":90,\"y\":245,\"width\":900,\"height\":110,\"strokeColor\":\"#4FA3A5\",\"backgroundColor\":\"#0D2A2B\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"WORK SERVICES\\nFiles and meetings\",\"fontSize\":34,\"strokeColor\":\"#F7F8F6\"}},{\"type\":\"rectangle\",\"id\":\"collab\",\"x\":90,\"y\":430,\"width\":900,\"height\":110,\"strokeColor\":\"#B6BDB9\",\"backgroundColor\":\"#242827\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"COLLABORATION\\nShared work\",\"fontSize\":34,\"strokeColor\":\"#F7F8F6\"}},{\"type\":\"arrow\",\"x\":540,\"y\":170,\"width\":0,\"height\":75,\"start\":{\"id\":\"apps\"},\"end\":{\"id\":\"services\"},\"strokeColor\":\"#4FA3A5\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":540,\"y\":355,\"width\":0,\"height\":75,\"start\":{\"id\":\"services\"},\"end\":{\"id\":\"collab\"},\"strokeColor\":\"#4FA3A5\",\"strokeWidth\":5,\"roughness\":0}]"
+      },
+      "visualId": "02-work-layer",
+      "decision": "Map needs to the right layer and confirm entitlements before committing.",
+      "startFrame": 803,
+      "durationInFrames": 424,
+      "endFrame": 1227,
+      "speechStartFrame": 811,
+      "speechEndFrame": 1218
+    },
+    {
+      "id": "azure-layer",
+      "kind": "section",
+      "title": "3. Azure builds apps",
+      "body": "Use Azure when applications need cloud services: compute, storage, data and AI categories. It is the builder layer for apps and managed resources for teams.",
+      "narration": "Use Azure when applications need cloud services: compute, storage, data and AI categories. It is the builder layer for apps and managed resources for teams.",
+      "claims": [
+        "Azure is the cloud-services layer for building and managing applications, including AI, compute and storage categories.",
+        "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat."
+      ],
+      "claimSources": [
+        "Azure documentation | Microsoft Learn",
+        "Windows 11 overview for administrators | Microsoft Learn"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Azure documentation | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/azure/"
+        },
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Windows 11 overview for administrators | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/windows/whats-new/windows-11-overview"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview?view=o365-worldwide"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Azure is the cloud-services layer for application teams.",
+        "source": "# BUILD LAYER\n\n| COMPUTE | STORAGE | AI |\n|---|---|---|\n| Apps | Data | Models |\n\n## APP SERVICES"
+      },
+      "visualId": "03-azure-layer",
+      "decision": "Map needs to the right layer and confirm entitlements before committing.",
+      "startFrame": 1227,
+      "durationInFrames": 385,
+      "endFrame": 1612,
+      "speechStartFrame": 1235,
+      "speechEndFrame": 1604
+    },
+    {
+      "id": "copilot-layer",
+      "kind": "section",
+      "title": "4. Copilot assists workflows",
+      "body": "Treat Copilot as AI assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments.",
+      "narration": "Treat Copilot as AI assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments.",
+      "claims": [
+        "Copilot Chat provides AI assistance to eligible Microsoft 365 users for information, content and tasks.",
+        "Copilot capability and grounding depend on access point, service capacity and Microsoft 365 Copilot licensing."
+      ],
+      "claimSources": [
+        "Overview of Microsoft Copilot Chat | Microsoft Learn",
+        "Overview of Microsoft Copilot Chat | Microsoft Learn"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Copilot decisions need entitlement and grounding checks before commitments.",
+        "source": "# AI ASSISTANCE\n\n| ACCESS | GROUNDING | LICENSE |\n|---|---|---|\n| Check | Confirm | Verify |\n\n## CONFIRM FIRST"
+      },
+      "visualId": "04-copilot-layer",
+      "decision": "Map needs to the right layer and confirm entitlements before committing.",
+      "startFrame": 1612,
+      "durationInFrames": 420,
+      "endFrame": 2032,
+      "speechStartFrame": 1620,
+      "speechEndFrame": 2017
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early.",
+      "startFrame": 8,
+      "endFrame": 395,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity.",
+      "startFrame": 412,
+      "endFrame": 656,
+      "sourceSegmentIndex": 1,
+      "sceneId": "windows-layer"
+    },
+    {
+      "text": "It anchors the endpoint for users, not every cloud service.",
+      "startFrame": 656,
+      "endFrame": 794,
+      "sourceSegmentIndex": 1,
+      "sceneId": "windows-layer"
+    },
+    {
+      "text": "Use Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration.",
+      "startFrame": 811,
+      "endFrame": 1088,
+      "sourceSegmentIndex": 2,
+      "sceneId": "work-layer"
+    },
+    {
+      "text": "It packages work services, not custom infrastructure.",
+      "startFrame": 1088,
+      "endFrame": 1218,
+      "sourceSegmentIndex": 2,
+      "sceneId": "work-layer"
+    },
+    {
+      "text": "Use Azure when applications need cloud services: compute, storage, data and AI categories.",
+      "startFrame": 1235,
+      "endFrame": 1449,
+      "sourceSegmentIndex": 3,
+      "sceneId": "azure-layer"
+    },
+    {
+      "text": "It is the builder layer for apps and managed resources for teams.",
+      "startFrame": 1449,
+      "endFrame": 1604,
+      "sourceSegmentIndex": 3,
+      "sceneId": "azure-layer"
+    },
+    {
+      "text": "Treat Copilot as AI assistance that sits inside selected workflows and licenses.",
+      "startFrame": 1620,
+      "endFrame": 1814,
+      "sourceSegmentIndex": 4,
+      "sceneId": "copilot-layer"
+    },
+    {
+      "text": "Confirm access, grounding, service availability and subscription before commitments.",
+      "startFrame": 1814,
+      "endFrame": 2017,
+      "sourceSegmentIndex": 4,
+      "sceneId": "copilot-layer"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 5,
+    "cueCount": 9
+  }
+}

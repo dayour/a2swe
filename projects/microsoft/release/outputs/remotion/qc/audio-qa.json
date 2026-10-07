@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-7",
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "input": "dist/render.mp4",
+  "inputSha256": "8d0d311dd2a463e0d4387d471af0fda62f5a0c73ecca4fd040cd589ade42e3b0",
+  "sourceAudioSha256": "363fea366e1ddb65a9cfd9ddd5d44ed430842d805e1e39a1a92bc50555687bdd",
+  "sampleRate": 48000,
+  "durationSeconds": 67.776,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "bˈɑTəm lˈIn: mˈIkɹəsˌɑft ɪz ɐ pɔɹtfˈOliO, nˌɑt wˈʌn sˈɪstəm; fˈɜɹst mˈæp ðə nˈid tə wˈɪndOz, mˈIkɹəsˌɑft θɹˈi sˈɪksti fˈIv, ˈæʒəɹ ɔɹ kˈOpˌIlət, ðˈɛn vˈɛɹəfˌI ɪntˈITᵊlmənts ˈɜɹli."
+      ],
+      [
+        "stˈɑɹt wɪð wˈɪndOz wˌɛn ðə dəsˈɪʒᵊn ɪz ðə pˌisˈi ɪkspˈɪɹiəns: dəvˈIsᵻz, dˈɛsktˌɑp, ˈæps ænd jˈuzəɹ pɹˌɑdəktˈɪvəTi. ˌɪt ˈæŋkəɹz ði ˈɛndpYnt fɔɹ jˈuzəɹz, nˌɑt ˈɛvəɹi klˈWd sˈɜɹvəs."
+      ],
+      [
+        "jˈuz mˈIkɹəsˌɑft θɹˈi sˈɪksti fˈIv wˌɛn ðə nˈid ɪz ˈɛvɹidˌA wˈɜɹk: ˈɔfəs ˈæps, ˈimˌAl, fˈIlz, mˈiTɪŋz, ʃˈɛɹɪŋ ænd kəlˌæbəɹˈAʃən. ˌɪt pˈækɪʤᵻz wˈɜɹk sˈɜɹvəsᵻz, nˌɑt kˈʌstəm ˈɪnfɹəstɹˌʌkʧəɹ."
+      ],
+      [
+        "jˈuz ˈæʒəɹ wˌɛn ˌæpləkˈAʃənz nˈid klˈWd sˈɜɹvəsᵻz: kəmpjˈut, stˈɔɹɪʤ, dˈATə ænd ɐ ˈI kˈæTəɡˌɔɹiz. ˌɪt ɪz ðə bˈɪldəɹ lˈAəɹ fɔɹ ˈæps ænd mˈænɪʤd ɹˈisˌɔɹsᵻz fɔɹ tˈimz."
+      ],
+      [
+        "tɹˈit kˈOpˌIlət æz ˈA ˈI əsˈɪstᵊns ðæt sˈɪts ɪnsˈId səlˈɛktᵻd wˈɜɹkflˌOz ænd lˈIsᵊnsᵻz. kənfˈɜɹm ˈæksˌɛs, ɡɹˈWndɪŋ, sˈɜɹvəs əvˌAləbˈɪləTi ænd səbskɹˈɪpʃən bəfˈɔɹ kəmˈɪtmᵊnts."
+      ]
+    ],
+    "phonemesSha256": "ace9f6f56325a2434b49c57eebd2bad27e40f20cbb63eb25ad87e6028de80dad",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft three sixty five, Azure or Copilot, then verify entitlements early.",
+      "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.",
+      "Use Microsoft three sixty five when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.",
+      "Use Azure when applications need cloud services: compute, storage, data and A I categories. It is the builder layer for apps and managed resources for teams.",
+      "Treat Copilot as A I assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 67.776,
+      "rmsDbfs": -19.631283,
+      "peakDbfs": -1.483197,
+      "highFrequencyRatio8k": 0.003625,
+      "spectralFlatness": 0.000001
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 64.775,
+      "rmsDbfs": -19.434598,
+      "peakDbfs": -1.483197,
+      "highFrequencyRatio8k": 0.002704,
+      "spectralFlatness": 0.000001
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 3.001,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 1.801,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "sourceBoundaries": {
+      "label": "sourceSpeechBoundaries",
+      "segmentsChecked": 5,
+      "edgeWindowSeconds": 0.01,
+      "maxOnsetRmsDbfs": -240,
+      "maxTailRmsDbfs": -240,
+      "maxJumpDbfs": -240
+    },
+    "snrSpeechVsSilenceDb": 220.565402,
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 3.4,
+      "truePeakDbtp": -1.5
+    }
+  },
+  "mastering": {
+    "gainDb": 8.53,
+    "inputLufs": -24.28,
+    "limitedSampleRatio": 0.02491,
+    "maxLimiterReductionDb": 4.44,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSourceBoundaryJumpDbfs": -55,
+    "maxSourceEdgeRmsDbfs": -60,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45,
+    "targetLufs": -16,
+    "maxLoudnessDeviationLu": 1,
+    "maxTruePeakDbtp": -1
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}

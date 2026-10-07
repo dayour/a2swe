@@ -1,0 +1,180 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": -2.200245194372563e-12,
+      "highFrequencyRatio8k": 0.0009551289518501676,
+      "rmsDbfs": -27.857116763954487,
+      "spectralFlatness": 1.3125688752400728e-07
+    },
+    "before": {
+      "dcOffset": 1.2157375749666244e-05,
+      "highFrequencyRatio8k": 0.0009550129853426109,
+      "rmsDbfs": -27.856383633477666,
+      "spectralFlatness": 1.210187725105721e-07
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/microsoft/audio.wav",
+  "audioSha256": "363fea366e1ddb65a9cfd9ddd5d44ed430842d805e1e39a1a92bc50555687bdd",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "durationSeconds": 67.725,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.53,
+    "inputLufs": -24.28,
+    "limitedSampleRatio": 0.02491,
+    "maxLimiterReductionDb": 4.44,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "f21760e44a662ea6990c89c21359c0216f622db2c58275ee5b633535ec83c3de",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.2157364710902104e-05,
+    "peak": 0.525287389755249,
+    "rms": 0.04047677076585891
+  },
+  "requestedDurationSeconds": 60.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 13.175,
+      "index": 0,
+      "sceneId": "title",
+      "startSeconds": 0.25,
+      "text": "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft 365, Azure or Copilot, then verify entitlements early."
+    },
+    {
+      "endSeconds": 26.475,
+      "index": 1,
+      "sceneId": "windows-layer",
+      "startSeconds": 13.725,
+      "text": "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service."
+    },
+    {
+      "endSeconds": 40.6,
+      "index": 2,
+      "sceneId": "work-layer",
+      "startSeconds": 27.025,
+      "text": "Use Microsoft 365 when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure."
+    },
+    {
+      "endSeconds": 53.45,
+      "index": 3,
+      "sceneId": "azure-layer",
+      "startSeconds": 41.15,
+      "text": "Use Azure when applications need cloud services: compute, storage, data and AI categories. It is the builder layer for apps and managed resources for teams."
+    },
+    {
+      "endSeconds": 67.225,
+      "index": 4,
+      "sceneId": "copilot-layer",
+      "startSeconds": 54.0,
+      "text": "Treat Copilot as AI assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: m\u02c8Ik\u0279\u0259s\u02cc\u0251ft \u026az \u0250 p\u0254\u0279tf\u02c8OliO, n\u02cc\u0251t w\u02c8\u028cn s\u02c8\u026ast\u0259m; f\u02c8\u025c\u0279st m\u02c8\u00e6p \u00f0\u0259 n\u02c8id t\u0259 w\u02c8\u026andOz, m\u02c8Ik\u0279\u0259s\u02cc\u0251ft \u03b8\u0279\u02c8i s\u02c8\u026aksti f\u02c8Iv, \u02c8\u00e6\u0292\u0259\u0279 \u0254\u0279 k\u02c8Op\u02ccIl\u0259t, \u00f0\u02c8\u025bn v\u02c8\u025b\u0279\u0259f\u02ccI \u026ant\u02c8IT\u1d4alm\u0259nts \u02c8\u025c\u0279li."
+      ],
+      [
+        "st\u02c8\u0251\u0279t w\u026a\u00f0 w\u02c8\u026andOz w\u02cc\u025bn \u00f0\u0259 d\u0259s\u02c8\u026a\u0292\u1d4an \u026az \u00f0\u0259 p\u02ccis\u02c8i \u026aksp\u02c8\u026a\u0279i\u0259ns: d\u0259v\u02c8Is\u1d7bz, d\u02c8\u025bskt\u02cc\u0251p, \u02c8\u00e6ps \u00e6nd j\u02c8uz\u0259\u0279 p\u0279\u02cc\u0251d\u0259kt\u02c8\u026av\u0259Ti. \u02cc\u026at \u02c8\u00e6\u014bk\u0259\u0279z \u00f0i \u02c8\u025bndpYnt f\u0254\u0279 j\u02c8uz\u0259\u0279z, n\u02cc\u0251t \u02c8\u025bv\u0259\u0279i kl\u02c8Wd s\u02c8\u025c\u0279v\u0259s."
+      ],
+      [
+        "j\u02c8uz m\u02c8Ik\u0279\u0259s\u02cc\u0251ft \u03b8\u0279\u02c8i s\u02c8\u026aksti f\u02c8Iv w\u02cc\u025bn \u00f0\u0259 n\u02c8id \u026az \u02c8\u025bv\u0279id\u02ccA w\u02c8\u025c\u0279k: \u02c8\u0254f\u0259s \u02c8\u00e6ps, \u02c8im\u02ccAl, f\u02c8Ilz, m\u02c8iT\u026a\u014bz, \u0283\u02c8\u025b\u0279\u026a\u014b \u00e6nd k\u0259l\u02cc\u00e6b\u0259\u0279\u02c8A\u0283\u0259n. \u02cc\u026at p\u02c8\u00e6k\u026a\u02a4\u1d7bz w\u02c8\u025c\u0279k s\u02c8\u025c\u0279v\u0259s\u1d7bz, n\u02cc\u0251t k\u02c8\u028cst\u0259m \u02c8\u026anf\u0279\u0259st\u0279\u02cc\u028ck\u02a7\u0259\u0279."
+      ],
+      [
+        "j\u02c8uz \u02c8\u00e6\u0292\u0259\u0279 w\u02cc\u025bn \u02cc\u00e6pl\u0259k\u02c8A\u0283\u0259nz n\u02c8id kl\u02c8Wd s\u02c8\u025c\u0279v\u0259s\u1d7bz: k\u0259mpj\u02c8ut, st\u02c8\u0254\u0279\u026a\u02a4, d\u02c8AT\u0259 \u00e6nd \u0250 \u02c8I k\u02c8\u00e6T\u0259\u0261\u02cc\u0254\u0279iz. \u02cc\u026at \u026az \u00f0\u0259 b\u02c8\u026ald\u0259\u0279 l\u02c8A\u0259\u0279 f\u0254\u0279 \u02c8\u00e6ps \u00e6nd m\u02c8\u00e6n\u026a\u02a4d \u0279\u02c8is\u02cc\u0254\u0279s\u1d7bz f\u0254\u0279 t\u02c8imz."
+      ],
+      [
+        "t\u0279\u02c8it k\u02c8Op\u02ccIl\u0259t \u00e6z \u02c8A \u02c8I \u0259s\u02c8\u026ast\u1d4ans \u00f0\u00e6t s\u02c8\u026ats \u026ans\u02c8Id s\u0259l\u02c8\u025bkt\u1d7bd w\u02c8\u025c\u0279kfl\u02ccOz \u00e6nd l\u02c8Is\u1d4ans\u1d7bz. k\u0259nf\u02c8\u025c\u0279m \u02c8\u00e6ks\u02cc\u025bs, \u0261\u0279\u02c8Wnd\u026a\u014b, s\u02c8\u025c\u0279v\u0259s \u0259v\u02ccAl\u0259b\u02c8\u026al\u0259Ti \u00e6nd s\u0259bsk\u0279\u02c8\u026ap\u0283\u0259n b\u0259f\u02c8\u0254\u0279 k\u0259m\u02c8\u026atm\u1d4ants."
+      ]
+    ],
+    "phonemesSha256": "ace9f6f56325a2434b49c57eebd2bad27e40f20cbb63eb25ad87e6028de80dad",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: Microsoft is a portfolio, not one system; first map the need to Windows, Microsoft three sixty five, Azure or Copilot, then verify entitlements early.",
+      "Start with Windows when the decision is the PC experience: devices, desktop, apps and user productivity. It anchors the endpoint for users, not every cloud service.",
+      "Use Microsoft three sixty five when the need is everyday work: Office apps, email, files, meetings, sharing and collaboration. It packages work services, not custom infrastructure.",
+      "Use Azure when applications need cloud services: compute, storage, data and A I categories. It is the builder layer for apps and managed resources for teams.",
+      "Treat Copilot as A I assistance that sits inside selected workflows and licenses. Confirm access, grounding, service availability and subscription before commitments."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "AI": "A I",
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five"
+    },
+    "speed": 1
+  }
+}
