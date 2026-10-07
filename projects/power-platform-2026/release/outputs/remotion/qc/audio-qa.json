@@ -3,8 +3,8 @@
   "adapter": "a2swe-remotion-mp4-adapter-10",
   "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
   "input": "dist/render.mp4",
-  "inputSha256": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
-  "sourceAudioSha256": "95be160871d1225b6d85861d3dc3eceeeb97f99cae5b2280ef6c335e0a1f6d26",
+  "inputSha256": "f4aabb4b520dcb1469685463498493f2de5a8d8ed1b2d3dcaeffb17316fc10a9",
+  "sourceAudioSha256": "ea01760aa59934986426afbfea57f1ad276b441dcec4ac813ef5911339635753",
   "sampleRate": 48000,
   "durationSeconds": 66.794667,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 66.794667,
-      "rmsDbfs": -19.596375,
-      "peakDbfs": -1.471481,
-      "highFrequencyRatio8k": 0.003974,
+      "rmsDbfs": -19.588033,
+      "peakDbfs": -1.474441,
+      "highFrequencyRatio8k": 0.003953,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 63.775,
-      "rmsDbfs": -19.395462,
-      "peakDbfs": -1.471481,
-      "highFrequencyRatio8k": 0.003948,
+      "rmsDbfs": -19.38712,
+      "peakDbfs": -1.474441,
+      "highFrequencyRatio8k": 0.003993,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,7 +82,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.604538,
+    "snrSpeechVsSilenceDb": 220.61288,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 3.4,
@@ -90,11 +90,11 @@
     }
   },
   "mastering": {
-    "gainDb": 8.69,
-    "inputLufs": -24.34,
-    "limitedSampleRatio": 0.03351,
-    "maxLimiterReductionDb": 6.88,
-    "outputLufs": -16.06,
+    "gainDb": 8.71,
+    "inputLufs": -24.35,
+    "limitedSampleRatio": 0.03432,
+    "maxLimiterReductionDb": 6.74,
+    "outputLufs": -16.05,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16,
