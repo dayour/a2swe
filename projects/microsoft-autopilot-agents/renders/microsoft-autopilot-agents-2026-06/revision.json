@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-autopilot-agents",
+  "title": "microsoft-autopilot-agents-2026-06",
+  "year": 2026,
+  "number": 6,
+  "createdAt": "2026-10-07T02:21:32.233Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/microsoft-autopilot-agents-2026-06",
+  "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
+  "outputs": [
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "13679470a2d1001872671f6d759d11fbcde4c369941b460758ecc8903dfa1392",
+      "byteSize": 1122,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "03b20a40a6301ece4a48cc7f082075fe97872eef8db44a485dee3f8c732e24cc",
+      "byteSize": 10720514,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "10654f6035bfb77b092ca1b91eb066396359456f896cdf50fa4035f9f699b724",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "captions": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "baa68a808b2b7328113b8ceca637e393ca118ea6e030a8b80e4baf8cffd15274",
+      "byteSize": 1122,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "5fa6d1ab1fa282d51cc0f90e918e2a56b379d8cb512b54d19e334a9ee0796aa8",
+      "byteSize": 10107998,
+      "mediaType": "video/mp4",
+      "durationSeconds": 56.448,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "d9896257c6c09781ae7f227baf0029ec68e872d5b2ca017e80b728718802231e",
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-06/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 10.6
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 10.6,
+          "endSeconds": 25.1
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 25.1,
+          "endSeconds": 40.3
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 40.3,
+          "endSeconds": 56.4
+        }
+      ],
+      "captions": "microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "ea176f561ae2e452c12fafbb2e97564516a599e8f264d998e2e6d700f96e7910",
+      "byteSize": 1122,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "ecd31b4363507d8b3417c526771f4d6b5e1855892d1e157650951a9ca5cafeea",
+      "byteSize": 10417981,
+      "mediaType": "video/mp4",
+      "durationSeconds": 58.517,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "a2af7cc038ceb1aec9cb417387e29b2d274fab5e4a87efa74bd79bb64f271d04",
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-06/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.2
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.2,
+          "endSeconds": 26.167
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 26.167,
+          "endSeconds": 41.767
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 41.767,
+          "endSeconds": 58.467
+        }
+      ],
+      "captions": "microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "13679470a2d1001872671f6d759d11fbcde4c369941b460758ecc8903dfa1392",
+      "byteSize": 1122,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "f35603d6c8c8d24cc78ed2e81088af82979bb6caa1d99b4f5a5f936dce9bde8c",
+      "byteSize": 10742619,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "b4ffa57dfb26b968e0fffdc7064d9d974a7eee521e8fa7746c9c1bea50dae268",
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-06/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "captions": "microsoft-autopilot-agents-2026-06-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/microsoft-autopilot-agents-2026-06."
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-9",
+  "adapter": "a2swe-remotion-mp4-adapter-10",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "input": "dist/render.mp4",
-  "inputSha256": "469e1d223541227321a35226755ae4f6a60028508d9d2c9c654d2b6af646b0f2",
-  "sourceAudioSha256": "6f3040ae4b1eb67a4a1551e5f966ea98bb39128f5308eec8bebdba35e4bd59b7",
+  "inputSha256": "03b20a40a6301ece4a48cc7f082075fe97872eef8db44a485dee3f8c732e24cc",
+  "sourceAudioSha256": "8b8b2f9a4a88f1b29c76f6f79776ebc6c3e6c879d83cdac049045b991b1ae8e8",
   "sampleRate": 48000,
   "durationSeconds": 61.589333,
   "producer": "scripts/synthesize-audio.py",
@@ -41,17 +41,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 61.589333,
-      "rmsDbfs": -19.659312,
-      "peakDbfs": -1.496343,
-      "highFrequencyRatio8k": 0.00273,
+      "rmsDbfs": -19.663833,
+      "peakDbfs": -1.489164,
+      "highFrequencyRatio8k": 0.002687,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 59.125,
-      "rmsDbfs": -19.481969,
-      "peakDbfs": -1.496343,
-      "highFrequencyRatio8k": 0.002216,
+      "rmsDbfs": -19.486489,
+      "peakDbfs": -1.489164,
+      "highFrequencyRatio8k": 0.002215,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -78,7 +78,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.518031,
+    "snrSpeechVsSilenceDb": 220.513511,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 2.7,
@@ -86,10 +86,10 @@
     }
   },
   "mastering": {
-    "gainDb": 8.53,
+    "gainDb": 8.52,
     "inputLufs": -24.13,
-    "limitedSampleRatio": 0.03059,
-    "maxLimiterReductionDb": 7.31,
+    "limitedSampleRatio": 0.03076,
+    "maxLimiterReductionDb": 7.4,
     "outputLufs": -16.05,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",

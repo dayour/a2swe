@@ -8,18 +8,18 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "fe92b4061b4b83cf9539ee53afc3a971d730bde7acdc991b2a8e60aed290c182",
-      "byteSize": 8609
+      "digest": "8ccc27f6b2225b70a0e44773b81d4296f07b1f228ab186058fe732c9b7bd9814",
+      "byteSize": 12857
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "1599ca8f71e9888173e679e7c2472f4745264b2e38a9d4b72a5092e283b56525",
-      "byteSize": 434840
+      "digest": "c89cd20de1bb85514bd5436e3ee7a1e864078632b53707f8c6771f41a25f7ca5",
+      "byteSize": 648921
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "55cfc8669fd748efb9c32b455441f42263477127c547f8110ca7bd25b2f85243",
-      "byteSize": 379826
+      "digest": "2820c6b1cacf053eed9627fe424c088fd6d8302ba11359b1bd444c1a17884ef2",
+      "byteSize": 574935
     },
     {
       "path": "qc/analysis/microsoft-autopilot-agents-2026-01/microsoft-autopilot-agents-2026-01/analysis.json",
@@ -462,104 +462,324 @@
       "byteSize": 10252
     },
     {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/analysis.json",
+      "digest": "c03db8810607caef1d2cbe27f17e7f2352542fb4fa1fa9bbaaa3112417a8ac5b",
+      "byteSize": 12050
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "783364ed10e9aea37f3ff617f87f9ed86894a49817e6a066f36592f53ed987a8",
+      "byteSize": 93818
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/chunks/02-operating-model.jpg",
+      "digest": "cbde44cde5b63a0f8462bb555a9a53353d17339259d1ee13fe3bd1e9addc01cd",
+      "byteSize": 94311
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/chunks/03-identity-boundaries.jpg",
+      "digest": "bf2cc120cf97f94d1cb548930cbfb519e0af2548bf760a5431768ccc1217d732",
+      "byteSize": 95383
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/chunks/04-pilot.jpg",
+      "digest": "5422724346276fea727c1cfb18ad75dfbd5d34c66a27db6368730fd3cbecba07",
+      "byteSize": 95902
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "efd4909f25d9d6107b42fe359698c29769ee6283db16780e55a529ec95a5ccf4",
+      "byteSize": 416448
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "1d616d9e1c9254347813b5ddac99b1eb8e01c2825af05842240abc9aa45a045a",
+      "byteSize": 47034
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/layers.png",
+      "digest": "c896242168e0e9ae4d1d7d6908b7a8b24942125b57a95d8a6f4e7858d6fb8a29",
+      "byteSize": 80463
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "86d0296b78c1e7789a9a34b4d5c85571b29a4908c2f3c496b9d607a1dff05ab9",
+      "byteSize": 258747
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "a63421920184beec569aa3e703fdff305aeeff2166102cfa4c176c1b5cf72900",
+      "byteSize": 173476
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx/waveform.png",
+      "digest": "eee485580a3a8473126301aa084144562fce12ae1eacab08ceec6940fb80c02d",
+      "byteSize": 10256
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/analysis.json",
+      "digest": "830b0378d3bf777fd93e4cbf021c0b6e4d8ab95c1dae7447f670318118c9057c",
+      "byteSize": 12024
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "8a1ae28f86db3ede27568eda58ab07cb759fa8ffaf2803ace8e631c3e48ec34d",
+      "byteSize": 92464
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/chunks/02-operating-model.jpg",
+      "digest": "26e1aa21314fd6b35b0b7dd13e218b0b25d814540d9d0043366c36ec1469efde",
+      "byteSize": 92729
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/chunks/03-identity-boundaries.jpg",
+      "digest": "fe3c76913e066664b160c9f34d529fd85490f3f4fe0cbfe00775413980467f6e",
+      "byteSize": 94018
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/chunks/04-pilot.jpg",
+      "digest": "3e9ddf06c26819760dc1db15d74d9abdb074c7e8c007d55a97edf98c2cb73ce3",
+      "byteSize": 93955
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "1eabdafa26a3f0317f61d21bbcc8824e42907c8359ea0a52e8a774bb5ac4195e",
+      "byteSize": 412797
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "001fce16ddd4ccf8ce06361497c312562ba66dc3186cc865659a7568b1bf0fea",
+      "byteSize": 47011
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/layers.png",
+      "digest": "afe1afc082578959bd42cca4755fa41538b444234a377465521e5cce83ceaf91",
+      "byteSize": 79347
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "7ab9337078361f7d6f8ce803be95206e9e809a0e48c4c1d1a65abe8626dfe3dc",
+      "byteSize": 259061
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "953300717c2ef4765ecf8850ec66d1fe85814fcca1966cb7eead0583908b89f8",
+      "byteSize": 170845
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx/waveform.png",
+      "digest": "4da5b5305865ec6411c51a955ab1d64d1014cb939b987929f2cabc04cc1cec71",
+      "byteSize": 9980
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "digest": "3427fb677fa71cc3523f809444afa0505acd1cc48ccb1e9dc3490e77c1a634a2",
+      "byteSize": 12037
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "a54f1c07ed9679424963a704764ee1ec707fbecf8916e5d8c7c210aa126010f1",
+      "byteSize": 92938
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/chunks/02-operating-model.jpg",
+      "digest": "7fe575c7e83769f4c817e8f63153704b2632ca22d80829ebc0be4d5930bd65b3",
+      "byteSize": 91604
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/chunks/03-identity-boundaries.jpg",
+      "digest": "b1c6791c1171e25d64a2a4d85d94d052537cf65ddbc4cded6b18a673c6881fd8",
+      "byteSize": 92911
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/chunks/04-pilot.jpg",
+      "digest": "fa164e2320a1142ba95f8fe157efd818f888e2f0a0233e30a895e81608158a61",
+      "byteSize": 92513
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "c9ba2c91e3c8ea2b4424a564d5a400a98c5dcb1f19e3c77a1fb2b9250e366a15",
+      "byteSize": 412354
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "0b8a6fa15bff5f8cba5c4be1f6616e0776c8026e5437c39de8602b32c68c5f40",
+      "byteSize": 47022
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/layers.png",
+      "digest": "138247d6577005662f578d11f9b149bb8271a976a6f1335771449ce7cc85d703",
+      "byteSize": 79918
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "236757ab24d876e4b2e49d66e3d4df33d4a3a5c5cd9663faf1541471bd56cec9",
+      "byteSize": 247209
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "ef1a937867a40bbdae90e2bd2e1133294f3dd809b49cc59edef50bdda3140a2d",
+      "byteSize": 164010
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx/waveform.png",
+      "digest": "baca261b9bf5fc33d9f2e4ddb17b8e99d7f96a391de242fe2139969cfd3f8b54",
+      "byteSize": 10279
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/analysis.json",
+      "digest": "28571c40bc2a0c163a33d019e7b148f2e1260f252f2a0e4112ad0b48e2ccf796",
+      "byteSize": 11948
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "0a94014bbbf57aa29567933e9350881830a3a905732eb364dc7a8c24dfc0b1af",
+      "byteSize": 92913
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/chunks/02-operating-model.jpg",
+      "digest": "bf2238ac2bd023e85f36aea0b541e2d6b3830629ebfd46985e7f37b346d6e463",
+      "byteSize": 91716
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/chunks/03-identity-boundaries.jpg",
+      "digest": "8ec816f679a77569fb1b62475ce49deade5198dde620b0e0fb644ccaeee3f7e3",
+      "byteSize": 93599
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/chunks/04-pilot.jpg",
+      "digest": "1e8951835c9f3242be55ca35a3fffc35302f03b2704b43207c1fb3e6e7cb05cf",
+      "byteSize": 92474
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "2202ee907116f9fd98bb3eeebdec6b83b7d4e317ffb1eb9ff7fe1f59a88e3281",
+      "byteSize": 412124
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/frame-strip.jpg",
+      "digest": "3f048308de6fc1145fa45b62bf66b607314fed131143584ae2452f6420e727e1",
+      "byteSize": 47016
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/layers.png",
+      "digest": "02dd76f595e92ec5ad888a1a95cd8ca0bb4a0855f00de9da1839e835828295a8",
+      "byteSize": 78091
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "4573ee5b8a7f50c824a0a108cb2d135b0da6c97e67a9e87739c7b46358b9c883",
+      "byteSize": 247240
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/spectrogram.jpg",
+      "digest": "8854330f23028399cd39a48b5cbda79b05092c362ee022043fe83428aac45387",
+      "byteSize": 164035
+    },
+    {
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro/waveform.png",
+      "digest": "c4ce0a7c2fed01e9422e110ea1a6a893dd34147ee38aad8e2678f8c58fd18a89",
+      "byteSize": 10252
+    },
+    {
       "path": "qc/analysis/report.md",
-      "digest": "cd1272dc3247c277d005d04665a0f4b68f5751656df597c8e7e9c6c15400dea1",
-      "byteSize": 8836
+      "digest": "209657d597169cc138ce04433917d61b1f106f4d738d689228681abafaf2a38a",
+      "byteSize": 12844
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "8264e0ecb9d10d0a243910732096bc114b47542340690ca8e960a8e72514f39e",
-      "byteSize": 573757
+      "digest": "cd4def1ac32c156c08038c7ed35d75b3c8633136e0917fe7998c48d615f93beb",
+      "byteSize": 860626
     },
     {
-      "path": "qc/native-office/core-contact.png",
-      "digest": "ce08f9f31588902f15b63bbb497151c63a2d92b9700d5c716672dbbd6aea0c8c",
-      "byteSize": 273536
-    },
-    {
-      "path": "qc/native-office/core-page-1.png",
-      "digest": "b043e356d068749e2f0ea60dc94e57a55f93a0045bceec51278f3383e77c35e2",
-      "byteSize": 69520
-    },
-    {
-      "path": "qc/native-office/core-page-2.png",
-      "digest": "346aba1c10d994ab21182a179dacc282ae87f40ab4df6fa627d4a061cd76becb",
-      "byteSize": 58466
-    },
-    {
-      "path": "qc/native-office/core-page-3.png",
-      "digest": "8c9157a5df725942803bb5f72806178e563739430f9da578746f67b352e2f43b",
-      "byteSize": 65183
-    },
-    {
-      "path": "qc/native-office/core-page-4.png",
-      "digest": "d0892adab21997943584672a21aee4d793943f2a8a897fc589830b67781fcc07",
-      "byteSize": 50525
+      "path": "qc/native-office/core-contact.jpg",
+      "digest": "87eafb6175af258264b02d70002d10ab0e25a9b6a6161abf36e79a64277507c9",
+      "byteSize": 102951
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "a700af4544dcd102d9fdce889b70f5a0e004ff5faefb3acf7ea8bcaf3494f706",
-      "byteSize": 226101
+      "digest": "6f564338b2b5c3fd3454059404024857c0832b47c17f3f5e202865a57965ceb3",
+      "byteSize": 228585
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "ec5aab991f899ee58ce2b12cf2dee4ed5679e45a2b84951d0aed28bad613101f",
-      "byteSize": 605
+      "digest": "af099c03859799f28a31570c234504b363548170ed688a079c27b96a8fa5cada",
+      "byteSize": 732
     },
     {
-      "path": "qc/native-office/slides-contact.png",
-      "digest": "8150539c97add33355f4ba9d13aea35aa946d8142baaf0ece27d88e5df3f0eea",
-      "byteSize": 418211
+      "path": "qc/native-office/pages/core-01.png",
+      "digest": "92f8e48598a24b2875893f5de83255f39834f7b36cdd61b1205612f14ba8be21",
+      "byteSize": 106789
+    },
+    {
+      "path": "qc/native-office/pages/core-02.png",
+      "digest": "0e66588c60828ccae2efb569e328ba675779194088badafb51e7c2c318af5b02",
+      "byteSize": 83924
+    },
+    {
+      "path": "qc/native-office/pages/core-03.png",
+      "digest": "42f799028123e666513a564118420bb24879342f203543e61f6ea928152c7d44",
+      "byteSize": 95595
+    },
+    {
+      "path": "qc/native-office/pages/core-04.png",
+      "digest": "5c02063a2f3b826a870be1188715267747911b66534aa8f22c7e65bbf4f2e101",
+      "byteSize": 73924
+    },
+    {
+      "path": "qc/native-office/pages/word-01.png",
+      "digest": "0ff39590d6d449df8573f39397957da11eeb177b82a0aee63e6cb5fcdc4b6171",
+      "byteSize": 92569
+    },
+    {
+      "path": "qc/native-office/pages/word-02.png",
+      "digest": "dfd7805882b4c205b5f7fc9cb849628002cdbd40c4109194ebac6da843ac2085",
+      "byteSize": 87856
+    },
+    {
+      "path": "qc/native-office/pages/word-03.png",
+      "digest": "787fa303ebcb5b92b49d10bf6f6ca3781b2008d12281f78a40251f80d74c5926",
+      "byteSize": 101574
+    },
+    {
+      "path": "qc/native-office/pages/word-04.png",
+      "digest": "f22c81630bad4496daa01b45d85d14760e24bfdacac0a311b2af92f8418962a6",
+      "byteSize": 70078
+    },
+    {
+      "path": "qc/native-office/slides-contact.jpg",
+      "digest": "ee9285d4765cdb49537a18d0ed27c9a755419c96dfe29235b0b8882c50f57abe",
+      "byteSize": 155607
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "fe088d0c568e5af09b45ecd9d754bd7a5cec93140ad9588241748921405774eb",
-      "byteSize": 55572
+      "digest": "5e8dd94c5760b4bdece0e53b55278f5b438c58902f839298c41fdd2ee37990d1",
+      "byteSize": 33066
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "9a46967f083bb8257e8f0ae2e74f19a3a4e7234fa5ce759ae4e68b1a990c3458",
-      "byteSize": 105540
+      "digest": "4d538bdeaa897c6203b8942ced8bba7e2243cdbfa9f6c66b1e2d4a5d634b6d11",
+      "byteSize": 101975
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "ff1b44c24c36e4903a732552ec75a0b6b0664969696e92fda3d14d9356dc74f5",
-      "byteSize": 127007
+      "digest": "4173edf437f1beaa3fb83e593246196df979bce3bbf0d9658a19ee6db07aba64",
+      "byteSize": 126720
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "23091d1056946a9004f521b451185e673746c36ced54389bb0bd1cb355d7c167",
-      "byteSize": 110247
+      "digest": "676c774d56c2e2a762d55a6374da91ba9e45bb113e7ab350de7fcf104da2ce02",
+      "byteSize": 107669
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "762c10e32d7ccc8e91631d039ab98c82f9bdf0149e90d44bc5ebe6d44ef9842c",
-      "byteSize": 24758
+      "digest": "452b6be7f136893bff38e277b79722a0dc1b7bc26d8a2271ae6aa4cbd6edc8c0",
+      "byteSize": 20455
     },
     {
-      "path": "qc/native-office/word-contact.png",
-      "digest": "c6cf00fb50de6c6f631de55a264121ec24e9d3aed3aaa724efcb989f5dc53a5c",
-      "byteSize": 287326
-    },
-    {
-      "path": "qc/native-office/word-page-1.png",
-      "digest": "52c84f9591e33eee819633d1615458c40021194fdf2462ea939d5c61191cc150",
-      "byteSize": 63970
-    },
-    {
-      "path": "qc/native-office/word-page-2.png",
-      "digest": "58bc6a7c63ec32d1fcb3d5ba15ad7abdc83b41065454e056480870677f4902d8",
-      "byteSize": 60900
-    },
-    {
-      "path": "qc/native-office/word-page-3.png",
-      "digest": "d824b7a3dd7a9c896593df88222310be48d6adb57678788dc1b349ad672cc8ed",
-      "byteSize": 69411
-    },
-    {
-      "path": "qc/native-office/word-page-4.png",
-      "digest": "d44c96b0c5563a647d7f20bba618d7e6772a1b8c74c2d34e9b962166f6cb4367",
-      "byteSize": 50750
+      "path": "qc/native-office/word-contact.jpg",
+      "digest": "9ed33d58766a8d932c47052621cc9c308e074fdebf90b9e31ef9f6b968b6c6e5",
+      "byteSize": 105396
     },
     {
       "path": "qc/production-review.json",
@@ -598,23 +818,23 @@
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "2d8bd33762fabe17e0ce5bd981069fbc61fac7f9107fedc1d60e2f40efac1ebf",
-      "byteSize": 4942
+      "digest": "3081101d6ef612bf14d9c217ba207dbad445b3d09c0e250fb17faf4d732c3b0c",
+      "byteSize": 4943
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "acc13e003256c7fb790ac4b893b987b7daf4206de53f4b9d2607ec09b3793a7a",
-      "byteSize": 445630
+      "digest": "0c23f9b1ffa58aa93fb3add34afa4d17c2d3ee1a35d13921a3779d3ba4ce29bc",
+      "byteSize": 445679
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "01cd7c9324841020c02c3887f58d02f87623d283e538aebaa3cf42fb8eaadd5d",
-      "byteSize": 3567
+      "digest": "f07cca3215c5d9ef69f8ec422140e61dffed3a9247aef14c1b9da2f7bcb68460",
+      "byteSize": 3568
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "b89c7d0c49df780242355834687181f71c9c7c0eae5eb2c8347f81ec416cbae8",
-      "byteSize": 367
+      "digest": "75aefdfe01a2bf5b6f6ba97d92de8e7b725e877c40dacb334d77087a3e878ede",
+      "byteSize": 368
     }
   ]
 }

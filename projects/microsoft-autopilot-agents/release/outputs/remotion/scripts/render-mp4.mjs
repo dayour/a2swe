@@ -267,7 +267,7 @@ const outputHash = sha256File(output);
 mkdirSync(path.join(root, 'qc'), { recursive: true });
 writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
   schemaVersion: '1.0.0',
-  adapter: 'a2swe-remotion-mp4-adapter-9',
+  adapter: 'a2swe-remotion-mp4-adapter-10',
   contentDigest: plan.contentDigest,
   output: plan.encodedMp4Path,
   outputSha256: outputHash,
@@ -279,5 +279,5 @@ writeFileSync(path.join(root, 'qc', 'render-receipt.json'), JSON.stringify({
 }, null, 2) + '\n');
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg'], 'encoded audio spectrogram QA');
 run(process.execPath, ['scripts/verify-mp4.mjs'], 'encoded MP4 QC');
-console.log(JSON.stringify({ output: plan.encodedMp4Path, sha256: outputHash, adapter: 'a2swe-remotion-mp4-adapter-9',
+console.log(JSON.stringify({ output: plan.encodedMp4Path, sha256: outputHash, adapter: 'a2swe-remotion-mp4-adapter-10',
   qc: 'qc/mp4-qc.json', audioQa: 'qc/audio-qa.json', audioSpectrogram: 'qc/audio-spectrogram.svg', narrationDurationSeconds: audioProbe.duration }));
