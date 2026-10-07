@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 1.9845316796135437e-12,
-      "highFrequencyRatio8k": 0.0003023715395533595,
-      "rmsDbfs": -27.836734504251215,
-      "spectralFlatness": 3.942615982567658e-08
+      "dcOffset": -5.1903134568043185e-12,
+      "highFrequencyRatio8k": 0.0003091077210570671,
+      "rmsDbfs": -27.830860219996598,
+      "spectralFlatness": 4.209897018671824e-08
     },
     "before": {
-      "dcOffset": 1.0307789125363342e-05,
-      "highFrequencyRatio8k": 0.00030235985441058724,
-      "rmsDbfs": -27.83612990828648,
-      "spectralFlatness": 3.405373012713888e-08
+      "dcOffset": 1.0222597666142974e-05,
+      "highFrequencyRatio8k": 0.0003090955302286584,
+      "rmsDbfs": -27.83025523571584,
+      "spectralFlatness": 3.5545981558711366e-08
     },
     "mode": "auto",
     "policy": {
@@ -23,13 +23,13 @@
     }
   },
   "audioFile": "public/assets/copilot/audio.wav",
-  "audioSha256": "c8b3cfc95b712201eba4e8f6ced54be9d166dfcb0f06bc6a62680403996f2051",
+  "audioSha256": "686da66662159d6c375d32bf87732f039d05b7eec8e4bf827d228f5d6514433e",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
     "mode": "auto"
   },
-  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "durationSeconds": 65.075,
   "engine": "kokoro_onnx",
   "forks": {
@@ -65,9 +65,9 @@
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
   "mastering": {
     "gainDb": 8.55,
-    "inputLufs": -24.21,
-    "limitedSampleRatio": 0.02245,
-    "maxLimiterReductionDb": 6.35,
+    "inputLufs": -24.2,
+    "limitedSampleRatio": 0.02219,
+    "maxLimiterReductionDb": 6.47,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.0307795654216737e-05,
-    "peak": 0.650765597820282,
-    "rms": 0.04057125432732866
+    "dc": 1.0222599493278705e-05,
+    "peak": 0.6604127287864685,
+    "rms": 0.04059872029043998
   },
   "requestedDurationSeconds": 70.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

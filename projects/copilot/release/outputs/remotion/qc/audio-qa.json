@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-7",
-  "contentDigest": "5d626cd7cb4566d44dd7555d501a829792f0e409ceb0863204a346c736933ec5",
+  "adapter": "a2swe-remotion-mp4-adapter-10",
+  "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "input": "dist/render.mp4",
-  "inputSha256": "3abcbea7a8df01d7cb5b4c89c1f13e8410ec6b61fb6805e149bdd61e6a501bf0",
-  "sourceAudioSha256": "c8b3cfc95b712201eba4e8f6ced54be9d166dfcb0f06bc6a62680403996f2051",
+  "inputSha256": "90a8c62ec00ef527bfc41328bd7792ed816c194bd18abaf37952f64c2f5025f8",
+  "sourceAudioSha256": "686da66662159d6c375d32bf87732f039d05b7eec8e4bf827d228f5d6514433e",
   "sampleRate": 48000,
   "durationSeconds": 65.152,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 65.152,
-      "rmsDbfs": -19.696935,
-      "peakDbfs": -1.492557,
-      "highFrequencyRatio8k": 0.002654,
+      "rmsDbfs": -19.698489,
+      "peakDbfs": -1.486334,
+      "highFrequencyRatio8k": 0.002653,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 62.125,
-      "rmsDbfs": -19.490322,
-      "peakDbfs": -1.492557,
-      "highFrequencyRatio8k": 0.002874,
+      "rmsDbfs": -19.491876,
+      "peakDbfs": -1.486334,
+      "highFrequencyRatio8k": 0.002892,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,7 +82,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.509678,
+    "snrSpeechVsSilenceDb": 220.508124,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 3.2,
@@ -91,9 +91,9 @@
   },
   "mastering": {
     "gainDb": 8.55,
-    "inputLufs": -24.21,
-    "limitedSampleRatio": 0.02245,
-    "maxLimiterReductionDb": 6.35,
+    "inputLufs": -24.2,
+    "limitedSampleRatio": 0.02219,
+    "maxLimiterReductionDb": 6.47,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
