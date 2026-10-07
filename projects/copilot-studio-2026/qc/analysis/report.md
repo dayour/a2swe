@@ -20,10 +20,14 @@ These are objective measurements. They do not replace listening and viewing.
 | copilot-studio-2026-03 | superseded | copilot-studio-2026-03.mp4 | unrecorded | 1920x1080 | 40.5 s | -19.0 | -1.1 dBTP | -79.4 dBFS | 0.02% | 0.50 s | warning:dc-offset |
 | copilot-studio-2026-04 | superseded | copilot-studio-2026-04-raw.mp4 | Microsoft Mark / unknown | 1920x1080 | 40.6 s | -19.1 | -1.1 dBTP | -78.0 dBFS | 0.02% | 0.50 s | warning:dc-offset |
 | copilot-studio-2026-04 | superseded | copilot-studio-2026-04.mp4 | Microsoft Mark / unknown | 1920x1080 | 40.5 s | -19.0 | -1.1 dBTP | -79.4 dBFS | 0.02% | 0.50 s | warning:dc-offset |
-| copilot-studio-2026-05 | current | copilot-studio-2026-05-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -65.9 dBFS | 0.34% | 1.57 s | none |
-| copilot-studio-2026-05 | current | copilot-studio-2026-05-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 62.6 s | -16.1 | -1.5 dBTP | -69.3 dBFS | 2.12% | 1.32 s | none |
-| copilot-studio-2026-05 | current | copilot-studio-2026-05-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 65.2 s | -16.0 | -1.5 dBTP | -76.9 dBFS | 2.10% | 1.52 s | none |
-| copilot-studio-2026-05 | current | copilot-studio-2026-05-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -65.7 dBFS | 0.34% | 1.57 s | none |
+| copilot-studio-2026-05 | superseded | copilot-studio-2026-05-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -65.9 dBFS | 0.34% | 1.57 s | none |
+| copilot-studio-2026-05 | superseded | copilot-studio-2026-05-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 62.6 s | -16.1 | -1.5 dBTP | -69.3 dBFS | 2.12% | 1.32 s | none |
+| copilot-studio-2026-05 | superseded | copilot-studio-2026-05-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 65.2 s | -16.0 | -1.5 dBTP | -76.9 dBFS | 2.10% | 1.52 s | none |
+| copilot-studio-2026-05 | superseded | copilot-studio-2026-05-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -65.7 dBFS | 0.34% | 1.57 s | none |
+| copilot-studio-2026-06 | current | copilot-studio-2026-06-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -65.8 dBFS | 0.34% | 1.57 s | none |
+| copilot-studio-2026-06 | current | copilot-studio-2026-06-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 62.6 s | -16.1 | -1.5 dBTP | -68.8 dBFS | 2.12% | 1.32 s | none |
+| copilot-studio-2026-06 | current | copilot-studio-2026-06-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 65.2 s | -16.0 | -1.5 dBTP | -76.9 dBFS | 2.09% | 1.52 s | none |
+| copilot-studio-2026-06 | current | copilot-studio-2026-06-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 68.0 s | -16.1 | -1.5 dBTP | -66.0 dBFS | 0.34% | 1.57 s | none |
 
 ## Findings by revision
 
@@ -103,6 +107,34 @@ Evidence: [analysis](copilot-studio-2026-05/copilot-studio-2026-05-af_bella-koko
 * info: No visible motion for 8.633 s from 2.5 s.
 
 Evidence: [analysis](copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/analysis.json), [spectrogram](copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/spectrogram-speech.jpg), [layers](copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/layers.png), [frames](copilot-studio-2026-05/copilot-studio-2026-05-am_michael-kokoro/contact-sheet.jpg).
+
+### copilot-studio-2026-06 copilot-studio-2026-06-am_michael-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.633 s from 2.5 s.
+
+Evidence: [analysis](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro_onnx/analysis.json), [spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro_onnx/spectrogram.jpg), [speech spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro_onnx/spectrogram-speech.jpg), [layers](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro_onnx/layers.png), [frames](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro_onnx/contact-sheet.jpg).
+
+### copilot-studio-2026-06 copilot-studio-2026-06-af_heart-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.567 s from 2.5 s.
+
+Evidence: [analysis](copilot-studio-2026-06/copilot-studio-2026-06-af_heart-kokoro_onnx/analysis.json), [spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-af_heart-kokoro_onnx/spectrogram.jpg), [speech spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-af_heart-kokoro_onnx/spectrogram-speech.jpg), [layers](copilot-studio-2026-06/copilot-studio-2026-06-af_heart-kokoro_onnx/layers.png), [frames](copilot-studio-2026-06/copilot-studio-2026-06-af_heart-kokoro_onnx/contact-sheet.jpg).
+
+### copilot-studio-2026-06 copilot-studio-2026-06-af_bella-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.6 s from 2.5 s.
+
+Evidence: [analysis](copilot-studio-2026-06/copilot-studio-2026-06-af_bella-kokoro_onnx/analysis.json), [spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-af_bella-kokoro_onnx/spectrogram.jpg), [speech spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-af_bella-kokoro_onnx/spectrogram-speech.jpg), [layers](copilot-studio-2026-06/copilot-studio-2026-06-af_bella-kokoro_onnx/layers.png), [frames](copilot-studio-2026-06/copilot-studio-2026-06-af_bella-kokoro_onnx/contact-sheet.jpg).
+
+### copilot-studio-2026-06 copilot-studio-2026-06-am_michael-kokoro.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.633 s from 2.5 s.
+
+Evidence: [analysis](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro/analysis.json), [spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro/spectrogram-speech.jpg), [layers](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro/layers.png), [frames](copilot-studio-2026-06/copilot-studio-2026-06-am_michael-kokoro/contact-sheet.jpg).
 
 ## Comparison images
 

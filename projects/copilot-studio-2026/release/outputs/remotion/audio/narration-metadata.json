@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -1.1622686320322817e-11,
-      "highFrequencyRatio8k": 0.003953442566631098,
-      "rmsDbfs": -27.875107832282517,
-      "spectralFlatness": 4.834155367007679e-07
+      "dcOffset": -9.137331733258258e-13,
+      "highFrequencyRatio8k": 0.003881169678449203,
+      "rmsDbfs": -27.876102954204562,
+      "spectralFlatness": 4.777563301266389e-07
     },
     "before": {
-      "dcOffset": 1.2100627827749122e-05,
-      "highFrequencyRatio8k": 0.003953376569003047,
-      "rmsDbfs": -27.87450055946241,
-      "spectralFlatness": 4.634261010446863e-07
+      "dcOffset": 1.1822229680547025e-05,
+      "highFrequencyRatio8k": 0.003881106134764833,
+      "rmsDbfs": -27.875497214239736,
+      "spectralFlatness": 4.6046914331821673e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/copilot-studio-2026/audio.wav",
-  "audioSha256": "a37baa750311b967da7dfd7ce7b630c1f8e0710fe93dd1466e1e8a64eb675380",
+  "audioSha256": "2f8a5139325dcde3ad4cc0ee96c8b91c4f772738b38a5ab23413464aa3c237c8",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,9 +66,9 @@
   "mastering": {
     "gainDb": 8.66,
     "inputLufs": -24.37,
-    "limitedSampleRatio": 0.02816,
-    "maxLimiterReductionDb": 7.01,
-    "outputLufs": -16.04,
+    "limitedSampleRatio": 0.02901,
+    "maxLimiterReductionDb": 6.98,
+    "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16.0,
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2100622553439036e-05,
-    "peak": 0.6905326247215271,
-    "rms": 0.04039261905124259
+    "dc": 1.1822229323807734e-05,
+    "peak": 0.6880022883415222,
+    "rms": 0.04038796667524859
   },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
