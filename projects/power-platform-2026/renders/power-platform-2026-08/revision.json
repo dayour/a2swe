@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-2026",
+  "title": "power-platform-2026-08",
+  "year": 2026,
+  "number": 8,
+  "createdAt": "2026-10-07T01:12:11.329Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/power-platform-2026-08",
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "outputs": [
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "cc2b98c8384ec2327e6ec64c298c91172e037e62c36cc5734829a08c78edd11f",
+      "byteSize": 1110,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
+      "byteSize": 10366432,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "8775c99e30600d23df7420aa5751936bc78c26304cd2a8c3bee4693f1c3fe67a",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 14.1,
+          "endSeconds": 26.867
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 26.867,
+          "endSeconds": 39.467
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 39.467,
+          "endSeconds": 53
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 53,
+          "endSeconds": 66.733
+        }
+      ],
+      "captions": "power-platform-2026-08-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-2026-08-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "3e26d3144ced7209dd8e6d7c71f27db0032f7e983c228eefa599102d477fb595",
+      "byteSize": 1110,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-2026-08-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "d787a4407fa18d55e9c084485d0aed67bc91b159f68766ba22669651c77d9ded",
+      "byteSize": 9672703,
+      "mediaType": "video/mp4",
+      "durationSeconds": 60.245,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "b17741df7e54be2c3e7dd51001b8adada9c52efffd75767b336d6047845f4c91",
+      "package": "qc/revisions/power-platform-2026-08/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 12.533
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 12.533,
+          "endSeconds": 24.333
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 24.333,
+          "endSeconds": 35.733
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 35.733,
+          "endSeconds": 47.9
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 47.9,
+          "endSeconds": 60.2
+        }
+      ],
+      "captions": "power-platform-2026-08-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-2026-08-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "ec8be6fc7c00ff2e97cc827d0704cb5d9113a054dd1e7891a90df2f5bd4e16ec",
+      "byteSize": 1110,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-2026-08-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "9290894639484a2f143ca483fcb47e3d8833f5905a6f92a7252612b44fb524d5",
+      "byteSize": 9995609,
+      "mediaType": "video/mp4",
+      "durationSeconds": 64.149,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "43ab24e75e23f0e9867c658e40e22c0494188109348ffaf8a8bcd9f083632561",
+      "package": "qc/revisions/power-platform-2026-08/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.5
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 13.5,
+          "endSeconds": 26
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 26,
+          "endSeconds": 38
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 38,
+          "endSeconds": 50.833
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 50.833,
+          "endSeconds": 64.1
+        }
+      ],
+      "captions": "power-platform-2026-08-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "cc2b98c8384ec2327e6ec64c298c91172e037e62c36cc5734829a08c78edd11f",
+      "byteSize": 1110,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "f3009bbbe291f817be15dc3db0168d6e45d607691df3b3e1b446535d8d29a7e3",
+      "byteSize": 10368625,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "bc6727c78dee9d05408199d8e3093c4a2c349bfc1fde54d2a66a79418c7fe483",
+      "package": "qc/revisions/power-platform-2026-08/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 14.1,
+          "endSeconds": 26.867
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 26.867,
+          "endSeconds": 39.467
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 39.467,
+          "endSeconds": 53
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 53,
+          "endSeconds": 66.733
+        }
+      ],
+      "captions": "power-platform-2026-08-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/power-platform-2026-08."
+  ]
+}

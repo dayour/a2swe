@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.267 --> 00:00:13.233
+Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.
+
+00:00:13.767 --> 00:00:19.867
+Treat the suite as one platform for apps, flows, sites, agents and Dataverse data.
+
+00:00:19.867 --> 00:00:25.700
+Put lifecycle, security, test and release choices in one clear decision frame.
+
+00:00:26.267 --> 00:00:32.033
+Build change in an unmanaged solution, with source control as the source of truth.
+
+00:00:32.033 --> 00:00:37.700
+Export a managed solution as the build artifact that test and production receive.
+
+00:00:38.267 --> 00:00:42.533
+Keep configuration and business records on separate tracks.
+
+00:00:42.533 --> 00:00:50.567
+Set connections, references and variables per target, then migrate table rows, because solutions carry no data.
+
+00:00:51.100 --> 00:00:57.167
+Automate with pipelines, or use Azure DevOps or GitHub when the route needs it.
+
+00:00:57.167 --> 00:01:03.600
+Before final production, check DLP policy, tests, analytics, approvals and licenses.

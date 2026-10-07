@@ -19,10 +19,14 @@ These are objective measurements. They do not replace listening and viewing.
 | power-platform-2026-04 | superseded | power-platform-2026-04.mp4 | unrecorded | 1920x1080 | 42.2 s | -19.1 | -1.1 dBTP | -77.5 dBFS | 0.02% | 0.60 s | warning:dc-offset |
 | power-platform-2026-05 | superseded | power-platform-2026-05.mp4 | unrecorded | 1920x1080 | 42.2 s | -19.2 | -1.1 dBTP | -79.3 dBFS | 0.02% | 0.63 s | warning:dc-offset |
 | power-platform-2026-06 | superseded | power-platform-2026-06.mp4 | am_liam / kokoro | 1920x1080 | 36.4 s | -17.5 | -1.0 dBTP | -84.4 dBFS | 0.58% | 0.38 s | none |
-| power-platform-2026-07 | current | power-platform-2026-07-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.9 dBFS | 0.34% | 1.65 s | none |
-| power-platform-2026-07 | current | power-platform-2026-07-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 60.2 s | -16.1 | -1.5 dBTP | -70.0 dBFS | 2.02% | 1.35 s | none |
-| power-platform-2026-07 | current | power-platform-2026-07-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 64.1 s | -16.1 | -1.5 dBTP | -76.5 dBFS | 1.94% | 1.52 s | none |
-| power-platform-2026-07 | current | power-platform-2026-07-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.9 dBFS | 0.34% | 1.65 s | none |
+| power-platform-2026-07 | superseded | power-platform-2026-07-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.9 dBFS | 0.34% | 1.65 s | none |
+| power-platform-2026-07 | superseded | power-platform-2026-07-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 60.2 s | -16.1 | -1.5 dBTP | -70.0 dBFS | 2.02% | 1.35 s | none |
+| power-platform-2026-07 | superseded | power-platform-2026-07-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 64.1 s | -16.1 | -1.5 dBTP | -76.5 dBFS | 1.94% | 1.52 s | none |
+| power-platform-2026-07 | superseded | power-platform-2026-07-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.9 dBFS | 0.34% | 1.65 s | none |
+| power-platform-2026-08 | current | power-platform-2026-08-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.8 dBFS | 0.34% | 1.65 s | none |
+| power-platform-2026-08 | current | power-platform-2026-08-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 60.2 s | -16.1 | -1.5 dBTP | -70.2 dBFS | 2.03% | 1.38 s | none |
+| power-platform-2026-08 | current | power-platform-2026-08-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 64.1 s | -16.1 | -1.5 dBTP | -76.3 dBFS | 1.93% | 1.55 s | none |
+| power-platform-2026-08 | current | power-platform-2026-08-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 66.8 s | -16.1 | -1.5 dBTP | -64.9 dBFS | 0.34% | 1.65 s | none |
 
 ## Findings by revision
 
@@ -94,6 +98,34 @@ Evidence: [analysis](power-platform-2026-07/power-platform-2026-07-af_bella-koko
 * info: No visible motion for 8.067 s from 3.1 s.
 
 Evidence: [analysis](power-platform-2026-07/power-platform-2026-07-am_michael-kokoro/analysis.json), [spectrogram](power-platform-2026-07/power-platform-2026-07-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](power-platform-2026-07/power-platform-2026-07-am_michael-kokoro/spectrogram-speech.jpg), [layers](power-platform-2026-07/power-platform-2026-07-am_michael-kokoro/layers.png), [frames](power-platform-2026-07/power-platform-2026-07-am_michael-kokoro/contact-sheet.jpg).
+
+### power-platform-2026-08 power-platform-2026-08-am_michael-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.067 s from 3.1 s.
+
+Evidence: [analysis](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx/analysis.json), [spectrogram](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx/layers.png), [frames](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-2026-08 power-platform-2026-08-af_heart-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.133 s from 3.033 s.
+
+Evidence: [analysis](power-platform-2026-08/power-platform-2026-08-af_heart-kokoro_onnx/analysis.json), [spectrogram](power-platform-2026-08/power-platform-2026-08-af_heart-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-2026-08/power-platform-2026-08-af_heart-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-2026-08/power-platform-2026-08-af_heart-kokoro_onnx/layers.png), [frames](power-platform-2026-08/power-platform-2026-08-af_heart-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-2026-08 power-platform-2026-08-af_bella-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.133 s from 3.033 s.
+
+Evidence: [analysis](power-platform-2026-08/power-platform-2026-08-af_bella-kokoro_onnx/analysis.json), [spectrogram](power-platform-2026-08/power-platform-2026-08-af_bella-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-2026-08/power-platform-2026-08-af_bella-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-2026-08/power-platform-2026-08-af_bella-kokoro_onnx/layers.png), [frames](power-platform-2026-08/power-platform-2026-08-af_bella-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-2026-08 power-platform-2026-08-am_michael-kokoro.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.067 s from 3.1 s.
+
+Evidence: [analysis](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro/analysis.json), [spectrogram](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro/spectrogram-speech.jpg), [layers](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro/layers.png), [frames](power-platform-2026-08/power-platform-2026-08-am_michael-kokoro/contact-sheet.jpg).
 
 ## Comparison images
 
