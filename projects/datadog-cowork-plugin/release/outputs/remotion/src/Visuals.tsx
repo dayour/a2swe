@@ -32,6 +32,12 @@ mermaid.initialize({
     actorTextColor: theme.foreground,
     signalColor: theme.foreground,
     signalTextColor: theme.foreground,
+    // Timeline and journey sections otherwise derive near-black fills from the base palette instead of the brand theme.
+    ...Object.fromEntries(Array.from({ length: 12 }, (_, index) => [
+      ['cScale' + index, mixHex(theme.accent, theme.background, index % 2 ? 0.3 : 0.2)],
+      ['cScaleLabel' + index, theme.foreground],
+      ['cScalePeer' + index, theme.accent]
+    ]).flat()),
     fontSize: '28px'
   },
   flowchart: { curve: 'basis', padding: 22, useMaxWidth: false, wrappingWidth: 300, nodeSpacing: 46, rankSpacing: 60 },
@@ -115,11 +121,13 @@ function reveal(host: HTMLElement, kind: Visual['kind'], frame: number, settled:
 // the wider handwritten face renders. Wrap labels explicitly with a conservative glyph width, then shrink only if the lines cannot fit.
 function fitLabels(elements: unknown[]): unknown[] {
   return elements.map((element) => {
-    const item = element as { width?: number; height?: number; label?: { text?: unknown; fontSize?: number } };
+    const item = element as { type?: string; width?: number; height?: number; label?: { text?: unknown; fontSize?: number } };
     if (!item?.label || typeof item.label.text !== 'string' || typeof item.width !== 'number' || typeof item.height !== 'number') return element;
     const source = item.label.text;
-    const usableWidth = item.width - 28;
-    const usableHeight = item.height - 16;
+    // Diamonds and ellipses hold their label in the inscribed box, half and about 70% of the outer size respectively.
+    const inset = item.type === 'diamond' ? 0.5 : item.type === 'ellipse' ? 0.7 : 1;
+    const usableWidth = item.width * inset - 28;
+    const usableHeight = item.height * inset - 16;
     const wrap = (size: number) => {
       const perLine = Math.max(1, Math.floor(usableWidth / (size * 0.7)));
       return source.split('\n').flatMap((line) => {

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "datadog-cowork-plugin",
   "projectId": "datadog-cowork-plugin",
-  "updatedAt": "2026-10-07T00:40:47.905Z",
+  "updatedAt": "2026-10-07T03:01:16.199Z",
   "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
   "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
   "stage": "delivery",
@@ -23,25 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "88204628d8baaca01a627c3931305f9be782933da7fe316828f57854d1083663"
+      "evidenceDigest": "c6dd14f1ebedb14038b41fa0de071f14afcfff3f4f3c34d473884aa3a0704d5c"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "8ed925f4076d1412a7d647ca667770d1a9b0e2c1dfa8918eac3e83d397660040"
+      "evidenceDigest": "f336ef01801f3ee1c6cd5d3d731099200e06419d38e78a4964ce449a4edd2a61"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "e578d1b9bf17d6790764e2f27cbdd65ac27604fd1b75e36ed467f0c746d7266f"
+      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "f2df4ff94343874d795164fb8480cdcd64a0063fb05ca1ce1a8c4eb92f23c90e"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "2bbc4a5270dc597bee6304aef034fa3843144b03dcf9f7f843356116315eccc4"
+      "evidenceDigest": "a8c140264047c3eb0df3f84d5a112e269450532aa1b57e94717e7287f1a5cadd"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -158,97 +158,97 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "0ae54b73f6c385ec1156e203ac9cb2757321b0b0020e11e5f7ea699dfe182257",
+      "digest": "4107cb15132b3164e4a22786b0c25aac9aefca90e76c5e2abc09ec5950e2d6e6",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "06a0b98de6e492b0427df3a2aba5650245e4483ccf34b7fa2d10640ce8ba6ddd",
+      "digest": "fc4e648f50d1c98a5723410b0df3743e0e2b8081b5ced0a7abe772f307c1c388",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "26bbb4af21fbe2026a8058acc4e42598868b9c62a20e5fb4e30b81565ea9c756",
+      "digest": "a922de7c953ea4ae5ed2a2979cdb009bca130ea4f03859c768f4bd5bd574add1",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "76d3d9b0f48b7294e97eac0f25de6db09670cf4e25d874a804ca6c859399899a",
+      "digest": "90518d0341b6590b6b0cfcdb9d247aaf1890b179deb6feaa6c6696d53879b3ef",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "aa98c300126d70680f752aafb644d191ec60a3fb36db4a9d59c6b53aa94a2e0b",
+      "digest": "5e99904d630690d91eae54f60bd178eaad61e4ce2eff335c9227021e9d69252a",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "586225b10b34fa9c92dcf979c09f34095c41de6dd918b15136b2056b37dd2179",
+      "digest": "765fccb242899c3ec8f7ac24e560b9c7a5e2cf021d23af5828132e7280d8026d",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "ac92a9e42ff06bcf260eb8cde1d2432ddb230a4d404383d49f82f9989b1b53d5",
+      "digest": "92fd2d9dbe9910b925b751b8545a7ea0d1dd52b00126e12f44b8b791470f0b14",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "2212c95e0cc25b1e871abf4416516355e37dcab66d83e1924ede02694b52706a",
+      "digest": "a06968008a6c661d7e3e502a0ccc739d5fa7665d3c9c6858574963324df42ff4",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "0c76479156215faf370f89a76e6dc2b4bbaa406fa5c19af83a4e59df1d23f258",
+      "digest": "24a73ea5e246c39ed4ae8c8fc9bc4dc2761b8b51e89274df9a670352b4c81228",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "88204628d8baaca01a627c3931305f9be782933da7fe316828f57854d1083663",
+      "digest": "c6dd14f1ebedb14038b41fa0de071f14afcfff3f4f3c34d473884aa3a0704d5c",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "8cd45e6f9209db236fac789901612c57e6682db08060450220c59fdfb83d5942",
+      "digest": "54f6a56adfe46f3bb0978de86415feb60d27363e02569f08f264c9b9c0abf913",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "2bbc4a5270dc597bee6304aef034fa3843144b03dcf9f7f843356116315eccc4",
+      "digest": "a8c140264047c3eb0df3f84d5a112e269450532aa1b57e94717e7287f1a5cadd",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "8ed925f4076d1412a7d647ca667770d1a9b0e2c1dfa8918eac3e83d397660040",
+      "digest": "f336ef01801f3ee1c6cd5d3d731099200e06419d38e78a4964ce449a4edd2a61",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx/analysis.json",
-      "digest": "e578d1b9bf17d6790764e2f27cbdd65ac27604fd1b75e36ed467f0c746d7266f",
+      "path": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "digest": "f2df4ff94343874d795164fb8480cdcd64a0063fb05ca1ce1a8c4eb92f23c90e",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "fc4fa9d866e03b2a7fc80584ceb0f67e6d8f5b8fb6b3e87f1df6574fb59ac5ad",
+      "digest": "04bc757b54ee21183f0073d75c0421d9722f8e9a02a63ff233b425eee45f4419",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "9ed0cd4ea62b6a375438b89b1a03f321d97bfedaafe585b92dafee1a89cc5a21",
+      "digest": "15e35732aa5f0973b58890f570d79469e774aad0024329690227d8654975a32a",
       "mediaType": "application/json",
       "stage": "delivery"
     }

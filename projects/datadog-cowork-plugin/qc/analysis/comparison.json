@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "datadog-cowork-plugin",
-  "generatedAt": "2026-10-07T00:40:04.336Z",
+  "generatedAt": "2026-10-07T03:00:34.658Z",
   "rows": [
     {
       "title": "datadog-cowork-plugin-2026-01",
@@ -101,7 +101,7 @@
     },
     {
       "title": "datadog-cowork-plugin-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -135,7 +135,7 @@
     },
     {
       "title": "datadog-cowork-plugin-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "datadog-cowork-plugin-2026-04-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -169,7 +169,7 @@
     },
     {
       "title": "datadog-cowork-plugin-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "datadog-cowork-plugin-2026-04-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -203,7 +203,7 @@
     },
     {
       "title": "datadog-cowork-plugin-2026-04",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "datadog-cowork-plugin-2026-04-am_michael-kokoro.mp4",
       "role": "video",
@@ -231,6 +231,142 @@
       "transitions": 16,
       "staticHolds": 0,
       "captionDetail": 11.457,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "datadog-cowork-plugin-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 91.755,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.8,
+      "speechRmsDbfs": -18.5,
+      "noiseFloorDbfs": -65.07,
+      "snrDb": 46.57,
+      "speechRatio": 0.7672,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 793.6,
+      "speechHf8k": 0.003288,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 5.44,
+      "transitions": 16,
+      "staticHolds": 0,
+      "captionDetail": 11.457,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "datadog-cowork-plugin-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "datadog-cowork-plugin-2026-05-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 83.755,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.5,
+      "speechRmsDbfs": -18.5,
+      "noiseFloorDbfs": -71.15,
+      "snrDb": 52.65,
+      "speechRatio": 0.7778,
+      "longestPauseSeconds": 1.4,
+      "speechCentroidHz": 811.6,
+      "speechHf8k": 0.023329,
+      "speechFlatness": 0.000175,
+      "humProminenceDb": 9.53,
+      "transitions": 17,
+      "staticHolds": 0,
+      "captionDetail": 11.4,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "datadog-cowork-plugin-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "datadog-cowork-plugin-2026-05-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 86.955,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 4.7,
+      "speechRmsDbfs": -18.32,
+      "noiseFloorDbfs": -77.02,
+      "snrDb": 58.7,
+      "speechRatio": 0.7636,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 639.1,
+      "speechHf8k": 0.021721,
+      "speechFlatness": 0.000122,
+      "humProminenceDb": 5.08,
+      "transitions": 16,
+      "staticHolds": 0,
+      "captionDetail": 11.476,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "datadog-cowork-plugin-2026-05",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "datadog-cowork-plugin-2026-05-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 91.755,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.8,
+      "speechRmsDbfs": -18.49,
+      "noiseFloorDbfs": -64.95,
+      "snrDb": 46.46,
+      "speechRatio": 0.7675,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 792.7,
+      "speechHf8k": 0.003278,
+      "speechFlatness": 0.000109,
+      "humProminenceDb": 5.49,
+      "transitions": 16,
+      "staticHolds": 0,
+      "captionDetail": 11.456,
       "findings": [
         "info:dual-mono"
       ]

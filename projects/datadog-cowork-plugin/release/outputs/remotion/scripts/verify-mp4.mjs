@@ -72,7 +72,7 @@ if (!Number.isFinite(duration) || duration < expectedDuration - durationToleranc
   fail(`expected narration duration ${expectedDuration}s through video duration ${videoDuration}s plus AAC padding ${aacPadding}s, got ${duration}s`);
 }
 run(process.execPath, ['scripts/audio-qa.mjs', plan.encodedMp4Path, 'qc/audio-qa.json', 'qc/audio-spectrogram.svg', '--verify-only'], 'encoded audio spectrogram QA');
-const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-8', file: plan.encodedMp4Path,
+const report = { schemaVersion: '1.0.0', adapter: 'a2swe-remotion-mp4-adapter-10', file: plan.encodedMp4Path,
   contentDigest: plan.contentDigest, outputSha256, video, audio, container: { ...probe.format, filename: plan.encodedMp4Path } };
 const qcPath = path.join(root, 'qc', 'mp4-qc.json');
 if (process.argv.includes('--verify-only')) {
@@ -88,4 +88,4 @@ if (process.argv.includes('--verify-only')) {
   mkdirSync(path.join(root, 'qc'), { recursive: true });
   writeFileSync(qcPath, JSON.stringify(report, null, 2) + '\n');
 }
-console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-8' }));
+console.log(JSON.stringify({ valid: true, output: plan.encodedMp4Path, adapter: 'a2swe-remotion-mp4-adapter-10' }));

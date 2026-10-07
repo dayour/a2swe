@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-8",
+  "adapter": "a2swe-remotion-mp4-adapter-10",
   "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
   "input": "dist/render.mp4",
-  "inputSha256": "0c76479156215faf370f89a76e6dc2b4bbaa406fa5c19af83a4e59df1d23f258",
-  "sourceAudioSha256": "e165f35daed8497a81fe5875800332ace4ecff6e02b60fb38df2d3c61f719c3a",
+  "inputSha256": "24a73ea5e246c39ed4ae8c8fc9bc4dc2761b8b51e89274df9a670352b4c81228",
+  "sourceAudioSha256": "1c6ecfc69c10587b87e18f568b3e89d81048c0188e5d3749b402a9621045fcb4",
   "sampleRate": 48000,
   "durationSeconds": 91.754667,
   "producer": "scripts/synthesize-audio.py",
@@ -53,17 +53,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 91.754667,
-      "rmsDbfs": -19.64686,
-      "peakDbfs": -1.465337,
-      "highFrequencyRatio8k": 0.002756,
+      "rmsDbfs": -19.647276,
+      "peakDbfs": -1.4926,
+      "highFrequencyRatio8k": 0.002726,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 87.625,
-      "rmsDbfs": -19.446859,
-      "peakDbfs": -1.465337,
-      "highFrequencyRatio8k": 0.002905,
+      "rmsDbfs": -19.447275,
+      "peakDbfs": -1.4926,
+      "highFrequencyRatio8k": 0.002941,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -90,7 +90,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.553141,
+    "snrSpeechVsSilenceDb": 220.552725,
     "loudness": {
       "integratedLufs": -16,
       "loudnessRangeLu": 3.8,
@@ -98,10 +98,10 @@
     }
   },
   "mastering": {
-    "gainDb": 8.61,
-    "inputLufs": -24.26,
-    "limitedSampleRatio": 0.02106,
-    "maxLimiterReductionDb": 5.27,
+    "gainDb": 8.6,
+    "inputLufs": -24.25,
+    "limitedSampleRatio": 0.02108,
+    "maxLimiterReductionDb": 5.19,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",

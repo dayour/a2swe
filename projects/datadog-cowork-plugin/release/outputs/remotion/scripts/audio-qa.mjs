@@ -343,7 +343,7 @@ if (speech.highFrequencyRatio8k > thresholds.maxSpeechHighFrequencyRatio8k && sp
 const valid = findings.length === 0;
 const report = {
   schemaVersion: '1.0.0',
-  adapter: 'a2swe-remotion-mp4-adapter-8',
+  adapter: 'a2swe-remotion-mp4-adapter-10',
   contentDigest: plan.contentDigest,
   input,
   inputSha256: sha256File(input),
