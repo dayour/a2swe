@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { sha256 } from './canonical.ts';
-import { projectIdOf } from './release.ts';
+import { indexProjectQc, projectIdOf } from './release.ts';
 
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 
@@ -108,5 +108,7 @@ export async function renderNativeOffice(projectDirectory: string) {
     corePdf: { pages: pages.filter((name) => name.startsWith('core-')).length, preview: 'qc/native-office/core-contact.jpg' }
   };
   await writeFile(path.join(out, 'native-render.json'), `${JSON.stringify(receipt, null, 2)}\n`);
+  // The QC index digests native-office evidence, so it is refreshed whenever that evidence is rewritten.
+  if (existsSync(path.join(project, 'qc', 'index.json'))) await indexProjectQc(project);
   return receipt;
 }

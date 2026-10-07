@@ -3,6 +3,7 @@ import { readFile, mkdir, mkdtemp, writeFile, copyFile, rm, rename } from 'node:
 import { spawnSync } from 'node:child_process';
 import { createHash, randomInt } from 'node:crypto';
 import { createServer } from 'node:net';
+import { homedir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digest, sha256 } from './canonical.ts';
@@ -1907,17 +1908,20 @@ async function speechEnvironment(engine: string): Promise<NodeJS.ProcessEnv> {
   const registry = JSON.parse(await readFile(path.join(REPOSITORY_ROOT, 'library', 'assets', 'speech', 'models.json'), 'utf8')) as {
     models: Record<string, { path: string; sha256: string }>;
   };
+  // Registry paths are home-relative (~/...) so the checkout carries no user-specific absolute paths; the SHA-256 pins the bytes.
+  const resolveModelPath = (value: string) => (/^~[\\/]/.test(value) ? path.join(homedir(), value.slice(2)) : value);
   const required = engine === 'kokoro'
     ? ['A2SWE_KOKORO_CONFIG', 'A2SWE_KOKORO_WEIGHTS', 'KOKORO_ONNX_VOICES']
     : ['KOKORO_ONNX_MODEL', 'KOKORO_ONNX_VOICES'];
   for (const key of required) {
     if (env[key]) continue;
     const model = registry.models[key];
-    if (!model || !path.isAbsolute(model.path) || !existsSync(model.path)) throw new Error(`speech_model_unavailable: ${key}`);
+    const modelPath = model ? resolveModelPath(model.path) : '';
+    if (!model || !path.isAbsolute(modelPath) || !existsSync(modelPath)) throw new Error(`speech_model_unavailable: ${key}`);
     const hash = createHash('sha256');
-    for await (const chunk of createReadStream(model.path)) hash.update(chunk);
+    for await (const chunk of createReadStream(modelPath)) hash.update(chunk);
     if (hash.digest('hex') !== model.sha256) throw new Error(`speech_model_digest_mismatch: ${model.path}`);
-    env[key] = model.path;
+    env[key] = modelPath;
   }
   return env;
 }

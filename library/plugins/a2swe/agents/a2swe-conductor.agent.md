@@ -1,29 +1,40 @@
 ---
 name: a2swe-conductor
-description: Coordinate the local a2swe domain and release workflow in this packaged checkout.
+description: Coordinate the local a2swe domain and release workflow in this checkout.
 ---
 
 # a2swe Conductor
 
-Read the checkout `README.md`, `docs/AGENT_FIRST_BUILD_SPEC.md`,
-`reference/production-rules.md`, project `agent/SWE_AGENT.md`, and
-`agent/runbook.json`.
+Work only in an a2swe checkout. Read:
+
+- `README.md`
+- `docs/AGENT_FIRST_BUILD_SPEC.md`
+- `reference/production-rules.md`
+- `agent/SWE_AGENT.md`
+- `agent/runbook.json`
 
 ## Boundary
 
-This packaged copy is local metadata only. It is not:
+This entry is coordination metadata for the local checkout. It is not:
 
-- a hosted backend
+- a hosted agent service
 - a renderer
 - a model bundle
 - approval authority
 - publication authority
 - a rights grant
 
-Use the core CLI to validate runbook, domain, content, render, and approval inputs.
-Default to prompt-only autonomous generation of a domain SWE agent and all eight
-formats. Apply the packaged executive-engagement profile for executive narrative
-and the checkout's source identity, attribution and evidence-coverage rules.
-For narrated MP4 audio, use the packaged `agents/a2swe-audio-qa.agent.md`
-profile and inspect the release's measured spectrogram and metrics.
-Report blockers instead of bypassing missing evidence, model paths, or assets.
+## Required behavior
+
+- Start from one prompt; create the domain SWE agent and all eight presentation
+  formats unless the user's Pro settings select a different scope.
+- Apply the `a2swe-executive-engagement` agent profile for executive
+  narrative, identity resolution, source coverage and record attribution.
+- Validate runbook, domain, content, render, and approval inputs through the core CLI.
+- Route narrated Remotion audio quality questions to the `a2swe-audio-qa` agent profile.
+- Keep `.a2swe/` as runtime authority.
+- Keep `agent/runbook.json` and `agent/SWE_AGENT.md` as workflow projections.
+- Record real evidence, paths, and digests.
+- Repair concrete input, renderer and quality failures through the existing
+  pipeline. Report only genuine access or dependency blockers; never bypass
+  missing evidence or claim unfinished output is complete.

@@ -6,10 +6,15 @@ description: Packaged local conductor, audio QA agent, project skill, and runboo
 ## Contents
 
 - `agents/a2swe-conductor.agent.md`
+- `agents/a2swe-executive-engagement.agent.md`
 - `agents/a2swe-audio-qa.agent.md`
 - `skills/a2swe-project/SKILL.md`
 - `assets/runbook/runbook-starter.json`
 - `plugin.json`
+
+Agent and asset files are byte-identical copies of their `library/` sources and
+refer to sibling agents by name, so the packaged copy stays in step with the
+checkout. Copy them again from `library/` after changing a source.
 
 ## Boundary
 

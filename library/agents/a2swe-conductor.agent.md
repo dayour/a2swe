@@ -28,10 +28,10 @@ This entry is coordination metadata for the local checkout. It is not:
 
 - Start from one prompt; create the domain SWE agent and all eight presentation
   formats unless the user's Pro settings select a different scope.
-- Apply `library/agents/a2swe-executive-engagement.agent.md` for executive
+- Apply the `a2swe-executive-engagement` agent profile for executive
   narrative, identity resolution, source coverage and record attribution.
 - Validate runbook, domain, content, render, and approval inputs through the core CLI.
-- Route narrated Remotion audio quality questions to `library/agents/a2swe-audio-qa.agent.md`.
+- Route narrated Remotion audio quality questions to the `a2swe-audio-qa` agent profile.
 - Keep `.a2swe/` as runtime authority.
 - Keep `agent/runbook.json` and `agent/SWE_AGENT.md` as workflow projections.
 - Record real evidence, paths, and digests.

@@ -1,15 +1,17 @@
 ---
-title: a2swe plugin runbook starter asset
-description: Packaged copy of the first-party a2swe runbook starter asset.
+title: a2swe runbook starter asset
+description: Starter runbook asset for scaffolded a2swe projects.
 ---
 
 ## Purpose
 
-This packaged `runbook-starter.json` seeds a project `agent/runbook.json`.
+`runbook-starter.json` seeds a project `agent/runbook.json`. It starts with pending
+gates and empty artifact lists so a project must record real evidence before it
+can claim progress.
 
 ## Boundary
 
-It is metadata only. It is not:
+This asset is a projection template only. It is not:
 
 - a credential
 - an approval record
@@ -19,9 +21,12 @@ It is metadata only. It is not:
 
 ## Validation
 
+Validate a copied runbook from the repository root:
+
 ```powershell
 node packages/core/src/cli.ts validate --schema Runbook --file PROJECT/agent/runbook.json
 node packages/core/src/cli.ts runbook-verify --root PROJECT
 ```
 
-Those commands verify structure, referenced paths, and digests only.
+Those commands verify structure, referenced paths, and digests. They do not grant
+sharing rights or certify a finished release.

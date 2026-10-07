@@ -112,8 +112,8 @@ export async function discoverLibrary(workspace: string) {
   const library = path.join(workspace, 'library');
   const [agents, skills, plugins, resources] = await Promise.all([
     discoverMarkdownItems(workspace, path.join(library, 'agents'), 'agent'),
-    discoverDirectoryItems(workspace, path.join(library, 'skills'), 'skill'),
-    discoverDirectoryItems(workspace, path.join(library, 'plugins'), 'plugin'),
+    discoverDirectoryItems(workspace, await listSkillDirectories(path.join(library, 'skills')), 'skill'),
+    discoverDirectoryItems(workspace, await listImmediateDirectories(path.join(library, 'plugins')), 'plugin'),
     discoverLibraryResources(workspace)
   ]);
   const catalog = await loadKnowledgeCatalog(workspace);
@@ -155,8 +155,17 @@ async function discoverMarkdownItems(workspace: string, directory: string, type:
   return items.sort((a, b) => a.id.localeCompare(b.id));
 }
 
-async function discoverDirectoryItems(workspace: string, directory: string, type: string) {
-  const dirs = await listImmediateDirectories(directory);
+// Skills may be grouped one level deep (library/skills/office/docx); a skill is any folder with SKILL.md or README.md.
+async function listSkillDirectories(root: string): Promise<string[]> {
+  const found: string[] = [];
+  for (const dir of await listImmediateDirectories(root)) {
+    if (await firstExistingMarkdown(dir)) found.push(dir);
+    else for (const child of await listImmediateDirectories(dir)) if (await firstExistingMarkdown(child)) found.push(child);
+  }
+  return found;
+}
+
+async function discoverDirectoryItems(workspace: string, dirs: string[], type: string) {
   return Promise.all(dirs.map(async (dir) => {
     const id = path.basename(dir);
     const description = await firstMarkdownSummary(dir);
@@ -188,7 +197,7 @@ export async function discoverLibraryResources(workspace: string): Promise<Libra
   for (const agent of await discoverMarkdownItems(workspace, path.join(workspace, 'library', 'agents'), 'agent')) {
     resources.push({ id: agent.id, title: agent.name, path: agent.path, uri: agent.resourceUri ?? `a2swe:///${agent.path}`, kind: 'agent-instruction', ...(agent.description ? { description: agent.description } : {}) });
   }
-  for (const skillDir of await listImmediateDirectories(path.join(workspace, 'library', 'skills'))) {
+  for (const skillDir of await listSkillDirectories(path.join(workspace, 'library', 'skills'))) {
     const file = await firstExistingMarkdown(skillDir);
     if (!file) continue;
     const relative = toRepoRelative(workspace, file);

@@ -2,19 +2,19 @@
   "schemaVersion": "1.0.0",
   "models": {
     "KOKORO_ONNX_MODEL": {
-      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "path": "~/Downloads/kokoro-onnx/kokoro-v1.0.onnx",
       "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
     },
     "KOKORO_ONNX_VOICES": {
-      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "path": "~/Downloads/kokoro-onnx/voices-v1.0.bin",
       "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
     },
     "A2SWE_KOKORO_CONFIG": {
-      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\config.json",
+      "path": "~/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/config.json",
       "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
     },
     "A2SWE_KOKORO_WEIGHTS": {
-      "path": "C:\\Users\\dayour\\.cache\\huggingface\\hub\\models--hexgrad--Kokoro-82M\\snapshots\\f3ff3571791e39611d31c381e3a41a3af07b4987\\kokoro-v1_0.pth",
+      "path": "~/.cache/huggingface/hub/models--hexgrad--Kokoro-82M/snapshots/f3ff3571791e39611d31c381e3a41a3af07b4987/kokoro-v1_0.pth",
       "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
     }
   }

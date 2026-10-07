@@ -66,7 +66,8 @@ sample-for-sample waveform equality is not expected.
 
 When ONNX paths are not already configured, the generated Remotion project can
 hydrate them from `library/assets/speech/models.json`. The registry records
-local native/ONNX models and the shared voice bank with SHA-256 hashes.
+local native/ONNX models and the shared voice bank as home-relative (`~/...`)
+paths with SHA-256 hashes.
 Explicit model-path environment variables override the local registry.
 
 The ONNX model must be freshly exported with the corrected real-valued STFT

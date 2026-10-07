@@ -21,7 +21,9 @@ description: Current environment variables for the managed 1080p release path an
 silently fall back to cloud speech.
 
 The core hydrates missing paths from `library/assets/speech/models.json` and
-checks registry hashes. `ContentIR.voice.profileId`, `speed`, and
+checks registry hashes. Registry paths are home-relative (`~/...`) and resolve
+against the current user's home folder, so the checkout carries no user-specific
+absolute paths. `ContentIR.voice.profileId`, `speed`, and
 `pronunciations` select speech behavior; the CLI comparison uses `--voice`.
 The old `KOKORO_VOICE`, `KOKORO_ONNX_VOICE`, `KOKORO_SPEED`, `KOKORO_LANG`,
 `KOKORO_ONNX_LANG`, and `A2SWE_KOKORO_VOICE_MODEL` overrides are rejected by
