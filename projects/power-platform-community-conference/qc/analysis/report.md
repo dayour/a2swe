@@ -22,10 +22,14 @@ These are objective measurements. They do not replace listening and viewing.
 | power-platform-community-conference-2026-07 | superseded | power-platform-community-conference-2026-07.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -20.5 | -1.0 dBTP | -68.0 dBFS | 0.30% | 1.57 s | warning:loudness-off-target |
 | power-platform-community-conference-2026-08 | superseded | power-platform-community-conference-2026-08.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -20.3 | -1.0 dBTP | -68.0 dBFS | 0.30% | 1.57 s | warning:loudness-off-target |
 | power-platform-community-conference-2026-09 | superseded | power-platform-community-conference-2026-09.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -20.0 | -1.0 dBTP | -67.6 dBFS | 0.30% | 1.57 s | none |
-| power-platform-community-conference-2026-10 | current | power-platform-community-conference-2026-10-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.4 dBFS | 0.33% | 1.57 s | none |
-| power-platform-community-conference-2026-10 | current | power-platform-community-conference-2026-10-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 65.8 s | -16.1 | -1.5 dBTP | -69.9 dBFS | 2.37% | 1.35 s | none |
-| power-platform-community-conference-2026-10 | current | power-platform-community-conference-2026-10-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 69.2 s | -16.0 | -1.5 dBTP | -76.7 dBFS | 2.11% | 1.52 s | none |
-| power-platform-community-conference-2026-10 | current | power-platform-community-conference-2026-10-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.5 dBFS | 0.33% | 1.57 s | none |
+| power-platform-community-conference-2026-10 | superseded | power-platform-community-conference-2026-10-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.4 dBFS | 0.33% | 1.57 s | none |
+| power-platform-community-conference-2026-10 | superseded | power-platform-community-conference-2026-10-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 65.8 s | -16.1 | -1.5 dBTP | -69.9 dBFS | 2.37% | 1.35 s | none |
+| power-platform-community-conference-2026-10 | superseded | power-platform-community-conference-2026-10-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 69.2 s | -16.0 | -1.5 dBTP | -76.7 dBFS | 2.11% | 1.52 s | none |
+| power-platform-community-conference-2026-10 | superseded | power-platform-community-conference-2026-10-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.5 dBFS | 0.33% | 1.57 s | none |
+| power-platform-community-conference-2026-11 | current | power-platform-community-conference-2026-11-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.5 dBFS | 0.33% | 1.57 s | none |
+| power-platform-community-conference-2026-11 | current | power-platform-community-conference-2026-11-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 65.8 s | -16.1 | -1.5 dBTP | -69.7 dBFS | 2.37% | 1.35 s | none |
+| power-platform-community-conference-2026-11 | current | power-platform-community-conference-2026-11-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 69.2 s | -16.0 | -1.5 dBTP | -76.8 dBFS | 2.12% | 1.52 s | none |
+| power-platform-community-conference-2026-11 | current | power-platform-community-conference-2026-11-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 71.7 s | -16.0 | -1.5 dBTP | -63.6 dBFS | 0.33% | 1.55 s | none |
 
 ## Findings by revision
 
@@ -127,6 +131,34 @@ Evidence: [analysis](power-platform-community-conference-2026-10/power-platform-
 * info: No visible motion for 9.733 s from 1.833 s.
 
 Evidence: [analysis](power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro/analysis.json), [spectrogram](power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro/spectrogram-speech.jpg), [layers](power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro/layers.png), [frames](power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro/contact-sheet.jpg).
+
+### power-platform-community-conference-2026-11 power-platform-community-conference-2026-11-am_michael-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 9.733 s from 1.833 s.
+
+Evidence: [analysis](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/analysis.json), [spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/layers.png), [frames](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-community-conference-2026-11 power-platform-community-conference-2026-11-af_heart-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 9.667 s from 1.833 s.
+
+Evidence: [analysis](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_heart-kokoro_onnx/analysis.json), [spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_heart-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_heart-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_heart-kokoro_onnx/layers.png), [frames](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_heart-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-community-conference-2026-11 power-platform-community-conference-2026-11-af_bella-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 9.7 s from 1.833 s.
+
+Evidence: [analysis](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_bella-kokoro_onnx/analysis.json), [spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_bella-kokoro_onnx/spectrogram.jpg), [speech spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_bella-kokoro_onnx/spectrogram-speech.jpg), [layers](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_bella-kokoro_onnx/layers.png), [frames](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-af_bella-kokoro_onnx/contact-sheet.jpg).
+
+### power-platform-community-conference-2026-11 power-platform-community-conference-2026-11-am_michael-kokoro.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 9.733 s from 1.833 s.
+
+Evidence: [analysis](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro/analysis.json), [spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro/spectrogram-speech.jpg), [layers](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro/layers.png), [frames](power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro/contact-sheet.jpg).
 
 ## Comparison images
 

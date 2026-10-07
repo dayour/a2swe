@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "power-platform-community-conference",
   "projectId": "power-platform-community-conference",
-  "updatedAt": "2026-10-07T01:06:32.142Z",
+  "updatedAt": "2026-10-07T02:40:13.035Z",
   "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
   "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
   "stage": "delivery",
@@ -23,25 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "8122ed2a753b90ecd75715e7646dd2fb4e2abaa2c4466b82ca1fb537f567665b"
+      "evidenceDigest": "9b624dfe702b452da7aba88ed4bc2372c3bf469643581d5906d1c9f0ebe0229f"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "8e1c2f4f3d51d35b1efc9e896b6109c0c621f4f93f85ffd03917bd5a5b932889"
+      "evidenceDigest": "f62c60c18c84be1dc7227bc7b14cbdab5da307cf046907c0d235c7133af1928a"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "90d675540b1a23f408b83affbfe36e6125508f5d6afd54d1b01b69e72e5bfc30"
+      "evidencePath": "qc/analysis/power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "0383576dc4eae05bc64c9d09ca036cf9509e6435626cbe0856bf17c67bed3ca7"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "f946eac75589e3e325b552b5fb5c013fe1b6ac33b2f7c416a55f72c298799f86"
+      "evidenceDigest": "4f25dd2e9f2f5decb1b23e9e2e10f41f8b9adbf83f8e50ceb17641232e070290"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -158,7 +158,7 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "5428ab3f0fef1355c1fcc772f1679c49d8bad1cf39206c82db2ac13e86d6868e",
+      "digest": "2a87f3a99b4b77d22145d2d4e753f2fcd1fd0b55c78e4e472aa9023b01b85d98",
       "mediaType": "application/json",
       "stage": "content"
     },
@@ -176,7 +176,7 @@
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "1d6346412955915e510a38c253a2d549e548473ecf5ebe40451fdd14c170dac9",
+      "digest": "8b4d1b801730ccb70e3e451e0ceec7b489d0739d741ec3fd862d9d2c886061f1",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
@@ -194,49 +194,49 @@
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "05f6beb3f6b83be58e82f65fcb15448ccbefd5843401ffd8798c8d84f6ddc856",
+      "digest": "53912f7da52835dc08c6607c992f443bbfbefd9a706de52f417607b7b1d68045",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "4995a87cfb4dfded94a67bb47a1818bc9baf38ac14edf136b7ccd8cbe62f91ed",
+      "digest": "9df106d97999aacd541af13290b5804abaa1c52f9545f8f042a7653022768b3b",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "6b212c4812ba3d4c6fddc45ef82ceeca62ac12a793fc88195f29e1765d671660",
+      "digest": "2811e17db71bcbde43eb64ce6cf82520829c6dd21be88ab036dfbdee905cc61c",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "8122ed2a753b90ecd75715e7646dd2fb4e2abaa2c4466b82ca1fb537f567665b",
+      "digest": "9b624dfe702b452da7aba88ed4bc2372c3bf469643581d5906d1c9f0ebe0229f",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "2c89bed9aebe0da4368be67553c789dd8a10636d55cc0de9a79ccd5051107c50",
+      "digest": "32df25a1c798d2b6f312766fa7fdf05571d3d2c4e6626d830c5e362258fd5395",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "f946eac75589e3e325b552b5fb5c013fe1b6ac33b2f7c416a55f72c298799f86",
+      "digest": "4f25dd2e9f2f5decb1b23e9e2e10f41f8b9adbf83f8e50ceb17641232e070290",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "8e1c2f4f3d51d35b1efc9e896b6109c0c621f4f93f85ffd03917bd5a5b932889",
+      "digest": "f62c60c18c84be1dc7227bc7b14cbdab5da307cf046907c0d235c7133af1928a",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "digest": "90d675540b1a23f408b83affbfe36e6125508f5d6afd54d1b01b69e72e5bfc30",
+      "path": "qc/analysis/power-platform-community-conference-2026-11/power-platform-community-conference-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "digest": "0383576dc4eae05bc64c9d09ca036cf9509e6435626cbe0856bf17c67bed3ca7",
       "mediaType": "application/json",
       "stage": "qc"
     },
@@ -248,7 +248,7 @@
     },
     {
       "path": "release/release-plan.json",
-      "digest": "94317db1b65355c6d5702676d33e1a6ed6d28ca442c11a39732e1d8a39ca009f",
+      "digest": "625503a2f0c4b23a3d77a90c83294231da9bec84067200e36d440aef9cfe023a",
       "mediaType": "application/json",
       "stage": "delivery"
     }

@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "title": "power-platform-community-conference-2026-11",
+  "year": 2026,
+  "number": 11,
+  "createdAt": "2026-10-07T02:22:23.244Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/power-platform-community-conference-2026-11",
+  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "outputs": [
+    {
+      "path": "power-platform-community-conference-2026-11-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "0a267f1665929f1f07289e27a2743eb86010c59cf5e0fc0d473e7fad631f7943",
+      "byteSize": 1177,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "2811e17db71bcbde43eb64ce6cf82520829c6dd21be88ab036dfbdee905cc61c",
+      "byteSize": 10997799,
+      "mediaType": "video/mp4",
+      "durationSeconds": 71.744,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "e930902a159521bab781b8b11d68d76ecb27d8c80aa2732bdf97212fada603f8",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15.067
+        },
+        {
+          "id": "decision",
+          "startSeconds": 15.067,
+          "endSeconds": 30.6
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 30.6,
+          "endSeconds": 41.333
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 41.333,
+          "endSeconds": 54.6
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 54.6,
+          "endSeconds": 71.7
+        }
+      ],
+      "captions": "power-platform-community-conference-2026-11-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "ba406c718c90d211d0fa8b6a71f24ba4c978691a33961758ecaa8912170327f5",
+      "byteSize": 1177,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "97ecc8e3e5f3f270d3dabf62b15c17dae6cb08060e3094fff6fd3f52cc3adf94",
+      "byteSize": 10317413,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.813,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "26d80fbeacbc669f3a9af491c324ea2706e65d7fd0d7c2ec87f40887debe31fa",
+      "package": "qc/revisions/power-platform-community-conference-2026-11/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.833
+        },
+        {
+          "id": "decision",
+          "startSeconds": 13.833,
+          "endSeconds": 28.067
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 28.067,
+          "endSeconds": 37.9
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 37.9,
+          "endSeconds": 50.067
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 50.067,
+          "endSeconds": 65.767
+        }
+      ],
+      "captions": "power-platform-community-conference-2026-11-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "c39ec315bbfa9af9ea3f83d687ff0803f19bee99cda212a8a2a2da97a25bd87b",
+      "byteSize": 1177,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "d7bcedd81031058bbda65c0f38259d18b9801b44b1ef87a0c9e8341255af69c8",
+      "byteSize": 10778654,
+      "mediaType": "video/mp4",
+      "durationSeconds": 69.163,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "5956e9c17294b2cdcfa299069fe7b2d627b69f78936112f982b6604429e028e7",
+      "package": "qc/revisions/power-platform-community-conference-2026-11/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.533
+        },
+        {
+          "id": "decision",
+          "startSeconds": 14.533,
+          "endSeconds": 29.5
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 29.5,
+          "endSeconds": 39.833
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 39.833,
+          "endSeconds": 52.633
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 52.633,
+          "endSeconds": 69.1
+        }
+      ],
+      "captions": "power-platform-community-conference-2026-11-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "0a267f1665929f1f07289e27a2743eb86010c59cf5e0fc0d473e7fad631f7943",
+      "byteSize": 1177,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-11-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "3b894570dcca9e8d76c402c7ad56e2321c45858b569eaa65186b68b6e4c4da2e",
+      "byteSize": 10997799,
+      "mediaType": "video/mp4",
+      "durationSeconds": 71.744,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "aac9e0d35061a53da87be0bffd8a944c19cf30c14b0c23d01be5d0aedf736632",
+      "package": "qc/revisions/power-platform-community-conference-2026-11/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15.067
+        },
+        {
+          "id": "decision",
+          "startSeconds": 15.067,
+          "endSeconds": 30.6
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 30.6,
+          "endSeconds": 41.333
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 41.333,
+          "endSeconds": 54.6
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 54.6,
+          "endSeconds": 71.7
+        }
+      ],
+      "captions": "power-platform-community-conference-2026-11-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/power-platform-community-conference-2026-11."
+  ]
+}

@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 4.849285469704645e-12,
-      "highFrequencyRatio8k": 0.0030227736063016364,
-      "rmsDbfs": -27.822879251919858,
-      "spectralFlatness": 1.482883016604921e-07
+      "dcOffset": -3.117397832930191e-12,
+      "highFrequencyRatio8k": 0.0030440644803962124,
+      "rmsDbfs": -27.82940402484298,
+      "spectralFlatness": 1.4925746654711583e-07
     },
     "before": {
-      "dcOffset": 1.580227217345964e-05,
-      "highFrequencyRatio8k": 0.003022132635803119,
-      "rmsDbfs": -27.822279601177296,
-      "spectralFlatness": 1.3704988983594888e-07
+      "dcOffset": 1.5478124623768963e-05,
+      "highFrequencyRatio8k": 0.0030434167022661187,
+      "rmsDbfs": -27.82880472041361,
+      "spectralFlatness": 1.3756818857461135e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/power-platform-community-conference/audio.wav",
-  "audioSha256": "dc3a534b9cdbbe5145fb9a999c1fc670aca69fd91b74335657e40db8b982543e",
+  "audioSha256": "283363bd99e4ccbce81107cd315db4effb5bab872a4bc6a3935e10f6f1340008",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -64,10 +64,10 @@
   "inputSampleRate": 24000,
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
   "mastering": {
-    "gainDb": 8.59,
-    "inputLufs": -24.32,
-    "limitedSampleRatio": 0.0325,
-    "maxLimiterReductionDb": 4.71,
+    "gainDb": 8.6,
+    "inputLufs": -24.33,
+    "limitedSampleRatio": 0.03261,
+    "maxLimiterReductionDb": 5.06,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.5802271948827226e-05,
-    "peak": 0.5369738936424255,
-    "rms": 0.04063612399700073
+    "dc": 1.5478127336930222e-05,
+    "peak": 0.5559425950050354,
+    "rms": 0.04060560385176228
   },
   "requestedDurationSeconds": 75.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
