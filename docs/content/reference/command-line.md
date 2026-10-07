@@ -33,7 +33,8 @@ Run these from the repository root.
 | `node packages/core/src/cli.ts asset-verify --root DIR` | Verify an asset bundle |
 | `node packages/core/src/cli.ts release-plan --content CONTENT --render RENDER --approval APPROVAL --out FILE` | Create a release plan |
 | `node packages/core/src/cli.ts release-produce --domain DOMAIN --content CONTENT --render RENDER --approval APPROVAL [--assets DIR] --out DIR` | Produce a release package |
-| `node packages/core/src/cli.ts release-verify --root DIR` | Verify a release package |
+| `node packages/core/src/cli.ts release-verify --root DIR [--skip-media-probe]` | Verify a release package; `--skip-media-probe` skips only the ffprobe MP4 stage |
+| `npm run knowledge:graph` | Write the evidence knowledge graph and gap report to `docs/audit/knowledge-graph.json` |
 | `node packages/core/src/cli.ts canonical-bind --root PROJECT` | Rebind canonical content, render spec and approval digests after authoring edits |
 | `node packages/core/src/cli.ts revision-produce --root PROJECT [--variants PROFILE:ENGINE,...] [--keep-release]` | Render one full release per voice variant into `renders/<project>-<year>-<NN>/` and promote the first |
 | `node packages/core/src/cli.ts revision-promote --root PROJECT --id TITLE [--voice PROFILE-ENGINE]` | Promote a revision variant into `release/`, or resume a promotion a locked file stopped |

@@ -198,7 +198,8 @@ It can also produce:
   H.264/AAC MP4, and records encoded-media QC
 
 `release-verify` checks the digests of the entire output set and reruns MP4 QC
-when the package includes the Remotion output.
+when the package includes the Remotion output. `--skip-media-probe` skips only the
+ffprobe stage for hosts without FFmpeg; digest, inventory and timeline checks still run.
 
 ## Speech and video
 
