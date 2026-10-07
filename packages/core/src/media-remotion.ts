@@ -20,7 +20,7 @@ interface ResolvedAsset {
   filename?: string;
 }
 
-const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-7';
+const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-8';
 export const MP4_ADAPTER = REMOTION_MP4_ADAPTER;
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 interface VoiceProfile { id: string; name: string; language: 'a' | 'b'; speed: number }

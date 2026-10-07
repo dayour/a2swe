@@ -111,6 +111,37 @@ function reveal(host: HTMLElement, kind: Visual['kind'], frame: number, settled:
   }
 }
 
+// Excalidraw measures bound labels with a fallback font before Excalifont loads, so a label it thinks fits on one line can overflow once
+// the wider handwritten face renders. Wrap labels explicitly with a conservative glyph width, then shrink only if the lines cannot fit.
+function fitLabels(elements: unknown[]): unknown[] {
+  return elements.map((element) => {
+    const item = element as { width?: number; height?: number; label?: { text?: unknown; fontSize?: number } };
+    if (!item?.label || typeof item.label.text !== 'string' || typeof item.width !== 'number' || typeof item.height !== 'number') return element;
+    const source = item.label.text;
+    const usableWidth = item.width - 28;
+    const usableHeight = item.height - 16;
+    const wrap = (size: number) => {
+      const perLine = Math.max(1, Math.floor(usableWidth / (size * 0.7)));
+      return source.split('\n').flatMap((line) => {
+        const out: string[] = [];
+        for (const word of line.split(/\s+/).filter(Boolean)) {
+          const last = out.length ? out[out.length - 1] : '';
+          if (last && (last + ' ' + word).length <= perLine) out[out.length - 1] = last + ' ' + word;
+          else out.push(word);
+        }
+        return out.length ? out : [''];
+      });
+    };
+    let size = item.label.fontSize ?? 20;
+    let lines = wrap(size);
+    while (size > 12 && (Math.max(...lines.map((line) => line.length)) * size * 0.7 > usableWidth || lines.length * size * 1.25 > usableHeight)) {
+      size -= 1;
+      lines = wrap(size);
+    }
+    return { ...item, label: { ...item.label, text: lines.join('\n'), fontSize: size } };
+  });
+}
+
 function useVisual(visual: Visual, id: string, designHeight: number) {
   const rendered = useRendered<{ html: string; css?: string }>('visual ' + visual.kind + ' ' + id, visual.kind + ':' + visual.source, async () => {
     if (visual.kind === 'mermaid') {
@@ -120,7 +151,7 @@ function useVisual(visual: Visual, id: string, designHeight: number) {
     if (visual.kind === 'excalidraw') {
       const parsed = JSON.parse(visual.source);
       const skeleton = Array.isArray(parsed) ? parsed : parsed.elements;
-      const elements = convertToExcalidrawElements(skeleton as never);
+      const elements = convertToExcalidrawElements(fitLabels(skeleton) as never);
       await document.fonts.ready;
       const svg = await exportToSvg({ elements, appState: { exportBackground: false, exportWithDarkMode: false, exportPadding: 32 } as never, files: null });
       return { html: fitSvg(new XMLSerializer().serializeToString(svg)) };
