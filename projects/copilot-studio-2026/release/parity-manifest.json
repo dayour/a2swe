@@ -1,70 +1,70 @@
 {
   "schemaVersion": "1.0.0",
   "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
-  "renderSpecDigest": "2dac8d319d073555f3d88c85b1fee30a19905e2855a9535e40a68b562c435307",
-  "releaseDigest": "109a55a63c10deea5eb73034ca115d2ada6e4eae2d809dc520235a65c6145029",
-  "assetInventoryDigest": "9eac0ab9d769cce1866a3268347b938c4b9707bc28effce98b887b5e4cbe82c0",
+  "renderSpecDigest": "f0b986b034ec757b92f6b51aa377163771e55d71308b51f0f172fabf38716c32",
+  "releaseDigest": "700f8a0caf188de592f08249786549923438a24d7f6b669901751f4e5f2d4308",
+  "assetInventoryDigest": "079cb73ebed8549e07691111558ccfb005e8b0578aab651d8c8b0cbd43070e85",
   "outputs": [
     {
       "format": "html",
       "path": "outputs/index.html",
-      "digest": "a0105f5c81c1b572efca4c0faebc73666e9e79508d1f5832aa09e5e43e2d59ed",
+      "digest": "8cf63fa4e634a7a176149014badf9f17a013512406c14028d58415954337ac4c",
       "mediaType": "text/html; charset=utf-8",
-      "byteSize": 351892,
+      "byteSize": 352140,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-html-accessible-2"
     },
     {
       "format": "adaptiveDeck",
       "path": "outputs/deck.deck.json",
-      "digest": "0157efe21206cea8485451149b0fc86ccc166942f862cb706a62991e1794ccad",
+      "digest": "33c1fa77c2549279879685bdcda8e7ca1a9800d081db547e56b1ebf6f832241f",
       "mediaType": "application/vnd.adaptive-deck+json; charset=utf-8",
-      "byteSize": 362458,
+      "byteSize": 362706,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-adaptive-deck-schema-2"
     },
     {
       "format": "pptx",
       "path": "outputs/deck.pptx",
-      "digest": "449ef0952a660d308e9638fed14faaa22bfad362e9d9c68cb15da82b7106f44b",
+      "digest": "e79403a8e9d7a99beaa6a0b7739d1c219516e662cd2bfda43b54ea081037b739",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "byteSize": 332398,
+      "byteSize": 332583,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-pptx-ooxml-7"
     },
     {
       "format": "docx",
       "path": "outputs/document.docx",
-      "digest": "59f96baed3bbbf41e49ebf015d0ba73ee5911272b18fbd247e740556fde558d1",
+      "digest": "e01548c97d378fdfc6bf797a6158877509f6cc694f5581ecb5557af4077adb54",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "byteSize": 273783,
+      "byteSize": 273968,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-docx-ooxml-4"
     },
     {
       "format": "pdf",
       "path": "outputs/document.pdf",
-      "digest": "00f9c810087300607aaa0dcc1116460b669ef27443cdad80fa918e8c14fb9c30",
+      "digest": "870b23fa651b2e32803bfc91f4ad16bb6662b7a7ee7de01a605172d68eb6a8b5",
       "mediaType": "application/pdf",
-      "byteSize": 201817,
+      "byteSize": 201904,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-pdf-searchable-4"
     },
     {
       "format": "png",
       "path": "outputs/raster.png",
-      "digest": "54d5d80eead118aa29405b0fa2a31983a077007fc13cee3929776aae28797884",
+      "digest": "d8a340eb0c55c1017cd80ba6f381b97a4b561e0079e8bf6fd1c3abab9e8872b8",
       "mediaType": "image/png",
-      "byteSize": 213724,
+      "byteSize": 213587,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-png-raster-1080p-2"
     },
     {
       "format": "jpeg",
       "path": "outputs/raster.jpg",
-      "digest": "85de247850758c9857e03dfe4fb4d67935809067cf246ec173cf2b2d8ae21138",
+      "digest": "b9ad2725f7e4be1eb661e3eecffe9146c104b3f5cb452c9114ec83a7a89f2eec",
       "mediaType": "image/jpeg",
-      "byteSize": 266503,
+      "byteSize": 266453,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-jpeg-raster-1080p-2"
     },
@@ -215,9 +215,9 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/src/palette.ts",
-      "digest": "176a2767db31717d8312c10948c78f506190338bd6034f4083e24aea0d1ae026",
+      "digest": "8f6223b188cd7d19cf58b00c995c2ef364c93a1d4705f3b28bd07d1b24a7c138",
       "mediaType": "text/typescript",
-      "byteSize": 1528,
+      "byteSize": 1504,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
@@ -278,9 +278,9 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/visuals/02-orchestrate-choices.png",
-      "digest": "9ba9c90be08b9bcb3b09a5ebe37304f327ec8568e9b28f03856920ebb6791ff8",
+      "digest": "b97e601c850c2c1373f3837da943ead56ba4fc74dab840d53541acdf33ebfb44",
       "mediaType": "image/png",
-      "byteSize": 78657,
+      "byteSize": 78842,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
@@ -305,7 +305,7 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/public/assets/copilot-studio-2026/audio.wav",
-      "digest": "2f8a5139325dcde3ad4cc0ee96c8b91c4f772738b38a5ab23413464aa3c237c8",
+      "digest": "bdfa8fb88a2c639d0224d03bf01b6056e3849436eb388efce56c8aeb496b98a8",
       "mediaType": "audio/wav",
       "byteSize": 13046444,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
@@ -314,25 +314,25 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/audio/narration-metadata.json",
-      "digest": "3c6fc11726867588794d8312675ad2361410dab41fdd5e1c80b7732a820fb381",
+      "digest": "e55d76dd85b0db1dcd793961231926749c1dbd659fbbbf4e60caee8fb60d16ba",
       "mediaType": "application/json",
-      "byteSize": 9814,
+      "byteSize": 9813,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/dist/render.mp4",
-      "digest": "dbfe2ca2dab073abf4aad16ec3afa206a3db324a9c344de2da26b36679ebb628",
+      "digest": "880a73b3182d6c90a666071ceb59c7b93c150c50623d0c1477de16a94b0fdbbe",
       "mediaType": "video/mp4",
-      "byteSize": 11140053,
+      "byteSize": 11135198,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/render-receipt.json",
-      "digest": "388a11d66ec2be9165c9db7b7ef54a8b0459495972cc9c080b8e29e985add263",
+      "digest": "2761d51aa5fdb2a2b77563cb4e33e8c22ddf464bec84c4250f5b6c2bc72583dc",
       "mediaType": "application/json",
       "byteSize": 368,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
@@ -341,25 +341,25 @@
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/audio-qa.json",
-      "digest": "3633b22ff85dfa6ce27616bc59a4a46d9e909e9d62124bba37114b887d69028c",
+      "digest": "e9301dd594eabdca476efec73c72d80f05cd437005ba1afd0242188173782b8a",
       "mediaType": "application/json",
-      "byteSize": 5116,
+      "byteSize": 5117,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "932cb9e26cd365bddddcc1556b01a8c0f4931af7d919d17050737763cd0c1301",
+      "digest": "ce187d5af8933211e657f36e5892929a0046c1215ed8ab51c76ac098dcd39b61",
       "mediaType": "image/svg+xml",
-      "byteSize": 445959,
+      "byteSize": 445898,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
       "adapter": "a2swe-remotion-mp4-adapter-10"
     },
     {
       "format": "remotion",
       "path": "outputs/remotion/qc/mp4-qc.json",
-      "digest": "a8164d6643910fc46117df0c2148422e61b3395d2d9912d52eee3dcd3d4306c1",
+      "digest": "25ceb5d515c9599b495b438bc1ac3911e4ae625f7849c37e7327bc6add0e2030",
       "mediaType": "application/json",
       "byteSize": 3567,
       "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
