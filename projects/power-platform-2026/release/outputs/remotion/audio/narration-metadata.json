@@ -1,0 +1,180 @@
+{
+  "audioCleanup": {
+    "actions": [
+      "speech_dc_highpass",
+      "speech_boundary_fade"
+    ],
+    "after": {
+      "dcOffset": -4.540880692294191e-12,
+      "highFrequencyRatio8k": 0.0039134307666396865,
+      "rmsDbfs": -27.862327210457828,
+      "spectralFlatness": 4.478817638776134e-07
+    },
+    "before": {
+      "dcOffset": 1.273121961276047e-05,
+      "highFrequencyRatio8k": 0.003913424062744452,
+      "rmsDbfs": -27.861713630997265,
+      "spectralFlatness": 4.2778684138772835e-07
+    },
+    "mode": "auto",
+    "policy": {
+      "lowpassHz": "11500",
+      "mode": "auto"
+    }
+  },
+  "audioFile": "public/assets/power-platform-2026/audio.wav",
+  "audioSha256": "7e0059d0e8721ae0ad3ba05b47528445fcd1851ac08250dc889395ee96dfd316",
+  "channels": 2,
+  "cleanupPolicy": {
+    "lowpassHz": "11500",
+    "mode": "auto"
+  },
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "durationSeconds": 66.725,
+  "engine": "kokoro_onnx",
+  "forks": {
+    "kokoro": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "f43902798ad657b619f6a955f4ea3d9cead771b1a58e4082023c29bfd486626f",
+      "url": "https://github.com/dayour/kokoro/releases/download/py314-2026.09.17/kokoro-0.9.4-py3-none-any.whl",
+      "version": "0.9.4"
+    },
+    "kokoro-onnx": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "398c623fa238acb508798a2887022d5a5216de58c7bbe0f2a0d7f28f9de08c1d",
+      "url": "https://github.com/dayour/kokoro-onnx/releases/download/py314-2026.09.17/kokoro_onnx-0.6.1-py3-none-any.whl",
+      "version": "0.6.1"
+    },
+    "misaki": {
+      "installed_source": {
+        "archive_info": {},
+        "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl"
+      },
+      "locked_wheel_sha256": "931dad3ff39b246a3920963b2812f03994f6cef49de71467670f39a10f964c2f",
+      "url": "https://github.com/dayour/misaki/releases/download/py314-2026.09.17/misaki-0.9.4%2Bpy314.1-py3-none-any.whl",
+      "version": "0.9.4+py314.1"
+    }
+  },
+  "inputSampleRate": 24000,
+  "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.7,
+    "inputLufs": -24.35,
+    "limitedSampleRatio": 0.03361,
+    "maxLimiterReductionDb": 6.74,
+    "outputLufs": -16.06,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "models": {
+    "voices": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "weights": {
+      "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\kokoro-v1.0.onnx",
+      "sha256": "38d9b475042451924cfc9313cdf1e996da27228ab51ffa96a69e7ac7c6942bfa"
+    }
+  },
+  "narrationSha256": "c824ee9da0e80a62b617b1e367c82ee0fea6b93a6c495f171e1202d17b3774d9",
+  "producer": "scripts/synthesize-audio.py",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
+  "python": "3.14.7",
+  "rawAudio": {
+    "dc": 1.27312149931868e-05,
+    "peak": 0.6692066192626953,
+    "rms": 0.04045233146971216
+  },
+  "requestedDurationSeconds": 60.0,
+  "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
+  "sampleRate": 48000,
+  "schemaVersion": "1.0.0",
+  "segments": [
+    {
+      "endSeconds": 13.825,
+      "index": 0,
+      "sceneId": "title",
+      "startSeconds": 0.25,
+      "text": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live."
+    },
+    {
+      "endSeconds": 26.575,
+      "index": 1,
+      "sceneId": "one-platform",
+      "startSeconds": 14.375,
+      "text": "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame."
+    },
+    {
+      "endSeconds": 39.175,
+      "index": 2,
+      "sceneId": "managed-artifact",
+      "startSeconds": 27.125,
+      "text": "Build change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive."
+    },
+    {
+      "endSeconds": 52.7,
+      "index": 3,
+      "sceneId": "config-and-data",
+      "startSeconds": 39.725,
+      "text": "Keep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data."
+    },
+    {
+      "endSeconds": 66.225,
+      "index": 4,
+      "sceneId": "release-gate",
+      "startSeconds": 53.25,
+      "text": "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check DLP policy, tests, analytics, approvals and licenses."
+    }
+  ],
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "b\u02c8\u0251T\u0259m l\u02c8In: j\u02c8uz w\u02c8\u028cn \u0250 \u02c8\u025bl \u02c8\u025bm p\u02c8\u00e6\u03b8; \u0283\u02c8\u026ap \u0250 m\u02c8\u00e6n\u026a\u02a4d \u02c8\u0251\u0279T\u0259f\u02cc\u00e6kt, s\u02c8\u025bt t\u02c8\u0251\u0279\u0261\u0259t k\u0259nf\u02c8\u026a\u0261, m\u02c8uv d\u02c8AT\u0259 \u0259p\u02c8\u0251\u0279t, \u00e6nd d\u02c8u d\u02c8i \u02c8\u025bl p\u02c8i, t\u02c8\u025bst, l\u02c8Is\u1d4ans \u00e6nd \u0259p\u0279\u02c8uv\u1d4al \u02a7\u02c8\u025bks b\u0259f\u02c8\u0254\u0279 f\u02c8In\u1d4al \u0261\u02ccOl\u02c8Iv."
+      ],
+      [
+        "t\u0279\u02c8it \u00f0\u0259 sw\u02c8it \u00e6z w\u02c8\u028cn pl\u02c8\u00e6tf\u02cc\u0254\u0279m f\u0254\u0279 \u02c8\u00e6ps, fl\u02c8Oz, s\u02c8Its, \u02c8A\u02a4\u1d4ants \u00e6nd d\u02c8AT\u0259v\u02cc\u025c\u0279s d\u02c8AT\u0259. p\u02cc\u028at l\u02c8IfsIk\u1d4al, s\u0259kj\u02c8\u028a\u0279\u0259Ti, t\u02c8\u025bst \u00e6nd \u0279\u0259l\u02c8is \u02a7\u02c8Ys\u1d7bz \u026an w\u02c8\u028cn kl\u02c8\u026a\u0279 d\u0259s\u02c8\u026a\u0292\u1d4an f\u0279\u02c8Am."
+      ],
+      [
+        "b\u02c8\u026ald \u02a7\u02c8An\u02a4 \u026an \u0250n \u02cc\u028cnm\u02c8\u00e6n\u0259\u02a4d s\u0259l\u02c8u\u0283\u0259n, w\u026a\u00f0 s\u02c8\u0254\u0279s k\u0259nt\u0279\u02c8Ol \u00e6z \u00f0\u0259 s\u02c8\u0254\u0279s \u028cv t\u0279\u02c8u\u03b8. \u02c8\u025bksp\u02cc\u0254\u0279t \u0250 m\u02c8\u00e6n\u026a\u02a4d s\u0259l\u02c8u\u0283\u0259n \u00e6z \u00f0\u0259 b\u02c8\u026ald \u02c8\u0251\u0279T\u0259f\u02cc\u00e6kt \u00f0\u00e6t t\u02c8\u025bst \u00e6nd p\u0279\u0259d\u02c8\u028ck\u0283\u0259n \u0279\u0259s\u02c8iv."
+      ],
+      [
+        "k\u02c8ip k\u0259nf\u02cc\u026a\u0261j\u0259\u0279\u02c8A\u0283\u0259n \u00e6nd b\u02c8\u026azn\u0259s \u0279\u02c8\u025bk\u0259\u0279dz \u02cc\u0254n s\u02c8\u025bp\u0259\u0279\u0259t t\u0279\u02c8\u00e6ks. s\u02c8\u025bt k\u0259n\u02c8\u025bk\u0283\u0259nz, \u0279\u02c8\u025bf\u0259\u0279\u0259ns\u1d7bz \u00e6nd v\u02c8\u025b\u0279i\u0259b\u1d4alz p\u025c\u0279 t\u02c8\u0251\u0279\u0261\u0259t, \u00f0\u02c8\u025bn m\u02c8I\u0261\u0279\u02ccAt t\u02c8Ab\u1d4al \u0279\u02c8Oz, b\u0259k\u02c8\u028cz s\u0259l\u02c8u\u0283\u0259nz k\u02c8\u025b\u0279i n\u02c8O d\u02c8AT\u0259."
+      ],
+      [
+        "\u02c8\u0254T\u0259m\u02ccAt w\u026a\u00f0 p\u02c8Ipl\u02ccInz, \u0254\u0279 j\u02c8uz \u02c8\u00e6\u0292\u0259\u0279 d\u02c8\u025bv \u02c8\u0251ps \u0254\u0279 \u0261\u02cc\u026ath\u02c8\u028cb w\u02cc\u025bn \u00f0\u0259 \u0279\u02c8ut n\u02c8idz \u026at. b\u0259f\u02c8\u0254\u0279 f\u02c8In\u1d4al p\u0279\u0259d\u02c8\u028ck\u0283\u0259n, \u02a7\u02c8\u025bk d\u02c8i \u02c8\u025bl p\u02c8i p\u02c8\u0251l\u0259si, t\u02c8\u025bsts, \u02cc\u00e6n\u0259l\u02c8\u026aT\u026aks, \u0259p\u0279\u02c8uv\u1d4alz \u00e6nd l\u02c8Is\u1d4ans\u1d7bz."
+      ]
+    ],
+    "phonemesSha256": "711d78a2f55c8be81a8c86efe7c6522b2c7a5bce076a088e1aa7229fa7c366b5",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: use one A L M path; ship a managed artifact, set target config, move data apart, and do D L P, test, license and approval checks before final go-live.",
+      "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame.",
+      "Build change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive.",
+      "Keep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+      "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check D L P policy, tests, analytics, approvals and licenses."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "voiceProfile": {
+    "id": "am_michael",
+    "language": "a",
+    "name": "Michael",
+    "pronunciations": {
+      "ALM": "A L M",
+      "Cowork": "co-work",
+      "DLP": "D L P"
+    },
+    "speed": 1
+  }
+}

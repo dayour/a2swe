@@ -1,0 +1,4 @@
+flowchart LR
+  auto["AUTOMATE<br/>PIPELINE"] --> gate["RELEASE<br/>GATE"]
+  gate --> prod["PRODUCTION"]
+  gate --- checks["DLP<br/>TESTS<br/>LICENSE"]

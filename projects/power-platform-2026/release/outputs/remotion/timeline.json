@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2002,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Power Platform ALM: govern one release path",
+      "body": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.",
+      "narration": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.",
+      "claims": [
+        "Power Platform ALM spans apps, automation, sites, agents and Dataverse; executives should manage it as one governed delivery path.",
+        "Use source control as truth, build changes in unmanaged solutions, and export managed solutions as downstream build artifacts.",
+        "Promote the same artifact through ordered stages; configure each target, and move Dataverse table records separately.",
+        "Automate delivery with pipelines and CI/CD; Microsoft documentation points to Azure DevOps or GitHub for some scenarios.",
+        "Before production, check DLP connector controls, tests, analytics, approvals and managed-environment licensing."
+      ],
+      "claimSources": [
+        "Overview of application lifecycle management with Microsoft Power Platform",
+        "Overview of application lifecycle management with Microsoft Power Platform",
+        "Overview of pipelines in Power Platform",
+        "Overview of application lifecycle management with Microsoft Power Platform",
+        "Overview of application lifecycle management with Microsoft Power Platform"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-16",
+          "sourceTitle": "Data policies",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention"
+        },
+        {
+          "evidenceId": "ev-17",
+          "sourceTitle": "Data policies",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Fund one governed ALM path; ship managed artifacts and move data separately.",
+      "startFrame": 0,
+      "durationInFrames": 423,
+      "endFrame": 423,
+      "speechStartFrame": 8,
+      "speechEndFrame": 415
+    },
+    {
+      "id": "one-platform",
+      "kind": "section",
+      "title": "1. One platform",
+      "body": "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame.",
+      "narration": "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame.",
+      "claims": [
+        "Power Platform ALM spans apps, automation, sites, agents and Dataverse; executives should manage it as one governed delivery path."
+      ],
+      "claimSources": [
+        "Overview of application lifecycle management with Microsoft Power Platform"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  suite[\"APPS<br/>FLOWS<br/>SITES<br/>AGENTS\"]\n  data[\"DATAVERSE<br/>DATA\"]\n  alm[\"GOVERNED<br/>ALM\"]\n  suite --> alm\n  data --> alm",
+        "caption": "The decision frame is one governed ALM path across the Power Platform suite."
+      },
+      "visualId": "01-one-platform",
+      "decision": "Fund one governed ALM path; ship managed artifacts and move data separately.",
+      "startFrame": 423,
+      "durationInFrames": 383,
+      "endFrame": 806,
+      "speechStartFrame": 431,
+      "speechEndFrame": 797
+    },
+    {
+      "id": "managed-artifact",
+      "kind": "section",
+      "title": "2. Managed artifact",
+      "body": "Build change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive.",
+      "narration": "Build change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive.",
+      "claims": [
+        "Use source control as truth, build changes in unmanaged solutions, and export managed solutions as downstream build artifacts."
+      ],
+      "claimSources": [
+        "Overview of application lifecycle management with Microsoft Power Platform"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Solution concepts",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "Development remains editable, while the promoted package becomes the controlled artifact.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"dev\",\"x\":40,\"y\":220,\"width\":220,\"height\":120,\"strokeColor\":\"#8F62F5\",\"backgroundColor\":\"#1A1028\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"UNMANAGED\\nDEV\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"arrow\",\"id\":\"a1\",\"x\":270,\"y\":280,\"width\":110,\"height\":0,\"strokeColor\":\"#8F62F5\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"rectangle\",\"id\":\"source\",\"x\":400,\"y\":220,\"width\":220,\"height\":120,\"strokeColor\":\"#8F62F5\",\"backgroundColor\":\"#1A1028\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"SOURCE\\nTRUTH\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"arrow\",\"id\":\"a2\",\"x\":630,\"y\":280,\"width\":110,\"height\":0,\"strokeColor\":\"#8F62F5\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"rectangle\",\"id\":\"artifact\",\"x\":760,\"y\":220,\"width\":260,\"height\":120,\"strokeColor\":\"#8F62F5\",\"backgroundColor\":\"#1A1028\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"MANAGED\\nARTIFACT\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"arrow\",\"id\":\"a3\",\"x\":1030,\"y\":280,\"width\":100,\"height\":0,\"strokeColor\":\"#8F62F5\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"rectangle\",\"id\":\"prod\",\"x\":1140,\"y\":220,\"width\":220,\"height\":120,\"strokeColor\":\"#8F62F5\",\"backgroundColor\":\"#1A1028\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TEST + PROD\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}}]"
+      },
+      "visualId": "02-managed-artifact",
+      "decision": "Fund one governed ALM path; ship managed artifacts and move data separately.",
+      "startFrame": 806,
+      "durationInFrames": 378,
+      "endFrame": 1184,
+      "speechStartFrame": 814,
+      "speechEndFrame": 1175
+    },
+    {
+      "id": "config-and-data",
+      "kind": "section",
+      "title": "3. Config and data",
+      "body": "Keep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+      "narration": "Keep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+      "claims": [
+        "Promote the same artifact through ordered stages; configure each target, and move Dataverse table records separately."
+      ],
+      "claimSources": [
+        "Overview of pipelines in Power Platform"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Configuration travels with deployment; Dataverse table records need a separate path.",
+        "source": "# SPLIT THE PATH\n\n| CONFIG | DATA |\n|---|---|\n| TARGET VARS | TABLE ROWS |\n| CONNECTIONS | MIGRATION |\n\n## ONE RELEASE PLAN, TWO TRACKS"
+      },
+      "visualId": "03-config-and-data",
+      "decision": "Fund one governed ALM path; ship managed artifacts and move data separately.",
+      "startFrame": 1184,
+      "durationInFrames": 406,
+      "endFrame": 1590,
+      "speechStartFrame": 1192,
+      "speechEndFrame": 1581
+    },
+    {
+      "id": "release-gate",
+      "kind": "section",
+      "title": "4. Release gate",
+      "body": "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check DLP policy, tests, analytics, approvals and licenses.",
+      "narration": "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check DLP policy, tests, analytics, approvals and licenses.",
+      "claims": [
+        "Automate delivery with pipelines and CI/CD; Microsoft documentation points to Azure DevOps or GitHub for some scenarios.",
+        "Before production, check DLP connector controls, tests, analytics, approvals and managed-environment licensing."
+      ],
+      "claimSources": [
+        "Overview of application lifecycle management with Microsoft Power Platform",
+        "Overview of application lifecycle management with Microsoft Power Platform"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Overview of application lifecycle management with Microsoft Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Overview of pipelines in Power Platform",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines"
+        },
+        {
+          "evidenceId": "ev-16",
+          "sourceTitle": "Data policies",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention"
+        },
+        {
+          "evidenceId": "ev-17",
+          "sourceTitle": "Data policies",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  auto[\"AUTOMATE<br/>PIPELINE\"] --> gate[\"RELEASE<br/>GATE\"]\n  gate --> prod[\"PRODUCTION\"]\n  gate --- checks[\"DLP<br/>TESTS<br/>LICENSE\"]",
+        "caption": "Automation accelerates delivery only after the release gate is satisfied."
+      },
+      "visualId": "04-release-gate",
+      "decision": "Fund one governed ALM path; ship managed artifacts and move data separately.",
+      "startFrame": 1590,
+      "durationInFrames": 412,
+      "endFrame": 2002,
+      "speechStartFrame": 1598,
+      "speechEndFrame": 1987
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.",
+      "startFrame": 8,
+      "endFrame": 415,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data.",
+      "startFrame": 431,
+      "endFrame": 619,
+      "sourceSegmentIndex": 1,
+      "sceneId": "one-platform"
+    },
+    {
+      "text": "Put lifecycle, security, test and release choices in one clear decision frame.",
+      "startFrame": 619,
+      "endFrame": 797,
+      "sourceSegmentIndex": 1,
+      "sceneId": "one-platform"
+    },
+    {
+      "text": "Build change in an unmanaged solution, with source control as the source of truth.",
+      "startFrame": 814,
+      "endFrame": 996,
+      "sourceSegmentIndex": 2,
+      "sceneId": "managed-artifact"
+    },
+    {
+      "text": "Export a managed solution as the build artifact that test and production receive.",
+      "startFrame": 996,
+      "endFrame": 1175,
+      "sourceSegmentIndex": 2,
+      "sceneId": "managed-artifact"
+    },
+    {
+      "text": "Keep configuration and business records on separate tracks.",
+      "startFrame": 1192,
+      "endFrame": 1327,
+      "sourceSegmentIndex": 3,
+      "sceneId": "config-and-data"
+    },
+    {
+      "text": "Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+      "startFrame": 1327,
+      "endFrame": 1581,
+      "sourceSegmentIndex": 3,
+      "sceneId": "config-and-data"
+    },
+    {
+      "text": "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it.",
+      "startFrame": 1598,
+      "endFrame": 1787,
+      "sourceSegmentIndex": 4,
+      "sceneId": "release-gate"
+    },
+    {
+      "text": "Before final production, check DLP policy, tests, analytics, approvals and licenses.",
+      "startFrame": 1787,
+      "endFrame": 1987,
+      "sourceSegmentIndex": 4,
+      "sceneId": "release-gate"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 5,
+    "cueCount": 9
+  }
+}

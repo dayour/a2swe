@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "audio": {
+    "required": true,
+    "path": "public/assets/power-platform-2026/audio.wav",
+    "metadataPath": "audio/narration-metadata.json",
+    "narrationManifestPath": "speech/narration-manifest.json",
+    "narrationSha256": "c824ee9da0e80a62b617b1e367c82ee0fea6b93a6c495f171e1202d17b3774d9",
+    "expectedDurationSeconds": 66.725,
+    "maxDurationDriftSeconds": 0.06666666666666667,
+    "sampleRate": 48000,
+    "voiceProfile": {
+      "id": "am_michael",
+      "name": "Michael",
+      "language": "a",
+      "speed": 1,
+      "pronunciations": {
+        "Cowork": "co-work",
+        "ALM": "A L M",
+        "DLP": "D L P"
+      }
+    },
+    "source": "Generated locally from digest-bound narration via Python 3.14 Kokoro ONNX or optional Kokoro/Misaki using configured local model paths.",
+    "digestBoundInContentIR": true,
+    "command": "npm run audio"
+  },
+  "assets": []
+}

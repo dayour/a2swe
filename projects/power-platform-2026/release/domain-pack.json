@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "power-platform-2026",
+  "kind": "framework",
+  "canonicalName": "Power Platform ALM 2026",
+  "asOf": "2026-10-06",
+  "windowStart": "2026-01-06",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-alm-overview",
+      "domainId": "power-platform-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/overview-alm",
+      "publisher": "Microsoft Learn",
+      "title": "Overview of application lifecycle management with Microsoft Power Platform",
+      "publicationDate": "2025-01-29",
+      "modifiedDate": "2025-05-07",
+      "retrievedAt": "2026-10-06T20:16:28.682Z",
+      "dateEvidence": "Page metadata records ms.date 2025-01-29T00:00:00Z and updated_at 2025-05-07T19:00:00Z.",
+      "contentHash": "ea3f9acf813db3866da224fc8ffbd8834b442d06e2f0150557ba85031d0b0450"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-solution-concepts",
+      "domainId": "power-platform-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm",
+      "publisher": "Microsoft Learn",
+      "title": "Solution concepts",
+      "publicationDate": "2025-01-29",
+      "modifiedDate": "2025-05-07",
+      "retrievedAt": "2026-10-06T20:16:28.824Z",
+      "dateEvidence": "Page metadata records ms.date 2025-01-29T00:00:00Z and updated_at 2025-05-07T19:00:00Z.",
+      "contentHash": "bfce4a0df6367c32b55e7e7835a75976f9769e8a1b31c8661fdbaddc5aa688a0"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-pipelines",
+      "domainId": "power-platform-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+      "publisher": "Microsoft Learn",
+      "title": "Overview of pipelines in Power Platform",
+      "publicationDate": "2026-09-29",
+      "modifiedDate": "2026-09-30",
+      "retrievedAt": "2026-10-06T20:16:28.991Z",
+      "dateEvidence": "Page metadata records ms.date 2026-09-29T00:00:00Z and updated_at 2026-09-30T19:03:00Z.",
+      "contentHash": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-data-policies",
+      "domainId": "power-platform-2026",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+      "publisher": "Microsoft Learn",
+      "title": "Data policies",
+      "publicationDate": "2026-04-07",
+      "modifiedDate": "2026-08-14",
+      "retrievedAt": "2026-10-06T20:16:29.158Z",
+      "dateEvidence": "Page metadata records ms.date 2026-04-07T00:00:00Z and updated_at 2026-08-14T01:04:00Z.",
+      "contentHash": "da6f6524818db940537ffbd35a9799a28e338e3c9435279ebacbceec12178e10"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-01",
+      "sourceId": "src-alm-overview",
+      "sourceDigest": "ea3f9acf813db3866da224fc8ffbd8834b442d06e2f0150557ba85031d0b0450",
+      "locator": "ALM product scope",
+      "quote": "The articles in this section describe how you can implement application lifecycle management (ALM) using Power Apps, Power Automate, Power Pages, Microsoft Copilot Studio, and Microsoft Dataverse.",
+      "quoteDigest": "425259fae1eb3b426c81481b788cc00090024d13b29e0b9e7407a95ec7377cc7"
+    },
+    {
+      "evidenceId": "ev-02",
+      "sourceId": "src-alm-overview",
+      "sourceDigest": "ea3f9acf813db3866da224fc8ffbd8834b442d06e2f0150557ba85031d0b0450",
+      "locator": "ALM disciplines",
+      "quote": "ALM is the lifecycle management of applications, which includes governance development and maintenance. Moreover, ALM includes these disciplines: requirements management, software architecture, development, testing, maintenance, change management, support, continuous integration, project management, deployment, release management and governance.",
+      "quoteDigest": "7bfbdc1002df177eff77f5282a3af6dc317521b30c47127f42e5657be404287e"
+    },
+    {
+      "evidenceId": "ev-03",
+      "sourceId": "src-alm-overview",
+      "sourceDigest": "ea3f9acf813db3866da224fc8ffbd8834b442d06e2f0150557ba85031d0b0450",
+      "locator": "Source control guidance",
+      "quote": "Source control should be your source of truth for storing and collaborating on your components.",
+      "quoteDigest": "787749b777c3f794d3284e98301c7e131f3685143b2c7ebd8b15169230b006b0"
+    },
+    {
+      "evidenceId": "ev-04",
+      "sourceId": "src-alm-overview",
+      "sourceDigest": "ea3f9acf813db3866da224fc8ffbd8834b442d06e2f0150557ba85031d0b0450",
+      "locator": "CI/CD guidance",
+      "quote": "Continuous integration and continuous delivery (CI/CD) platform such as Azure DevOps that allows you to automate your build, test, and deployment pipeline.",
+      "quoteDigest": "47d9fda39bdcf2efbf8560eebaa889c271b111dbdddf423d61e46e458d2ffd98"
+    },
+    {
+      "evidenceId": "ev-05",
+      "sourceId": "src-solution-concepts",
+      "sourceDigest": "bfce4a0df6367c32b55e7e7835a75976f9769e8a1b31c8661fdbaddc5aa688a0",
+      "locator": "Unmanaged development solution",
+      "quote": "Unmanaged solutions are used in development environments while you make changes to your application.",
+      "quoteDigest": "397089c8d71a280cc17586e26c8c33940a5f8f36b31e502cce2dc561f5254db8"
+    },
+    {
+      "evidenceId": "ev-06",
+      "sourceId": "src-solution-concepts",
+      "sourceDigest": "bfce4a0df6367c32b55e7e7835a75976f9769e8a1b31c8661fdbaddc5aa688a0",
+      "locator": "Unmanaged export and source control",
+      "quote": "Unmanaged solutions can be exported either as unmanaged or managed. Exported unmanaged versions of your solutions should be checked into your source control system.",
+      "quoteDigest": "dabe5ef41d15e2ca5d5905a51d127d4b6afa68c8196061d735e04fe287decbd4"
+    },
+    {
+      "evidenceId": "ev-07",
+      "sourceId": "src-solution-concepts",
+      "sourceDigest": "bfce4a0df6367c32b55e7e7835a75976f9769e8a1b31c8661fdbaddc5aa688a0",
+      "locator": "Managed build artifact",
+      "quote": "managed solutions should be generated by exporting an unmanaged solution as managed and considered a build artifact.",
+      "quoteDigest": "c3c75d3abf57680a5c176378322936a3b3b8b7a1c27c427ee8c24af77144553b"
+    },
+    {
+      "evidenceId": "ev-08",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Automated deployment pipelines",
+      "quote": "Admins easily configure automated deployment pipelines in minutes rather than days or weeks.",
+      "quoteDigest": "22f5f86072aac8a553738fd0193c6bbbfe7559fb679f7c3f9b4ed52dbc1a4e18"
+    },
+    {
+      "evidenceId": "ev-09",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Deployment prevalidation",
+      "quote": "Connections and environment variables are provided upfront and validated before the deployment begins.",
+      "quoteDigest": "68d145871c8afc804ec4690c1d0b58a7d2c5868b11f5435165e2082a47999c8a"
+    },
+    {
+      "evidenceId": "ev-10",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Sequential artifact promotion",
+      "quote": "same solution artifact must pass through pipeline stages in sequential order.",
+      "quoteDigest": "88cff9b20d27cf29e271f0900645316c629508c2d0245b3b052e1484053bc74a"
+    },
+    {
+      "evidenceId": "ev-11",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Target configuration",
+      "quote": "Pipelines deploy solutions as well as configuration for the target environment such as connections, connection references, and environment variables.",
+      "quoteDigest": "2d6c078bcd15bd829e5c737ab84fca6a1192f2aeedb170996ced1f9a4677b5d7"
+    },
+    {
+      "evidenceId": "ev-12",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Dataverse records excluded",
+      "quote": "Pipelines, or solutions in general, don't contain data stored within Dataverse tables.",
+      "quoteDigest": "b89c20e82e9e3c7acc30553e5ba6feca626fa0eaf4052925b896c0f620dd2ff7"
+    },
+    {
+      "evidenceId": "ev-13",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Azure DevOps or GitHub scenario",
+      "quote": "We recommend using Azure DevOps or GitHub for this scenario.",
+      "quoteDigest": "247f48be6dee29aa59cce997034de56dc742267441980a1a6dc0235f7b01c6cf"
+    },
+    {
+      "evidenceId": "ev-14",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Pipeline analytics",
+      "quote": "Customizations and audit log saved automatically and are easily accessible. Out-of-the-box analytics provides better visibility within a central location.",
+      "quoteDigest": "f8b5acc6ba34ea8298a286a2dd873d8c1e1fdd52be60b8cfb5c2e6046a2c7013"
+    },
+    {
+      "evidenceId": "ev-15",
+      "sourceId": "src-pipelines",
+      "sourceDigest": "cc7cb1c365acfa3cbf997b13b8a4643732774688b1d84c819435f6a876c2f084",
+      "locator": "Managed environment licensing",
+      "quote": "Licenses granting premium use rights are required for all managed environments.",
+      "quoteDigest": "ef5c36d436b0152788910d4e27acbec79846d97ec099d30e4817d65885ebf944"
+    },
+    {
+      "evidenceId": "ev-16",
+      "sourceId": "src-data-policies",
+      "sourceDigest": "da6f6524818db940537ffbd35a9799a28e338e3c9435279ebacbceec12178e10",
+      "locator": "Connector policy controls",
+      "quote": "data policies allow administrators to control access to these connectors in various ways to help reduce risk in your organization.",
+      "quoteDigest": "5426970298a69b0443435b0bf0fb9a39e146f367b8c330897cb83f0eb9345c52"
+    },
+    {
+      "evidenceId": "ev-17",
+      "sourceId": "src-data-policies",
+      "sourceDigest": "da6f6524818db940537ffbd35a9799a28e338e3c9435279ebacbceec12178e10",
+      "locator": "Policy enforcement latency",
+      "quote": "latency for full enforcement is 24 hours. In most cases, it's within an hour.",
+      "quoteDigest": "568b7f7dced6eadddf31a03c3a75161c62dbbbf401d6f3abf6b01f439ecf4ae5"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Power Platform ALM spans apps, automation, sites, agents and Dataverse; executives should manage it as one governed delivery path.",
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Use source control as truth, build changes in unmanaged solutions, and export managed solutions as downstream build artifacts.",
+      "evidenceIds": [
+        "ev-03",
+        "ev-05",
+        "ev-06",
+        "ev-07"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Promote the same artifact through ordered stages; configure each target, and move Dataverse table records separately.",
+      "evidenceIds": [
+        "ev-09",
+        "ev-10",
+        "ev-11",
+        "ev-12"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Automate delivery with pipelines and CI/CD; Microsoft documentation points to Azure DevOps or GitHub for some scenarios.",
+      "evidenceIds": [
+        "ev-04",
+        "ev-08",
+        "ev-13"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "Before production, check DLP connector controls, tests, analytics, approvals and managed-environment licensing.",
+      "evidenceIds": [
+        "ev-02",
+        "ev-14",
+        "ev-15",
+        "ev-16",
+        "ev-17"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected sources do not prove tenant-specific rollout, entitlement, licensing, region availability, or feature readiness.",
+    "Detailed GitHub Actions and Azure DevOps Build Tools task syntax was not quoted; CI/CD alternatives are framed from ALM and pipeline guidance.",
+    "Monitoring is grounded only in pipeline analytics and audit-log visibility, not a complete production observability architecture.",
+    "Dataverse relationships and table security are not quoted directly by these four sources; the narrative uses Dataverse data and table-record deployment boundaries instead.",
+    "No ROI, cost-savings, adoption, or customer outcome statistics are asserted."
+  ]
+}

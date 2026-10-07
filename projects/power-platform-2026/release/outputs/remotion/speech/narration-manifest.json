@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "power-platform-2026",
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "text": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.\n\nTreat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame.\n\nBuild change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive.\n\nKeep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data.\n\nAutomate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check DLP policy, tests, analytics, approvals and licenses.",
+  "segments": [
+    {
+      "text": "Bottom line: use one ALM path; ship a managed artifact, set target config, move data apart, and do DLP, test, license and approval checks before final go-live.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Treat the suite as one platform for apps, flows, sites, agents and Dataverse data. Put lifecycle, security, test and release choices in one clear decision frame.",
+      "sceneId": "one-platform"
+    },
+    {
+      "text": "Build change in an unmanaged solution, with source control as the source of truth. Export a managed solution as the build artifact that test and production receive.",
+      "sceneId": "managed-artifact"
+    },
+    {
+      "text": "Keep configuration and business records on separate tracks. Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+      "sceneId": "config-and-data"
+    },
+    {
+      "text": "Automate with pipelines, or use Azure DevOps or GitHub when the route needs it. Before final production, check DLP policy, tests, analytics, approvals and licenses.",
+      "sceneId": "release-gate"
+    }
+  ],
+  "narrationSha256": "c824ee9da0e80a62b617b1e367c82ee0fea6b93a6c495f171e1202d17b3774d9",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "ALM": "A L M",
+      "DLP": "D L P"
+    }
+  },
+  "outputWav": "public/assets/power-platform-2026/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 60,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}
