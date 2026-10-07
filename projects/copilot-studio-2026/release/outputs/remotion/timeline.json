@@ -1,0 +1,407 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2039,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Copilot Studio 2026: govern intent-to-action agents",
+      "body": "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.",
+      "narration": "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.",
+      "claims": [
+        "Copilot Studio is a low-code studio for agents, workflows and agent flows that connect to business data and publish to work channels.",
+        "Generative orchestration lets agents choose tools, knowledge, topics or other agents, ask for missing inputs and compose responses.",
+        "Tools move intent to action through connectors, agent flows, prompts, REST APIs, MCP and computer use, with policy restrictions available.",
+        "Enterprise control includes data policies, audit visibility, Agent 365 governance, Entra agent identities and security controls.",
+        "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates."
+      ],
+      "claimSources": [
+        "Overview - Microsoft Copilot Studio",
+        "Orchestrate agent behavior with generative AI",
+        "Add tools to custom agents",
+        "Security and governance",
+        "Add tools to custom agents"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        },
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Fund governed agent scale where workflows merit managed automation.",
+      "startFrame": 0,
+      "durationInFrames": 378,
+      "endFrame": 378,
+      "speechStartFrame": 8,
+      "speechEndFrame": 369
+    },
+    {
+      "id": "managed-build",
+      "kind": "section",
+      "title": "1. Managed build surface",
+      "body": "Copilot Studio is a low-code studio for building and managing agents. Teams create agents, workflows and agent flows tied to business data, systems and work channels.",
+      "narration": "Copilot Studio is a low-code studio for building and managing agents. Teams create agents, workflows and agent flows tied to business data, systems and work channels.",
+      "claims": [
+        "Copilot Studio is a low-code studio for agents, workflows and agent flows that connect to business data and publish to work channels.",
+        "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates."
+      ],
+      "claimSources": [
+        "Overview - Microsoft Copilot Studio",
+        "Add tools to custom agents"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-01",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-02",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-03",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  data[\"BUSINESS<br/>DATA\"]\n  studio[\"LOW-CODE<br/>STUDIO\"]\n  work[\"WORK<br/>CHANNELS\"]\n  data --> studio --> work",
+        "caption": "The studio connects business data and systems to workplace channels through managed agents and workflows."
+      },
+      "visualId": "01-managed-build",
+      "decision": "Fund governed agent scale where workflows merit managed automation.",
+      "startFrame": 378,
+      "durationInFrames": 395,
+      "endFrame": 773,
+      "speechStartFrame": 386,
+      "speechEndFrame": 764
+    },
+    {
+      "id": "orchestrate-choices",
+      "kind": "section",
+      "title": "2. Orchestrate choices",
+      "body": "Generative orchestration is the decision layer. It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.",
+      "narration": "Generative orchestration is the decision layer. It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.",
+      "claims": [
+        "Generative orchestration lets agents choose tools, knowledge, topics or other agents, ask for missing inputs and compose responses."
+      ],
+      "claimSources": [
+        "Orchestrate agent behavior with generative AI"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-04",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        },
+        {
+          "evidenceId": "ev-05",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        },
+        {
+          "evidenceId": "ev-06",
+          "sourceTitle": "Orchestrate agent behavior with generative AI",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "excalidraw",
+        "caption": "A readable routing model: one request can route to knowledge, tools, topics or other agents.",
+        "source": "[{\"type\":\"rectangle\",\"id\":\"request\",\"x\":80,\"y\":230,\"width\":260,\"height\":110,\"strokeColor\":\"#5A8CFF\",\"backgroundColor\":\"#10233A\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"REQUEST\",\"fontSize\":34,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"diamond\",\"id\":\"router\",\"x\":430,\"y\":180,\"width\":240,\"height\":210,\"strokeColor\":\"#F1C75B\",\"backgroundColor\":\"#3A2E10\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"CHOOSE\\nNEXT STEP\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"topic\",\"x\":780,\"y\":60,\"width\":260,\"height\":80,\"strokeColor\":\"#5A8CFF\",\"backgroundColor\":\"#111827\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TOPIC\",\"fontSize\":32,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"tool\",\"x\":780,\"y\":180,\"width\":260,\"height\":80,\"strokeColor\":\"#5A8CFF\",\"backgroundColor\":\"#111827\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"TOOL\",\"fontSize\":32,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"knowledge\",\"x\":780,\"y\":300,\"width\":260,\"height\":80,\"strokeColor\":\"#5A8CFF\",\"backgroundColor\":\"#111827\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"KNOWLEDGE\",\"fontSize\":32,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"rectangle\",\"id\":\"agent\",\"x\":780,\"y\":420,\"width\":260,\"height\":80,\"strokeColor\":\"#5A8CFF\",\"backgroundColor\":\"#111827\",\"fillStyle\":\"solid\",\"roughness\":0,\"strokeWidth\":4,\"label\":{\"text\":\"OTHER AGENT\",\"fontSize\":30,\"strokeColor\":\"#FFFFFF\"}},{\"type\":\"arrow\",\"x\":340,\"y\":285,\"width\":90,\"height\":0,\"start\":{\"id\":\"request\"},\"end\":{\"id\":\"router\"},\"strokeColor\":\"#5A8CFF\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":670,\"y\":285,\"width\":110,\"height\":-180,\"start\":{\"id\":\"router\"},\"end\":{\"id\":\"topic\"},\"strokeColor\":\"#F1C75B\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":670,\"y\":285,\"width\":110,\"height\":-60,\"start\":{\"id\":\"router\"},\"end\":{\"id\":\"tool\"},\"strokeColor\":\"#F1C75B\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":670,\"y\":285,\"width\":110,\"height\":60,\"start\":{\"id\":\"router\"},\"end\":{\"id\":\"knowledge\"},\"strokeColor\":\"#F1C75B\",\"strokeWidth\":5,\"roughness\":0},{\"type\":\"arrow\",\"x\":670,\"y\":285,\"width\":110,\"height\":180,\"start\":{\"id\":\"router\"},\"end\":{\"id\":\"agent\"},\"strokeColor\":\"#F1C75B\",\"strokeWidth\":5,\"roughness\":0}]"
+      },
+      "visualId": "02-orchestrate-choices",
+      "decision": "Fund governed agent scale where workflows merit managed automation.",
+      "startFrame": 773,
+      "durationInFrames": 380,
+      "endFrame": 1153,
+      "speechStartFrame": 781,
+      "speechEndFrame": 1145
+    },
+    {
+      "id": "tools-execute",
+      "kind": "section",
+      "title": "3. Tools execute work",
+      "body": "Tools are where intent turns into action. Govern connectors, agent flows, prompts, REST APIs, MCP and computer use for both modern apps and legacy screens under policy.",
+      "narration": "Tools are where intent turns into action. Govern connectors, agent flows, prompts, REST APIs, MCP and computer use for both modern apps and legacy screens under policy.",
+      "claims": [
+        "Tools move intent to action through connectors, agent flows, prompts, REST APIs, MCP and computer use, with policy restrictions available."
+      ],
+      "claimSources": [
+        "Add tools to custom agents"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-07",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-08",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "Tool routes convert intent into action, but each route should be governed before scale.",
+        "source": "# TOOL ROUTES\n\n| CONNECTOR | AGENT FLOW | PROMPT |\n|---|---|---|\n| REST API | MCP | COMPUTER USE |\n\n## GOVERN BEFORE SCALE"
+      },
+      "visualId": "03-tools-execute",
+      "decision": "Fund governed agent scale where workflows merit managed automation.",
+      "startFrame": 1153,
+      "durationInFrames": 429,
+      "endFrame": 1582,
+      "speechStartFrame": 1161,
+      "speechEndFrame": 1574
+    },
+    {
+      "id": "govern-platform",
+      "kind": "section",
+      "title": "4. Govern the platform",
+      "body": "Scale only with enterprise controls attached. Data policies, audit logs, Agent 365, Entra identities, spend controls and evaluations keep the platform managed at scale.",
+      "narration": "Scale only with enterprise controls attached. Data policies, audit logs, Agent 365, Entra identities, spend controls and evaluations keep the platform managed at scale.",
+      "claims": [
+        "Enterprise control includes data policies, audit visibility, Agent 365 governance, Entra agent identities and security controls.",
+        "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates."
+      ],
+      "claimSources": [
+        "Security and governance",
+        "Add tools to custom agents"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-10",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-11",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-12",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-13",
+          "sourceTitle": "Security and governance",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+        },
+        {
+          "evidenceId": "ev-09",
+          "sourceTitle": "Add tools to custom agents",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent"
+        },
+        {
+          "evidenceId": "ev-14",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        },
+        {
+          "evidenceId": "ev-15",
+          "sourceTitle": "Overview - Microsoft Copilot Studio",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "caption": "A control board keeps scale tied to identity, policy, audit, cost and quality evidence.",
+        "source": "# CONTROL BOARD\n\n| DATA POLICY | AUDIT | AGENT 365 |\n|---|---|---|\n| ENTRA ID | SPEND | EVALUATION |\n\n## MANAGED AGENT PLATFORM"
+      },
+      "visualId": "04-govern-platform",
+      "decision": "Fund governed agent scale where workflows merit managed automation.",
+      "startFrame": 1582,
+      "durationInFrames": 457,
+      "endFrame": 2039,
+      "speechStartFrame": 1590,
+      "speechEndFrame": 2024
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.",
+      "startFrame": 8,
+      "endFrame": 369,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Copilot Studio is a low-code studio for building and managing agents.",
+      "startFrame": 386,
+      "endFrame": 544,
+      "sourceSegmentIndex": 1,
+      "sceneId": "managed-build"
+    },
+    {
+      "text": "Teams create agents, workflows and agent flows tied to business data, systems and work channels.",
+      "startFrame": 544,
+      "endFrame": 764,
+      "sourceSegmentIndex": 1,
+      "sceneId": "managed-build"
+    },
+    {
+      "text": "Generative orchestration is the decision layer.",
+      "startFrame": 781,
+      "endFrame": 884,
+      "sourceSegmentIndex": 2,
+      "sceneId": "orchestrate-choices"
+    },
+    {
+      "text": "It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.",
+      "startFrame": 884,
+      "endFrame": 1145,
+      "sourceSegmentIndex": 2,
+      "sceneId": "orchestrate-choices"
+    },
+    {
+      "text": "Tools are where intent turns into action.",
+      "startFrame": 1161,
+      "endFrame": 1262,
+      "sourceSegmentIndex": 3,
+      "sceneId": "tools-execute"
+    },
+    {
+      "text": "Govern connectors, agent flows, prompts, REST APIs, MCP and computer use for both modern apps and legacy screens under policy.",
+      "startFrame": 1262,
+      "endFrame": 1574,
+      "sourceSegmentIndex": 3,
+      "sceneId": "tools-execute"
+    },
+    {
+      "text": "Scale only with enterprise controls attached.",
+      "startFrame": 1590,
+      "endFrame": 1707,
+      "sourceSegmentIndex": 4,
+      "sceneId": "govern-platform"
+    },
+    {
+      "text": "Data policies, audit logs, Agent 365, Entra identities, spend controls and evaluations keep the platform managed at scale.",
+      "startFrame": 1707,
+      "endFrame": 2024,
+      "sourceSegmentIndex": 4,
+      "sceneId": "govern-platform"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 5,
+    "cueCount": 9
+  }
+}

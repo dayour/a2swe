@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "copilot-studio-2026",
+  "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
+  "text": "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.\n\nCopilot Studio is a low-code studio for building and managing agents. Teams create agents, workflows and agent flows tied to business data, systems and work channels.\n\nGenerative orchestration is the decision layer. It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.\n\nTools are where intent turns into action. Govern connectors, agent flows, prompts, REST APIs, MCP and computer use for both modern apps and legacy screens under policy.\n\nScale only with enterprise controls attached. Data policies, audit logs, Agent 365, Entra identities, spend controls and evaluations keep the platform managed at scale.",
+  "segments": [
+    {
+      "text": "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Copilot Studio is a low-code studio for building and managing agents. Teams create agents, workflows and agent flows tied to business data, systems and work channels.",
+      "sceneId": "managed-build"
+    },
+    {
+      "text": "Generative orchestration is the decision layer. It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.",
+      "sceneId": "orchestrate-choices"
+    },
+    {
+      "text": "Tools are where intent turns into action. Govern connectors, agent flows, prompts, REST APIs, MCP and computer use for both modern apps and legacy screens under policy.",
+      "sceneId": "tools-execute"
+    },
+    {
+      "text": "Scale only with enterprise controls attached. Data policies, audit logs, Agent 365, Entra identities, spend controls and evaluations keep the platform managed at scale.",
+      "sceneId": "govern-platform"
+    }
+  ],
+  "narrationSha256": "54243c743476616c0d8ebf6067519afc97176f5a05b905985d4b4e32aec5bf0d",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Agent 365": "Agent three sixty five",
+      "MCP": "M C P",
+      "API": "A P I",
+      "APIs": "A P I s"
+    }
+  },
+  "outputWav": "public/assets/copilot-studio-2026/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 60,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

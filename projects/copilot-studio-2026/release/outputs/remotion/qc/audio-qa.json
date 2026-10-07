@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "adapter": "a2swe-remotion-mp4-adapter-7",
+  "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
+  "input": "dist/render.mp4",
+  "inputSha256": "0347dcc7de9897c012ff9b86fcd819476bae402947b723762c6dd8a5ee052fab",
+  "sourceAudioSha256": "a37baa750311b967da7dfd7ce7b630c1f8e0710fe93dd1466e1e8a64eb675380",
+  "sampleRate": 48000,
+  "durationSeconds": 68.010667,
+  "producer": "scripts/synthesize-audio.py",
+  "engine": "kokoro_onnx",
+  "voice": {
+    "lang": "a",
+    "phonemeSegments": [
+      [
+        "bˈɑTəm lˈIn: jˈuz kˈOpˌIlət stˈudiO æz ɐ ɡˈʌvəɹnd ˈAʤᵊnt plˈætfˌɔɹm, mˈuvɪŋ fɹʌm bˈɪznəs ɪntˈɛnt tə jˈusfᵊl ˈækʃən wˌIl fˈʌndɪŋ wˈɜɹkflˌOz ðˈæt mˈɛɹət skˈAl, wɪð ɹˈɪɡəɹ."
+      ],
+      [
+        "kˈOpˌIlət stˈudiO ɪz ɐ lˌOkˈOd stˈudiO fɔɹ bˈɪldɪŋ ænd mˈænɪʤɪŋ ˈAʤᵊnts. tˈimz kɹiˈAt ˈAʤᵊnts, wˈɜɹkflˌOz ænd ˈAʤᵊnt flˈOz tˈId tə bˈɪznəs dˈATə, sˈɪstəmz ænd wˈɜɹk ʧˈænᵊlz."
+      ],
+      [
+        "ʤˈɛnəɹəTɪv ˌɔɹkəstɹˈAʃən ɪz ðə dəsˈɪʒᵊn lˈAəɹ. ˌɪt lˈɛts ɐn ˈAʤᵊnt ʧˈuz tˈɑpɪks, tˈulz, nˈɑləʤ ɔɹ ˈʌðəɹ ˈAʤᵊnts, ˈæsk fɔɹ mˈɪsɪŋ ˈɪnpˌʊt, ænd ðˈɛn kəmpˈOz ðə ɹəspˈɑns."
+      ],
+      [
+        "tˈulz ɑɹ wˌɛɹ ɪntˈɛnt tˈɜɹnz ˈɪntu ˈækʃən. ɡˈʌvəɹn kənˈɛktəɹz, ˈAʤᵊnt flˈOz, pɹˈɑmpts, ɹˈɛst ɐ pˈi ˌI ˈɛs, ˈɛm sˈi pˈi ænd kəmpjˈuTəɹ jˈus fɔɹ bˈOθ mˈɑdəɹn ˈæps ænd lˈɛɡəsi skɹˈinz ˈʌndəɹ pˈɑləsi."
+      ],
+      [
+        "skˈAl ˈOnli wɪð ˈɛntəɹpɹˌIz kəntɹˈOlz ətˈæʧt. dˈATə pˈɑləsiz, ˈɔdət lˈɔɡz, ˈAʤᵊnt θɹˈi sˈɪksti fˈIv, ˈɛntɹə IdˈɛntəTiz, spˈɛnd kəntɹˈOlz ænd əvˌæljʊˈAʃənz kˈip ðə plˈætfˌɔɹm mˈænɪʤd æt skˈAl."
+      ]
+    ],
+    "phonemesSha256": "85959162a5526f92bb21a391b44cb2b6a2555d4545ed116dc2bd758900a9ba2a",
+    "phonemizer": "misaki",
+    "profileId": "am_michael",
+    "speed": 1,
+    "spokenSegments": [
+      "Bottom line: use Copilot Studio as a governed agent platform, moving from business intent to useful action while funding workflows that merit scale, with rigor.",
+      "Copilot Studio is a low-code studio for building and managing agents. Teams create agents, workflows and agent flows tied to business data, systems and work channels.",
+      "Generative orchestration is the decision layer. It lets an agent choose topics, tools, knowledge or other agents, ask for missing input, and then compose the response.",
+      "Tools are where intent turns into action. Govern connectors, agent flows, prompts, REST A P I s, M C P and computer use for both modern apps and legacy screens under policy.",
+      "Scale only with enterprise controls attached. Data policies, audit logs, Agent three sixty five, Entra identities, spend controls and evaluations keep the platform managed at scale."
+    ],
+    "voiceTensorSha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1"
+  },
+  "metrics": {
+    "overall": {
+      "label": "overall",
+      "durationSeconds": 68.010667,
+      "rmsDbfs": -19.558531,
+      "peakDbfs": -1.494276,
+      "highFrequencyRatio8k": 0.002339,
+      "spectralFlatness": 0.000001
+    },
+    "speech": {
+      "label": "speech",
+      "durationSeconds": 65,
+      "rmsDbfs": -19.361894,
+      "peakDbfs": -1.494276,
+      "highFrequencyRatio8k": 0.003909,
+      "spectralFlatness": 0.000001
+    },
+    "silence": {
+      "label": "nonSpeechGaps",
+      "durationSeconds": 3.010667,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "interiorSilence": {
+      "label": "nonSpeechGapInteriors",
+      "durationSeconds": 1.810667,
+      "rmsDbfs": -240,
+      "peakDbfs": -240,
+      "highFrequencyRatio8k": 0,
+      "spectralFlatness": 0
+    },
+    "sourceBoundaries": {
+      "label": "sourceSpeechBoundaries",
+      "segmentsChecked": 5,
+      "edgeWindowSeconds": 0.01,
+      "maxOnsetRmsDbfs": -240,
+      "maxTailRmsDbfs": -240,
+      "maxJumpDbfs": -240
+    },
+    "snrSpeechVsSilenceDb": 220.638106,
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 3,
+      "truePeakDbtp": -1.5
+    }
+  },
+  "mastering": {
+    "gainDb": 8.66,
+    "inputLufs": -24.37,
+    "limitedSampleRatio": 0.02816,
+    "maxLimiterReductionDb": 7.01,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16,
+    "truePeakCeilingDbtp": -1.5
+  },
+  "thresholds": {
+    "gapBoundaryGuardSeconds": 0.1,
+    "maxSourceBoundaryJumpDbfs": -55,
+    "maxSourceEdgeRmsDbfs": -60,
+    "maxSilenceRmsDbfs": -55,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "minSpeechVsSilenceSnrDb": 45,
+    "targetLufs": -16,
+    "maxLoudnessDeviationLu": 1,
+    "maxTruePeakDbtp": -1
+  },
+  "findings": [],
+  "valid": true,
+  "spectrogram": "qc/audio-spectrogram.svg"
+}
