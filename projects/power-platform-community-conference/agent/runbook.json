@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "power-platform-community-conference",
   "projectId": "power-platform-community-conference",
-  "updatedAt": "2026-10-06T01:37:37.247Z",
+  "updatedAt": "2026-10-07T01:06:32.142Z",
   "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
   "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
   "stage": "delivery",
@@ -23,13 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "31a3768243eea85095a61c3f1d4b00354801461530d304ad377d9ae142717fa2"
+      "evidenceDigest": "8122ed2a753b90ecd75715e7646dd2fb4e2abaa2c4466b82ca1fb537f567665b"
+    },
+    {
+      "name": "native-office",
+      "status": "passed",
+      "evidencePath": "qc/native-office/native-render.json",
+      "evidenceDigest": "8e1c2f4f3d51d35b1efc9e896b6109c0c621f4f93f85ffd03917bd5a5b932889"
+    },
+    {
+      "name": "media-analysis",
+      "status": "passed",
+      "evidencePath": "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "90d675540b1a23f408b83affbfe36e6125508f5d6afd54d1b01b69e72e5bfc30"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "6e71c7412c51c51d48d3db34824d9e82d3c90f45f08986cca7568fbb7733a042"
+      "evidenceDigest": "f946eac75589e3e325b552b5fb5c013fe1b6ac33b2f7c416a55f72c298799f86"
     }
   ],
   "stages": [
@@ -50,6 +62,7 @@
         "scaffold"
       ],
       "evidencePaths": [
+        "canonical/domain-pack.json",
         "release/domain-pack.json"
       ]
     },
@@ -61,6 +74,7 @@
         "research"
       ],
       "evidencePaths": [
+        "canonical/content-ir.json",
         "release/content-ir.json",
         "release/render-spec.json"
       ]
@@ -93,7 +107,9 @@
       "evidencePaths": [
         "release/outputs/remotion/qc/audio-qa.json",
         "release/outputs/remotion/qc/audio-spectrogram.svg",
-        "release/parity-manifest.json"
+        "release/parity-manifest.json",
+        "qc/native-office/native-render.json",
+        "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -117,10 +133,22 @@
       "stage": "scaffold"
     },
     {
+      "path": "canonical/domain-pack.json",
+      "digest": "f3bdf9f2feebf5c3c8db1738522e3a10b6b204f603ca405331d9048eba12179d",
+      "mediaType": "application/json",
+      "stage": "research"
+    },
+    {
       "path": "release/domain-pack.json",
       "digest": "6f072f4395913d51e6ab5c04e04ba40c03c6db2adb40ade5a80ad898adad6728",
       "mediaType": "application/json",
       "stage": "research"
+    },
+    {
+      "path": "canonical/content-ir.json",
+      "digest": "6fc54ec45dc732a127eb5cbfb68b36ab41622991cf3c5aa4c77d2a92f292dee4",
+      "mediaType": "application/json",
+      "stage": "content"
     },
     {
       "path": "release/content-ir.json",
@@ -130,7 +158,7 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "83e438424eb35acdd86e7427920e14240364f74b96aaadd0c8b853725bf89b63",
+      "digest": "5428ab3f0fef1355c1fcc772f1679c49d8bad1cf39206c82db2ac13e86d6868e",
       "mediaType": "application/json",
       "stage": "content"
     },
@@ -148,7 +176,7 @@
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "8f46f52f1bb31df18788e691f0303441a55216b31bc342b5ab53b88d2a85208e",
+      "digest": "1d6346412955915e510a38c253a2d549e548473ecf5ebe40451fdd14c170dac9",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
@@ -166,37 +194,49 @@
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "919bb2cdc7d5b96ae010fded5a915ce0c27717dcdaddb756c50ac277ce16cd72",
+      "digest": "05f6beb3f6b83be58e82f65fcb15448ccbefd5843401ffd8798c8d84f6ddc856",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "57ba81b608c90c22c0f04a4b292e59159f48cd980d95ac8358f963d60454f34f",
+      "digest": "4995a87cfb4dfded94a67bb47a1818bc9baf38ac14edf136b7ccd8cbe62f91ed",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "668f543de75ae269d073efb100757b5947f03a78eaa4ca4fe5b90f335f515f10",
+      "digest": "6b212c4812ba3d4c6fddc45ef82ceeca62ac12a793fc88195f29e1765d671660",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "31a3768243eea85095a61c3f1d4b00354801461530d304ad377d9ae142717fa2",
+      "digest": "8122ed2a753b90ecd75715e7646dd2fb4e2abaa2c4466b82ca1fb537f567665b",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "b85a4bf23a6917ea76c862072fb3eebff083efbaa864074dc7d1874134cb41f5",
+      "digest": "2c89bed9aebe0da4368be67553c789dd8a10636d55cc0de9a79ccd5051107c50",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "6e71c7412c51c51d48d3db34824d9e82d3c90f45f08986cca7568fbb7733a042",
+      "digest": "f946eac75589e3e325b552b5fb5c013fe1b6ac33b2f7c416a55f72c298799f86",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/native-office/native-render.json",
+      "digest": "8e1c2f4f3d51d35b1efc9e896b6109c0c621f4f93f85ffd03917bd5a5b932889",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-10/power-platform-community-conference-2026-10-am_michael-kokoro_onnx/analysis.json",
+      "digest": "90d675540b1a23f408b83affbfe36e6125508f5d6afd54d1b01b69e72e5bfc30",
       "mediaType": "application/json",
       "stage": "qc"
     },
@@ -208,11 +248,11 @@
     },
     {
       "path": "release/release-plan.json",
-      "digest": "5e8c3673a138c975c1a76a03df057b404173788f0453355206236d2be732a9f1",
+      "digest": "94317db1b65355c6d5702676d33e1a6ed6d28ca442c11a39732e1d8a39ca009f",
       "mediaType": "application/json",
       "stage": "delivery"
     }
   ],
   "blockers": [],
-  "nextAction": "Use the verified release package for the executive decision; publication and distribution remain outside a2swe."
+  "nextAction": "Use the verified release and revision renders for the executive decision; publication and distribution remain outside a2swe."
 }

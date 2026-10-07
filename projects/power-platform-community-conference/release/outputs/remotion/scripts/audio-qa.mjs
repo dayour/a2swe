@@ -23,7 +23,7 @@ function run(command, args, label, options = {}) {
   const result = spawnSync(command, args, { cwd: root, encoding: null, maxBuffer: 96 * 1024 * 1024, windowsHide: true, ...options });
   if (result.error) fail(label + ' executable failed to start: ' + result.error.message);
   if (result.status !== 0) {
-    const detail = Buffer.concat([result.stderr || Buffer.alloc(0), result.stdout || Buffer.alloc(0)]).toString('utf8').trim().slice(0, 4000);
+    const detail = Buffer.concat([result.stdout || Buffer.alloc(0), result.stderr || Buffer.alloc(0)]).toString('utf8').trim().slice(-4000);
     fail(label + ' exited with ' + result.status + ': ' + detail);
   }
   return result.stdout;
@@ -303,16 +303,36 @@ const overall = summarize('overall', samples);
 const speech = summarize('speech', speechSamples);
 const silence = summarize('nonSpeechGaps', silenceSamples);
 const interiorSilence = summarize('nonSpeechGapInteriors', interiorSamples);
+const loudnessRun = spawnSync(ffmpeg, ['-hide_banner', '-nostats', '-i', path.isAbsolute(input) ? input : path.join(root, input), '-map', '0:a:0', '-af', 'ebur128=peak=true:framelog=quiet', '-f', 'null', '-'],
+  { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, windowsHide: true });
+if (loudnessRun.error || loudnessRun.status !== 0) fail('ffmpeg loudness measurement failed: ' + (loudnessRun.error?.message || String(loudnessRun.stderr || '').slice(-2000)));
+const loudnessSummary = String(loudnessRun.stderr || '');
+function loudnessValue(pattern) {
+  const match = pattern.exec(loudnessSummary.slice(loudnessSummary.lastIndexOf('Summary:')));
+  return match ? Number(match[1]) : Number.NaN;
+}
+const loudness = {
+  integratedLufs: loudnessValue(/I:\s+(-?[\d.]+)\s+LUFS/),
+  loudnessRangeLu: loudnessValue(/LRA:\s+(-?[\d.]+)\s+LU/),
+  truePeakDbtp: loudnessValue(/Peak:\s+(-?[\d.]+)\s+dBFS/)
+};
 const thresholds = {
   gapBoundaryGuardSeconds,
   maxSourceBoundaryJumpDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_JUMP_DBFS', -55),
   maxSourceEdgeRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SOURCE_EDGE_RMS_DBFS', -60),
   maxSilenceRmsDbfs: strictThreshold('A2SWE_AUDIO_QA_MAX_SILENCE_RMS_DBFS', -55),
   maxSpeechHighFrequencyRatio8k: strictThreshold('A2SWE_AUDIO_QA_MAX_SPEECH_HF_RATIO_8K', 0.03),
-  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true)
+  minSpeechVsSilenceSnrDb: strictThreshold('A2SWE_AUDIO_QA_MIN_SNR_DB', 45, true),
+  targetLufs: -16,
+  maxLoudnessDeviationLu: strictThreshold('A2SWE_AUDIO_QA_MAX_LOUDNESS_DEVIATION_LU', 1),
+  maxTruePeakDbtp: strictThreshold('A2SWE_AUDIO_QA_MAX_TRUE_PEAK_DBTP', -1)
 };
 const snr = rounded(speech.rmsDbfs - interiorSilence.rmsDbfs);
 const findings = [];
+if (!Number.isFinite(loudness.integratedLufs) || Math.abs(loudness.integratedLufs - thresholds.targetLufs) > thresholds.maxLoudnessDeviationLu) {
+  findings.push('integrated loudness is outside the online-video target');
+}
+if (!Number.isFinite(loudness.truePeakDbtp) || loudness.truePeakDbtp > thresholds.maxTruePeakDbtp) findings.push('true peak exceeds the encoded-audio ceiling');
 if (sourceBoundaries.maxJumpDbfs > thresholds.maxSourceBoundaryJumpDbfs ||
   Math.max(sourceBoundaries.maxOnsetRmsDbfs, sourceBoundaries.maxTailRmsDbfs) > thresholds.maxSourceEdgeRmsDbfs) {
   findings.push('source speech boundaries contain a DC step or abrupt transition');
@@ -323,7 +343,7 @@ if (speech.highFrequencyRatio8k > thresholds.maxSpeechHighFrequencyRatio8k && sp
 const valid = findings.length === 0;
 const report = {
   schemaVersion: '1.0.0',
-  adapter: 'a2swe-remotion-mp4-adapter-3',
+  adapter: 'a2swe-remotion-mp4-adapter-10',
   contentDigest: plan.contentDigest,
   input,
   inputSha256: sha256File(input),
@@ -333,7 +353,8 @@ const report = {
   producer: metadata.producer,
   engine: metadata.engine,
   voice: metadata.voice,
-  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr },
+  metrics: { overall, speech, silence, interiorSilence, sourceBoundaries, snrSpeechVsSilenceDb: snr, loudness },
+  mastering: metadata.mastering ?? null,
   thresholds,
   findings,
   valid,

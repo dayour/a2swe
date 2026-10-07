@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -1.7111050423790353e-11,
-      "highFrequencyRatio8k": 0.0030279888059249766,
-      "rmsDbfs": -27.821199060197436,
-      "spectralFlatness": 8.269853763394377e-05
+      "dcOffset": 4.849285469704645e-12,
+      "highFrequencyRatio8k": 0.0030227736063016364,
+      "rmsDbfs": -27.822879251919858,
+      "spectralFlatness": 1.482883016604921e-07
     },
     "before": {
-      "dcOffset": 1.5431793144671246e-05,
-      "highFrequencyRatio8k": 0.0030273479301886944,
-      "rmsDbfs": -27.820600321603088,
-      "spectralFlatness": 8.267432645184467e-05
+      "dcOffset": 1.580227217345964e-05,
+      "highFrequencyRatio8k": 0.003022132635803119,
+      "rmsDbfs": -27.822279601177296,
+      "spectralFlatness": 1.3704988983594888e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/power-platform-community-conference/audio.wav",
-  "audioSha256": "aeec1189c771677428fa8edf927a00200490168f3c4f69d5bdcd61ccb6f9bb1b",
+  "audioSha256": "dc3a534b9cdbbe5145fb9a999c1fc670aca69fd91b74335657e40db8b982543e",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -63,6 +63,17 @@
   },
   "inputSampleRate": 24000,
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
+  "mastering": {
+    "gainDb": 8.59,
+    "inputLufs": -24.32,
+    "limitedSampleRatio": 0.0325,
+    "maxLimiterReductionDb": 4.71,
+    "outputLufs": -16.04,
+    "outputTruePeakDbtp": -1.5,
+    "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
+    "targetLufs": -16.0,
+    "truePeakCeilingDbtp": -1.5
+  },
   "models": {
     "voices": {
       "path": "C:\\Users\\dayour\\Downloads\\kokoro-onnx\\voices-v1.0.bin",
@@ -75,12 +86,12 @@
   },
   "narrationSha256": "4d84cd96ad31774ac35a0e4207c06dd1e3f3b9fc9c296ba5d9e34c360fbc2fce",
   "producer": "scripts/synthesize-audio.py",
-  "producerSha256": "3c7c1d491fb69dd354ce508f936ee841a46849089af4bfa262ee6d9181553f1b",
+  "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.5431792223032904e-05,
-    "peak": 0.5424427390098572,
-    "rms": 0.04063229533115996
+    "dc": 1.5802271948827226e-05,
+    "peak": 0.5369738936424255,
+    "rms": 0.04063612399700073
   },
   "requestedDurationSeconds": 75.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
