@@ -8,8 +8,8 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "6bd3d9714d01ffc50af5b192bc23200d416b2ce9f0fe07fc533a825aad0baf37",
-      "byteSize": 19128
+      "digest": "1e1b80f6e10a2decc63b43a62a5802181a9f365bfa2c74d8a81f9fe393c9521c",
+      "byteSize": 23605
     },
     {
       "path": "qc/analysis/copilot-studio-2026-01/copilot-studio-2026-01/analysis.json",
@@ -1292,24 +1292,264 @@
       "byteSize": 10438
     },
     {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/analysis.json",
+      "digest": "6b318397f18761fcf82ef2353d9559eefc90107c17382091ab7e0c3ea947e5ed",
+      "byteSize": 13252
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "7fb2db8ad08ee33bd4d0750ad9453b006f6fae0662475889ae2eb847c91f66a2",
+      "byteSize": 95241
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "5a7461cc1b3b57454a9a987cf4f13a2255bc3f48986008e278b1d1f2e14e64e8",
+      "byteSize": 95961
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "8c2e937bf994406672f11eaf97ca4380b2df962532a64c550528740d85ae532e",
+      "byteSize": 95588
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "426d5d96317973a235c3601eff84b5c31d8b1bd5d43f93bfd0fb913cf9b9e56e",
+      "byteSize": 92072
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "8d327895490d8bcbda07c09f9cad2a159d89f05e835c3e0591ddf6f821567a91",
+      "byteSize": 91725
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "b70df21245e9c01206aebf755b0206605cf2167d382fe9d501c9502a50dd09c5",
+      "byteSize": 422843
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "393a23dfba92ab20249ac003fcda203dfb53b20dab5f6f6b98846f9678b9f947",
+      "byteSize": 47528
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/layers.png",
+      "digest": "66bf2c73f956f880f945c0fb419ca9ba1f1110b5f350d007826188707c3d4a00",
+      "byteSize": 73034
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "c5b60ace23946de0a600310d49fa692383a91d9f14e38a8b5a464a10a41c94f7",
+      "byteSize": 258846
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "03abd2c75ff61c23d7e4186b7eda56756564d94be4de028c5764aed9ea49aa13",
+      "byteSize": 173596
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_bella-kokoro_onnx/waveform.png",
+      "digest": "c0d6201a5211f61054f4e9b6c40f7669d61c8f0e1ee5997e3287e3e6c52af6cf",
+      "byteSize": 10197
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/analysis.json",
+      "digest": "ae2cb4987d99e8d424abcebea276f767cd281ca4fee7aa460d362b88df41aa98",
+      "byteSize": 13079
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "01760edc911e33999b124e0c5f6eb5a7d24aed1a5cdaac17de20c8dffceaa4d8",
+      "byteSize": 93993
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "aa58ddcfae07a83848f388fe28880a736b11194ff71480ab317ad0744d8f4271",
+      "byteSize": 94784
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "0652ae774f539a63253c13639c164c26f8ca089d7fb0d52fa4c79de022ca87cc",
+      "byteSize": 93955
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "8f95debbdb4bcdf72b6506c2c245f23023bfa8067a8a572232f71d8793b990df",
+      "byteSize": 96628
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "2a303b63b11989886b89bf7e7bd226306818516107721ba6edffe1a2c828e2bb",
+      "byteSize": 90271
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "1d32ab1c66d12389eca93112af0b45f1b0bd89d7c31c8b6df1d339df94dd9ed7",
+      "byteSize": 415816
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "203db4aa95edf0a585caaa150a1416db04ddf8a926f7c514010b916eca38a260",
+      "byteSize": 47574
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/layers.png",
+      "digest": "a8ad66d806cf14b666c863d4913a5e21013851bd1d4a1e22216a6b1761ca07d0",
+      "byteSize": 75103
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "be6924807b1937c80cd670485f69d92675c79bb2e23a0eefc1886d6b2298d72f",
+      "byteSize": 259496
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "cc81757a9ecb3863c0cc79c25ed364b43f2c6f5e132437af7401b477e89446df",
+      "byteSize": 171317
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-af_heart-kokoro_onnx/waveform.png",
+      "digest": "1740e3e40aba34d6bac82591921dfe2e77535097321f268c146adcb9d60c5895",
+      "byteSize": 10189
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/analysis.json",
+      "digest": "57be7282f92c30580c6c7554d831b94902db5f8066a450883d96ba5bbb6a0a31",
+      "byteSize": 13283
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "84ff2b21a6cea5be369ba43d7c445ec405c7037d4117c10ab435438d3c9d2a4a",
+      "byteSize": 94755
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/chunks/02-managed-build.jpg",
+      "digest": "c9840c118fb294213d17f99004764c96b06b99734908e40a25a6a8d7fcdd8465",
+      "byteSize": 96183
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/chunks/03-orchestrate-choices.jpg",
+      "digest": "667920e12f6777e2b98bb0c765f7892956ce4c7b6621bb5a8945fc20afbc9a97",
+      "byteSize": 94348
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/chunks/04-tools-execute.jpg",
+      "digest": "05f6b984c5052fec1f4778247d76fc2b9bee8e2acd4a88c89d3d625e82fa6100",
+      "byteSize": 89906
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/chunks/05-govern-platform.jpg",
+      "digest": "b4bf06fefe62c78cae443288f8537b9f6d5e75eb3b78f89cd4d3f10d85d8bcd4",
+      "byteSize": 89991
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "2fdf5b1ed41e4e949b40e66e5705c32d4086909f6475116c0c297ea67af16575",
+      "byteSize": 413886
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "400ed48989813ef7619f06e133e56f856d542b873a583df90e9ac5b8b1b18c56",
+      "byteSize": 47576
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/layers.png",
+      "digest": "3fc9aaf7bc90f63fe3f4bd009d5c1a028b7efcc279d5b8f591233721ef0ef280",
+      "byteSize": 75031
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "f3cbc247f2c9f7545c2569bbd7784500f3bd0e17dee7d57f1c46bf7c9172fd30",
+      "byteSize": 248886
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "e70acd506ce3e4983093b96a1874a5ef478dfd9ed1bc9730c129b68e282babdc",
+      "byteSize": 165819
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro_onnx/waveform.png",
+      "digest": "151d7bd07b9d08d4eba200446732d9b7d3099ff66baab304dc5290405a20616b",
+      "byteSize": 10439
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/analysis.json",
+      "digest": "1cd35c6c9386085ce215a603453912f291b81cfedfb2e2f11ce5dc87f9d7cc75",
+      "byteSize": 13267
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "838a14b08e5dd44f22b474abaa71d308fc91239f144e69e7cea511a686de1114",
+      "byteSize": 94801
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/chunks/02-managed-build.jpg",
+      "digest": "795712191a30d33d2ee1b57758d704d5573abd6bfce72b7ceeb5814b749dd50f",
+      "byteSize": 95588
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/chunks/03-orchestrate-choices.jpg",
+      "digest": "7615b722c7852fa630b90c038f288afccd5448c95d9e8966bc2ae36a76f2ffdb",
+      "byteSize": 94395
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/chunks/04-tools-execute.jpg",
+      "digest": "e8caf2cb9852982888786a588533331afab59dd94177e1ebb642800a110f3cc5",
+      "byteSize": 90072
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/chunks/05-govern-platform.jpg",
+      "digest": "0b0a5178641772fc85888feb0922b7992e9352e1ab2c6e113d5dd4b2fa492bd3",
+      "byteSize": 89943
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "30f4eb247cb9d8fa1eb1ea3117f5ecbe4110a1092d67a4cf18bd17141703b478",
+      "byteSize": 413798
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/frame-strip.jpg",
+      "digest": "8857f7381b415b0fa648edab63f7a0a223e1a431f720c31cce4dec22e40573dc",
+      "byteSize": 47581
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/layers.png",
+      "digest": "7f58f8fe0d015df5773d3ea390e7742e12f0e5618c5dd1796e7280882e06cf0c",
+      "byteSize": 74534
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "4f3380aad44d881b0c4180921d2a9f6dc090eafc0fe20e210c373270a6d90989",
+      "byteSize": 248922
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/spectrogram.jpg",
+      "digest": "f8c840915d0be0a2e89a7a1d9242475ef498ba9bee9d91b6187e95633f273018",
+      "byteSize": 165797
+    },
+    {
+      "path": "qc/analysis/copilot-studio-2026-08/copilot-studio-2026-08-am_michael-kokoro/waveform.png",
+      "digest": "c65aeb06cd1eff131594131dcbb0a9676bc425389ff0a0980c2ee1c7f1837292",
+      "byteSize": 10453
+    },
+    {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "5d32fb1bcfb713c002d1375ffac0461547c6c31fad1f28a8f8c3d3bc68d98d68",
-      "byteSize": 777226
+      "digest": "e804f06c2a4f27ee83d849028f06647c97de79c1232aaadd5875189b104b7bb4",
+      "byteSize": 992850
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "dd4f8319f007ce9e062ceb8669d948487d8d2750a5386d79dbb9783d26ecc251",
-      "byteSize": 758390
+      "digest": "0783ca5fa7cacc20a944744751b7561a3a0acfb409a564e825a4786930028bbc",
+      "byteSize": 931531
     },
     {
       "path": "qc/analysis/report.md",
-      "digest": "85d92e74d0e4beac8fcecf6650389b06c0b6cee53fb2239ed0275837b67a5d56",
-      "byteSize": 16726
+      "digest": "080ddd2ca5d2b99c0d74683f31a2c8b67894c6b012048fa24512aa9a2b15ba3a",
+      "byteSize": 20845
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "88f4320a0c4d9d0166303def29a21499898dfe9fa5ef1fd598751375cfaaed5a",
-      "byteSize": 1172966
+      "digest": "71688f4110052e5c90151163a3e817957432269bb902e124e86ed3ee66439997",
+      "byteSize": 1457984
     },
     {
       "path": "qc/brand/brand-source.json",
@@ -1318,127 +1558,127 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "01b3bc38aba1351296ffa9972c111e037cb1ec12d7980f1a5430e7d9ad2b4a80",
-      "byteSize": 120790
+      "digest": "f2bcb9658fa5568bd1a2511904b3befac0b50bd4dea1c042ae859fab62f9e3fb",
+      "byteSize": 129500
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "2f9c068cd237d77d74cb8a7f603d301ecd5b2879740664206f36b40539703ef1",
-      "byteSize": 284230
+      "digest": "48e1e0e2667fe8c9637c8cb8f53125027fa23096031a7c6ba586f2b30e3efb91",
+      "byteSize": 786187
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "798c556aa67b27f786b0e1c071011b97dffc34bdba072c152a01208a06fd206c",
+      "digest": "724c03471be4bab4a57415378c90e75847fc3341784c0054c187af7bd0492a39",
       "byteSize": 725
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "4807cbbbf5965325ec7ec5f5b9de1754f99fe1f1c70e50747da631c459434052",
-      "byteSize": 103598
+      "digest": "271a6e7a6c59578a4b2b1e902f8654d2ffe213004ed5f07a5ff96537b7c3d68a",
+      "byteSize": 103980
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "73a1a066aed0713aaec0373f6e75e5c77e780860534dfdebd3630ff01f4c34ae",
-      "byteSize": 68864
+      "digest": "2317dc71e7273b71a609247044a9983ca5b77cdc451fbe2b38f7c1f57b196a21",
+      "byteSize": 69886
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "a0c264d4c13db1b0399583b08d86a81240f3a68f349180884ec3471ef92168ad",
-      "byteSize": 78333
+      "digest": "4e295706356735d183174e1eee53b7fae9ff204cd9418ab473d308f8951c545f",
+      "byteSize": 79352
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "871dfd4fbd3d71e00e1e05a36278f5dd32370a23a7be22be6fabb91e6a8a71b8",
-      "byteSize": 74265
+      "digest": "a56f208d2a3deaf71d68411e0307d52d3e75cb182c39859e9ec4847b02fd7290",
+      "byteSize": 75292
     },
     {
       "path": "qc/native-office/pages/core-05.png",
-      "digest": "851668d16e63ea2ac86224f9a6636e4a46fbc489512741fa193ed0d1b712fe8d",
-      "byteSize": 96339
+      "digest": "117199437745a61ee44aa59bb04168f409e8046c5a91e91d83ca6844d76d841b",
+      "byteSize": 99084
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "cb44a4339c281f9e5d83156c5eda7109aba486c30f402e978c07d6cde73b0130",
-      "byteSize": 101467
+      "digest": "1258d415dd50f2731b2064184f2fd5ad5f39fc1a73323901791aaed26c1e730b",
+      "byteSize": 125083
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "ed5161aa321750551ebf51b91edd2ba51b9cd0f88d26c850c84533a3c9e0bfba",
-      "byteSize": 81474
+      "digest": "ea5331dbfad597b19d5b2efac225f8d1a4b6c526e35fac585b2947cc797808a0",
+      "byteSize": 111253
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "91d2ebaef58812f2e808b11f7cf180763c6b1ed3b067192a0510be2e6eef1d7c",
-      "byteSize": 84687
+      "digest": "d6c6d3603f89b736612a0cbf4e6279c2cf0374b752d730d829935f686fce239d",
+      "byteSize": 101557
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "dd4735838568995fd49e17be1dc5a48083458872b9e6dddad2e59d69f2c7a5e9",
-      "byteSize": 74272
+      "digest": "94551d12aea1728921c617693847eebc609297fc16f5ca99853a96ab528be9d8",
+      "byteSize": 90373
     },
     {
       "path": "qc/native-office/pages/word-05.png",
-      "digest": "054d0e008ae5cbce818130455b154b8bb61ba3833702e68e34bd98931b9145a7",
-      "byteSize": 61150
+      "digest": "2645f7711f66ab4c7a25df22c126d436c28abf0e5ade7aeee69ad94f52541481",
+      "byteSize": 92884
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "0b557d534f92bbbe8e5afb87bb047de36c410381cb70fcd8bcdcc671538e4466",
-      "byteSize": 185335
+      "digest": "f98acb20ff34cb1811250f472a31dd7e5f7a15027db5c0fef89ef6448a40f03f",
+      "byteSize": 184426
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "ab718cba82b3e6de2aa3152593ecf2c5aa157dddb2b6c70f69ad8f88f0d57c33",
-      "byteSize": 30305
+      "digest": "c6d64d8d16e2909262e50bc1bdb647b1a402182a5076f4a4f4a026161b629571",
+      "byteSize": 83661
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "1792a13c6230929de16fb278c016dee1c5099b05a3a84551925d3d4a067c9268",
-      "byteSize": 106722
+      "digest": "275e538d6264447c816885e11f29350b9667f4a328bdb4316cd7df8182bff3ec",
+      "byteSize": 120229
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "87029210c24afbc91102c6f6c570f4323e7215365fda0468f0a05e5487dcf48f",
-      "byteSize": 128179
+      "digest": "3f54bc7c480499dd0f824185fb9af2741e42b8afa39a5bfd5006c48d9304bd07",
+      "byteSize": 139166
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "6f36927cc102e206edf424779aa447de4d104b75121bb4ec55b930e3cee87c17",
-      "byteSize": 109438
+      "digest": "934576ca3aaea44d4441b008cb218b30381bf7653387c09d578a836080469db6",
+      "byteSize": 112008
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "da174157eccd6dae6da678d8e8d3d476b17086f997a0c3146de7fbc5e9e05b41",
-      "byteSize": 114073
+      "digest": "3617bc8eb4524314a2a6660e613fdf29872c14d545585dc789c4b037a2b822ea",
+      "byteSize": 116402
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "f5e173a6bbfe79f31e0536631192455a15bdd362bbdd4200172115f340020b03",
-      "byteSize": 26099
+      "digest": "04ce6bc5398ca6345a70bf9b4df583ff6a775d2ed0aaaab1e1577586dde7a6e3",
+      "byteSize": 59163
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "ff2d27150589841b2f98a535887d23fda7fb3fdf9fd416e6b08a4e00e351212a",
-      "byteSize": 117315
+      "digest": "7b44b9417002fb74bf314074a365ec9bd70d32d0f4b09a8f2665d5e99c1ea712",
+      "byteSize": 117550
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "e9301dd594eabdca476efec73c72d80f05cd437005ba1afd0242188173782b8a",
+      "digest": "2d4d6dd286b6d1dbdd281f1f18e769c7e8296bdf0d57ff605f10d9fc2557d5e3",
       "byteSize": 5117
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "ce187d5af8933211e657f36e5892929a0046c1215ed8ab51c76ac098dcd39b61",
-      "byteSize": 445898
+      "digest": "eb71c986a3c2c705d50de6aabae5fac0c9d9f82da9908925b74737c3ab16b3fb",
+      "byteSize": 445922
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "25ceb5d515c9599b495b438bc1ac3911e4ae625f7849c37e7327bc6add0e2030",
-      "byteSize": 3567
+      "digest": "c4f4deb567a16bce73eb232ffd1d8773ea580e555b77d042e79e9fdc6ea1eba0",
+      "byteSize": 3566
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "2761d51aa5fdb2a2b77563cb4e33e8c22ddf464bec84c4250f5b6c2bc72583dc",
+      "digest": "d552d1e3d0cd4e90da35d7e1dafe05c8bfc1391c24c492caecf68ab5c95180dc",
       "byteSize": 368
     }
   ]

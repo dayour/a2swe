@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 6.944372594325232e-12,
-      "highFrequencyRatio8k": 0.003960747571709242,
-      "rmsDbfs": -27.87267098615379,
-      "spectralFlatness": 4.840445574872306e-07
+      "dcOffset": -8.662190756347776e-12,
+      "highFrequencyRatio8k": 0.0038708591427851794,
+      "rmsDbfs": -27.872288939143456,
+      "spectralFlatness": 4.6953498891928564e-07
     },
     "before": {
-      "dcOffset": 1.1924073078262154e-05,
-      "highFrequencyRatio8k": 0.003960681745271438,
-      "rmsDbfs": -27.872063082776883,
-      "spectralFlatness": 4.6711050329349197e-07
+      "dcOffset": 1.2201646313769743e-05,
+      "highFrequencyRatio8k": 0.0038707944811016805,
+      "rmsDbfs": -27.871685066821765,
+      "spectralFlatness": 4.560033723321545e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/copilot-studio-2026/audio.wav",
-  "audioSha256": "bdfa8fb88a2c639d0224d03bf01b6056e3849436eb388efce56c8aeb496b98a8",
+  "audioSha256": "cfdb3fc31bdeddc4dfb2ce0a4f88c176a4f7af302245cf5109dc9a6886d88c7d",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -64,11 +64,11 @@
   "inputSampleRate": 24000,
   "interpreter": "C:\\Users\\dayour\\Downloads\\anything2explainer-main\\a2swe\\.venv\\Scripts\\python.exe",
   "mastering": {
-    "gainDb": 8.67,
+    "gainDb": 8.66,
     "inputLufs": -24.36,
-    "limitedSampleRatio": 0.02799,
-    "maxLimiterReductionDb": 7.04,
-    "outputLufs": -16.03,
+    "limitedSampleRatio": 0.02903,
+    "maxLimiterReductionDb": 6.93,
+    "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16.0,
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.1924067939090293e-05,
-    "peak": 0.6959056854248047,
-    "rms": 0.040403949403137046
+    "dc": 1.2201658738191889e-05,
+    "peak": 0.6884905695915222,
+    "rms": 0.04040570154397797
   },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
