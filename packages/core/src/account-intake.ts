@@ -2,6 +2,8 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sha256, windowStart } from './canonical.ts';
+import { DEFAULT_THEME, installBrandTheme, kitBrandTheme } from './brand.ts';
+import type { KitTheme } from './brand.ts';
 import { validate } from './contracts.ts';
 import type { DomainPack } from './contracts.ts';
 
@@ -26,7 +28,6 @@ interface PublicFacts {
     low52?: number | null; marketCap?: string | null; sources?: { title?: string; url?: string }[] } | null;
   news?: { sources?: { name?: string; url?: string; items?: { title?: string; date?: string; url?: string; summary?: string }[] }[] };
 }
-interface Theme { label?: string; colors?: Record<string, string>; palette?: Record<string, string | null> }
 interface CardRow { id?: string; group?: string; date?: string | null; title?: string; values?: Record<string, unknown> }
 interface CardSource { id?: string; title?: string; url?: string | null; date?: string | null; basis?: string | null }
 interface CardData {
@@ -74,34 +75,6 @@ function sentences(text: string): string[] {
     .filter((part) => part.length >= 12).slice(0, 12).map((part) => part.slice(0, 3900));
 }
 
-function luminance(hex: string): number {
-  const channel = (index: number) => {
-    const value = parseInt(hex.slice(1 + index * 2, 3 + index * 2), 16) / 255;
-    return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
-  };
-  return 0.2126 * channel(0) + 0.7152 * channel(1) + 0.0722 * channel(2);
-}
-const contrast = (a: string, b: string) => { const [x, y] = [luminance(a), luminance(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
-const hex = (value: unknown) => (typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value) ? value.toUpperCase() : null);
-
-/** Derives a dark, readable executive render theme from a brand palette; the brand accent is tinted until it reaches 4.5:1 on the background. */
-export function accountTheme(theme: Theme, name: string) {
-  const ordered = [theme.palette?.primary, theme.palette?.secondary, theme.palette?.accent, ...Object.values(theme.colors ?? {}), ...Object.values(theme.palette ?? {})];
-  const colors = [...new Set(ordered.map(hex).filter((value): value is string => Boolean(value)))];
-  const background = [...colors].sort((a, b) => luminance(a) - luminance(b)).find((value) => luminance(value) < 0.06) ?? '#0F172A';
-  const tint = (color: string, amount: number) => `#${[1, 3, 5].map((offset) => Math.round(parseInt(color.slice(offset, offset + 2), 16) * (1 - amount) + 255 * amount)
-    .toString(16).padStart(2, '0')).join('').toUpperCase()}`;
-  let accent = '#F8FAFC';
-  let best = Number.POSITIVE_INFINITY;
-  // Prefer the brand hue that needs the least tint; neutral greys and near-whites only win when no brand color can be made legible.
-  const saturation = (color: string) => { const channels = [1, 3, 5].map((offset) => parseInt(color.slice(offset, offset + 2), 16)); return Math.max(...channels) - Math.min(...channels); };
-  for (const color of colors.filter((value) => value !== background && saturation(value) > 40)) {
-    const step = [0, 0.1, 0.2, 0.3, 0.4, 0.5].find((amount) => contrast(tint(color, amount), background) >= 4.5);
-    if (step !== undefined && step < best) { accent = tint(color, step); best = step; }
-  }
-  return { name: `${slug(name)}-executive`, background, foreground: '#FFFFFF', accent, fontFamily: 'Arial' };
-}
-
 interface Built { source: Source; text: string; evidence: Map<string, Evidence> }
 
 /** Builds a ready DomainPack and its hashed source renderings from a LayeredCards customer folder. */
@@ -114,7 +87,7 @@ export async function importAccountIntake(kitCustomerDirectory: string, projectD
   const intake = card?.intake ?? JSON.parse(await readFile(path.join(kit, 'intake.json'), 'utf8')) as Intake;
   const facts = existsSync(path.join(kit, 'public.json')) ? JSON.parse(await readFile(path.join(kit, 'public.json'), 'utf8')) as PublicFacts : {};
   const themeFile = path.join(kit, '..', '..', 'themes', `${customer.theme ?? customer.id}.json`);
-  const theme = existsSync(themeFile) ? JSON.parse(await readFile(themeFile, 'utf8')) as Theme : {};
+  const kitTheme = existsSync(themeFile) ? JSON.parse(await readFile(themeFile, 'utf8')) as KitTheme : null;
   const domainId = slug(customer.id);
   if (domainId !== customer.id || intake.id !== customer.id) throw new Error('account_intake_identity_mismatch');
   const name = customer.brand?.name ?? intake.cls?.account?.name ?? customer.id;
@@ -247,8 +220,9 @@ export async function importAccountIntake(kitCustomerDirectory: string, projectD
   await mkdir(path.join(canonical, 'sources'), { recursive: true });
   for (const entry of unique) await writeFile(path.join(canonical, 'sources', `${entry.source.sourceId}.txt`), entry.text);
   await writeFile(path.join(canonical, 'domain-pack.json'), `${JSON.stringify(domain, null, 2)}\n`);
-  const renderTheme = accountTheme(theme, name);
-  await writeFile(path.join(canonical, 'render-theme.json'), `${JSON.stringify(renderTheme, null, 2)}\n`);
+  // The delivered card brand (kit colors or palette, kit fonts) becomes the render theme for every format; accounts without a kit
+  // theme keep the neutral default until brand-theme installs one.
+  const { theme: renderTheme } = await installBrandTheme(project, kitTheme ? kitBrandTheme({ id: customer.theme ?? customer.id, ...kitTheme }, name) : DEFAULT_THEME);
   return { domainId, name, asOf: intake.asOf, sources: sources.length, evidence: evidence.length, claims: claims.length, theme: renderTheme,
     domain: path.join(canonical, 'domain-pack.json') };
 }

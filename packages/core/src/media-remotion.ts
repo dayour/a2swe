@@ -7,6 +7,7 @@ import { homedir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digest, sha256 } from './canonical.ts';
+import { brandTokens } from './brand.ts';
 import type { ContentIR, RenderSpec } from './contracts.ts';
 import { validate } from './contracts.ts';
 import type { AdapterFile, AdapterRenderOptions } from './adapters.ts';
@@ -21,7 +22,7 @@ interface ResolvedAsset {
   filename?: string;
 }
 
-const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-10';
+const REMOTION_MP4_ADAPTER = 'a2swe-remotion-mp4-adapter-11';
 export const MP4_ADAPTER = REMOTION_MP4_ADAPTER;
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 interface VoiceProfile { id: string; name: string; language: 'a' | 'b'; speed: number }
@@ -1725,7 +1726,7 @@ export function remotion(content: ContentIR, spec: RenderSpec, options: AdapterR
     dependencies: { '@remotion/cli': '4.0.523', remotion: '4.0.523', react: '19.3.0', 'react-dom': '19.3.0', ...(usesVisuals ? VISUAL_DEPENDENCIES : {}) },
     devDependencies: { '@types/react': '19.3.0', '@types/react-dom': '19.3.0', typescript: '7.0.2' }
   };
-  const root = REMOTION_ROOT_TEMPLATE.replaceAll('__THEME_JSON__', JSON.stringify(spec.theme)).replaceAll('__CONTENT_ID__', content.contentId);
+  const root = REMOTION_ROOT_TEMPLATE.replaceAll('__CONTENT_ID__', content.contentId);
   const remotionIndex = `import { registerRoot } from 'remotion';
 import { Root } from './Root';
 
@@ -1776,7 +1777,7 @@ ${usesVisuals ? `Config.overrideWebpackConfig((config) => ({
     { format: 'remotion', path: 'outputs/remotion/src/content.json', mediaType: 'application/json', bytes: stableJson(content), adapter: REMOTION_MP4_ADAPTER },
     { format: 'remotion', path: 'outputs/remotion/src/index.tsx', mediaType: 'text/typescript', bytes: Buffer.from(remotionIndex), adapter: REMOTION_MP4_ADAPTER },
     { format: 'remotion', path: 'outputs/remotion/src/Root.tsx', mediaType: 'text/typescript', bytes: Buffer.from(root), adapter: REMOTION_MP4_ADAPTER },
-    { format: 'remotion', path: 'outputs/remotion/src/palette.ts', mediaType: 'text/typescript', bytes: Buffer.from(REMOTION_PALETTE_TEMPLATE.replaceAll('__THEME_JSON__', JSON.stringify(spec.theme))), adapter: REMOTION_MP4_ADAPTER },
+    { format: 'remotion', path: 'outputs/remotion/src/palette.ts', mediaType: 'text/typescript', bytes: Buffer.from(REMOTION_PALETTE_TEMPLATE.replaceAll('__THEME_JSON__', JSON.stringify(spec.theme)).replaceAll('__BRAND_JSON__', JSON.stringify(brandTokens(spec.theme)))), adapter: REMOTION_MP4_ADAPTER },
     { format: 'remotion', path: 'outputs/remotion/src/Visuals.tsx', mediaType: 'text/typescript', bytes: Buffer.from(usesVisuals ? REMOTION_VISUALS_TEMPLATE : REMOTION_VISUALS_STUB), adapter: REMOTION_MP4_ADAPTER },
     ...visualSections.map((section) => ({ format: 'remotion' as const, path: `outputs/remotion/visuals/${visualStem(content, section.sectionId)}.${VISUAL_EXTENSIONS[section.visual!.kind]}`,
       mediaType: section.visual!.kind === 'marp' ? 'text/markdown' : section.visual!.kind === 'mermaid' ? 'text/plain' : 'application/json',

@@ -1,6 +1,7 @@
 import { digest, sha256 } from './canonical.ts';
 import { validate } from './contracts.ts';
 import type { ContentIR, RenderSpec } from './contracts.ts';
+import { brandTokens, inkOn, isSerifStack, primaryFamily } from './brand.ts';
 import { remotion } from './media-remotion.ts';
 import { renderRasterOverview } from './raster-canvas.ts';
 import { deflateSync, inflateSync } from 'node:zlib';
@@ -145,24 +146,29 @@ function claimFor(content: ContentIR, claimId: string): ContentIR['claims'][numb
   return claim;
 }
 
-function theme(deck: RenderSpec['theme']): { name: string; primaryColor: string; accentColor: string; backgroundColor: string; fontFamily: string; darkMode: boolean } {
+// AdaptiveDeck themes accept additional properties, so the full brand role set travels with the deck for renderers that use it.
+function theme(deck: RenderSpec['theme']) {
+  const tokens = brandTokens(deck);
   return {
     name: deck.name,
-    primaryColor: deck.accent,
-    accentColor: deck.accent,
-    backgroundColor: deck.background,
-    fontFamily: deck.fontFamily,
-    darkMode: contrast(deck.background) < 128
+    primaryColor: tokens.primary,
+    accentColor: tokens.accent,
+    backgroundColor: tokens.canvas,
+    fontFamily: tokens.bodyFont,
+    darkMode: tokens.mode === 'dark',
+    foregroundColor: tokens.text,
+    headingFontFamily: tokens.headingFont,
+    headerColor: tokens.header,
+    highlightColor: tokens.highlight,
+    surfaceColor: tokens.paper,
+    lineColor: tokens.line,
+    mutedColor: tokens.muted,
+    cornerRadius: tokens.radius
   };
 }
 
-function contrast(hex: string): number {
-  const rgb = hex.slice(1).match(/../g)?.map((part) => Number.parseInt(part, 16)) ?? [255, 255, 255];
-  return Math.round((rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000);
-}
-
 function html(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
-  const colorScheme = contrast(spec.theme.background) < 128 ? 'dark' : 'light';
+  const t = brandTokens(spec.theme);
   const claims = new Map(content.claims.map((claim) => [claim.claimId, claim]));
   const assetMap = resolveAssetEmbeds(content, options);
   const citations = content.citations.map((citation, index) =>
@@ -192,27 +198,32 @@ function html(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${text(content.title)}</title>
 <style>
-:root{color-scheme:${colorScheme};--bg:${spec.theme.background};--fg:${spec.theme.foreground};--accent:${spec.theme.accent};--card:color-mix(in srgb,var(--bg) 88%,var(--fg) 12%);font-family:${spec.theme.fontFamily},Arial,sans-serif}
-*{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top left,color-mix(in srgb,var(--accent) 18%,transparent),transparent 34rem),var(--bg);color:var(--fg);line-height:1.6;overflow-x:hidden}
+:root{color-scheme:${t.mode};--bg:${t.canvas};--fg:${t.text};--accent:${t.accent};--muted:${t.muted};--primary:${t.primary};--header:${t.header};--on-header:${t.onHeader};--header-muted:${t.headerMuted};--highlight:${t.highlight};--paper:${t.paper};--line:${t.line};--soft:${t.soft};--callout:${t.callout};--callout-line:${t.calloutLine};--radius:${t.radius}px;--heading:${t.headingFont};font-family:${t.bodyFont}}
+*{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);line-height:1.6;overflow-x:hidden}
 a{color:var(--accent)}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .skip{position:absolute;left:-999px;top:1rem;background:var(--fg);color:var(--bg);padding:.75rem 1rem;border-radius:.5rem}.skip:focus{left:1rem;z-index:10}
-main{max-width:1180px;margin:auto;padding:clamp(20px,4vw,64px)}.hero,.card,.manifest{border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);border-radius:24px;padding:clamp(20px,3vw,40px);margin:0 0 24px;background:var(--card);box-shadow:0 18px 60px rgba(0,0,0,.18);max-width:100%;overflow-wrap:anywhere}
-h1{font-size:clamp(2.1rem,7vw,5rem);line-height:.95;margin:.1em 0;overflow-wrap:anywhere;word-break:break-word;max-width:100%}h2{font-size:clamp(1.5rem,4vw,2.6rem);margin:0 0 .5em;overflow-wrap:anywhere;word-break:break-word;max-width:100%}h3{margin-top:1.25rem;overflow-wrap:anywhere;word-break:break-word}.kicker{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-p,li,summary,a,code{overflow-wrap:anywhere;word-break:break-word}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px}.asset-role,.digest,.embed-status{font-size:.85rem;opacity:.72}.assets figure{margin:1rem 0}.assets img{display:block;max-width:100%;height:auto;border-radius:12px;border:1px solid color-mix(in srgb,var(--accent) 26%,transparent)}.asset-missing{border-left:4px solid var(--accent);padding-left:1rem}code{background:color-mix(in srgb,var(--accent) 10%,transparent);padding:.1rem .35rem;border-radius:.35rem}
+.masthead{background:var(--header);color:var(--on-header);border-bottom:6px solid var(--highlight);-webkit-print-color-adjust:exact;print-color-adjust:exact}.masthead div{max-width:1180px;margin:auto;padding:14px clamp(20px,4vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:baseline}.masthead strong{font-family:var(--heading);font-size:1.15rem}.masthead span{color:var(--header-muted);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+main{max-width:1180px;margin:auto;padding:clamp(20px,4vw,64px)}.hero,.card,.manifest{border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,40px);margin:0 0 24px;background:var(--paper);box-shadow:0 10px 30px color-mix(in srgb,var(--header) 10%,transparent);max-width:100%;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--heading);font-weight:${t.headingWeight};color:var(--fg)}h1{font-size:clamp(2.1rem,7vw,4.6rem);line-height:1;margin:.1em 0;overflow-wrap:anywhere;word-break:break-word;max-width:100%}h2{font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.15;margin:0 0 .5em;overflow-wrap:anywhere;word-break:break-word;max-width:100%}h3{margin-top:1.25rem;overflow-wrap:anywhere;word-break:break-word}.kicker{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.decision{background:var(--callout);border-left:6px solid var(--callout-line);border-radius:calc(var(--radius) / 2);padding:.75rem 1rem}
+p,li,summary,a,code{overflow-wrap:anywhere;word-break:break-word}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px}.asset-role,.digest,.embed-status{font-size:.85rem;color:var(--muted)}.assets figure{margin:1rem 0}.assets img{display:block;max-width:100%;height:auto;border-radius:calc(var(--radius) / 2);border:1px solid var(--line)}.asset-missing{border-left:4px solid var(--accent);padding-left:1rem}code{background:var(--soft);padding:.1rem .35rem;border-radius:.35rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-@media print{body{background:white}.hero,.card,.manifest{break-inside:avoid;background:white;box-shadow:none}}
-</style></head><body><a class="skip" href="#content">Skip to content</a><main id="content">
-<article class="hero" aria-labelledby="title"><p class="kicker">${text(content.audience)}</p><h1 id="title">${text(content.title)}</h1><p>${text(content.summary)}</p><p><strong>Decision:</strong> ${text(content.decision)}</p></article>
+@media print{body{background:#fff;color:${t.printInk}}.hero,.card,.manifest{break-inside:avoid;background:#fff;color:${t.printInk};box-shadow:none}h1,h2,h3{color:${t.printInk}}a,.kicker{color:${t.printAccent}}}
+</style></head><body><a class="skip" href="#content">Skip to content</a>
+<header class="masthead"><div><strong>${text(headlineParts(content.title)[0].replace(/[:.]$/, ''))}</strong><span>${text(content.audience)}</span></div></header><main id="content">
+<article class="hero" aria-labelledby="title"><p class="kicker">${text(content.audience)}</p><h1 id="title">${text(content.title)}</h1><p>${text(content.summary)}</p><p class="decision"><strong>Decision:</strong> ${text(content.decision)}</p></article>
 <div class="grid">${sections}</div>
 <section class="manifest" aria-labelledby="asset-heading"><h2 id="asset-heading">Assets and alt text</h2><ul>${assets || '<li>No external assets selected.</li>'}</ul></section>
 <section class="manifest" aria-labelledby="citation-heading"><h2 id="citation-heading">Citations</h2><ol>${citations}</ol></section>
 </main></body></html>
 `;
-  return { format: 'html', path: 'outputs/index.html', mediaType: 'text/html; charset=utf-8', bytes: Buffer.from(body), adapter: 'a2swe-html-accessible-2' };
+  return { format: 'html', path: 'outputs/index.html', mediaType: 'text/html; charset=utf-8', bytes: Buffer.from(body), adapter: 'a2swe-html-accessible-3' };
 }
 
 function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions): AdapterFile {
   const deckTheme = theme(spec.theme);
+  const tokens = brandTokens(spec.theme);
+  const bandInk = tokens.onHeader === '#FFFFFF' ? 'light' : 'dark';
   const assetMap = resolveAssetEmbeds(content, options);
   const tags = ['a2swe', 'canonical'];
   const deck = {
@@ -234,12 +245,12 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
         id: 'title',
         title: content.title,
         notes: displayNarration(content.voice.narration),
-        background: { gradient: { type: 'linear', angle: 135, colors: [spec.theme.accent, spec.theme.background] } },
+        background: { gradient: { type: 'linear', angle: 135, colors: [tokens.header, tokens.deep] } },
         layout: { mode: 'stack', horizontalAlignment: 'center', verticalAlignment: 'center', gap: 'large' },
         body: [
-          { type: 'Tile.Text', text: content.title, style: 'heading', size: 'extraLarge', weight: 'bolder', color: 'light', horizontalAlignment: 'center' },
-          { type: 'Tile.Text', text: content.summary, style: 'subheading', color: 'light', horizontalAlignment: 'center' },
-          { type: 'Tile.Container', style: 'accent', items: [{ type: 'Tile.Text', text: `Decision: ${content.decision}`, style: 'body', weight: 'bolder', color: 'light' }] }
+          { type: 'Tile.Text', text: content.title, style: 'heading', size: 'extraLarge', weight: 'bolder', color: bandInk, horizontalAlignment: 'center' },
+          { type: 'Tile.Text', text: content.summary, style: 'subheading', color: bandInk, horizontalAlignment: 'center' },
+          { type: 'Tile.Container', style: 'accent', items: [{ type: 'Tile.Text', text: `Decision: ${content.decision}`, style: 'body', weight: 'bolder', color: bandInk }] }
         ]
       },
       ...content.sections.map((section, index) => ({
@@ -247,7 +258,7 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
         id: section.sectionId,
         title: section.title,
         notes: section.speakerNotes,
-        background: { color: spec.theme.background },
+        background: { color: tokens.canvas },
         layout: { mode: 'grid', columns: 2, gap: 'large' },
         body: [
           { type: 'Tile.Container', style: 'accent', gridPosition: { column: 1, row: 1, columnSpan: 2 }, items: [
@@ -277,7 +288,7 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
         id: 'citations',
         title: 'Citations',
         notes: 'Review source links and retrieval timestamps before external distribution.',
-        background: { color: spec.theme.background },
+        background: { color: tokens.canvas },
         layout: { mode: 'stack', gap: 'large' },
         body: [
           { type: 'Tile.Text', text: 'Citations', style: 'heading', color: deckTheme.darkMode ? 'light' : 'dark' },
@@ -291,7 +302,7 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
       }
     ]
   };
-  return { format: 'adaptiveDeck', path: 'outputs/deck.deck.json', mediaType: 'application/vnd.adaptive-deck+json; charset=utf-8', bytes: stableJson(deck), adapter: 'a2swe-adaptive-deck-schema-2' };
+  return { format: 'adaptiveDeck', path: 'outputs/deck.deck.json', mediaType: 'application/vnd.adaptive-deck+json; charset=utf-8', bytes: stableJson(deck), adapter: 'a2swe-adaptive-deck-schema-3' };
 }
 
 function crc32(bytes: Buffer): number {
@@ -340,8 +351,12 @@ function rels(relationships: { id: string; type: string; target: string; targetM
     `<Relationship Id="${attr(rel.id)}" Type="${attr(rel.type)}" Target="${attr(rel.target)}"${rel.targetMode ? ` TargetMode="${rel.targetMode}"` : ''}/>`).join('')}</Relationships>`;
 }
 
-function pptRun(value: string, size = 1800, bold = false, color = '111111'): string {
-  return `<a:r><a:rPr lang="en-US" sz="${size}"${bold ? ' b="1"' : ''}><a:solidFill><a:srgbClr val="${attr(color)}"/></a:solidFill></a:rPr><a:t>${text(value)}</a:t></a:r>`;
+function pptRun(value: string, size = 1800, bold = false, color = '111111', heading = false): string {
+  return `<a:r><a:rPr lang="en-US" sz="${size}"${bold ? ' b="1"' : ''}><a:solidFill><a:srgbClr val="${attr(color)}"/></a:solidFill>${heading ? '<a:latin typeface="+mj-lt"/>' : ''}</a:rPr><a:t>${text(value)}</a:t></a:r>`;
+}
+
+function pptLabelRun(value: string, size: number, color: string): string {
+  return `<a:r><a:rPr lang="en-US" sz="${size}" b="1" cap="all" spc="120"><a:solidFill><a:srgbClr val="${attr(color)}"/></a:solidFill></a:rPr><a:t>${text(value)}</a:t></a:r>`;
 }
 
 function pptTextbox(id: number, name: string, x: number, y: number, cx: number, cy: number, paragraphs: string[], size = 1800, boldFirst = false, color = '111111'): string {
@@ -354,16 +369,6 @@ function pptPicture(id: number, name: string, relId: string, altText: string, x:
 
 function pptColor(value: string): string {
   return value.replace('#', '').toUpperCase();
-}
-
-function pptMix(foreground: string, background: string, weight: number): string {
-  const channel = (hex: string, offset: number) => parseInt(hex.slice(offset, offset + 2), 16);
-  return [0, 2, 4].map((offset) => Math.round(channel(foreground, offset) * weight + channel(background, offset) * (1 - weight))
-    .toString(16).padStart(2, '0')).join('').toUpperCase();
-}
-
-function primaryFont(fontFamily: string): string {
-  return fontFamily.split(',')[0].replace(/["']/g, '').trim() || 'Arial';
 }
 
 function imageDimensions(bytes: Buffer, mediaType: string): { width: number; height: number } {
@@ -394,7 +399,7 @@ function pptFit(value: string, widthEmu: number, heightEmu: number, maxSize: num
   return { size: minSize, text: words(value, Math.max(8, (maxLines - 1) * charsPerLine)) };
 }
 
-interface PptShapeStyle { fill?: string; line?: string; geometry?: 'rect' | 'roundRect' }
+interface PptShapeStyle { fill?: string; line?: string; geometry?: 'rect' | 'roundRect'; radius?: number }
 
 const PPT_BODY_WIDTH = 10820400;
 const PPT_SOURCES_HEIGHT = 4300000;
@@ -421,7 +426,7 @@ function pptSourcePages(sources: PptSource[], widthEmu: number, heightEmu: numbe
 function pptShape(id: number, name: string, x: number, y: number, cx: number, cy: number, paragraphs: string[], style: PptShapeStyle = {}, anchor: 't' | 'ctr' = 't'): string {
   const fill = style.fill ? `<a:solidFill><a:srgbClr val="${style.fill}"/></a:solidFill>` : '<a:noFill/>';
   const line = style.line ? `<a:ln w="12700"><a:solidFill><a:srgbClr val="${style.line}"/></a:solidFill></a:ln>` : '<a:ln><a:noFill/></a:ln>';
-  const geometry = style.geometry === 'roundRect' ? '<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 9000"/></a:avLst></a:prstGeom>' : '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom>';
+  const geometry = style.geometry === 'roundRect' ? `<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val ${style.radius ?? 9000}"/></a:avLst></a:prstGeom>` : '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom>';
   return `<p:sp><p:nvSpPr><p:cNvPr id="${id}" name="${attr(name)}"/><p:cNvSpPr${style.fill || style.line ? '' : ' txBox="1"'}/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="${x}" y="${y}"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm>${geometry}${fill}${line}</p:spPr><p:txBody><a:bodyPr wrap="square" lIns="182880" tIns="91440" rIns="182880" bIns="91440" anchor="${anchor}"><a:normAutofit/></a:bodyPr><a:lstStyle/>${paragraphs.join('')}</p:txBody></p:sp>`;
 }
 
@@ -436,57 +441,69 @@ interface PptSlideInput {
   claims: string[];
   claimSources: string[];
   footer: string;
+  kicker: string;
   sources: { title: string; url: string; retrievedAt: string }[];
   decision?: string;
   pictures: { relId: string; asset: ContentIR['assets'][number]; width: number; height: number }[];
 }
 
+const PPT_BAND_HEIGHT = 502920;
+const PPT_RULE_HEIGHT = 45720;
+
+function pptRect(id: number, name: string, x: number, y: number, cx: number, cy: number, fill: string): string {
+  return `<p:sp><p:nvSpPr><p:cNvPr id="${id}" name="${attr(name)}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="${x}" y="${y}"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="${fill}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr></p:sp>`;
+}
+
 function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, total: number): string {
-  const accent = pptColor(spec.theme.accent);
-  const foreground = pptColor(spec.theme.foreground);
-  const background = pptColor(spec.theme.background);
-  const muted = pptMix(foreground, background, 0.72);
-  const surface = pptMix(foreground, background, 0.08);
-  const border = pptMix(foreground, background, 0.18);
+  const tokens = brandTokens(spec.theme);
+  const accent = pptColor(tokens.accent);
+  const foreground = pptColor(tokens.text);
+  const background = pptColor(tokens.canvas);
+  const muted = pptColor(tokens.muted);
+  const surface = pptColor(tokens.paper);
+  const border = pptColor(tokens.line);
+  // PowerPoint's roundRect adj is a share of the shorter side in 1/100000; a 1080p-scale radius maps to about 3% of a card's height.
+  const radius = Math.max(2000, Math.min(16000, tokens.radius * 600));
   const [lead, tail] = headlineParts(slide.title);
   const headline = (box: { cx: number; cy: number }, maxSize: number, minSize: number) => {
     const fit = pptFit(slide.title, box.cx, box.cy, maxSize, minSize);
     const [fitLead, fitTail] = fit.text === slide.title ? [lead, tail] : [fit.text, ''];
-    return pptParagraph(pptRun(fitLead, fit.size, true, foreground) + (fitTail ? pptRun(` ${fitTail}`, fit.size, true, accent) : ''));
+    return pptParagraph(pptRun(fitLead, fit.size, true, foreground, true) + (fitTail ? pptRun(` ${fitTail}`, fit.size, true, accent, true) : ''));
   };
   const shapes: string[] = [];
-  let id = 3;
+  let id = 6;
   const left = 685800;
   const width = 10820400;
   if (slide.kind === 'title') {
-    shapes.push(pptShape(id++, 'Title', left, 900000, width, 2000000, [headline({ cx: width, cy: 2000000 }, 5000, 3000)], {}, 'ctr'));
+    shapes.push(pptShape(id++, 'Title', left, 1100000, width, 2000000, [headline({ cx: width, cy: 2000000 }, 5000, 3000)], {}, 'ctr'));
     const summary = pptFit(slide.body, 9600000, 1400000, 2400, 1400);
-    shapes.push(pptShape(id++, 'Summary', left, 3000000, 9600000, 1400000, [pptParagraph(pptRun(summary.text, summary.size, false, muted))]));
+    shapes.push(pptShape(id++, 'Summary', left, 3150000, 9600000, 1400000, [pptParagraph(pptRun(summary.text, summary.size, false, muted))]));
     if (slide.decision) {
       const decision = pptFit(slide.decision, width, 1000000, 2000, 1400);
-      shapes.push(pptShape(id++, 'Decision', left, 4500000, width, 1000000,
+      shapes.push(pptShape(id++, 'Decision', left, 4650000, width, 1000000,
         [pptParagraph(pptRun('DECISION  ', 1400, true, accent) + pptRun(decision.text, decision.size, true, foreground))],
-        { fill: pptMix(accent, background, 0.16), line: accent, geometry: 'roundRect' }, 'ctr'));
+        { fill: pptColor(tokens.callout), line: pptColor(tokens.calloutLine), geometry: 'roundRect', radius }, 'ctr'));
     }
   } else if (slide.kind === 'citations') {
-    shapes.push(pptShape(id++, 'Title', left, 420000, width, 1000000, [headline({ cx: width, cy: 1000000 }, 4000, 2400)], {}, 'ctr'));
+    shapes.push(pptShape(id++, 'Title', left, 760000, width, 1000000, [headline({ cx: width, cy: 1000000 }, 4000, 2400)], {}, 'ctr'));
     const items = slide.sources.map((source) => pptParagraph(pptRun(source.title, 1400, true, foreground) + pptRun(`  retrieved ${source.retrievedAt.slice(0, 10)}`, 1100, false, muted), 0)
       + pptParagraph(pptRun(source.url, 1100, false, accent), 900));
-    shapes.push(pptShape(id++, 'Sources', left, 1700000, width, PPT_SOURCES_HEIGHT, items));
+    shapes.push(pptShape(id++, 'Sources', left, 1900000, width, PPT_SOURCES_HEIGHT, items));
   } else {
-    shapes.push(pptShape(id++, 'Title', left, 420000, width, 1150000, [headline({ cx: width, cy: 1150000 }, 4000, 2400)], {}, 'ctr'));
+    shapes.push(pptShape(id++, 'Title', left, 700000, width, 1150000, [headline({ cx: width, cy: 1150000 }, 4000, 2400)], {}, 'ctr'));
     const picture = slide.pictures[0];
+    const top = 1950000;
     const bodyHeight = 3900000;
     const bodyWidth = picture ? 3900000 : 5300000;
     const body = pptFit(slide.body, bodyWidth, bodyHeight, 2600, 1800);
-    shapes.push(pptShape(id++, 'Body', left, 1750000, bodyWidth, bodyHeight, [pptParagraph(pptRun(body.text, body.size, false, foreground))]));
-    shapes.push(`<p:sp><p:nvSpPr><p:cNvPr id="${id++}" name="Accent rule"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="${left - 137160}" y="1800000"/><a:ext cx="45720" cy="${bodyHeight - 100000}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="${accent}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr></p:sp>`);
+    shapes.push(pptShape(id++, 'Body', left, top, bodyWidth, bodyHeight, [pptParagraph(pptRun(body.text, body.size, false, foreground))]));
+    shapes.push(pptRect(id++, 'Accent rule', left - 137160, top + 50000, 45720, bodyHeight - 100000, accent));
     if (picture) {
       const maxWidth = 6500000;
       const maxHeight = 4200000;
       const scale = Math.min(maxWidth / picture.width, maxHeight / picture.height);
       const height = Math.round(picture.height * scale);
-      shapes.push(pptPicture(id++, `Asset ${picture.asset.assetId}`, picture.relId, picture.asset.alt, 5000000, 1750000 + Math.round((maxHeight - height) / 2),
+      shapes.push(pptPicture(id++, `Asset ${picture.asset.assetId}`, picture.relId, picture.asset.alt, 5000000, top + Math.round((maxHeight - height) / 2),
         Math.round(picture.width * scale), Math.round(picture.height * scale)));
     }
     const cardHeight = slide.claims.length > 2 ? 1300000 : 1500000;
@@ -494,16 +511,21 @@ function pptSlideXml(slide: PptSlideInput, spec: RenderSpec, index: number, tota
       const fit = pptFit(claim, 5105000, cardHeight - 300000, slide.claims.length > 1 ? 1600 : 2000, 1200);
       const paragraphs = [pptParagraph(pptRun(fit.text, fit.size, false, foreground), 400)];
       if (slide.claimSources[claimIndex]) paragraphs.push(pptParagraph(pptRun(slide.claimSources[claimIndex].replace(/^\[[^\]]+\]\s*/, ''), 1100, false, muted)));
-      shapes.push(pptShape(id++, `Claim ${claimIndex + 1}`, 6400000, 1750000 + claimIndex * (cardHeight + 150000), 5105000, cardHeight, paragraphs,
-        { fill: surface, line: border, geometry: 'roundRect' }, 'ctr'));
+      shapes.push(pptShape(id++, `Claim ${claimIndex + 1}`, 6400000, top + claimIndex * (cardHeight + 150000), 5105000, cardHeight, paragraphs,
+        { fill: surface, line: border, geometry: 'roundRect', radius }, 'ctr'));
     });
   }
-  shapes.push(pptShape(id++, 'Footer', left, 6250000, 9400000, 420000, [pptParagraph(pptRun(slide.footer, 1000, false, muted))]));
-  shapes.push(pptShape(id++, 'Slide number', 10100000, 6250000, 1400000, 420000, [`<a:p><a:pPr algn="r"/>${pptRun(`${index} / ${total}`, 1000, false, muted)}</a:p>`]));
+  shapes.push(pptShape(id++, 'Footer', left, 6250000, width, 420000, [pptParagraph(pptRun(slide.footer, 1000, false, muted))]));
+  const band = [
+    pptRect(2, 'Brand band', 0, 0, 12192000, PPT_BAND_HEIGHT, pptColor(tokens.header)),
+    pptRect(3, 'Highlight rule', 0, PPT_BAND_HEIGHT, 12192000, PPT_RULE_HEIGHT, pptColor(tokens.highlight)),
+    pptShape(4, 'Deck kicker', left, 0, 8400000, PPT_BAND_HEIGHT, [pptParagraph(pptLabelRun(slide.kicker, 1100, pptColor(tokens.onHeader)))], {}, 'ctr'),
+    pptShape(5, 'Slide number', 9100000, 0, 2406400, PPT_BAND_HEIGHT, [`<a:p><a:pPr algn="r"/>${pptLabelRun(`${index} / ${total}`, 1100, pptColor(tokens.headerMuted))}</a:p>`], {}, 'ctr')
+  ];
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <p:sld xmlns:a="${DRAWING_NS}" xmlns:r="${OFFICE_REL}" xmlns:p="${PPT_NS}"><p:cSld><p:bg><p:bgPr><a:solidFill><a:srgbClr val="${background}"/></a:solidFill><a:effectLst/></p:bgPr></p:bg><p:spTree>
 <p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr/>
-<p:sp><p:nvSpPr><p:cNvPr id="2" name="Accent band"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="12192000" cy="91440"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="${accent}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr></p:sp>
+${band.join('\n')}
 ${shapes.join('\n')}
 </p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr></p:sld>`;
 }
@@ -516,12 +538,12 @@ function pptTextStyleXml(): string {
 }
 
 function pptThemeXml(spec: RenderSpec): string {
+  const tokens = brandTokens(spec.theme);
   const name = attr(spec.theme.name);
-  const accent = spec.theme.accent.slice(1).toUpperCase();
-  const background = spec.theme.background.slice(1).toUpperCase();
-  const foreground = spec.theme.foreground.slice(1).toUpperCase();
-  const font = attr(primaryFont(spec.theme.fontFamily));
-  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><a:theme xmlns:a="${DRAWING_NS}" name="${name}"><a:themeElements><a:clrScheme name="${name}"><a:dk1><a:srgbClr val="${foreground}"/></a:dk1><a:lt1><a:srgbClr val="${background}"/></a:lt1><a:dk2><a:srgbClr val="1F1F1F"/></a:dk2><a:lt2><a:srgbClr val="F8F8F8"/></a:lt2><a:accent1><a:srgbClr val="${accent}"/></a:accent1><a:accent2><a:srgbClr val="5B9BD5"/></a:accent2><a:accent3><a:srgbClr val="70AD47"/></a:accent3><a:accent4><a:srgbClr val="FFC000"/></a:accent4><a:accent5><a:srgbClr val="C00000"/></a:accent5><a:accent6><a:srgbClr val="7030A0"/></a:accent6><a:hlink><a:srgbClr val="${accent}"/></a:hlink><a:folHlink><a:srgbClr val="7F7F7F"/></a:folHlink></a:clrScheme><a:fontScheme name="${name}"><a:majorFont><a:latin typeface="${font}"/><a:ea typeface=""/><a:cs typeface=""/></a:majorFont><a:minorFont><a:latin typeface="${font}"/><a:ea typeface=""/><a:cs typeface=""/></a:minorFont></a:fontScheme><a:fmtScheme name="${name}"><a:fillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="50000"/><a:satMod val="300000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:tint val="37000"/><a:satMod val="300000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="1"/></a:gradFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:shade val="51000"/><a:satMod val="130000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="93000"/><a:satMod val="130000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="0"/></a:gradFill></a:fillStyleLst><a:lnStyleLst><a:ln w="6350" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="19050" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln></a:lnStyleLst><a:effectStyleLst><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst><a:outerShdw blurRad="57150" dist="19050" dir="5400000" algn="ctr" rotWithShape="0"><a:srgbClr val="000000"><a:alpha val="63000"/></a:srgbClr></a:outerShdw></a:effectLst></a:effectStyle></a:effectStyleLst><a:bgFillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:solidFill><a:schemeClr val="phClr"><a:tint val="95000"/><a:satMod val="170000"/></a:schemeClr></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="93000"/><a:satMod val="150000"/><a:shade val="98000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="63000"/><a:satMod val="120000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="5400000" scaled="0"/></a:gradFill></a:bgFillStyleLst></a:fmtScheme></a:themeElements><a:objectDefaults/><a:extraClrSchemeLst/></a:theme>`;
+  const color = (value: string) => `<a:srgbClr val="${pptColor(value)}"/>`;
+  const major = attr(primaryFamily(tokens.headingFont));
+  const minor = attr(primaryFamily(tokens.bodyFont));
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><a:theme xmlns:a="${DRAWING_NS}" name="${name}"><a:themeElements><a:clrScheme name="${name}"><a:dk1>${color(tokens.text)}</a:dk1><a:lt1>${color(tokens.canvas)}</a:lt1><a:dk2>${color(tokens.header)}</a:dk2><a:lt2>${color(tokens.soft)}</a:lt2><a:accent1>${color(tokens.primary)}</a:accent1><a:accent2>${color(tokens.highlight)}</a:accent2><a:accent3>${color(tokens.accent)}</a:accent3><a:accent4>${color(tokens.deep)}</a:accent4><a:accent5>${color(tokens.muted)}</a:accent5><a:accent6>${color(tokens.danger)}</a:accent6><a:hlink>${color(tokens.accent)}</a:hlink><a:folHlink>${color(tokens.muted)}</a:folHlink></a:clrScheme><a:fontScheme name="${name}"><a:majorFont><a:latin typeface="${major}"/><a:ea typeface=""/><a:cs typeface=""/></a:majorFont><a:minorFont><a:latin typeface="${minor}"/><a:ea typeface=""/><a:cs typeface=""/></a:minorFont></a:fontScheme><a:fmtScheme name="${name}"><a:fillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="50000"/><a:satMod val="300000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:tint val="37000"/><a:satMod val="300000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="1"/></a:gradFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:shade val="51000"/><a:satMod val="130000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="93000"/><a:satMod val="130000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="16200000" scaled="0"/></a:gradFill></a:fillStyleLst><a:lnStyleLst><a:ln w="6350" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="12700" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln><a:ln w="19050" cap="flat" cmpd="sng" algn="ctr"><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:prstDash val="solid"/><a:miter lim="800000"/></a:ln></a:lnStyleLst><a:effectStyleLst><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst/></a:effectStyle><a:effectStyle><a:effectLst><a:outerShdw blurRad="57150" dist="19050" dir="5400000" algn="ctr" rotWithShape="0"><a:srgbClr val="000000"><a:alpha val="63000"/></a:srgbClr></a:outerShdw></a:effectLst></a:effectStyle></a:effectStyleLst><a:bgFillStyleLst><a:solidFill><a:schemeClr val="phClr"/></a:solidFill><a:solidFill><a:schemeClr val="phClr"><a:tint val="95000"/><a:satMod val="170000"/></a:schemeClr></a:solidFill><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0"><a:schemeClr val="phClr"><a:tint val="93000"/><a:satMod val="150000"/><a:shade val="98000"/></a:schemeClr></a:gs><a:gs pos="100000"><a:schemeClr val="phClr"><a:shade val="63000"/><a:satMod val="120000"/></a:schemeClr></a:gs></a:gsLst><a:lin ang="5400000" scaled="0"/></a:gradFill></a:bgFillStyleLst></a:fmtScheme></a:themeElements><a:objectDefaults/><a:extraClrSchemeLst/></a:theme>`;
 }
 
 function citationGroups(content: ContentIR): (ContentIR['citations'][number] & { evidenceIds: string[] })[] {
@@ -580,7 +602,7 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
     { id: viewPropsRelId, type: `${OFFICE_REL}/viewProps`, target: 'viewProps.xml' },
     { id: tableStylesRelId, type: `${OFFICE_REL}/tableStyles`, target: 'tableStyles.xml' }
   ])) });
-  files.push({ name: 'ppt/presentation.xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><p:presentation xmlns:a="${DRAWING_NS}" xmlns:r="${OFFICE_REL}" xmlns:p="${PPT_NS}" saveSubsetFonts="1"><p:sldMasterIdLst><p:sldMasterId id="2147483648" r:id="rId1"/></p:sldMasterIdLst><p:sldIdLst>${slideModels.map((_, i) => `<p:sldId id="${256 + i}" r:id="${slideRelIds[i]}"/>`).join('')}</p:sldIdLst><p:sldSz cx="12192000" cy="6858000" type="screen16x9"/><p:notesSz cx="6858000" cy="9144000"/><p:defaultTextStyle><a:defPPr><a:defRPr lang="en-US"/></a:defPPr></p:defaultTextStyle></p:presentation>`) });
+  files.push({ name: 'ppt/presentation.xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><p:presentation xmlns:a="${DRAWING_NS}" xmlns:r="${OFFICE_REL}" xmlns:p="${PPT_NS}" saveSubsetFonts="1"><p:sldMasterIdLst><p:sldMasterId id="2147483648" r:id="rId1"/></p:sldMasterIdLst><p:sldIdLst>${slideModels.map((_, i) => `<p:sldId id="${256 + i}" r:id="${slideRelIds[i]}"/>`).join('')}</p:sldIdLst><p:sldSz cx="12192000" cy="6858000" type="screen16x9"/><p:notesSz cx="6858000" cy="9144000"/><p:defaultTextStyle><a:defPPr><a:defRPr lang="en-US"/></a:defPPr>${pptTextStyleXml()}</p:defaultTextStyle></p:presentation>`) });
   for (const asset of embeddedAssets) {
     files.push({ name: `ppt/media/${asset.filename}`, bytes: asset.bytes });
   }
@@ -600,13 +622,13 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
       .flatMap((id) => claimFor(content, id).evidenceIds).map((evidenceId) => citationFor(content, evidenceId).sourceTitle) ?? [])] : [];
     const footer = slide.kind === 'section' ? `Sources: ${sectionSources.slice(0, 3).join('  ·  ')}${sectionSources.length > 3 ? `  ·  +${sectionSources.length - 3} more` : ''}` : spec.renderId;
     files.push({ name: `ppt/slides/slide${index + 1}.xml`, bytes: Buffer.from(pptSlideXml({ kind: slide.kind, title: slide.title, body: slide.body, claims: slide.claims,
-      claimSources: slide.claimSources, footer, sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
+      claimSources: slide.claimSources, footer, kicker: headlineParts(content.title)[0].replace(/[:.]$/, ''), sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
       ...slidePictures.map((picture) => ({ id: picture.relId, type: `${OFFICE_REL}/image`, target: picture.target }))])) });
     const notes = [slide.notes, ...slide.claims.map((claim, claimIndex) => `Evidence: ${claim} ${slide.claimSources[claimIndex] ?? ''}`)].join('\n\n');
     files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
     files.push({ name: `ppt/notesSlides/_rels/notesSlide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdSlide', type: `${OFFICE_REL}/slide`, target: `../slides/slide${index + 1}.xml` }])) });
   });
-  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-7' };
+  return { format: 'pptx', path: 'outputs/deck.pptx', mediaType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', bytes: zip(files), adapter: 'a2swe-pptx-ooxml-8' };
 }
 
 function wp(textValue: string, style?: string, keepNext = false): string {
@@ -625,17 +647,21 @@ function docxPicture(asset: ContentIR['assets'][number], relId: string, drawingI
 }
 
 function docxStyles(spec: RenderSpec): string {
-  const font = attr(primaryFont(spec.theme.fontFamily));
-  const heading = pptMix(pptColor(spec.theme.accent), '111827', 0.55);
-  const run = (size: number, bold = false, color = '111827') => `<w:rPr><w:rFonts w:ascii="${font}" w:hAnsi="${font}" w:cs="${font}"/>${bold ? '<w:b/>' : ''}<w:color w:val="${color}"/><w:sz w:val="${size}"/></w:rPr>`;
-  const paragraph = (id: string, name: string, size: number, before: number, after: number, extra = '') =>
-    `<w:style w:type="paragraph" w:styleId="${id}"><w:name w:val="${name}"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="${before}" w:after="${after}"/>${extra}</w:pPr>${run(size, true, heading)}</w:style>`;
-  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="${WORD_NS}"><w:docDefaults><w:rPrDefault>${run(22)}</w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="288" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>`
+  const tokens = brandTokens(spec.theme);
+  const bodyFont = attr(primaryFamily(tokens.bodyFont));
+  const headingFont = attr(primaryFamily(tokens.headingFont));
+  const ink = pptColor(tokens.printInk);
+  // Word documents print on white paper: brand themes use their dark header color for headings, minimal themes their accent made legible.
+  const heading = pptColor(tokens.branded ? tokens.printHeader : tokens.printAccent);
+  const run = (font: string, size: number, bold = false, color = ink) => `<w:rPr><w:rFonts w:ascii="${font}" w:hAnsi="${font}" w:cs="${font}"/>${bold ? '<w:b/>' : ''}<w:color w:val="${color}"/><w:sz w:val="${size}"/></w:rPr>`;
+  const paragraph = (id: string, name: string, size: number, before: number, after: number, extra = '', border = '') =>
+    `<w:style w:type="paragraph" w:styleId="${id}"><w:name w:val="${name}"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/>${border}<w:spacing w:before="${before}" w:after="${after}"/>${extra}</w:pPr>${run(headingFont, size, true, heading)}</w:style>`;
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="${WORD_NS}"><w:docDefaults><w:rPrDefault>${run(bodyFont, 22)}</w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="288" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>`
     + `<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>`
-    + paragraph('Title', 'Title', 52, 0, 240, '<w:jc w:val="left"/>')
+    + paragraph('Title', 'Title', 52, 0, 240, '<w:jc w:val="left"/>', `<w:pBdr><w:bottom w:val="single" w:sz="24" w:space="6" w:color="${pptColor(tokens.highlight)}"/></w:pBdr>`)
     + paragraph('Heading1', 'heading 1', 32, 360, 120, '<w:outlineLvl w:val="0"/>')
     + paragraph('Heading2', 'heading 2', 24, 200, 80, '<w:outlineLvl w:val="1"/>')
-    + `<w:style w:type="character" w:styleId="Hyperlink"><w:name w:val="Hyperlink"/><w:rPr><w:color w:val="0563C1"/><w:u w:val="single"/></w:rPr></w:style></w:styles>`;
+    + `<w:style w:type="character" w:styleId="Hyperlink"><w:name w:val="Hyperlink"/><w:rPr><w:color w:val="${pptColor(tokens.printAccent)}"/><w:u w:val="single"/></w:rPr></w:style></w:styles>`;
 }
 
 function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
@@ -688,7 +714,7 @@ function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
   for (const asset of embeddedAssets) {
     files.push({ name: `word/media/${asset.filename}`, bytes: asset.bytes });
   }
-  return { format: 'docx', path: 'outputs/document.docx', mediaType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', bytes: zip(files), adapter: 'a2swe-docx-ooxml-4' };
+  return { format: 'docx', path: 'outputs/document.docx', mediaType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', bytes: zip(files), adapter: 'a2swe-docx-ooxml-5' };
 }
 
 const WIN_ANSI: Record<string, string> = {
@@ -709,7 +735,7 @@ function narrationParagraphs(content: ContentIR): string[] {
   return displayNarration(content.voice.narration).split(/\r?\n[ \t]*\r?\n/).map((part) => part.trim()).filter(Boolean);
 }
 
-type PdfLine = { text: string; font: 'F1' | 'F2'; size: number; leading: number; indent: number; gapBefore: number; keepWithNext?: boolean; image?: { name: string; width: number; height: number } };
+type PdfLine = { text: string; font: 'F1' | 'F2' | 'F3'; size: number; leading: number; indent: number; gapBefore: number; color?: string; keepWithNext?: boolean; image?: { name: string; width: number; height: number } };
 type PositionedPdfLine = PdfLine & { y: number };
 type RasterBitmap = { width: number; height: number; data: Uint8Array };
 type PdfImageXObject = { width: number; height: number; colorSpace: '/DeviceRGB' | '/DeviceGray'; bitsPerComponent: 8; filter: '/FlateDecode' | '/DCTDecode'; bytes: Buffer };
@@ -718,7 +744,7 @@ type EmbeddedImage = ResolvedAsset & { bytes: Buffer; mediaType: SupportedImageM
 const PDF_WIDTH = 612;
 const PDF_HEIGHT = 792;
 const PDF_MARGIN = 54;
-const PDF_TOP = PDF_HEIGHT - PDF_MARGIN;
+const PDF_TOP = PDF_HEIGHT - PDF_MARGIN - 16;
 const PDF_BOTTOM = PDF_MARGIN;
 function pdfMaxChars(size: number, indent = 0): number {
   const availableWidth = PDF_WIDTH - PDF_MARGIN * 2 - indent;
@@ -758,7 +784,9 @@ function pushPdfBlock(lines: PdfLine[], value: string, options: Partial<PdfLine>
     size,
     leading: options.leading ?? Math.ceil(size * 1.45),
     indent,
-    gapBefore: index === 0 ? options.gapBefore ?? 0 : 0
+    gapBefore: index === 0 ? options.gapBefore ?? 0 : 0,
+    ...(options.color ? { color: options.color } : {}),
+    ...(options.keepWithNext ? { keepWithNext: true } : {})
   }));
 }
 
@@ -921,11 +949,22 @@ function raster(content: ContentIR, spec: RenderSpec, format: 'png' | 'jpeg', op
     path: `outputs/raster.${format === 'png' ? 'png' : 'jpg'}`,
     mediaType: format === 'png' ? 'image/png' : 'image/jpeg',
     bytes,
-    adapter: `a2swe-${format}-raster-1080p-2`
+    adapter: `a2swe-${format}-raster-1080p-3`
   };
 }
 
-function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFile {
+function pdfRgb(hex: string): string {
+  return [1, 3, 5].map((offset) => (Number.parseInt(hex.slice(offset, offset + 2), 16) / 255).toFixed(3)).join(' ');
+}
+
+function pdf(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
+  const tokens = brandTokens(spec.theme);
+  // Standard Type1 faces keep the PDF searchable without embedding: serif brand stacks map to Times, sans stacks to Helvetica.
+  const bodyFaces = isSerifStack(tokens.bodyFont) ? ['Times-Roman', 'Times-Bold'] : ['Helvetica', 'Helvetica-Bold'];
+  const headingFace = isSerifStack(tokens.headingFont) ? 'Times-Bold' : 'Helvetica-Bold';
+  const ink = pdfRgb(tokens.printInk);
+  const headingColor = pdfRgb(tokens.branded ? tokens.printHeader : tokens.printAccent);
+  const heading = (size: number, leading: number, gapBefore = 0): Partial<PdfLine> => ({ font: 'F3', size, leading, gapBefore, color: headingColor, keepWithNext: true });
   const assetMap = resolveAssetEmbeds(content, options);
   const embeddedAssets = embeddedImageAssets(assetMap);
   const imageResources: { name: string; image: PdfImageXObject }[] = [];
@@ -938,20 +977,20 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
     pdfImages.set(asset.asset.assetId, { name, width: image.width * scale, height: image.height * scale });
   }
   const lines: PdfLine[] = [];
-  pushPdfBlock(lines, content.title, { font: 'F2', size: 18, leading: 24 });
+  pushPdfBlock(lines, content.title, heading(18, 24));
   pushPdfBlock(lines, `Audience: ${content.audience}`, { gapBefore: 12 });
   pushPdfBlock(lines, `Decision: ${content.decision}`);
-  pushPdfBlock(lines, 'Executive Summary', { font: 'F2', size: 14, leading: 19, gapBefore: 14 });
+  pushPdfBlock(lines, 'Executive Summary', heading(14, 19, 14));
   pushPdfBlock(lines, content.summary);
-  pushPdfBlock(lines, 'Narration', { font: 'F2', size: 12, leading: 17, gapBefore: 10 });
+  pushPdfBlock(lines, 'Narration', heading(12, 17, 10));
   narrationParagraphs(content).forEach((paragraph, index) => pushPdfBlock(lines, paragraph, { gapBefore: index ? 5 : 0 }));
   content.sections.forEach((section, index) => {
-    pushPdfBlock(lines, `${index + 1}. ${section.title}`, { font: 'F2', size: 14, leading: 19, gapBefore: 14 });
+    pushPdfBlock(lines, `${index + 1}. ${section.title}`, heading(14, 19, 14));
     pushPdfBlock(lines, section.body);
-    pushPdfBlock(lines, 'Claims', { font: 'F2', size: 12, leading: 17, gapBefore: 8 });
+    pushPdfBlock(lines, 'Claims', heading(12, 17, 8));
     section.claimIds.forEach((id) => pushPdfBlock(lines, `• ${claimFor(content, id).text}`, { indent: 18 }));
     if (section.assetIds.length) {
-      pushPdfBlock(lines, 'Assets and alt text', { font: 'F2', size: 12, leading: 17, gapBefore: 8 });
+      pushPdfBlock(lines, 'Assets and alt text', heading(12, 17, 8));
       section.assetIds.forEach((id) => {
         const asset = content.assets.find((item) => item.assetId === id)!;
         const resolved = assetMap.get(asset.assetId);
@@ -965,19 +1004,28 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
         }
       });
     }
-    pushPdfBlock(lines, 'Speaker notes', { font: 'F2', size: 12, leading: 17, gapBefore: 8 });
+    pushPdfBlock(lines, 'Speaker notes', heading(12, 17, 8));
     pushPdfBlock(lines, section.speakerNotes);
   });
-  pushPdfBlock(lines, 'Citations', { font: 'F2', size: 14, leading: 19, gapBefore: 14 });
+  pushPdfBlock(lines, 'Citations', heading(14, 19, 14));
   citationGroups(content).forEach((citation) => {
     const start = lines.length;
     pushPdfBlock(lines, `[${citation.evidenceIds.join(', ')}] ${citation.sourceTitle} ${citation.canonicalUrl} retrieved ${citation.retrievedAt}`);
     for (let index = start; index < lines.length - 1; index++) lines[index].keepWithNext = true;
   });
-  const pages = paginatePdfLines(lines).map((pageLines) => ({
-    stream: pageLines.map((line) => line.image
+  const kicker = words(headlineParts(content.title)[0].replace(/[:.]$/, '').toUpperCase(), 90);
+  const paginated = paginatePdfLines(lines);
+  // Brand band, highlight rule, deck kicker and page number sit above the 54pt text margin on every page.
+  const band = (page: number) => {
+    const label = `${page} / ${paginated.length}`;
+    return [`q ${pdfRgb(tokens.printHeader)} rg 0 ${PDF_HEIGHT - 30} ${PDF_WIDTH} 30 re f ${pdfRgb(tokens.highlight)} rg 0 ${PDF_HEIGHT - 33} ${PDF_WIDTH} 3 re f Q`,
+      `BT /F2 8 Tf ${pdfRgb(inkOn(tokens.printHeader))} rg ${PDF_MARGIN} ${PDF_HEIGHT - 19} Td (${pdfEscape(kicker)}) Tj ET`,
+      `BT /F2 8 Tf ${pdfRgb(inkOn(tokens.printHeader))} rg ${(PDF_WIDTH - PDF_MARGIN - label.length * 4.6).toFixed(1)} ${PDF_HEIGHT - 19} Td (${pdfEscape(label)}) Tj ET`].join('\n');
+  };
+  const pages = paginated.map((pageLines, pageIndex) => ({
+    stream: [band(pageIndex + 1), ...pageLines.map((line) => line.image
       ? `q ${line.image.width.toFixed(3)} 0 0 ${line.image.height.toFixed(3)} ${PDF_MARGIN} ${(line.y - line.image.height).toFixed(3)} cm /${line.image.name} Do Q`
-      : `BT /${line.font} ${line.size} Tf ${PDF_MARGIN + line.indent} ${line.y} Td (${pdfEscape(line.text)}) Tj ET`).join('\n'),
+      : `BT /${line.font} ${line.size} Tf ${line.color ?? ink} rg ${PDF_MARGIN + line.indent} ${line.y} Td (${pdfEscape(line.text)}) Tj ET`)].join('\n'),
     xobjects: [...new Set(pageLines.flatMap((line) => line.image ? [line.image.name] : []))]
       .map((name) => imageResources.find((resource) => resource.name === name)!)
   }));  const objects: string[] = ['<< /Type /Catalog /Pages 2 0 R >>'];
@@ -985,6 +1033,7 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
   const firstImageObject = 3 + pages.length * 2;
   const regularFontObject = firstImageObject + imageResources.length;
   const boldFontObject = regularFontObject + 1;
+  const headingFontObject = regularFontObject + 2;
   const imageObjectNumbers = new Map(imageResources.map((resource, index) => [resource.name, firstImageObject + index]));
   objects.push(`<< /Type /Pages /Kids [${pageObjectNumbers.map((num) => `${num} 0 R`).join(' ')}] /Count ${pages.length} >>`);
   pages.forEach((page, index) => {
@@ -993,14 +1042,13 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
     const xobjectEntries = page.xobjects.length
       ? ` /XObject << ${page.xobjects.map((resource) => `/${resource.name} ${imageObjectNumbers.get(resource.name)} 0 R`).join(' ')} >>`
       : '';
-    objects.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PDF_WIDTH} ${PDF_HEIGHT}] /Resources << /Font << /F1 ${regularFontObject} 0 R /F2 ${boldFontObject} 0 R >>${xobjectEntries} >> /Contents ${contentNumber} 0 R >>`);
+    objects.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PDF_WIDTH} ${PDF_HEIGHT}] /Resources << /Font << /F1 ${regularFontObject} 0 R /F2 ${boldFontObject} 0 R /F3 ${headingFontObject} 0 R >>${xobjectEntries} >> /Contents ${contentNumber} 0 R >>`);
     objects.push(`<< /Length ${Buffer.byteLength(page.stream, 'binary')} >>\nstream\n${page.stream}\nendstream`);
   });
   for (const resource of imageResources) {
     objects.push(`<< /Type /XObject /Subtype /Image /Width ${resource.image.width} /Height ${resource.image.height} /ColorSpace ${resource.image.colorSpace} /BitsPerComponent ${resource.image.bitsPerComponent} /Filter ${resource.image.filter} /Length ${resource.image.bytes.length} >>\nstream\n${resource.image.bytes.toString('binary')}\nendstream`);
   }
-  objects.push('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');
-  objects.push('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');
+  for (const face of [...bodyFaces, headingFace]) objects.push(`<< /Type /Font /Subtype /Type1 /BaseFont /${face} /Encoding /WinAnsiEncoding >>`);
   let output = '%PDF-1.7\n%\xE2\xE3\xCF\xD3\n';
   const offsets = [0];
   for (const [index, object] of objects.entries()) {
@@ -1010,7 +1058,7 @@ function pdf(content: ContentIR, options: AdapterRenderOptions = {}): AdapterFil
   const xref = Buffer.byteLength(output, 'binary');
   output += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n${offsets.slice(1).map((offset) => `${String(offset).padStart(10, '0')} 00000 n `).join('\n')}\n`;
   output += `trailer << /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
-  return { format: 'pdf', path: 'outputs/document.pdf', mediaType: 'application/pdf', bytes: Buffer.from(output, 'binary'), adapter: 'a2swe-pdf-searchable-4' };
+  return { format: 'pdf', path: 'outputs/document.pdf', mediaType: 'application/pdf', bytes: Buffer.from(output, 'binary'), adapter: 'a2swe-pdf-searchable-5' };
 }
 
 function withVisualImages(content: ContentIR, options: AdapterRenderOptions): { content: ContentIR; options: AdapterRenderOptions } {
@@ -1041,7 +1089,7 @@ export function renderFiles(contentInput: unknown, specInput: unknown, options: 
     else if (format === 'adaptiveDeck') files.push(adaptiveDeck(documents.content, spec, documents.options));
     else if (format === 'pptx') files.push(pptx(documents.content, spec, documents.options));
     else if (format === 'docx') files.push(docx(documents.content, spec, documents.options));
-    else if (format === 'pdf') files.push(pdf(documents.content, documents.options));
+    else if (format === 'pdf') files.push(pdf(documents.content, spec, documents.options));
     else if (format === 'png' || format === 'jpeg') files.push(raster(documents.content, spec, format, documents.options));
     else if (format === 'remotion') files.push(...remotion(content, spec, options));
   }

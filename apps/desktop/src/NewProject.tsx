@@ -26,6 +26,7 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
   const [audience, setAudience] = useState('Executive decision-makers');
   const [brief, setBrief] = useState('');
   const [sourceText, setSourceText] = useState('');
+  const [brandUrl, setBrandUrl] = useState('');
   const [paths, setPaths] = useState(selected);
   const [query, setQuery] = useState('');
   const [voiceProfile, setVoiceProfile] = useState(profiles.find(p => p.id === 'am_michael')?.id ?? profiles[0]?.id ?? '');
@@ -59,12 +60,20 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
       } catch { setError(`Use a public HTTP/HTTPS URL without credentials: ${source}`); return; }
     }
     if (sources.length > 20 || paths.length > 40) { setError('Choose at most 20 URLs and 40 library items.'); return; }
+    const brand = brandUrl.trim();
+    if (brand) {
+      try {
+        const url = new URL(brand);
+        if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Unsupported brand site');
+      } catch { setError(`Use a public HTTPS brand site without credentials: ${brand}`); return; }
+    }
     const request: GenerationDraft = {
       brief: brief.trim(),
       ...(id ? {id} : {}), ...(name.trim() ? {name: name.trim()} : {}),
       ...(kind !== 'topic' ? {kind} : {}),
       ...(audience !== 'Executive decision-makers' ? {audience} : {}),
       ...(sources.length ? {sources} : {}),
+      ...(brand ? {brandUrl: brand} : {}),
       ...(paths.length ? {libraryPaths: paths} : {}),
       ...(voiceEdited ? {voiceProfile} : {}),
       ...(speed !== 1 ? {speed} : {}),
@@ -98,6 +107,7 @@ export function NewProject({library, profiles, selected, onClose, onLaunched, re
           {['topic', 'company', 'customer', 'framework', 'repository', 'tool'].map(k => <option key={k} value={k}>{k === 'tool' ? 'product / tool' : k}</option>)}
         </select></label></div>
       <label>Source URLs (one per line)<textarea aria-label="Project source URLs" rows={3} value={sourceText} onChange={event => setSourceText(event.target.value)} placeholder="https://company.example/product&#10;https://docs.example/overview"/></label>
+      <label>Brand site (optional)<input aria-label="Brand site URL" type="url" maxLength={2048} placeholder="https://company.example — colors and fonts for every output" value={brandUrl} onChange={event => setBrandUrl(event.target.value)}/></label>
       <div className="form-row"><label>Voice<select aria-label="Project voice" value={voiceProfile} onChange={event => {setVoiceEdited(true);setVoiceProfile(event.target.value);}}>
         {!profiles.length && <option value="">No voice profiles loaded</option>}
         {profiles.map(profile => <option key={profile.id} value={profile.id}>{profile.name ?? profile.title ?? profile.id}</option>)}

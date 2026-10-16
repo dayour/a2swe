@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir, rename, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { userInfo } from 'node:os';
@@ -60,7 +61,7 @@ async function main(): Promise<void> {
       '  capabilities',
       '  inventory --root PATH --source ALIAS --kind repository|installed --out FILE',
       '  snapshot --root PATH --out FILE',
-      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|AssetInventory|FormatParityManifest|ReleasePlan|Runbook|GenerationRequest --file FILE',
+      '  validate --schema DomainPack|SourceDocument|WorkItem|TaskResult|LibraryEntry|AssetRequest|AssetRecord|ApprovalManifest|ContentIR|RenderSpec|RenderTheme|AssetInventory|FormatParityManifest|ReleasePlan|Runbook|GenerationRequest --file FILE',
       '  runbook-verify --root PROJECT_DIRECTORY',
       '  domain-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD [--out FILE]',
       '  project-init --id SLUG --name NAME --kind company|customer|topic|framework|repository|tool --as-of YYYY-MM-DD --out NEW_DIRECTORY',
@@ -75,6 +76,8 @@ async function main(): Promise<void> {
       '  office-render --root PROJECT_DIRECTORY',
       '  runbook-project --root PROJECT_DIRECTORY',
       '  account-import --source LAYERED_CARDS_CUSTOMER_DIRECTORY --root PROJECT_DIRECTORY',
+      '  brand-theme --root PROJECT_DIRECTORY (--url HTTPS_BRAND_SITE | --source KIT_THEME_JSON | --file RENDER_THEME_JSON) [--name NAME]',
+      '  workspace-init --root PROJECT_DIRECTORY',
       '  canonical-bind --root PROJECT_DIRECTORY',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
@@ -144,7 +147,25 @@ async function main(): Promise<void> {
   }
   if (command === 'account-import') {
     const { importAccountIntake } = await import('./account-intake.ts');
-    console.log(JSON.stringify(await importAccountIntake(required('source'), required('root')), null, 2));
+    const { writeProjectWorkspace } = await import('./workspace.ts');
+    const result = await importAccountIntake(required('source'), required('root'));
+    console.log(JSON.stringify({ ...result, workspace: (await writeProjectWorkspace(required('root'))).workspace }, null, 2));
+    return;
+  }
+  if (command === 'brand-theme') {
+    const { brandThemeCommand } = await import('./brand.ts');
+    const { bindCanonicalInputs, indexProjectQc } = await import('./release.ts');
+    const root = required('root');
+    const installed = await brandThemeCommand(root, { url: values.url, kit: values.source, file: values.file, name: values.name });
+    // A project that already has authored content is rebound so render-spec.json carries the new theme immediately.
+    const bound = existsSync(path.join(root, 'canonical', 'content-ir.json')) ? await bindCanonicalInputs(root) : null;
+    await indexProjectQc(root);
+    console.log(JSON.stringify({ theme: installed.theme, themePath: installed.themePath, evidencePath: installed.evidencePath, rethemedAssets: installed.assets, releaseDigest: bound?.releaseDigest ?? null }, null, 2));
+    return;
+  }
+  if (command === 'workspace-init') {
+    const { writeProjectWorkspace } = await import('./workspace.ts');
+    console.log(JSON.stringify(await writeProjectWorkspace(required('root'))));
     return;
   }
   if (command === 'canonical-bind') {
@@ -191,8 +212,8 @@ async function main(): Promise<void> {
     console.log(JSON.stringify({ schemaVersion: '1.0.0', node: process.version,
       implemented: ['passive_inventory', 'contract_validation', 'draft_intake', 'local_job_receipts', 'leases', 'checkpoints', 'artifact_hashes',
         'evaluation_asset_contracts', 'raster_normalization', 'semantic_diagram_generation', 'comfyui_loopback_adapter', 'asset_bundle_verification',
-        'approval_manifest_contracts', 'content_ir_contracts', 'render_spec_contracts',
-        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_mp4_project_adapter',
+        'approval_manifest_contracts', 'content_ir_contracts', 'render_spec_contracts', 'brand_theme_contracts', 'kit_brand_themes', 'site_brand_extraction',
+        'html_adapter', 'adaptive_deck_adapter', 'pptx_adapter', 'docx_adapter', 'pdf_adapter', 'remotion_mp4_project_adapter', 'vscode_project_workspace',
         'local_mp4_encoding_and_qc_when_dependencies_available', 'multi_format_generation', 'output_set_verification',
         'shared_voice_profiles', 'matched_audio_comparison', 'project_qc_index', 'copilot_sdk_sessions', 'mcp',
         'native_tauri_workspace', 'source_linked_knowledge_search', 'guarded_document_intake'],
@@ -321,8 +342,12 @@ async function main(): Promise<void> {
           mediaType: 'application/vnd.a2swe.domain+json', stage: 'scaffold' }],
         nextAction: 'Collect sources and evidence for the draft domain.' });
       await writeJson(path.join(root, 'agent', 'runbook.json'), runbook, true);
+      const { DEFAULT_THEME, installBrandTheme } = await import('./brand.ts');
+      const { writeProjectWorkspace } = await import('./workspace.ts');
+      const theme = await installBrandTheme(root, DEFAULT_THEME);
+      const workspace = await writeProjectWorkspace(root);
       console.log(JSON.stringify({ projectId: id, project: root, domain: domainFile,
-        runbook: path.join(root, 'agent', 'runbook.json'), state: 'draft' }));
+        runbook: path.join(root, 'agent', 'runbook.json'), theme: theme.themePath, workspace: workspace.workspace, state: 'draft' }));
     } catch (error) {
       await rm(root, { recursive: true, force: true });
       throw error;

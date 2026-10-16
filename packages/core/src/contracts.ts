@@ -1,16 +1,16 @@
 import { readFileSync } from 'node:fs';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import { digest, parseDate, safeRelativePath, sha256, windowStart } from './canonical.ts';
-import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+import type { AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, RenderTheme, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 
-export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
+export type { ArtifactRef, AssetInventory, AssetRecord, AssetRequest, ContentIR, DomainPack, FormatParityManifest, GenerationRequest, LibraryEntry, ReleasePlan, RenderRevision, RenderSpec, RenderTheme, ApprovalManifest, Runbook, SourceDocument, TaskResult, WorkItem } from './contracts.generated.d.ts';
 const schema = JSON.parse(readFileSync(new URL('../schemas/contracts.schema.json', import.meta.url), 'utf8'));
 const validator = new Ajv2020({ allErrors: true, strict: true });
 validator.addSchema(schema);
 
 type Contracts = {
   AssetRequest: AssetRequest; AssetRecord: AssetRecord; AssetInventory: AssetInventory; ContentIR: ContentIR; DomainPack: DomainPack;
-  FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; ApprovalManifest: ApprovalManifest;
+  FormatParityManifest: FormatParityManifest; LibraryEntry: LibraryEntry; ReleasePlan: ReleasePlan; RenderSpec: RenderSpec; RenderTheme: RenderTheme; ApprovalManifest: ApprovalManifest;
   Runbook: Runbook; SourceDocument: SourceDocument; TaskResult: TaskResult; WorkItem: WorkItem; GenerationRequest: GenerationRequest;
   RenderRevision: RenderRevision
 };
@@ -26,6 +26,7 @@ export function validate<Name extends keyof Contracts>(name: Name, value: unknow
   if (name === 'DomainPack') validateDomain(value as DomainPack);
   if (name === 'ContentIR') validateContent(value as ContentIR);
   if (name === 'RenderSpec') validateRenderSpec(value as RenderSpec);
+  if (name === 'RenderTheme') validateRenderTheme(value as RenderTheme);
   if (name === 'ApprovalManifest') validateApprovalManifest(value as ApprovalManifest);
   if (name === 'FormatParityManifest') validateParity(value as FormatParityManifest);
   if (name === 'AssetInventory') validateInventory(value as AssetInventory);
@@ -190,6 +191,34 @@ export function validateContentAgainstDomain(contentInput: unknown, domainInput:
 function validateRenderSpec(spec: RenderSpec): void {
   if (spec.contentDigest === digest(spec)) throw new Error('render_spec_self_digest');
   if (spec.video.width * 9 !== spec.video.height * 16) throw new Error('invalid_video_aspect_ratio');
+  validateRenderTheme(spec.theme);
+}
+
+function relativeLuminance(hex: string): number {
+  const channel = (offset: number) => {
+    const value = Number.parseInt(hex.slice(offset, offset + 2), 16) / 255;
+    return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(1) + 0.7152 * channel(3) + 0.0722 * channel(5);
+}
+
+function contrastRatio(a: string, b: string): number {
+  const [light, dark] = [relativeLuminance(a), relativeLuminance(b)].sort((x, y) => y - x);
+  return (light + 0.05) / (dark + 0.05);
+}
+
+// Every format draws body ink on the canvas, accent ink on the canvas and header text on the header band, so a theme that cannot meet
+// WCAG AA for those pairs is rejected at the contract instead of producing unreadable decks, documents and video.
+function validateRenderTheme(theme: RenderTheme): void {
+  if (contrastRatio(theme.foreground, theme.background) < 4.5) throw new Error('render_theme_foreground_contrast');
+  if (contrastRatio(theme.accent, theme.background) < 3) throw new Error('render_theme_accent_contrast');
+  if (theme.palette) {
+    const { header, deep, highlight, paper, muted } = theme.palette;
+    if (Math.max(contrastRatio('#FFFFFF', header), contrastRatio('#111111', header)) < 4.5) throw new Error('render_theme_header_contrast');
+    if (contrastRatio(highlight, header) < 3 && contrastRatio(highlight, deep) < 3) throw new Error('render_theme_highlight_contrast');
+    if (contrastRatio(theme.foreground, paper) < 4.5) throw new Error('render_theme_paper_contrast');
+    if (contrastRatio(muted, paper) < 4.5) throw new Error('render_theme_muted_contrast');
+  }
 }
 
 function validateApprovalManifest(manifest: ApprovalManifest): void {

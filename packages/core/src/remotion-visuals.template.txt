@@ -3,7 +3,7 @@ import { cancelRender, continueRender, delayRender, staticFile } from 'remotion'
 import mermaid from 'mermaid';
 import { Marp } from '@marp-team/marp-core';
 import { convertToExcalidrawElements, exportToSvg } from '@excalidraw/excalidraw';
-import { accentAlpha, line, mixHex, muted, primaryFont, surface, theme } from './palette';
+import { accentAlpha, alpha, brand, dark, headingFont, line, mixHex, muted, panelFill, primaryFont, radius, surface } from './palette';
 
 export type Visual = { kind: 'mermaid' | 'excalidraw' | 'marp'; source: string; caption: string };
 
@@ -17,26 +17,26 @@ mermaid.initialize({
   fontFamily: primaryFont,
   themeVariables: {
     background: 'transparent',
-    primaryColor: mixHex(theme.accent, theme.background, 0.22),
-    primaryTextColor: theme.foreground,
-    primaryBorderColor: theme.accent,
-    secondaryColor: mixHex(theme.foreground, theme.background, 0.1),
-    tertiaryColor: mixHex(theme.foreground, theme.background, 0.06),
-    lineColor: theme.accent,
-    textColor: theme.foreground,
-    edgeLabelBackground: theme.background,
-    noteBkgColor: mixHex(theme.accent, theme.background, 0.14),
-    noteTextColor: theme.foreground,
-    actorBkg: mixHex(theme.accent, theme.background, 0.22),
-    actorBorder: theme.accent,
-    actorTextColor: theme.foreground,
-    signalColor: theme.foreground,
-    signalTextColor: theme.foreground,
+    primaryColor: mixHex(brand.primary, panelFill, 0.22),
+    primaryTextColor: brand.text,
+    primaryBorderColor: brand.primary,
+    secondaryColor: mixHex(brand.text, panelFill, 0.1),
+    tertiaryColor: mixHex(brand.text, panelFill, 0.06),
+    lineColor: brand.primary,
+    textColor: brand.text,
+    edgeLabelBackground: panelFill,
+    noteBkgColor: mixHex(brand.primary, panelFill, 0.14),
+    noteTextColor: brand.text,
+    actorBkg: mixHex(brand.primary, panelFill, 0.22),
+    actorBorder: brand.primary,
+    actorTextColor: brand.text,
+    signalColor: brand.text,
+    signalTextColor: brand.text,
     // Timeline and journey sections otherwise derive near-black fills from the base palette instead of the brand theme.
     ...Object.fromEntries(Array.from({ length: 12 }, (_, index) => [
-      ['cScale' + index, mixHex(theme.accent, theme.background, index % 2 ? 0.3 : 0.2)],
-      ['cScaleLabel' + index, theme.foreground],
-      ['cScalePeer' + index, theme.accent]
+      ['cScale' + index, mixHex(brand.primary, panelFill, index % 2 ? 0.3 : 0.2)],
+      ['cScaleLabel' + index, brand.text],
+      ['cScalePeer' + index, brand.primary]
     ]).flat()),
     fontSize: '28px'
   },
@@ -48,17 +48,18 @@ mermaid.initialize({
 (window as unknown as { EXCALIDRAW_ASSET_PATH: string }).EXCALIDRAW_ASSET_PATH = new URL(staticFile('excalidraw/'), window.location.href).href;
 
 function marpTheme(designHeight: number): string {
-  const table = mixHex(theme.foreground, theme.background, 0.18);
+  const table = mixHex(brand.text, panelFill, 0.18);
+  const headingColor = dark ? brand.accent : brand.header;
   return '/* @theme a2swe */\n'
-    + 'section { width: 1280px; height: ' + designHeight + 'px; box-sizing: border-box; padding: 56px 72px; background: transparent; color: ' + theme.foreground + '; font-family: ' + primaryFont + '; font-size: 34px; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; }\n'
-    + 'h1 { color: ' + theme.accent + '; font-size: 66px; margin: 0 0 24px; line-height: 1.08 }\n'
-    + 'h2 { color: ' + theme.accent + '; font-size: 46px; margin: 0 0 18px }\n'
-    + 'strong, code { color: ' + theme.accent + ' }\n'
-    + 'ul, ol { padding-left: 1.1em } li::marker { color: ' + theme.accent + ' }\n'
+    + 'section { width: 1280px; height: ' + designHeight + 'px; box-sizing: border-box; padding: 56px 72px; background: transparent; color: ' + brand.text + '; font-family: ' + primaryFont + '; font-size: 34px; line-height: 1.4; display: flex; flex-direction: column; justify-content: center; }\n'
+    + 'h1 { color: ' + headingColor + '; font-family: ' + headingFont + '; font-weight: ' + brand.headingWeight + '; font-size: 66px; margin: 0 0 24px; line-height: 1.08 }\n'
+    + 'h2 { color: ' + headingColor + '; font-family: ' + headingFont + '; font-weight: ' + brand.headingWeight + '; font-size: 46px; margin: 0 0 18px }\n'
+    + 'strong, code { color: ' + brand.accent + ' }\n'
+    + 'ul, ol { padding-left: 1.1em } li::marker { color: ' + brand.accent + ' }\n'
     + 'table { border-collapse: collapse; width: 100%; font-size: 32px }\n'
-    + 'th { text-align: left; color: ' + theme.accent + '; border-bottom: 2px solid ' + theme.accent + '; padding: 12px 18px }\n'
+    + 'th { text-align: left; color: ' + brand.accent + '; border-bottom: 2px solid ' + brand.accent + '; padding: 12px 18px }\n'
     + 'td { border-bottom: 1px solid ' + table + '; padding: 12px 18px }\n'
-    + 'blockquote { border-left: 6px solid ' + theme.accent + '; margin: 0; padding-left: 24px; color: ' + theme.foreground + ' }\n';
+    + 'blockquote { border-left: 6px solid ' + brand.accent + '; margin: 0; padding-left: 24px; color: ' + brand.text + ' }\n';
 }
 
 function useRendered<T>(label: string, key: string, produce: () => Promise<T>): T | null {
@@ -181,7 +182,7 @@ export function VisualPanel({ visual, id, width, height, frame, settled = false 
     if (host.current && rendered) reveal(host.current, visual.kind, frame, settled);
   });
   const scale = width / 1280;
-  return <div role="img" aria-label={visual.caption} style={{ width, height, borderRadius: 26, border: '1px solid ' + line, background: surface, boxShadow: '0 0 0 1px ' + accentAlpha(0.12) + ', 0 24px 60px rgba(0,0,0,0.25)', overflow: 'hidden', position: 'relative', color: muted }}>
+  return <div role="img" aria-label={visual.caption} style={{ width, height, borderRadius: radius + 8, border: '1px solid ' + line, background: surface, boxShadow: dark ? '0 0 0 1px ' + accentAlpha(0.12) + ', 0 24px 60px rgba(0,0,0,0.25)' : '0 12px 32px ' + alpha(brand.header, 0.1), overflow: 'hidden', position: 'relative', color: muted }}>
     {visual.kind === 'marp'
       ? <div ref={host} style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: designHeight, transform: 'scale(' + scale + ')', transformOrigin: 'top left' }}>
         {rendered ? <><style>{rendered.css}</style><div dangerouslySetInnerHTML={{ __html: rendered.html }} /></> : null}

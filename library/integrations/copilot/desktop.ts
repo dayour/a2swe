@@ -376,6 +376,14 @@ class DesktopBridge {
       await mkdir(path.dirname(requestPath), { recursive: true, mode: 0o700 });
       await this.writeGenerationRequest(requestPath, request, requestDigest);
       this.throwIfGenerationCancelled(launchController.signal);
+      // The brand look is installed deterministically before the agent starts; extraction failures are reported to the agent instead
+      // of silently keeping the neutral default theme.
+      const brandReceipt = request.brandUrl
+        ? await runCoreCommand(this.workspace, 'brand-theme', { root: projectRelative, url: request.brandUrl })
+          .then((result) => result.exitCode === 0 ? { brandUrl: request.brandUrl, status: 'installed', theme: 'canonical/render-theme.json' }
+            : { brandUrl: request.brandUrl, status: 'failed', error: (result.stderr || result.stdout || 'unknown failure').slice(0, 1000) })
+        : { status: 'not-requested' };
+      this.throwIfGenerationCancelled(launchController.signal);
       const intakeResults = [];
       const intakeErrors: Array<{ stage: string; message: string }> = [];
       for (const source of request.sources) {
@@ -401,7 +409,7 @@ class DesktopBridge {
         this.session = undefined;
         throw new Error('generation_cancelled');
       }
-      const prompt = this.generationPrompt(request, toRepoRelative(this.workspace, requestPath), intakeResults);
+      const prompt = this.generationPrompt(request, toRepoRelative(this.workspace, requestPath), intakeResults, brandReceipt);
       this.agentBusy = true;
       const messageId = await this.session!.send({ prompt });
       this.throwIfGenerationCancelled(launchController.signal);
@@ -569,7 +577,7 @@ class DesktopBridge {
   }
 
   private async buildGenerationRequest(params: JsonObject): Promise<GenerationRequest> {
-    const allowed = new Set(['id', 'name', 'kind', 'brief', 'audience', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode']);
+    const allowed = new Set(['id', 'name', 'kind', 'brief', 'audience', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode', 'brandUrl']);
     for (const key of Object.keys(params)) if (!allowed.has(key)) throw new Error(`unknown_generation_option: ${key}`);
     const brief = stringParam(params, 'brief')!.trim();
     const registry: unknown = JSON.parse(await readFile(path.join(this.workspace, 'library', 'assets', 'speech', 'voice-profiles.json'), 'utf8'));
@@ -589,7 +597,8 @@ class DesktopBridge {
       voiceProfile: params.voiceProfile === undefined ? registry.defaultProfileId : stringParam(params, 'voiceProfile')!,
       speed: params.speed === undefined ? 1 : params.speed,
       formats: params.formats === undefined ? ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] : params.formats,
-      mode: params.mode === undefined ? 'auto' : params.mode
+      mode: params.mode === undefined ? 'auto' : params.mode,
+      ...(params.brandUrl === undefined || !String(params.brandUrl).trim() ? {} : { brandUrl: stringParam(params, 'brandUrl')!.trim() })
     };
     const id = params.id === undefined ? `${slug(options.name).slice(0, 56)}-${digest(options).slice(0, 10)}` : stringParam(params, 'id')!;
     const request = validate('GenerationRequest', { ...options, id });
@@ -712,11 +721,12 @@ class DesktopBridge {
     return undefined;
   }
 
-  private generationPrompt(request: GenerationRequest, requestPath: string, intakeResults: unknown[]) {
+  private generationPrompt(request: GenerationRequest, requestPath: string, intakeResults: unknown[], brandReceipt: Record<string, unknown>) {
     return [
       'Run autonomous a2swe project generation for the selected project.',
       'The coordinator has already created this project and session. Do not call project.generate or start a nested generation; execute the existing core authoring, production and verification operations for this request.',
       'Use only source-backed contracts and repository tools; do not invent facts or brand knowledge.',
+      'Brand: canonical/render-theme.json is the project brand theme (colors, header band, highlight, fonts) that every output format and the video render from. Never hand-pick colors or fonts. If brandReceipt shows no installed brand and the subject has an owning organization or product with an official site, run core.command brand-theme with --url set to that official site; if it reports brand_site_insufficient_evidence, keep the installed default theme.',
       'Do not request human editorial signoff. If a gate fails, repair and rerun the relevant local validation until the selected outputs are coherent or report a hard blocker.',
       'Use the persisted GenerationRequest as the source of truth.',
       `Audience: ${request.audience ?? 'Executive decision-makers'}. Lead with the bottom line and decision, explain business impact and why it matters now, then the few facts, risks and next actions that change the decision. Avoid a feature-by-feature walkthrough.`,
@@ -725,6 +735,7 @@ class DesktopBridge {
       JSON.stringify({
         generationRequestPath: requestPath,
         request,
+        brandReceipt,
         sourceIntakeReceipts: intakeResults,
         requiredWork: [
           'Create a project-specific domain SWE agent at agent/SWE_AGENT.md and maintain the evidence-bound agent/runbook.json.',

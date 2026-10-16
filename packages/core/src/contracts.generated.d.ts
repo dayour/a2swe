@@ -9,6 +9,7 @@ export type CoreContract =
   | ApprovalManifest
   | ContentIR
   | RenderSpec
+  | RenderTheme
   | AssetInventory
   | FormatParityManifest
   | ReleasePlan
@@ -20,6 +21,8 @@ export type RelativePath = string;
 export type Digest = string;
 export type Date = string;
 export type IsoInstant = string;
+export type HexColor = string;
+export type FontStack = string;
 
 export interface LibraryEntry {
   schemaVersion: "1.0.0";
@@ -430,13 +433,7 @@ export interface RenderSpec {
         "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion",
         "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ];
-  theme: {
-    name: string;
-    background: string;
-    foreground: string;
-    accent: string;
-    fontFamily: string;
-  };
+  theme: RenderTheme;
   viewport: {
     width: number;
     height: number;
@@ -447,6 +444,35 @@ export interface RenderSpec {
     fps: number;
     durationSeconds: number;
     sampleRate: 44100 | 48000;
+  };
+}
+/**
+ * Brand design tokens shared by every output format. background/foreground are the page canvas and body ink, accent is emphasis ink on the canvas; palette carries the brand roles (header band, highlight rule, surfaces) and source records where the brand came from.
+ */
+export interface RenderTheme {
+  name: string;
+  background: HexColor;
+  foreground: HexColor;
+  accent: HexColor;
+  fontFamily: FontStack;
+  headingFont?: FontStack;
+  radius?: number;
+  palette?: {
+    primary: HexColor;
+    header: HexColor;
+    deep: HexColor;
+    highlight: HexColor;
+    paper: HexColor;
+    line: HexColor;
+    muted: HexColor;
+    soft: HexColor;
+    danger?: HexColor;
+  };
+  source?: {
+    kind: "kit" | "site" | "manual";
+    reference: string;
+    basis: string;
+    retrievedAt?: IsoInstant;
   };
 }
 export interface AssetInventory {
@@ -1216,6 +1242,7 @@ export interface GenerationRequest {
         "html" | "adaptiveDeck" | "pptx" | "docx" | "pdf" | "png" | "jpeg" | "remotion"
       ];
   mode: "guided" | "auto";
+  brandUrl?: string;
 }
 export interface RenderRevision {
   schemaVersion: "1.0.0";

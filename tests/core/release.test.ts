@@ -263,7 +263,7 @@ test('production output adapters meet canonical schema, OOXML, PDF, accessibilit
   assert.match(html, /<a class="skip" href="#content">Skip to content/);
   assert.match(html, /aria-labelledby="section-1-title"/);
   assert.match(html, /Diagram showing one verified release flow/);
-  assert.match(html, /--card:color-mix\(in srgb,var\(--bg\) 88%,var\(--fg\) 12%\)/);
+  assert.match(html, /\.hero,\.card,\.manifest\{[^}]*background:var\(--paper\)/);
   assert.match(html, /overflow-wrap:anywhere/);
   assert.match(html, /word-break:break-word/);
   assert.match(html, /grid-template-columns:repeat\(auto-fit,minmax\(min\(280px,100%\),1fr\)\)/);
@@ -433,9 +433,10 @@ test('HTML cards and long headings remain readable and responsive on dark themes
   const html = files.find((file) => file.format === 'html')!.bytes.toString('utf8');
   assert.match(html, /color-scheme:dark/);
   assert.match(html, /--bg:#0D1B2A/);
-  assert.match(html, /--fg:#ffffff/);
-  assert.match(html, /--card:color-mix\(in srgb,var\(--bg\) 88%,var\(--fg\) 12%\)/);
-  assert.doesNotMatch(html, /--card:rgba\(255,255,255,\s*\.88\)/);
+  assert.match(html, /--fg:#ffffff/i);
+  // Dark themes draw cards on a surface derived from the canvas and ink, never a white card behind white text.
+  assert.match(html, /\.hero,\.card,\.manifest\{[^}]*background:var\(--paper\)/);
+  assert.doesNotMatch(html, /--paper:#FFFFFF/i);
   assert.match(html, /h1\{[^}]*overflow-wrap:anywhere;word-break:break-word;max-width:100%/);
   assert.match(html, /\.hero,.card,.manifest\{[^}]*max-width:100%;overflow-wrap:anywhere/);
   assert.match(html, /\*\{box-sizing:border-box;min-width:0\}/);
