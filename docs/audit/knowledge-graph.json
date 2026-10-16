@@ -3,15 +3,15 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 4074,
+    "trackedFiles": 4583,
     "nodes": {
       "adapter": 8,
       "agent": 9,
-      "atom": 38,
+      "atom": 41,
       "env": 30,
-      "file": 20,
+      "file": 19,
       "format": 8,
-      "module": 130,
+      "module": 132,
       "package": 20,
       "plugin": 1,
       "project": 9,
@@ -24,32 +24,32 @@
     "edges": {
       "binds_digest_of": 22,
       "branches_on": 57,
-      "composes": 78,
+      "composes": 82,
       "contains": 3,
       "depends_on": 83,
       "hands_off_to": 4,
-      "imports": 212,
+      "imports": 223,
       "mirrors": 6,
       "produces": 8,
-      "reads": 24,
+      "reads": 23,
       "reads_env": 37,
       "shipped_by": 72,
       "speaks_with": 9,
       "synthesizes_with": 2,
       "tests": 31,
-      "uses_contract": 87,
+      "uses_contract": 92,
       "uses_visual": 25
     },
     "gaps": {
       "critical": 0,
       "high": 7,
       "medium": 8,
-      "low": 2
+      "low": 1
     }
   },
   "nodes": [
     {
-      "id": "adapter:a2swe-adaptive-deck-schema-2",
+      "id": "adapter:a2swe-adaptive-deck-schema-3",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -57,7 +57,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-docx-ooxml-4",
+      "id": "adapter:a2swe-docx-ooxml-5",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -65,7 +65,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-html-accessible-2",
+      "id": "adapter:a2swe-html-accessible-3",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -73,7 +73,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-jpeg-raster-1080p-2",
+      "id": "adapter:a2swe-jpeg-raster-1080p-3",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -81,7 +81,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-pdf-searchable-4",
+      "id": "adapter:a2swe-pdf-searchable-5",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -89,7 +89,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-png-raster-1080p-2",
+      "id": "adapter:a2swe-png-raster-1080p-3",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -97,7 +97,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-pptx-ooxml-7",
+      "id": "adapter:a2swe-pptx-ooxml-8",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -105,7 +105,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-remotion-mp4-adapter-10",
+      "id": "adapter:a2swe-remotion-mp4-adapter-12",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -219,7 +219,7 @@
             "pointer": "ApprovalManifest.selectedAssets",
             "type": "array<SelectedAssetApproval>",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": true
           }
         ],
@@ -243,14 +243,14 @@
             "pointer": "ArtifactRef.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "ArtifactRef.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -296,7 +296,7 @@
             "pointer": "AssetInventory.entries",
             "type": "array<AssetInventoryEntry>",
             "required": true,
-            "consumers": 10,
+            "consumers": 11,
             "validated": true
           }
         ],
@@ -321,35 +321,35 @@
             "pointer": "AssetInventoryEntry.assetId",
             "type": "Identifier",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.kind",
             "type": "enum(selected|generated_visual)",
             "required": true,
-            "consumers": 19,
+            "consumers": 21,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.role",
             "type": "string",
             "required": true,
-            "consumers": 13,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 23,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
@@ -395,7 +395,7 @@
             "pointer": "AssetRecord.assetId",
             "type": "string",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -409,14 +409,14 @@
             "pointer": "AssetRecord.requestDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": false
           },
           {
             "pointer": "AssetRecord.artifact",
             "type": "ArtifactRef",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -444,7 +444,7 @@
             "pointer": "AssetRecord.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 13,
+            "consumers": 14,
             "validated": true
           },
           {
@@ -581,7 +581,7 @@
             "pointer": "AssetRequest.assetId",
             "type": "string",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
@@ -602,14 +602,14 @@
             "pointer": "AssetRequest.method",
             "type": "enum(diagram|diffusion|import)",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           },
           {
             "pointer": "AssetRequest.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 13,
+            "consumers": 14,
             "validated": true
           },
           {
@@ -659,7 +659,7 @@
             "type": "array<string>",
             "required": true,
             "consumers": 3,
-            "validated": false
+            "validated": true
           },
           {
             "pointer": "AssetRequest.nodes",
@@ -684,7 +684,7 @@
             "required": true
           }
         ],
-        "typeConsumers": 5
+        "typeConsumers": 6
       }
     },
     {
@@ -749,21 +749,21 @@
             "pointer": "ContentAsset.assetId",
             "type": "Identifier",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "ContentAsset.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "ContentAsset.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -777,7 +777,7 @@
             "pointer": "ContentAsset.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 13,
+            "consumers": 14,
             "validated": true
           }
         ],
@@ -822,7 +822,7 @@
             "pointer": "ContentCitation.retrievedAt",
             "type": "IsoInstant",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           }
         ],
@@ -853,7 +853,7 @@
             "pointer": "ContentClaim.text",
             "type": "string",
             "required": true,
-            "consumers": 18,
+            "consumers": 20,
             "validated": true
           },
           {
@@ -956,7 +956,7 @@
             "pointer": "ContentIR.assets",
             "type": "array<ContentAsset>",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
             "validated": true
           },
           {
@@ -974,7 +974,7 @@
             "validated": false
           }
         ],
-        "typeConsumers": 7
+        "typeConsumers": 8
       }
     },
     {
@@ -1103,14 +1103,14 @@
             "pointer": "DomainPack.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 19,
+            "consumers": 21,
             "validated": true
           },
           {
             "pointer": "DomainPack.canonicalName",
             "type": "string",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": false
           },
           {
@@ -1152,7 +1152,7 @@
             "pointer": "DomainPack.evidence",
             "type": "array<EvidenceSpan>",
             "required": true,
-            "consumers": 5,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -1234,6 +1234,20 @@
       }
     },
     {
+      "id": "atom:FontStack",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/FontStack",
+      "attributes": {
+        "patterns": [
+          "primitive"
+        ],
+        "shapeId": "473287f8298dba71",
+        "shape": "string",
+        "fields": [],
+        "typeConsumers": 0
+      }
+    },
+    {
       "id": "atom:FormatOutput",
       "type": "atom",
       "path": "packages/core/schemas/contracts.schema.json#/$defs/FormatOutput",
@@ -1258,21 +1272,21 @@
             "pointer": "FormatOutput.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 23,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "FormatOutput.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "FormatOutput.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -1370,8 +1384,8 @@
           "closed",
           "versioned"
         ],
-        "shapeId": "f1baad16d6768364",
-        "shape": "audience?:string;brief:string;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;id:string;kind:enum(company|customer|topic|framework|repository|tool);libraryPaths:array<string>;mode:enum(guided|auto);name:string;schemaVersion:const(\"1.0.0\");sources:array<string>;speed:number;voiceProfile:string",
+        "shapeId": "60e3eaae5bb64d63",
+        "shape": "audience?:string;brandUrl?:string;brief:string;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;id:string;kind:enum(company|customer|topic|framework|repository|tool);libraryPaths:array<string>;mode:enum(guided|auto);name:string;schemaVersion:const(\"1.0.0\");sources:array<string>;speed:number;voiceProfile:string",
         "fields": [
           {
             "pointer": "GenerationRequest.schemaVersion",
@@ -1384,21 +1398,21 @@
             "pointer": "GenerationRequest.id",
             "type": "string",
             "required": true,
-            "consumers": 18,
+            "consumers": 20,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.name",
             "type": "string",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 19,
+            "consumers": 21,
             "validated": true
           },
           {
@@ -1454,11 +1468,32 @@
             "pointer": "GenerationRequest.mode",
             "type": "enum(guided|auto)",
             "required": true,
-            "consumers": 12,
+            "consumers": 13,
+            "validated": false
+          },
+          {
+            "pointer": "GenerationRequest.brandUrl",
+            "type": "string",
+            "required": false,
+            "consumers": 3,
             "validated": false
           }
         ],
         "typeConsumers": 3
+      }
+    },
+    {
+      "id": "atom:HexColor",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/HexColor",
+      "attributes": {
+        "patterns": [
+          "primitive"
+        ],
+        "shapeId": "473287f8298dba71",
+        "shape": "string",
+        "fields": [],
+        "typeConsumers": 0
       }
     },
     {
@@ -1515,14 +1550,14 @@
             "pointer": "LibraryEntry.id",
             "type": "Identifier",
             "required": true,
-            "consumers": 18,
+            "consumers": 20,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.kind",
             "type": "enum(agent|skill|plugin|asset|template|automation|archive)",
             "required": true,
-            "consumers": 19,
+            "consumers": 21,
             "validated": true
           },
           {
@@ -1728,7 +1763,7 @@
             "pointer": "RenderRevision.projectId",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -1770,14 +1805,14 @@
             "pointer": "RenderRevision.status",
             "type": "enum(current|superseded|rejected)",
             "required": true,
-            "consumers": 25,
+            "consumers": 26,
             "validated": true
           },
           {
             "pointer": "RenderRevision.source",
             "type": "RelativePath",
             "required": true,
-            "consumers": 11,
+            "consumers": 12,
             "validated": true
           },
           {
@@ -1816,8 +1851,8 @@
           "versioned",
           "digest-bound"
         ],
-        "shapeId": "fad762ca695be6f1",
-        "shape": "contentDigest:Digest;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;renderId:Identifier;schemaVersion:const(\"1.0.0\");theme.accent:string;theme.background:string;theme.fontFamily:string;theme.foreground:string;theme.name:string;theme:object;video.durationSeconds:number;video.fps:integer;video.height:integer;video.sampleRate:enum(44100|48000);video.width:integer;video:object;viewport.height:integer;viewport.width:integer;viewport:object",
+        "shapeId": "580ed1f89ec6d63c",
+        "shape": "contentDigest:Digest;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;renderId:Identifier;schemaVersion:const(\"1.0.0\");theme:RenderTheme;video.durationSeconds:number;video.fps:integer;video.height:integer;video.sampleRate:enum(44100|48000);video.width:integer;video:object;viewport.height:integer;viewport.width:integer;viewport:object",
         "fields": [
           {
             "pointer": "RenderSpec.schemaVersion",
@@ -1849,35 +1884,10 @@
           },
           {
             "pointer": "RenderSpec.theme",
-            "type": "object",
+            "type": "RenderTheme",
             "required": true,
-            "consumers": 5,
-            "validated": false
-          },
-          {
-            "pointer": "RenderSpec.theme.name",
-            "type": "string",
-            "required": true
-          },
-          {
-            "pointer": "RenderSpec.theme.background",
-            "type": "string",
-            "required": true
-          },
-          {
-            "pointer": "RenderSpec.theme.foreground",
-            "type": "string",
-            "required": true
-          },
-          {
-            "pointer": "RenderSpec.theme.accent",
-            "type": "string",
-            "required": true
-          },
-          {
-            "pointer": "RenderSpec.theme.fontFamily",
-            "type": "string",
-            "required": true
+            "consumers": 8,
+            "validated": true
           },
           {
             "pointer": "RenderSpec.viewport",
@@ -1933,6 +1943,150 @@
       }
     },
     {
+      "id": "atom:RenderTheme",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/RenderTheme",
+      "attributes": {
+        "patterns": [
+          "root-contract",
+          "closed"
+        ],
+        "shapeId": "a9503194458d54ec",
+        "shape": "accent:HexColor;background:HexColor;fontFamily:FontStack;foreground:HexColor;headingFont?:FontStack;name:string;palette.danger?:HexColor;palette.deep:HexColor;palette.header:HexColor;palette.highlight:HexColor;palette.line:HexColor;palette.muted:HexColor;palette.paper:HexColor;palette.primary:HexColor;palette.soft:HexColor;palette?:object;radius?:integer;source.basis:string;source.kind:enum(kit|site|manual);source.reference:string;source.retrievedAt?:IsoInstant;source?:object",
+        "fields": [
+          {
+            "pointer": "RenderTheme.name",
+            "type": "string",
+            "required": true,
+            "consumers": 22,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.background",
+            "type": "HexColor",
+            "required": true,
+            "consumers": 6,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.foreground",
+            "type": "HexColor",
+            "required": true,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.accent",
+            "type": "HexColor",
+            "required": true,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.fontFamily",
+            "type": "FontStack",
+            "required": true,
+            "consumers": 2,
+            "validated": false
+          },
+          {
+            "pointer": "RenderTheme.headingFont",
+            "type": "FontStack",
+            "required": false,
+            "consumers": 3,
+            "validated": false
+          },
+          {
+            "pointer": "RenderTheme.radius",
+            "type": "integer",
+            "required": false,
+            "consumers": 3,
+            "validated": false
+          },
+          {
+            "pointer": "RenderTheme.palette",
+            "type": "object",
+            "required": false,
+            "consumers": 3,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.palette.primary",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.header",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.deep",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.highlight",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.paper",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.line",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.muted",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.soft",
+            "type": "HexColor",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.palette.danger",
+            "type": "HexColor",
+            "required": false
+          },
+          {
+            "pointer": "RenderTheme.source",
+            "type": "object",
+            "required": false,
+            "consumers": 12,
+            "validated": true
+          },
+          {
+            "pointer": "RenderTheme.source.kind",
+            "type": "enum(kit|site|manual)",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.source.reference",
+            "type": "string",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.source.basis",
+            "type": "string",
+            "required": true
+          },
+          {
+            "pointer": "RenderTheme.source.retrievedAt",
+            "type": "IsoInstant",
+            "required": false
+          }
+        ],
+        "typeConsumers": 3
+      }
+    },
+    {
       "id": "atom:RevisionOutput",
       "type": "atom",
       "path": "packages/core/schemas/contracts.schema.json#/$defs/RevisionOutput",
@@ -1950,21 +2104,21 @@
             "pointer": "RevisionOutput.path",
             "type": "string",
             "required": true,
-            "consumers": 23,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "RevisionOutput.role",
             "type": "enum(video|video-raw|captions|presentation|metadata)",
             "required": true,
-            "consumers": 13,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "RevisionOutput.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
@@ -1978,7 +2132,7 @@
             "pointer": "RevisionOutput.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -2124,7 +2278,7 @@
             "pointer": "Runbook.projectId",
             "type": "Identifier",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -2212,21 +2366,21 @@
             "pointer": "RunbookArtifact.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 23,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "RunbookArtifact.digest",
             "type": "Digest",
             "required": true,
-            "consumers": 22,
+            "consumers": 24,
             "validated": true
           },
           {
             "pointer": "RunbookArtifact.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -2258,28 +2412,28 @@
             "pointer": "RunbookGate.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "RunbookGate.status",
             "type": "enum(pending|blocked|passed)",
             "required": true,
-            "consumers": 25,
+            "consumers": 26,
             "validated": true
           },
           {
             "pointer": "RunbookGate.evidencePath",
             "type": "oneOf(RelativePath|null)",
             "required": true,
-            "consumers": 1,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "RunbookGate.evidenceDigest",
             "type": "oneOf(Digest|null)",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           }
         ],
@@ -2304,14 +2458,14 @@
             "pointer": "RunbookStage.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "RunbookStage.status",
             "type": "enum(not_started|in_progress|blocked|complete)",
             "required": true,
-            "consumers": 25,
+            "consumers": 26,
             "validated": true
           },
           {
@@ -2355,14 +2509,14 @@
             "pointer": "SectionVisual.kind",
             "type": "enum(mermaid|excalidraw|marp)",
             "required": true,
-            "consumers": 19,
+            "consumers": 21,
             "validated": true
           },
           {
             "pointer": "SectionVisual.source",
             "type": "string",
             "required": true,
-            "consumers": 11,
+            "consumers": 12,
             "validated": true
           },
           {
@@ -2395,21 +2549,21 @@
             "pointer": "SelectedAssetApproval.assetId",
             "type": "Identifier",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": true
           },
           {
             "pointer": "SelectedAssetApproval.assetDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
             "pointer": "SelectedAssetApproval.basis",
             "type": "string",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
@@ -2423,14 +2577,14 @@
             "pointer": "SelectedAssetApproval.evidenceDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
             "pointer": "SelectedAssetApproval.status",
             "type": "enum(pending|approved|rejected)",
             "required": true,
-            "consumers": 25,
+            "consumers": 26,
             "validated": true
           }
         ],
@@ -2512,7 +2666,7 @@
             "pointer": "SourceDocument.retrievedAt",
             "type": "string",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2573,7 +2727,7 @@
             "pointer": "TaskResult.status",
             "type": "enum(succeeded|failed|blocked|cancelled|outcome_unknown)",
             "required": true,
-            "consumers": 25,
+            "consumers": 26,
             "validated": true
           },
           {
@@ -2736,7 +2890,7 @@
             "pointer": "WorkItem.inputs",
             "type": "array<ArtifactRef>",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": false
           },
           {
@@ -3047,12 +3201,6 @@
       "attributes": {}
     },
     {
-      "id": "file:template/public/fonts/Audiowide-Regular.ttf",
-      "type": "file",
-      "path": "template/public/fonts/Audiowide-Regular.ttf",
-      "attributes": {}
-    },
-    {
       "id": "file:template/public/fonts/NotoSansSC.ttf",
       "type": "file",
       "path": "template/public/fonts/NotoSansSC.ttf",
@@ -3161,8 +3309,8 @@
       "attributes": {
         "role": "desktop-ui",
         "language": "typescript",
-        "lines": 127,
-        "sha256": "d02e0b3ae809e604e03adbaa1fc3894dd76d7a7a218b49bd2a572d3db855fd3d",
+        "lines": 137,
+        "sha256": "246da9295c2a67d1388742c5e89a0e9a86af6a091de63961de1d87206271aa09",
         "exports": [
           "GenerationLaunch",
           "NewProject"
@@ -3412,8 +3560,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 1077,
-        "sha256": "42b003c63da2161fbe792e52289b7fdbe309be5a5440497fa0ade786ad49fa1b",
+        "lines": 1088,
+        "sha256": "1de3a5fc9d82648b17de54b225457b96c0499048c03e83504aa3263b9de841e8",
         "testCoverage": "none"
       }
     },
@@ -3424,8 +3572,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 821,
-        "sha256": "d4c8375327cda4d6999bf28f44d58a437027b88fd463c5b2f11241f662b002d0",
+        "lines": 827,
+        "sha256": "ea617712b3514ca554f4076f58adcce2c45805d6944fb683fb8bea90f98b09c3",
         "exports": [
           "BRIDGE_METHOD_SCHEMAS",
           "CALLABLE_TOOL_NAMES",
@@ -3691,10 +3839,9 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 255,
-        "sha256": "c2c69a08bfbc9079f36c465f8bcf739d07f0a5f1b888003317cc56b613f8226c",
+        "lines": 229,
+        "sha256": "deae67ea508644749b76cca877a145f6b5fe5f308dad2f923323683a52c17ce1",
         "exports": [
-          "accountTheme",
           "importAccountIntake"
         ],
         "testCoverage": "none"
@@ -3707,8 +3854,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1051,
-        "sha256": "413deb2c780d90d124f66fbad2b350167f7778b8a5c8b87d0fa38cc9cac664d9",
+        "lines": 1099,
+        "sha256": "0196ba3c8abbbabc51d3de24ff805075f56d8902d14657d36084e1824f093bc0",
         "exports": [
           "AdapterAssetEmbed",
           "AdapterFile",
@@ -3782,6 +3929,47 @@
       }
     },
     {
+      "id": "module:packages/core/src/brand.ts",
+      "type": "module",
+      "path": "packages/core/src/brand.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 505,
+        "sha256": "9864f67f3e7c75fb8632ebb6855da3accf89579b91b5bc03aadfacb00dc8d00b",
+        "exports": [
+          "BrandPalette",
+          "BrandRoles",
+          "BrandTokens",
+          "DEFAULT_THEME",
+          "KIT_BODY_FONT",
+          "KIT_HEADING_FONT",
+          "KitTheme",
+          "SiteBrand",
+          "blend",
+          "brandThemeCommand",
+          "brandTokens",
+          "contrast",
+          "extractSiteBrand",
+          "fontFamilies",
+          "fontStack",
+          "inkOn",
+          "installBrandTheme",
+          "isSerifStack",
+          "kitBrandTheme",
+          "luminance",
+          "normHex",
+          "paletteFromVotes",
+          "paletteRoles",
+          "primaryFamily",
+          "rethemeDiagramAssets",
+          "siteBrandTheme",
+          "themeFromRoles"
+        ],
+        "testCoverage": "transitive"
+      }
+    },
+    {
       "id": "module:packages/core/src/canonical.ts",
       "type": "module",
       "path": "packages/core/src/canonical.ts",
@@ -3809,8 +3997,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 356,
-        "sha256": "27a9646d30ea5d711333d709cb13a0822408986b3f88ebd9e274aa7b22ab0f53",
+        "lines": 381,
+        "sha256": "abb04f27826a5263b754d7baa50f52b3330324dce085a49370dc9eb0a22cf7c5",
         "testCoverage": "none"
       }
     },
@@ -3821,8 +4009,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1268,
-        "sha256": "834aa0b05e0037c1254a89a677314545d324d32d7080b56e793121a66b232543",
+        "lines": 1295,
+        "sha256": "39fc89a0d44cbb7278dcaed4ea7d18a6596c4a8580bf2cd994e894fa8975d575",
         "generated": true,
         "exports": [
           "ApprovalManifest",
@@ -3842,9 +4030,11 @@
           "Digest",
           "DomainPack",
           "EvidenceSpan",
+          "FontStack",
           "FormatOutput",
           "FormatParityManifest",
           "GenerationRequest",
+          "HexColor",
           "Identifier",
           "IsoInstant",
           "LibraryEntry",
@@ -3852,6 +4042,7 @@
           "ReleasePlan",
           "RenderRevision",
           "RenderSpec",
+          "RenderTheme",
           "RevisionOutput",
           "RevisionVoice",
           "Runbook",
@@ -3874,8 +4065,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 273,
-        "sha256": "4b671a3879841f2b3069daa46f81bac2e3c0c81177e6b8b4c8a2a14647fb6bac",
+        "lines": 302,
+        "sha256": "81d508f321c638e513ba80cfb4c53f026bc04a6d1e188d9fd68c5c7420e4051d",
         "exports": [
           "isContractName",
           "revisionTitle",
@@ -3967,8 +4158,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 2041,
-        "sha256": "0c0ad0542e2367a5935c37113e9c64b981f177e1cdfa4c9061a1738e18b7fb65",
+        "lines": 2042,
+        "sha256": "08e3d4758b4409eef8ad7e8107fd0dc7629b412199257031b9287202714be1f3",
         "exports": [
           "MP4_ADAPTER",
           "remotion",
@@ -3982,31 +4173,31 @@
         "embeddedScripts": [
           {
             "owner": "synthesizeAudioWrapperScript",
-            "line": 277,
+            "line": 278,
             "lines": 33,
             "language": "javascript"
           },
           {
             "owner": "synthesizeAudioPython",
-            "line": 313,
+            "line": 314,
             "lines": 593,
             "language": "python"
           },
           {
             "owner": "audioQaScript",
-            "line": 909,
+            "line": 910,
             "lines": 379,
             "language": "javascript"
           },
           {
             "owner": "renderScript",
-            "line": 1291,
+            "line": 1292,
             "lines": 284,
             "language": "javascript"
           },
           {
             "owner": "verifyScript",
-            "line": 1578,
+            "line": 1579,
             "lines": 92,
             "language": "javascript"
           }
@@ -4044,11 +4235,12 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 95,
-        "sha256": "5a82e09a6bfd48ca7b398d86e575dad6638d9879dd49851564a2b970f2f819ee",
+        "lines": 138,
+        "sha256": "9e48f9fa2e16791252012e181364ff1a7e24d9283aa6295385439947abc4b052",
         "exports": [
           "consumeRasterResponse",
           "fetchPublicRaster",
+          "fetchPublicText",
           "isPublicAddress",
           "publicAddresses",
           "publicRasterUrl"
@@ -4063,8 +4255,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 181,
-        "sha256": "04f2799acefed4024a11b6b141aa3b2e1b71956d3e665048b22950f8a22d09bb",
+        "lines": 206,
+        "sha256": "36a5d30ae8706b0cf68be21c7520ebe64f1b42261addfae9b868e48a6235256c",
         "exports": [
           "renderRasterOverview"
         ],
@@ -4163,6 +4355,21 @@
           "Store"
         ],
         "testCoverage": "direct"
+      }
+    },
+    {
+      "id": "module:packages/core/src/workspace.ts",
+      "type": "module",
+      "path": "packages/core/src/workspace.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 71,
+        "sha256": "d973694d915738fde836fe099958fdc64dd8e4bad040e7666cd9d09342d9621d",
+        "exports": [
+          "writeProjectWorkspace"
+        ],
+        "testCoverage": "none"
       }
     },
     {
@@ -5263,8 +5470,8 @@
       "attributes": {
         "role": "test",
         "language": "typescript",
-        "lines": 513,
-        "sha256": "0ab630db6cc569d325bafe9e17326dfd85aae0c7c103cdfa8f0f638d8bbf08fb"
+        "lines": 514,
+        "sha256": "881da49ea7283b682f984870df19de2af28ad995dcb15dec48a4a8f3f50c4090"
       }
     },
     {
@@ -5410,7 +5617,7 @@
       "path": "projects/agent-365",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 247,
+        "trackedFiles": 307,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5427,7 +5634,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 138,
+          "entries": 187,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5461,7 +5668,7 @@
       "path": "projects/copilot",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 375,
+        "trackedFiles": 435,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5478,7 +5685,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 258,
+          "entries": 307,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5512,7 +5719,7 @@
       "path": "projects/copilot-studio-2026",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 412,
+        "trackedFiles": 472,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5529,7 +5736,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 286,
+          "entries": 335,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5563,7 +5770,7 @@
       "path": "projects/datadog-cowork-plugin",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 376,
+        "trackedFiles": 369,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5580,7 +5787,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 270,
+          "entries": 252,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5616,7 +5823,7 @@
       "path": "projects/microsoft",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 269,
+        "trackedFiles": 329,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5633,7 +5840,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 168,
+          "entries": 217,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5667,7 +5874,7 @@
       "path": "projects/microsoft-autopilot-agents",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 271,
+        "trackedFiles": 328,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5684,7 +5891,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 166,
+          "entries": 212,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5692,9 +5899,9 @@
         },
         "canonicalReleaseCopies": {
           "domain-pack": "same_digest_different_bytes",
-          "content-ir": "same_digest_different_bytes",
+          "content-ir": "identical",
           "render-spec": "diverged",
-          "approval-manifest": "same_digest_different_bytes",
+          "approval-manifest": "identical",
           "release-plan": "diverged"
         },
         "content": {
@@ -5717,7 +5924,7 @@
       "path": "projects/microsoft-plugin-architecture",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 283,
+        "trackedFiles": 343,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5734,7 +5941,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 179,
+          "entries": 228,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5742,9 +5949,9 @@
         },
         "canonicalReleaseCopies": {
           "domain-pack": "same_digest_different_bytes",
-          "content-ir": "same_digest_different_bytes",
+          "content-ir": "identical",
           "render-spec": "diverged",
-          "approval-manifest": "same_digest_different_bytes",
+          "approval-manifest": "identical",
           "release-plan": "diverged"
         },
         "content": {
@@ -5768,7 +5975,7 @@
       "path": "projects/power-platform-2026",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 388,
+        "trackedFiles": 448,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5785,7 +5992,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 267,
+          "entries": 316,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5819,7 +6026,7 @@
       "path": "projects/power-platform-community-conference",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 341,
+        "trackedFiles": 401,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5836,7 +6043,7 @@
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 241,
+          "entries": 290,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5844,9 +6051,9 @@
         },
         "canonicalReleaseCopies": {
           "domain-pack": "same_digest_different_bytes",
-          "content-ir": "same_digest_different_bytes",
+          "content-ir": "identical",
           "render-spec": "diverged",
-          "approval-manifest": "same_digest_different_bytes",
+          "approval-manifest": "identical",
           "release-plan": "diverged"
         },
         "content": {
@@ -7094,42 +7301,42 @@
   ],
   "edges": [
     {
-      "from": "adapter:a2swe-adaptive-deck-schema-2",
+      "from": "adapter:a2swe-adaptive-deck-schema-3",
       "relation": "produces",
       "to": "format:adaptiveDeck"
     },
     {
-      "from": "adapter:a2swe-docx-ooxml-4",
+      "from": "adapter:a2swe-docx-ooxml-5",
       "relation": "produces",
       "to": "format:docx"
     },
     {
-      "from": "adapter:a2swe-html-accessible-2",
+      "from": "adapter:a2swe-html-accessible-3",
       "relation": "produces",
       "to": "format:html"
     },
     {
-      "from": "adapter:a2swe-jpeg-raster-1080p-2",
+      "from": "adapter:a2swe-jpeg-raster-1080p-3",
       "relation": "produces",
       "to": "format:jpeg"
     },
     {
-      "from": "adapter:a2swe-pdf-searchable-4",
+      "from": "adapter:a2swe-pdf-searchable-5",
       "relation": "produces",
       "to": "format:pdf"
     },
     {
-      "from": "adapter:a2swe-png-raster-1080p-2",
+      "from": "adapter:a2swe-png-raster-1080p-3",
       "relation": "produces",
       "to": "format:png"
     },
     {
-      "from": "adapter:a2swe-pptx-ooxml-7",
+      "from": "adapter:a2swe-pptx-ooxml-8",
       "relation": "produces",
       "to": "format:pptx"
     },
     {
-      "from": "adapter:a2swe-remotion-mp4-adapter-10",
+      "from": "adapter:a2swe-remotion-mp4-adapter-12",
       "relation": "produces",
       "to": "format:remotion"
     },
@@ -7502,6 +7709,26 @@
       "from": "atom:RenderSpec",
       "relation": "composes",
       "to": "atom:Identifier"
+    },
+    {
+      "from": "atom:RenderSpec",
+      "relation": "composes",
+      "to": "atom:RenderTheme"
+    },
+    {
+      "from": "atom:RenderTheme",
+      "relation": "composes",
+      "to": "atom:FontStack"
+    },
+    {
+      "from": "atom:RenderTheme",
+      "relation": "composes",
+      "to": "atom:HexColor"
+    },
+    {
+      "from": "atom:RenderTheme",
+      "relation": "composes",
+      "to": "atom:IsoInstant"
     },
     {
       "from": "atom:RevisionOutput",
@@ -8231,6 +8458,11 @@
     {
       "from": "module:library/integrations/copilot/helpers.ts",
       "relation": "uses_contract",
+      "to": "atom:RenderTheme"
+    },
+    {
+      "from": "module:library/integrations/copilot/helpers.ts",
+      "relation": "uses_contract",
       "to": "atom:Runbook"
     },
     {
@@ -8381,6 +8613,11 @@
     {
       "from": "module:packages/core/src/account-intake.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/brand.ts"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
     },
     {
@@ -8442,6 +8679,11 @@
       "from": "module:packages/core/src/adapters.ts",
       "relation": "branches_on",
       "to": "format:remotion"
+    },
+    {
+      "from": "module:packages/core/src/adapters.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/brand.ts"
     },
     {
       "from": "module:packages/core/src/adapters.ts",
@@ -8594,6 +8836,41 @@
       "to": "atom:Date"
     },
     {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/assets.ts"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/contracts.ts"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/public-raster.ts"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "uses_contract",
+      "to": "atom:AssetRequest"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "uses_contract",
+      "to": "atom:ContentIR"
+    },
+    {
+      "from": "module:packages/core/src/brand.ts",
+      "relation": "uses_contract",
+      "to": "atom:RenderTheme"
+    },
+    {
       "from": "module:packages/core/src/canonical.ts",
       "relation": "uses_contract",
       "to": "atom:Date"
@@ -8617,6 +8894,11 @@
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
       "to": "module:packages/core/src/assets.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/brand.ts"
     },
     {
       "from": "module:packages/core/src/cli.ts",
@@ -8685,6 +8967,11 @@
     },
     {
       "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/workspace.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
       "relation": "reads",
       "to": "file:library/assets/runbook/runbook-starter.json"
     },
@@ -8747,6 +9034,11 @@
       "from": "module:packages/core/src/cli.ts",
       "relation": "uses_contract",
       "to": "atom:RenderSpec"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "uses_contract",
+      "to": "atom:RenderTheme"
     },
     {
       "from": "module:packages/core/src/cli.ts",
@@ -8932,6 +9224,11 @@
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "imports",
       "to": "module:packages/core/src/assets.ts"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/brand.ts"
     },
     {
       "from": "module:packages/core/src/media-remotion.ts",
@@ -9136,17 +9433,17 @@
     {
       "from": "module:packages/core/src/raster-canvas.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/brand.ts"
+    },
+    {
+      "from": "module:packages/core/src/raster-canvas.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
     },
     {
       "from": "module:packages/core/src/raster-canvas.ts",
       "relation": "imports",
       "to": "module:packages/core/src/contracts.ts"
-    },
-    {
-      "from": "module:packages/core/src/raster-canvas.ts",
-      "relation": "reads",
-      "to": "file:template/public/fonts/Audiowide-Regular.ttf"
     },
     {
       "from": "module:packages/core/src/raster-canvas.ts",
@@ -9417,6 +9714,11 @@
       "from": "module:packages/core/src/store.ts",
       "relation": "uses_contract",
       "to": "atom:WorkItem"
+    },
+    {
+      "from": "module:packages/core/src/workspace.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/release.ts"
     },
     {
       "from": "module:projects/agent-365/agent/gate.test.mjs",
@@ -10366,42 +10668,42 @@
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:agent-365",
@@ -10426,42 +10728,42 @@
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:copilot",
@@ -10486,42 +10788,42 @@
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:copilot-studio-2026",
@@ -10546,42 +10848,42 @@
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -10606,42 +10908,42 @@
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:microsoft",
@@ -10666,42 +10968,42 @@
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:microsoft-autopilot-agents",
@@ -10726,42 +11028,42 @@
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:microsoft-plugin-architecture",
@@ -10786,42 +11088,42 @@
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:power-platform-2026",
@@ -10846,42 +11148,42 @@
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-adaptive-deck-schema-2"
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-docx-ooxml-4"
+      "to": "adapter:a2swe-docx-ooxml-5"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-html-accessible-2"
+      "to": "adapter:a2swe-html-accessible-3"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-jpeg-raster-1080p-2"
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pdf-searchable-4"
+      "to": "adapter:a2swe-pdf-searchable-5"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-png-raster-1080p-2"
+      "to": "adapter:a2swe-png-raster-1080p-3"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-pptx-ooxml-7"
+      "to": "adapter:a2swe-pptx-ooxml-8"
     },
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-10"
+      "to": "adapter:a2swe-remotion-mp4-adapter-12"
     },
     {
       "from": "project:power-platform-community-conference",
@@ -10901,13 +11203,13 @@
       "category": "extensibility",
       "summary": "renderFiles dispatches 7 format branches in a fixed if/else chain; adding a format or swapping an adapter requires editing core, the schema enum, desktop UI and release verification.",
       "evidence": [
-        "packages/core/src/adapters.ts:1040",
-        "packages/core/src/adapters.ts:1041",
-        "packages/core/src/adapters.ts:1042",
-        "packages/core/src/adapters.ts:1043",
-        "packages/core/src/adapters.ts:1044",
-        "packages/core/src/adapters.ts:1045",
-        "packages/core/src/adapters.ts:1046"
+        "packages/core/src/adapters.ts:1088",
+        "packages/core/src/adapters.ts:1089",
+        "packages/core/src/adapters.ts:1090",
+        "packages/core/src/adapters.ts:1091",
+        "packages/core/src/adapters.ts:1092",
+        "packages/core/src/adapters.ts:1093",
+        "packages/core/src/adapters.ts:1094"
       ]
     },
     {
@@ -10916,11 +11218,11 @@
       "category": "quality",
       "summary": "Product modules embed programs of 25+ lines in template literals; they bypass typecheck, lint and unit tests and are emitted into every release.",
       "evidence": [
-        "packages/core/src/media-remotion.ts:277 synthesizeAudioWrapperScript (javascript, 33 lines)",
-        "packages/core/src/media-remotion.ts:313 synthesizeAudioPython (python, 593 lines)",
-        "packages/core/src/media-remotion.ts:909 audioQaScript (javascript, 379 lines)",
-        "packages/core/src/media-remotion.ts:1291 renderScript (javascript, 284 lines)",
-        "packages/core/src/media-remotion.ts:1578 verifyScript (javascript, 92 lines)",
+        "packages/core/src/media-remotion.ts:278 synthesizeAudioWrapperScript (javascript, 33 lines)",
+        "packages/core/src/media-remotion.ts:314 synthesizeAudioPython (python, 593 lines)",
+        "packages/core/src/media-remotion.ts:910 audioQaScript (javascript, 379 lines)",
+        "packages/core/src/media-remotion.ts:1292 renderScript (javascript, 284 lines)",
+        "packages/core/src/media-remotion.ts:1579 verifyScript (javascript, 92 lines)",
         "packages/core/src/office.ts:14 OFFICE_SCRIPT (text, 29 lines)"
       ]
     },
@@ -10932,11 +11234,10 @@
       "evidence": [
         "library/integrations/copilot/media-review.ts:409 -> template/ (path.join)",
         "packages/core/src/assets.ts:13 -> template/public/fonts/NotoSansSC.ttf",
-        "packages/core/src/media-remotion.ts:64 -> template/requirements.lock.txt",
-        "packages/core/src/media-remotion.ts:1792 -> template/ (path.join)",
-        "packages/core/src/media-remotion.ts:1833 -> template/ (path.join)",
-        "packages/core/src/raster-canvas.ts:12 -> template/public/fonts/NotoSansSC.ttf",
-        "packages/core/src/raster-canvas.ts:13 -> template/public/fonts/Audiowide-Regular.ttf"
+        "packages/core/src/media-remotion.ts:65 -> template/requirements.lock.txt",
+        "packages/core/src/media-remotion.ts:1793 -> template/ (path.join)",
+        "packages/core/src/media-remotion.ts:1834 -> template/ (path.join)",
+        "packages/core/src/raster-canvas.ts:13 -> template/public/fonts/NotoSansSC.ttf"
       ]
     },
     {
@@ -10954,7 +11255,7 @@
       "category": "ui-composition",
       "summary": "ContentIR/RenderSpec have no layer, tile, grid or live-state atoms; visuals are one optional diagram per section and every adapter hard-codes its own layout.",
       "evidence": [
-        "packages/core/schemas/contracts.schema.json:447"
+        "packages/core/schemas/contracts.schema.json:449"
       ]
     },
     {
@@ -10974,16 +11275,16 @@
       "category": "voice",
       "summary": "Speech synthesis runs as a blocking subprocess that writes one WAV; there is no provider interface, streaming chunk contract or incremental caption seam.",
       "evidence": [
-        "packages/core/src/media-remotion.ts:296",
-        "packages/core/src/media-remotion.ts:301",
-        "packages/core/src/media-remotion.ts:931",
-        "packages/core/src/media-remotion.ts:1214",
-        "packages/core/src/media-remotion.ts:1308",
-        "packages/core/src/media-remotion.ts:1594",
-        "packages/core/src/media-remotion.ts:1847",
-        "packages/core/src/media-remotion.ts:1962",
-        "packages/core/src/media-remotion.ts:2004",
-        "packages/core/src/media-remotion.ts:2034"
+        "packages/core/src/media-remotion.ts:297",
+        "packages/core/src/media-remotion.ts:302",
+        "packages/core/src/media-remotion.ts:932",
+        "packages/core/src/media-remotion.ts:1215",
+        "packages/core/src/media-remotion.ts:1309",
+        "packages/core/src/media-remotion.ts:1595",
+        "packages/core/src/media-remotion.ts:1848",
+        "packages/core/src/media-remotion.ts:1963",
+        "packages/core/src/media-remotion.ts:2005",
+        "packages/core/src/media-remotion.ts:2035"
       ]
     },
     {
@@ -10992,14 +11293,16 @@
       "category": "quality",
       "summary": "Core modules no test imports directly; transitive coverage only exercises happy paths of callers.",
       "evidence": [
-        "packages/core/src/account-intake.ts (none, 255 lines)",
-        "packages/core/src/cli.ts (none, 356 lines)",
+        "packages/core/src/account-intake.ts (none, 229 lines)",
+        "packages/core/src/brand.ts (transitive, 505 lines)",
+        "packages/core/src/cli.ts (none, 381 lines)",
         "packages/core/src/media-analysis.ts (none, 701 lines)",
-        "packages/core/src/media-remotion.ts (transitive, 2041 lines)",
+        "packages/core/src/media-remotion.ts (transitive, 2042 lines)",
         "packages/core/src/office.ts (none, 115 lines)",
-        "packages/core/src/raster-canvas.ts (transitive, 181 lines)",
+        "packages/core/src/raster-canvas.ts (transitive, 206 lines)",
         "packages/core/src/revisions.ts (none, 554 lines)",
-        "packages/core/src/runbook.ts (none, 142 lines)"
+        "packages/core/src/runbook.ts (none, 142 lines)",
+        "packages/core/src/workspace.ts (none, 71 lines)"
       ]
     },
     {
@@ -11010,10 +11313,10 @@
       "evidence": [
         "README.md:37 -> library/assets/product_knowledgebase (gitignored)",
         "README.md:39 -> library/assets/knowledge/catalog.json (gitignored)",
-        "docs/content/platform/desktop.md:87 -> projects/executive_status_updates/Customers (gitignored)",
-        "docs/content/platform/desktop.md:101 -> template/build_production (gitignored)",
-        "docs/content/platform/desktop.md:132 -> library/assets/product_knowledgebase (gitignored)",
-        "docs/content/platform/desktop.md:134 -> library/assets/knowledge (gitignored)"
+        "docs/content/platform/desktop.md:89 -> projects/executive_status_updates/Customers (gitignored)",
+        "docs/content/platform/desktop.md:103 -> template/build_production (gitignored)",
+        "docs/content/platform/desktop.md:134 -> library/assets/product_knowledgebase (gitignored)",
+        "docs/content/platform/desktop.md:136 -> library/assets/knowledge (gitignored)"
       ]
     },
     {
@@ -11026,10 +11329,10 @@
         "citationFor: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "claimFor: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "contactSheet: packages/core/src/media-analysis.ts, packages/core/src/office.ts",
-        "contrast: packages/core/src/account-intake.ts, packages/core/src/adapters.ts, packages/core/src/assets.ts",
+        "contrast: packages/core/src/assets.ts, packages/core/src/brand.ts",
         "imageExtension: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "resolveAssetEmbeds: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
-        "slug: library/integrations/copilot/desktop.ts, library/integrations/copilot/helpers.ts, packages/core/src/account-intake.ts, packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
+        "slug: library/integrations/copilot/desktop.ts, library/integrations/copilot/helpers.ts, packages/core/src/account-intake.ts, packages/core/src/adapters.ts, packages/core/src/brand.ts, packages/core/src/media-remotion.ts",
         "stableJson: packages/core/src/adapters.ts, packages/core/src/media-remotion.ts",
         "writeJson: packages/core/src/cli.ts, packages/core/src/release.ts, packages/core/src/revisions.ts"
       ]
@@ -11107,15 +11410,6 @@
       ]
     },
     {
-      "id": "historical-release-trees",
-      "severity": "low",
-      "category": "lineage",
-      "summary": "Complete superseded release trees kept beside the current release; consumers can pick a stale package.",
-      "evidence": [
-        "projects/datadog-cowork-plugin/qc/releases/release-audit"
-      ]
-    },
-    {
       "id": "machine-specific-paths-artifacts",
       "severity": "low",
       "category": "portability",
@@ -11128,7 +11422,6 @@
         "projects/datadog-cowork-plugin/qc/audio/am_michael/kokoro.json:45",
         "projects/datadog-cowork-plugin/qc/audio/am_michael/kokoro_onnx.json:54",
         "projects/datadog-cowork-plugin/qc/models/onnx-repair/verification.json:5",
-        "projects/datadog-cowork-plugin/qc/releases/release-audit/outputs/remotion/audio/narration-metadata.json:39",
         "projects/datadog-cowork-plugin/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/microsoft-autopilot-agents/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/microsoft-plugin-architecture/release/outputs/remotion/audio/narration-metadata.json:65",
