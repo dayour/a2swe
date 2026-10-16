@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "renderId": "agent-365-2026-03-am-michael-kokoro-onnx",
+  "renderId": "agent-365-2026-04-am-michael-kokoro-onnx",
   "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
   "formats": [
     "html",
@@ -13,11 +13,30 @@
     "remotion"
   ],
   "theme": {
-    "name": "agent365-editorial-ink",
-    "background": "#101828",
-    "foreground": "#FFFFFF",
-    "accent": "#3B82F6",
-    "fontFamily": "Arial"
+    "name": "agent-365-brand",
+    "background": "#F4F8FC",
+    "foreground": "#071923",
+    "accent": "#0067B8",
+    "fontFamily": "'Segoe UI Variable Text', 'Segoe UI', Arial, sans-serif",
+    "headingFont": "'Segoe UI Variable Display', 'Segoe UI', Arial, sans-serif",
+    "radius": 10,
+    "palette": {
+      "primary": "#0067B8",
+      "header": "#091F2C",
+      "deep": "#06141D",
+      "highlight": "#50E6FF",
+      "paper": "#FFFFFF",
+      "line": "#C4D5E2",
+      "muted": "#626C71",
+      "soft": "#E6F0F8",
+      "danger": "#B42318"
+    },
+    "source": {
+      "kind": "site",
+      "reference": "https://www.microsoft.com/en-us/microsoft-agent-365",
+      "retrievedAt": "2026-10-16T18:25:44.675Z",
+      "basis": "Derived from 11 documents on www.microsoft.com: primary #0067B8, secondary #50E6FF, accent #043710, dark #091F2C, light #DCEEF8; fonts Segoe UI Variable Text / Segoe UI Variable Display. Inspired by the site; not an official brand asset."
+    }
   },
   "viewport": {
     "width": 1280,

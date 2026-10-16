@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "agent-365",
-  "generatedAt": "2026-10-07T02:21:42.952Z",
+  "generatedAt": "2026-10-16T19:15:49.481Z",
   "rows": [
     {
       "title": "agent-365-2026-01",
@@ -174,7 +174,7 @@
     },
     {
       "title": "agent-365-2026-03",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "agent-365-2026-03-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -208,7 +208,7 @@
     },
     {
       "title": "agent-365-2026-03",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "agent-365-2026-03-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -242,7 +242,7 @@
     },
     {
       "title": "agent-365-2026-03",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "agent-365-2026-03-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -276,7 +276,7 @@
     },
     {
       "title": "agent-365-2026-03",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "agent-365-2026-03-am_michael-kokoro.mp4",
       "role": "video",
@@ -306,6 +306,155 @@
       "captionDetail": 12.348,
       "findings": [
         "info:dual-mono"
+      ]
+    },
+    {
+      "title": "agent-365-2026-04",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "agent-365-2026-04-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.34,
+      "noiseFloorDbfs": -65.02,
+      "snrDb": 46.68,
+      "speechRatio": 0.7572,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 761.9,
+      "speechHf8k": 0.00323,
+      "speechFlatness": 0.000101,
+      "humProminenceDb": 5.54,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 16.94,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "agent-365-2026-04",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "agent-365-2026-04-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 59.584,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3,
+      "speechRmsDbfs": -18.41,
+      "noiseFloorDbfs": -67.36,
+      "snrDb": 48.95,
+      "speechRatio": 0.7712,
+      "longestPauseSeconds": 1.375,
+      "speechCentroidHz": 790.2,
+      "speechHf8k": 0.02243,
+      "speechFlatness": 0.000169,
+      "humProminenceDb": 7.73,
+      "transitions": 10,
+      "staticHolds": 2,
+      "captionDetail": 16.832,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "agent-365-2026-04",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "agent-365-2026-04-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 63.147,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.9,
+      "speechRmsDbfs": -18.16,
+      "noiseFloorDbfs": -76.37,
+      "snrDb": 58.21,
+      "speechRatio": 0.7508,
+      "longestPauseSeconds": 1.5,
+      "speechCentroidHz": 631.1,
+      "speechHf8k": 0.021238,
+      "speechFlatness": 0.000121,
+      "humProminenceDb": 6.8,
+      "transitions": 10,
+      "staticHolds": 3,
+      "captionDetail": 16.928,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "agent-365-2026-04",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "agent-365-2026-04-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.1,
+      "speechRmsDbfs": -18.34,
+      "noiseFloorDbfs": -65.11,
+      "snrDb": 46.77,
+      "speechRatio": 0.7572,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 761.8,
+      "speechHf8k": 0.003236,
+      "speechFlatness": 0.000098,
+      "humProminenceDb": 5.59,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 16.94,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
       ]
     }
   ]

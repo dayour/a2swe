@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "agent-365",
   "projectId": "agent-365",
-  "updatedAt": "2026-10-07T03:41:38.139Z",
+  "updatedAt": "2026-10-16T19:16:29.965Z",
   "domainDigest": "1ffba7ea24b83570f916e48f86838d9bbf1a712fcbc924ef98f9ff861919a54d",
   "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
   "stage": "delivery",
@@ -23,25 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "cc9f611b25d6e5931d73976da26c86136037ae69b774f320e9b2883a17a23864"
+      "evidenceDigest": "e0fdacfd5ed030369afd9eed6c530a1d884e89bac6b95a82e835d238c7f1e67c"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "ae2e09205e4f2f45401b5d0d7ca1afd1d011bc71a65d9c074d83c55088a63866"
+      "evidenceDigest": "93b07497b378fc355cee7b9f0acbb29495592327f93e356038bcefe37a386cf2"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "a035ef8b5efaf6acd8f49485ec3a621c091dc33a8b22f4fea283fc5affff971c"
+      "evidencePath": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "13678b0fa0931c661c929bf807a241f9abc8cd7097fac3865c637cfae13d3e1f"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "a3150fef1b38c983c4b50fa4c4a46b20c353fff34c199bb287d8a9457be06d79"
+      "evidenceDigest": "a5e11571a6d292f12ab567548747ed78a9e7d756ae95b2bdb5c7d765c2e7d95c"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -158,97 +158,97 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "f890671e93ee5d1f4276134d8217f25304b63bb2c1293ece7624522958e83b29",
+      "digest": "91846865e2f422782396076ca3f2ae9cc7dd6f8a72af8f29118bfb7be92dc96d",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "12739906ceabe88a58619d0fd1c8802af590979b5328e915fc2576560e04333d",
+      "digest": "5b88faa5a7163a550ca1f73663f683813e33a5649a6e0992d9dba7f86c7e4c37",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "8489cc1a51695a1196e1b001d2022984303a182b7b3201179c313b1ed595f2f3",
+      "digest": "e428adf166ce8b279b29ccfd933e3673b90c8497b2b163dbb978504db4aed332",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "b85bc4fcf9aa8f59ed478685b0cae7620bd1b0fabf9387cbfa3bb9a2aaabcb8d",
+      "digest": "02f0f353245d738d337c4205dcd624799ca222290e89b3a00d1b7157a5595e75",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "c6169d668c7bc879540c92f37ffdc643013441f16cd5f68262880a34284d1b8f",
+      "digest": "7011b799993b8cae87f65ca65116f1a4d481101eb0243a8284d6623278161264",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "ed06d53c3ed541e0492514d3d59ebc13303f5fcb8e491bbbbb9e7c3db74d9335",
+      "digest": "fd205003d03b8aaef3fb5cebcb5f7682c334d886a1039ec1eb0660e6d1595dcd",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "89e984be978dae1206e8c054515857db6126de9132d7cd02f0d3b39d9e4fe3ee",
+      "digest": "3425eb4093527606aab8d1bf266a1959f803027d92717b4a806475ef18cf692a",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "a8c19ef35e0148c7303667dcf790fa70c252a7ef8a17eae8f7c6cd343568c674",
+      "digest": "9ceff62e690777e49d3ece0861f69e12da0c9a4f8a61f9d043b33f388b12b9bc",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "452aead9f876b57e8163964626ecb8aeaf6c57cedd9791bce96f39153b3e0fdd",
+      "digest": "1a993cc58748fe481d9f6ecedef53751ffaa9a62c4589f575fde03f5b1be874b",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "cc9f611b25d6e5931d73976da26c86136037ae69b774f320e9b2883a17a23864",
+      "digest": "e0fdacfd5ed030369afd9eed6c530a1d884e89bac6b95a82e835d238c7f1e67c",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "8f679ce137f70c806f19e25ab7f0c34dc4efecf03508a9ba937ab8f10187fa1c",
+      "digest": "df9d557f2d202cf9a40255cce3b1088cfd19fbde9d03ccaf4e742e733a1b55ef",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "a3150fef1b38c983c4b50fa4c4a46b20c353fff34c199bb287d8a9457be06d79",
+      "digest": "a5e11571a6d292f12ab567548747ed78a9e7d756ae95b2bdb5c7d765c2e7d95c",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "ae2e09205e4f2f45401b5d0d7ca1afd1d011bc71a65d9c074d83c55088a63866",
+      "digest": "93b07497b378fc355cee7b9f0acbb29495592327f93e356038bcefe37a386cf2",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx/analysis.json",
-      "digest": "a035ef8b5efaf6acd8f49485ec3a621c091dc33a8b22f4fea283fc5affff971c",
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "digest": "13678b0fa0931c661c929bf807a241f9abc8cd7097fac3865c637cfae13d3e1f",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "3c440277d5f93a170072b904448106cf528299452031101ed21d7e84b3c2f34e",
+      "digest": "f8ca6e3304662b966826f255e652d0c28faf7806c58294a2fa29391a7a2a1fa0",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "53b43887578a70d794b9b31823f440ac513c44dcfe038534573184c13a22d899",
+      "digest": "f24b51337cdde9093d82307680915560b232b7c12bff355e357ab4d37d619b05",
       "mediaType": "application/json",
       "stage": "delivery"
     }

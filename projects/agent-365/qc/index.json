@@ -547,29 +547,269 @@
       "byteSize": 10277
     },
     {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/analysis.json",
+      "digest": "6a6c32570d25adfa02d082fc16c8ebebd46ee805ed5033eaae8fc07b84672c57",
+      "byteSize": 12826
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "80559a4459aff13d2b73d7319693c2d8e47bc5ec866336bee057c1623493fde8",
+      "byteSize": 92856
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/chunks/02-control-plane.jpg",
+      "digest": "62ad4085dada93290dfc8553d690b2564b4495ec24601ab4eea5f195a5810b51",
+      "byteSize": 95333
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/chunks/03-observe-traces.jpg",
+      "digest": "e3c76df8b83cb6209166918b431b57a2dce6a0da99c3f53405d720e4e9eca4ce",
+      "byteSize": 95451
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/chunks/04-govern-secure.jpg",
+      "digest": "f97a3af0436acbc20c4c778b5609d811c3083038f9f3c3d71c0e64cdf59c6da7",
+      "byteSize": 95318
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/chunks/05-accountable-pilot.jpg",
+      "digest": "7ce4d5b5bc003dfa8cf2d2da78a86b670292d770ea2a69fde99e386ce6ccc54e",
+      "byteSize": 94391
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "3ad208569b41355c5e977798be3414baeed6670c94f6d263ee88bb7e64d51e7d",
+      "byteSize": 388422
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "2e703907f0953f4961c5f2816bf8ff82ad2f889aa8eb8c7a2e0826ab75f0d57b",
+      "byteSize": 43854
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/layers.png",
+      "digest": "a8e034acf369f8bfbd499ad0a969026f5e85f35c98dc86b79a1e4e1826701c02",
+      "byteSize": 72822
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "10d8f2220648af2ac271f46694d26eb92527332306657414eb0b969b4bbf26dd",
+      "byteSize": 258752
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "1b35ef0b4806dff7655c32d10c01c3bc942db1eaaafd0aec054f71a519147cb3",
+      "byteSize": 173365
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_bella-kokoro_onnx/waveform.png",
+      "digest": "0fdc465f2cc2966f17e3619f1d3343c4ec2e40dfd3ab85dce9f5bc7c563901f0",
+      "byteSize": 10064
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/analysis.json",
+      "digest": "dc1f25a0e482b2ed01a166f0364eaf77d7ae9a4d7eded204bf3a0730a817a37d",
+      "byteSize": 12654
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "318f83bbf8a061e98ba1a8580302e42a4a1af598fc8f11e01e2ac0bbbd01327a",
+      "byteSize": 96345
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/chunks/02-control-plane.jpg",
+      "digest": "0a1ab2ce32eaaa56203a499a1ed41ee1d08ac63c2c4016178b810d67699984a2",
+      "byteSize": 93129
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/chunks/03-observe-traces.jpg",
+      "digest": "1123a3178c290f589ac3f3580bd815756a043449aaecd190cd9cca2f0fb745a0",
+      "byteSize": 94301
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/chunks/04-govern-secure.jpg",
+      "digest": "6c2c67e469673bd73ec53af27de7d9776995e2f097dced9750d20a2eb89756b5",
+      "byteSize": 93955
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/chunks/05-accountable-pilot.jpg",
+      "digest": "e0e2678389df91b1d3a949949f7ec4f577532b2a5b0994d57d598bf621d697ca",
+      "byteSize": 92762
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "2306ca07fc7c8c7d51bd455828f3e9d83b355cd0d5c0726932c9b7ac2130ce89",
+      "byteSize": 385552
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "1f2e1f5423d7ac9b3ac154ff3ff4dc37d66afa50948a16e5780af6b433ed1f87",
+      "byteSize": 43886
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/layers.png",
+      "digest": "d9d6b31a4b3a92164ff83774a9b414fff4fb7a83e7859e18648ea44e5d7e67c7",
+      "byteSize": 73143
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "2b4933f0b64b40b3d0c5958344b63a392d86e5e3ba3646f961209a27b4a389e9",
+      "byteSize": 256551
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "1a5b0839940866b7cdb4d22c88e00e1315dce01addbc7f72904e13f43ddcc3ee",
+      "byteSize": 169169
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-af_heart-kokoro_onnx/waveform.png",
+      "digest": "58cf7c232fba5b8a8c59621fb95cd3907e1c80a2a6580f8fbedd7ee4c68a31f5",
+      "byteSize": 10192
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
+      "digest": "13678b0fa0931c661c929bf807a241f9abc8cd7097fac3865c637cfae13d3e1f",
+      "byteSize": 13186
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "0a83018fd0dc6937613e82358f91e1275c936a03b4b02c9f28768c7642306079",
+      "byteSize": 90662
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/chunks/02-control-plane.jpg",
+      "digest": "8d474ea15a2d60f0c587e2735aea695e3ce7080a97b1da3535c188686c7ef45e",
+      "byteSize": 95455
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/chunks/03-observe-traces.jpg",
+      "digest": "a9ed1ae3b300407aeeabead483a422430f5189e81c7cafd87bac01a29df698c3",
+      "byteSize": 94735
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/chunks/04-govern-secure.jpg",
+      "digest": "d65b8817b75748a38bee16ea90d1af48da2f9e5fb4b111b56505b74e0eb17bf7",
+      "byteSize": 94115
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/chunks/05-accountable-pilot.jpg",
+      "digest": "0edc4db4ab890fea07c98f6908f9ee1396a23f993fcb36c2f9f6ead5329d3446",
+      "byteSize": 94065
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "22ef9b6063196af83636ba819fc89eddecabdc6378dd30d2ab6a63e05675ff7c",
+      "byteSize": 383186
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "effae595d0ab29c354d5972f5f9ecb5da201d34b9147018940031e20dcba40da",
+      "byteSize": 43839
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/layers.png",
+      "digest": "e893c2eabdfe51c6d809a47d934dbcb28021023e128b1351ca674a18c7609964",
+      "byteSize": 72128
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "bfea305917f8e62724cb2813e9b687e0bc7f242ddfca0a7548ed3fc2d937033d",
+      "byteSize": 247470
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "7c87c4fd9a76e2fd84c0de8f32ad9f26c3d2955a2dce2e0d61d5ddeaf6efead9",
+      "byteSize": 163306
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/waveform.png",
+      "digest": "6a17c3cc610c69ec4762933cafbccd3ad2fe0e37aa9b7bd9b0bca50565191e51",
+      "byteSize": 10248
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/analysis.json",
+      "digest": "77be3454caa43d3b7bd40f7198acfce954062834f9063bf9a48c223e61ae44cd",
+      "byteSize": 13176
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "65a276ca9ff9c9904d4d922dad26cc4bb5c8883049a6bfd7e1f43590624628c8",
+      "byteSize": 90706
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/chunks/02-control-plane.jpg",
+      "digest": "ff02c3f1582ce0f8b429ef9ec94ad53b41fce005240adc5fe7cb9994cdee4c96",
+      "byteSize": 95262
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/chunks/03-observe-traces.jpg",
+      "digest": "7365b778f9bdd0d90696d3b7dece82c533a797c2076eb26fb2fd0a518937e020",
+      "byteSize": 94634
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/chunks/04-govern-secure.jpg",
+      "digest": "0669e5a04e759f54b75018aa0a40bfae107ad6daae5247bd05ee29156fe6b25c",
+      "byteSize": 93762
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/chunks/05-accountable-pilot.jpg",
+      "digest": "c82f74afc0d2418b523f91a426da00327183ac24eb27770296639ef810175dbc",
+      "byteSize": 94029
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "34205e94b82b93adbbafd5c493e2222b6f971fce29752121a1e174dba4fa15b2",
+      "byteSize": 383130
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/frame-strip.jpg",
+      "digest": "d36cc1b077250c49639d5313dbc0b0a50fa98b92108bb5bb5094379e1ae5830b",
+      "byteSize": 43818
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/layers.png",
+      "digest": "91118a473285b2860416750b214485e0dd643e56ecf383b6e4e32e2061b0f211",
+      "byteSize": 71896
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "dee232aa2d714b49ebcde437b87534ecc4e416164758349f84da3a7f4b8f9159",
+      "byteSize": 247548
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/spectrogram.jpg",
+      "digest": "3a81aa8605c83c51e62ad04746da89cff8f98cf8c51d1aaa98f9ef52c1076b92",
+      "byteSize": 163467
+    },
+    {
+      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro/waveform.png",
+      "digest": "893f3ba024bc36fea0af2ef8bda66e3ecb1f53e170f2c183b42b77f901c65f11",
+      "byteSize": 10248
+    },
+    {
       "path": "qc/analysis/comparison.json",
-      "digest": "ef97413fba99a2ef272361408a0c26663ba9fda458f3cc52dcc9b9a790ff82de",
-      "byteSize": 8963
+      "digest": "c66a13c2576568480d6997a075a7c031845726085c38ca009e591517d9f3c5a8",
+      "byteSize": 13303
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "c2826b80df960ee857e8ef4a752c03a1bc56daf825594ea2638e207d41ffe56d",
-      "byteSize": 407384
+      "digest": "649fd3aadc5cf6ade98431134fd30899d99ae9215709435a6614ead68913677b",
+      "byteSize": 604205
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "130028dad3bfd5af66d4502c47e70c11c11beb25ac47e4eaa52cb605c33246a5",
-      "byteSize": 402300
+      "digest": "33b92f70937af441a1cef915559a3c15085fddd6c71650f868820dd7322c1c27",
+      "byteSize": 571452
     },
     {
       "path": "qc/analysis/report.md",
-      "digest": "f83cfe7ea7cf5be86976fc34ef1e4eabbe18ea2091c55a5f12c10f094e91b0d4",
-      "byteSize": 7663
+      "digest": "8e73aff0180cce8548ad08bf2eaca4cead67b1f194d58d583a5c88561868183d",
+      "byteSize": 11390
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "7ebeef11ec817e6405a976cf67f4b3bdbb71c980b17b66d50ae5eb96c256324e",
-      "byteSize": 625142
+      "digest": "1b138d70803dc2cffd3bbe5eb7e4bc5455ff614a8cb0655dd0c3e707f2958812",
+      "byteSize": 910141
     },
     {
       "path": "qc/brand/brand-source.json",
@@ -578,127 +818,127 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "0e51baa08d312d5879b14629eb3da01f8387d3745e97a69c6142ff9a7353cc4e",
-      "byteSize": 113071
+      "digest": "a104e014a2cf6f91ae72115c045594d0532158f5b6fdae982f7894759a926fda",
+      "byteSize": 118855
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "79486e5c02784132d8dbb9635c59208afa4b271f66eeea4904ee8d375eb482af",
-      "byteSize": 295070
+      "digest": "f5e642ed769ca17a1f07d140aa83d4c77801634641d455f449e9392f14b139cc",
+      "byteSize": 763480
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "ae2e09205e4f2f45401b5d0d7ca1afd1d011bc71a65d9c074d83c55088a63866",
+      "digest": "93b07497b378fc355cee7b9f0acbb29495592327f93e356038bcefe37a386cf2",
       "byteSize": 715
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "d5df501002e7911679221b5d9bb9db83f6a92ca34ce683b36b41653b51365a5e",
-      "byteSize": 94194
+      "digest": "f1a4aad8c57874fadf38be9db67f106c18275e2e55db7aa2092f594900d2689e",
+      "byteSize": 93999
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "b00c4b77842ce4b9b3c67a40df32665ccf8dec883c7cd0dcf9a91b9db73a3a07",
-      "byteSize": 61122
+      "digest": "cdb66a67eff0a71cac1fd23e2977206f85fa170d70ae8af513b4391a65b5a96e",
+      "byteSize": 61244
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "e876222d5ea0bd8d0521ab778abf9c268b88d7d7d4a07c68d061683291019212",
-      "byteSize": 69959
+      "digest": "8f1d01e05318c392f8af2641be344fa46457223040212eeb38104f14c777f3b6",
+      "byteSize": 70120
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "15b460a5ad929379ebaa4baa93a540b1f161d6ce1bc8e22ed0d168a2273fba60",
-      "byteSize": 68819
+      "digest": "81094864182aa53fb12f763c81916ddb1faf696a55f1904568c74ca2805645a8",
+      "byteSize": 69874
     },
     {
       "path": "qc/native-office/pages/core-05.png",
-      "digest": "812106b931bc1be62eaa6648db0fe72fde7ae4b9e833a814414f308622dfb10e",
-      "byteSize": 92738
+      "digest": "e62ab17a4b852a82e0b7822d5fa566a5012be202e599b7c9f4afd79f5bae8f2d",
+      "byteSize": 93834
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "cc2a0c392577f4925567de8ea83658ed1b2ee5e4f47270cfa7f445f490fae81c",
-      "byteSize": 93505
+      "digest": "1af25da68f2693bdc3d046f9e4dd49cc19d86072d3ee9c4c37996e926ae7316d",
+      "byteSize": 116473
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "a5fdbf9559f3e8240866f4d2eff1e3a6cb8d11795f8e8bec7533e4df7767f554",
-      "byteSize": 90307
+      "digest": "c79ae01f81709b22806770671683b439853f6d2a3a4dfadc193b643169764fdd",
+      "byteSize": 91084
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "45256afe9be4134ba04f6bb388c543597f03ea636a2699e838f957f8c4b8612f",
-      "byteSize": 66372
+      "digest": "f8aec8374e8625cf68827f8f27ef3d1d8d3a5b73751fef3a5407376c69a5a7d2",
+      "byteSize": 90480
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "591dae580c90c0bc881dc18fde872b017ca83a6f713546a395b440fede15dbac",
-      "byteSize": 66925
+      "digest": "9c1ac8d6908b41229ac2549ecde7b112323c129e7ad3fe862e08855446b09602",
+      "byteSize": 99187
     },
     {
       "path": "qc/native-office/pages/word-05.png",
-      "digest": "1caae178c5a0e91063d8a6d564362323244130fd7af19ac3974da38681384cf4",
-      "byteSize": 60630
+      "digest": "dd5716fee190b61f6da3bbee2281e124e74262ed0189da3342fd61cbe9e7c958",
+      "byteSize": 69579
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "424dc72c07a83b3b607eb5a2362e229cb467b49922c6d13902a6b22870843601",
-      "byteSize": 177991
+      "digest": "28e5aafcd74fd39a0fbfacb5693649cbb4394bd8b2b94ee54ec51b73f3f9d005",
+      "byteSize": 176136
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "cf183e2ed32882d8ee771ae8257182945ce7cefeb710fc04ec35a0cdfc45fc99",
-      "byteSize": 26856
+      "digest": "45487e6d5f60570493dbe0dfe294febab645c71c560e647f067769fdba6cb605",
+      "byteSize": 73275
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "5efe8df4b20a7f558c249a286f9fd0d558810ec467414e082fdfd1b4f55d9a2c",
-      "byteSize": 84683
+      "digest": "accc08277dd523e1e0c11e6e5bc8516ff3d33de880130ce791558174d2c43646",
+      "byteSize": 90383
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "85fe8dc981ef28b3d121c2f2ea9e3e5c109c656baba287ab853707fcafad7e12",
-      "byteSize": 117825
+      "digest": "3687ef2d5304623f123d8bc5480064a5ccd415322a77bc473291a26e1cda883d",
+      "byteSize": 127888
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "3a5f586e927cff5e5ef40fc4d19193d218eaeb233015fde8249c6f5f3553d189",
-      "byteSize": 106646
+      "digest": "fd4cad8cc3c3cfed2b49940fb9b257ff8320c50873ce004f65f5c6edc50ad7b6",
+      "byteSize": 110841
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "bfddaa02604eceea81daff3f5c11e712033ce401b42f72e62587f29ee461811f",
-      "byteSize": 102577
+      "digest": "d6b22f039d2f7024a35ca586903351940173ffe093aae9a1f1ea6320419e3a8f",
+      "byteSize": 110214
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "87fc4d741e83adc62acbfc17a39409607bdf8814c5751d70d099e3d3ca745986",
-      "byteSize": 27826
+      "digest": "42ec9f06c2b40a81043b49214442a39690a8d01b33611debe74b536721973092",
+      "byteSize": 63931
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "95ab8d343fe45942d4d7f51b090325ef463e2db9b15267ae3941bf5eeb860207",
-      "byteSize": 111381
+      "digest": "397327ab1447678aaa159524535e96f96fc798a293c4c4612ce9b49ee0ba7a53",
+      "byteSize": 107903
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "cc9f611b25d6e5931d73976da26c86136037ae69b774f320e9b2883a17a23864",
-      "byteSize": 5020
+      "digest": "e0fdacfd5ed030369afd9eed6c530a1d884e89bac6b95a82e835d238c7f1e67c",
+      "byteSize": 5018
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "8f679ce137f70c806f19e25ab7f0c34dc4efecf03508a9ba937ab8f10187fa1c",
-      "byteSize": 445954
+      "digest": "df9d557f2d202cf9a40255cce3b1088cfd19fbde9d03ccaf4e742e733a1b55ef",
+      "byteSize": 445950
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "7fda913f64eb46ebf40e50dbd157df05f3ad65c6f7c89dfa95e3e202d2875fa1",
-      "byteSize": 3567
+      "digest": "6d527bec992ba708846734527f9f2e09ff7ae294f9de24e679ad4329e2b429d0",
+      "byteSize": 3566
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "c4aa6bb0ce9b5d458f52776bc2d7e54bf45f3b5455580fbcbdb5d0fee2776abb",
+      "digest": "41ba7c48f128a854eb2417254b0ede4529953dcaa0fd2d52af9a79d0cdf425bf",
       "byteSize": 368
     }
   ]

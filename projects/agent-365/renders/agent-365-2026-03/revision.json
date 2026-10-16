@@ -6,7 +6,7 @@
   "number": 3,
   "createdAt": "2026-10-07T02:05:00.235Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/agent-365-2026-03",
   "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "b1402f49645e7bdf4d5144d65d3efe3c9dcc2d55cbf4cef6c759e765e6b39df3",
-      "package": "release",
+      "package": "qc/revisions/agent-365-2026-03/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",
