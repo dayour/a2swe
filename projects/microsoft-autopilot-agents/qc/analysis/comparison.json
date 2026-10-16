@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft-autopilot-agents",
-  "generatedAt": "2026-10-07T02:38:59.449Z",
+  "generatedAt": "2026-10-16T20:08:18.928Z",
   "rows": [
     {
       "title": "microsoft-autopilot-agents-2026-01",
@@ -281,7 +281,7 @@
     },
     {
       "title": "microsoft-autopilot-agents-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -315,7 +315,7 @@
     },
     {
       "title": "microsoft-autopilot-agents-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-06-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -349,7 +349,7 @@
     },
     {
       "title": "microsoft-autopilot-agents-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-06-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -383,7 +383,7 @@
     },
     {
       "title": "microsoft-autopilot-agents-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-06-am_michael-kokoro.mp4",
       "role": "video",
@@ -411,6 +411,142 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.431,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.7,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -61.75,
+      "snrDb": 43.19,
+      "speechRatio": 0.7774,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 820.9,
+      "speechHf8k": 0.003181,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 6.14,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 15.554,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-07-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 56.448,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.8,
+      "speechRmsDbfs": -18.54,
+      "noiseFloorDbfs": -69.62,
+      "snrDb": 51.08,
+      "speechRatio": 0.7859,
+      "longestPauseSeconds": 1.375,
+      "speechCentroidHz": 845.6,
+      "speechHf8k": 0.026258,
+      "speechFlatness": 0.000192,
+      "humProminenceDb": 5.94,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 15.602,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-07-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 58.517,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.3,
+      "speechRmsDbfs": -18.33,
+      "noiseFloorDbfs": -77,
+      "snrDb": 58.67,
+      "speechRatio": 0.7777,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 658.5,
+      "speechHf8k": 0.022678,
+      "speechFlatness": 0.000126,
+      "humProminenceDb": 5.52,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 15.579,
+      "findings": [
+        "info:dual-mono"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-07-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.7,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -61.49,
+      "snrDb": 42.93,
+      "speechRatio": 0.7774,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 821.2,
+      "speechHf8k": 0.003186,
+      "speechFlatness": 0.000103,
+      "humProminenceDb": 6.68,
+      "transitions": 9,
+      "staticHolds": 0,
+      "captionDetail": 15.554,
       "findings": [
         "info:dual-mono"
       ]

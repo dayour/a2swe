@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "renderId": "microsoft-autopilot-agents-2026-06-am-michael-kokoro-onnx",
+  "renderId": "microsoft-autopilot-agents-2026-07-am-michael-kokoro-onnx",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "formats": [
     "html",
@@ -13,11 +13,30 @@
     "remotion"
   ],
   "theme": {
-    "name": "executive-blue-teal",
-    "background": "#071B2D",
-    "foreground": "#F4FBFF",
-    "accent": "#16B8C8",
-    "fontFamily": "Arial"
+    "name": "microsoft-autopilot-agents-brand",
+    "background": "#F4F8FC",
+    "foreground": "#0B121E",
+    "accent": "#006EC3",
+    "fontFamily": "'Segoe UI', Arial, sans-serif",
+    "headingFont": "'Segoe UI Variable Display', 'Segoe UI', Arial, sans-serif",
+    "radius": 10,
+    "palette": {
+      "primary": "#006EC3",
+      "header": "#0E1726",
+      "deep": "#090F19",
+      "highlight": "#8AC1EB",
+      "paper": "#FFFFFF",
+      "line": "#C4D6E4",
+      "muted": "#64686E",
+      "soft": "#E6F1F9",
+      "danger": "#B42318"
+    },
+    "source": {
+      "kind": "site",
+      "reference": "https://www.microsoft.com/en-us/",
+      "retrievedAt": "2026-10-16T18:25:56.121Z",
+      "basis": "Derived from 11 documents on www.microsoft.com: primary #0078D4, secondary #8AC1EB, accent #413228, dark #0E1726, light #E6F2FB; fonts Segoe UI / Segoe UI Variable Display. Inspired by the site; not an official brand asset."
+    }
   },
   "viewport": {
     "width": 1280,
