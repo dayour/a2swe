@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "title": "microsoft-plugin-architecture-2026-06",
+  "year": 2026,
+  "number": 6,
+  "createdAt": "2026-10-16T19:52:47.558Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/microsoft-plugin-architecture-2026-06",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "outputs": [
+    {
+      "path": "microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "be56387805d77b5c41c24259e8bbe4e96804c26ae8480fd6e1ced5b7be2a67f1",
+      "byteSize": 1037,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "d705c61756ec2395bb5849bfdda0866d936330af25213560d010eae1f71638bc",
+      "byteSize": 8952999,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "c8fd30ccc4de87a3690e810346439243de5cf925dac0e622c2cbf2e4720bf615",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "captions": "microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "9b6745eaba2216266408a7b3ff9473ffaf75f385d785fb94751fb2eaf5fea076",
+      "byteSize": 1037,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "70d97070d509341464535dbb4ed92e15a43b0ffb932b406e3849c630b70aec60",
+      "byteSize": 8355783,
+      "mediaType": "video/mp4",
+      "durationSeconds": 57.259,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "b25ded650df5dcefabc19ed8a146f838d05b816ece68de2022b8dcdb27777e52",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-06/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 7.7
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 7.7,
+          "endSeconds": 22
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 22,
+          "endSeconds": 33.6
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 33.6,
+          "endSeconds": 45.167
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 45.167,
+          "endSeconds": 57.2
+        }
+      ],
+      "captions": "microsoft-plugin-architecture-2026-06-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "3999e0af9457f99786712dfe407361d45447a4c5dfc33926b83cc2f4269de53b",
+      "byteSize": 1037,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "5e7b4333f9e2dc9d808e138ab86c920eef6356e391ab29fbae36c8627eaa7c94",
+      "byteSize": 8720372,
+      "mediaType": "video/mp4",
+      "durationSeconds": 59.691,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "2f1128c43fac476e702f9ea9bbb90d2a348eb2913c84d42f7a8b719e63fe81dd",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-06/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.133
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.133,
+          "endSeconds": 22.8
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 22.8,
+          "endSeconds": 35.167
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 35.167,
+          "endSeconds": 47.033
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 47.033,
+          "endSeconds": 59.633
+        }
+      ],
+      "captions": "microsoft-plugin-architecture-2026-06-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "be56387805d77b5c41c24259e8bbe4e96804c26ae8480fd6e1ced5b7be2a67f1",
+      "byteSize": 1037,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-06-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "99652cd0114b082e9e7ef90e0ca0e56220295c3a69b6ef02df4728443ae05306",
+      "byteSize": 8953658,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "d31d488d11837ff0d251888ba08a35abb865084fc03fa2cc9ae1d03c9beec140",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-06/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "captions": "microsoft-plugin-architecture-2026-06-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/microsoft-plugin-architecture-2026-06."
+  ]
+}

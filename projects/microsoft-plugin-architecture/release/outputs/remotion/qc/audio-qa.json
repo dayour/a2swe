@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-10",
+  "adapter": "a2swe-remotion-mp4-adapter-12",
   "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
   "input": "dist/render.mp4",
-  "inputSha256": "1cf8cf3e02c92e21a1a261de6fa6f606ff50f88c124d2c39b98093eb4dd8ce5e",
-  "sourceAudioSha256": "e874b4a3fb5ca4ec97254645a18c47dbba3943852dee6cca275b6a1a12518307",
+  "inputSha256": "d705c61756ec2395bb5849bfdda0866d936330af25213560d010eae1f71638bc",
+  "sourceAudioSha256": "f1c453b074bbec6ebfd19ea09d2cc5788feb9a54815b6bf8d7a53ee5a48dda3e",
   "sampleRate": 48000,
   "durationSeconds": 63.552,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 63.552,
-      "rmsDbfs": -19.62524,
-      "peakDbfs": -1.493299,
-      "highFrequencyRatio8k": 0.003315,
+      "rmsDbfs": -19.629313,
+      "peakDbfs": -1.492295,
+      "highFrequencyRatio8k": 0.003327,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 60.525,
-      "rmsDbfs": -19.413295,
-      "peakDbfs": -1.493299,
-      "highFrequencyRatio8k": 0.003602,
+      "rmsDbfs": -19.417369,
+      "peakDbfs": -1.492295,
+      "highFrequencyRatio8k": 0.003558,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,7 +82,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.586705,
+    "snrSpeechVsSilenceDb": 220.582631,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 3.2,
@@ -90,11 +90,11 @@
     }
   },
   "mastering": {
-    "gainDb": 8.53,
-    "inputLufs": -24.21,
-    "limitedSampleRatio": 0.0293,
-    "maxLimiterReductionDb": 5.47,
-    "outputLufs": -16.05,
+    "gainDb": 8.52,
+    "inputLufs": -24.22,
+    "limitedSampleRatio": 0.02992,
+    "maxLimiterReductionDb": 5.36,
+    "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16,

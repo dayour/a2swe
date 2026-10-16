@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "microsoft-plugin-architecture",
   "projectId": "microsoft-plugin-architecture",
-  "updatedAt": "2026-10-07T03:41:49.863Z",
+  "updatedAt": "2026-10-16T20:11:10.250Z",
   "domainDigest": "a1a966a6ace0758a5e5d6a57f2e82916912c3f9be70d17247ed7b8b1c8d49f63",
   "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
   "stage": "delivery",
@@ -23,25 +23,25 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "c5432135cb205255d5b4aa16929704ce3ed85e8bee667a696b87be6e20710b20"
+      "evidenceDigest": "5bfdf27ba0c5eb106f4bdaa45244bbb8e33cab77535bffea3ce5ed45034756d0"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "f463703513ef4718a780ad9a61dd3639584d9da745da073d265a66fb8151b645"
+      "evidenceDigest": "c103ecb2aa84a1075177f979cb8cbd6c9b8f3ffeaadcd20d313ce86a8de1738d"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "1fe462bb197c04e1974f890a094b3223b1b4f643799a9aa916a7464af8128106"
+      "evidencePath": "qc/analysis/microsoft-plugin-architecture-2026-06/microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "5ad16ffa6d95a2ce9b0ed8639fa8f515f4e06b43310109c71523a53344368efb"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "184212eb33414fba7d4f3d3265e02b9edac595ec8f0207cdd287e674aa45f386"
+      "evidenceDigest": "b004e8c662848a0874e5fecd03af144035d5524e0d51f961c384a396b720d593"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/microsoft-plugin-architecture-2026-06/microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -146,7 +146,7 @@
     },
     {
       "path": "canonical/content-ir.json",
-      "digest": "2b065f9d272c038402fa2158f403ffb25861069f52773b08c789a0c48158dffa",
+      "digest": "e04a1928356b3396dad8f829c7f233cfa3f3d0d2d1eb18ada1ec767c6d2b3654",
       "mediaType": "application/json",
       "stage": "content"
     },
@@ -158,97 +158,97 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "3e3334a195fa57987274628be9cf122d1786ee0de511f32108c4239ca2ee55ad",
+      "digest": "6c4736c340f1dd70a65af522550e183a761905f9b9e70ac2692ccefea490e02f",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "3d7c6c167092532754aaca8c7f369a083f0ef9a70574f7a7ca58b0982f7d741f",
+      "digest": "caff2688815766845731da532792a6cd6877e8c6cc613a6aab402429f24e37f8",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "8ac76cb51e43e160c9fd2452ef62f09ef6fd0bf008c1f10c3cf37422909cfb10",
+      "digest": "eaeec22fa3f9105d3d02d614258a97efef117338be261ca245fa571e148a88d6",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "976b5cbbf2f716f7e9ebf3b02c415e04547f9b724b1afe12e5a9f3e45ccdd401",
+      "digest": "a3c1e6e2336ea798c82507e7c5a15cf09cc98dfa92d6d82cbac52ad648e30549",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "d48481b0d320bd3b4f2a2ad8a951e4fda716936b5d635c0bb374bcd4e18b46fd",
+      "digest": "0dea78baf8a8b5c477d8375c3973c544c0ae1bddec850928c71e2c6fed1a52b5",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "1f8194f73d71f911f72fc5fccc76aa66daacc2cc28bc269e262c9a2bf14ae243",
+      "digest": "609766ec973f9b14a4c9e260ec921bf622a2b62c75d3233d16ccd92abfe5f818",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "245af87aa4067a7b4336bf1f6ab18e21d35a99ca9b30d86f19f4206f602d5680",
+      "digest": "f85f8f4ef5d39b3b698eb70429e2c627a72a2479057b0e4ed9c678e1e08e43fe",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "3ae9ced214441623678b164187635c3751ba85404b918656609550bf99eb83b4",
+      "digest": "6c0f1d49f8d9984c0f255eba16ebcc5b7f360586276f725281ad1a594cc9cdd6",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "1cf8cf3e02c92e21a1a261de6fa6f606ff50f88c124d2c39b98093eb4dd8ce5e",
+      "digest": "d705c61756ec2395bb5849bfdda0866d936330af25213560d010eae1f71638bc",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "c5432135cb205255d5b4aa16929704ce3ed85e8bee667a696b87be6e20710b20",
+      "digest": "5bfdf27ba0c5eb106f4bdaa45244bbb8e33cab77535bffea3ce5ed45034756d0",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "a9e72c46bfa6d51067f9ac5100c7c62d16d0d6f0b0706c4b3a9d502eee46a921",
+      "digest": "df10de095aa523a4e6258a5cc723282a1f7c942a0ab8d00c41213f39e7e33d1f",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "184212eb33414fba7d4f3d3265e02b9edac595ec8f0207cdd287e674aa45f386",
+      "digest": "b004e8c662848a0874e5fecd03af144035d5524e0d51f961c384a396b720d593",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "f463703513ef4718a780ad9a61dd3639584d9da745da073d265a66fb8151b645",
+      "digest": "c103ecb2aa84a1075177f979cb8cbd6c9b8f3ffeaadcd20d313ce86a8de1738d",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/microsoft-plugin-architecture-2026-05/microsoft-plugin-architecture-2026-05-am_michael-kokoro_onnx/analysis.json",
-      "digest": "1fe462bb197c04e1974f890a094b3223b1b4f643799a9aa916a7464af8128106",
+      "path": "qc/analysis/microsoft-plugin-architecture-2026-06/microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "digest": "5ad16ffa6d95a2ce9b0ed8639fa8f515f4e06b43310109c71523a53344368efb",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "c4792170d37c7c942cd7417e317929b1f74af8efd3619230085fef82e304b08e",
+      "digest": "862cb4198a9bf9f1e7b8778afb6413458367de6df466d662d57c2e13f3dff9d6",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "039574119cbf6ce5953d62b09f7c01c3e026645051181bf415d4ac260d0e3b7c",
+      "digest": "c28c923164a60aaad010f47277e0683ed666007985eab1b260c925e5e72e8cca",
       "mediaType": "application/json",
       "stage": "delivery"
     }
