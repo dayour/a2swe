@@ -56,11 +56,13 @@ project. Open the file in VS Code to work on one project with these tasks:
 - **a2swe: runbook-verify**
 - **a2swe: produce, review and verify** is the default build task and runs the stages in order.
 
-Each task runs the core CLI with Node from the repository root, resolved
-relative to the project, so the workspace works wherever the repository is
-checked out. The workspace keeps renders, revision archives and analysis
-evidence out of search and file watching. It recommends the Mermaid, Marp,
-Excalidraw and Live Preview extensions for editing section visuals and
+Each task runs the core CLI through `packages/core/bin/a2swe.mjs`, from the
+repository root resolved relative to the project. The workspace therefore works
+wherever the repository is checked out. When the default `node` is outside the
+repository's `engines` range, the launcher runs with `A2SWE_NODE` instead or
+reports the mismatch. The workspace keeps renders, revision archives and
+analysis evidence out of search and file watching. It recommends the Mermaid,
+Marp, Excalidraw and Live Preview extensions for editing section visuals and
 previewing HTML output.
 
 ## Revisions

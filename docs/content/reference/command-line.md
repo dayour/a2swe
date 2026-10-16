@@ -5,7 +5,9 @@ description: Current a2swe core commands and template workspace maintenance comm
 
 ## Core commands
 
-Run these from the repository root.
+Run these from the repository root. `npm run a2swe -- <command>` and
+`node packages/core/bin/a2swe.mjs <command>` run the core CLI on a supported
+Node: the current runtime when it satisfies `engines`, otherwise `A2SWE_NODE`.
 
 | Command | Behavior |
 | --- | --- |

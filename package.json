@@ -16,7 +16,7 @@
     "build": "npm run typecheck",
     "build:all": "npm run build && npm --prefix library/integrations/copilot run typecheck && npm --prefix docs run typecheck && npm --prefix docs run build",
     "validate:all": "npm run contracts:check && npm run build:all && npm run test:all && npm run assets:proof",
-    "a2swe": "node packages/core/src/cli.ts",
+    "a2swe": "node packages/core/bin/a2swe.mjs",
     "copilot": "node library/integrations/copilot/cli.ts",
     "agency:copilot": "node library/integrations/copilot/cli.ts --runtime agency",
     "copilot:sdk": "node library/integrations/copilot/session.ts",

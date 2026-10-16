@@ -7,6 +7,7 @@ description: Current environment variables for the managed 1080p release path an
 
 | Variable | Purpose |
 | --- | --- |
+| `A2SWE_NODE` | Supported Node executable for `npm run a2swe`, `packages/core/bin/a2swe.mjs`, project workspace tasks and the desktop bridge when the default `node` is outside the repository `engines` range |
 | `A2SWE_PYTHON` | Absolute Python 3.14 interpreter path override |
 | `A2SWE_TTS_ENGINE` | `auto`, `kokoro`, or `kokoro_onnx` |
 | `A2SWE_KOKORO_CONFIG` | PyTorch Kokoro config path |

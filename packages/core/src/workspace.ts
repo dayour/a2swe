@@ -19,8 +19,9 @@ export async function writeProjectWorkspace(projectDirectory: string): Promise<{
   const engine = path.relative(project, REPOSITORY_ROOT).split(path.sep).join('/').replace(/\/$/, '') || '.';
   if (path.isAbsolute(engine) || /^[A-Za-z]:/.test(engine)) throw new Error('workspace_project_outside_repository');
   const folder = `\${workspaceFolder:${projectId}}`;
+  // Tasks go through the launcher so a default `node` outside the engines range falls back to A2SWE_NODE or reports the mismatch.
   const run = (label: string, detail: string, args: string[], extra: Record<string, unknown> = {}) => ({
-    label: `a2swe: ${label}`, detail, type: 'process', command: 'node', args: ['packages/core/src/cli.ts', ...args],
+    label: `a2swe: ${label}`, detail, type: 'process', command: 'node', args: ['packages/core/bin/a2swe.mjs', ...args],
     options: { cwd: `${folder}/${engine}` }, problemMatcher: [], ...extra
   });
   const steps = [
