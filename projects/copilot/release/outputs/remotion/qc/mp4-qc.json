@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-10",
+  "adapter": "a2swe-remotion-mp4-adapter-12",
   "file": "dist/render.mp4",
   "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
-  "outputSha256": "e1eb0ab1674e6a120372da37ac2f63e315954d76310ce508f704bbc348f866fc",
+  "outputSha256": "a446ad84baa6abcf20df77e6124557c825d0726c4b0d59d09bcd1f0d0c734913",
   "video": {
     "index": 0,
     "codec_name": "h264",
@@ -33,7 +33,7 @@
     "start_time": "0.000000",
     "duration_ts": 5859000,
     "duration": "65.100000",
-    "bit_rate": "955260",
+    "bit_rate": "779880",
     "bits_per_raw_sample": "8",
     "nb_frames": "1953",
     "nb_read_frames": "1953",
@@ -126,8 +126,8 @@
     "format_long_name": "QuickTime / MOV",
     "start_time": "0.000000",
     "duration": "65.152000",
-    "size": "10430702",
-    "bit_rate": "1280783",
+    "size": "9003484",
+    "bit_rate": "1105535",
     "probe_score": 100,
     "tags": {
       "major_brand": "isom",

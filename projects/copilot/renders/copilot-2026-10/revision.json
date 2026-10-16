@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot",
+  "title": "copilot-2026-10",
+  "year": 2026,
+  "number": 10,
+  "createdAt": "2026-10-16T19:14:00.330Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/copilot-2026-10",
+  "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
+  "outputs": [
+    {
+      "path": "copilot-2026-10-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "07c4195f26fffbb170455a54b2056dbf5710856e9192c06e4ae6844d24c1696c",
+      "byteSize": 1080,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-2026-10-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "a446ad84baa6abcf20df77e6124557c825d0726c4b0d59d09bcd1f0d0c734913",
+      "byteSize": 9003484,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "4c735230b1d912f65b30e8de9837ebcb5cb0363f355a176bd3295cc071c80846",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.3
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 13.3,
+          "endSeconds": 26.7
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 26.7,
+          "endSeconds": 40.3
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 40.3,
+          "endSeconds": 53.8
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 53.8,
+          "endSeconds": 65.1
+        }
+      ],
+      "captions": "copilot-2026-10-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "copilot-2026-10-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "ac54c0041449c601b7979a71ffffaf3e3be4aab1b8b402f805384c0d4935995e",
+      "byteSize": 1080,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-2026-10-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "76c398d5d8226f2d6fa2275a87e28ecdd068050bf3b426a3bb17f1844770994a",
+      "byteSize": 8486815,
+      "mediaType": "video/mp4",
+      "durationSeconds": 59.584,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "83d916e1fceb48f3a43f5d84c6bebc50f124c64ad6e1c87f362f5486fe56dd77",
+      "package": "qc/revisions/copilot-2026-10/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 12.2
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 12.2,
+          "endSeconds": 24.533
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 24.533,
+          "endSeconds": 36.9
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 36.9,
+          "endSeconds": 49.333
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 49.333,
+          "endSeconds": 59.533
+        }
+      ],
+      "captions": "copilot-2026-10-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "copilot-2026-10-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "3ae7a48503f84a8fb3a00c25fe1f80448840da87d2768c536e842f6c5979fe35",
+      "byteSize": 1080,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-2026-10-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "f863e4270e4f7e730116d1bab585ba52928032aa5293a0882680e7d001fb2ef1",
+      "byteSize": 8796765,
+      "mediaType": "video/mp4",
+      "durationSeconds": 62.357,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "3fad8144cf30bbb68f7ae3c3dbf827c1ae704ac9debddf7ddd0d5e876781b9ea",
+      "package": "qc/revisions/copilot-2026-10/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 12.633
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 12.633,
+          "endSeconds": 25.533
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 25.533,
+          "endSeconds": 38.667
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 38.667,
+          "endSeconds": 51.6
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 51.6,
+          "endSeconds": 62.3
+        }
+      ],
+      "captions": "copilot-2026-10-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "copilot-2026-10-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "07c4195f26fffbb170455a54b2056dbf5710856e9192c06e4ae6844d24c1696c",
+      "byteSize": 1080,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-2026-10-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "d37ed8e5ef33a034bd9ac9801962309987ed28d315d0260ee9f17769bee7374d",
+      "byteSize": 9003484,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "cf4819357c88793111d65a02ab453fb4622ad28cd79a27744f90b8410ae1a9b1",
+      "package": "qc/revisions/copilot-2026-10/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.3
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 13.3,
+          "endSeconds": 26.7
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 26.7,
+          "endSeconds": 40.3
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 40.3,
+          "endSeconds": 53.8
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 53.8,
+          "endSeconds": 65.1
+        }
+      ],
+      "captions": "copilot-2026-10-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/copilot-2026-10."
+  ]
+}

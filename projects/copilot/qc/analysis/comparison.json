@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "copilot",
-  "generatedAt": "2026-10-07T03:17:26.758Z",
+  "generatedAt": "2026-10-16T19:30:42.016Z",
   "rows": [
     {
       "title": "copilot-2026-01",
@@ -474,7 +474,7 @@
     },
     {
       "title": "copilot-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-09-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -509,7 +509,7 @@
     },
     {
       "title": "copilot-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-09-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -544,7 +544,7 @@
     },
     {
       "title": "copilot-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-09-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -579,7 +579,7 @@
     },
     {
       "title": "copilot-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-09-am_michael-kokoro.mp4",
       "role": "video",
@@ -609,6 +609,157 @@
       "captionDetail": 12.553,
       "findings": [
         "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-10-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-10/copilot-2026-10-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.58,
+      "noiseFloorDbfs": -67.7,
+      "snrDb": 49.12,
+      "speechRatio": 0.7731,
+      "longestPauseSeconds": 1.575,
+      "speechCentroidHz": 795.3,
+      "speechHf8k": 0.003082,
+      "speechFlatness": 0.000099,
+      "humProminenceDb": 8.45,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.42,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-10-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-10/copilot-2026-10-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 59.584,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.8,
+      "speechRmsDbfs": -18.45,
+      "noiseFloorDbfs": -74.24,
+      "snrDb": 55.79,
+      "speechRatio": 0.7775,
+      "longestPauseSeconds": 1.35,
+      "speechCentroidHz": 797.2,
+      "speechHf8k": 0.021662,
+      "speechFlatness": 0.00019,
+      "humProminenceDb": 8.65,
+      "transitions": 10,
+      "staticHolds": 3,
+      "captionDetail": 17.336,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-10-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-10/copilot-2026-10-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 62.357,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 5,
+      "speechRmsDbfs": -18.19,
+      "noiseFloorDbfs": -77.38,
+      "snrDb": 59.19,
+      "speechRatio": 0.7633,
+      "longestPauseSeconds": 1.5,
+      "speechCentroidHz": 625.7,
+      "speechHf8k": 0.020454,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 11.12,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.401,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-10-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-10/copilot-2026-10-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.58,
+      "noiseFloorDbfs": -67.67,
+      "snrDb": 49.09,
+      "speechRatio": 0.7731,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 796.6,
+      "speechHf8k": 0.003098,
+      "speechFlatness": 0.000098,
+      "humProminenceDb": 8.6,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.42,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
         "info:static-hold"
       ]
     }
