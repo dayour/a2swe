@@ -3,7 +3,7 @@ import { cancelRender, continueRender, delayRender, staticFile } from 'remotion'
 import mermaid from 'mermaid';
 import { Marp } from '@marp-team/marp-core';
 import { convertToExcalidrawElements, exportToSvg } from '@excalidraw/excalidraw';
-import { accentAlpha, alpha, brand, dark, headingFont, line, mixHex, muted, panelFill, primaryFont, radius, surface } from './palette';
+import { accentAlpha, alpha, brand, dark, headingFont, hexToRgb, line, mixHex, muted, panelFill, primaryFont, radius, surface } from './palette';
 
 export type Visual = { kind: 'mermaid' | 'excalidraw' | 'marp'; source: string; caption: string };
 
@@ -151,6 +151,66 @@ function fitLabels(elements: unknown[]): unknown[] {
   });
 }
 
+const isHex = (value: unknown): value is string => typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value);
+
+function relativeLuminance(hex: string): number {
+  const [r, g, b] = hexToRgb(hex).map((value) => { const unit = value / 255; return unit <= 0.03928 ? unit / 12.92 : Math.pow((unit + 0.055) / 1.055, 2.4); });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrastRatio(a: string, b: string): number {
+  const [light, darker] = [relativeLuminance(a), relativeLuminance(b)].sort((x, y) => y - x);
+  return (light + 0.05) / (darker + 0.05);
+}
+
+function saturation(hex: string): number {
+  const values = hexToRgb(hex);
+  const max = Math.max(...values);
+  return max ? (max - Math.min(...values)) / max : 0;
+}
+
+// Keeps an authored hue at a new lightness, so semantic colors such as a red risk or a green status survive a theme change.
+function retone(hex: string, lightness: number): string {
+  const [r, g, b] = hexToRgb(hex).map((value) => value / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), delta = max - min;
+  const hue = delta ? ((max === r ? ((g - b) / delta) % 6 : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4) * 60 + 360) % 360 : 0;
+  const sat = Math.min(delta ? delta / (1 - Math.abs(max + min - 1)) : 0, 0.65);
+  const chroma = (1 - Math.abs(2 * lightness - 1)) * sat;
+  const x = chroma * (1 - Math.abs(((hue / 60) % 2) - 1));
+  const m = lightness - chroma / 2;
+  const [r1, g1, b1] = hue < 60 ? [chroma, x, 0] : hue < 120 ? [x, chroma, 0] : hue < 180 ? [0, chroma, x] : hue < 240 ? [0, x, chroma] : hue < 300 ? [x, 0, chroma] : [chroma, 0, x];
+  return '#' + [r1, g1, b1].map((value) => Math.round((value + m) * 255).toString(16).padStart(2, '0')).join('');
+}
+
+function inkFor(background: string): string {
+  if (contrastRatio(brand.text, background) >= 4.5) return brand.text;
+  return contrastRatio('#FFFFFF', background) >= contrastRatio('#111111', background) ? '#FFFFFF' : '#111111';
+}
+
+// Excalidraw skeletons carry colors authored for one theme. Fills are re-toned to the panel's light or dark mode and strokes and labels
+// regain contrast against their actual background, so every diagram reads on any brand theme without re-authoring.
+function adaptColors(elements: unknown[]): unknown[] {
+  return elements.map((element) => {
+    const item = element as { type?: string; strokeColor?: unknown; backgroundColor?: unknown; label?: Record<string, unknown> };
+    const next: Record<string, unknown> = { ...item };
+    let fill = panelFill;
+    if (isHex(item.backgroundColor)) {
+      const lightness = relativeLuminance(item.backgroundColor);
+      if (!dark && lightness < 0.3) next.backgroundColor = retone(item.backgroundColor, 0.92);
+      else if (dark && lightness > 0.45) next.backgroundColor = retone(item.backgroundColor, 0.16);
+      fill = next.backgroundColor as string;
+    }
+    if (isHex(item.strokeColor)) {
+      const text = item.type === 'text';
+      if (contrastRatio(item.strokeColor, panelFill) < (text ? 4.5 : 3)) {
+        next.strokeColor = text ? inkFor(panelFill) : saturation(item.strokeColor) < 0.15 ? (dark ? brand.text : brand.muted) : retone(item.strokeColor, dark ? 0.7 : 0.38);
+      }
+    }
+    if (item.label && isHex(item.label.strokeColor) && contrastRatio(item.label.strokeColor, fill) < 4.5) next.label = { ...item.label, strokeColor: inkFor(fill) };
+    return next;
+  });
+}
+
 function useVisual(visual: Visual, id: string, designHeight: number) {
   const rendered = useRendered<{ html: string; css?: string }>('visual ' + visual.kind + ' ' + id, visual.kind + ':' + visual.source, async () => {
     if (visual.kind === 'mermaid') {
@@ -160,7 +220,7 @@ function useVisual(visual: Visual, id: string, designHeight: number) {
     if (visual.kind === 'excalidraw') {
       const parsed = JSON.parse(visual.source);
       const skeleton = Array.isArray(parsed) ? parsed : parsed.elements;
-      const elements = convertToExcalidrawElements(fitLabels(skeleton) as never);
+      const elements = convertToExcalidrawElements(adaptColors(fitLabels(skeleton)) as never);
       await document.fonts.ready;
       const svg = await exportToSvg({ elements, appState: { exportBackground: false, exportWithDarkMode: false, exportPadding: 32 } as never, files: null });
       return { html: fitSvg(new XMLSerializer().serializeToString(svg)) };

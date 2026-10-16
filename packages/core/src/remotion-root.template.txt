@@ -81,15 +81,31 @@ function Headline({ title, size, maxWidth }: { title: string; size: number; maxW
   </h1>;
 }
 
-function ClaimCard({ claim, source, number, progress, large, compact }: { claim: string; source?: string; number: number; progress: number; large: boolean; compact: boolean }) {
+function ClaimCard({ claim, source, number, progress, large, compact, lines }: { claim: string; source?: string; number: number; progress: number; large: boolean; compact: boolean; lines: number }) {
   const size = compact ? 22 : large ? 34 : 26;
   return <div style={{ display: 'flex', gap: 20, padding: compact ? '14px 20px' : '20px 26px', borderRadius: radius, background: surface, border: '1px solid ' + line, opacity: progress, transform: 'translateY(' + (1 - progress) * 26 + 'px)' }}>
     <div style={{ flex: compact ? '0 0 44px' : '0 0 56px', height: compact ? 44 : 56, borderRadius: 28, background: dark ? accentAlpha(0.24) : brand.primary, color: dark ? brand.accent : brand.onPrimary, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: compact ? 22 : 28, fontWeight: 800 }}>{number}</div>
     <div style={{ minWidth: 0 }}>
-      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(compact ? 5 : large ? 5 : 4) }}>{claim}</div>
+      <div style={{ fontSize: size, lineHeight: 1.25, fontWeight: 600, ...clip(lines) }}>{claim}</div>
       {source ? <div style={{ marginTop: 6, fontSize: compact ? 15 : 17, color: muted, ...clip(1) }}>{source}</div> : null}
     </div>
   </div>;
+}
+
+const GRID_HEIGHT = 466;
+// Evidence cards share the column height: show as many cards (up to three) as can each display three lines, or their full text when shorter,
+// and derive the line clamp from that share so cards never run past the column into the caption band.
+function cardPlan(claims: string[], size: number): { count: number; lines: number } {
+  const lineHeight = size * 1.25;
+  const chrome = 69;
+  const charsPerLine = Math.floor(780 / (size * 0.53));
+  for (let count = Math.min(3, claims.length); count >= 1; count--) {
+    const share = (GRID_HEIGHT - 18 * (count - 1)) / count;
+    const lines = Math.floor((share - chrome) / lineHeight);
+    const needed = Math.max(...claims.slice(0, count).map((claim) => Math.ceil(claim.length / charsPerLine)));
+    if (count === 1 || lines >= Math.min(needed, 3)) return { count, lines: Math.max(1, Math.min(lines, 5)) };
+  }
+  return { count: 0, lines: 0 };
 }
 
 function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
@@ -105,7 +121,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
   const isTitle = scene.kind === 'title';
   const isLast = index === scenes.length - 1;
   const hasVisual = Boolean(scene.visual) || sceneAssets.length > 0;
-  const cardCount = hasVisual ? 1 : 3;
+  const cards = cardPlan(scene.claims, scene.claims.length === 1 ? 34 : 26);
   return <AbsoluteFill style={{ fontFamily: primaryFont, color: brand.text, opacity: fade }}>
     {isTitle ? <div style={{ position: 'absolute', left: 96, right: 96, top: 150 }}>
       <div style={{ fontSize: 24, letterSpacing: 5, textTransform: 'uppercase', color: brand.accent, fontWeight: 700, opacity: enter(0), marginBottom: 20 }}>{content.audience}</div>
@@ -124,7 +140,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
             {isLast && !hasVisual ? <p style={{ fontSize: 28, lineHeight: 1.3, margin: '28px 0 0', color: brand.accent, fontWeight: 700, ...clip(3) }}>Decision: {scene.decision}</p> : null}
           </div>
           {hasVisual ? <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 24 }}>
-            {scene.claims.slice(0, cardCount).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(16 + claimIndex * 8)} large={false} compact />)}
+            {scene.claims.slice(0, 1).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(16 + claimIndex * 8)} large={false} compact lines={4} />)}
           </div> : null}
         </div>
         {hasVisual && scene.visual
@@ -135,7 +151,7 @@ function SceneView({ scene, index }: { scene: TimelineScene; index: number }) {
                 style={{ width: '100%', height: 466, objectFit: 'contain', borderRadius: radius, border: '1px solid ' + line, background: surface }} />)}
             </div>
           : <div style={{ display: 'flex', flexDirection: 'column', gap: 18, minWidth: 0 }}>
-            {scene.claims.slice(0, cardCount).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(14 + claimIndex * 10)} large={scene.claims.length === 1} compact={false} />)}
+            {scene.claims.slice(0, cards.count).map((claim, claimIndex) => <ClaimCard key={claim} claim={claim} source={scene.claimSources[claimIndex]} number={claimIndex + 1} progress={enter(14 + claimIndex * 10)} large={scene.claims.length === 1} compact={false} lines={cards.lines} />)}
           </div>}
       </div>
     </>}
