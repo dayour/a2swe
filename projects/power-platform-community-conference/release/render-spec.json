@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "renderId": "power-platform-community-conference-2026-11-am-michael-kokoro-onnx",
-  "contentDigest": "3c164c66af0ef985eee23a1890d577fec275b100e8a5043e77573c82cb4ed664",
+  "renderId": "power-platform-community-conference-2026-12-am-michael-kokoro-onnx",
+  "contentDigest": "3e1c2db6ae414d9533dea5ea0757472d4b0ba594ca5a5b45d74bf13dc0ed34ee",
   "formats": [
     "html",
     "adaptiveDeck",
@@ -13,11 +13,30 @@
     "remotion"
   ],
   "theme": {
-    "name": "executive-dark-green-teal",
-    "background": "#071f1b",
-    "foreground": "#f2fbf8",
-    "accent": "#18a999",
-    "fontFamily": "Arial, sans-serif"
+    "name": "power-platform-community-conference-brand",
+    "background": "#F5F9F8",
+    "foreground": "#081222",
+    "accent": "#17796A",
+    "fontFamily": "Montserrat, 'Segoe UI', Arial, sans-serif",
+    "headingFont": "Montserrat, 'Segoe UI', Arial, sans-serif",
+    "radius": 10,
+    "palette": {
+      "primary": "#17796A",
+      "header": "#0A172A",
+      "deep": "#070F1B",
+      "highlight": "#2FFFE0",
+      "paper": "#FFFFFF",
+      "line": "#C8D8D5",
+      "muted": "#6B717A",
+      "soft": "#E8F2F0",
+      "danger": "#B42318"
+    },
+    "source": {
+      "kind": "site",
+      "reference": "https://powerplatformconf.com/",
+      "retrievedAt": "2026-10-16T18:21:25.111Z",
+      "basis": "Derived from 5 documents on powerplatformconf.com: primary #2FFFE0, secondary #3A7BFF, accent #2FFFE0, dark #0A172A, light #F4F3F5; fonts Montserrat. Inspired by the site; not an official brand asset."
+    }
   },
   "viewport": {
     "width": 1280,

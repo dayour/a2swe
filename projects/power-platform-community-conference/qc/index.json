@@ -8,18 +8,18 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "b595da8e9af10e83cd2fede00af2751c4bc3718aba8e23f0fff4310f38ec5ec0",
-      "byteSize": 19236
+      "digest": "6385c7ba80db91ebc03f4dd7d915f5ef73483794de223fac513945571ac5f567",
+      "byteSize": 23941
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "736e42e8e3b2ffa0b5edc3b5b92a3b0e2e18fb59d72e54caac8bfb37b7255bf5",
-      "byteSize": 905562
+      "digest": "7f0bbda0667c6a343d1bcadc0a2bf980f6ecdc4586f27d7df9d7b2d26fa24348",
+      "byteSize": 1124920
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "298b9440719062771c4a18da3e38b27f964beda59a0b20710ff64a84898f7a27",
-      "byteSize": 837603
+      "digest": "3f42e2f1e491bb5f0f64196d77cb115b97530740209f0aa334aa1b67c097025c",
+      "byteSize": 1025144
     },
     {
       "path": "qc/analysis/power-platform-community-conference-2026-01/power-platform-community-conference-2026-01/analysis.json",
@@ -1042,14 +1042,254 @@
       "byteSize": 10346
     },
     {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/analysis.json",
+      "digest": "7783ce9771de1d63ce9f5f5829ac44ae52bb2943e6fe9d55a7b50a6993c792c8",
+      "byteSize": 12641
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "7c10095f2dad38e535d8f6fc2ee18c1a5c1070f0808c0cc759663e8b7b83aaa8",
+      "byteSize": 97283
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/chunks/02-decision.jpg",
+      "digest": "a8b67de36782449643a6196a4e0d3416b9df8e55c1120b7890d15774415327f8",
+      "byteSize": 94901
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/chunks/03-conference-week.jpg",
+      "digest": "a805b87598929ab628b65995837121a300e7c2b936ef7f70df0caaa884c2ffb3",
+      "byteSize": 94926
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/chunks/04-execution-value.jpg",
+      "digest": "5c5aaa8a42c478813c91e83e0dd28a1f131cc14949e3237c316c5d9438b8927f",
+      "byteSize": 92586
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/chunks/05-next-action.jpg",
+      "digest": "3864c751b1deba222cf20e9318f206336f76df31899b40f1c1b1f99d02baa2cb",
+      "byteSize": 92162
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "0d0680e2d0e19450bc8f6d66bf929d6792a01ec251a99bb17cc6c32a632b31f7",
+      "byteSize": 417276
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "2f15d622a49add75dbb54de7e3fc2408bb8f4f17fdfcbf08f0cc300777504c40",
+      "byteSize": 47137
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/layers.png",
+      "digest": "6560b41dd2df445d395a375194f14852c9860c28db7cc0c96e9720d842d342c7",
+      "byteSize": 73582
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "8deeacc6d37594d48d30b56322fa8e680d9e6c9ffb27af37a238f95afcafc22a",
+      "byteSize": 257275
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "2c96d6af6af8091133e9c4ed058d49584f47fbe1d59a882dca64dd2f0644c35b",
+      "byteSize": 172612
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/waveform.png",
+      "digest": "d9592b3ccca5f43a0a27676806fa01f006d48cdfa005f83f4ad4c8e3c38af86a",
+      "byteSize": 10137
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/analysis.json",
+      "digest": "dd5cb2f18a6ed8a2cfbe1d70ccd6d5cddf7d61ff0b156ec4c28090a4509d3b7f",
+      "byteSize": 12571
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "e5308e9474d7b182d43a89cf35aabf01efebf34a1f09ac65dcadaaae49721736",
+      "byteSize": 95115
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/chunks/02-decision.jpg",
+      "digest": "6be6ee3a230672e15447fac0951b3e275ba2a78cb923ab844b89f66ce41e52db",
+      "byteSize": 93155
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/chunks/03-conference-week.jpg",
+      "digest": "f91995aace1bf16a18b958d294037519c1695a3586f688c9da53a934e274725f",
+      "byteSize": 92706
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/chunks/04-execution-value.jpg",
+      "digest": "43eba9224810cbe6a4c33edefb35fea14c7759ca38f029c11b3c2b754b025718",
+      "byteSize": 91966
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/chunks/05-next-action.jpg",
+      "digest": "81de66b76f753934fa46aba831c5a7b953a547e6890ff80d341cf67d03ceb08f",
+      "byteSize": 95978
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "9b2a783d9e264b0bf478c7e204078a4afc67f13e39b4648736cff1b1dfa2a210",
+      "byteSize": 412782
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "470382d94a8c7ff37b53c9368a1ba495c5ec396feed03eae88a7b82991df949a",
+      "byteSize": 47124
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/layers.png",
+      "digest": "1c866f0ddbb8837ca9fcbc472ac7a3e0578a1c6b7eaf484919a598018711eb65",
+      "byteSize": 75883
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "5c74ebd4424cdda17f0cd016bc1213fbb39e297980cd77f815b11bd8a94e9938",
+      "byteSize": 255509
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "a3a4b82c317cdf2f9e51f6718d333af86a2935910641cbe29d8ee906345dec80",
+      "byteSize": 168558
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/waveform.png",
+      "digest": "8034dd3d628aa7c842358ef1a91fa9f02ef9fd3f10041828d830681a0c846b6d",
+      "byteSize": 10073
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/analysis.json",
+      "digest": "1696d49ceaf75b0616f2324ff57bf2d7286966a21674efdd100d543e568182b2",
+      "byteSize": 12743
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "fc98b7f21c6f0c9d850a41ff64d8f1dac75bc272b71a0cb2eddac6ed966dfee0",
+      "byteSize": 96579
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/chunks/02-decision.jpg",
+      "digest": "2e088226ca33e806559c0824d2c38e9b71fa32e532c35aacce1256dec407183b",
+      "byteSize": 93553
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/chunks/03-conference-week.jpg",
+      "digest": "61e674a416126079c5489404219292c17f48442c7f214d5766f1c29677e43014",
+      "byteSize": 93738
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/chunks/04-execution-value.jpg",
+      "digest": "987adb6ee69fc22bff3a63ed4e91e36e04dac3d4c8234500ad86e64a4753cf95",
+      "byteSize": 91784
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/chunks/05-next-action.jpg",
+      "digest": "7775c8afd6930e6c60987e8c0baecde5e3571162d68ec1840af0c992b5f14b73",
+      "byteSize": 90282
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "969d4df47d3512f9ad9e557261759110c2dcd604a037e8d684655685489a331e",
+      "byteSize": 424323
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "13161ba35256e6df9a9fa9f4c284bd80de70d5fa8fa885c787fe211325e2c64b",
+      "byteSize": 47082
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/layers.png",
+      "digest": "27bb604189585760b98e33d0953cc9d92a32fd0100dd101e69caeafb316a7801",
+      "byteSize": 74259
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "a39ce5411b99d9359a3cb2133d90c34f06e99d09be796bc609dcfbd590e4d86b",
+      "byteSize": 246400
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "36a18d23971e7e15380bd963c7410be127df8b8cbd2ae967ce29fb3901ee171d",
+      "byteSize": 163666
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/waveform.png",
+      "digest": "54034ea1c36ff51e605ecd12109322d5a8333197a20f6f27b78bef8690e884a1",
+      "byteSize": 10217
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/analysis.json",
+      "digest": "b5e58ddcd9c5e799bc3809afe437f111e9191f04712b0e169cdddb42ef2e1115",
+      "byteSize": 12725
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "2c050be6c5db9fa69f150c3414fb4f8c1c69fa36d29c2c76d0f34c838c74b403",
+      "byteSize": 97241
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/chunks/02-decision.jpg",
+      "digest": "df3def4b8e313a222e7297dc810900c4d2a1cdf1184c3c3853d7266d92d43a3d",
+      "byteSize": 93350
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/chunks/03-conference-week.jpg",
+      "digest": "3fe10377238c9c99813af095bc50959195ef9ba5cabdba377d26a52d5915c140",
+      "byteSize": 93789
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/chunks/04-execution-value.jpg",
+      "digest": "aa8d1784f811e0581a535ecf3446a1953dd3a884399d5fe6e5534eb44f2979c6",
+      "byteSize": 91783
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/chunks/05-next-action.jpg",
+      "digest": "d1f70781f358e5aa8369662abaccfec431d2a8f4b93bb31b0b4521baf56c2e28",
+      "byteSize": 89582
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "969d4df47d3512f9ad9e557261759110c2dcd604a037e8d684655685489a331e",
+      "byteSize": 424323
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/frame-strip.jpg",
+      "digest": "13161ba35256e6df9a9fa9f4c284bd80de70d5fa8fa885c787fe211325e2c64b",
+      "byteSize": 47082
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/layers.png",
+      "digest": "d8c0bd249e4f92d07a062fd2d4eae6a930be75e156d1af0fa045bb711898b2b5",
+      "byteSize": 74003
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "5204bf276ed16852a4d9f49037109092789fa7ed8726eef9f7f1f797d6f4e8ba",
+      "byteSize": 246380
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/spectrogram.jpg",
+      "digest": "0c0750dfb4767e58ed09d86003a68ef6493f3bdc320e4b4f9e38291d26d4b829",
+      "byteSize": 163419
+    },
+    {
+      "path": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/waveform.png",
+      "digest": "57cb9ed3d8f23af16a6e2c509a3ab70205d383144b78f79f0ac206d2f07d8a03",
+      "byteSize": 10187
+    },
+    {
       "path": "qc/analysis/report.md",
-      "digest": "0028d7739b850e0dcdc1c8d64b8dfe810c4ba49c3a36a0c276384ab89702ce8d",
-      "byteSize": 20577
+      "digest": "5e065cce80329aae84b0024b1d08d52b5fbc0aa37c04f0697b1ced08064f382f",
+      "byteSize": 25646
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "69f52ac967660de448d8c38795027af896cfa22aec3245985386230522dbaa49",
-      "byteSize": 1237599
+      "digest": "216f6497cab645f2c99a697116465438c4ffcee97c4484a7549ffeab822fde50",
+      "byteSize": 1527811
     },
     {
       "path": "qc/brand/brand-source.json",
@@ -1058,98 +1298,98 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "7acbf1d72ced60b031249f1153f55c632d9305eb3fa42d1f02e99ab0e7d74cc3",
-      "byteSize": 92307
+      "digest": "2b58ebb0fc964e40cb81db21729a3e6d5a5f7aeaaeff37f25dc3a2f59871180e",
+      "byteSize": 94562
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "7b8d4a876f501f87215c39aa2e4c0c350d124ad14d396c803b5ed9fb64732260",
-      "byteSize": 195131
+      "digest": "51998951f75b409e0a5e96fd5a22c3e5f445576313e55e4501baf9cfffad59b6",
+      "byteSize": 152533
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "f62c60c18c84be1dc7227bc7b14cbdab5da307cf046907c0d235c7133af1928a",
+      "digest": "9f8183dc3b908c4e34fa1befa8dcf0311bb9efdf53d83f4f37cf7de7d38c84e7",
       "byteSize": 741
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "1368d8c8fef37f3a248332fbfb92d0ae092514c3c1321e6367c1d95951ea995d",
-      "byteSize": 100808
+      "digest": "1b040e3248d24e1fe47a341b220f77723d3e76fb9284f8f6d0317f21a864fda9",
+      "byteSize": 92735
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "7d3ae78848451c2a5c65586f6076872f808b64f03a0aeec663f8170141d27500",
-      "byteSize": 53141
+      "digest": "c1d0b58325bdf3f2f31de84c0e3691645ef63d3a7ba47b9dbeb70b95576689c8",
+      "byteSize": 53790
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "2a34c4db689addb4f4e0c6a9c3758cdc6753f0c95c28137b047c5a9e70c0704d",
-      "byteSize": 64143
+      "digest": "c1d614012ab104cfacce6e4413a41084b5605804c8905f7f6bc083657b11f797",
+      "byteSize": 65254
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "0098eaefbd4943b73f66de730dbf3e9273252de6075a778e1727322cb63aa0a5",
-      "byteSize": 81962
+      "digest": "3cd73cff12e67191af148753580c0a4658706ef687892f873453fb7657b6b66e",
+      "byteSize": 84274
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "78b642f2bbad8d4eea3e3f853eeab3ec0369f1b264a8428ac3203cbdec89ceac",
-      "byteSize": 98901
+      "digest": "9699f01fa5accafc38ce18a08fd739a70161e90365fe9388599d0f941faaf40b",
+      "byteSize": 90114
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "5527dadcaa2b977cfc848cd58f5c5a6622c0384d35fa43d5bc9793f340d58b8d",
-      "byteSize": 71340
+      "digest": "b626678d6e11c7ea1c74b46c63838dd7ebc2ad0d29f798cb20c84fb333e822ae",
+      "byteSize": 69220
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "a49840015e0da483abdb0a6340d5f3ff6890188d135b05d1ca68b53f74b24292",
-      "byteSize": 65396
+      "digest": "7deb2643d14ae1c186f98640ef51f6a571035cfce68179bf1eb4d538d6412983",
+      "byteSize": 65763
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "bc25ef2c900b5cf1ca711fabf375b5b939aac5331949061f9850a27fa7ea87ef",
-      "byteSize": 65487
+      "digest": "46a3d23ee427ef2989c6f612fa5cea960140685bf10ef2aa8be09064efcda37f",
+      "byteSize": 63985
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "c6902305a1845eb9df8cb5c5dfb3a9502ab22d80906c578206511c6d48eb29e7",
-      "byteSize": 166317
+      "digest": "6b511cbf15d5bfdc136e8c0890405532a35dbbaf15489f74dfe4651edc98e285",
+      "byteSize": 179193
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "83f051f49106630d6b3d9c4ad2d42803052ea999aed556195398a23d08d19402",
-      "byteSize": 58314
+      "digest": "b0d317e4e8ad1fe40a0de5b3a16edf0b48132f6f8f91afbdf7dfb686d198fecc",
+      "byteSize": 63162
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "5f05c79cd9354b3e369d4f9f5bcb4d845364f29b609fa724b4a06356edcaef97",
-      "byteSize": 90565
+      "digest": "f63ba2223e2e314df3c3e18f3fce47c36e4d3b14dbf1306faea64e6324d27887",
+      "byteSize": 92241
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "db5a8335e30220ae54fd820a13e0af67fa61a32e0c86922db7b4b120394e71c4",
-      "byteSize": 104231
+      "digest": "56425a5ce74683bb83514c21a1ac4940fa333cbf40e960a11d56b47073b0c552",
+      "byteSize": 108174
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "6af965cca9c636e3138996e695ce85764a19e66724aa90ccd9d6939050d1da48",
-      "byteSize": 83466
+      "digest": "d81134836af83e447ed4a03918989aa123dcef7e0437a377a9b4cd8faa253a46",
+      "byteSize": 87504
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "1f4e72e0ce4147bbc91d33bce3953df75840a839c8e51f9186f5184514a652ec",
-      "byteSize": 33976
+      "digest": "18fa96d020c0fbeb12124b0f073c61be4edc95cc3e78a6ff887b7840c89c3f13",
+      "byteSize": 71555
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "41c4c37b5b2f32b27eb97fe81215add56007dd8ebc395926a83d8d3c14a52dff",
-      "byteSize": 19868
+      "digest": "59366a77764774181a863be5621e437cc25377000ba3f19785d51eb7e09fdf4e",
+      "byteSize": 42870
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "8b84ddd4c19ffb2d2a2b266a6218399fbfd11af5a3af07530edb07e5897e5c17",
-      "byteSize": 94970
+      "digest": "2442a12ef6698971d15b318ddd3637bdb87e1a6257274585e090804e021f3407",
+      "byteSize": 95229
     },
     {
       "path": "qc/production-review.json",
@@ -1198,22 +1438,22 @@
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "9b624dfe702b452da7aba88ed4bc2372c3bf469643581d5906d1c9f0ebe0229f",
-      "byteSize": 5241
+      "digest": "876c80a5894717672716e1ecb79801804541d25f6f3963713d2963fb3c3d3045",
+      "byteSize": 4915
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "32df25a1c798d2b6f312766fa7fdf05571d3d2c4e6626d830c5e362258fd5395",
-      "byteSize": 445921
+      "digest": "65a15ae73b4a5405e26ed650dcf832dbfd57fd1ac30fa1c161db083bd7d5a2db",
+      "byteSize": 446060
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "5ee23e4cf7b5764d1d859ef94ab2039b7cceb5d1866505f6027a60e3e79031fb",
-      "byteSize": 3567
+      "digest": "f68fe344094f0f244ec325a65c3e802c3dc2034966125c25843860614d6617c5",
+      "byteSize": 3566
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "bbaeadae26fe1a4b6a28e493d9738b25977bb1ac384af384aeeae1c5381b6bb7",
+      "digest": "2fae3101938f99f1cc424942301ffe50584b7a33fedca6ede2a4d28e7fd68856",
       "byteSize": 398
     }
   ]

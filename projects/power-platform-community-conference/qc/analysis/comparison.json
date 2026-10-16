@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "power-platform-community-conference",
-  "generatedAt": "2026-10-07T02:39:28.345Z",
+  "generatedAt": "2026-10-16T20:27:25.809Z",
   "rows": [
     {
       "title": "power-platform-community-conference-2026-01",
@@ -468,7 +468,7 @@
     },
     {
       "title": "power-platform-community-conference-2026-11",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-community-conference-2026-11-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -503,7 +503,7 @@
     },
     {
       "title": "power-platform-community-conference-2026-11",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-community-conference-2026-11-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -538,7 +538,7 @@
     },
     {
       "title": "power-platform-community-conference-2026-11",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-community-conference-2026-11-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -573,7 +573,7 @@
     },
     {
       "title": "power-platform-community-conference-2026-11",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-community-conference-2026-11-am_michael-kokoro.mp4",
       "role": "video",
@@ -603,6 +603,153 @@
       "captionDetail": 11.204,
       "findings": [
         "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-community-conference-2026-12",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-community-conference-2026-12-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.061,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.7,
+      "speechRmsDbfs": -18.47,
+      "noiseFloorDbfs": -66.16,
+      "snrDb": 47.69,
+      "speechRatio": 0.7687,
+      "longestPauseSeconds": 1.625,
+      "speechCentroidHz": 777.2,
+      "speechHf8k": 0.003296,
+      "speechFlatness": 0.000101,
+      "humProminenceDb": 5.96,
+      "transitions": 7,
+      "staticHolds": 3,
+      "captionDetail": 18.763,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-community-conference-2026-12",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-community-conference-2026-12-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 57.877,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.5,
+      "speechRmsDbfs": -18.46,
+      "noiseFloorDbfs": -69.55,
+      "snrDb": 51.09,
+      "speechRatio": 0.7792,
+      "longestPauseSeconds": 1.35,
+      "speechCentroidHz": 799.7,
+      "speechHf8k": 0.022525,
+      "speechFlatness": 0.000156,
+      "humProminenceDb": 8.77,
+      "transitions": 7,
+      "staticHolds": 2,
+      "captionDetail": 18.725,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-community-conference-2026-12",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-community-conference-2026-12-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 61.013,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 4.2,
+      "speechRmsDbfs": -18.21,
+      "noiseFloorDbfs": -76.67,
+      "snrDb": 58.46,
+      "speechRatio": 0.7622,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 637.2,
+      "speechHf8k": 0.020526,
+      "speechFlatness": 0.000111,
+      "humProminenceDb": 5.98,
+      "transitions": 7,
+      "staticHolds": 3,
+      "captionDetail": 18.75,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-community-conference-2026-12",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-community-conference-2026-12-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-community-conference-2026-12/power-platform-community-conference-2026-12-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.061,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.7,
+      "speechRmsDbfs": -18.47,
+      "noiseFloorDbfs": -66.52,
+      "snrDb": 48.05,
+      "speechRatio": 0.7687,
+      "longestPauseSeconds": 1.625,
+      "speechCentroidHz": 777.3,
+      "speechHf8k": 0.003302,
+      "speechFlatness": 0.000099,
+      "humProminenceDb": 6.32,
+      "transitions": 7,
+      "staticHolds": 3,
+      "captionDetail": 18.763,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
         "info:static-hold"
       ]
     }
