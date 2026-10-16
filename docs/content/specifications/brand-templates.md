@@ -12,6 +12,13 @@ Verified subject identity outranks the website's ClippyFlow styling.
 
 ## Implemented boundary
 
+Core brand application is implemented through `RenderTheme`. The project's
+`canonical/render-theme.json` carries the brand palette roles, heading and body
+fonts, corner radius and provenance. Every core adapter and the video apply it,
+and the PPTX theme color and font schemes are the brand's own. Themes come from a
+LayeredCards kit theme, an official brand site through `brand-theme --url`, or a
+hand-written file. See [Render and quality control](../pipeline/render-and-quality.md).
+
 The [Template Library](/templates) includes six original, complete **composition
 recipes**: opening question, agenda, text with image, process, illustrative
 dashboard, and next steps. Their previews are schematic, not rendered PPT files.
@@ -24,12 +31,12 @@ geometry validation, warnings, and coding-agent instructions.
 `template/scripts/check_brand_plan.ts` is copied into newly scaffolded projects
 and checks an exported plan without dependencies, using Node 24.
 
-**This is an authoring/preflight contract, not a new core release contract.**
-`RenderSpec` and signed approval semantics are unchanged. The current core PPTX
-adapter is a basic text-layout exporter; it does not import these recipes or a
-`.potx`, reproduce sample-slide geometry, or upload to Brand kits. Remotion scenes
-must also be authored from the plan. Neither a schema check nor a gallery
-selection establishes brand fidelity, approval, or release approval.
+**The composition recipes are an authoring and preflight contract, not a core
+release contract.** The core PPTX adapter applies the brand theme to its own
+editable layouts. It does not import these recipes or a `.potx`, reproduce
+sample-slide geometry, or upload to Brand kits. Remotion scenes must also be
+authored from the plan. A schema check or a gallery selection does not
+establish brand fidelity, approval, or release approval.
 
 ## Source-of-truth order
 

@@ -7,11 +7,14 @@ description: Core authoring inputs, revision folders, digest-bound release inven
 
 ```text
 project/
+├── <projectId>.code-workspace  # VS Code workspace with pipeline tasks
 ├── canonical/
 │   ├── domain-pack.json
 │   ├── content-ir.json
+│   ├── render-theme.json      # brand theme (RenderTheme) bound into render-spec.json
 │   ├── render-spec.json
 │   ├── approval-manifest.json
+│   ├── asset-requests/<assetId>.json
 │   └── assets/
 │       └── <assetId>/
 │           ├── request.json
@@ -29,12 +32,36 @@ project/
 │   ├── index.json
 │   ├── analysis/             # spectrogram, loudness and video-layer evidence per revision
 │   ├── audio/<profile>/       # matched WAVs, metadata and comparison.json
+│   ├── brand/brand-source.json # documents, color votes and fonts behind a site-derived theme
 │   ├── native-office/        # source-bound Office renders
 │   ├── video-frames/         # source-bound decoded frame previews
 │   ├── production-review.json
 │   └── revisions/<title>/    # local superseded and variant packages, not current QC
 └── release/
 ```
+
+## VS Code workspace
+
+`project-init` and `account-import` write `<projectId>.code-workspace` at the
+project root. `workspace-init --root PROJECT` regenerates it for an existing
+project. Open the file in VS Code to work on one project with these tasks:
+
+- **a2swe: brand-theme from site** prompts for an official brand URL.
+- **a2swe: canonical-bind**
+- **a2swe: revision-produce** offers a choice of voice variants.
+- **a2swe: revisions-analyze**
+- **a2swe: office-render**
+- **a2swe: runbook-project**
+- **a2swe: release-verify**
+- **a2swe: runbook-verify**
+- **a2swe: produce, review and verify** is the default build task and runs the stages in order.
+
+Each task runs the core CLI with Node from the repository root, resolved
+relative to the project, so the workspace works wherever the repository is
+checked out. The workspace keeps renders, revision archives and analysis
+evidence out of search and file watching. It recommends the Mermaid, Marp,
+Excalidraw and Live Preview extensions for editing section visuals and
+previewing HTML output.
 
 ## Revisions
 
@@ -77,7 +104,8 @@ release/
     └── remotion/               # one generated build workspace
 ```
 
-The default scaffold initially creates the draft domain, Runbook and QC index.
+The default scaffold creates the draft domain, Runbook, QC index, neutral
+default brand theme and workspace file.
 Other authoring files appear when you create them; the release tree appears
 only after production. `outputs/remotion/` holds its own `src/`, `scripts/`,
 `audio/`, `visuals/`, `public/`, `qc/`, and `dist/` as one generated build

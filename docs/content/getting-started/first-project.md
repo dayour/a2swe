@@ -50,15 +50,18 @@ node packages/core/src/cli.ts project-init `
 
 The default `node template\scripts\new_project.cjs <new-directory> <slug>`
 delegates to the same core command. Both refuse to overwrite a destination.
-Then:
+The scaffold also writes a neutral brand theme and
+`datadog-cowork-plugin.code-workspace`; open the workspace in VS Code to run the
+pipeline stages as tasks. Then:
 
 1. add sources, evidence spans, supported claims, and known gaps
 2. move the domain pack to `state: "ready"`
-3. generate diagram asset bundles with `asset-generate` as needed
-4. author `content-ir.json`, `render-spec.json`, and `approval-manifest.json`
-5. run `release-produce`
-6. run `release-verify`
-7. record completed stages and file-digest evidence in `agent/runbook.json`
+3. install the brand with `brand-theme --root PROJECT --url https://official-site`
+4. generate diagram asset bundles with `asset-generate` as needed
+5. author `content-ir.json`, then run `canonical-bind` to write `render-spec.json` and `approval-manifest.json`
+6. run `revision-produce`, or `release-produce` for a single release
+7. run `release-verify`
+8. run `runbook-project` to record completed stages and file-digest evidence in `agent/runbook.json`
 
 Example production commands:
 

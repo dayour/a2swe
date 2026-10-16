@@ -24,9 +24,9 @@ agent widget. Its Rust host shares one local Copilot SDK bridge between windows;
 the a2swe MCP server exposes core tools and source-linked workspace context.
 Start with one prompt and select **Generate**. By default, a2swe creates the
 domain SWE agent and all eight presentation formats, including narrated video.
-Expand **Pro mode** only to customize sources, library context, voice, speed,
-formats, naming, or guided tool approvals. Resolved defaults are persisted in
-the project's generation specification.
+Expand **Pro mode** only to customize sources, the brand site, library context,
+voice, speed, formats, naming, or guided tool approvals. Resolved defaults are
+persisted in the project's generation specification.
 Executive decision-makers are the default audience: lead with the decision,
 why it matters, supported impact, risks, and next actions. Pro mode can override
 the audience. Customer and market research must distinguish verified sources,
@@ -55,6 +55,12 @@ extraction or browsing.
   the Remotion output
 - Render multi-voice revisions into `renders/<project>-<year>-<NN>/` and measure
   every revision with spectrogram, loudness and video-layer analysis
+- Style every format and the video from one brand theme (`RenderTheme`):
+  - Install it from a LayeredCards kit theme or an official brand site with
+    `brand-theme`; site extraction records its evidence.
+  - Generated diagram assets are rebranded with it.
+- Write a VS Code workspace for each project (`<projectId>.code-workspace`) whose
+  tasks run every pipeline stage
 
 `template/` holds the shared Remotion runtime, fonts and Python lock that the
 core MP4 adapter installs into each release workspace. Projects do not carry
@@ -200,6 +206,16 @@ It can also produce:
 `release-verify` checks the digests of the entire output set and reruns MP4 QC
 when the package includes the Remotion output. `--skip-media-probe` skips only the
 ffprobe stage for hosts without FFmpeg; digest, inventory and timeline checks still run.
+
+Every output applies the project's brand theme:
+
+- the header band
+- the highlight rule
+- the palette
+- the heading and body fonts
+
+PPTX theme colors and fonts carry the brand, so edits stay on brand. See
+[Render and quality control](docs/content/pipeline/render-and-quality.md#brand-themes).
 
 ## Speech and video
 

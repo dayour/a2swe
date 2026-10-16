@@ -72,6 +72,12 @@ that no engagement exists.
 - Prefer purposeful charts, architecture diagrams and source-backed visuals.
   Keep executive slides readable at presentation scale. Brand colors or marks
   need an identified source; do not claim generated graphics are official.
+- Style every output from the project brand theme in `canonical/render-theme.json`.
+  Never hand-pick colors or fonts in content or visuals. For a customer, install
+  the kit theme with `brand-theme --source`. For a topic with an owning
+  organization or product, run `brand-theme --url` against its official site.
+  If the command reports insufficient evidence, keep the installed theme rather
+  than guessing.
 - Review actual encoded video, subtitles, narration and spectrogram evidence.
   Use the native Studio/review tools when available, inspect transitions and
   representative frames, and verify sources and captions remain legible.

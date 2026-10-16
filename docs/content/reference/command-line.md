@@ -22,7 +22,7 @@ Run these from the repository root.
 | `node packages/core/src/cli.ts voice-profiles` | List shared local speech profiles |
 | `node packages/core/src/cli.ts audio-render --root PROJECT --engine both --voice am_michael` | Produce matched Kokoro and ONNX narration through the managed speech producer |
 | `node packages/core/src/cli.ts qc-index --root PROJECT` | Refresh project evidence paths and hashes |
-| `node packages/core/src/cli.ts project-init --id SLUG --name NAME --kind topic --as-of DATE --out DIR` | Create canonical draft-domain, runbook and QC records |
+| `node packages/core/src/cli.ts project-init --id SLUG --name NAME --kind topic --as-of DATE --out DIR` | Create canonical draft-domain, runbook and QC records, the neutral default brand theme and the project VS Code workspace |
 | `node packages/core/src/cli.ts validate --schema ... --file ...` | Validate a contract file |
 | `node packages/core/src/cli.ts runbook-verify --root PROJECT` | Verify runbook paths and digests |
 | `node packages/core/src/cli.ts domain-init --id SLUG --name NAME --kind ... --as-of DATE --out FILE` | Create a draft domain pack |
@@ -43,7 +43,16 @@ Run these from the repository root.
 | `node packages/core/src/cli.ts media-analyze --file MEDIA --out DIR` | Spectrograms, loudness, pauses, scene, freeze and layer measurements for one file |
 | `node packages/core/src/cli.ts office-render --root PROJECT` | Render the release PPTX and DOCX with native PowerPoint and Word on Windows |
 | `node packages/core/src/cli.ts runbook-project --root PROJECT` | Project `agent/runbook.json` gates from the verified release and current evidence |
-| `node packages/core/src/cli.ts account-import --source CUSTOMER_DIR --root PROJECT` | Import a LayeredCards account intake or card-data package as a ready DomainPack |
+| `node packages/core/src/cli.ts account-import --source CUSTOMER_DIR --root PROJECT` | Import a LayeredCards account intake or card-data package as a ready DomainPack, install the kit brand theme and write the project workspace |
+| `node packages/core/src/cli.ts brand-theme --root PROJECT --url HTTPS_SITE` | Derive the brand theme (palette, header band, highlight, fonts) from an official brand site's page and stylesheets; record the evidence in `qc/brand/`; fail on weak evidence |
+| `node packages/core/src/cli.ts brand-theme --root PROJECT --source KIT_THEME_JSON` | Install a LayeredCards kit theme with the same derivation as the delivered cards |
+| `node packages/core/src/cli.ts brand-theme --root PROJECT --file RENDER_THEME_JSON` | Validate and install a hand-written `RenderTheme` |
+| `node packages/core/src/cli.ts workspace-init --root PROJECT` | Write `PROJECT/<projectId>.code-workspace` with VS Code tasks for every pipeline stage |
+
+`brand-theme` writes `canonical/render-theme.json`. It regenerates generated
+semantic diagram assets with the brand palette and updates their content and
+approval digests. When `canonical/content-ir.json` exists, it rebinds the
+canonical inputs so the next render uses the new brand.
 
 ## Release behavior
 

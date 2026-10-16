@@ -3,6 +3,56 @@ title: Render and quality control
 description: Produce and verify the managed 1080p release, master its audio, and measure every revision.
 ---
 
+## Brand themes
+
+Every format renders from one brand theme: `canonical/render-theme.json`, which
+`canonical-bind` copies into `RenderSpec.theme`. The `RenderTheme` contract
+holds:
+
+- the page canvas, body ink and emphasis accent
+- the brand roles of the card system: primary, header band, deep, highlight rule, paper tiles, line, muted, soft and danger
+- the heading and body font stacks
+- a corner radius
+- provenance
+
+The contract rejects themes that cannot meet WCAG AA for body ink, header text
+and muted text.
+
+`brand-theme` installs a theme from one of three sources:
+
+| Source | Derivation |
+| --- | --- |
+| `--source` kit theme | The LayeredCards kit derivation, so outputs match the delivered cards |
+| `--url` brand site | Weighted color and font votes from the page and up to ten stylesheets |
+| `--file` theme | A hand-written `RenderTheme` |
+
+Site extraction discounts CSS-framework defaults and debug colors. It prefers a
+brand-tinted near-black for the header band and uses a bright primary as the
+highlight. It records every fetched document and vote in
+`qc/brand/brand-source.json`. If the strongest brand color has too little
+evidence, the command fails instead of installing a guess. New projects start
+with a neutral default theme. The desktop New Project dialog's Pro mode accepts
+a brand site, and the coordinator installs it before the agent starts.
+
+Each format applies the same resolved tokens:
+
+| Format | Brand treatment |
+| --- | --- |
+| Video | Persistent header band with deck kicker and scene counter. The highlight rule doubles as the progress bar. Heading font, paper tiles, callouts and caption panel come from the brand. Mermaid and Marp visuals use the brand fonts and roles |
+| PPTX | Header band, highlight rule, kicker and slide number on every slide. The theme color scheme and major/minor fonts are the brand's, so edits in PowerPoint stay on brand |
+| DOCX | Brand heading font and color, highlight rule under the title, brand hyperlinks, body font |
+| PDF | Header band, highlight rule and page numbers on every page. Brand-colored headings. Standard Times faces for serif stacks and Helvetica for sans stacks keep the PDF searchable without embedding fonts |
+| HTML and AdaptiveDeck | Masthead band, CSS variables or deck theme for every role, heading font. The print stylesheet switches to print ink |
+| PNG and JPEG | Band, rule, callout and tiles, with the first installed family in each font stack and the bundled face as glyph fallback |
+
+`brand-theme` also regenerates semantic diagram assets, those with a `diagram`
+request, with the brand palette, so embedded diagrams match. Imported photos
+and logos are left as they are.
+
+Fonts are referenced by name and never redistributed. Office downloads brand
+cloud fonts on first use, so the first native render on a new machine can show a
+substitute face. Run `office-render` again once the font is cached.
+
 ## Managed release render
 
 Generate the release package first:

@@ -24,6 +24,11 @@ private engagement data and must stay in a Git-ignored workspace.
    node packages/core/src/cli.ts account-import --source KIT/customers/<id> --root <customer-project>
    ```
 
+   The import also installs the customer's kit brand theme as
+   `canonical/render-theme.json` and writes `<id>.code-workspace`. Videos,
+   decks and documents then match the delivered cards: header band, highlight
+   rule, card palette and kit fonts. Never override the theme by hand.
+
 3. Author `canonical/content-ir.json` for this week, then bind digests:
 
    ```powershell
