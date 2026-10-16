@@ -4,7 +4,7 @@
   "width": 1920,
   "height": 1080,
   "sampleRate": 48000,
-  "durationInFrames": 2751,
+  "durationInFrames": 2178,
   "scenes": [
     {
       "id": "title",
@@ -118,10 +118,10 @@
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
       "startFrame": 0,
-      "durationInFrames": 456,
-      "endFrame": 456,
-      "speechStartFrame": -1,
-      "speechEndFrame": -1
+      "durationInFrames": 350,
+      "endFrame": 350,
+      "speechStartFrame": 8,
+      "speechEndFrame": 341
     },
     {
       "id": "what-it-is",
@@ -155,11 +155,11 @@
       },
       "visualId": "01-what-it-is",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 456,
-      "durationInFrames": 422,
-      "endFrame": 878,
-      "speechStartFrame": 455,
-      "speechEndFrame": 455
+      "startFrame": 350,
+      "durationInFrames": 365,
+      "endFrame": 715,
+      "speechStartFrame": 358,
+      "speechEndFrame": 707
     },
     {
       "id": "where-it-runs",
@@ -193,11 +193,11 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 878,
-      "durationInFrames": 390,
-      "endFrame": 1268,
-      "speechStartFrame": 877,
-      "speechEndFrame": 877
+      "startFrame": 715,
+      "durationInFrames": 295,
+      "endFrame": 1010,
+      "speechStartFrame": 723,
+      "speechEndFrame": 1001
     },
     {
       "id": "setup",
@@ -243,11 +243,11 @@
       },
       "visualId": "03-setup",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1268,
-      "durationInFrames": 396,
-      "endFrame": 1664,
-      "speechStartFrame": 1267,
-      "speechEndFrame": 1267
+      "startFrame": 1010,
+      "durationInFrames": 322,
+      "endFrame": 1332,
+      "speechStartFrame": 1018,
+      "speechEndFrame": 1324
     },
     {
       "id": "access",
@@ -281,11 +281,11 @@
       },
       "visualId": "04-access",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 1664,
-      "durationInFrames": 362,
-      "endFrame": 2026,
-      "speechStartFrame": 1663,
-      "speechEndFrame": 1663
+      "startFrame": 1332,
+      "durationInFrames": 261,
+      "endFrame": 1593,
+      "speechStartFrame": 1340,
+      "speechEndFrame": 1584
     },
     {
       "id": "control",
@@ -310,11 +310,11 @@
       "visual": null,
       "visualId": null,
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 2026,
-      "durationInFrames": 299,
-      "endFrame": 2325,
-      "speechStartFrame": 2025,
-      "speechEndFrame": 2025
+      "startFrame": 1593,
+      "durationInFrames": 264,
+      "endFrame": 1857,
+      "speechStartFrame": 1601,
+      "speechEndFrame": 1849
     },
     {
       "id": "risk",
@@ -360,124 +360,92 @@
       },
       "visualId": "06-risk",
       "decision": "Pilot the Datadog connector with one team, keep Datadog permissions scoped, and treat the Preview status as a rollout risk.",
-      "startFrame": 2325,
-      "durationInFrames": 426,
-      "endFrame": 2751,
-      "speechStartFrame": 2324,
-      "speechEndFrame": 2324
+      "startFrame": 1857,
+      "durationInFrames": 321,
+      "endFrame": 2178,
+      "speechStartFrame": 1865,
+      "speechEndFrame": 2162
     }
   ],
   "subtitleCues": [
     {
-      "text": "Datadog for Claude Cowork.",
+      "text": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.",
       "startFrame": 8,
-      "endFrame": 63,
-      "sourceSegmentIndex": 0
+      "endFrame": 341,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
     },
     {
-      "text": "Your telemetry, one question away.",
-      "startFrame": 63,
-      "endFrame": 135,
-      "sourceSegmentIndex": 0
+      "text": "The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.",
+      "startFrame": 358,
+      "endFrame": 707,
+      "sourceSegmentIndex": 1,
+      "sceneId": "what-it-is"
     },
     {
-      "text": "Here is what the plugin does, how it connects, and where a team should be careful.",
-      "startFrame": 135,
-      "endFrame": 308,
-      "sourceSegmentIndex": 0
+      "text": "Claude, including Cowork, uses the official connector.",
+      "startFrame": 723,
+      "endFrame": 842,
+      "sourceSegmentIndex": 2,
+      "sceneId": "where-it-runs"
     },
     {
-      "text": "The Datadog Model Context Protocol server bridges your observability data to agents.",
-      "startFrame": 325,
-      "endFrame": 525,
-      "sourceSegmentIndex": 1
+      "text": "Claude Code installs the plugin from the official Anthropic marketplace.",
+      "startFrame": 842,
+      "endFrame": 1001,
+      "sourceSegmentIndex": 2,
+      "sceneId": "where-it-runs"
     },
     {
-      "text": "Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.",
-      "startFrame": 525,
-      "endFrame": 733,
-      "sourceSegmentIndex": 1
+      "text": "Choose your Datadog site and sign in with OAuth.",
+      "startFrame": 1018,
+      "endFrame": 1124,
+      "sourceSegmentIndex": 3,
+      "sceneId": "setup"
     },
     {
-      "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations.",
-      "startFrame": 749,
-      "endFrame": 998,
-      "sourceSegmentIndex": 2
+      "text": "Keys are supported, and older manual servers or custom connectors should be removed first.",
+      "startFrame": 1124,
+      "endFrame": 1324,
+      "sourceSegmentIndex": 3,
+      "sceneId": "setup"
     },
     {
-      "text": "Claude Code installs the same server as a plugin from the official marketplace.",
-      "startFrame": 998,
-      "endFrame": 1167,
-      "sourceSegmentIndex": 2
+      "text": "You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.",
+      "startFrame": 1340,
+      "endFrame": 1584,
+      "sourceSegmentIndex": 4,
+      "sceneId": "access"
     },
     {
-      "text": "Setup is short.",
-      "startFrame": 1184,
-      "endFrame": 1217,
-      "sourceSegmentIndex": 3
+      "text": "Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.",
+      "startFrame": 1601,
+      "endFrame": 1849,
+      "sourceSegmentIndex": 5,
+      "sceneId": "control"
     },
     {
-      "text": "Choose your Datadog site, then sign in with O Auth in the browser.",
-      "startFrame": 1217,
-      "endFrame": 1363,
-      "sourceSegmentIndex": 3
+      "text": "The plugin is in Preview.",
+      "startFrame": 1865,
+      "endFrame": 1918,
+      "sourceSegmentIndex": 6,
+      "sceneId": "risk"
     },
     {
-      "text": "Keys are an alternative, and any older manual server or custom connector should be removed first.",
-      "startFrame": 1363,
-      "endFrame": 1578,
-      "sourceSegmentIndex": 3
-    },
-    {
-      "text": "Access is not widened.",
-      "startFrame": 1595,
-      "endFrame": 1641,
-      "sourceSegmentIndex": 4
-    },
-    {
-      "text": "You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.",
-      "startFrame": 1641,
-      "endFrame": 1945,
-      "sourceSegmentIndex": 4
-    },
-    {
-      "text": "Tool groups can be switched on or off, so a team can expose only the products it needs.",
-      "startFrame": 1962,
-      "endFrame": 2155,
-      "sourceSegmentIndex": 5
-    },
-    {
-      "text": "Start with one narrow toolset.",
-      "startFrame": 2155,
-      "endFrame": 2222,
-      "sourceSegmentIndex": 5
-    },
-    {
-      "text": "Treat the preview label as a rollout risk.",
-      "startFrame": 2238,
-      "endFrame": 2332,
-      "sourceSegmentIndex": 6
-    },
-    {
-      "text": "The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported.",
-      "startFrame": 2332,
-      "endFrame": 2607,
-      "sourceSegmentIndex": 6
-    },
-    {
-      "text": "Pilot with one team, keep permissions tight, then expand.",
-      "startFrame": 2607,
-      "endFrame": 2735,
-      "sourceSegmentIndex": 6
+      "text": "The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
+      "startFrame": 1918,
+      "endFrame": 2162,
+      "sourceSegmentIndex": 6,
+      "sceneId": "risk"
     }
   ],
   "narrationTimingProvenance": {
     "source": "audio/narration-metadata.json",
     "cueSource": "narration-metadata.segments",
     "cueMode": "global-subtitle-cues",
-    "sceneTimingMode": "weighted-duration-no-semantic-alignment",
-    "sceneIdsPresent": false,
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
     "segmentCount": 7,
-    "cueCount": 17
+    "cueCount": 10
   }
 }

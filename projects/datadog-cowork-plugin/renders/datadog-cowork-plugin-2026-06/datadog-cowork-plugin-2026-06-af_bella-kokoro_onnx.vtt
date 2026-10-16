@@ -1,0 +1,31 @@
+WEBVTT
+
+00:00:00.267 --> 00:00:10.933
+The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.
+
+00:00:11.467 --> 00:00:22.533
+The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.
+
+00:00:23.067 --> 00:00:26.967
+Claude, including Cowork, uses the official connector.
+
+00:00:26.967 --> 00:00:32.133
+Claude Code installs the plugin from the official Anthropic marketplace.
+
+00:00:32.667 --> 00:00:36.033
+Choose your Datadog site and sign in with OAuth.
+
+00:00:36.033 --> 00:00:42.300
+Keys are supported, and older manual servers or custom connectors should be removed first.
+
+00:00:42.867 --> 00:00:50.367
+You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.
+
+00:00:50.933 --> 00:00:58.767
+Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.
+
+00:00:59.300 --> 00:01:00.967
+The plugin is in Preview.
+
+00:01:00.967 --> 00:01:08.600
+The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.

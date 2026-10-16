@@ -8,8 +8,8 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "b4e1f91826d42be47943705c6b07959dcb6c40c6dd34f81d4bae607c1b99edcf",
-      "byteSize": 11249
+      "digest": "19b084dbcd5441ef2ab06a74a47aa30ebd17eff3888910a8bb87a7a153c06bef",
+      "byteSize": 15700
     },
     {
       "path": "qc/analysis/datadog-cowork-plugin-2026-01/datadog-cowork-plugin-2026-01/analysis.json",
@@ -782,24 +782,304 @@
       "byteSize": 10378
     },
     {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/analysis.json",
+      "digest": "a89acbc403f8cf4c5c5cf77bcd5f37c04a379ad4327f5801c44967aa407f51e5",
+      "byteSize": 13811
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "194320e2dffc4021a3265e0062ad89235b649030f6405a9d97be1ffa123886ea",
+      "byteSize": 94537
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/02-what-it-is.jpg",
+      "digest": "e793e2c9a025f3e56e258613342de98ef7e16853400e52337be0b9635d6c47e8",
+      "byteSize": 96098
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/03-where-it-runs.jpg",
+      "digest": "6b78aeb7525b55319b06e8b5d44ce3109c1c91752ce1d0173aceb303591de62b",
+      "byteSize": 91247
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/04-setup.jpg",
+      "digest": "76ced2f247f3e91e01830d29465692b35c1e0c79892badc2365cd21eae630f73",
+      "byteSize": 91995
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/05-access.jpg",
+      "digest": "4c6fdbd8a19d72b0540607e81fd29dbffa372668f73851b1c076c2add3720039",
+      "byteSize": 88018
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/06-control.jpg",
+      "digest": "b7413a16865fae185b2ea20519643599cb6c7cdec4d100a87c14ad6f7121f5da",
+      "byteSize": 88894
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/chunks/07-risk.jpg",
+      "digest": "1d884fce37cfa845a98b74582033a3ee43748d496aa37e13278c93b119a220d1",
+      "byteSize": 91295
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "a0c412049a62e067dc0e0d9870923af1ba93d4db02fa89a49c6faca30f453351",
+      "byteSize": 433293
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "f791ae89bc81198d296b6a4a3b2a2dd295a035ec058e66149a9ef7b2f4613a9d",
+      "byteSize": 46964
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/layers.png",
+      "digest": "8e08b23ccc4421755d7756ff6e20dc8b65581cc905bbc7e1af6670e14bcfdb14",
+      "byteSize": 77377
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "7874cb243a88544ac4ea7b66048c7d4b1891bb4e3d0c5f1ca3d2ebae549f9fc3",
+      "byteSize": 252223
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "d8d7a8375ab05b4897fe43cfb96018d6c080e66cb7818dcff289adb25627604b",
+      "byteSize": 168459
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/waveform.png",
+      "digest": "25cb7c120933dfb584a4e770f50a415691d0f8a8ee5e9ba4013302318948d8f4",
+      "byteSize": 10185
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/analysis.json",
+      "digest": "65f2b4445f6de44896fc1fefa71b90dd039849f036de7324dbf9c3d3961770c9",
+      "byteSize": 13817
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "8a1f064b77762b30835c79e47e026cb17edf75e0e86e34c492ee00353c64eeb3",
+      "byteSize": 92867
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/02-what-it-is.jpg",
+      "digest": "62a734ad5947435acb7fdd2e636c2f90c0ffec59f4824f058a616bcf7fd369dd",
+      "byteSize": 95238
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/03-where-it-runs.jpg",
+      "digest": "7864c430e74bfc800900cf7a84c0d35cc9bb64af2950a69a374bb9c2afe7a417",
+      "byteSize": 89306
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/04-setup.jpg",
+      "digest": "b4ba57a06e847eb2529d7c3c0eac4b00de97272ae446997afeab12a8fca0f807",
+      "byteSize": 91416
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/05-access.jpg",
+      "digest": "caedf351f132ff37d14d656a04e2ae20c619dd3c91db62e930fac4547e09576d",
+      "byteSize": 87544
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/06-control.jpg",
+      "digest": "633ed3cce41489464419c25354a783fe1dda5ae4356edbf88415685fcc4b8c29",
+      "byteSize": 86614
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/chunks/07-risk.jpg",
+      "digest": "057b4aa8932a3af1fabca1831f68a8631badff1c91600dd8ba0cf7a0ca6a9200",
+      "byteSize": 90428
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "a8e3307228dcb725a1e147535adb5de3481efb77fef2ce96360aba81538c5938",
+      "byteSize": 434283
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "c0667e6a911565cb12483fe49ae42516bb03b8992c41e26b04d09871a5bd71e6",
+      "byteSize": 46912
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/layers.png",
+      "digest": "fe42d8e221d20350e2fd763277228306bf88cfabbd770a5dd743248c8e7c3dc4",
+      "byteSize": 75687
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "bd32d2b5516e53bf059a8fd7627cab0fab33d638c08f2ad74de9d38b035914f3",
+      "byteSize": 256868
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "eba8e9f3ad3287193d9705137569c7cd42c5c1c1452ef3795be10676971bfdf9",
+      "byteSize": 169426
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/waveform.png",
+      "digest": "9345af77c60267cdb835b3e16daa9041b680cadf9d4648ae4cf6f000c2c021ac",
+      "byteSize": 10122
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "digest": "34b5c55ba68e260f602332dbaa676e60797cbbeacd68eac4b801509a3f42dccb",
+      "byteSize": 14091
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "965e1b8072e7424630b45fe3d448a8f3ecb334769f6ceb2a2cd09270eaf41a94",
+      "byteSize": 93453
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/02-what-it-is.jpg",
+      "digest": "b344ea2c5b997eb26e899fe0f075dfc43afa92fd05db24f53bcf72b579992f05",
+      "byteSize": 95041
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/03-where-it-runs.jpg",
+      "digest": "49c3031f4ec3ceb30546a224fc608dd387d2c9f6ccfe97f47698d161a90dd595",
+      "byteSize": 89216
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/04-setup.jpg",
+      "digest": "5d434e512efa4626bf65d51e0af0c80d841ff3950f7ed387cd0c805be94d002b",
+      "byteSize": 90552
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/05-access.jpg",
+      "digest": "3a98e100208e67df5fe68f98d6c368a691dc9de97e75d0ce68ec695047e18ba3",
+      "byteSize": 88618
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/06-control.jpg",
+      "digest": "9bac7bfa8e4116e0ad59f8594ba25ff3837288b3caee295d3a5d927f76d25e5d",
+      "byteSize": 88416
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/chunks/07-risk.jpg",
+      "digest": "a3072f1114f4ca90b7997783b126ad3844f00f28b9781ecc9e71b8f3ac7dafe4",
+      "byteSize": 90161
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "542236e88c9cee89b55f517fe070a6a01f024173e02bb8cdf62ed3564ae479cb",
+      "byteSize": 434509
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "4df972d74f55fa6b90215f445ec56d994af3bc7deaa8c2ba7291f1bd6f12fa75",
+      "byteSize": 47006
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/layers.png",
+      "digest": "2aa3235de5b5827dd201106bca902cd02ff7b177edb7d3e938afc86054af7519",
+      "byteSize": 77738
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "a5fc0d842b2ee6d223c453a9bdd0147c6f5b7b4040ba40dd0ca44e4fdc0398f6",
+      "byteSize": 240760
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "4b75a602ca7eeaf12e4d3943b810223fbd0ca6085d97618886d99659a010000b",
+      "byteSize": 158568
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/waveform.png",
+      "digest": "15036d3c2dea35edfc75045dd685ee622bb7097942d832e82b87c0f2b1dcb160",
+      "byteSize": 10160
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/analysis.json",
+      "digest": "23f6382627425ebdf53023b1ef0d5be4a82acc4b328a9472925c47ea9abc582c",
+      "byteSize": 14065
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "a890d6456d3d04b52839a0ad87d805e52db9bf5eb4dd7be0083661bc0df0ec17",
+      "byteSize": 93574
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/02-what-it-is.jpg",
+      "digest": "afa2cd61a9042cd6aabebf816e13126fbd898301df1927ff6d82b82896c9e2fe",
+      "byteSize": 95222
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/03-where-it-runs.jpg",
+      "digest": "66f07fee002bb2f02649739b870baa32a3a1199937b2a520a061b9b0cf118319",
+      "byteSize": 89150
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/04-setup.jpg",
+      "digest": "0da450808d21e53d133324fb699539b2586e43218b15d90a07cfec1151ca286f",
+      "byteSize": 90640
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/05-access.jpg",
+      "digest": "21cda83e48a69e088303a5caa2d2e70daf5629dc5f0c9cb1087a81cf2b6b7a51",
+      "byteSize": 88685
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/06-control.jpg",
+      "digest": "20aebbe675d474b1d739c411126e6c1056aa63bb23e255d0af5170ea6059f93f",
+      "byteSize": 88118
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/chunks/07-risk.jpg",
+      "digest": "5a6af78f2166dbe25be2de99c530182b2913c77d36a581059482d5851d7d65f2",
+      "byteSize": 90361
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "0ef65363113bce73917e45110a7d1eaf1441edb4a6fbe9931fdef75be60c5e8b",
+      "byteSize": 434326
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/frame-strip.jpg",
+      "digest": "ca6c67c72a81d4b0a297217e15b4043a64951473860c8d0084b690f51ccff9d8",
+      "byteSize": 46996
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/layers.png",
+      "digest": "e847383837dedf20f30cd508c39690eefb096e83e1ac2cf6ed6a7efecbab098e",
+      "byteSize": 77149
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "27147f2ba237f780249c37d76bf2dc87d454e9e111441204bbd81a626d10dbcd",
+      "byteSize": 240830
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/spectrogram.jpg",
+      "digest": "5ba371c3d3bc73d95887b606a3a3331f29ff59cbe06d926b36d0f9ca992fdfa6",
+      "byteSize": 158495
+    },
+    {
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/waveform.png",
+      "digest": "00417cfcc7e2350d52caeb9a07f19c35858a3d7c86fbb682404a63b1e3f08be5",
+      "byteSize": 10156
+    },
+    {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "802d8bb1557321ca419b558e91494bf4f44ff4f67d0a5ee223ebf262a8ec3c8f",
-      "byteSize": 547241
+      "digest": "56e8f88cce94816da8464e03c3288d6bb45718798b2bf8c78193c1c713570ca5",
+      "byteSize": 765746
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "5cf14f1a2fa351e22c98f26922aaa6df0626471f33ab5aeaa53fce73c392f390",
-      "byteSize": 544314
+      "digest": "71d45cfd2d8c06e88a28de55d3fffee6b40e4be11f119b094608fa2cbce9d50e",
+      "byteSize": 729926
     },
     {
       "path": "qc/analysis/report.md",
-      "digest": "4d538bd41febdc8169234e8b9beb2ee7f773269ad7b27d5f78bc48c6afc0b49b",
-      "byteSize": 10747
+      "digest": "a1f6873edddc3f800bdc67e7818d0565bf03df0126d20acc561706d0e9815b7a",
+      "byteSize": 14991
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "a9503a58ae3359f631a2a903f8d2b889f0d98ef912ec60202882e77101e01dc4",
-      "byteSize": 784713
+      "digest": "079728d3029c0319d11a6289c184db49072d2c933816e0ff37f987aeb83f1281",
+      "byteSize": 1067459
     },
     {
       "path": "qc/audio/am_michael/comparison.json",
@@ -843,522 +1123,147 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "b01ff2c6b6cc0608a7ff39dc06d31ce51c353d9662cf047721cd324d175f7b18",
-      "byteSize": 138328
+      "digest": "6cb5c11bc6758b86d24b3dc5c05d2fb1a06b49f98c5a7fcf3f022c4ceaaea352",
+      "byteSize": 137076
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "acba946561e44ab99180b25b122acb1ea3c66376b1c3f0787ecd883a92f8ccb8",
-      "byteSize": 314838
+      "digest": "b0ad1fa68894618fd4be4c9cea831ca7df67ea16513bac55000e2774dcfa833a",
+      "byteSize": 350368
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "f336ef01801f3ee1c6cd5d3d731099200e06419d38e78a4964ce449a4edd2a61",
+      "digest": "d847fbece0e9406f0cc7686e9d23386d0e7b1859c1edc2c145609c70a36cb1a8",
       "byteSize": 727
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "17383324f61634438421d8834d2c5fa1020e631f4dcf8e83cc5bf42c7e73d75a",
-      "byteSize": 122707
+      "digest": "7e1edb4c3df541598a015b154025dca7108dee46056428256874fa661aa0269e",
+      "byteSize": 110445
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "2469a25960b43afefd6fb02b412d2c8baf268d896c20ae7dfbbb50bfd41433d2",
-      "byteSize": 71594
+      "digest": "4e139d5c2d847e1f7b10e29bf07e1b342238221d6e09a96aa5204ac085f006b8",
+      "byteSize": 72734
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "da508aec7568fbfc390e8174763e8d99b435c1baf236bcd4e8b3f7c4a5887c80",
-      "byteSize": 70566
+      "digest": "064f40c41eb7f1eb7f77b97ddb61a5e461551dc5b6eba536ebb52a380e3614f7",
+      "byteSize": 69056
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "928a21f95deb2949e6d89a0815c37a17d7cccab7d439aa5270d5914cf56af947",
-      "byteSize": 60702
+      "digest": "fbc9b88efaef415a9418301f670632a286a9d690c6d3400160b051178d9a6582",
+      "byteSize": 61981
     },
     {
       "path": "qc/native-office/pages/core-05.png",
-      "digest": "7b25bce1362bb4d0993143e3508c8e030e369e5836fd06ad20f9935d60e14762",
-      "byteSize": 95300
+      "digest": "b7ece545a579003af64721cc890af7c7d816371440069c9f8018eaa4defa1495",
+      "byteSize": 94312
     },
     {
       "path": "qc/native-office/pages/core-06.png",
-      "digest": "935afd6b978a346fc844d6035f2270571533bd3b3b5d5f304cdf832f47882de6",
-      "byteSize": 77204
+      "digest": "22c8b329bbf921e43330e184253d41cf0b77cf88d4bc9a3ea75b63b7a54f217e",
+      "byteSize": 81082
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "f62fd32f43b140d6184a3f4cd1e9ee63a05e114ba1e6a68a10effafc382ea3be",
-      "byteSize": 78561
+      "digest": "5d45796d6fe3313a31b16c9562dbb31418afeabd833091dcb180c6259d514dc5",
+      "byteSize": 91888
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "54e6de494b881b35b5fb4d54b6d4ce184276344b13e6104ce59d26383e342faf",
-      "byteSize": 65057
+      "digest": "5cd80f6e298f83312cc30ed5b5b86f7fb7b739508f7a021603d440e926142e6a",
+      "byteSize": 84401
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "a4836f258679405b343fb90e77e29385ad9e72e0e256a4675fb5345de2017484",
-      "byteSize": 66299
+      "digest": "766d3daf6190a234da550801d03eed2de99f44589292b3e52282a742defd159c",
+      "byteSize": 81343
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "bb4ba64a8d8957998fd17bebf34001138b28c57efab27a98544fba8b5c19be56",
-      "byteSize": 66775
+      "digest": "4a70f91bec4a1102491c5d98afb6b89c734cce9cc184adbc6e945454d918acf4",
+      "byteSize": 60322
     },
     {
       "path": "qc/native-office/pages/word-05.png",
-      "digest": "0735b30186f5eb4c3e887f470a61f0f24c5fea29b84c82e274b5bd5b4b0a9a5d",
-      "byteSize": 54788
+      "digest": "d3d7ab0f7cfc2c973328df6c22fe11a92eb38febdd70c51d31f9ae12fba1b762",
+      "byteSize": 84765
     },
     {
       "path": "qc/native-office/pages/word-06.png",
-      "digest": "d0aa2d641f71a7737d07d83d3dab7b0fca1e569257c64a93b61e49282ec4b0db",
-      "byteSize": 74981
-    },
-    {
-      "path": "qc/native-office/pages/word-07.png",
-      "digest": "8534cd1840970da714a6a0057eca3d605fdefedac0bc7e199488ea13128b29ff",
-      "byteSize": 71459
+      "digest": "195983d3e55b46d97b818865a2f337843a7d0b7b8c468d636267c51c688a12a5",
+      "byteSize": 62472
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "88a0aa7a2545122da94fdc5ca253729401d8194c3a509059fcbca8d880b5c339",
-      "byteSize": 223463
+      "digest": "fe8f4b2f5a637c577ce8da008c449f09f19d813a4f11d6833a2c1871f9f8da48",
+      "byteSize": 210611
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "f6a2259f9e071640d0df92395706cfd8395bcf492fcd893b92512473fd1b386f",
-      "byteSize": 63276
+      "digest": "3ba8235a4935b55acc4e15f033d27547c548d97fc5bbce64ecf7e3e82cc2c909",
+      "byteSize": 57093
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "686fc9b0e625e967301cfc0a42e81daf3f2ead593d50527806c47d4fcfe99bfd",
-      "byteSize": 104770
+      "digest": "a8594917f6dd89ed5dba1f36e4802efa900c7d217cdfe122a2b8e137f70f08b4",
+      "byteSize": 95708
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "f87da8ee610d34e6b0801e088b33ab5aaef19d30f978c85f936426e4e36eb766",
-      "byteSize": 116032
+      "digest": "79ab18b5b75e48a32a4091b0c1bab53acea4f503879945d77b800a76f6974372",
+      "byteSize": 95494
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "260ec84cd4ce999823724dba1246c95ca9a2466e97a043644cc9f8bffea11128",
-      "byteSize": 106635
+      "digest": "27601aeb15612d534b4f526b2b07347040b8dee85fd17ce6240cf1d4f2ba4748",
+      "byteSize": 96623
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "0fd912053833bf2ff8bd17dd61eb3c72461ff34f172076c8c57f5f3780562925",
-      "byteSize": 111353
+      "digest": "8f7a539b4a71e85e6d3c63453f1a2511e5fe90a68daae7e7da9a98e470d1c9d6",
+      "byteSize": 98379
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "c56135ad8e7fe11f166bfeb0739752b6b2c317ef7723032481963aae8471a797",
-      "byteSize": 29082
+      "digest": "b81c370c2faa86c906919403d626667b74ef267fe812f409e3f801499de7d7f5",
+      "byteSize": 25144
     },
     {
       "path": "qc/native-office/slides/Slide7.PNG",
-      "digest": "c218287e17ff6ca6334744f7764fc7a4963b5e884cefc0920bff30a331a7d843",
-      "byteSize": 119731
+      "digest": "cecba9380882cd02ae87596e34b897229a3c1224c81eec5e17711288d3cfd48a",
+      "byteSize": 94668
     },
     {
       "path": "qc/native-office/slides/Slide8.PNG",
-      "digest": "37218a4eaf2f3d9a4f4316f506c887fd145d1bd63f4f40bb70afc15e31219bce",
-      "byteSize": 23951
+      "digest": "b6d2d6582d7ca9222db324f76259eaf8429e01b4c87c38736b5490258be78211",
+      "byteSize": 21765
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "d29d9891deb9273a9e68df02fea58bd26b9f2a5158adddc40cf0666951248368",
-      "byteSize": 141475
-    },
-    {
-      "path": "qc/releases/release-audit/approval-manifest.json",
-      "digest": "3f642fdfb2531389cdd62ea3aba49c16e72c94ca36b17ad8860c60461704955b",
-      "byteSize": 752
-    },
-    {
-      "path": "qc/releases/release-audit/asset-inputs/mcp-flow.png",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
-      "byteSize": 81884
-    },
-    {
-      "path": "qc/releases/release-audit/asset-inventory.json",
-      "digest": "c5dca6e0f5ed98c0e36e249690fceeeec77c9d2652202c8a162f261232244ef7",
-      "byteSize": 1902
-    },
-    {
-      "path": "qc/releases/release-audit/content-ir.json",
-      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
-      "byteSize": 12805
-    },
-    {
-      "path": "qc/releases/release-audit/domain-pack.json",
-      "digest": "a6ce58d0e8e728a5a3e4569bf1a82204b767eac0a6762ef358180066f101961c",
-      "byteSize": 11502
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/deck.deck.json",
-      "digest": "86023a0e2cb4736845eb1d4c05cf5fc78d4b6dbc497832c0cd69b6d701e4395d",
-      "byteSize": 658213
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/deck.pptx",
-      "digest": "b14dd2a50bc610e6217807e693f466f3f08ccf71131ae246d61430f975a62c40",
-      "byteSize": 572837
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/document.docx",
-      "digest": "02b1af639a79c12979ca2ee2f60f4bbd1ed919330058f7e7fe8b08568a2d7560",
-      "byteSize": 500362
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/document.pdf",
-      "digest": "5df40b8a3748e6756b1fd78768cb61285429ce9858ef76655515755fdd71fc7e",
-      "byteSize": 264961
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/index.html",
-      "digest": "4537dd2fbc4e37c8c42186759f1460070517d2c051c0a7f5c9f817dd518ecab6",
-      "byteSize": 645159
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/raster.jpg",
-      "digest": "0e023ae1f81f1d70e0e6b158996e87bd7f9764ccaa64ddcfe1055b6236a69cb7",
-      "byteSize": 263463
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/raster.png",
-      "digest": "5871426bbc6df5d05e743efe069febe4bef44385aba1e9fe64577462d9772753",
-      "byteSize": 225803
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/asset-manifest.json",
-      "digest": "e8ca9b3bbab3315ad7c8df481380d02a8de8b299441237cfa537c28bcc9d30cb",
-      "byteSize": 1257
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/audio/narration-metadata.json",
-      "digest": "9d00dcbffad9dadecd72414054ae5efc50a7857fab34a7d47625b9e442ff6f5e",
-      "byteSize": 4555
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/dist/render.mp4",
-      "digest": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
-      "byteSize": 15031741
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/package.json",
-      "digest": "fa177078210111a8d491c2fcd8a243495e1a99421392c14a7c436150299a28ce",
-      "byteSize": 677
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/assets/datadog-cowork-plugin/audio.wav",
-      "digest": "50da8d9e2eb3d89ac9c14e51de6620749164455d73a09cf1214f1c2e0709f145",
-      "byteSize": 17063332
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/assets/datadog-cowork-plugin/mcp-flow-4177aa1687b3.png",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
-      "byteSize": 81884
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Bold.woff2",
-      "digest": "e0cdd332ce039770e93ec44336b6db65f931940f42b0342aad35a06e7f991d29",
-      "byteSize": 20380
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Medium.woff2",
-      "digest": "81a9f280ce6a790f20ca8cd521183caa430f1f7fdc0752c36ef1cc6dc828ac57",
-      "byteSize": 20320
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-Regular.woff2",
-      "digest": "76945f09225aae65bdbd204cb4ac40d4caa4ff67150e5074bab1a04d1b778fc3",
-      "byteSize": 20232
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Assistant/Assistant-SemiBold.woff2",
-      "digest": "bba47a7d1b185a4a2e0d265ec82aeac5dbc2dc9cb0f482a2ff57cbdfe4e5045d",
-      "byteSize": 20212
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Cascadia/CascadiaCode-Regular.woff2",
-      "digest": "5bce041e0fcce617e35efbc335b1372d27a84acb65fb464c65ff80ab3424a885",
-      "byteSize": 65732
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-279a7b317d12eb88de06167bd672b4b4.woff2",
-      "digest": "fa930fceb529a4b51ba3055d590302722c27704f6a6357495873950136b1e2ea",
-      "byteSize": 17488
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-6e066e8de2ac57ea9283adb9c24d7f0c.woff2",
-      "digest": "782f24081b810b8de9f04da055007ce4f1445c18abbf096c831f8888d65935c1",
-      "byteSize": 1292
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-dc6a8806fa96795d7b3be5026f989a17.woff2",
-      "digest": "61c376d32e1773588f6163599aed24fe0387b5a5cb622bd200455f20c2b36a87",
-      "byteSize": 2816
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/ComicShanns/ComicShanns-Regular-fcb0fc02dcbee4c9846b3e2508668039.woff2",
-      "digest": "ee641c2e35730c3e6e3826855f1b6cc3b343a017c3e216e4e4a2e47010c53ad1",
-      "byteSize": 9856
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-349fac6ca4700ffec595a7150a0d1e1d.woff2",
-      "digest": "a0637cff365c7344d2f7a15905a1f74dceaf56b5ac2ff913d150358bed6921f0",
-      "byteSize": 2656
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-3f2c5db56cc93c5a6873b1361d730c16.woff2",
-      "digest": "18ea9be1dd6b5a67b057f44eba8e34cb290f88308c272bcf35c79c1a220d0d7b",
-      "byteSize": 2104
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-41b173a47b57366892116a575a43e2b6.woff2",
-      "digest": "c96649a5f96e2faa9143ee94e5b590b5afb08092f8d67c67f09cef332d66e4a7",
-      "byteSize": 8712
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-623ccf21b21ef6b3a0d87738f77eb071.woff2",
-      "digest": "b004007be100261e58188cf8a0f7e850e997702f35d57110915995cd880e49f1",
-      "byteSize": 824
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-a88b72a24fb54c9f94e3b5fdaa7481c9.woff2",
-      "digest": "e4423b318e11432aff2e6e865e300b7ca270f92321a3f56632268fede01c1b48",
-      "byteSize": 24956
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-b9dcf9d2e50a1eaf42fc664b50a3fd0d.woff2",
-      "digest": "b424d16da4398be3e9852857a54ff70e043c8e2ec5c4444dbf7f88d7469b9859",
-      "byteSize": 13296
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Excalifont/Excalifont-Regular-be310b9bcd4f1a43f571c46df7809174.woff2",
-      "digest": "4fb8ad69be9aeac5664d99e5aa3a68a27ea40c98943b80387f7cd55c034fcc93",
-      "byteSize": 12220
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Liberation/LiberationSans-Regular.woff2",
-      "digest": "006a2b28cbbeeaec937d1b367d0949f5f48ef4b2e7b4e1d8dc7a799d2d639be8",
-      "byteSize": 70668
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYE98RXi4EwSsbg.woff2",
-      "digest": "2b6568c7a0f16300bc6c8d292bd426c361fcdb40699c2cbfab2bd3e9e6993dea",
-      "byteSize": 1416
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Lilita/Lilita-Regular-i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2",
-      "digest": "8d6cd0f298738a92ca9bf6e13f54a9191afd06ce04ea00ebbf24499c017191b7",
-      "byteSize": 10676
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTA3j6zbXWjgevT5.woff2",
-      "digest": "e512f2d7c9fe062b1acf8f6ea64d4bfd89a77d26728150977627e445c7b6e937",
-      "byteSize": 8392
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTk3j6zbXWjgevT5.woff2",
-      "digest": "3e7f76fcc8798b8bba4d6bcc06bdb0d788f6e89706c1d6e64ac81d65ca683c14",
-      "byteSize": 11104
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgevT5.woff2",
-      "digest": "7928f47b21192cb6fdb2f46b71a474a3bd2fd608945c5ad7d7ed6bde8b0ae24c",
-      "byteSize": 15476
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2",
-      "digest": "6d1626aac658786e37e78e0adce3ffffddbd75abc923d72e45a7168bd80053da",
-      "byteSize": 16476
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Nunito/Nunito-Regular-XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTs3j6zbXWjgevT5.woff2",
-      "digest": "5117398298dd0dba3c95a406ff12fbeb88289fa4e913e3a5cf482cafe7f7071a",
-      "byteSize": 6116
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/public/excalidraw/fonts/Virgil/Virgil-Regular.woff2",
-      "digest": "2279cf7daf1c42a3a53b2c1437ad72f0050efb67ac263e0245f67612fd766714",
-      "byteSize": 56156
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/qc/audio-qa.json",
-      "digest": "071ca0492f00747ac966cf9cc9170bb013b005555987826cdeb80732948c1e07",
-      "byteSize": 2061
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "df3fa3206bcd93940c887106a5266a3d30e6ecad81f59d7d4de3b0977a289971",
-      "byteSize": 446084
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/qc/mp4-qc.json",
-      "digest": "41ddd0cc8b1b6ef0948fb79ccec4ef9b231b1d22d11a12cc4bf0f42d0f197dbb",
-      "byteSize": 3567
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/qc/render-receipt.json",
-      "digest": "5523530a5231579dc2aeb11bec6518a77eee31706c3b8e3e9fca7aafd1347388",
-      "byteSize": 385
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/remotion.config.ts",
-      "digest": "6390bc29cd9b1db2a6a1470e4760f20b22d99e11d166a92d66dee067768f6383",
-      "byteSize": 351
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/render-plan.json",
-      "digest": "1fee7cdd397f0b97762f5f439e82f2b1143cb0e08446c2954cf4b106ee832178",
-      "byteSize": 2060
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/requirements.lock.txt",
-      "digest": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
-      "byteSize": 5663
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/scripts/audio-qa.mjs",
-      "digest": "a6deed88a10d860d4635c10c6a8ea5b4bacc432bb3dcb452414067ae39e543d7",
-      "byteSize": 17077
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/scripts/render-mp4.mjs",
-      "digest": "badbf99e790fba288478e2a7c3f880be5aad859c36a6ae71e4ef4ffb0c9554a3",
-      "byteSize": 8598
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/scripts/synthesize-audio.mjs",
-      "digest": "71210a8972afc343efdd4565559194b3da7c29c50fe2f361d7ea08cc70548ed5",
-      "byteSize": 1703
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/scripts/synthesize-audio.py",
-      "digest": "270a29b40f7651d504e5bad57697a0e9d4dffb9481a48c0baf6dda0d5d9ebe76",
-      "byteSize": 19743
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/scripts/verify-mp4.mjs",
-      "digest": "71387a4a9d94efa44690db9b1dbe6ec2789cf324e62d11dc480efa394724c2f2",
-      "byteSize": 5728
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/speech/narration-manifest.json",
-      "digest": "4a0d26e2404835f95b6ddfea987b8e1f58872be5530c8c1d48eef4815432940b",
-      "byteSize": 3335
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/src/content.json",
-      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
-      "byteSize": 12805
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/src/index.tsx",
-      "digest": "98b03b1da7aa397e0fc89cb4600c418d3572b389cb1831b1e72e9b4400a5a34e",
-      "byteSize": 93
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/src/palette.ts",
-      "digest": "c654487aadb0c4435f5226206490d24e9e68c191ebe0c2b505da63503a636e36",
-      "byteSize": 1538
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/src/Root.tsx",
-      "digest": "1a3d73096c272da40aed72ba9c2907a81779c0b670bf9e7a3703d6115016f6f9",
-      "byteSize": 12023
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/src/Visuals.tsx",
-      "digest": "17e169ed8f02a3ba1c2314ac8509b31bc094410c44cacff129f3698b30860ac4",
-      "byteSize": 8575
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/timeline.json",
-      "digest": "db5fe51a88dbb2801f75f7cb6cf731202c1fe57a4c22c8ea7075fc801c0d3680",
-      "byteSize": 18054
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/tsconfig.json",
-      "digest": "173b7308d4da5541c033e42746ff638d1da41d98f64ca976893255a05bdf0c0e",
-      "byteSize": 397
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/01-what-it-is.mmd",
-      "digest": "bd57989d57aae21fd7592d07893ee577539cd7d6b9d0f032db4054088c88dab5",
-      "byteSize": 213
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/01-what-it-is.png",
-      "digest": "02701015e9bf87965d6b5f8ba842d0643bc9b0872f7579fcf69ec467f408ab9c",
-      "byteSize": 83094
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/03-setup.mmd",
-      "digest": "62fa30d258ad54cf1edf6f03f07beeaf4e09c7216456f32dcfa802ad90346b60",
-      "byteSize": 214
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/03-setup.png",
-      "digest": "d86356b9ae0fca2d9f9db4266eb3cbae3bf99d33f6ef4a3518ddc423957add66",
-      "byteSize": 92957
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/04-access.excalidraw.json",
-      "digest": "966714bbacf5232a1550053ae434023065398b108efb1ee7fe21c64fe84aeda8",
-      "byteSize": 1212
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/04-access.png",
-      "digest": "310d5079bb794eaa28bab7e6c5a227cf8d9f1bcbf090e21b22baa7babca5231c",
-      "byteSize": 119157
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/06-risk.marp.md",
-      "digest": "df4b214beab0f897872b4ae31115e505e3c34d4ec61d99d3707a529abb9d4a4f",
-      "byteSize": 212
-    },
-    {
-      "path": "qc/releases/release-audit/outputs/remotion/visuals/06-risk.png",
-      "digest": "3e49a5f78a2909a655dd9ca2914c9b065392d8ab99ef5480758dd62885cf2fc9",
-      "byteSize": 95673
-    },
-    {
-      "path": "qc/releases/release-audit/parity-manifest.json",
-      "digest": "67e6504e5579eb52ad55bbed51f641d7d32789d8ac746907776e8916f15d570b",
-      "byteSize": 16028
-    },
-    {
-      "path": "qc/releases/release-audit/release-plan.json",
-      "digest": "3309be378cacba904dcb8af125ed16cdcc403a8e75f390a73c4a21db23e824c8",
-      "byteSize": 764
-    },
-    {
-      "path": "qc/releases/release-audit/render-spec.json",
-      "digest": "6e480689a960cb0c17d5109f4641a64e530520de1b16e5d47ac3ce007be40fe4",
-      "byteSize": 643
+      "digest": "4e1c75e3e481752b35986ee9eb8b086bc1d305986134208b38a697696615759d",
+      "byteSize": 117311
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "c6dd14f1ebedb14038b41fa0de071f14afcfff3f4f3c34d473884aa3a0704d5c",
-      "byteSize": 6054
+      "digest": "509b11b26f9e925d5c681f46d7741feab6ec3e332899038977cb80d97e4b914f",
+      "byteSize": 5381
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "54f6a56adfe46f3bb0978de86415feb60d27363e02569f08f264c9b9c0abf913",
-      "byteSize": 446122
+      "digest": "816c84b2ccfd446714c1e3462a4ff41ba1f13276ff4c61f4bf3d0af11a8d6b08",
+      "byteSize": 446383
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "7ae5c61a578f29601b00ed5cc883184cb8c93ade96b6218a0fd57467b61c63d5",
+      "digest": "193ecf271c5148ae9277af45d12c459419444e06d28a9f1c711e38c912240394",
       "byteSize": 3567
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "45892b14cc60cda381b7738ee97eccc634059ae174fdea216890b0d4ae1199c1",
+      "digest": "6d3edf2198f58fd447e9c7933f5450300fe55bb618f04d205f43affaa7f7abb5",
       "byteSize": 386
     }
   ]

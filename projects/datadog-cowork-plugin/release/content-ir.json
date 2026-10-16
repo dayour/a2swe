@@ -173,7 +173,7 @@
   "assets": [
     {
       "assetId": "mcp-flow",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+      "digest": "5d5d3acca9a360190c6f9ba2b585d9ba56e60bff7b9f4419b090530a513b99a5",
       "mediaType": "image/png",
       "alt": "Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step.",
       "role": "diagram"
@@ -268,7 +268,7 @@
   ],
   "voice": {
     "style": "clear, calm engineering briefing",
-    "narration": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.\n\nThe Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.\n\nFor Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.\n\nSetup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.\n\nAccess is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.\n\nTool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.\n\nTreat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
+    "narration": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.\n\nThe Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.\n\nClaude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.\n\nChoose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.\n\nYou need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.\n\nEnable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.\n\nThe plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
     "externalTransfer": false,
     "profileId": "am_michael"
   }

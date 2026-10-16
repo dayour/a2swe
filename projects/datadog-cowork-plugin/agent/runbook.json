@@ -2,9 +2,9 @@
   "schemaVersion": "1.0.0",
   "runbookId": "datadog-cowork-plugin",
   "projectId": "datadog-cowork-plugin",
-  "updatedAt": "2026-10-07T03:41:44.206Z",
+  "updatedAt": "2026-10-16T19:51:47.078Z",
   "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
-  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
+  "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
   "stage": "delivery",
   "gates": [
     {
@@ -17,31 +17,31 @@
       "name": "content",
       "status": "passed",
       "evidencePath": "release/content-ir.json",
-      "evidenceDigest": "4c315c8cffad45f7419256004981ee1e30fca8658dcf50db41b933e87c4aa0b4"
+      "evidenceDigest": "276a498f28503eff5c38727922d0fea133f4fb4d3dd6891224f9ae38847fcf5e"
     },
     {
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "c6dd14f1ebedb14038b41fa0de071f14afcfff3f4f3c34d473884aa3a0704d5c"
+      "evidenceDigest": "509b11b26f9e925d5c681f46d7741feab6ec3e332899038977cb80d97e4b914f"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "f336ef01801f3ee1c6cd5d3d731099200e06419d38e78a4964ce449a4edd2a61"
+      "evidenceDigest": "d847fbece0e9406f0cc7686e9d23386d0e7b1859c1edc2c145609c70a36cb1a8"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "f2df4ff94343874d795164fb8480cdcd64a0063fb05ca1ce1a8c4eb92f23c90e"
+      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "34b5c55ba68e260f602332dbaa676e60797cbbeacd68eac4b801509a3f42dccb"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "a8c140264047c3eb0df3f84d5a112e269450532aa1b57e94717e7287f1a5cadd"
+      "evidenceDigest": "ec80601cbec3d55d719dcb601d993140070776eb6a5311e0d861b40c62902236"
     }
   ],
   "stages": [
@@ -109,7 +109,7 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json"
       ]
     },
     {
@@ -146,109 +146,109 @@
     },
     {
       "path": "canonical/content-ir.json",
-      "digest": "5605c8341b0516cd39ae16fccf7a6dac9a2d664826de1e52c6bf2d1f35cb282b",
+      "digest": "bf1666842784d9edb1b8a37932fba14d2ca98951d2ee96c69d6dd0aacdc9d16b",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/content-ir.json",
-      "digest": "4c315c8cffad45f7419256004981ee1e30fca8658dcf50db41b933e87c4aa0b4",
+      "digest": "276a498f28503eff5c38727922d0fea133f4fb4d3dd6891224f9ae38847fcf5e",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/render-spec.json",
-      "digest": "4107cb15132b3164e4a22786b0c25aac9aefca90e76c5e2abc09ec5950e2d6e6",
+      "digest": "02f4088a5fac1506b2738584800f5ef5c57af2a86eca6c6bd738707054fd0990",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "fc4e648f50d1c98a5723410b0df3743e0e2b8081b5ced0a7abe772f307c1c388",
+      "digest": "94004342fb6736f4c5e6021e6d6635423a7f9d718686d6d5d3a96019aba42327",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "a922de7c953ea4ae5ed2a2979cdb009bca130ea4f03859c768f4bd5bd574add1",
+      "digest": "673b5011b87052e5414fd07333b5754a7ff8a5c673a939cd5516da2db0fb99c1",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "90518d0341b6590b6b0cfcdb9d247aaf1890b179deb6feaa6c6696d53879b3ef",
+      "digest": "1ed643d11258c9a68d64800ba62d0c5d65bb2f7d8abbc4740f1850e07a590698",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "5e99904d630690d91eae54f60bd178eaad61e4ce2eff335c9227021e9d69252a",
+      "digest": "abe3e33819fc7bc9c9f7706a01de2beac28b49b6097bc33f96498c4e91cb383d",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "765fccb242899c3ec8f7ac24e560b9c7a5e2cf021d23af5828132e7280d8026d",
+      "digest": "f119415a21658b7fbbabe8a78c2f764b2332a34d9d8d016702206cdce2fecadb",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "92fd2d9dbe9910b925b751b8545a7ea0d1dd52b00126e12f44b8b791470f0b14",
+      "digest": "20f724f8edca512b0e11516955286028ee0fe2eb82f90ef6648aac213117d0d9",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "a06968008a6c661d7e3e502a0ccc739d5fa7665d3c9c6858574963324df42ff4",
+      "digest": "0c16b78a0d570d66ece961b48d3ab708489ef11e042bb8ec418a750ec84f565d",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "24a73ea5e246c39ed4ae8c8fc9bc4dc2761b8b51e89274df9a670352b4c81228",
+      "digest": "838df0114b0074078e693299a63d0d0dbdfb5f3f053ae52c73459fca1d6bf31c",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "c6dd14f1ebedb14038b41fa0de071f14afcfff3f4f3c34d473884aa3a0704d5c",
+      "digest": "509b11b26f9e925d5c681f46d7741feab6ec3e332899038977cb80d97e4b914f",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "54f6a56adfe46f3bb0978de86415feb60d27363e02569f08f264c9b9c0abf913",
+      "digest": "816c84b2ccfd446714c1e3462a4ff41ba1f13276ff4c61f4bf3d0af11a8d6b08",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "a8c140264047c3eb0df3f84d5a112e269450532aa1b57e94717e7287f1a5cadd",
+      "digest": "ec80601cbec3d55d719dcb601d993140070776eb6a5311e0d861b40c62902236",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "f336ef01801f3ee1c6cd5d3d731099200e06419d38e78a4964ce449a4edd2a61",
+      "digest": "d847fbece0e9406f0cc7686e9d23386d0e7b1859c1edc2c145609c70a36cb1a8",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx/analysis.json",
-      "digest": "f2df4ff94343874d795164fb8480cdcd64a0063fb05ca1ce1a8c4eb92f23c90e",
+      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "digest": "34b5c55ba68e260f602332dbaa676e60797cbbeacd68eac4b801509a3f42dccb",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "04bc757b54ee21183f0073d75c0421d9722f8e9a02a63ff233b425eee45f4419",
+      "digest": "11d3c883b5cf1ddb4a68b8df0f1fef2cf92ebaad9a138002148d6c4f56d1f06a",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "15e35732aa5f0973b58890f570d79469e774aad0024329690227d8654975a32a",
+      "digest": "ac96b29bb519814fdc88ac857fcaa6495bf5906ad781c4901aefb020521da5c6",
       "mediaType": "application/json",
       "stage": "delivery"
     }

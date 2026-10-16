@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
+  "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
   "audio": {
     "required": true,
     "path": "public/assets/datadog-cowork-plugin/audio.wav",
     "metadataPath": "audio/narration-metadata.json",
     "narrationManifestPath": "speech/narration-manifest.json",
-    "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
-    "expectedDurationSeconds": 91.675,
+    "narrationSha256": "23e1dc92e364ce1e1ce004c4c4e8d2bcbea42943322f55d9d417dcde2e589dc7",
+    "expectedDurationSeconds": 72.575,
     "maxDurationDriftSeconds": 0.06666666666666667,
     "sampleRate": 48000,
     "voiceProfile": {
@@ -29,8 +29,8 @@
       "role": "diagram",
       "mediaType": "image/png",
       "alt": "Four-step flow: Datadog data, MCP server, Claude connector or plugin, your team, with existing permissions applying at each step.",
-      "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
-      "path": "public/assets/datadog-cowork-plugin/mcp-flow-4177aa1687b3.png",
+      "digest": "5d5d3acca9a360190c6f9ba2b585d9ba56e60bff7b9f4419b090530a513b99a5",
+      "path": "public/assets/datadog-cowork-plugin/mcp-flow-5d5d3acca9a3.png",
       "availableInPackage": true,
       "requiredForRender": true
     }

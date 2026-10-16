@@ -20,10 +20,14 @@ These are objective measurements. They do not replace listening and viewing.
 | datadog-cowork-plugin-2026-04 | superseded | datadog-cowork-plugin-2026-04-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 83.8 s | -16.0 | -1.5 dBTP | -71.0 dBFS | 2.34% | 1.40 s | none |
 | datadog-cowork-plugin-2026-04 | superseded | datadog-cowork-plugin-2026-04-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 87.0 s | -16.0 | -1.5 dBTP | -77.1 dBFS | 2.17% | 1.52 s | none |
 | datadog-cowork-plugin-2026-04 | superseded | datadog-cowork-plugin-2026-04-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 91.8 s | -16.0 | -1.5 dBTP | -64.8 dBFS | 0.33% | 1.60 s | none |
-| datadog-cowork-plugin-2026-05 | current | datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 91.8 s | -16.0 | -1.5 dBTP | -65.1 dBFS | 0.33% | 1.60 s | none |
-| datadog-cowork-plugin-2026-05 | current | datadog-cowork-plugin-2026-05-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 83.8 s | -16.0 | -1.5 dBTP | -71.2 dBFS | 2.33% | 1.40 s | none |
-| datadog-cowork-plugin-2026-05 | current | datadog-cowork-plugin-2026-05-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 87.0 s | -16.0 | -1.5 dBTP | -77.0 dBFS | 2.17% | 1.52 s | none |
-| datadog-cowork-plugin-2026-05 | current | datadog-cowork-plugin-2026-05-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 91.8 s | -16.0 | -1.5 dBTP | -65.0 dBFS | 0.33% | 1.60 s | none |
+| datadog-cowork-plugin-2026-05 | superseded | datadog-cowork-plugin-2026-05-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 91.8 s | -16.0 | -1.5 dBTP | -65.1 dBFS | 0.33% | 1.60 s | none |
+| datadog-cowork-plugin-2026-05 | superseded | datadog-cowork-plugin-2026-05-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 83.8 s | -16.0 | -1.5 dBTP | -71.2 dBFS | 2.33% | 1.40 s | none |
+| datadog-cowork-plugin-2026-05 | superseded | datadog-cowork-plugin-2026-05-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 87.0 s | -16.0 | -1.5 dBTP | -77.0 dBFS | 2.17% | 1.52 s | none |
+| datadog-cowork-plugin-2026-05 | superseded | datadog-cowork-plugin-2026-05-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 91.8 s | -16.0 | -1.5 dBTP | -65.0 dBFS | 0.33% | 1.60 s | none |
+| datadog-cowork-plugin-2026-06 | current | datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx.mp4 | am_michael / kokoro_onnx | 1920x1080 | 72.7 s | -16.1 | -1.5 dBTP | -70.0 dBFS | 0.31% | 1.60 s | none |
+| datadog-cowork-plugin-2026-06 | current | datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx.mp4 | af_heart / kokoro_onnx | 1920x1080 | 66.3 s | -16.0 | -1.5 dBTP | -74.5 dBFS | 2.29% | 1.38 s | none |
+| datadog-cowork-plugin-2026-06 | current | datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx.mp4 | af_bella / kokoro_onnx | 1920x1080 | 69.2 s | -16.1 | -1.5 dBTP | -79.0 dBFS | 2.15% | 1.65 s | none |
+| datadog-cowork-plugin-2026-06 | current | datadog-cowork-plugin-2026-06-am_michael-kokoro.mp4 | am_michael / kokoro | 1920x1080 | 72.7 s | -16.1 | -1.5 dBTP | -70.1 dBFS | 0.30% | 1.60 s | none |
 
 ## Findings by revision
 
@@ -92,6 +96,40 @@ Evidence: [analysis](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05
 * info: Left and right channels carry identical mono narration.
 
 Evidence: [analysis](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/analysis.json), [spectrogram](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/spectrogram-speech.jpg), [layers](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/layers.png), [frames](datadog-cowork-plugin-2026-05/datadog-cowork-plugin-2026-05-am_michael-kokoro/contact-sheet.jpg).
+
+### datadog-cowork-plugin-2026-06 datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 10.033 s from 1.3 s.
+* info: No visible motion for 9.633 s from 13.867 s.
+* info: No visible motion for 8.133 s from 63.933 s.
+
+Evidence: [analysis](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json), [spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/spectrogram.jpg), [speech spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/spectrogram-speech.jpg), [layers](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/layers.png), [frames](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/contact-sheet.jpg).
+
+### datadog-cowork-plugin-2026-06 datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 8.967 s from 1.3 s.
+* info: No visible motion for 8.733 s from 12.8 s.
+
+Evidence: [analysis](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/analysis.json), [spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/spectrogram.jpg), [speech spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/spectrogram-speech.jpg), [layers](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/layers.png), [frames](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_heart-kokoro_onnx/contact-sheet.jpg).
+
+### datadog-cowork-plugin-2026-06 datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 9.567 s from 1.3 s.
+* info: No visible motion for 9.067 s from 13.4 s.
+
+Evidence: [analysis](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/analysis.json), [spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/spectrogram.jpg), [speech spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/spectrogram-speech.jpg), [layers](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/layers.png), [frames](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-af_bella-kokoro_onnx/contact-sheet.jpg).
+
+### datadog-cowork-plugin-2026-06 datadog-cowork-plugin-2026-06-am_michael-kokoro.mp4
+
+* info: Left and right channels carry identical mono narration.
+* info: No visible motion for 10.033 s from 1.3 s.
+* info: No visible motion for 9.633 s from 13.867 s.
+* info: No visible motion for 8.133 s from 63.933 s.
+
+Evidence: [analysis](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/analysis.json), [spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/spectrogram.jpg), [speech spectrogram](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/spectrogram-speech.jpg), [layers](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/layers.png), [frames](datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro/contact-sheet.jpg).
 
 ## Comparison images
 

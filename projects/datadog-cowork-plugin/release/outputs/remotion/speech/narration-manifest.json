@@ -1,32 +1,39 @@
 {
   "schemaVersion": "1.0.0",
   "contentId": "datadog-cowork-plugin",
-  "contentDigest": "c7369d626f55c98ba5d2ae8dd82ad1dc93b67ea2ea8303f56d47e4fde2870080",
-  "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful.\n\nThe Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about.\n\nFor Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace.\n\nSetup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first.\n\nAccess is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider.\n\nTool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset.\n\nTreat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand.",
+  "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
+  "text": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.\n\nThe Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.\n\nClaude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.\n\nChoose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.\n\nYou need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.\n\nEnable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.\n\nThe plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
   "segments": [
     {
-      "text": "Datadog for Claude Cowork. Your telemetry, one question away. Here is what the plugin does, how it connects, and where a team should be careful."
+      "text": "The Datadog plugin and connector let Claude query Datadog logs, metrics, traces, dashboards and monitors through the Datadog MCP Server.",
+      "sceneId": "title"
     },
     {
-      "text": "The Datadog Model Context Protocol server bridges your observability data to agents. Logs, metrics, traces, dashboards, and monitors become things you can simply ask about."
+      "text": "The Datadog MCP Server links your observability data to any agent that speaks the Model Context Protocol, so you ask instead of clicking through screens.",
+      "sceneId": "what-it-is"
     },
     {
-      "text": "For Claude, including Cowork, the official connector is the recommended path, and it adds in-product visualizations. Claude Code installs the same server as a plugin from the official marketplace."
+      "text": "Claude, including Cowork, uses the official connector. Claude Code installs the plugin from the official Anthropic marketplace.",
+      "sceneId": "where-it-runs"
     },
     {
-      "text": "Setup is short. Choose your Datadog site, then sign in with O Auth in the browser. Keys are an alternative, and any older manual server or custom connector should be removed first."
+      "text": "Choose your Datadog site and sign in with OAuth. Keys are supported, and older manual servers or custom connectors should be removed first.",
+      "sceneId": "setup"
     },
     {
-      "text": "Access is not widened. You still need the Datadog permissions for the data you query, and the plugin states that no Datadog credentials are sent to the model provider."
+      "text": "You need Datadog permissions for the resources you query, and no Datadog credentials are sent to the model provider.",
+      "sceneId": "access"
     },
     {
-      "text": "Tool groups can be switched on or off, so a team can expose only the products it needs. Start with one narrow toolset."
+      "text": "Enable or disable groups of MCP tools so the agent sees only the Datadog products your team needs.",
+      "sceneId": "control"
     },
     {
-      "text": "Treat the preview label as a rollout risk. The server is H I P A A eligible, yet you own compliance for the tools you connect, and government sites are not supported. Pilot with one team, keep permissions tight, then expand."
+      "text": "The plugin is in Preview. The server is HIPAA-eligible, but you own compliance for connected tools, and the government sites are unsupported.",
+      "sceneId": "risk"
     }
   ],
-  "narrationSha256": "df0387c870de9d6ec8627542277adaca254c32bc4156fb46ac06b9adbf45268d",
+  "narrationSha256": "23e1dc92e364ce1e1ce004c4c4e8d2bcbea42943322f55d9d417dcde2e589dc7",
   "language": "en",
   "externalTransfer": false,
   "voiceProfile": {
