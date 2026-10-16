@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-10",
+  "adapter": "a2swe-remotion-mp4-adapter-12",
   "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
   "input": "dist/render.mp4",
-  "inputSha256": "016979ac1d0806dec0b2e58669e9aa95589eaa33a6924de40254e6f410527a5c",
-  "sourceAudioSha256": "e4ab360ec2e589bff5fb44208a71827c505fe2c2c54a59d82af8db9dd1e5cab1",
+  "inputSha256": "96cc1b2d8935c69d6c920199c2f05840af4507c7962b0113c4bae7bf4ba078a5",
+  "sourceAudioSha256": "d025bb05cdfdee62aa11db43b250c4b4783d9a1100ed464d713f2d54bd4430c6",
   "sampleRate": 48000,
   "durationSeconds": 67.776,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 67.776,
-      "rmsDbfs": -19.630512,
-      "peakDbfs": -1.479756,
-      "highFrequencyRatio8k": 0.003707,
+      "rmsDbfs": -19.630152,
+      "peakDbfs": -1.471924,
+      "highFrequencyRatio8k": 0.003701,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 64.775,
-      "rmsDbfs": -19.433827,
-      "peakDbfs": -1.479756,
-      "highFrequencyRatio8k": 0.002733,
+      "rmsDbfs": -19.433467,
+      "peakDbfs": -1.471924,
+      "highFrequencyRatio8k": 0.002755,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,18 +82,18 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.566173,
+    "snrSpeechVsSilenceDb": 220.566533,
     "loudness": {
       "integratedLufs": -16.1,
-      "loudnessRangeLu": 3.5,
+      "loudnessRangeLu": 3.4,
       "truePeakDbtp": -1.5
     }
   },
   "mastering": {
-    "gainDb": 8.53,
-    "inputLufs": -24.28,
-    "limitedSampleRatio": 0.02483,
-    "maxLimiterReductionDb": 4.34,
+    "gainDb": 8.54,
+    "inputLufs": -24.29,
+    "limitedSampleRatio": 0.0242,
+    "maxLimiterReductionDb": 4.6,
     "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",

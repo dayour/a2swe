@@ -8,18 +8,18 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "5febca55a0ec1747f64f7ea2013199f16c2fc678ae2285ff4c152da705ab062e",
-      "byteSize": 11003
+      "digest": "d18063ace378f7c760bfa2d4032cb589d023c7ffc75ca1b7315ad18dac425fc4",
+      "byteSize": 15145
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "9ac5fe2d10aff7a3fa87127c5383010929243691d3a618811cab4941d1bb3590",
-      "byteSize": 521523
+      "digest": "5dfd1313986a12689547fba32145d7bd11a79c9c483cf1f773395bdc31ea3fc2",
+      "byteSize": 727262
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "adf0bcd7ec4cd352b5e13b03dd765d915a930099c1ee659131e52847da9a10c0",
-      "byteSize": 507973
+      "digest": "38d098dea99651032a30576159d49959c8172e24a16a3b6b45c1fb7cdb3cfe38",
+      "byteSize": 676789
     },
     {
       "path": "qc/analysis/microsoft-2026-01/microsoft-2026-01/analysis.json",
@@ -712,14 +712,254 @@
       "byteSize": 10217
     },
     {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/analysis.json",
+      "digest": "9ab742e7700f02fda66032b3055e252373c381709bc25d4d830218fe8734dc32",
+      "byteSize": 12622
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "b17b74d4fdc7471f05f3dc08ce6e9cd9b3531f6ea4c7383ee4560ead890c9081",
+      "byteSize": 96859
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/chunks/02-windows-layer.jpg",
+      "digest": "075d493fbd71108b93a01823cb9b5b4e00b6cf0c03ba7978ec662a851c331521",
+      "byteSize": 96073
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/chunks/03-work-layer.jpg",
+      "digest": "27889fbff0c173e2a7cfc7de9b33eba3ef446c3000e59a50c6e0aa5b3cdd0cf5",
+      "byteSize": 91336
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/chunks/04-azure-layer.jpg",
+      "digest": "c740111d6c7fbcbfc5a5c55128fa7839644a0773c7c48e049a9f5b388c2c840c",
+      "byteSize": 95618
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/chunks/05-copilot-layer.jpg",
+      "digest": "005f0fa25280b1ca482c06681a8e2ac48e1d61ba9e7b75bac5e95a4d9d958282",
+      "byteSize": 96044
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "15d701512ca874dde006e02d2f095f3a6cde73f4332cbeb94f550ac1552927c7",
+      "byteSize": 398597
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "7350b5d8fa63e15e6d915b3524c84cd6c47845ca956445c2614d0ecee7090cc6",
+      "byteSize": 45320
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/layers.png",
+      "digest": "04b880108ae6e59bffe64fd9b81f6c199dcf65534ab44c57dddbee6c7f5ecee3",
+      "byteSize": 72080
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "04101751edb70247bce87c693e77d0d799199f38568b79c9152f1d727e5f6215",
+      "byteSize": 259271
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "a57f28566eced818f4a48c47f54d9847ce244054e3e6ad3274dcaa61235ef5eb",
+      "byteSize": 173632
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_bella-kokoro_onnx/waveform.png",
+      "digest": "5807635f29ebad1c6c280f07d8f8039e940d1a4f663e3318f5b9e2e72ef8be23",
+      "byteSize": 10216
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/analysis.json",
+      "digest": "0ee46724f7beaef29163512dd1b804ef8d02ef4d2487ee2536de39dab8c18d0e",
+      "byteSize": 12715
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "d597b6cbd376f9092270e58ee9eea3c15056609f1c8932476bf9bc7e46c56426",
+      "byteSize": 95451
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/chunks/02-windows-layer.jpg",
+      "digest": "b3c773c96e25b8bcf6080c3815877f7ec5eefdc6d5769181a224fc8e783436c3",
+      "byteSize": 95178
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/chunks/03-work-layer.jpg",
+      "digest": "c5ceca7fe115ff4342152c5b83f3b9cda437d333594ede6b47a97033b1eaa8a6",
+      "byteSize": 96433
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/chunks/04-azure-layer.jpg",
+      "digest": "f3a52007cfa628dd11397d9ced9039f6a9308192f81b54668492697f9479d001",
+      "byteSize": 94007
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/chunks/05-copilot-layer.jpg",
+      "digest": "cb964fe75f94228a77db387522c42e8bbcc851a513789f6a17ef057546c20f39",
+      "byteSize": 93924
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "f6ac703d46d9bc455ec4b84ebd09e461c176830bdad7dc660ed9f0a85be4a6fb",
+      "byteSize": 395103
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "6745c4fdc79ef2e8d0e86f7c078591a7747eeb40f38e92039a974d543320d06f",
+      "byteSize": 45362
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/layers.png",
+      "digest": "607fddc4b492955e81e81a4396e0a77b3ddf506505ee61e3c1e804f7505016a6",
+      "byteSize": 73706
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "ba39f3ec9cc616d5c70a2b9e617b6053adeec7d4aeb59e3aa6b87ad165cf164a",
+      "byteSize": 258630
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "476aa40a55d8ec284dc44b6a861e9994a9f85caaab339db65cb0773dfc48417a",
+      "byteSize": 169488
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-af_heart-kokoro_onnx/waveform.png",
+      "digest": "6cdd00e9b3445a41449c141f160728525f1dd8814706d03404651855d6337a58",
+      "byteSize": 10216
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/analysis.json",
+      "digest": "c06b18c0547b346ca55b7f0679bd35a4fa02c7be7910d6e0ff56faf757bfec9a",
+      "byteSize": 12807
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "d683079825f16657d366469e5dbbacc0e36df016a07fb008ed71af0949a4afa0",
+      "byteSize": 95396
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/chunks/02-windows-layer.jpg",
+      "digest": "041a625ab2830052351031c0cc7ef768da96da1dbf846516fc87ba011df60dd0",
+      "byteSize": 94504
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/chunks/03-work-layer.jpg",
+      "digest": "6dfb045fa283b47e0d1dea03a75d86a5e0cecda77b6c2c851d3cc637900de63e",
+      "byteSize": 88838
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/chunks/04-azure-layer.jpg",
+      "digest": "c72f6282f2d37ae9c1ce68e8b0bf8b075acc17ccb6a3a5cc156fd6f652b36c0f",
+      "byteSize": 94960
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/chunks/05-copilot-layer.jpg",
+      "digest": "53777ef582ac5ac24fb14f0bc9dca37d0b3e00f2d66b699494d5135ef23b1c55",
+      "byteSize": 88403
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "84e0ba8ddd452e1316cd8aad3d4dbea3b706e906ea6f3c2b419347ae3298bc97",
+      "byteSize": 391910
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "c3032d0bb02eaa053e573c99f2289e1a5f1196da2cacb9a953388d914775015b",
+      "byteSize": 45353
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/layers.png",
+      "digest": "c986b83a58dc095f7990e8f73d7e31b9fdb901fe4d38ed7ebab04110e88cc4de",
+      "byteSize": 73308
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "313d5579887310ed8d5b623d91d095ae732e6b9525823de1c5f8ef9654f54ccf",
+      "byteSize": 247442
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "d3f14b0f9533509a3d0b2690cf87d6a32f49ee672fcd239d6474d1cf6cd2c290",
+      "byteSize": 164735
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx/waveform.png",
+      "digest": "437337d9f8867db513b97836bf8497d7eb6028d2d9459d8204c8bae56379db41",
+      "byteSize": 10280
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/analysis.json",
+      "digest": "016754dcf949e796e5de82bac65911ed0e1e509dedfa559c581968c88972e5a9",
+      "byteSize": 12802
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "a34a11051cfe1a0cb1ba0d561eb4a4df9602db69d5ba7805863352e5e04941ea",
+      "byteSize": 95432
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/chunks/02-windows-layer.jpg",
+      "digest": "713882731135855498e07fd475f87a973be22129ce5ec7392438062c5dabad3c",
+      "byteSize": 95016
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/chunks/03-work-layer.jpg",
+      "digest": "4f49c6c291feffde619184ff0469a43028a8b43768e1808f821c7885682b6f5c",
+      "byteSize": 88685
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/chunks/04-azure-layer.jpg",
+      "digest": "00a7daf06f60a152cbbe76c9af04c4bb7fadbc52fcaafed5a49bd0ca9c68f587",
+      "byteSize": 94857
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/chunks/05-copilot-layer.jpg",
+      "digest": "6a4ea3a5c4a452fe67381266be541bfdaa42e1df85d5771582c340ddb8accd83",
+      "byteSize": 88460
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "fc08dd1bf09aa784414ef49a4d270b152cc35e067528707ca825abd067cd81a8",
+      "byteSize": 391935
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/frame-strip.jpg",
+      "digest": "5561d0da57689bd962bfe429f806c3558eff572b709cb5c9cc2b9fa60fbf10f6",
+      "byteSize": 45374
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/layers.png",
+      "digest": "48265966728fb9b150cd8012624ab3ef9c256aa3bccbd59fbfec766788e5a639",
+      "byteSize": 72807
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "73d1b4fa722c43e77afe2b903029a1364a62abb0af5df558a14b597d325756f6",
+      "byteSize": 247411
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/spectrogram.jpg",
+      "digest": "13b858be0e18fbbf42ee55d1dadc5d5adccbcf7afa7b1b7b5a8134cb5709ecf7",
+      "byteSize": 164413
+    },
+    {
+      "path": "qc/analysis/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro/waveform.png",
+      "digest": "5e1e03ba4b0c218fb4e7ba7d5ee5ae55c950531ea053379efec049fc549c6127",
+      "byteSize": 10264
+    },
+    {
       "path": "qc/analysis/report.md",
-      "digest": "e83d91f7ce2b64809455740a1d0e3089af58c93bb537543c61290d5ffc9774b1",
-      "byteSize": 9387
+      "digest": "aedc5b8056d9a205cd90272367718e1ed9615a67e255197bd0c54a4ab348e14f",
+      "byteSize": 12755
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "77a4056dc3e137d48c06cfa3c6707da78a4c4777130c1095133796672749d4a0",
-      "byteSize": 784549
+      "digest": "0495849b01618abcf429065cbccc7376f89769d1cc6b9bd5372d1aeb1f621271",
+      "byteSize": 1065191
     },
     {
       "path": "qc/brand/brand-source.json",
@@ -728,127 +968,127 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "7f4ef1a73c066f75c7aebd3b98a666b4dea587e0fbb4785c44f0dfa40db657e6",
-      "byteSize": 118045
+      "digest": "fd0d41eeef950e93f953a3cad689437c9e694bc0c60001f729a5791dec8f31a7",
+      "byteSize": 125975
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "9ed2afd7e02abfccf5e95c976904abac8ec6bb8c1bf9a57087f583940081bc38",
-      "byteSize": 284657
+      "digest": "4832470f0d74ea5a95f88286142e5bbfeb145cb9b1726ac7953ca0953b9c9b64",
+      "byteSize": 384338
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "b6989c3d18cc0b3eee9967cd4e27f595eb97769a8a3df352c7de7dd61c8f5efc",
+      "digest": "77f42ba0a7301ecd695a93739143e9c79d2ba93461dc60e57c75c9c23d1b38eb",
       "byteSize": 715
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "3a08307fc55943fda26fbccf3bbb0a47e3c7707cfad706c5246b1d213dc10b4d",
-      "byteSize": 99775
+      "digest": "816533e7bf87fc66653756dd4700cd3d20cc180b6ee482268ad1c2e59e44ae90",
+      "byteSize": 99617
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "26b14c24eea222e3f1603dd7fd9b9a5b84aeb407da1604f956bcfe5fd0969ab5",
-      "byteSize": 85775
+      "digest": "92e15370b406ac987beff993df3f9659d4b20402b1c3c578244ba6aa8c744723",
+      "byteSize": 86807
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "f4ce37e9d531c405f061c8d31e2cb6c2df395c278ceec448aa960009b4f5c95d",
-      "byteSize": 82613
+      "digest": "d5f42cf8085446d483e5f6d99624f567c9418e6ecd7e5b5f4cd17640e258de3f",
+      "byteSize": 84262
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "2cea598e600b075cb60e4d88dbfadcc05da48d0d8829c5f2635f575be79257d7",
-      "byteSize": 66196
+      "digest": "2300b3618b03c17092a355b42b9ca1961eaf3fa4383170300c7c21a7a994c4f6",
+      "byteSize": 68386
     },
     {
       "path": "qc/native-office/pages/core-05.png",
-      "digest": "10b5d500a5151de40558764e6f0025c529d5bd4b1f21942a7db235c249e8b51b",
-      "byteSize": 86512
+      "digest": "b5b334d9f59e0edd44a5191e70d7aa2b00d2c75e2f769715c37907a49216417c",
+      "byteSize": 90189
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "c8f9a89196e13f6e4265c582ad1f8ace933d3bc84497c488b8c06ec5ad221c9a",
-      "byteSize": 98184
+      "digest": "50dcba846ed98ef907082506140380e04b2aa1ae9c59d395fa7bc1da4cc028e1",
+      "byteSize": 88318
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "6c5f7e2734f2a251e9725e5434b5cd405130d1d4a5f842efa6cd8be1bddeb7b5",
-      "byteSize": 91567
+      "digest": "183ceff29da018317314ef9789ce482a815cf2e2b24dbfabe973a37e16bd3145",
+      "byteSize": 90352
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "6f785f15248e127244336ff9a47560e51a9f677fc1b7e8ca8f9738bb7372872d",
-      "byteSize": 88100
+      "digest": "e5b659a24f01b1eed1d8fc451afd8fa5f2d3205cfab6cc91beb726f5effaa5f2",
+      "byteSize": 83674
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "05ed704e93763ed589bdffa96fe0218041a7f77937b5cbe6661aa7b8dac1e3e8",
-      "byteSize": 62297
+      "digest": "1cb288a6e879873edf81b5a1ae1f04ef89f153ad79b8f018f4378d237dbfdf51",
+      "byteSize": 69325
     },
     {
       "path": "qc/native-office/pages/word-05.png",
-      "digest": "becc717e1b9be7a2477c64d0ee1f62bcfa4bf4b8c10e014325da065d076a0c6e",
-      "byteSize": 60108
+      "digest": "888b5776ca68a97c588727ae9b2d6dd4665b3dd499bd62a0feac0f13fd9957f9",
+      "byteSize": 71121
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "7cde4429698207ab320d3f76cb1a957cfa8ae0eb93c95020e53c03d2bba4dc94",
-      "byteSize": 181407
+      "digest": "1ccb9b57d35f4c9042c472c84df3f702fd8c419f9267b791985931c1f4731f76",
+      "byteSize": 183687
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "7f738a6223feb097ef1b53319965e4deb567fb3528381766736cfc806009d8b8",
-      "byteSize": 28042
+      "digest": "50437e7e9c410b2e64a74cbe5d0778afd94e2d8584e970081f28bed53997955c",
+      "byteSize": 56996
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "1c4be106a77a132802f0b319831c043bed7c40a5b39fb3a961c360d652b6f921",
-      "byteSize": 128886
+      "digest": "8cf7e5e052b1e7ec5c8d09d01c49e1c9602c29e2ce5628c26d02c615df753140",
+      "byteSize": 128818
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "ac9096c97b41a0bd55631b38501bccfef31f7be2b171727824bdf0d8cf846c98",
-      "byteSize": 134838
+      "digest": "ef98b67949bc103a8e5b85b3d3d434bfe1f5ea6eed7f210df0d143fa746e80bb",
+      "byteSize": 133720
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "9f5c0ae7e7811c258b1623880db6876daad1f087de65c0f8b03c196ff3d166ff",
-      "byteSize": 99078
+      "digest": "a6360dc56ddcc0ff96188b7a5bd0b2f88668bf8254d11eb256d8c416103f358f",
+      "byteSize": 91813
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "230da5a64bc669c268d6104fa38412b2ff01855b9b98d2c9ac838408d8ac4fcc",
-      "byteSize": 98758
+      "digest": "f018cd6fe88214987cac91852fe3feb5c7f7789d873d103f5dfb9abbb758cee0",
+      "byteSize": 93735
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "171b1b229a38d121fe733673343413d407990a3c6b591724c13c03acfc314848",
-      "byteSize": 27386
+      "digest": "736b5fd50027fc8a9f412454e57e300eb2011ffe47a64c5e7f29f7fc2a5f247d",
+      "byteSize": 54811
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "834ce5a6d0501de679fe1bafbe0bfca3bc0866e0522a9f138657d7f88b630724",
-      "byteSize": 118096
+      "digest": "0aa54b77986a9a13eefa9348bc63a80ad0e3c8fffd1e1f4d8bee4540031aa9ff",
+      "byteSize": 117277
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "ff27635de51a007edc5cfbca7c86bdfb1f1ae328eb4e90e0fe7e510ffa9523d2",
-      "byteSize": 5089
+      "digest": "7f3d5be9ed5bb3ccbf9edea8fe499439a738a9d2754fd09ed055da73232d44f0",
+      "byteSize": 5087
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "abd786274dd53df6318bd066fc81c193322898828e48892913596e741607682d",
-      "byteSize": 446072
+      "digest": "30086dbfa5167715e99813a054c886f1a3e748a76fef86e3d8f159482fdab675",
+      "byteSize": 446087
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "5ef65ce45716b7a311ca9fa27479030c4b80c2d233e3e5b4130fe44244400b87",
-      "byteSize": 3567
+      "digest": "19f956b764e5c22c21a7f71365e5800303474f96ab9d43032b62d43a769d575f",
+      "byteSize": 3566
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "91273f0eab411692c2304fe22a8e710e8eef821443a1ea98d1ea780042ae2a7d",
+      "digest": "7f5ea04927ad7a97ec7778e814f1eeeba2017875a6d7912390a2ead48a7b71b4",
       "byteSize": 368
     }
   ]
