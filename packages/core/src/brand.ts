@@ -494,7 +494,7 @@ export async function brandThemeCommand(projectDirectory: string, options: { url
   if (chosen.length !== 1) throw new Error('brand_theme_requires_one_of_url_source_file');
   const project = path.resolve(projectDirectory);
   const domainFile = path.join(project, 'canonical', 'domain-pack.json');
-  const domainName = existsSync(domainFile) ? (JSON.parse(await readFile(domainFile, 'utf8')) as { name?: string }).name : undefined;
+  const domainName = existsSync(domainFile) ? (JSON.parse(await readFile(domainFile, 'utf8')) as { canonicalName?: string }).canonicalName : undefined;
   const name = options.name ?? domainName ?? path.basename(project);
   const theme = options.url ? null : options.kit ? kitBrandTheme(JSON.parse(await readFile(options.kit, 'utf8')) as KitTheme, name)
     : validate('RenderTheme', JSON.parse(await readFile(options.file!, 'utf8')));
