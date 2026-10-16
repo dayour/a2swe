@@ -1,0 +1,26 @@
+{
+  "name": "datadog-cowork-plugin-brand",
+  "background": "#F8F6FB",
+  "foreground": "#000000",
+  "accent": "#632CA6",
+  "fontFamily": "nationalweb, 'Segoe UI', Arial, sans-serif",
+  "headingFont": "'Noto Sans JP', 'Segoe UI', Arial, sans-serif",
+  "radius": 10,
+  "palette": {
+    "primary": "#632CA6",
+    "header": "#000000",
+    "deep": "#000000",
+    "highlight": "#BEAAFF",
+    "paper": "#FFFFFF",
+    "line": "#D4CBDF",
+    "muted": "#666666",
+    "soft": "#EFEAF6",
+    "danger": "#B42318"
+  },
+  "source": {
+    "kind": "site",
+    "reference": "https://www.datadoghq.com/",
+    "retrievedAt": "2026-10-16T18:25:52.900Z",
+    "basis": "Derived from 4 documents on www.datadoghq.com (theme-color #FFFFFF): primary #632CA6, secondary #FF0078, accent #BEAAFF, dark #000000, light #EEEEEE; fonts nationalweb / Noto Sans JP. Inspired by the site; not an official brand asset."
+  }
+}

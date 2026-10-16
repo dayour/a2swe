@@ -11,27 +11,42 @@
     {
       "claimId": "c1",
       "text": "Copilot Autopilot, previously Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set objectives and boundaries and remain in control.",
-      "evidenceIds": ["ev-01", "ev-02", "ev-03"]
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-03"
+      ]
     },
     {
       "claimId": "c2",
       "text": "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
-      "evidenceIds": ["ev-04"]
+      "evidenceIds": [
+        "ev-04"
+      ]
     },
     {
       "claimId": "c3",
       "text": "As an architectural lens, Microsoft Foundry defines an autopilot by its standing role, identity, security profile and accountable manager, not by a changing feature list.",
-      "evidenceIds": ["ev-05", "ev-06"]
+      "evidenceIds": [
+        "ev-05",
+        "ev-06"
+      ]
     },
     {
       "claimId": "c4",
       "text": "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take.",
-      "evidenceIds": ["ev-07"]
+      "evidenceIds": [
+        "ev-07"
+      ]
     },
     {
       "claimId": "c5",
       "text": "The Foundry blueprint model separates reusable logic and infrastructure from team-specific access; each instance receives its own identity, permissions and assignment.",
-      "evidenceIds": ["ev-08", "ev-09", "ev-10"]
+      "evidenceIds": [
+        "ev-08",
+        "ev-09",
+        "ev-10"
+      ]
     }
   ],
   "citations": [
@@ -102,7 +117,9 @@
       "sectionId": "operating-model",
       "title": "1. Change the unit of delegation",
       "body": "The shift is from asking for an answer to assigning a standing role. Autopilot brings identity, memory and a workspace; leaders still own objectives and boundaries. Governance changes with the unit of delegation.",
-      "claimIds": ["c1"],
+      "claimIds": [
+        "c1"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: Microsoft announcement, Autopilot section, retrieved 2026-10-06. Interpretation: a standing role changes the operating model. This is Copilot Autopilot, previously Scout, not Windows Autopilot device provisioning.",
       "visual": {
@@ -115,7 +132,10 @@
       "sectionId": "identity-boundaries",
       "title": "2. Govern identity before capability",
       "body": "Foundry is an architectural lens, not proof of identical implementation. Identity anchors the standing role; the organization still bounds interactions, access and actions, with a manager accountable for the role.",
-      "claimIds": ["c3", "c4"],
+      "claimIds": [
+        "c3",
+        "c4"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: Microsoft Foundry autopilot overview, opening definition and autonomy section, retrieved 2026-10-06. Applicability limit: architectural lens only; do not assert implementation equivalence with Copilot Autopilot.",
       "visual": {
@@ -128,7 +148,10 @@
       "sectionId": "pilot",
       "title": "3. Pilot the role, not the technology",
       "body": "Pilot one recurring workflow with one team and owner. Reuse blueprint logic, but scope each instance to its own permissions and assignment. While Autopilot is private preview, require a stop condition and review before expansion.",
-      "claimIds": ["c2", "c5"],
+      "claimIds": [
+        "c2",
+        "c5"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: Microsoft announcement private-preview statement and Microsoft Foundry blueprint section, retrieved 2026-10-06. Proposed action: one workflow, one team, one owner, explicit access boundary, cost guardrail, stop condition and review.",
       "visual": {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "renderId": "datadog-cowork-plugin-r1",
-  "contentDigest": "8ad72343b537f431fbee725154646b65f95f3086e451a48deb0cf54507c6fb92",
+  "contentDigest": "9bce452de0c94c4011f6fe908735fd638d044f27a1d01bf505b3ebef8086ae42",
   "formats": [
     "html",
     "adaptiveDeck",
@@ -13,11 +13,30 @@
     "remotion"
   ],
   "theme": {
-    "name": "datadog-dark",
-    "background": "#0b0d1a",
-    "foreground": "#f4f5ff",
-    "accent": "#9d6cff",
-    "fontFamily": "Segoe UI, Arial, sans-serif"
+    "name": "datadog-cowork-plugin-brand",
+    "background": "#F8F6FB",
+    "foreground": "#000000",
+    "accent": "#632CA6",
+    "fontFamily": "nationalweb, 'Segoe UI', Arial, sans-serif",
+    "headingFont": "'Noto Sans JP', 'Segoe UI', Arial, sans-serif",
+    "radius": 10,
+    "palette": {
+      "primary": "#632CA6",
+      "header": "#000000",
+      "deep": "#000000",
+      "highlight": "#BEAAFF",
+      "paper": "#FFFFFF",
+      "line": "#D4CBDF",
+      "muted": "#666666",
+      "soft": "#EFEAF6",
+      "danger": "#B42318"
+    },
+    "source": {
+      "kind": "site",
+      "reference": "https://www.datadoghq.com/",
+      "retrievedAt": "2026-10-16T18:25:52.900Z",
+      "basis": "Derived from 4 documents on www.datadoghq.com (theme-color #FFFFFF): primary #632CA6, secondary #FF0078, accent #BEAAFF, dark #000000, light #EEEEEE; fonts nationalweb / Noto Sans JP. Inspired by the site; not an official brand asset."
+    }
   },
   "viewport": {
     "width": 1280,

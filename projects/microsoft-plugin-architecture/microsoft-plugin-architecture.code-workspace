@@ -1,0 +1,214 @@
+{
+  "folders": [
+    {
+      "name": "microsoft-plugin-architecture",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.a2swe": true,
+      "**/*.tmp": true
+    },
+    "files.associations": {
+      "*.deck.json": "json",
+      "*.excalidraw": "json"
+    },
+    "search.exclude": {
+      "renders/**": true,
+      "qc/analysis/**": true,
+      "qc/revisions/**": true,
+      "release/outputs/remotion/public/**": true,
+      "**/*.mp4": true,
+      "**/*.wav": true
+    },
+    "files.watcherExclude": {
+      "**/renders/**": true,
+      "**/qc/analysis/**": true,
+      "**/qc/revisions/**": true,
+      "**/release/outputs/remotion/**": true
+    }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "a2swe: brand-theme from site",
+        "detail": "Install the brand theme (colors, fonts) from an official brand site; weak evidence fails instead of misbranding.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "brand-theme",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}",
+          "--url",
+          "${input:brandUrl}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: canonical-bind",
+        "detail": "Rebind content, render spec and approvals after editing canonical files.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "canonical-bind",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: revision-produce",
+        "detail": "Render a new revision (all formats and narrated 1080p video) per voice variant and promote the first.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "revision-produce",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}",
+          "--variants",
+          "${input:variants}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: revisions-analyze",
+        "detail": "Spectrogram, loudness and frame analysis for every revision video.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "revisions-analyze",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: office-render",
+        "detail": "Native Microsoft Office QA for the release PowerPoint and Word outputs (Windows).",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "office-render",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: runbook-project",
+        "detail": "Project agent/runbook.json from the verified release and review evidence.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "runbook-project",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: release-verify",
+        "detail": "Regenerate and digest-compare every release output.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "release-verify",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}/release"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: runbook-verify",
+        "detail": "Verify the project runbook against its evidence.",
+        "type": "process",
+        "command": "node",
+        "args": [
+          "packages/core/src/cli.ts",
+          "runbook-verify",
+          "--root",
+          "${workspaceFolder:microsoft-plugin-architecture}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder:microsoft-plugin-architecture}/../.."
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "a2swe: produce, review and verify",
+        "detail": "Full pipeline for this project in order.",
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "a2swe: canonical-bind",
+          "a2swe: revision-produce",
+          "a2swe: revisions-analyze",
+          "a2swe: office-render",
+          "a2swe: runbook-project",
+          "a2swe: release-verify",
+          "a2swe: runbook-verify"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": []
+      }
+    ],
+    "inputs": [
+      {
+        "id": "brandUrl",
+        "type": "promptString",
+        "description": "Official brand site URL (https://...)"
+      },
+      {
+        "id": "variants",
+        "type": "pickString",
+        "description": "Voice variants (PROFILE:ENGINE, comma separated)",
+        "default": "am_michael:kokoro_onnx,af_heart:kokoro_onnx,af_bella:kokoro_onnx,am_michael:kokoro",
+        "options": [
+          "am_michael:kokoro_onnx,af_heart:kokoro_onnx,af_bella:kokoro_onnx,am_michael:kokoro",
+          "am_michael:kokoro_onnx",
+          "af_heart:kokoro_onnx"
+        ]
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "bierner.markdown-mermaid",
+      "marp-team.marp-vscode",
+      "pomdtr.excalidraw-editor",
+      "ms-vscode.live-server"
+    ]
+  }
+}

@@ -11,27 +11,48 @@
     {
       "claimId": "c1",
       "text": "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
-      "evidenceIds": ["ev-01", "ev-02", "ev-04", "ev-05", "ev-07"]
+      "evidenceIds": [
+        "ev-01",
+        "ev-02",
+        "ev-04",
+        "ev-05",
+        "ev-07"
+      ]
     },
     {
       "claimId": "c2",
       "text": "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific.",
-      "evidenceIds": ["ev-03", "ev-07", "ev-08"]
+      "evidenceIds": [
+        "ev-03",
+        "ev-07",
+        "ev-08"
+      ]
     },
     {
       "claimId": "c3",
       "text": "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
-      "evidenceIds": ["ev-01", "ev-02"]
+      "evidenceIds": [
+        "ev-01",
+        "ev-02"
+      ]
     },
     {
       "claimId": "c4",
       "text": "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
-      "evidenceIds": ["ev-04", "ev-05", "ev-06"]
+      "evidenceIds": [
+        "ev-04",
+        "ev-05",
+        "ev-06"
+      ]
     },
     {
       "claimId": "c5",
       "text": "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported.",
-      "evidenceIds": ["ev-07", "ev-08", "ev-09"]
+      "evidenceIds": [
+        "ev-07",
+        "ev-08",
+        "ev-09"
+      ]
     }
   ],
   "citations": [
@@ -96,7 +117,11 @@
       "sectionId": "three-routes",
       "title": "1. Choose the host route",
       "body": "Cowork uses a Microsoft 365 app package. Declarative agents use MCP or REST API actions. GitHub Copilot uses plugin packages with portable and client-specific parts.",
-      "claimIds": ["c1", "c3", "c4"],
+      "claimIds": [
+        "c1",
+        "c3",
+        "c4"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: the three selected official sources, retrieved 2026-10-06. Decision implication: name the host and package contract for every portfolio item; do not describe these routes as interchangeable.",
       "visual": {
@@ -109,7 +134,9 @@
       "sectionId": "reuse-boundary",
       "title": "2. Reuse the core, not the wrapper",
       "body": "Reuse skill logic and MCP configuration where tested. Keep authentication, manifests, discovery and client-only components inside each host package.",
-      "claimIds": ["c2"],
+      "claimIds": [
+        "c2"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: Cowork skill portability, declarative-agent MCP/API behavior, and GitHub Agent Plugins portability and legacy support. Interpretation: the reusable layer should be separated from host packaging and operations.",
       "visual": {
@@ -122,7 +149,10 @@
       "sectionId": "supported-paths",
       "title": "3. Preserve supported paths",
       "body": "REST API actions remain supported in declarative agents. Agent Plugins 1.0 adds portability, while legacy GitHub Copilot plugins continue to load.",
-      "claimIds": ["c4", "c5"],
+      "claimIds": [
+        "c4",
+        "c5"
+      ],
       "assetIds": [],
       "speakerNotes": "Evidence: Microsoft Learn documents REST API plugins as declarative-agent actions; GitHub documents both Agent Plugins 1.0 and legacy Copilot plugins as supported.",
       "visual": {
@@ -135,7 +165,10 @@
       "sectionId": "portfolio",
       "title": "4. Govern a small portfolio",
       "body": "Assign one owner per capability and service. Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
-      "claimIds": ["c1", "c2"],
+      "claimIds": [
+        "c1",
+        "c2"
+      ],
       "assetIds": [],
       "speakerNotes": "Proposed operating model, grounded in the documented route and compatibility boundaries. No source prescribes an enterprise org chart or ROI target.",
       "visual": {

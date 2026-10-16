@@ -2,11 +2,11 @@
   "schemaVersion": "1.0.0",
   "assetId": "mcp-flow",
   "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
-  "requestDigest": "9f0ba428578c7fe3e0822d3642687126bb4ed6114dc340529a50610ed500ae3c",
+  "requestDigest": "4e225f3842118ebb63067c572a100a527ff245d87ec2cb549e2b11e3e5c32cf3",
   "artifact": {
-    "digest": "4177aa1687b3c98173fbcbdbe9b3c8f1748d9158428cdaf05d9b8a4b82227bcd",
+    "digest": "5d5d3acca9a360190c6f9ba2b585d9ba56e60bff7b9f4419b090530a513b99a5",
     "mediaType": "image/png",
-    "byteSize": 81884
+    "byteSize": 49458
   },
   "width": 1920,
   "height": 1080,
@@ -16,11 +16,11 @@
     "method": "diagram",
     "provider": "a2swe-semantic-diagram",
     "version": "2;sharp=0.35.4;vips=8.18.6;lucide=1.45.0;font=a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
-    "inputDigest": "9f0ba428578c7fe3e0822d3642687126bb4ed6114dc340529a50610ed500ae3c",
+    "inputDigest": "4e225f3842118ebb63067c572a100a527ff245d87ec2cb549e2b11e3e5c32cf3",
     "sourceUrl": null
   },
   "review": "pending",
-  "createdAt": "2026-09-29T17:49:12.812Z",
+  "createdAt": "2026-10-16T18:25:53.474Z",
   "checks": {
     "decoded": "passed",
     "dimensions": "passed",
@@ -31,7 +31,7 @@
     "colorSpace": "srgb",
     "alpha": "opaque",
     "nonTransparentPixelRatio": 1,
-    "luminanceRange": 233,
-    "channelRangeMin": 229
+    "luminanceRange": 255,
+    "channelRangeMin": 255
   }
 }

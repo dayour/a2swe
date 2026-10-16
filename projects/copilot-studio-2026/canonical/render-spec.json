@@ -13,11 +13,30 @@
     "remotion"
   ],
   "theme": {
-    "name": "copilot-studio-deep-navy",
-    "background": "#10233A",
-    "foreground": "#FFFFFF",
-    "accent": "#5A8CFF",
-    "fontFamily": "Arial"
+    "name": "copilot-studio-2026-brand",
+    "background": "#F4F8FC",
+    "foreground": "#071923",
+    "accent": "#006EC3",
+    "fontFamily": "'Segoe UI Variable Text', 'Segoe UI', Arial, sans-serif",
+    "headingFont": "'Segoe UI Variable Display', 'Segoe UI', Arial, sans-serif",
+    "radius": 10,
+    "palette": {
+      "primary": "#006EC3",
+      "header": "#091F2C",
+      "deep": "#06141D",
+      "highlight": "#50E6FF",
+      "paper": "#FFFFFF",
+      "line": "#C4D6E4",
+      "muted": "#626C71",
+      "soft": "#E6F1F9",
+      "danger": "#B42318"
+    },
+    "source": {
+      "kind": "site",
+      "reference": "https://www.microsoft.com/en-us/copilot/products/copilot-studio",
+      "retrievedAt": "2026-10-16T18:25:47.387Z",
+      "basis": "Derived from 11 documents on www.microsoft.com: primary #0078D4, secondary #50E6FF, accent #043710, dark #091F2C, light #E6F2FB; fonts Segoe UI Variable Text / Segoe UI Variable Display. Inspired by the site; not an official brand asset."
+    }
   },
   "viewport": {
     "width": 1280,
