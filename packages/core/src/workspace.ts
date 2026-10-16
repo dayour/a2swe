@@ -16,13 +16,16 @@ export async function writeProjectWorkspace(projectDirectory: string): Promise<{
   const project = path.resolve(projectDirectory);
   if (!existsSync(path.join(project, 'canonical', 'domain-pack.json'))) throw new Error('workspace_requires_project_domain_pack');
   const projectId = projectIdOf(project);
-  const engine = path.relative(project, REPOSITORY_ROOT).split(path.sep).join('/').replace(/\/$/, '') || '.';
-  if (path.isAbsolute(engine) || /^[A-Za-z]:/.test(engine)) throw new Error('workspace_project_outside_repository');
+  // Projects inside the checkout use a relative engine path so the committed workspace is portable; projects scaffolded elsewhere
+  // (another folder or drive) are never committed here, so they point at this checkout's absolute path.
+  const fromRoot = path.relative(REPOSITORY_ROOT, project);
+  const inside = fromRoot !== '' && !fromRoot.startsWith('..') && !path.isAbsolute(fromRoot);
   const folder = `\${workspaceFolder:${projectId}}`;
+  const cwd = inside ? `${folder}/${path.relative(project, REPOSITORY_ROOT).split(path.sep).join('/')}` : REPOSITORY_ROOT.split(path.sep).join('/').replace(/\/$/, '');
   // Tasks go through the launcher so a default `node` outside the engines range falls back to A2SWE_NODE or reports the mismatch.
   const run = (label: string, detail: string, args: string[], extra: Record<string, unknown> = {}) => ({
     label: `a2swe: ${label}`, detail, type: 'process', command: 'node', args: ['packages/core/bin/a2swe.mjs', ...args],
-    options: { cwd: `${folder}/${engine}` }, problemMatcher: [], ...extra
+    options: { cwd }, problemMatcher: [], ...extra
   });
   const steps = [
     run('canonical-bind', 'Rebind content, render spec and approvals after editing canonical files.', ['canonical-bind', '--root', folder]),
