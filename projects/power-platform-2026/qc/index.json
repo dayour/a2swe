@@ -8,18 +8,18 @@
   "entries": [
     {
       "path": "qc/analysis/comparison.json",
-      "digest": "ba9790ac2dc0e8342e65f3b44810c57d242abdeb55b147470a7fd32bfe51db5c",
-      "byteSize": 18082
+      "digest": "6d9e27e97b55aeb0604d1035eeecdae69b505576827aa92464b6ce0650c2640b",
+      "byteSize": 22303
     },
     {
       "path": "qc/analysis/frames-grid.jpg",
-      "digest": "61a69dcf779caf0a5feabc75199d557b4102d53635817c508e9c8b9e4a6a6088",
-      "byteSize": 810768
+      "digest": "948378b53ec93b1b94d0f2f9f555dee0c1a338cee36264cbd5450015f6c87a6c",
+      "byteSize": 1007736
     },
     {
       "path": "qc/analysis/layers-stack.jpg",
-      "digest": "2f589d4d231380e6909f8083eca14110b36cbd76e501450236b2a791c75c75d9",
-      "byteSize": 838898
+      "digest": "724ee96118c10a237b3314c2f0562c5c94d57c738e8ef88ea134a58436d177b0",
+      "byteSize": 1010348
     },
     {
       "path": "qc/analysis/power-platform-2026-01/power-platform-2026-01/analysis.json",
@@ -1207,14 +1207,254 @@
       "byteSize": 10293
     },
     {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/analysis.json",
+      "digest": "fa6d3dd9f3e8e55c54fd9fae65b0a55c9f147785c238bf623de3e607e99a0b0a",
+      "byteSize": 12575
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "d2ec525490b00fc0f8c89339299343446f0e6c95617edffaba9d23dfc414f1fa",
+      "byteSize": 97344
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/chunks/02-one-platform.jpg",
+      "digest": "c8add8af107d5fa7762f618737bb19f1b4bc3eaaec1d1d7a9d5b22938e1c890d",
+      "byteSize": 95842
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/chunks/03-managed-artifact.jpg",
+      "digest": "3a558a120d2dabb23470ce3c478d669162b77270c5c3a171dd5f0969fa2f9f56",
+      "byteSize": 94976
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/chunks/04-config-and-data.jpg",
+      "digest": "2889cacdb7ace5a3f1c67d0308f63fe76cc9a75a55c9b0af4750b600365c862a",
+      "byteSize": 97491
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/chunks/05-release-gate.jpg",
+      "digest": "45ee1ddba01f4fa3932f6b7abacd363c5df0a30e6a03fd1ca778504ca0e1440f",
+      "byteSize": 95659
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/contact-sheet.jpg",
+      "digest": "e0ae00ec9c8896ddcb7575611ae6b6c0e5fdf70a5661e444bb978341fc7276b6",
+      "byteSize": 379774
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/frame-strip.jpg",
+      "digest": "582f20df4c75c0b4d0bbdf064703f9affd04b7b17846a52e5efe726982197d00",
+      "byteSize": 42964
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/layers.png",
+      "digest": "720b8cf20a62fd3c7717bfed977c1cd81eaf9d1bc4760a8fd0904f70d428bcb8",
+      "byteSize": 71670
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "a7b72b59ee6923a9e8fce9ea005d2b4d94cab061e3556b2dbe6bd84b6b1065a1",
+      "byteSize": 259197
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/spectrogram.jpg",
+      "digest": "c0253080e3b3fb12ae3890c2221e3c9c294037b880a6fb06e7a207757bce4bc6",
+      "byteSize": 172945
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/waveform.png",
+      "digest": "39bfa42e13a7f5d716a5587f4f036574c9f5549c2c21ef6f727688ce6cfaf490",
+      "byteSize": 10257
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/analysis.json",
+      "digest": "5d15af6c5ba1284708d68eb5b6d2da2dc31d63e02725b2349392e65ce90a2814",
+      "byteSize": 12591
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "7c112ed364631df1f53eb7d0681f426f036dfcf740d6b2b98e81f7cff0a2ec15",
+      "byteSize": 94984
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/chunks/02-one-platform.jpg",
+      "digest": "0b55cd7be15c474924b3eba31d2ff13201616cc39890ffe457782f49309f8fab",
+      "byteSize": 93377
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/chunks/03-managed-artifact.jpg",
+      "digest": "17306372af80e05834f9d2201bcb0167bf1cd84c39790429888946490086ed9e",
+      "byteSize": 93225
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/chunks/04-config-and-data.jpg",
+      "digest": "25685da8339a15a05f6a44260c72c7599f4a9f6c4c3a188bedb1dc39bd35232c",
+      "byteSize": 95148
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/chunks/05-release-gate.jpg",
+      "digest": "a904fd96fea03cf7160d43b9d81c7e2ab7b5b22fa78d1cc5e9644523ac08f7a5",
+      "byteSize": 94272
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/contact-sheet.jpg",
+      "digest": "49cdf0c12bdaf75a2c7efb42598be5d4ad4f883b1f0b67eae78e7a889c0afc29",
+      "byteSize": 385070
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/frame-strip.jpg",
+      "digest": "d858d9df0c8e38a4299f45a34d0a3f76752691c5ab6bc2ebe41e512b5591b07a",
+      "byteSize": 43006
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/layers.png",
+      "digest": "cbcd51e54c7d1ae965fcb37a85be278b12a72af09a529ca2095cfbcc2d161814",
+      "byteSize": 71332
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "3fdfc42b983a71efa03e2432d74899dd89001e2fa82b4927c0f91487e8b73450",
+      "byteSize": 257807
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/spectrogram.jpg",
+      "digest": "8e3ac80e25cf94d4109c998f9bddc499fbc4f22cadc30642cc1b1730c994fb49",
+      "byteSize": 169844
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/waveform.png",
+      "digest": "361ae2954003aa4754e3f92148746d65b4f32f9a9cb1a61dff66896455695a01",
+      "byteSize": 10220
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/analysis.json",
+      "digest": "b38f2e59b67fb9c31e398a25f2e249903a95b499b9b307f0bd6920b6be6903fa",
+      "byteSize": 12767
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/chunks/01-title.jpg",
+      "digest": "ae716a1e45942c7497b393013095e739cd5a22569d569cd880909b04b8ce09f1",
+      "byteSize": 90230
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/chunks/02-one-platform.jpg",
+      "digest": "8c6f3227a40f526fb681118a954510c8ae5161509a345031c2ac3c8f17d14ab9",
+      "byteSize": 93744
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/chunks/03-managed-artifact.jpg",
+      "digest": "928fd93ee3dc5cc1a39b36ba9a4637bc6a6f092b4b5a984c014fe55bb76035ff",
+      "byteSize": 94395
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/chunks/04-config-and-data.jpg",
+      "digest": "f39e0f968f07756990d042517f7888c77a4ed4415b34f05c74bb935c6286786b",
+      "byteSize": 95621
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/chunks/05-release-gate.jpg",
+      "digest": "587f221ea43cb507e7888fcd0ee88ad7926183d1b907a83a762e2206d123237f",
+      "byteSize": 88345
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/contact-sheet.jpg",
+      "digest": "9d6540787066ed9fc11b44e310fe8ec1d2c72840e2d4b41986cfef6796225ffc",
+      "byteSize": 379499
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/frame-strip.jpg",
+      "digest": "bae44d12608698d8595adc1a515e1458698756b66acb0c1e558b8d4e9763b8ab",
+      "byteSize": 42962
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/layers.png",
+      "digest": "aab7561a0a856320003cf188da2c6e79e8ea72f6e44dddb70e95338e97996d7d",
+      "byteSize": 73261
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/spectrogram-speech.jpg",
+      "digest": "aab07d47d969464b2d18d71629f4a26b94e64097d4890b74caf4f1e7a29eb614",
+      "byteSize": 248516
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/spectrogram.jpg",
+      "digest": "7fa7c09684a2f14c59d83226fcdfd38fa91bdd48f51b93e122f96105277f8dd6",
+      "byteSize": 165788
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/waveform.png",
+      "digest": "46df134107bb02a1e54df37a64aa4831b380cc613ba12a3aed22c940dd1d69fb",
+      "byteSize": 10357
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/analysis.json",
+      "digest": "96d5152e953303bfec71cb250124fd42a63eece5b3893d9e48e16c07c4ae1291",
+      "byteSize": 12762
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/chunks/01-title.jpg",
+      "digest": "a0a8382a43f85089d58ee28cb2c91a5ad105be38979bd969f2cfdd40f509bfb5",
+      "byteSize": 90180
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/chunks/02-one-platform.jpg",
+      "digest": "7cb23ed06b0c57aa0a153feae7f73ec81ab0e7b6610783b6e56e9077bf630fb6",
+      "byteSize": 93747
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/chunks/03-managed-artifact.jpg",
+      "digest": "fe31242b3709262c5007f491ab383a52e9a17ce368de5b02ba6c45c08b0a4378",
+      "byteSize": 94865
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/chunks/04-config-and-data.jpg",
+      "digest": "cacfa694e334f35c31566ed432b2fadc6fb5410ee62fa9bc134e8e4c4a4c5e85",
+      "byteSize": 95627
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/chunks/05-release-gate.jpg",
+      "digest": "916bb67b2f3266a2480ec4d3b87ede1d3e9133cfaa11d36b48569dfda27958e4",
+      "byteSize": 88320
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/contact-sheet.jpg",
+      "digest": "2a0c3db2301cca869255e815b894bff02c3c2a14785f16929b8b08e1704eb02c",
+      "byteSize": 379461
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/frame-strip.jpg",
+      "digest": "3593e5314af269bedaeb99c40655cbc86ab39f740ff02abbff544ee8c944a5ab",
+      "byteSize": 42965
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/layers.png",
+      "digest": "6d870912d9fa43e6fd8988174a5528e1dc9934a178887f3f2d9a9e3c60f394dc",
+      "byteSize": 73619
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/spectrogram-speech.jpg",
+      "digest": "c785d32a291c5598b4e0706f8c1f75416721d87c01a8b71b371d08e76e26a587",
+      "byteSize": 248729
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/spectrogram.jpg",
+      "digest": "97d3da8eeb1491b4fc7a53c7768ace15916623a9fe71cb330c18ea8c947f7263",
+      "byteSize": 165533
+    },
+    {
+      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/waveform.png",
+      "digest": "58f7a039010e78b4437353ed90485bf2fc6284e450bb834fa406dfe982acde94",
+      "byteSize": 10272
+    },
+    {
       "path": "qc/analysis/report.md",
-      "digest": "c4f959925b513d7a81ca444eb015eb1ba9831f7b16f76211085c35ee344ad79e",
-      "byteSize": 15871
+      "digest": "700a64ea354477b152ad90980be980676231ad36a4999a4f62875ba14cbf5363",
+      "byteSize": 19525
     },
     {
       "path": "qc/analysis/spectrogram-stack.jpg",
-      "digest": "4a082c13d1d49d6c4f32d36c7932468571fe55eb196625cf0e3417cc8e9241f2",
-      "byteSize": 1315356
+      "digest": "0a4ed8a94e8e3d1b01a2050f22ca0a90835c1a00875834ad66d5c94ad1c9a598",
+      "byteSize": 1599064
     },
     {
       "path": "qc/brand/brand-source.json",
@@ -1223,127 +1463,127 @@
     },
     {
       "path": "qc/native-office/core-contact.jpg",
-      "digest": "15eaf69fdeb08fa4f89d7c2771026779f19c274dff5b0c4960dc50479625ff14",
-      "byteSize": 117357
+      "digest": "b35a9440646c73b2e78c33b3c40b63a4eb4ea6667a6a0e8d60dcc488b9e0e615",
+      "byteSize": 125247
     },
     {
       "path": "qc/native-office/document-native.pdf",
-      "digest": "b713fcca38b175ad92fdbb32cea56007019747d22c2256df5a52e6aaa8ab9677",
-      "byteSize": 286827
+      "digest": "7866095b6bcef3ba6f8f877b0e474fdd94c3386967015a6d82f09b285fe3c044",
+      "byteSize": 801576
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "4c54c785b227fe6e39465199d7295d68152e49a93446aa0436e55a5ffc4608c9",
+      "digest": "2b09c1853026cd3bb1fdca17a38987b30f38925c8c218c29b46aac01ebba9250",
       "byteSize": 725
     },
     {
       "path": "qc/native-office/pages/core-01.png",
-      "digest": "ebd59f80a81c1539d009c90d0e1004ed882e263296de0dff015753c4380e0386",
-      "byteSize": 92217
+      "digest": "334def37ca17fc567719e529122b99d06064ae13e7dca7a3c03950d194ed5cef",
+      "byteSize": 92446
     },
     {
       "path": "qc/native-office/pages/core-02.png",
-      "digest": "0632cb17dd0868c1d16a67ed740e28a6d2a4e47cd147248099782e117873f3ef",
-      "byteSize": 75268
+      "digest": "c039c9f5503d740abe8c99763ac578616bf8ae870dfd2027bbab612dadcefb0b",
+      "byteSize": 74973
     },
     {
       "path": "qc/native-office/pages/core-03.png",
-      "digest": "153877daf7d2bf66e37a833e0f16688763ea013e208dd6f7fbdeca86e08c7331",
-      "byteSize": 64503
+      "digest": "9f6cdb2bbf043bbedcde5b80f4c8bd95b2409f56838ba1c64aa6ba07659b1515",
+      "byteSize": 66474
     },
     {
       "path": "qc/native-office/pages/core-04.png",
-      "digest": "c59409a1fd4448866a9fea71bc50d16cfaaacb80f68191e5018e0d0f2c2476c9",
-      "byteSize": 76760
+      "digest": "c67867d78ff3fd29b197d40c131825b985f5c37ceca4602868ee3235a8badb75",
+      "byteSize": 79796
     },
     {
       "path": "qc/native-office/pages/core-05.png",
-      "digest": "9960ab95da089438ad587aefa9878a9867fa0298a3dc4e27e9a1afad715b974e",
-      "byteSize": 98507
+      "digest": "5bfb33ba47583ace810356fb137f4cfed7ca78d53ca0f0e7f87bb5f54fdd51be",
+      "byteSize": 101050
     },
     {
       "path": "qc/native-office/pages/word-01.png",
-      "digest": "e901167ed3e2fc5902ff38b65f2973d594f47c72d495c3a83155d5e76a8a9082",
-      "byteSize": 95131
+      "digest": "dcc20104ebf4c9d8668adf3ff05b48e428863cb433507be4a0bce92a190f7ce5",
+      "byteSize": 119523
     },
     {
       "path": "qc/native-office/pages/word-02.png",
-      "digest": "42d17e1054d33968c3a7f75ac6f955ae13ebf5e321ca0ac4808bbdee66521e20",
-      "byteSize": 80456
+      "digest": "660bf1e257bb143f36a5685864ea9aa2bc01b89c770adbaf862c8588be44535f",
+      "byteSize": 103244
     },
     {
       "path": "qc/native-office/pages/word-03.png",
-      "digest": "2d922701ca71b89b791731b1e4ca76072cb8fc6915c28fb947b01ca383fe54a3",
-      "byteSize": 74630
+      "digest": "a5a3fa79682bb00a1bd2545df124e8537833cf85df4d534efd30058445ddddf4",
+      "byteSize": 91408
     },
     {
       "path": "qc/native-office/pages/word-04.png",
-      "digest": "4ce29afb17a570d2ba6e737116d6e70e6c5fa91056fd89dd5929bf53889ccbbe",
-      "byteSize": 75068
+      "digest": "0361d6c78077a28dc1656e891a1034b09cd9d656d3004633ae7f9f4c4f36e531",
+      "byteSize": 95848
     },
     {
       "path": "qc/native-office/pages/word-05.png",
-      "digest": "4ddacf32f864e123d4ef2f94cfcd84a1d8cd712f1382692a989315b64167a104",
-      "byteSize": 65525
+      "digest": "c976b64c09d160a6fd92ed2e8d8f7a3b479baf4bf806225025c22dcc44ba1add",
+      "byteSize": 99261
     },
     {
       "path": "qc/native-office/slides-contact.jpg",
-      "digest": "d7ccd19044639c55f12cd6e765dbca2fc455988e25a9376023e173a246497adb",
-      "byteSize": 171708
+      "digest": "5d57fc21f664997129e9677574822ed2836a9367247887b78f776e391a8fa312",
+      "byteSize": 170934
     },
     {
       "path": "qc/native-office/slides/Slide1.PNG",
-      "digest": "c081fdf646a945d040efddd034f4bffffa572d61629f182120d9226c48727f6c",
-      "byteSize": 28501
+      "digest": "6f17ac73dca5daba508c736631e849307ce0db60143e449ffb8f28071c1b2db5",
+      "byteSize": 78818
     },
     {
       "path": "qc/native-office/slides/Slide2.PNG",
-      "digest": "5cec500bee77382b6d731d07d2e24e569f3d4b55eb6ba52b4e4d0f35ae69fda8",
-      "byteSize": 101457
+      "digest": "9023be7793cffd0e9fd75d34c8a6a597f1dac2d1d5c2f953b59bbc73685e180d",
+      "byteSize": 119069
     },
     {
       "path": "qc/native-office/slides/Slide3.PNG",
-      "digest": "3b436604c2b166475aa9dc0159b1277c33bb4d8243e24ac0af32b9adbc1bad0f",
-      "byteSize": 82247
+      "digest": "9f8f7c03ad23aeaffa783c2f87f2698c6b0900ab9d0a6131cc1c05e0068eb873",
+      "byteSize": 98230
     },
     {
       "path": "qc/native-office/slides/Slide4.PNG",
-      "digest": "0e8bb66ffec5c7a0424a7369a97a68ad7c594cdae98409e9bb9439050a4a02d4",
-      "byteSize": 102185
+      "digest": "eac55f1fdbce0f7a52f7f437104cf823e0bc40671ae82d23678a94cde83e5059",
+      "byteSize": 112889
     },
     {
       "path": "qc/native-office/slides/Slide5.PNG",
-      "digest": "ee9e3e29ac5fbbbdf7b8f8762568c928a5ff9b73d7aa4059e51ae6b8f1c740c8",
-      "byteSize": 104787
+      "digest": "3118a2762e938d1c80fdcac016a3de4d3ee3266c94b5f5aa86b63b4828a7ea7d",
+      "byteSize": 122479
     },
     {
       "path": "qc/native-office/slides/Slide6.PNG",
-      "digest": "8e3a14e547d23fdc99506e6c07738e41d36b263fd60b25db6818909668ae1b83",
-      "byteSize": 25880
+      "digest": "20261f5089d3ba65e652a377e580f2d08c9967d403bcce843cd5b50b1dab5f77",
+      "byteSize": 57415
     },
     {
       "path": "qc/native-office/word-contact.jpg",
-      "digest": "f25b5c959b0f6e84667d286bbf89a84b9ce49b6838c819ea1e244fa37e1110ed",
-      "byteSize": 110297
+      "digest": "51adee2ba0240722d895d164030bac388174a760a145fa26de56b67e1dc2db17",
+      "byteSize": 113563
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "c1096210aa71c87b6c3338eec16b2a61ed46ba12636f76a0a7d471938331c465",
-      "byteSize": 5094
+      "digest": "3b16f74959bd10109778a5021b817a9c133be051c041807ae685e342d52dad88",
+      "byteSize": 5095
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "15d0f0f67c49c9ed17feb2a836b8c81506568d3f600edd69a0fc0b9a3eafad7a",
-      "byteSize": 446179
+      "digest": "4757dbe748517e99a2b8276abcdbdcba49d1ea83ff2008db2fc2b0c07b168bec",
+      "byteSize": 446191
     },
     {
       "path": "release/outputs/remotion/qc/mp4-qc.json",
-      "digest": "a80a1396b2da9a9d88f9cdfe78ebdd9e06af2a7b06fa320122d9db067e6a7ebb",
-      "byteSize": 3567
+      "digest": "85e1c85c787d7dddd3836f1069afcf4026fe4e3c0fbdeb2f8778662a9678e9a9",
+      "byteSize": 3566
     },
     {
       "path": "release/outputs/remotion/qc/render-receipt.json",
-      "digest": "0094971162657fa558f755cc81a41b0df94523eac9bef783aafcfdbcbe40d0e0",
+      "digest": "82fbf85837d9c005b00833bccd2cc55ec644cc9c6082fb4fc86f693c1ff42e97",
       "byteSize": 368
     }
   ]

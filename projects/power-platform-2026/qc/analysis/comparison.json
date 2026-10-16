@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "power-platform-2026",
-  "generatedAt": "2026-10-07T03:33:04.150Z",
+  "generatedAt": "2026-10-16T20:26:41.529Z",
   "rows": [
     {
       "title": "power-platform-2026-01",
@@ -473,7 +473,7 @@
     },
     {
       "title": "power-platform-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-2026-09-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -508,7 +508,7 @@
     },
     {
       "title": "power-platform-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-2026-09-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -543,7 +543,7 @@
     },
     {
       "title": "power-platform-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-2026-09-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -578,7 +578,7 @@
     },
     {
       "title": "power-platform-2026-09",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "power-platform-2026-09-am_michael-kokoro.mp4",
       "role": "video",
@@ -608,6 +608,148 @@
       "captionDetail": 12.531,
       "findings": [
         "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-2026-10-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.49,
+      "noiseFloorDbfs": -64.81,
+      "snrDb": 46.32,
+      "speechRatio": 0.7749,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 765.2,
+      "speechHf8k": 0.003419,
+      "speechFlatness": 0.000105,
+      "humProminenceDb": 5.07,
+      "transitions": 9,
+      "staticHolds": 2,
+      "captionDetail": 16.875,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-2026-10-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 60.245,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.3,
+      "speechRmsDbfs": -18.49,
+      "noiseFloorDbfs": -70.32,
+      "snrDb": 51.83,
+      "speechRatio": 0.7882,
+      "longestPauseSeconds": 1.35,
+      "speechCentroidHz": 767,
+      "speechHf8k": 0.020219,
+      "speechFlatness": 0.000142,
+      "humProminenceDb": 5.56,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 16.744,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-2026-10-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-2026-10/power-platform-2026-10-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 64.149,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 4,
+      "speechRmsDbfs": -18.27,
+      "noiseFloorDbfs": -76.38,
+      "snrDb": 58.11,
+      "speechRatio": 0.764,
+      "longestPauseSeconds": 1.55,
+      "speechCentroidHz": 611.4,
+      "speechHf8k": 0.019334,
+      "speechFlatness": 0.00011,
+      "humProminenceDb": 8.4,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 16.859,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "power-platform-2026-10",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "power-platform-2026-10-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.48,
+      "noiseFloorDbfs": -64.98,
+      "snrDb": 46.5,
+      "speechRatio": 0.7745,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 763.4,
+      "speechHf8k": 0.003403,
+      "speechFlatness": 0.000104,
+      "humProminenceDb": 4.96,
+      "transitions": 9,
+      "staticHolds": 2,
+      "captionDetail": 16.874,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
         "info:static-hold"
       ]
     }
