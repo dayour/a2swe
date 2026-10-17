@@ -1,0 +1,404 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-2026",
+  "generatedAt": "2026-10-17T04:10:04.046Z",
+  "source": "release",
+  "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
+  "domainDigest": "feb03a68a7a71432e7961b889446cf9e9d8c27badf233e9aea54b35a7f72331c",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-alm-overview",
+      "title": "Overview of application lifecycle management with Microsoft Power Platform",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-solution-concepts",
+      "title": "Solution concepts",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-pipelines",
+      "title": "Overview of pipelines in Power Platform",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-data-policies",
+      "title": "Data policies",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "one-platform: weakly grounded sentence (0.359): \"Put lifecycle, security, test and release choices in one clear decision frame.\"",
+        "config-and-data: weakly grounded sentence (0.35): \"Keep configuration and business records on separate tracks.\"",
+        "config-and-data: weakly grounded sentence (0.396): \"Set connections, references and variables per target, then migrate table rows, because solutions carry no data.\""
+      ],
+      "eligibleEvidence": 17,
+      "totalEvidence": 17,
+      "leadClaim": "c1",
+      "recommendedOrder": [
+        "one-platform",
+        "managed-artifact",
+        "release-gate",
+        "config-and-data"
+      ],
+      "sections": [
+        {
+          "sectionId": "one-platform",
+          "title": "1. One platform",
+          "relevance": 0.449,
+          "intent": "platform-strategy",
+          "grounding": 0.457,
+          "decision": 0.37,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.664,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Put lifecycle, security, test and release choices in one clear decision frame.",
+              "grounding": 0.359
+            }
+          ]
+        },
+        {
+          "sectionId": "managed-artifact",
+          "title": "2. Managed artifact",
+          "relevance": 0.249,
+          "intent": "blockers",
+          "grounding": 0.782,
+          "decision": 0.468,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.653,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "release-gate",
+          "title": "4. Release gate",
+          "relevance": 0.236,
+          "intent": "governance",
+          "grounding": 0.836,
+          "decision": 0.394,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.606,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "config-and-data",
+          "title": "3. Config and data",
+          "relevance": 0.18,
+          "intent": "market-position",
+          "grounding": 0.373,
+          "decision": 0.472,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.441,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Keep configuration and business records on separate tracks.",
+              "grounding": 0.35
+            },
+            {
+              "text": "Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+              "grounding": 0.396
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c1",
+          "text": "Power Platform ALM spans apps, automation, sites, agents and Dataverse; executives should manage it as one governed delivery path.",
+          "eligible": true,
+          "relevance": 0.412,
+          "intent": "platform-strategy",
+          "support": 0.585,
+          "decision": 0.538,
+          "score": 0.779,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Use source control as truth, build changes in unmanaged solutions, and export managed solutions as downstream build artifacts.",
+          "eligible": true,
+          "relevance": 0.321,
+          "intent": "blockers",
+          "support": 0.665,
+          "decision": 0.451,
+          "score": 0.661,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "Automate delivery with pipelines and CI/CD; Microsoft documentation points to Azure DevOps or GitHub for some scenarios.",
+          "eligible": true,
+          "relevance": 0.174,
+          "intent": "platform-strategy",
+          "support": 0.694,
+          "decision": 0.356,
+          "score": 0.476,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "Before production, check DLP connector controls, tests, analytics, approvals and managed-environment licensing.",
+          "eligible": true,
+          "relevance": 0.305,
+          "intent": "governance",
+          "support": 0.273,
+          "decision": 0.242,
+          "score": 0.365,
+          "rank": 4
+        },
+        {
+          "claimId": "c3",
+          "text": "Promote the same artifact through ordered stages; configure each target, and move Dataverse table records separately.",
+          "eligible": true,
+          "relevance": 0.099,
+          "intent": "engagement-progress",
+          "support": 0.283,
+          "decision": 0.51,
+          "score": 0.274,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "one-platform: weakly grounded sentence (0.359): \"Put lifecycle, security, test and release choices in one clear decision frame.\"",
+        "config-and-data: weakly grounded sentence (0.35): \"Keep configuration and business records on separate tracks.\"",
+        "config-and-data: weakly grounded sentence (0.396): \"Set connections, references and variables per target, then migrate table rows, because solutions carry no data.\""
+      ],
+      "eligibleEvidence": 17,
+      "totalEvidence": 17,
+      "leadClaim": "c1",
+      "recommendedOrder": [
+        "release-gate",
+        "one-platform",
+        "managed-artifact",
+        "config-and-data"
+      ],
+      "sections": [
+        {
+          "sectionId": "release-gate",
+          "title": "4. Release gate",
+          "relevance": 0.261,
+          "intent": "joint-actions",
+          "grounding": 0.836,
+          "decision": 0.394,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.626,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "one-platform",
+          "title": "1. One platform",
+          "relevance": 0.376,
+          "intent": "architecture-choices",
+          "grounding": 0.457,
+          "decision": 0.37,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.606,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Put lifecycle, security, test and release choices in one clear decision frame.",
+              "grounding": 0.359
+            }
+          ]
+        },
+        {
+          "sectionId": "managed-artifact",
+          "title": "2. Managed artifact",
+          "relevance": 0.184,
+          "intent": "architecture-choices",
+          "grounding": 0.782,
+          "decision": 0.468,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.601,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "config-and-data",
+          "title": "3. Config and data",
+          "relevance": 0.217,
+          "intent": "architecture-choices",
+          "grounding": 0.373,
+          "decision": 0.472,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.471,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Keep configuration and business records on separate tracks.",
+              "grounding": 0.35
+            },
+            {
+              "text": "Set connections, references and variables per target, then migrate table rows, because solutions carry no data.",
+              "grounding": 0.396
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c1",
+          "text": "Power Platform ALM spans apps, automation, sites, agents and Dataverse; executives should manage it as one governed delivery path.",
+          "eligible": true,
+          "relevance": 0.373,
+          "intent": "architecture-choices",
+          "support": 0.585,
+          "decision": 0.538,
+          "score": 0.739,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Use source control as truth, build changes in unmanaged solutions, and export managed solutions as downstream build artifacts.",
+          "eligible": true,
+          "relevance": 0.279,
+          "intent": "architecture-choices",
+          "support": 0.665,
+          "decision": 0.451,
+          "score": 0.62,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "Automate delivery with pipelines and CI/CD; Microsoft documentation points to Azure DevOps or GitHub for some scenarios.",
+          "eligible": true,
+          "relevance": 0.247,
+          "intent": "architecture-choices",
+          "support": 0.694,
+          "decision": 0.356,
+          "score": 0.55,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "Before production, check DLP connector controls, tests, analytics, approvals and managed-environment licensing.",
+          "eligible": true,
+          "relevance": 0.343,
+          "intent": "assurance",
+          "support": 0.273,
+          "decision": 0.242,
+          "score": 0.404,
+          "rank": 4
+        },
+        {
+          "claimId": "c3",
+          "text": "Promote the same artifact through ordered stages; configure each target, and move Dataverse table records separately.",
+          "eligible": true,
+          "relevance": 0.122,
+          "intent": "joint-actions",
+          "support": 0.283,
+          "decision": 0.51,
+          "score": 0.296,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.591,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.606,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "one-platform",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.621,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "managed-artifact",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.556,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "config-and-data",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.649,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "release-gate",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.523,
+        "status": "aligned"
+      }
+    ]
+  }
+}

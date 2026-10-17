@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "label": "power-platform-2026-07 af_heart-kokoro_onnx",
-  "analyzedAt": "2026-10-07T00:07:29.736Z",
+  "analyzedAt": "2026-10-17T01:26:49.278Z",
   "input": {
     "file": "power-platform-2026-07-af_heart-kokoro_onnx.mp4",
     "sha256": "503f1edc5f07fb901c20829dcd63b29b8585ed46d8ecc9efcff78c3d27831293",
@@ -368,6 +368,88 @@
         }
       ]
     },
+    "temporal": {
+      "sampleFps": 30,
+      "windowSeconds": 2.133,
+      "hopSeconds": 0.533,
+      "binHz": 0.4688,
+      "windows": 109,
+      "zones": [
+        {
+          "id": "header",
+          "meanDb": 16.08,
+          "lowShare": 0.9768,
+          "highShare": 0.0091,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "headline",
+          "meanDb": 27.14,
+          "lowShare": 0.9902,
+          "highShare": 0.0012,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "narrative",
+          "meanDb": 28.55,
+          "lowShare": 0.9887,
+          "highShare": 0.0009,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "visual",
+          "meanDb": 25.45,
+          "lowShare": 0.9871,
+          "highShare": 0.003,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "caption",
+          "meanDb": 32.57,
+          "lowShare": 0.8753,
+          "highShare": 0.0396,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "footer",
+          "meanDb": 16.73,
+          "lowShare": 0.9898,
+          "highShare": 0.0008,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        }
+      ]
+    },
+    "spatial": {
+      "sampleFps": 2,
+      "frames": 120,
+      "fineCyclesPerPixel": 0.18,
+      "bands": [
+        {
+          "id": "headline",
+          "medianFineShare": 0.02557,
+          "p10FineShare": 0.01736,
+          "p90FineShare": 0.03241
+        },
+        {
+          "id": "body",
+          "medianFineShare": 0.19633,
+          "p10FineShare": 0.15224,
+          "p90FineShare": 0.25404
+        },
+        {
+          "id": "caption",
+          "medianFineShare": 0.07877,
+          "p10FineShare": 0.07407,
+          "p90FineShare": 0.08561
+        }
+      ]
+    },
     "frames": [
       {
         "kind": "mid title",
@@ -485,6 +567,8 @@
   },
   "images": {
     "layers": "layers.png",
+    "videoSpectrogram": "video-spectrogram.jpg",
+    "spatialSpectrogram": "spatial-spectrogram.jpg",
     "spectrogram": "spectrogram.jpg",
     "spectrogramSpeech": "spectrogram-speech.jpg",
     "waveform": "waveform.png",
@@ -512,7 +596,8 @@
     "maxPauseSeconds": 2.5,
     "minSpeechRatio": 0.6,
     "maxBlackSeconds": 0.5,
-    "maxStaticHoldSeconds": 8
+    "maxStaticHoldSeconds": 8,
+    "maxFlickerSeconds": 1.5
   },
   "findings": [
     {
@@ -534,6 +619,8 @@
     "activity": "50 ms RMS windows every 25 ms; active above max(-55 dBFS, p95 - 28 dB); dips under 150 ms bridged.",
     "loudness": "FFmpeg ebur128 integrated loudness, loudness range and true peak (ITU-R BS.1770).",
     "layers": "384x216 luma at 5 fps; per-zone mean absolute frame difference (motion) and gradient magnitude (detail).",
+    "videoSpectrogram": "96x54 luma at the native frame rate; per-pixel 64-frame Hann STFT, 16-frame hop, power averaged per layout zone; flicker = a peak at 3 Hz or above standing 12 dB over its band and carrying 15% of the window's motion, sustained.",
+    "spatialSpectrogram": "1024x576 luma at 2 fps; 1024-point Hann FFT of every second row per content band; fine-detail share above 0.18 cycles/px.",
     "video": "FFmpeg scdet scene changes, blackdetect and freezedetect on a 640 px proxy."
   }
 }

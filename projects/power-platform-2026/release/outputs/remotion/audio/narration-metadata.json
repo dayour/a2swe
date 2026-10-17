@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -2.0098981073218836e-12,
-      "highFrequencyRatio8k": 0.003936881006457192,
-      "rmsDbfs": -27.859689206222757,
-      "spectralFlatness": 4.4100033926389037e-07
+      "dcOffset": -9.826168524684764e-12,
+      "highFrequencyRatio8k": 0.0038960146374858134,
+      "rmsDbfs": -27.86373772758406,
+      "spectralFlatness": 4.343103859253581e-07
     },
     "before": {
-      "dcOffset": 1.2788030289812014e-05,
-      "highFrequencyRatio8k": 0.003936874000869122,
-      "rmsDbfs": -27.859074213674454,
-      "spectralFlatness": 4.247496628821493e-07
+      "dcOffset": 1.2897921806143131e-05,
+      "highFrequencyRatio8k": 0.003896007957913995,
+      "rmsDbfs": -27.863123248403838,
+      "spectralFlatness": 4.181526887312422e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/power-platform-2026/audio.wav",
-  "audioSha256": "5e1f1ae340d37c937e8caf5e4bd009cb0ccf12bcbae13d15a08ac892abb0166a",
+  "audioSha256": "527d16915a01d0a85c745d169b760b3a4234802238f1d5a8296b8d44ec3e8042",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,9 +66,9 @@
   "mastering": {
     "gainDb": 8.7,
     "inputLufs": -24.34,
-    "limitedSampleRatio": 0.03293,
-    "maxLimiterReductionDb": 6.93,
-    "outputLufs": -16.06,
+    "limitedSampleRatio": 0.03357,
+    "maxLimiterReductionDb": 6.53,
+    "outputLufs": -16.05,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16.0,
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2788015668178935e-05,
-    "peak": 0.6771668195724487,
-    "rms": 0.040464635518590676
+    "dc": 1.2897919916181106e-05,
+    "peak": 0.6545413732528687,
+    "rms": 0.04044577922106452
   },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

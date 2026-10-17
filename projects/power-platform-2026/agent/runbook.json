@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "power-platform-2026",
   "projectId": "power-platform-2026",
-  "updatedAt": "2026-10-16T20:27:34.108Z",
+  "updatedAt": "2026-10-17T04:10:05.401Z",
   "domainDigest": "feb03a68a7a71432e7961b889446cf9e9d8c27badf233e9aea54b35a7f72331c",
   "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
   "stage": "delivery",
@@ -23,25 +23,31 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "3b16f74959bd10109778a5021b817a9c133be051c041807ae685e342d52dad88"
+      "evidenceDigest": "8bdb0cee5d29a49838db22d66830e19c6dabb746924567a781e5017831877a4b"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "2b09c1853026cd3bb1fdca17a38987b30f38925c8c218c29b46aac01ebba9250"
+      "evidenceDigest": "a17574954e35b005b6800154eeab03383494d27bfaad43291a7b9e24fb32bf57"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "b38f2e59b67fb9c31e398a25f2e249903a95b499b9b307f0bd6920b6be6903fa"
+      "evidencePath": "qc/analysis/power-platform-2026-11/power-platform-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "1bcfafa9ed6211a68f0fc0bd68cb2b3d7ba5a43f41fca120428903655b43b50b"
+    },
+    {
+      "name": "audience-alignment",
+      "status": "passed",
+      "evidencePath": "qc/alignment/alignment.json",
+      "evidenceDigest": "1f02085e0460f09e39b71947c5a5400e470214f1717b0aa0ad5e26f1b378407b"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "ffa6ab8c69c1721c893ab8cdc09e659c061ba3fee4811dcc045ef23327e03e0d"
+      "evidenceDigest": "47c144c2f8770d6ecaa965eceaf4605a34e3827a713e2fcf055637d469895fc7"
     }
   ],
   "stages": [
@@ -109,7 +115,8 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/power-platform-2026-11/power-platform-2026-11-am_michael-kokoro_onnx/analysis.json",
+        "qc/alignment/alignment.json"
       ]
     },
     {
@@ -158,97 +165,103 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "adfd5ed0cac7be8756f9dd84d467235eb6396020ea69fa069bc96e13b385320c",
+      "digest": "f827e7e01a9b4e6ff20ee6451aa7f7142e0c951c3f8385ba9e69a5fb104fc70d",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "204840ee4e4af61063ed9b76faf22ea06c6036ea18ded2211aa40d7fcbc771b9",
+      "digest": "199c14041345a771a6d027123a9b2fa046ceca1edfe31fe1be6a9b0ee7d3079e",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "487922e0659a7f02138a4564b5ab7e47637ac7753fb94b0fc8eaae7b00095d39",
+      "digest": "481e5b6a952153001723866261c6728e504176da551e2390984a9e4c83829f3f",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "8596b81cc9b09414fe38c7cb2aa4a3a0e7ae0bb897937982acb179af538e4088",
+      "digest": "8e23ba78cd87fb61b0109554024d5c826cbf2154cac80a2c2da9c63ec8e6633e",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "244f451104b1e0c9bb35ab9e8d6558c5e7b3a3b960367c1a11ec321bf783b533",
+      "digest": "26755e3e6a4dc986f76c24f7b0aa520ee3d04fff73f6c938aa48a66d748d6edc",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "d5d377d4e347b3a7f33ad71036cb22d9d58180caea90e31b385f099a00901b7a",
+      "digest": "067dbdd76fbcf4f0293bfb22ca41b733709f5ea89568a20431fb8658a95c0052",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "1c53ee1ca9553b7298c35effac071eabb93c0f509d425a4ef95d77c71caa8ade",
+      "digest": "794b9c6b0574031163305f316d6d7c5d76958fdeade179582f3a8ee133a0bc6a",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "2dfd14413f9b5aa6ba2536af6b2a5497b22bb57afd03b6f751bcec90388c4462",
+      "digest": "f148a0ba123700b9eed9a05ed522da8bf52b9a10e3eb52ad93372b1ff4c73af2",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "3615ccca4b4f49c441d58d90def991fb8119a8052d9c62aaa9a028940756a8c0",
+      "digest": "61e09808c06ea187b68043f9b4a91721c822eb104f105414ae3c9d7e433bb10a",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "3b16f74959bd10109778a5021b817a9c133be051c041807ae685e342d52dad88",
+      "digest": "8bdb0cee5d29a49838db22d66830e19c6dabb746924567a781e5017831877a4b",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "4757dbe748517e99a2b8276abcdbdcba49d1ea83ff2008db2fc2b0c07b168bec",
+      "digest": "f09ab2127377a16dde845cebdcf3d8b76b14b3861f9692477d134927e9ee4d7c",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "ffa6ab8c69c1721c893ab8cdc09e659c061ba3fee4811dcc045ef23327e03e0d",
+      "digest": "47c144c2f8770d6ecaa965eceaf4605a34e3827a713e2fcf055637d469895fc7",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "2b09c1853026cd3bb1fdca17a38987b30f38925c8c218c29b46aac01ebba9250",
+      "digest": "a17574954e35b005b6800154eeab03383494d27bfaad43291a7b9e24fb32bf57",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/power-platform-2026-10/power-platform-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "digest": "b38f2e59b67fb9c31e398a25f2e249903a95b499b9b307f0bd6920b6be6903fa",
+      "path": "qc/analysis/power-platform-2026-11/power-platform-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "digest": "1bcfafa9ed6211a68f0fc0bd68cb2b3d7ba5a43f41fca120428903655b43b50b",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/alignment/alignment.json",
+      "digest": "1f02085e0460f09e39b71947c5a5400e470214f1717b0aa0ad5e26f1b378407b",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "28965ed95b34ad98544f69870928f3a84eb1d1dca12bdbe77a1530b9d647143e",
+      "digest": "cc14f2fa8f484fccf8f201bea9eba131b4c7fccb64843ebede30826704e45bf9",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "b232b6d817fa2f69a48d901259d73d975f021e6e9b60f0f3d397ac395fc5a08e",
+      "digest": "8ae3c720d552c5d4d8a78b77df74b590bfdecf8321bbc9e6dd90d7659dddb37f",
       "mediaType": "application/json",
       "stage": "delivery"
     }

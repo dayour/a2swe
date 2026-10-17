@@ -6,7 +6,7 @@
   "number": 10,
   "createdAt": "2026-10-16T20:09:07.831Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/power-platform-2026-10",
   "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "1f0af9213297ded2e5fbf819961efda43d2136e4798a927dc3e4490ade57dce5",
-      "package": "release",
+      "package": "qc/revisions/power-platform-2026-10/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",

@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-12",
+  "adapter": "a2swe-remotion-mp4-adapter-13",
   "contentDigest": "2e5c391d9580c06b5f86391c4badd0ed17649944b7f3198a92fa0185cca73b75",
   "input": "dist/render.mp4",
-  "inputSha256": "3615ccca4b4f49c441d58d90def991fb8119a8052d9c62aaa9a028940756a8c0",
-  "sourceAudioSha256": "5e1f1ae340d37c937e8caf5e4bd009cb0ccf12bcbae13d15a08ac892abb0166a",
+  "inputSha256": "61e09808c06ea187b68043f9b4a91721c822eb104f105414ae3c9d7e433bb10a",
+  "sourceAudioSha256": "527d16915a01d0a85c745d169b760b3a4234802238f1d5a8296b8d44ec3e8042",
   "sampleRate": 48000,
   "durationSeconds": 66.794667,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 66.794667,
-      "rmsDbfs": -19.598008,
-      "peakDbfs": -1.488168,
-      "highFrequencyRatio8k": 0.004004,
+      "rmsDbfs": -19.596498,
+      "peakDbfs": -1.503827,
+      "highFrequencyRatio8k": 0.004005,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 63.775,
-      "rmsDbfs": -19.397094,
-      "peakDbfs": -1.488168,
-      "highFrequencyRatio8k": 0.003958,
+      "rmsDbfs": -19.395585,
+      "peakDbfs": -1.503827,
+      "highFrequencyRatio8k": 0.003967,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,7 +82,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.602906,
+    "snrSpeechVsSilenceDb": 220.604415,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 3.4,
@@ -92,9 +92,9 @@
   "mastering": {
     "gainDb": 8.7,
     "inputLufs": -24.34,
-    "limitedSampleRatio": 0.03293,
-    "maxLimiterReductionDb": 6.93,
-    "outputLufs": -16.06,
+    "limitedSampleRatio": 0.03357,
+    "maxLimiterReductionDb": 6.53,
+    "outputLufs": -16.05,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16,
