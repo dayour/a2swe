@@ -1,0 +1,550 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "datadog-cowork-plugin",
+  "generatedAt": "2026-10-17T03:04:43.538Z",
+  "source": "release",
+  "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
+  "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-claude-code-plugin",
+      "title": "Datadog Claude Code Plugin",
+      "host": "github.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-mcp-overview",
+      "title": "Datadog MCP Server",
+      "host": "docs.datadoghq.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-mcp-setup",
+      "title": "Set Up the Datadog MCP Server",
+      "host": "docs.datadoghq.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-claude-marketplace",
+      "title": "Datadog | Claude by Anthropic",
+      "host": "claude.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "what-it-is: low relevance to internal priorities (0.148).",
+        "where-it-runs: low relevance to internal priorities (0.126).",
+        "setup: weakly grounded sentence (0.357): \"Keys are supported, and older manual servers or custom connectors should be removed first.\"",
+        "setup: low relevance to internal priorities (0.139)."
+      ],
+      "eligibleEvidence": 15,
+      "totalEvidence": 15,
+      "leadClaim": "c2",
+      "recommendedOrder": [
+        "control",
+        "access",
+        "risk",
+        "what-it-is",
+        "setup",
+        "where-it-runs"
+      ],
+      "sections": [
+        {
+          "sectionId": "control",
+          "title": "Control. Choose the toolsets.",
+          "relevance": 0.24,
+          "intent": "governance",
+          "grounding": 0.624,
+          "decision": 0.542,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.683,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "access",
+          "title": "Access. Your permissions still apply.",
+          "relevance": 0.231,
+          "intent": "blockers",
+          "grounding": 0.789,
+          "decision": 0.467,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.638,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "risk",
+          "title": "Risk. Preview, compliance, site limits.",
+          "relevance": 0.229,
+          "intent": "account-risk",
+          "grounding": 0.822,
+          "decision": 0.386,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.596,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "what-it-is",
+          "title": "A bridge. Not a dashboard.",
+          "relevance": 0.148,
+          "intent": "governance",
+          "grounding": 0.836,
+          "decision": 0.448,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.562,
+          "rank": 4,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "setup",
+          "title": "Set up. Pick a site, sign in.",
+          "relevance": 0.139,
+          "intent": "governance",
+          "grounding": 0.644,
+          "decision": 0.428,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.545,
+          "rank": 5,
+          "weakSentences": [
+            {
+              "text": "Keys are supported, and older manual servers or custom connectors should be removed first.",
+              "grounding": 0.357
+            }
+          ]
+        },
+        {
+          "sectionId": "where-it-runs",
+          "title": "Where it runs. Cowork and Claude Code.",
+          "relevance": 0.126,
+          "intent": "customer-signals",
+          "grounding": 0.608,
+          "decision": 0.175,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.408,
+          "rank": 6,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c2",
+          "text": "The Datadog plugin and its marketplace listing are in Preview.",
+          "eligible": true,
+          "relevance": 0.191,
+          "intent": "platform-strategy",
+          "support": 0.571,
+          "decision": 0.579,
+          "score": 0.565,
+          "rank": 1
+        },
+        {
+          "claimId": "c8",
+          "text": "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
+          "eligible": true,
+          "relevance": 0.244,
+          "intent": "platform-strategy",
+          "support": 0.917,
+          "decision": 0.379,
+          "score": 0.556,
+          "rank": 2
+        },
+        {
+          "claimId": "c9",
+          "text": "Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates.",
+          "eligible": true,
+          "relevance": 0.191,
+          "intent": "accountability",
+          "support": 0.92,
+          "decision": 0.396,
+          "score": 0.509,
+          "rank": 3
+        },
+        {
+          "claimId": "c4",
+          "text": "You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider.",
+          "eligible": true,
+          "relevance": 0.166,
+          "intent": "blockers",
+          "support": 0.675,
+          "decision": 0.454,
+          "score": 0.508,
+          "rank": 4
+        },
+        {
+          "claimId": "c7",
+          "text": "Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts.",
+          "eligible": true,
+          "relevance": 0.14,
+          "intent": "blockers",
+          "support": 0.831,
+          "decision": 0.508,
+          "score": 0.503,
+          "rank": 5
+        },
+        {
+          "claimId": "c1",
+          "text": "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language.",
+          "eligible": true,
+          "relevance": 0.162,
+          "intent": "decision",
+          "support": 0.731,
+          "decision": 0.345,
+          "score": 0.46,
+          "rank": 6
+        },
+        {
+          "claimId": "c6",
+          "text": "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites.",
+          "eligible": true,
+          "relevance": 0.129,
+          "intent": "governance",
+          "support": 0.832,
+          "decision": 0.41,
+          "score": 0.453,
+          "rank": 7
+        },
+        {
+          "claimId": "c3",
+          "text": "Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.",
+          "eligible": true,
+          "relevance": 0.136,
+          "intent": "governance",
+          "support": 0.659,
+          "decision": 0.348,
+          "score": 0.436,
+          "rank": 8
+        },
+        {
+          "claimId": "c5",
+          "text": "Groups of MCP tools can be enabled or disabled with the toolsets command.",
+          "eligible": true,
+          "relevance": 0.14,
+          "intent": "accountability",
+          "support": 0.612,
+          "decision": 0.209,
+          "score": 0.384,
+          "rank": 9
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "what-it-is: low relevance to external priorities (0.177).",
+        "where-it-runs: low relevance to external priorities (0.124).",
+        "setup: weakly grounded sentence (0.357): \"Keys are supported, and older manual servers or custom connectors should be removed first.\"",
+        "setup: low relevance to external priorities (0.148)."
+      ],
+      "eligibleEvidence": 15,
+      "totalEvidence": 15,
+      "leadClaim": "c6",
+      "recommendedOrder": [
+        "control",
+        "risk",
+        "access",
+        "what-it-is",
+        "setup",
+        "where-it-runs"
+      ],
+      "sections": [
+        {
+          "sectionId": "control",
+          "title": "Control. Choose the toolsets.",
+          "relevance": 0.201,
+          "intent": "architecture-choices",
+          "grounding": 0.624,
+          "decision": 0.542,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.652,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "risk",
+          "title": "Risk. Preview, compliance, site limits.",
+          "relevance": 0.287,
+          "intent": "assurance",
+          "grounding": 0.822,
+          "decision": 0.386,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.643,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "access",
+          "title": "Access. Your permissions still apply.",
+          "relevance": 0.207,
+          "intent": "assurance",
+          "grounding": 0.789,
+          "decision": 0.467,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.619,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "what-it-is",
+          "title": "A bridge. Not a dashboard.",
+          "relevance": 0.177,
+          "intent": "architecture-choices",
+          "grounding": 0.836,
+          "decision": 0.448,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.586,
+          "rank": 4,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "setup",
+          "title": "Set up. Pick a site, sign in.",
+          "relevance": 0.148,
+          "intent": "assurance",
+          "grounding": 0.644,
+          "decision": 0.428,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.553,
+          "rank": 5,
+          "weakSentences": [
+            {
+              "text": "Keys are supported, and older manual servers or custom connectors should be removed first.",
+              "grounding": 0.357
+            }
+          ]
+        },
+        {
+          "sectionId": "where-it-runs",
+          "title": "Where it runs. Cowork and Claude Code.",
+          "relevance": 0.124,
+          "intent": "architecture-choices",
+          "grounding": 0.608,
+          "decision": 0.175,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.407,
+          "rank": 6,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c6",
+          "text": "The Datadog MCP Server is HIPAA-eligible, customers remain responsible for the compliance of the AI tools they connect, and the server is not supported on the Datadog government sites.",
+          "eligible": true,
+          "relevance": 0.22,
+          "intent": "assurance",
+          "support": 0.832,
+          "decision": 0.41,
+          "score": 0.544,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "The Datadog plugin and its marketplace listing are in Preview.",
+          "eligible": true,
+          "relevance": 0.132,
+          "intent": "architecture-choices",
+          "support": 0.571,
+          "decision": 0.579,
+          "score": 0.506,
+          "rank": 2
+        },
+        {
+          "claimId": "c3",
+          "text": "Setup asks you to choose a Datadog site and sign in with OAuth in the browser; API and application keys are a supported alternative.",
+          "eligible": true,
+          "relevance": 0.185,
+          "intent": "assurance",
+          "support": 0.659,
+          "decision": 0.348,
+          "score": 0.484,
+          "rank": 3
+        },
+        {
+          "claimId": "c8",
+          "text": "For Claude, including Claude Cowork, the official Datadog connector is the recommended path and includes MCP Apps for in-product visualizations.",
+          "eligible": true,
+          "relevance": 0.17,
+          "intent": "capabilities",
+          "support": 0.917,
+          "decision": 0.379,
+          "score": 0.482,
+          "rank": 4
+        },
+        {
+          "claimId": "c7",
+          "text": "Remove any separately registered Datadog MCP server or custom connector first to avoid conflicts.",
+          "eligible": true,
+          "relevance": 0.09,
+          "intent": "joint-actions",
+          "support": 0.831,
+          "decision": 0.508,
+          "score": 0.463,
+          "rank": 5
+        },
+        {
+          "claimId": "c9",
+          "text": "Claude Code installs the Datadog plugin from the official Anthropic Plugin Marketplace; the plugin bundles the MCP Server with skills and auto-updates.",
+          "eligible": true,
+          "relevance": 0.145,
+          "intent": "architecture-choices",
+          "support": 0.92,
+          "decision": 0.396,
+          "score": 0.463,
+          "rank": 6
+        },
+        {
+          "claimId": "c1",
+          "text": "The Datadog MCP Server bridges Datadog observability data to AI agents, so logs, metrics, traces, dashboards and monitors can be queried in natural language.",
+          "eligible": true,
+          "relevance": 0.146,
+          "intent": "assurance",
+          "support": 0.731,
+          "decision": 0.345,
+          "score": 0.444,
+          "rank": 7
+        },
+        {
+          "claimId": "c4",
+          "text": "You need Datadog permissions for the resources you query, and the plugin states that no Datadog credentials are sent to the AI model provider.",
+          "eligible": true,
+          "relevance": 0.095,
+          "intent": "assurance",
+          "support": 0.675,
+          "decision": 0.454,
+          "score": 0.442,
+          "rank": 8
+        },
+        {
+          "claimId": "c5",
+          "text": "Groups of MCP tools can be enabled or disabled with the toolsets command.",
+          "eligible": true,
+          "relevance": 0.072,
+          "intent": "architecture-choices",
+          "support": 0.612,
+          "decision": 0.209,
+          "score": 0.344,
+          "rank": 9
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.699,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.568,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "what-it-is",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.723,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "where-it-runs",
+        "kind": "section",
+        "visual": null,
+        "similarity": 0.763,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "setup",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.857,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "access",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.743,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "control",
+        "kind": "section",
+        "visual": null,
+        "similarity": 0.604,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "risk",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.638,
+        "status": "aligned"
+      }
+    ]
+  }
+}

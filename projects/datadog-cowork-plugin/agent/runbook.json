@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "datadog-cowork-plugin",
   "projectId": "datadog-cowork-plugin",
-  "updatedAt": "2026-10-16T19:51:47.078Z",
+  "updatedAt": "2026-10-17T03:04:44.666Z",
   "domainDigest": "15cb57f4386a6294f75f076dcc5b4917e89bcd3b26a822d8f1507998a7c71a9d",
   "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
   "stage": "delivery",
@@ -23,25 +23,31 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "509b11b26f9e925d5c681f46d7741feab6ec3e332899038977cb80d97e4b914f"
+      "evidenceDigest": "2850a7599612e03f4aa1b6bee43af346633b3f47bee4c9022202998019926ccf"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "d847fbece0e9406f0cc7686e9d23386d0e7b1859c1edc2c145609c70a36cb1a8"
+      "evidenceDigest": "287d700a8f628c16f5c0b6ab96b3a83183565b8bba0298ba608f9757475e3473"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "34b5c55ba68e260f602332dbaa676e60797cbbeacd68eac4b801509a3f42dccb"
+      "evidencePath": "qc/analysis/datadog-cowork-plugin-2026-07/datadog-cowork-plugin-2026-07-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "ddb86480664d58a5e9788ae5b52308b10b2b84418e841ea60ae1d14e24199126"
+    },
+    {
+      "name": "audience-alignment",
+      "status": "passed",
+      "evidencePath": "qc/alignment/alignment.json",
+      "evidenceDigest": "80246b812b69cca167a29e1f3caa5dfff5b798fe0cb64bb2221b1e9c22578e43"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "ec80601cbec3d55d719dcb601d993140070776eb6a5311e0d861b40c62902236"
+      "evidenceDigest": "df5d48231989d2b8a7f644f870698cd29444abf2fd1900c392a7ae8029c92f8c"
     }
   ],
   "stages": [
@@ -109,7 +115,8 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/datadog-cowork-plugin-2026-07/datadog-cowork-plugin-2026-07-am_michael-kokoro_onnx/analysis.json",
+        "qc/alignment/alignment.json"
       ]
     },
     {
@@ -158,97 +165,103 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "02f4088a5fac1506b2738584800f5ef5c57af2a86eca6c6bd738707054fd0990",
+      "digest": "569a9f3315d966fea0e8a8bd77a851b334050ed1a806768d309f688802b4f741",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "94004342fb6736f4c5e6021e6d6635423a7f9d718686d6d5d3a96019aba42327",
+      "digest": "5e2ba6d9a72e4c9762f132a9ab490102329bcd341582f7f0703f0e247be592df",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "673b5011b87052e5414fd07333b5754a7ff8a5c673a939cd5516da2db0fb99c1",
+      "digest": "a6a69c7c85d9aebf1967645b4c645b06cef9e6c0179caa389b2fc2c3454012df",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "1ed643d11258c9a68d64800ba62d0c5d65bb2f7d8abbc4740f1850e07a590698",
+      "digest": "bb9d3a657e2e48f69625d71d3a66b353ef199942845d1853d54c02cdbed1ea68",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "abe3e33819fc7bc9c9f7706a01de2beac28b49b6097bc33f96498c4e91cb383d",
+      "digest": "bca2841f554d1abae04e1cc47fc3a75662c771a48163016e4ffa2192721c2a03",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "f119415a21658b7fbbabe8a78c2f764b2332a34d9d8d016702206cdce2fecadb",
+      "digest": "648a5d34cf373b46c73f3559529dd5102b12b81148a1e25d11f9442e3dda8ca4",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "20f724f8edca512b0e11516955286028ee0fe2eb82f90ef6648aac213117d0d9",
+      "digest": "f1ee0639a50042771769ccadc9eae8157ba0cc33d38cb5f62e32342d8b04221d",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "0c16b78a0d570d66ece961b48d3ab708489ef11e042bb8ec418a750ec84f565d",
+      "digest": "6301f7f7eb71b33346f45631ac927eb79229338c929bc182a2ab0b9f0be1639f",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "838df0114b0074078e693299a63d0d0dbdfb5f3f053ae52c73459fca1d6bf31c",
+      "digest": "5ddd9795b4efe520113a76603dbbcdcf8039e08b6d8d447dc014a6cb26861f47",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "509b11b26f9e925d5c681f46d7741feab6ec3e332899038977cb80d97e4b914f",
+      "digest": "2850a7599612e03f4aa1b6bee43af346633b3f47bee4c9022202998019926ccf",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "816c84b2ccfd446714c1e3462a4ff41ba1f13276ff4c61f4bf3d0af11a8d6b08",
+      "digest": "1a7c44e765881fa61c4de3b9e9a93ffcd00952e2967627a3e942ed280e3853da",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "ec80601cbec3d55d719dcb601d993140070776eb6a5311e0d861b40c62902236",
+      "digest": "df5d48231989d2b8a7f644f870698cd29444abf2fd1900c392a7ae8029c92f8c",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "d847fbece0e9406f0cc7686e9d23386d0e7b1859c1edc2c145609c70a36cb1a8",
+      "digest": "287d700a8f628c16f5c0b6ab96b3a83183565b8bba0298ba608f9757475e3473",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/datadog-cowork-plugin-2026-06/datadog-cowork-plugin-2026-06-am_michael-kokoro_onnx/analysis.json",
-      "digest": "34b5c55ba68e260f602332dbaa676e60797cbbeacd68eac4b801509a3f42dccb",
+      "path": "qc/analysis/datadog-cowork-plugin-2026-07/datadog-cowork-plugin-2026-07-am_michael-kokoro_onnx/analysis.json",
+      "digest": "ddb86480664d58a5e9788ae5b52308b10b2b84418e841ea60ae1d14e24199126",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/alignment/alignment.json",
+      "digest": "80246b812b69cca167a29e1f3caa5dfff5b798fe0cb64bb2221b1e9c22578e43",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "11d3c883b5cf1ddb4a68b8df0f1fef2cf92ebaad9a138002148d6c4f56d1f06a",
+      "digest": "d01ce39b1ea9314d44c7bbd550fad1bbaa538f7d4c74b86f51451987853c663d",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "ac96b29bb519814fdc88ac857fcaa6495bf5906ad781c4901aefb020521da5c6",
+      "digest": "b32aeb8425f1069479e2c76649b4202388d0ad2f5ae9e59ccf2186bcf6e535ec",
       "mediaType": "application/json",
       "stage": "delivery"
     }

@@ -6,7 +6,7 @@
   "number": 6,
   "createdAt": "2026-10-16T19:31:40.400Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/datadog-cowork-plugin-2026-06",
   "contentDigest": "4fbdb38239b65165fc92446e9401902c8487e055eb2f8048121258c431561cdc",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "9f4ae67039aac99b44c922731d339e60036a73025833697d6d40da921acabd90",
-      "package": "release",
+      "package": "qc/revisions/datadog-cowork-plugin-2026-06/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",
