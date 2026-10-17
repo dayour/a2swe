@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-studio-2026",
+  "generatedAt": "2026-10-17T03:52:24.862Z",
+  "source": "release",
+  "contentDigest": "f74aa5f7667aa4d29694cb00f14e5d48a91d501e5deacab66407fab884736fe4",
+  "domainDigest": "bfc030cc8e8f14f86a164aad9db24305bcde8f292e79ed09452bf138fab97624",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-overview",
+      "title": "Overview - Microsoft Copilot Studio",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-generative-orchestration",
+      "title": "Orchestrate agent behavior with generative AI",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-tools-custom-agent",
+      "title": "Add tools to custom agents",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-security-governance",
+      "title": "Security and governance",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "govern-platform: weakly grounded sentence (0.381): \"Scale only with enterprise controls attached.\""
+      ],
+      "eligibleEvidence": 15,
+      "totalEvidence": 15,
+      "leadClaim": "c5",
+      "recommendedOrder": [
+        "govern-platform",
+        "tools-execute",
+        "orchestrate-choices",
+        "managed-build"
+      ],
+      "sections": [
+        {
+          "sectionId": "govern-platform",
+          "title": "4. Govern the platform",
+          "relevance": 0.476,
+          "intent": "platform-strategy",
+          "grounding": 0.498,
+          "decision": 0.471,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.765,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Scale only with enterprise controls attached.",
+              "grounding": 0.381
+            }
+          ]
+        },
+        {
+          "sectionId": "tools-execute",
+          "title": "3. Tools execute work",
+          "relevance": 0.251,
+          "intent": "blockers",
+          "grounding": 0.689,
+          "decision": 0.338,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.59,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "orchestrate-choices",
+          "title": "2. Orchestrate choices",
+          "relevance": 0.278,
+          "intent": "decision",
+          "grounding": 0.773,
+          "decision": 0.287,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.586,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "managed-build",
+          "title": "1. Managed build surface",
+          "relevance": 0.233,
+          "intent": "governance",
+          "grounding": 0.749,
+          "decision": 0.312,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.562,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c5",
+          "text": "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates.",
+          "eligible": true,
+          "relevance": 0.383,
+          "intent": "governance",
+          "support": 0.586,
+          "decision": 0.502,
+          "score": 0.735,
+          "rank": 1
+        },
+        {
+          "claimId": "c3",
+          "text": "Tools move intent to action through connectors, agent flows, prompts, REST APIs, MCP and computer use, with policy restrictions available.",
+          "eligible": true,
+          "relevance": 0.3,
+          "intent": "blockers",
+          "support": 0.573,
+          "decision": 0.414,
+          "score": 0.609,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "Enterprise control includes data policies, audit visibility, Agent 365 governance, Entra agent identities and security controls.",
+          "eligible": true,
+          "relevance": 0.398,
+          "intent": "governance",
+          "support": 0.422,
+          "decision": 0.364,
+          "score": 0.596,
+          "rank": 3
+        },
+        {
+          "claimId": "c2",
+          "text": "Generative orchestration lets agents choose tools, knowledge, topics or other agents, ask for missing inputs and compose responses.",
+          "eligible": true,
+          "relevance": 0.166,
+          "intent": "decision",
+          "support": 0.74,
+          "decision": 0.36,
+          "score": 0.47,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Studio is a low-code studio for agents, workflows and agent flows that connect to business data and publish to work channels.",
+          "eligible": true,
+          "relevance": 0.181,
+          "intent": "governance",
+          "support": 0.598,
+          "decision": 0.268,
+          "score": 0.447,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "govern-platform: weakly grounded sentence (0.381): \"Scale only with enterprise controls attached.\""
+      ],
+      "eligibleEvidence": 15,
+      "totalEvidence": 15,
+      "leadClaim": "c5",
+      "recommendedOrder": [
+        "govern-platform",
+        "managed-build",
+        "orchestrate-choices",
+        "tools-execute"
+      ],
+      "sections": [
+        {
+          "sectionId": "govern-platform",
+          "title": "4. Govern the platform",
+          "relevance": 0.348,
+          "intent": "assurance",
+          "grounding": 0.498,
+          "decision": 0.471,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.662,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Scale only with enterprise controls attached.",
+              "grounding": 0.381
+            }
+          ]
+        },
+        {
+          "sectionId": "managed-build",
+          "title": "1. Managed build surface",
+          "relevance": 0.349,
+          "intent": "architecture-choices",
+          "grounding": 0.749,
+          "decision": 0.312,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.655,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "orchestrate-choices",
+          "title": "2. Orchestrate choices",
+          "relevance": 0.306,
+          "intent": "architecture-choices",
+          "grounding": 0.773,
+          "decision": 0.287,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.608,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "tools-execute",
+          "title": "3. Tools execute work",
+          "relevance": 0.216,
+          "intent": "capabilities",
+          "grounding": 0.689,
+          "decision": 0.338,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.562,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c5",
+          "text": "Executives should treat Copilot Studio as a managed agent platform with monitoring, governance, evaluations, administration and policy gates.",
+          "eligible": true,
+          "relevance": 0.376,
+          "intent": "architecture-choices",
+          "support": 0.586,
+          "decision": 0.502,
+          "score": 0.729,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Generative orchestration lets agents choose tools, knowledge, topics or other agents, ask for missing inputs and compose responses.",
+          "eligible": true,
+          "relevance": 0.305,
+          "intent": "architecture-choices",
+          "support": 0.74,
+          "decision": 0.36,
+          "score": 0.609,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "Enterprise control includes data policies, audit visibility, Agent 365 governance, Entra agent identities and security controls.",
+          "eligible": true,
+          "relevance": 0.388,
+          "intent": "assurance",
+          "support": 0.422,
+          "decision": 0.364,
+          "score": 0.586,
+          "rank": 3
+        },
+        {
+          "claimId": "c3",
+          "text": "Tools move intent to action through connectors, agent flows, prompts, REST APIs, MCP and computer use, with policy restrictions available.",
+          "eligible": true,
+          "relevance": 0.228,
+          "intent": "architecture-choices",
+          "support": 0.573,
+          "decision": 0.414,
+          "score": 0.537,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Studio is a low-code studio for agents, workflows and agent flows that connect to business data and publish to work channels.",
+          "eligible": true,
+          "relevance": 0.234,
+          "intent": "architecture-choices",
+          "support": 0.598,
+          "decision": 0.268,
+          "score": 0.5,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.562,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.761,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "managed-build",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.536,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "orchestrate-choices",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.389,
+        "status": "weak"
+      },
+      {
+        "sceneId": "tools-execute",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.431,
+        "status": "weak"
+      },
+      {
+        "sceneId": "govern-platform",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.692,
+        "status": "aligned"
+      }
+    ]
+  }
+}

@@ -151,6 +151,15 @@ function fitLabels(elements: unknown[]): unknown[] {
   });
 }
 
+// convertToExcalidrawElements draws a random rough.js seed per element, and Remotion renders frames in parallel browser tabs that each
+// convert the diagram, so every tab drew different hand-drawn strokes and the diagram boiled at the frame rate divided by the tab count.
+// Seeds derived from the source keep the strokes identical across tabs, renders and the settled image that documents embed.
+function stableSeeds<T extends object>(elements: readonly T[], source: string): T[] {
+  let hash = 2166136261;
+  for (let index = 0; index < source.length; index += 1) hash = Math.imul(hash ^ source.charCodeAt(index), 16777619);
+  return elements.map((element, index) => ({ ...element, seed: (Math.imul(hash ^ (index + 1), 2654435761) >>> 1) || 1 }));
+}
+
 const isHex = (value: unknown): value is string => typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value);
 
 function relativeLuminance(hex: string): number {
@@ -220,7 +229,7 @@ function useVisual(visual: Visual, id: string, designHeight: number) {
     if (visual.kind === 'excalidraw') {
       const parsed = JSON.parse(visual.source);
       const skeleton = Array.isArray(parsed) ? parsed : parsed.elements;
-      const elements = convertToExcalidrawElements(adaptColors(fitLabels(skeleton)) as never);
+      const elements = stableSeeds(convertToExcalidrawElements(adaptColors(fitLabels(skeleton)) as never), visual.source);
       await document.fonts.ready;
       const svg = await exportToSvg({ elements, appState: { exportBackground: false, exportWithDarkMode: false, exportPadding: 32 } as never, files: null });
       return { html: fitSvg(new XMLSerializer().serializeToString(svg)) };
