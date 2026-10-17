@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { createReadStream } from 'node:fs';
 
 export function canonicalJson(value: unknown): string {
   if (value === null || typeof value === 'boolean' || typeof value === 'string') {
@@ -20,6 +21,16 @@ export function canonicalJson(value: unknown): string {
 export function sha256(value: string | Uint8Array): string {
   return createHash('sha256').update(value).digest('hex');
 }
+
+/** Streams a file through SHA-256, so large media never has to fit in memory. */
+export async function sha256File(file: string): Promise<string> {
+  const hash = createHash('sha256');
+  for await (const chunk of createReadStream(file)) hash.update(chunk);
+  return hash.digest('hex');
+}
+
+/** Rounds finite numbers to fixed decimal places for compact, stable evidence; non-finite values pass through unchanged. */
+export const round = (value: number, places = 3) => (Number.isFinite(value) ? Number(value.toFixed(places)) : value);
 
 export function digest(value: unknown): string {
   return sha256(canonicalJson(value));

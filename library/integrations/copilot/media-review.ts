@@ -1,9 +1,10 @@
-import { createHash, randomBytes, randomUUID } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { createReadStream } from 'node:fs';
 import { access, mkdir, opendir, readFile, realpath, stat } from 'node:fs/promises';
 import http from 'node:http';
 import path from 'node:path';
+import { sha256File } from '../../../packages/core/src/canonical.ts';
 import { readJsonFile, safePath, toRepoRelative } from './helpers.ts';
 import type { JsonObject } from './helpers.ts';
 import type { ReviewControlAction, ReviewEvidence, ReviewEvidenceKind, ReviewFinding, ReviewKind, ReviewListItem, ReviewState, ReviewSubtitleCue } from './media-review.types.ts';
@@ -715,17 +716,6 @@ function numberValue(value: unknown): number {
   if (typeof value === 'number') return value;
   if (typeof value === 'string') return Number(value);
   return Number.NaN;
-}
-
-async function sha256File(file: string): Promise<string> {
-  const hash = createHash('sha256');
-  await new Promise<void>((resolve, reject) => {
-    const stream = createReadStream(file);
-    stream.on('data', (chunk) => { hash.update(chunk); });
-    stream.on('error', reject);
-    stream.on('end', resolve);
-  });
-  return hash.digest('hex');
 }
 
 function subtitleScore(file: string, mediaStem: string): number {

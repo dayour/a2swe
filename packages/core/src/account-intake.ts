@@ -6,6 +6,7 @@ import { DEFAULT_THEME, installBrandTheme, kitBrandTheme } from './brand.ts';
 import type { KitTheme } from './brand.ts';
 import { validate } from './contracts.ts';
 import type { DomainPack } from './contracts.ts';
+import { clean, sentences } from './text.ts';
 
 // Imports a LayeredCards account intake (CRM engagements, Success Hub, M365 summaries, public market and news)
 // into a ready DomainPack whose every quote is a verbatim line of a hashed, locally stored source rendering.
@@ -67,13 +68,9 @@ type Claim = DomainPack['claims'][number];
 
 const slug = (value: string) => value.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48) || 'item';
 const dateOnly = (value?: string | null) => (value && /^\d{4}-\d{2}-\d{2}/.test(value) ? value.slice(0, 10) : null);
-const clean = (value: unknown) => String(value ?? '').replace(/\s+/g, ' ').trim();
 const httpsUrl = (value?: string | null) => (value && /^https:\/\//.test(value) && !/[\s"]/.test(value) ? value : null);
-
-function sentences(text: string): string[] {
-  return Array.from(new Intl.Segmenter('en', { granularity: 'sentence' }).segment(text), (part) => clean(part.segment))
-    .filter((part) => part.length >= 12).slice(0, 12).map((part) => part.slice(0, 3900));
-}
+// Evidence quotes are substantive sentences, at most 12 per field and within the contract's quote length.
+const evidenceSentences = (text: string) => sentences(text).filter((part) => part.length >= 12).slice(0, 12).map((part) => part.slice(0, 3900));
 
 interface Built { source: Source; text: string; evidence: Map<string, Evidence> }
 
@@ -97,7 +94,7 @@ export async function importAccountIntake(kitCustomerDirectory: string, projectD
     fields: [string, unknown][], narrative: [string, string | null | undefined][] = []) => {
     if (!url) return null;
     const lines = fields.filter(([, value]) => value !== null && value !== undefined && clean(value) !== '').map(([key, value]) => `${key}: ${clean(value)}`);
-    const prose = narrative.flatMap(([key, value]) => (value ? [`${key}:`, ...sentences(value)] : []));
+    const prose = narrative.flatMap(([key, value]) => (value ? [`${key}:`, ...evidenceSentences(value)] : []));
     const text = `${[title, ...lines, ...prose].join('\n')}\n`;
     const contentHash = sha256(text);
     const evidence = new Map<string, Evidence>();

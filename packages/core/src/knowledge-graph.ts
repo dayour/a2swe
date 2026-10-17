@@ -164,6 +164,34 @@ function templateLiterals(source: string): TemplateBlock[] {
     while (cursor < length && source[cursor] !== quote && source[cursor] !== '\n') cursor += source[cursor] === '\\' ? 2 : 1;
     return cursor + 1;
   };
+  // A slash opens a regular expression rather than a division after an operator, an opening bracket, a separator or a keyword such
+  // as return. Regex bodies can hold quotes and backticks that would otherwise desynchronise the scan for the rest of the file; a
+  // misjudged division only skips to the end of its line.
+  const regexStart = (from: number): boolean => {
+    let cursor = from - 1;
+    while (cursor >= 0 && /\s/.test(source[cursor])) cursor--;
+    if (cursor < 0 || '(,=:[!&|?{};+-*%>~^'.includes(source[cursor])) return true;
+    const word = /[A-Za-z_$][\w$]*$/.exec(source.slice(Math.max(0, cursor - 12), cursor + 1))?.[0];
+    return word !== undefined && ['return', 'typeof', 'case', 'in', 'of', 'delete', 'void', 'throw', 'new', 'instanceof', 'yield', 'await', 'else', 'do'].includes(word);
+  };
+  const skipRegex = (from: number): number => {
+    let cursor = from + 1;
+    let inClass = false;
+    while (cursor < length && source[cursor] !== '\n') {
+      const character = source[cursor];
+      if (character === '\\') { cursor += 2; continue; }
+      if (character === '[') inClass = true;
+      else if (character === ']') inClass = false;
+      else if (character === '/' && !inClass) {
+        cursor++;
+        while (cursor < length && /[a-z]/i.test(source[cursor])) cursor++;
+        return cursor;
+      }
+      cursor++;
+    }
+    return cursor;
+  };
+  const isRegex = (cursor: number) => source[cursor] === '/' && source[cursor + 1] !== '/' && source[cursor + 1] !== '*' && regexStart(cursor);
   const skipExpression = (from: number): number => {
     let cursor = from;
     let depth = 0;
@@ -171,6 +199,7 @@ function templateLiterals(source: string): TemplateBlock[] {
       const character = source[cursor];
       if (character === '`') { cursor = skipTemplate(cursor); continue; }
       if (character === '"' || character === "'") { cursor = skipQuoted(character, cursor); continue; }
+      if (isRegex(cursor)) { cursor = skipRegex(cursor); continue; }
       if (character === '{') depth++;
       else if (character === '}') {
         if (depth === 0) return cursor + 1;
@@ -202,6 +231,8 @@ function templateLiterals(source: string): TemplateBlock[] {
       cursor = end === -1 ? length : end + 2;
     } else if (character === '"' || character === "'") {
       cursor = skipQuoted(character, cursor);
+    } else if (isRegex(cursor)) {
+      cursor = skipRegex(cursor);
     } else if (character === '`') {
       const end = skipTemplate(cursor);
       const body = source.slice(cursor, end);

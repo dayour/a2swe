@@ -2,11 +2,12 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { digest } from './canonical.ts';
+import { digest, round } from './canonical.ts';
 import { sourceDistribution, validate, validateContentAgainstDomain } from './contracts.ts';
 import type { ContentIR, DomainPack } from './contracts.ts';
 import { bindCanonicalInputs, indexProjectQc, projectIdOf } from './release.ts';
 import { cosine, embedTexts, semanticModel } from './semantic.ts';
+import { clean, sentences } from './text.ts';
 
 // Semantic alignment ranking for internal and external audiences. Every claim, section, narration sentence, diagram label and
 // evidence quote is embedded with the pinned local sentence model; claims and sections are ranked per audience profile by
@@ -29,15 +30,10 @@ export const ALIGNMENT_THRESHOLDS = {
   lowRelevance: 0.18
 } as const;
 
-const round = (value: number, places = 3) => Number(value.toFixed(places));
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 // MiniLM cosine for related executive sentences sits roughly between 0.1 (unrelated) and 0.6 (same point); scores map that span to 0-1.
 const scale = (value: number) => clamp01((value - 0.1) / 0.5);
-const clean = (value: string) => value.replace(/\s+/g, ' ').trim();
-
-function sentences(text: string): string[] {
-  return Array.from(new Intl.Segmenter('en', { granularity: 'sentence' }).segment(text), (part) => clean(part.segment)).filter((part) => part.length >= 3);
-}
+const statements = (text: string) => sentences(text).filter((part) => part.length >= 3);
 
 /** On-screen text of a section visual: Excalidraw labels, Mermaid node and edge labels, or Marp text without markup. */
 export function visualText(visual: { kind: string; source: string; caption?: string }): string {
@@ -128,7 +124,7 @@ async function analyzeAlignment(project: string, domain: DomainPack, content: Co
   for (const claim of content.claims) add(claim.text);
   const sectionText = (section: ContentIR['sections'][number]) => `${section.title}. ${section.body}`;
   const surfaces: { kind: string; location: string; text: string }[] = [];
-  const surface = (kind: string, location: string, value: string) => { for (const sentence of sentences(value)) surfaces.push({ kind, location, text: add(sentence) }); };
+  const surface = (kind: string, location: string, value: string) => { for (const sentence of statements(value)) surfaces.push({ kind, location, text: add(sentence) }); };
   surface('title', 'title', content.title);
   surface('summary', 'summary', content.summary);
   surface('decision', 'decision', content.decision);
@@ -217,7 +213,7 @@ async function analyzeAlignment(project: string, domain: DomainPack, content: Co
       const text = sectionText(section);
       const best = relevance(text, profile);
       const cited = section.claimIds.flatMap((id) => [claimsById.get(id)!.text, ...claimsById.get(id)!.evidenceIds.map((evidenceId) => evidence.get(evidenceId)!.quote)]);
-      const bodySentences = sentences(section.body);
+      const bodySentences = statements(section.body);
       const grounding = bodySentences.map((sentence) => ({ sentence, value: cited.length ? Math.max(...cited.map((quote) => sim(sentence, quote))) : 0 }));
       const groundingMean = grounding.reduce((sum, item) => sum + item.value, 0) / Math.max(1, grounding.length);
       const decision = sim(text, content.decision);

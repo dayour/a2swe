@@ -1,10 +1,9 @@
 import { spawnSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
-import { createReadStream } from 'node:fs';
 import { mkdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import type { OverlayOptions } from 'sharp';
+import { round, sha256File } from './canonical.ts';
 import { readImage, writeImage } from './image-io.ts';
 
 export interface AnalysisScene { id: string; startSeconds: number; endSeconds: number }
@@ -73,13 +72,6 @@ function run(command: string, args: string[], label: string): { stdout: Buffer; 
   return { stdout: result.stdout, stderr };
 }
 
-async function sha256File(file: string): Promise<string> {
-  const hash = createHash('sha256');
-  for await (const chunk of createReadStream(file)) hash.update(chunk);
-  return hash.digest('hex');
-}
-
-const round = (value: number, places = 3) => Number.isFinite(value) ? Number(value.toFixed(places)) : value;
 const toDb = (power: number) => 10 * Math.log10(Math.max(power, 1e-24));
 const ampDb = (amplitude: number) => 20 * Math.log10(Math.max(amplitude, 1e-12));
 
