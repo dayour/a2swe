@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { mkdir, rm, stat, writeFile } from 'node:fs/promises';
+import { mkdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import type { OverlayOptions } from 'sharp';
@@ -859,7 +859,10 @@ function findings(report: { probe: ReturnType<typeof probeMedia>; audio: ReturnT
 
 export async function analyzeMedia(inputPath: string, outputDirectory: string, options: MediaAnalysisOptions = {}) {
   const input = path.resolve(inputPath);
-  const out = path.resolve(outputDirectory);
+  const target = path.resolve(outputDirectory);
+  // Evidence is built in a hidden staging folder and swapped in at the end, so a failed or interrupted run never removes the previous
+  // analysis, and QC indexing (which skips dot-folders) never records partial evidence.
+  const out = path.join(path.dirname(target), `.${path.basename(target)}.partial`);
   const info = await stat(input);
   if (!info.isFile() || !info.size) throw new Error('media_input_missing');
   await rm(out, { recursive: true, force: true });
@@ -965,6 +968,8 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
     }
   };
   await writeFile(path.join(out, 'analysis.json'), `${JSON.stringify(report, null, 2)}\n`);
+  await rm(target, { recursive: true, force: true });
+  await rename(out, target);
   return report;
 }
 
