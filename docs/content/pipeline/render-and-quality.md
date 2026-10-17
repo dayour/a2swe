@@ -149,7 +149,14 @@ header, headline, narrative, visual, caption and footer.
 | Broadband vertical burst | A scene change, cross-fade or caption change |
 | Energy below 2 Hz | Eased animation such as entrances and springs |
 | Sustained narrow horizontal line | Flicker, strobing or shimmer at that rate |
+| Evenly spaced lines at multiples of one rate | A pattern that repeats every few frames, such as nondeterministic drawing across parallel render tabs |
 | Dark band | A layer that does not change |
+
+A comb with its first line at the frame rate divided by N means N different
+images alternate frame by frame. The renderer draws frames in parallel browser
+tabs, so anything a tab computes randomly differs between tabs. Hand-drawn
+Excalidraw strokes therefore use seeds derived from the diagram source, which
+keeps every tab, render and embedded document image identical.
 
 A layer with a peak at 3 Hz or above that stands 12 dB over the rest of that
 band, carries 15% of the window's motion, and persists for 1.5 s or more raises
