@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -3.311369191003055e-12,
-      "highFrequencyRatio8k": 0.0016146574717530045,
-      "rmsDbfs": -27.760685648765296,
-      "spectralFlatness": 1.588136003102924e-07
+      "dcOffset": -1.4506950328507795e-11,
+      "highFrequencyRatio8k": 0.001598808744078517,
+      "rmsDbfs": -27.758320212979704,
+      "spectralFlatness": 1.6248039049350974e-07
     },
     "before": {
-      "dcOffset": 1.5590065231663175e-05,
-      "highFrequencyRatio8k": 0.0016142993097929099,
-      "rmsDbfs": -27.76006576640738,
-      "spectralFlatness": 1.4939057068733435e-07
+      "dcOffset": 1.6003734344849363e-05,
+      "highFrequencyRatio8k": 0.0015984519146809008,
+      "rmsDbfs": -27.757703661097608,
+      "spectralFlatness": 1.516183841042866e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/power-platform-community-conference/audio.wav",
-  "audioSha256": "97dad3ff3a6e56757a6199946591013182240d52b53ce42456ec7dd3bba3691b",
+  "audioSha256": "f7c9871aa4bf607bf71ee847e88a3135aff6b164c3224bc6eba017b646523e74",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,8 +66,8 @@
   "mastering": {
     "gainDb": 8.75,
     "inputLufs": -24.24,
-    "limitedSampleRatio": 0.03985,
-    "maxLimiterReductionDb": 7.59,
+    "limitedSampleRatio": 0.04057,
+    "maxLimiterReductionDb": 7.63,
     "outputLufs": -16.09,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.5590075373446266e-05,
-    "peak": 0.7359704971313477,
-    "rms": 0.04092806393909001
+    "dc": 1.6003731486203565e-05,
+    "peak": 0.7399948239326477,
+    "rms": 0.04093918580876423
   },
   "requestedDurationSeconds": 75.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

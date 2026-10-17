@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "generatedAt": "2026-10-17T04:25:17.421Z",
+  "source": "release",
+  "contentDigest": "3e1c2db6ae414d9533dea5ea0757472d4b0ba594ca5a5b45d74bf13dc0ed34ee",
+  "domainDigest": "27bb4bbe031c34969b3f3ee789c088a52cca34b5cf2a9e328e1b788d75d00694",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-microsoft-announcement",
+      "title": "Register now for PPCC 2026: Come for the learning, stay for the community",
+      "host": "www.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-ppcc-faq",
+      "title": "FAQ | PPCC26",
+      "host": "powerplatformconf.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "decision: weakly grounded sentence (0.393): \"Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.\"",
+        "next-action: weakly grounded sentence (0.253): \"Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot.\"",
+        "next-action: weakly grounded sentence (0.246): \"Expansion should depend on that evidence, not conference enthusiasm.\""
+      ],
+      "eligibleEvidence": 5,
+      "totalEvidence": 5,
+      "leadClaim": "c3",
+      "recommendedOrder": [
+        "execution-value",
+        "decision",
+        "conference-week",
+        "next-action"
+      ],
+      "sections": [
+        {
+          "sectionId": "execution-value",
+          "title": "Connect innovation ambition to execution controls",
+          "relevance": 0.355,
+          "intent": "platform-strategy",
+          "grounding": 0.823,
+          "decision": 0.619,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.804,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "decision",
+          "title": "Bottom line: send a focused team with one pilot objective",
+          "relevance": 0.322,
+          "intent": "governance",
+          "grounding": 0.393,
+          "decision": 0.662,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.633,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.",
+              "grounding": 0.393
+            }
+          ]
+        },
+        {
+          "sectionId": "conference-week",
+          "title": "Use the full conference week deliberately",
+          "relevance": 0.201,
+          "intent": "accountability",
+          "grounding": 0.784,
+          "decision": 0.205,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.484,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "next-action",
+          "title": "Require one pilot charter after the event",
+          "relevance": 0.311,
+          "intent": "governance",
+          "grounding": 0.249,
+          "decision": 0.452,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.449,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot.",
+              "grounding": 0.253
+            },
+            {
+              "text": "Expansion should depend on that evidence, not conference enthusiasm.",
+              "grounding": 0.246
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c3",
+          "text": "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+          "eligible": true,
+          "relevance": 0.297,
+          "intent": "platform-strategy",
+          "support": 0.87,
+          "decision": 0.549,
+          "score": 0.677,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+          "eligible": true,
+          "relevance": 0.296,
+          "intent": "platform-strategy",
+          "support": 0.547,
+          "decision": 0.527,
+          "score": 0.634,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios.",
+          "eligible": true,
+          "relevance": 0.269,
+          "intent": "governance",
+          "support": 0.549,
+          "decision": 0.47,
+          "score": 0.587,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "Applied workshops run October 25-26 and October 30, outside the main conference.",
+          "eligible": true,
+          "relevance": 0.179,
+          "intent": "accountability",
+          "support": 0.689,
+          "decision": 0.225,
+          "score": 0.428,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+          "eligible": true,
+          "relevance": 0.152,
+          "intent": "accountability",
+          "support": 0.494,
+          "decision": 0.361,
+          "score": 0.393,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "decision: weakly grounded sentence (0.393): \"Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.\"",
+        "conference-week: low relevance to external priorities (0.175).",
+        "next-action: weakly grounded sentence (0.253): \"Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot.\"",
+        "next-action: weakly grounded sentence (0.246): \"Expansion should depend on that evidence, not conference enthusiasm.\""
+      ],
+      "eligibleEvidence": 5,
+      "totalEvidence": 5,
+      "leadClaim": "c3",
+      "recommendedOrder": [
+        "execution-value",
+        "decision",
+        "conference-week",
+        "next-action"
+      ],
+      "sections": [
+        {
+          "sectionId": "execution-value",
+          "title": "Connect innovation ambition to execution controls",
+          "relevance": 0.362,
+          "intent": "architecture-choices",
+          "grounding": 0.823,
+          "decision": 0.619,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.809,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "decision",
+          "title": "Bottom line: send a focused team with one pilot objective",
+          "relevance": 0.349,
+          "intent": "architecture-choices",
+          "grounding": 0.393,
+          "decision": 0.662,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.654,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Recommendation: send a focused business, platform, data, and risk team with one mandate: return with a governed AI, app, and automation pilot charter.",
+              "grounding": 0.393
+            }
+          ]
+        },
+        {
+          "sectionId": "conference-week",
+          "title": "Use the full conference week deliberately",
+          "relevance": 0.175,
+          "intent": "architecture-choices",
+          "grounding": 0.784,
+          "decision": 0.205,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.462,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "next-action",
+          "title": "Require one pilot charter after the event",
+          "relevance": 0.233,
+          "intent": "joint-actions",
+          "grounding": 0.249,
+          "decision": 0.452,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.387,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Ask the team to return with the workflow, owner, trusted data, guardrails, and testable success measure for one pilot.",
+              "grounding": 0.253
+            },
+            {
+              "text": "Expansion should depend on that evidence, not conference enthusiasm.",
+              "grounding": 0.246
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c3",
+          "text": "PPCC covers agents, apps, automation, and trusted data as governed business solutions.",
+          "eligible": true,
+          "relevance": 0.414,
+          "intent": "assurance",
+          "support": 0.87,
+          "decision": 0.549,
+          "score": 0.794,
+          "rank": 1
+        },
+        {
+          "claimId": "c4",
+          "text": "The FAQ emphasizes implementation, architecture, governance, and AI-driven scenarios.",
+          "eligible": true,
+          "relevance": 0.387,
+          "intent": "architecture-choices",
+          "support": 0.549,
+          "decision": 0.47,
+          "score": 0.705,
+          "rank": 2
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft frames PPCC around Copilot, agents, apps, automation, and data.",
+          "eligible": true,
+          "relevance": 0.3,
+          "intent": "architecture-choices",
+          "support": 0.547,
+          "decision": 0.527,
+          "score": 0.638,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "Applied workshops run October 25-26 and October 30, outside the main conference.",
+          "eligible": true,
+          "relevance": 0.134,
+          "intent": "progress",
+          "support": 0.689,
+          "decision": 0.225,
+          "score": 0.383,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "PPCC 2026 runs October 27-29 at the MGM Grand in Las Vegas.",
+          "eligible": true,
+          "relevance": 0.115,
+          "intent": "risk-mitigation",
+          "support": 0.494,
+          "decision": 0.361,
+          "score": 0.355,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.564,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.699,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "decision",
+        "kind": "section",
+        "visual": null,
+        "similarity": 0.556,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "conference-week",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.663,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "execution-value",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.405,
+        "status": "weak"
+      },
+      {
+        "sceneId": "next-action",
+        "kind": "section",
+        "visual": null,
+        "similarity": 0.496,
+        "status": "aligned"
+      }
+    ]
+  }
+}
