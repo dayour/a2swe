@@ -3,7 +3,7 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 5576,
+    "trackedFiles": 5578,
     "nodes": {
       "adapter": 8,
       "agent": 9,
@@ -11,7 +11,7 @@
       "env": 30,
       "file": 19,
       "format": 8,
-      "module": 135,
+      "module": 137,
       "package": 20,
       "plugin": 1,
       "project": 9,
@@ -28,10 +28,10 @@
       "contains": 3,
       "depends_on": 84,
       "hands_off_to": 4,
-      "imports": 237,
+      "imports": 239,
       "mirrors": 6,
       "produces": 8,
-      "reads": 23,
+      "reads": 24,
       "reads_env": 38,
       "shipped_by": 72,
       "speaks_with": 9,
@@ -335,7 +335,7 @@
             "pointer": "AssetInventoryEntry.role",
             "type": "string",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -444,7 +444,7 @@
             "pointer": "AssetRecord.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -609,7 +609,7 @@
             "pointer": "AssetRequest.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -777,7 +777,7 @@
             "pointer": "ContentAsset.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           }
         ],
@@ -853,7 +853,7 @@
             "pointer": "ContentClaim.text",
             "type": "string",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
@@ -1426,7 +1426,7 @@
             "pointer": "GenerationRequest.name",
             "type": "string",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
@@ -1840,7 +1840,7 @@
             "pointer": "RenderRevision.source",
             "type": "RelativePath",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -1986,7 +1986,7 @@
             "pointer": "RenderTheme.name",
             "type": "string",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
@@ -2087,7 +2087,7 @@
             "pointer": "RenderTheme.source",
             "type": "object",
             "required": false,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -2139,7 +2139,7 @@
             "pointer": "RevisionOutput.role",
             "type": "enum(video|video-raw|captions|presentation|metadata)",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -2440,7 +2440,7 @@
             "pointer": "RunbookGate.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
@@ -2486,7 +2486,7 @@
             "pointer": "RunbookStage.name",
             "type": "Identifier",
             "required": true,
-            "consumers": 22,
+            "consumers": 23,
             "validated": true
           },
           {
@@ -2544,7 +2544,7 @@
             "pointer": "SectionVisual.source",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -4454,6 +4454,18 @@
       }
     },
     {
+      "id": "module:packages/core/src/semantic_embed.py",
+      "type": "module",
+      "path": "packages/core/src/semantic_embed.py",
+      "attributes": {
+        "role": "core",
+        "language": "python",
+        "lines": 59,
+        "sha256": "38f4453fa3167af37aaf30a0fdfbcc315d5102b87732e698e150959862be7eee",
+        "testCoverage": "none"
+      }
+    },
+    {
       "id": "module:packages/core/src/store.ts",
       "type": "module",
       "path": "packages/core/src/store.ts",
@@ -4468,6 +4480,22 @@
           "Store"
         ],
         "testCoverage": "direct"
+      }
+    },
+    {
+      "id": "module:packages/core/src/text.ts",
+      "type": "module",
+      "path": "packages/core/src/text.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 8,
+        "sha256": "8c9d7911420131b035e07466a2d29e3c49cc44e02d82decf513e88eb12de0507",
+        "exports": [
+          "clean",
+          "sentences"
+        ],
+        "testCoverage": "none"
       }
     },
     {
@@ -8779,6 +8807,11 @@
     },
     {
       "from": "module:packages/core/src/account-intake.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/text.ts"
+    },
+    {
+      "from": "module:packages/core/src/account-intake.ts",
       "relation": "uses_contract",
       "to": "atom:Claim"
     },
@@ -8911,6 +8944,11 @@
       "from": "module:packages/core/src/alignment.ts",
       "relation": "imports",
       "to": "module:packages/core/src/semantic.ts"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/text.ts"
     },
     {
       "from": "module:packages/core/src/alignment.ts",
@@ -9926,6 +9964,11 @@
       "from": "module:packages/core/src/semantic.ts",
       "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/semantic.ts",
+      "relation": "reads",
+      "to": "module:packages/core/src/semantic_embed.py"
     },
     {
       "from": "module:packages/core/src/semantic.ts",
@@ -11562,6 +11605,8 @@
         "packages/core/src/revisions.ts (none, 578 lines)",
         "packages/core/src/runbook.ts (none, 149 lines)",
         "packages/core/src/semantic.ts (none, 78 lines)",
+        "packages/core/src/semantic_embed.py (none, 59 lines)",
+        "packages/core/src/text.ts (none, 8 lines)",
         "packages/core/src/workspace.ts (none, 74 lines)"
       ]
     },
