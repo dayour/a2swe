@@ -1,5 +1,5 @@
 import {createHash} from 'node:crypto';
-import {execFileSync} from 'node:child_process';
+import {execFileSync, spawnSync} from 'node:child_process';
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, unlinkSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -48,8 +48,10 @@ const add = (source, category, name, description, preview, symbol = null, tags =
 };
 
 const isProject = (dir) => ['canonical', 'agent', 'renders', 'release'].some((name) => existsSync(path.join(dir, name)));
+// Git-ignored project folders hold private material such as customer overviews; the public library never indexes or copies them.
+const gitIgnored = (repoPath) => spawnSync('git', ['check-ignore', '-q', repoPath], {cwd: root}).status === 0;
 for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true})
-  .filter((d) => d.isDirectory() && isProject(path.join(root, 'projects', d.name))).sort((a, b) => a.name.localeCompare(b.name))) {
+  .filter((d) => d.isDirectory() && !gitIgnored(`projects/${d.name}`) && isProject(path.join(root, 'projects', d.name))).sort((a, b) => a.name.localeCompare(b.name))) {
   const id = dir.name;
   const prefix = `projects/${id}`;
   const notes = projectNotes[id] ?? {title: title(id), description: 'Repository project.', note: 'No curated completion record.', blockers: [], evidence: []};
