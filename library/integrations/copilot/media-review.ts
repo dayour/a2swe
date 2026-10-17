@@ -6,8 +6,8 @@ import http from 'node:http';
 import path from 'node:path';
 import { readJsonFile, safePath, toRepoRelative } from './helpers.ts';
 import type { JsonObject } from './helpers.ts';
-import type { ReviewControlAction, ReviewKind, ReviewListItem, ReviewState, ReviewSubtitleCue } from './media-review.types.ts';
-export type { ReviewControlAction, ReviewKind, ReviewListItem, ReviewMedia, ReviewState, ReviewSubtitleCue } from './media-review.types.ts';
+import type { ReviewControlAction, ReviewEvidence, ReviewEvidenceKind, ReviewFinding, ReviewKind, ReviewListItem, ReviewState, ReviewSubtitleCue } from './media-review.types.ts';
+export type { ReviewControlAction, ReviewEvidence, ReviewEvidenceKind, ReviewFinding, ReviewKind, ReviewListItem, ReviewMedia, ReviewState, ReviewSubtitleCue } from './media-review.types.ts';
 
 type EmitEvent = (event: string, data: JsonObject) => void;
 
@@ -17,6 +17,17 @@ const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp']);
 const SUBTITLE_EXTENSIONS = new Set(['.vtt', '.srt']);
 const MAX_WALK_FILES = 4000;
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
+// Measurement images written by revisions-analyze next to each revision render's analysis.json.
+const ANALYSIS_EVIDENCE: Array<[ReviewEvidenceKind, string, string]> = [
+  ['audio-spectrogram', 'spectrogram.jpg', 'Audio spectrogram'],
+  ['speech-spectrogram', 'spectrogram-speech.jpg', 'Speech-band spectrogram'],
+  ['video-spectrogram', 'video-spectrogram.jpg', 'Video spectrogram (temporal frequency per layer)'],
+  ['spatial-spectrogram', 'spatial-spectrogram.jpg', 'Spatial spectrogram (detail per content band)'],
+  ['layer-activity', 'layers.png', 'Layer motion and detail'],
+  ['contact-sheet', 'contact-sheet.jpg', 'Scene and transition frames']
+];
+// Audio spectrograms only: the stored full and speech-band images and the release's audio QA spectrogram.
+const AUDIO_SPECTROGRAM = /(?:^|[\\/])(?:audio-)?spectrogram(?:-speech)?\.(?:svg|png|jpe?g)$/i;
 
 export class MediaReviewService {
   readonly token = randomBytes(32).toString('base64url');
@@ -130,6 +141,10 @@ export class MediaReviewService {
       state.absolutePath = item.absolutePath;
       state.media = { kind, path: toRepoRelative(this.workspace, item.absolutePath), mediaType: mediaType(item.absolutePath),
         byteSize: info.size, digest, url: `${this.baseUrl}/view/${this.readGrant}/media/${assetId}` };
+      if (kind === 'video' || kind === 'audio') {
+        const analysis = await this.analysisEvidence(item.absolutePath);
+        if (analysis) state.analysis = analysis;
+      }
     }
     this.reviews.set(reviewId, state);
     this.emit('review.opened', { reviewId, projectId: state.projectId, state: this.publicState(state) });
@@ -481,18 +496,47 @@ export class MediaReviewService {
   }
 
   private async findSpectrograms(_projectId: string | undefined, nearFile: string): Promise<string[]> {
-    const roots = [path.dirname(nearFile), path.resolve(path.dirname(nearFile), '..')];
-    const revision = /^(.*[\\/]projects[\\/][^\\/]+)[\\/]renders[\\/]([^\\/]+)[\\/]([^\\/]+)$/.exec(nearFile);
-    if (revision) roots.unshift(path.join(revision[1], 'qc', 'analysis', revision[2], path.basename(revision[3], path.extname(revision[3]))));
+    const analysis = await this.analysisDirectory(nearFile);
+    const roots = [...(analysis ? [analysis] : []), path.dirname(nearFile), path.resolve(path.dirname(nearFile), '..')];
     const files: string[] = [];
     for (const root of roots) {
       try {
         for (const file of await this.walkFiles(root)) {
-          if (/spectrogram(-speech)?\.(svg|png|jpg|jpeg)$/i.test(file)) files.push(file);
+          if (AUDIO_SPECTROGRAM.test(file)) files.push(file);
         }
       } catch { /* ignore */ }
     }
-    return [...new Set(files)].slice(0, 4);
+    const rank = (file: string) => (/(?:^|[\\/])spectrogram\./i.test(file) ? 0 : /spectrogram-speech\./i.test(file) ? 1 : 2);
+    return [...new Set(files)].sort((a, b) => rank(a) - rank(b)).slice(0, 4);
+  }
+
+  // Revision renders live at <project>/renders/<revision>/<file> and their measurements at <project>/qc/analysis/<revision>/<file stem>;
+  // project roots may be nested, such as customer overviews under projects/executive_status_updates/Customers.
+  private async analysisDirectory(nearFile: string): Promise<string | undefined> {
+    const revision = /^(.*)[\\/]renders[\\/]([^\\/]+)[\\/]([^\\/]+)$/.exec(nearFile);
+    if (!revision) return undefined;
+    const directory = path.join(revision[1], 'qc', 'analysis', revision[2], path.basename(revision[3], path.extname(revision[3])));
+    return await exists(path.join(directory, 'analysis.json')) ? directory : undefined;
+  }
+
+  private async analysisEvidence(nearFile: string): Promise<ReviewState['analysis']> {
+    const directory = await this.analysisDirectory(nearFile);
+    if (!directory) return undefined;
+    const evidence: ReviewEvidence[] = [];
+    for (const [kind, file, title] of ANALYSIS_EVIDENCE) {
+      const absolute = path.join(directory, file);
+      if (!await exists(absolute)) continue;
+      const type = mediaType(absolute);
+      evidence.push({ kind, title, path: toRepoRelative(this.workspace, absolute), mediaType: type,
+        url: `${this.baseUrl}/view/${this.readGrant}/media/${this.registerAsset(absolute, type)}` });
+    }
+    const report = await readJsonFile<{ findings?: unknown[] } | undefined>(path.join(directory, 'analysis.json'), undefined);
+    const findings = (report?.findings ?? []).flatMap((entry): ReviewFinding[] => {
+      const finding = entry as Partial<ReviewFinding> | null;
+      return finding && typeof finding.code === 'string' && typeof finding.message === 'string' && ['error', 'warning', 'info'].includes(String(finding.severity))
+        ? [{ severity: finding.severity as ReviewFinding['severity'], code: finding.code, message: finding.message }] : [];
+    });
+    return { path: toRepoRelative(this.workspace, directory), evidence, findings };
   }
 
   private async findQcReceipts(projectId: string | undefined, nearFile: string): Promise<Array<{ kind: string; path: string; summary?: string }>> {

@@ -746,7 +746,7 @@ class DesktopBridge {
           'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
           'Run project QC and core verification gates relevant to selected formats: revisions-analyze (audio and video spectrograms), office-render, alignment-rank and runbook-project, so every runbook gate including audience-alignment passes.',
           'Keep the final package at PROJECT/release and retain failed or superseded candidates under PROJECT/qc/revisions, not loose release-vN directories at the project root.',
-          'Review actual rendered frames, subtitles, audio spectrograms and the video spectrograms (per-layer temporal frequency: flicker and shimmer appear as sustained lines). Repair unreadable layouts, flicker, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
+          'Review actual rendered frames, subtitles, audio spectrograms and the video spectrograms through review.evidence (per-layer temporal frequency: flicker and shimmer appear as sustained lines, frame-periodic artifacts as evenly spaced combs). Repair unreadable layouts, flicker, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
           'Preserve citations/provenance and avoid protected/private source transfer.'
         ]
       }, null, 2)
@@ -822,7 +822,7 @@ class DesktopBridge {
       `Active project: ${activeProject ? `${activeProject.name} (${activeProject.path})` : 'none selected'}`,
       `Core commands available through MCP a2swe.core_command only, not arbitrary shell: ${CORE_COMMANDS.join(', ')}`,
       'Discover executable MCP tools from the configured server. The helper tools catalog separates callable workspace tools from native bridgeMethods; do not invoke native-only methods through a2swe.tools_call.',
-      'For actual media review use review.list, review.open, review.frame, review.subtitles and review.spectrogram. Playback controls operate the native player and require its acknowledgement.',
+      'For actual media review use review.list, review.open, review.frame, review.subtitles and review.spectrogram, and review.evidence for the stored measurements of a revision render (audio, speech, video and spatial spectrograms, layer activity, contact sheet and findings). Playback controls operate the native player and require its acknowledgement.',
       `Library inventory counts: agents=${library.agents.length}, skills=${library.skills.length}, plugins=${library.plugins.length}, documents=${library.documents.length}, assets=${library.assets.length}, resources=${(library.resources ?? []).length}.`,
       'Use MCP tools a2swe.context, a2swe.library, a2swe.knowledge_search, and MCP resources for targeted retrieval instead of relying on preloaded knowledge.',
       'Repository library skills and agent markdown are exposed as context/resources. Do not claim that markdown files execute autonomously; they are references unless an explicit tool or SDK workflow invokes behavior.',

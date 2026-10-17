@@ -18,6 +18,23 @@ export interface ReviewSubtitleCue {
   sourcePath: string;
 }
 
+export type ReviewEvidenceKind = 'audio-spectrogram' | 'speech-spectrogram' | 'video-spectrogram' | 'spatial-spectrogram' | 'layer-activity' | 'contact-sheet';
+
+/** A stored qc/analysis measurement image for the opened revision render. */
+export interface ReviewEvidence {
+  kind: ReviewEvidenceKind;
+  title: string;
+  path: string;
+  url: string;
+  mediaType: string;
+}
+
+export interface ReviewFinding {
+  severity: 'error' | 'warning' | 'info';
+  code: string;
+  message: string;
+}
+
 export interface ReviewState {
   reviewId: string;
   projectId?: string;
@@ -29,6 +46,7 @@ export interface ReviewState {
     subtitleCues?: ReviewSubtitleCue[];
     spectrogram?: { available: boolean; url?: string; path?: string };
   };
+  analysis?: { path: string; evidence: ReviewEvidence[]; findings: ReviewFinding[] };
   qc: { receipts: Array<{ kind: string; path: string; summary?: string }> };
   pendingControls: Array<{ requestId: string; action: ReviewControlAction; requestedAt: string; status: 'pending' | 'applied' | 'failed' | 'expired'; timeSeconds?: number; error?: string }>;
 }

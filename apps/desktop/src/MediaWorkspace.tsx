@@ -68,6 +68,7 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
   const [frame, setFrame] = useState('');
   const [frameTime, setFrameTime] = useState(0);
   const [spectrogram, setSpectrogram] = useState('');
+  const [evidenceKind, setEvidenceKind] = useState('');
   const [progress, setProgress] = useState('');
   const [busy, setBusy] = useState(false);
   const [filter, setFilter] = useState('video');
@@ -80,7 +81,7 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
   }, [active]);
   const applyState = useCallback((state: ReviewState) => {
     if (current.current?.reviewId !== state.reviewId) {
-      setFrame('');setSpectrogram('');setTime(state.playback.timeSeconds);setDuration(state.media?.durationSeconds ?? 0);
+      setFrame('');setSpectrogram('');setEvidenceKind('');setTime(state.playback.timeSeconds);setDuration(state.media?.durationSeconds ?? 0);
     }
     current.current = state;setReview(state);
   }, []);
@@ -168,6 +169,9 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
   }
   const cues = review?.tracks.subtitleCues ?? review?.tracks.subtitles.flatMap(track => track.cues ?? []) ?? [];
   const selectedCue = cues.find(cue => time >= cue.startSeconds && time < cue.endSeconds);
+  const evidence = review?.analysis?.evidence ?? [];
+  const findings = review?.analysis?.findings ?? [];
+  const shownEvidence = evidence.find(entry => entry.kind === evidenceKind);
   const displayed = items.filter(item => item.kind !== 'studio' && (filter === 'all' || item.kind === filter));
   return <section className="media-workspace" hidden={!active}>
     <div className="review-toolbar"><Film size={18}/><strong>Output library & review</strong>
@@ -200,14 +204,20 @@ export function MediaWorkspace({active, projectId, onActivate, reportError}: {
           {review.media.kind === 'video' && <label><input type="checkbox" checked={captionOverlay} onChange={event => setCaptionOverlay(event.target.checked)}/> Transcript overlay</label>}
           {review.media.kind === 'video' && <button className="secondary-button" disabled={busy} onClick={() => void image('frame')}><Camera size={14}/> Capture frame</button>}
           {['video', 'audio'].includes(review.media.kind) && <button className="secondary-button" disabled={busy} onClick={() => void image('spectrogram')}><Waves size={14}/> Spectrogram</button>}
+          {evidence.length > 0 && <select aria-label="Measured evidence" value={evidenceKind} onChange={event => setEvidenceKind(event.target.value)}>
+            <option value="">Measured evidence...</option>
+            {evidence.map(entry => <option key={entry.kind} value={entry.kind}>{entry.title}</option>)}
+          </select>}
         </div>
         <p className="review-note">{review.media.path}{review.media.digest ? ` · SHA-256 ${review.media.digest}` : ''}</p>
         {spectrogram && <figure className="spectrogram-view"><img src={spectrogram} alt="Measured frequency energy over time for the selected media"/><figcaption>Measured audio spectrogram. Use source/encoded QC and listening together; this image alone does not establish perceptual quality.</figcaption></figure>}
+        {shownEvidence && <figure className="spectrogram-view"><img src={shownEvidence.url} alt={`${shownEvidence.title} for ${review.media.path}`}/><figcaption>{shownEvidence.title} from revisions-analyze · {shownEvidence.path}</figcaption></figure>}
         {frame && <figure className="captured-frame"><img src={frame} alt={`Decoded video frame at ${timeLabel(frameTime)}`}/><figcaption>Decoded frame at {timeLabel(frameTime)}</figcaption></figure>}
-        <details className="review-evidence"><summary>Subtitles and quality evidence ({cues.length} cues)</summary>
+        <details className="review-evidence"><summary>Subtitles and quality evidence ({cues.length} cues, {findings.length} findings)</summary>
           <div className="subtitle-list">{cues.map((cue, index) => <button key={`${index}-${cue.startSeconds}`} className={selectedCue === cue ? 'active' : ''} onClick={() => seek(cue.startSeconds)}>
             <time>{timeLabel(cue.startSeconds)}</time><span>{cue.text}</span></button>)}</div>
           {!cues.length && <p>No subtitle track is bound to this output.</p>}
+          {findings.map((finding, index) => <p key={`${finding.code}-${index}`}><strong>{finding.severity} · {finding.code}</strong>: {finding.message}</p>)}
           {review.qc.receipts.map(receipt => <p key={receipt.path}><strong>{receipt.kind}</strong>: {receipt.path} {receipt.summary}</p>)}
         </details>
       </> : <div className="empty-state">Select a real output to review its playback, captions, frames and audio. MCP review tools control this same player.</div>}

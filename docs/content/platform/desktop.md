@@ -113,10 +113,17 @@ player supports seeking, subtitle inspection, decoded-frame capture and
 measured audio spectrograms. The transcript overlay is optional because
 produced videos already contain burned-in captions.
 
+A revision render that `revisions-analyze` has measured also offers its stored
+evidence: audio and speech-band spectrograms, the video spectrogram, the
+spatial spectrogram, layer activity and the scene contact sheet. The analysis
+findings, such as `video-flicker`, are listed with the subtitles.
+
 The floating agent uses MCP `review.*` tools against the same review service.
 Playback controls require acknowledgement from the real UI; the model cannot
 self-acknowledge a seek or claim that an absent player moved. Frame and
 spectrogram tools return actual PNG image content with progress events.
+`review.evidence` returns a stored measurement image with its findings, so the
+agent reads the same video spectrogram the reviewer sees.
 Loopback control uses a private token, while local media/Studio assets use
 separate read grants and byte-range serving. Nothing is deployed to a cloud API.
 

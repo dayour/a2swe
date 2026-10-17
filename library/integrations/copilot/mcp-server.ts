@@ -5,6 +5,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import { mediaReviewClientFromEnv } from './media-review.ts';
+import type { ReviewState } from './media-review.types.ts';
 import {
   CORE_COMMANDS,
   CALLABLE_TOOL_NAMES,
@@ -193,6 +194,19 @@ export async function createA2sweMcpServer(workspace: string) {
     });
   server.registerTool('review.studio', { title: 'Open Studio', description: 'Open static Remotion Studio bundle if available.', inputSchema: z.object({ projectId: z.string().optional() }), annotations: MUTATING_TOOL },
     async (args) => jsonContent(await reviewUnavailable().request('/v1/reviews/open', { method: 'POST', body: JSON.stringify({ projectId: args.projectId, kind: 'studio' }), headers: { 'content-type': 'application/json' } })));
+  server.registerTool('review.evidence', { title: 'Read measured review evidence',
+    description: 'Return a stored qc/analysis image for the opened revision render with its measured findings: audio or speech spectrogram, video spectrogram (temporal frequency per layer; flicker shows as sustained lines, frame-periodic artifacts as evenly spaced combs), spatial spectrogram (text detail per band), layer activity, or the scene and transition contact sheet.',
+    inputSchema: z.object({ reviewId: z.string(), kind: z.enum(['audio-spectrogram', 'speech-spectrogram', 'video-spectrogram', 'spatial-spectrogram', 'layer-activity', 'contact-sheet']) }), annotations: READ_ONLY_TOOL },
+    async (args, extra) => {
+      const state = await reviewUnavailable().request(`/v1/reviews/${encodeURIComponent(args.reviewId)}/state`) as ReviewState | null;
+      const evidence = state?.analysis?.evidence.find((entry) => entry.kind === args.kind);
+      if (!state?.analysis || !evidence) throw new Error(`review_evidence_unavailable: ${args.kind} (run revisions-analyze for this project, then reopen the render)`);
+      const response = await fetch(evidence.url, { signal: extra.signal });
+      if (!response.ok) throw new Error(`review_evidence_failed: ${response.status}`);
+      const data = Buffer.from(await response.arrayBuffer()).toString('base64');
+      return { content: [{ type: 'image' as const, data, mimeType: evidence.mediaType },
+        { type: 'text' as const, text: JSON.stringify({ kind: evidence.kind, title: evidence.title, path: evidence.path, analysis: state.analysis.path, findings: state.analysis.findings }) }] };
+    });
 
   return server;
 }
