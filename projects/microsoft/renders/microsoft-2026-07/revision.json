@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft",
+  "title": "microsoft-2026-07",
+  "year": 2026,
+  "number": 7,
+  "createdAt": "2026-10-17T03:33:27.496Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/microsoft-2026-07",
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "outputs": [
+    {
+      "path": "microsoft-2026-07-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "373df90670cfec1855c4d4959dfaebfbeee2b7690e3437a22dcc8f8d6b891600",
+      "byteSize": 1093,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-2026-07-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "74a8863e0bbfd422e154867b3879ab9222f8ca6f039125e270730b2aa26ce12e",
+      "byteSize": 9297585,
+      "mediaType": "video/mp4",
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "451beca680f036c50e5ffc255640619eb38fca776d15debf2430953a54733fff",
+      "package": "release",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.467
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 13.467,
+          "endSeconds": 26.767
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 26.767,
+          "endSeconds": 40.9
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 40.9,
+          "endSeconds": 53.733
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 53.733,
+          "endSeconds": 67.733
+        }
+      ],
+      "captions": "microsoft-2026-07-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-2026-07-af_heart-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "74a2717579492fa8f5b06a9a2b8ad04d0c92de0effacc8f7d5e05b14e208fac9",
+      "byteSize": 1093,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-2026-07-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "8b90248a3c45d4c7c14d60de11b8a0cdc2c6e69325928fd26a2059df0c0cd0ab",
+      "byteSize": 8846606,
+      "mediaType": "video/mp4",
+      "durationSeconds": 62.421,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "releaseDigest": "fac8e8bf962303493203538e3992c863d5fd81a45cf2a805b106cb87e2006222",
+      "package": "qc/revisions/microsoft-2026-07/af_heart-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 12.433
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 12.433,
+          "endSeconds": 24.467
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 24.467,
+          "endSeconds": 37.9
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 37.9,
+          "endSeconds": 49.6
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 49.6,
+          "endSeconds": 62.367
+        }
+      ],
+      "captions": "microsoft-2026-07-af_heart-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-2026-07-af_bella-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "0b23a310533eb37317ae2414756278ac9b37b01bc5086179e557e792c3d41d07",
+      "byteSize": 1093,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-2026-07-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "b88eca49554f58540b8a5a2ffa49cbdcb8893e4e1d292d894cfe946a7886e271",
+      "byteSize": 9114842,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.216,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "releaseDigest": "8b8df2a9bb89a8d79b75a77c9a3bb3083d774c268ff20614de4df82d76306fbd",
+      "package": "qc/revisions/microsoft-2026-07/af_bella-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 13,
+          "endSeconds": 25.7
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 25.7,
+          "endSeconds": 39.533
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 39.533,
+          "endSeconds": 51.667
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 51.667,
+          "endSeconds": 65.167
+        }
+      ],
+      "captions": "microsoft-2026-07-af_bella-kokoro_onnx.vtt"
+    },
+    {
+      "path": "microsoft-2026-07-am_michael-kokoro.vtt",
+      "role": "captions",
+      "digest": "373df90670cfec1855c4d4959dfaebfbeee2b7690e3437a22dcc8f8d6b891600",
+      "byteSize": 1093,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-2026-07-am_michael-kokoro.mp4",
+      "role": "video",
+      "digest": "71553e55657f282862f96e5d190bdb30beab392a296e5f80f3011e83057b743b",
+      "byteSize": 9297585,
+      "mediaType": "video/mp4",
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "56c22e806d9a71d82fe2281098f337218a559dcf5d0131dc25800eb212b8430f",
+      "package": "qc/revisions/microsoft-2026-07/am_michael-kokoro",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.467
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 13.467,
+          "endSeconds": 26.767
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 26.767,
+          "endSeconds": 40.9
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 40.9,
+          "endSeconds": 53.733
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 53.733,
+          "endSeconds": 67.733
+        }
+      ],
+      "captions": "microsoft-2026-07-am_michael-kokoro.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 4 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine.",
+    "Promoted am_michael-kokoro_onnx to release/; the other variant packages remain local under qc/revisions/microsoft-2026-07."
+  ]
+}

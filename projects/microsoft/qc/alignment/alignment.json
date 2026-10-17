@@ -1,0 +1,428 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft",
+  "generatedAt": "2026-10-17T03:51:46.964Z",
+  "source": "release",
+  "contentDigest": "9494c89fcb97bc67b3ce35173161b87599e9429756ef2746e43208c22a2247aa",
+  "domainDigest": "c36717cd6675b4b780ef82496d8af1de508941ca8905f46528d839b5782128fa",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-windows",
+      "title": "Windows 11 overview for administrators | Microsoft Learn",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-m365",
+      "title": "Microsoft 365 for enterprise overview - Microsoft 365 Enterprise | Microsoft Learn",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-azure",
+      "title": "Azure documentation | Microsoft Learn",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-copilot",
+      "title": "Overview of Microsoft Copilot Chat | Microsoft Learn",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "windows-layer: weakly grounded sentence (0.32): \"It anchors the endpoint for users, not every cloud service.\"",
+        "work-layer: weakly grounded sentence (0.373): \"It packages work services, not custom infrastructure.\"",
+        "copilot-layer: weakly grounded sentence (0.428): \"Confirm access, grounding, service availability and subscription before commitments.\""
+      ],
+      "eligibleEvidence": 10,
+      "totalEvidence": 10,
+      "leadClaim": "c6",
+      "recommendedOrder": [
+        "work-layer",
+        "azure-layer",
+        "copilot-layer",
+        "windows-layer"
+      ],
+      "sections": [
+        {
+          "sectionId": "work-layer",
+          "title": "2. Microsoft 365 is work",
+          "relevance": 0.309,
+          "intent": "platform-strategy",
+          "grounding": 0.63,
+          "decision": 0.049,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.517,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "It packages work services, not custom infrastructure.",
+              "grounding": 0.373
+            }
+          ]
+        },
+        {
+          "sectionId": "azure-layer",
+          "title": "3. Azure builds apps",
+          "relevance": 0.292,
+          "intent": "platform-strategy",
+          "grounding": 0.666,
+          "decision": 0.101,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.504,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "copilot-layer",
+          "title": "4. Copilot assists workflows",
+          "relevance": 0.249,
+          "intent": "governance",
+          "grounding": 0.52,
+          "decision": 0.164,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.444,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "Confirm access, grounding, service availability and subscription before commitments.",
+              "grounding": 0.428
+            }
+          ]
+        },
+        {
+          "sectionId": "windows-layer",
+          "title": "1. Windows is the PC layer",
+          "relevance": 0.305,
+          "intent": "platform-strategy",
+          "grounding": 0.454,
+          "decision": 0.056,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.412,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "It anchors the endpoint for users, not every cloud service.",
+              "grounding": 0.32
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c6",
+          "text": "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat.",
+          "eligible": true,
+          "relevance": 0.379,
+          "intent": "platform-strategy",
+          "support": 0.445,
+          "decision": 0.059,
+          "score": 0.486,
+          "rank": 1
+        },
+        {
+          "claimId": "c1",
+          "text": "Windows 11 is the client operating-system layer for PC experience and user productivity.",
+          "eligible": true,
+          "relevance": 0.245,
+          "intent": "platform-strategy",
+          "support": 0.829,
+          "decision": -0.025,
+          "score": 0.445,
+          "rank": 2
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft 365 combines Office apps with online services for email, file storage, collaboration and meetings.",
+          "eligible": true,
+          "relevance": 0.228,
+          "intent": "engagement-progress",
+          "support": 0.789,
+          "decision": 0.02,
+          "score": 0.428,
+          "rank": 3
+        },
+        {
+          "claimId": "c3",
+          "text": "Azure is the cloud-services layer for building and managing applications, including AI, compute and storage categories.",
+          "eligible": true,
+          "relevance": 0.207,
+          "intent": "platform-strategy",
+          "support": 0.669,
+          "decision": 0.083,
+          "score": 0.407,
+          "rank": 4
+        },
+        {
+          "claimId": "c5",
+          "text": "Copilot capability and grounding depend on access point, service capacity and Microsoft 365 Copilot licensing.",
+          "eligible": true,
+          "relevance": 0.257,
+          "intent": "platform-strategy",
+          "support": 0.489,
+          "decision": 0.075,
+          "score": 0.391,
+          "rank": 5
+        },
+        {
+          "claimId": "c4",
+          "text": "Copilot Chat provides AI assistance to eligible Microsoft 365 users for information, content and tasks.",
+          "eligible": true,
+          "relevance": 0.167,
+          "intent": "customer-signals",
+          "support": 0.569,
+          "decision": 0.101,
+          "score": 0.349,
+          "rank": 6
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "windows-layer: weakly grounded sentence (0.32): \"It anchors the endpoint for users, not every cloud service.\"",
+        "work-layer: weakly grounded sentence (0.373): \"It packages work services, not custom infrastructure.\"",
+        "copilot-layer: weakly grounded sentence (0.428): \"Confirm access, grounding, service availability and subscription before commitments.\""
+      ],
+      "eligibleEvidence": 10,
+      "totalEvidence": 10,
+      "leadClaim": "c2",
+      "recommendedOrder": [
+        "azure-layer",
+        "work-layer",
+        "copilot-layer",
+        "windows-layer"
+      ],
+      "sections": [
+        {
+          "sectionId": "azure-layer",
+          "title": "3. Azure builds apps",
+          "relevance": 0.339,
+          "intent": "architecture-choices",
+          "grounding": 0.666,
+          "decision": 0.101,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.542,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "work-layer",
+          "title": "2. Microsoft 365 is work",
+          "relevance": 0.325,
+          "intent": "architecture-choices",
+          "grounding": 0.63,
+          "decision": 0.049,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.53,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "It packages work services, not custom infrastructure.",
+              "grounding": 0.373
+            }
+          ]
+        },
+        {
+          "sectionId": "copilot-layer",
+          "title": "4. Copilot assists workflows",
+          "relevance": 0.266,
+          "intent": "architecture-choices",
+          "grounding": 0.52,
+          "decision": 0.164,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.458,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "Confirm access, grounding, service availability and subscription before commitments.",
+              "grounding": 0.428
+            }
+          ]
+        },
+        {
+          "sectionId": "windows-layer",
+          "title": "1. Windows is the PC layer",
+          "relevance": 0.257,
+          "intent": "architecture-choices",
+          "grounding": 0.454,
+          "decision": 0.056,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.374,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "It anchors the endpoint for users, not every cloud service.",
+              "grounding": 0.32
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c2",
+          "text": "Microsoft 365 combines Office apps with online services for email, file storage, collaboration and meetings.",
+          "eligible": true,
+          "relevance": 0.298,
+          "intent": "architecture-choices",
+          "support": 0.789,
+          "decision": 0.02,
+          "score": 0.498,
+          "rank": 1
+        },
+        {
+          "claimId": "c6",
+          "text": "The selected sources describe separate product layers: Windows, Microsoft 365, Azure and Copilot Chat.",
+          "eligible": true,
+          "relevance": 0.301,
+          "intent": "capabilities",
+          "support": 0.445,
+          "decision": 0.059,
+          "score": 0.408,
+          "rank": 2
+        },
+        {
+          "claimId": "c1",
+          "text": "Windows 11 is the client operating-system layer for PC experience and user productivity.",
+          "eligible": true,
+          "relevance": 0.194,
+          "intent": "capabilities",
+          "support": 0.829,
+          "decision": -0.025,
+          "score": 0.394,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "Copilot capability and grounding depend on access point, service capacity and Microsoft 365 Copilot licensing.",
+          "eligible": true,
+          "relevance": 0.256,
+          "intent": "architecture-choices",
+          "support": 0.489,
+          "decision": 0.075,
+          "score": 0.389,
+          "rank": 4
+        },
+        {
+          "claimId": "c4",
+          "text": "Copilot Chat provides AI assistance to eligible Microsoft 365 users for information, content and tasks.",
+          "eligible": true,
+          "relevance": 0.184,
+          "intent": "architecture-choices",
+          "support": 0.569,
+          "decision": 0.101,
+          "score": 0.366,
+          "rank": 5
+        },
+        {
+          "claimId": "c3",
+          "text": "Azure is the cloud-services layer for building and managing applications, including AI, compute and storage categories.",
+          "eligible": true,
+          "relevance": 0.163,
+          "intent": "architecture-choices",
+          "support": 0.669,
+          "decision": 0.083,
+          "score": 0.363,
+          "rank": 6
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.69,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.639,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "windows-layer",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.449,
+        "status": "weak"
+      },
+      {
+        "sceneId": "work-layer",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.69,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "azure-layer",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.899,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "copilot-layer",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.772,
+        "status": "aligned"
+      }
+    ]
+  }
+}

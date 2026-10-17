@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft",
-  "generatedAt": "2026-10-16T19:52:02.353Z",
+  "generatedAt": "2026-10-17T03:51:01.610Z",
   "rows": [
     {
       "title": "microsoft-2026-01",
@@ -29,6 +29,10 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.796,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8486496325540082,
+      "bodyFineDetail": 0.06625,
+      "captionFineDetail": 0.04793,
       "findings": [
         "info:below-1080p",
         "info:dual-mono"
@@ -60,9 +64,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.888,
+      "flickerSeconds": 3.2,
+      "motionBelow2Hz": 0.8220847525806717,
+      "bodyFineDetail": 0.05769,
+      "captionFineDetail": 0.04805,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -94,9 +103,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.888,
+      "flickerSeconds": 3.2,
+      "motionBelow2Hz": 0.8220847525806717,
+      "bodyFineDetail": 0.05769,
+      "captionFineDetail": 0.04805,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -129,6 +143,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.867,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9291469907041795,
+      "bodyFineDetail": 0.17193,
+      "captionFineDetail": 0.07618,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -164,6 +182,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.858,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9293815895782709,
+      "bodyFineDetail": 0.17193,
+      "captionFineDetail": 0.07617,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -199,6 +221,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.9,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9293860900360916,
+      "bodyFineDetail": 0.17189,
+      "captionFineDetail": 0.07615,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -234,6 +260,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.867,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9291469907041795,
+      "bodyFineDetail": 0.17192,
+      "captionFineDetail": 0.07618,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -269,6 +299,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.867,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9291469907041795,
+      "bodyFineDetail": 0.17195,
+      "captionFineDetail": 0.07618,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -304,6 +338,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.859,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9293815895782709,
+      "bodyFineDetail": 0.17197,
+      "captionFineDetail": 0.07617,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -339,6 +377,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.9,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9293860900360916,
+      "bodyFineDetail": 0.1719,
+      "captionFineDetail": 0.07615,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -374,6 +416,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 11.867,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9291469907041795,
+      "bodyFineDetail": 0.17195,
+      "captionFineDetail": 0.07618,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -381,7 +427,7 @@
     },
     {
       "title": "microsoft-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-2026-06-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -409,6 +455,10 @@
       "transitions": 10,
       "staticHolds": 2,
       "captionDetail": 16.822,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8749283095110207,
+      "bodyFineDetail": 0.17967,
+      "captionFineDetail": 0.08333,
       "findings": [
         "info:dual-mono",
         "info:static-hold",
@@ -417,7 +467,7 @@
     },
     {
       "title": "microsoft-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-2026-06-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -445,6 +495,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 16.818,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8747432969549045,
+      "bodyFineDetail": 0.17961,
+      "captionFineDetail": 0.08332,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -452,7 +506,7 @@
     },
     {
       "title": "microsoft-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-2026-06-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -480,6 +534,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 16.87,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8750540640325218,
+      "bodyFineDetail": 0.17958,
+      "captionFineDetail": 0.08335,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -487,7 +545,7 @@
     },
     {
       "title": "microsoft-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-2026-06-am_michael-kokoro.mp4",
       "role": "video",
@@ -515,6 +573,168 @@
       "transitions": 10,
       "staticHolds": 2,
       "captionDetail": 16.822,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8749280537856019,
+      "bodyFineDetail": 0.17967,
+      "captionFineDetail": 0.08333,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-2026-07-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-2026-07/microsoft-2026-07-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -63.2,
+      "snrDb": 44.67,
+      "speechRatio": 0.776,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 759.9,
+      "speechHf8k": 0.002963,
+      "speechFlatness": 0.0001,
+      "humProminenceDb": 5.6,
+      "transitions": 10,
+      "staticHolds": 2,
+      "captionDetail": 16.822,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8749283095110207,
+      "bodyFineDetail": 0.17967,
+      "captionFineDetail": 0.08333,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-2026-07-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-2026-07/microsoft-2026-07-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 62.421,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.9,
+      "speechRmsDbfs": -18.44,
+      "noiseFloorDbfs": -69.36,
+      "snrDb": 50.92,
+      "speechRatio": 0.7752,
+      "longestPauseSeconds": 1.375,
+      "speechCentroidHz": 762.3,
+      "speechHf8k": 0.019706,
+      "speechFlatness": 0.000128,
+      "humProminenceDb": 6.22,
+      "transitions": 10,
+      "staticHolds": 1,
+      "captionDetail": 16.82,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8747431979013022,
+      "bodyFineDetail": 0.17961,
+      "captionFineDetail": 0.08331,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-2026-07-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-2026-07/microsoft-2026-07-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 65.216,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.8,
+      "speechRmsDbfs": -18.24,
+      "noiseFloorDbfs": -77.62,
+      "snrDb": 59.38,
+      "speechRatio": 0.7637,
+      "longestPauseSeconds": 1.55,
+      "speechCentroidHz": 601.8,
+      "speechHf8k": 0.01808,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 7.97,
+      "transitions": 10,
+      "staticHolds": 1,
+      "captionDetail": 16.87,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.875050016373356,
+      "bodyFineDetail": 0.17958,
+      "captionFineDetail": 0.08335,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-2026-07-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-2026-07/microsoft-2026-07-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.54,
+      "noiseFloorDbfs": -64.86,
+      "snrDb": 46.32,
+      "speechRatio": 0.779,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 760.1,
+      "speechHf8k": 0.002954,
+      "speechFlatness": 0.000098,
+      "humProminenceDb": 5.65,
+      "transitions": 10,
+      "staticHolds": 2,
+      "captionDetail": 16.822,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8749283095110207,
+      "bodyFineDetail": 0.17967,
+      "captionFineDetail": 0.08333,
       "findings": [
         "info:dual-mono",
         "info:static-hold",

@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -6.234028484403131e-12,
-      "highFrequencyRatio8k": 0.000940517260012967,
-      "rmsDbfs": -27.86636335551806,
-      "spectralFlatness": 1.2701803608779092e-07
+      "dcOffset": -4.913880934098724e-12,
+      "highFrequencyRatio8k": 0.0009479911727126951,
+      "rmsDbfs": -27.865323732811575,
+      "spectralFlatness": 1.2896710878579145e-07
     },
     "before": {
-      "dcOffset": 1.2199603588669561e-05,
-      "highFrequencyRatio8k": 0.0009404036115046405,
-      "rmsDbfs": -27.86563184511965,
-      "spectralFlatness": 1.1756540167643364e-07
+      "dcOffset": 1.2228261766722426e-05,
+      "highFrequencyRatio8k": 0.0009478764649090212,
+      "rmsDbfs": -27.86458030681581,
+      "spectralFlatness": 1.196973719293871e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/microsoft/audio.wav",
-  "audioSha256": "d025bb05cdfdee62aa11db43b250c4b4783d9a1100ed464d713f2d54bd4430c6",
+  "audioSha256": "4e12d96f1e7b3be7a075d96fd4cb6fac8b19b1b05f47732ce41285c0c3e10f92",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,8 +66,8 @@
   "mastering": {
     "gainDb": 8.54,
     "inputLufs": -24.29,
-    "limitedSampleRatio": 0.0242,
-    "maxLimiterReductionDb": 4.6,
+    "limitedSampleRatio": 0.02489,
+    "maxLimiterReductionDb": 4.36,
     "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2199606560680751e-05,
-    "peak": 0.531001627445221,
-    "rms": 0.04043369506497416
+    "dc": 1.222825545720341e-05,
+    "peak": 0.5189668536186218,
+    "rms": 0.04043859431277589
   },
   "requestedDurationSeconds": 60.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
