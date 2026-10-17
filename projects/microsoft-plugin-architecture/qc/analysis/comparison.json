@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft-plugin-architecture",
-  "generatedAt": "2026-10-16T20:10:27.282Z",
+  "generatedAt": "2026-10-17T04:07:48.983Z",
   "rows": [
     {
       "title": "microsoft-plugin-architecture-2026-01",
@@ -33,6 +33,10 @@
       "transitions": 11,
       "staticHolds": 0,
       "captionDetail": 10.519,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9267873496825305,
+      "bodyFineDetail": 0.21816,
+      "captionFineDetail": 0.07799,
       "findings": [
         "warning:loudness-off-target",
         "info:dual-mono"
@@ -68,6 +72,10 @@
       "transitions": 8,
       "staticHolds": 0,
       "captionDetail": 9.484,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9397156886292669,
+      "bodyFineDetail": 0.1986,
+      "captionFineDetail": 0.07327,
       "findings": [
         "warning:loudness-off-target",
         "info:dual-mono"
@@ -103,6 +111,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.832,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9394605367631516,
+      "bodyFineDetail": 0.1986,
+      "captionFineDetail": 0.07327,
       "findings": [
         "warning:loudness-off-target",
         "info:dual-mono"
@@ -138,6 +150,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.838,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9391607947922682,
+      "bodyFineDetail": 0.19802,
+      "captionFineDetail": 0.07325,
       "findings": [
         "info:dual-mono"
       ]
@@ -172,6 +188,10 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 9.846,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9396105366994143,
+      "bodyFineDetail": 0.19805,
+      "captionFineDetail": 0.07326,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -207,6 +227,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.851,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9397253688776558,
+      "bodyFineDetail": 0.19806,
+      "captionFineDetail": 0.07328,
       "findings": [
         "info:dual-mono"
       ]
@@ -241,6 +265,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.838,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9391607947922682,
+      "bodyFineDetail": 0.19802,
+      "captionFineDetail": 0.07325,
       "findings": [
         "info:dual-mono"
       ]
@@ -275,6 +303,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.838,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9391607947922682,
+      "bodyFineDetail": 0.19802,
+      "captionFineDetail": 0.07325,
       "findings": [
         "info:dual-mono"
       ]
@@ -309,6 +341,10 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 9.845,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9396105366994143,
+      "bodyFineDetail": 0.19805,
+      "captionFineDetail": 0.07326,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -344,6 +380,10 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.849,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9397253688776558,
+      "bodyFineDetail": 0.19806,
+      "captionFineDetail": 0.07328,
       "findings": [
         "info:dual-mono"
       ]
@@ -378,13 +418,17 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 9.838,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9391607947922682,
+      "bodyFineDetail": 0.19802,
+      "captionFineDetail": 0.07325,
       "findings": [
         "info:dual-mono"
       ]
     },
     {
       "title": "microsoft-plugin-architecture-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-06-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -412,6 +456,10 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 14.943,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8778114474400327,
+      "bodyFineDetail": 0.1845,
+      "captionFineDetail": 0.0756,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -419,7 +467,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-06-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -447,6 +495,10 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 14.959,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8775994400672656,
+      "bodyFineDetail": 0.18439,
+      "captionFineDetail": 0.07566,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -454,7 +506,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-06-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -482,6 +534,10 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 14.962,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8775050904722654,
+      "bodyFineDetail": 0.18436,
+      "captionFineDetail": 0.07565,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -489,7 +545,7 @@
     },
     {
       "title": "microsoft-plugin-architecture-2026-06",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-plugin-architecture-2026-06-am_michael-kokoro.mp4",
       "role": "video",
@@ -517,6 +573,166 @@
       "transitions": 9,
       "staticHolds": 1,
       "captionDetail": 14.944,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8778112951204813,
+      "bodyFineDetail": 0.1845,
+      "captionFineDetail": 0.07559,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -69.31,
+      "snrDb": 50.78,
+      "speechRatio": 0.7769,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 770.9,
+      "speechHf8k": 0.003162,
+      "speechFlatness": 0.0001,
+      "humProminenceDb": 7.97,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 14.944,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8778114474400327,
+      "bodyFineDetail": 0.1845,
+      "captionFineDetail": 0.07561,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-07-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 57.259,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.4,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -74.22,
+      "snrDb": 55.66,
+      "speechRatio": 0.7886,
+      "longestPauseSeconds": 1.325,
+      "speechCentroidHz": 810.6,
+      "speechHf8k": 0.024374,
+      "speechFlatness": 0.000161,
+      "humProminenceDb": 6.11,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 14.959,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8775994400672656,
+      "bodyFineDetail": 0.18439,
+      "captionFineDetail": 0.07566,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-07-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 59.691,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 4.2,
+      "speechRmsDbfs": -18.35,
+      "noiseFloorDbfs": -78.84,
+      "snrDb": 60.49,
+      "speechRatio": 0.7703,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 639.2,
+      "speechHf8k": 0.021888,
+      "speechFlatness": 0.000113,
+      "humProminenceDb": 6,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 14.962,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8775050904722654,
+      "bodyFineDetail": 0.18436,
+      "captionFineDetail": 0.07564,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-plugin-architecture-2026-07",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-plugin-architecture-2026-07-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -69.15,
+      "snrDb": 50.62,
+      "speechRatio": 0.7769,
+      "longestPauseSeconds": 1.65,
+      "speechCentroidHz": 769.8,
+      "speechHf8k": 0.003151,
+      "speechFlatness": 0.000101,
+      "humProminenceDb": 8,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 14.944,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8778114474400327,
+      "bodyFineDetail": 0.1845,
+      "captionFineDetail": 0.07561,
       "findings": [
         "info:dual-mono",
         "info:static-hold"

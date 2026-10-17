@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": -2.8757655978761676e-12,
-      "highFrequencyRatio8k": 0.0230669017454905,
-      "rmsDbfs": -27.787614123573125,
-      "spectralFlatness": 1.4218876150557485e-06
+      "dcOffset": -5.477648716556427e-12,
+      "highFrequencyRatio8k": 0.02242931032974594,
+      "rmsDbfs": -27.78946473882847,
+      "spectralFlatness": 1.4103233500186469e-06
     },
     "before": {
-      "dcOffset": 1.4602034752897453e-05,
-      "highFrequencyRatio8k": 0.02306426015120047,
-      "rmsDbfs": -27.787004212909633,
-      "spectralFlatness": 1.3929310007690774e-06
+      "dcOffset": 1.4774937881156802e-05,
+      "highFrequencyRatio8k": 0.02242674197998954,
+      "rmsDbfs": -27.788857871260486,
+      "spectralFlatness": 1.3862435104509074e-06
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/microsoft-plugin-architecture/audio.wav",
-  "audioSha256": "f1c453b074bbec6ebfd19ea09d2cc5788feb9a54815b6bf8d7a53ee5a48dda3e",
+  "audioSha256": "75b97868736ef96b7130c58cdba7ec34fc493df77673021d49a3f83f6e86b62e",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,9 +66,9 @@
   "mastering": {
     "gainDb": 8.52,
     "inputLufs": -24.22,
-    "limitedSampleRatio": 0.02992,
-    "maxLimiterReductionDb": 5.36,
-    "outputLufs": -16.04,
+    "limitedSampleRatio": 0.02953,
+    "maxLimiterReductionDb": 5.38,
+    "outputLufs": -16.05,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16.0,
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.4602026887480044e-05,
-    "peak": 0.5844246745109558,
-    "rms": 0.04080137208348911
+    "dc": 1.4774933087835873e-05,
+    "peak": 0.579601526260376,
+    "rms": 0.040792665436775954
   },
   "requestedDurationSeconds": 75.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",

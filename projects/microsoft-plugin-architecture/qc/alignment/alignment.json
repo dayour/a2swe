@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "generatedAt": "2026-10-17T04:08:38.444Z",
+  "source": "release",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "domainDigest": "a1a966a6ace0758a5e5d6a57f2e82916912c3f9be70d17247ed7b8b1c8d49f63",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-cowork",
+      "title": "Build plugins for Copilot Cowork",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-m365-actions",
+      "title": "MCP and API plugins for declarative agents",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-github-plugins",
+      "title": "About GitHub Copilot plugins",
+      "host": "docs.github.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "reuse-boundary: low relevance to internal priorities (0.172).",
+        "portfolio: weakly grounded sentence (0.208): \"Assign one owner per capability and service.\"",
+        "portfolio: weakly grounded sentence (0.422): \"Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.\""
+      ],
+      "eligibleEvidence": 9,
+      "totalEvidence": 9,
+      "leadClaim": "c3",
+      "recommendedOrder": [
+        "portfolio",
+        "reuse-boundary",
+        "supported-paths",
+        "three-routes"
+      ],
+      "sections": [
+        {
+          "sectionId": "portfolio",
+          "title": "4. Govern a small portfolio",
+          "relevance": 0.404,
+          "intent": "platform-strategy",
+          "grounding": 0.315,
+          "decision": 0.563,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.625,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Assign one owner per capability and service.",
+              "grounding": 0.208
+            },
+            {
+              "text": "Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+              "grounding": 0.422
+            }
+          ]
+        },
+        {
+          "sectionId": "reuse-boundary",
+          "title": "2. Reuse the core, not the wrapper",
+          "relevance": 0.172,
+          "intent": "blockers",
+          "grounding": 0.643,
+          "decision": 0.512,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.613,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "supported-paths",
+          "title": "3. Preserve supported paths",
+          "relevance": 0.196,
+          "intent": "blockers",
+          "grounding": 0.726,
+          "decision": 0.215,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.484,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "three-routes",
+          "title": "1. Choose the host route",
+          "relevance": 0.201,
+          "intent": "platform-strategy",
+          "grounding": 0.703,
+          "decision": 0.184,
+          "eligibleClaims": 3,
+          "claims": 3,
+          "leakage": 0,
+          "score": 0.472,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c3",
+          "text": "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
+          "eligible": true,
+          "relevance": 0.325,
+          "intent": "platform-strategy",
+          "support": 0.565,
+          "decision": 0.25,
+          "score": 0.564,
+          "rank": 1
+        },
+        {
+          "claimId": "c1",
+          "text": "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+          "eligible": true,
+          "relevance": 0.298,
+          "intent": "platform-strategy",
+          "support": 0.475,
+          "decision": 0.305,
+          "score": 0.505,
+          "rank": 2
+        },
+        {
+          "claimId": "c2",
+          "text": "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific.",
+          "eligible": true,
+          "relevance": 0.172,
+          "intent": "governance",
+          "support": 0.416,
+          "decision": 0.627,
+          "score": 0.462,
+          "rank": 3
+        },
+        {
+          "claimId": "c4",
+          "text": "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
+          "eligible": true,
+          "relevance": 0.198,
+          "intent": "platform-strategy",
+          "support": 0.679,
+          "decision": 0.228,
+          "score": 0.449,
+          "rank": 4
+        },
+        {
+          "claimId": "c5",
+          "text": "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported.",
+          "eligible": true,
+          "relevance": 0.196,
+          "intent": "blockers",
+          "support": 0.512,
+          "decision": 0.347,
+          "score": 0.442,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "portfolio: weakly grounded sentence (0.208): \"Assign one owner per capability and service.\"",
+        "portfolio: weakly grounded sentence (0.422): \"Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.\""
+      ],
+      "eligibleEvidence": 9,
+      "totalEvidence": 9,
+      "leadClaim": "c3",
+      "recommendedOrder": [
+        "reuse-boundary",
+        "portfolio",
+        "supported-paths",
+        "three-routes"
+      ],
+      "sections": [
+        {
+          "sectionId": "reuse-boundary",
+          "title": "2. Reuse the core, not the wrapper",
+          "relevance": 0.227,
+          "intent": "architecture-choices",
+          "grounding": 0.643,
+          "decision": 0.512,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.658,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "portfolio",
+          "title": "4. Govern a small portfolio",
+          "relevance": 0.441,
+          "intent": "capabilities",
+          "grounding": 0.315,
+          "decision": 0.563,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.655,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Assign one owner per capability and service.",
+              "grounding": 0.208
+            },
+            {
+              "text": "Publish a host compatibility matrix, version each package, and add routes only when demand justifies lifecycle cost.",
+              "grounding": 0.422
+            }
+          ]
+        },
+        {
+          "sectionId": "supported-paths",
+          "title": "3. Preserve supported paths",
+          "relevance": 0.219,
+          "intent": "architecture-choices",
+          "grounding": 0.726,
+          "decision": 0.215,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.502,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "three-routes",
+          "title": "1. Choose the host route",
+          "relevance": 0.214,
+          "intent": "architecture-choices",
+          "grounding": 0.703,
+          "decision": 0.184,
+          "eligibleClaims": 3,
+          "claims": 3,
+          "leakage": 0,
+          "score": 0.483,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c3",
+          "text": "Cowork packages skills and connectors in a standard Microsoft 365 app package.",
+          "eligible": true,
+          "relevance": 0.364,
+          "intent": "architecture-choices",
+          "support": 0.565,
+          "decision": 0.25,
+          "score": 0.603,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Skills and MCP configuration can be reusable, while manifests, discovery, authentication and client-specific components remain host-specific.",
+          "eligible": true,
+          "relevance": 0.266,
+          "intent": "architecture-choices",
+          "support": 0.416,
+          "decision": 0.627,
+          "score": 0.556,
+          "rank": 2
+        },
+        {
+          "claimId": "c1",
+          "text": "Three host routes use different delivery contracts: Cowork uses Microsoft 365 app packages; declarative agents use MCP or API actions; GitHub Copilot uses plugin packages.",
+          "eligible": true,
+          "relevance": 0.269,
+          "intent": "architecture-choices",
+          "support": 0.475,
+          "decision": 0.305,
+          "score": 0.476,
+          "rank": 3
+        },
+        {
+          "claimId": "c4",
+          "text": "Microsoft 365 declarative agents support MCP and REST API plugins as in-agent actions; REST API tools are defined in the plugin manifest.",
+          "eligible": true,
+          "relevance": 0.222,
+          "intent": "architecture-choices",
+          "support": 0.679,
+          "decision": 0.228,
+          "score": 0.474,
+          "rank": 4
+        },
+        {
+          "claimId": "c5",
+          "text": "GitHub Agent Plugins 1.0 ports skills and MCP configuration across compatible clients; client-specific components and legacy plugins remain supported.",
+          "eligible": true,
+          "relevance": 0.203,
+          "intent": "architecture-choices",
+          "support": 0.512,
+          "decision": 0.347,
+          "score": 0.45,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.568,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.636,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "three-routes",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.575,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "reuse-boundary",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.541,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "supported-paths",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.454,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "portfolio",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.632,
+        "status": "aligned"
+      }
+    ]
+  }
+}
