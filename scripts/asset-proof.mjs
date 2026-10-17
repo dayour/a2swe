@@ -7,6 +7,7 @@ import sharp from 'sharp';
 import { digest } from '../packages/core/src/canonical.ts';
 import { submitAssetJob, runAssetJob, exportAssetJob } from '../packages/core/src/asset-jobs.ts';
 import { verifyAssetBundle } from '../packages/core/src/assets.ts';
+import { readImage, writeImage } from '../packages/core/src/image-io.ts';
 
 const { values } = parseArgs({ options: { out: { type: 'string' } } });
 const output = path.resolve(values.out ?? `.a2swe/asset-proof-${randomUUID()}`);
@@ -48,9 +49,9 @@ for (const variant of variants) {
 }
 const thumbnails = [];
 for (const [index, record] of records.entries()) {
-  thumbnails.push({ input: await sharp(path.join(output, record.directory, 'asset.png')).resize(960, 540).png().toBuffer(), left: 0, top: index * 540 });
+  thumbnails.push({ input: await (await readImage(path.join(output, record.directory, 'asset.png'))).resize(960, 540).png().toBuffer(), left: 0, top: index * 540 });
 }
-await sharp({ create: { width: 960, height: 1620, channels: 3, background: '#ffffff' } }).composite(thumbnails).png().toFile(path.join(output, 'contact-sheet.png'));
+await writeImage(sharp({ create: { width: 960, height: 1620, channels: 3, background: '#ffffff' } }).composite(thumbnails).png(), path.join(output, 'contact-sheet.png'));
 await writeFile(path.join(output, 'proof.json'), `${JSON.stringify({ schemaVersion: '1.0.0', purpose: 'synthetic_engineering_validation',
   domainDigest: digest(domain), records, liveDiffusion: 'not_run', visualApproval: 'pending', production: false }, null, 2)}\n`, { flag: 'wx' });
 console.log(JSON.stringify({ output, images: records.length, contactSheet: path.join(output, 'contact-sheet.png'), purpose: 'synthetic_engineering_validation' }, null, 2));

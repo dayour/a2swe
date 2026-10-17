@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { sha256 } from './canonical.ts';
+import { readImage, writeImage } from './image-io.ts';
 import { indexProjectQc, projectIdOf } from './release.ts';
 
 const REPOSITORY_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
@@ -57,11 +58,11 @@ print(len(document))
 
 async function contactSheet(files: string[], target: string, width: number, height: number, columns: number): Promise<void> {
   if (!files.length) return;
-  const tiles = await Promise.all(files.map((file) => sharp(file).resize(width - 16, height - 16, { fit: 'contain', background: '#d9dfe8' }).toBuffer()));
+  const tiles = await Promise.all(files.map(async (file) => (await readImage(file)).resize(width - 16, height - 16, { fit: 'contain', background: '#d9dfe8' }).toBuffer()));
   const rows = Math.ceil(tiles.length / columns);
-  await sharp({ create: { width: columns * width, height: rows * height, channels: 3, background: '#d9dfe8' } })
+  await writeImage(sharp({ create: { width: columns * width, height: rows * height, channels: 3, background: '#d9dfe8' } })
     .composite(tiles.map((input, index) => ({ input, left: (index % columns) * width + 8, top: Math.floor(index / columns) * height + 8 })))
-    .jpeg({ quality: 84, mozjpeg: true }).toFile(target);
+    .jpeg({ quality: 84, mozjpeg: true }), target);
 }
 
 /** Renders the release PPTX and DOCX with native Microsoft Office and records source-bound QA evidence in qc/native-office. */

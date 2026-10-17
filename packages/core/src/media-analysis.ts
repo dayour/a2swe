@@ -5,6 +5,7 @@ import { mkdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import type { OverlayOptions } from 'sharp';
+import { readImage, writeImage } from './image-io.ts';
 
 export interface AnalysisScene { id: string; startSeconds: number; endSeconds: number }
 export interface MediaAnalysisOptions { label?: string; scenes?: AnalysisScene[] }
@@ -537,9 +538,9 @@ async function layerHeatmap(zones: ReturnType<typeof analyzeZones>, durationSeco
     <text x="${left - 10}" y="44" fill="#94a3b8" font-size="13" text-anchor="end">motion</text>${rows(48)}
     <text x="${left - 10}" y="${48 + panelHeight + 12}" fill="#94a3b8" font-size="13" text-anchor="end">detail</text>${rows(56 + panelHeight)}
     ${ticks.join('')}</svg>`;
-  await sharp({ create: { width: left + width + 30, height, channels: 3, background: '#0b1220' } })
+  await writeImage(sharp({ create: { width: left + width + 30, height, channels: 3, background: '#0b1220' } })
     .composite([{ input: motion, left, top: 48 }, { input: text, left, top: 56 + panelHeight }, { input: Buffer.from(svg), left: 0, top: 0 }])
-    .png().toFile(target);
+    .png(), target);
 }
 
 // The video equivalent of an audio spectrogram. Every pixel's brightness over time is a signal sampled at the frame rate; short-time
@@ -735,9 +736,9 @@ async function temporalSpectrogramImage(temporal: ReturnType<typeof temporalSpec
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${left + width + 60}" height="${height}" font-family="Arial">
     <text x="12" y="26" fill="#f8fafc" font-size="18" font-weight="700">${escapeXml(label)} | video spectrogram: temporal frequency of each layer (0-${Math.round(nyquist)} Hz, ${temporal.windowSeconds.toFixed(2)} s Hann windows)</text>
     ${legend(left + width - 190, 36, range)}${rows}${spectrogramTicks(left, width, top + ZONES.length * (rowHeight + gap) - gap + 4, firstCenter, lastCenter)}</svg>`;
-  await sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
+  await writeImage(sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
     .composite([...panels.map((input, row) => ({ input, left, top: top + row * (rowHeight + gap) })), { input: Buffer.from(svg), left: 0, top: 0 }])
-    .jpeg({ quality: 86, mozjpeg: true }).toFile(target);
+    .jpeg({ quality: 86, mozjpeg: true }), target);
 }
 
 async function spatialSpectrogramImage(spatial: ReturnType<typeof spatialSpectra>, durationSeconds: number, label: string, target: string): Promise<void> {
@@ -776,9 +777,9 @@ async function spatialSpectrogramImage(spatial: ReturnType<typeof spatialSpectra
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${left + width + 60}" height="${height}" font-family="Arial">
     <text x="12" y="26" fill="#f8fafc" font-size="18" font-weight="700">${escapeXml(label)} | spatial spectrogram: horizontal detail per content band (log cycles/px, dashed = fine detail)</text>
     ${legend(left + width - 190, 36, range)}${rows}${spectrogramTicks(left, width, top + ROW_BANDS.length * (rowHeight + gap) - gap + 4, 0, durationSeconds)}</svg>`;
-  await sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
+  await writeImage(sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
     .composite([...panels.map((input, row) => ({ input, left, top: top + row * (rowHeight + gap) })), { input: Buffer.from(svg), left: 0, top: 0 }])
-    .jpeg({ quality: 86, mozjpeg: true }).toFile(target);
+    .jpeg({ quality: 86, mozjpeg: true }), target);
 }
 
 function spectrogram(input: string, target: string, options: { start?: number; duration?: number; width: number; height: number; logFrequency?: boolean }): void {
@@ -794,7 +795,7 @@ function spectrogram(input: string, target: string, options: { start?: number; d
 }
 
 async function toJpeg(png: string, target: string, quality = 86): Promise<void> {
-  await sharp(png).jpeg({ quality, mozjpeg: true }).toFile(target);
+  await writeImage((await readImage(png)).jpeg({ quality, mozjpeg: true }), target);
   await rm(png, { force: true });
 }
 
@@ -807,11 +808,11 @@ async function contactSheet(frames: { file: string; label: string }[], target: s
   for (const [index, frame] of frames.entries()) {
     const x = (index % columns) * width;
     const y = Math.floor(index / columns) * (height + labelHeight);
-    composites.push({ input: await sharp(frame.file).resize(width, height, { fit: 'contain', background: '#000000' }).toBuffer(), left: x, top: y + labelHeight });
+    composites.push({ input: await (await readImage(frame.file)).resize(width, height, { fit: 'contain', background: '#000000' }).toBuffer(), left: x, top: y + labelHeight });
     composites.push({ input: Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${labelHeight}"><rect width="100%" height="100%" fill="#0f172a"/><text x="8" y="18" fill="#e2e8f0" font-family="Arial" font-size="15">${escapeXml(frame.label)}</text></svg>`), left: x, top: y });
   }
-  await sharp({ create: { width: columns * width, height: Math.max(1, rows) * (height + labelHeight), channels: 3, background: '#111827' } })
-    .composite(composites).jpeg({ quality: 84, mozjpeg: true }).toFile(target);
+  await writeImage(sharp({ create: { width: columns * width, height: Math.max(1, rows) * (height + labelHeight), channels: 3, background: '#111827' } })
+    .composite(composites).jpeg({ quality: 84, mozjpeg: true }), target);
 }
 
 function extractFrame(input: string, timeSeconds: number, target: string): void {
@@ -931,9 +932,9 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
       path.join(out, 'contact-sheet.jpg'));
     // Proportional frames at 10/30/50/70/90% feed the cross-revision frame grid; the raw frames live only inside the two composites.
     const proportional = extracted.filter((frame) => /^p\d+$/.test(frame.kind));
-    const thumbs = await Promise.all(proportional.map((frame) => sharp(frame.file).resize(320, 180, { fit: 'contain', background: '#000' }).toBuffer()));
-    await sharp({ create: { width: 320 * Math.max(1, thumbs.length), height: 180, channels: 3, background: '#000' } })
-      .composite(thumbs.map((thumb, index) => ({ input: thumb, left: index * 320, top: 0 }))).jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(out, 'frame-strip.jpg'));
+    const thumbs = await Promise.all(proportional.map(async (frame) => (await readImage(frame.file)).resize(320, 180, { fit: 'contain', background: '#000' }).toBuffer()));
+    await writeImage(sharp({ create: { width: 320 * Math.max(1, thumbs.length), height: 180, channels: 3, background: '#000' } })
+      .composite(thumbs.map((thumb, index) => ({ input: thumb, left: index * 320, top: 0 }))).jpeg({ quality: 84, mozjpeg: true }), path.join(out, 'frame-strip.jpg'));
     images.contactSheet = 'contact-sheet.jpg';
     images.frameStrip = 'frame-strip.jpg';
   }

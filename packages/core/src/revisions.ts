@@ -6,6 +6,7 @@ import sharp from 'sharp';
 import { digest, sha256 } from './canonical.ts';
 import { revisionTitle, validate } from './contracts.ts';
 import type { ContentIR, RenderRevision } from './contracts.ts';
+import { readImage, writeImage } from './image-io.ts';
 import { analyzeMedia, probeMedia } from './media-analysis.ts';
 import type { AnalysisScene, MediaAnalysisReport } from './media-analysis.ts';
 import { voiceProfiles } from './media-remotion.ts';
@@ -281,7 +282,7 @@ function weightedLowShare(zones: { meanDb: number; lowShare: number }[]): number
 
 async function labeledStrip(image: string, label: string, width: number, height: number): Promise<Buffer> {
   const strip = 30;
-  const body = await sharp(image).resize(width, height, { fit: 'fill' }).toBuffer();
+  const body = await (await readImage(image)).resize(width, height, { fit: 'fill' }).toBuffer();
   const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${strip}"><rect width="100%" height="100%" fill="#0f172a"/><text x="10" y="21" fill="#f8fafc" font-family="Arial" font-size="17" font-weight="700">${label.replaceAll('&', '&amp;').replaceAll('<', '&lt;')}</text></svg>`);
   return sharp({ create: { width, height: height + strip, channels: 3, background: '#0f172a' } })
     .composite([{ input: text, left: 0, top: 0 }, { input: body, left: 0, top: strip }]).png().toBuffer();
@@ -294,7 +295,7 @@ async function stackImages(parts: Buffer[], target: string): Promise<void> {
   const height = metas.reduce((sum, meta) => sum + (meta.height ?? 0), 0);
   let top = 0;
   const composites = parts.map((input, index) => { const item = { input, left: 0, top }; top += metas[index].height ?? 0; return item; });
-  await sharp({ create: { width, height, channels: 3, background: '#0b1220' } }).composite(composites).jpeg({ quality: 84, mozjpeg: true }).toFile(target);
+  await writeImage(sharp({ create: { width, height, channels: 3, background: '#0b1220' } }).composite(composites).jpeg({ quality: 84, mozjpeg: true }), target);
 }
 
 /** Analyzes every revision video (cached by digest) and writes qc/analysis comparison evidence. */
