@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "copilot",
-  "generatedAt": "2026-10-16T19:30:42.016Z",
+  "generatedAt": "2026-10-17T03:32:03.110Z",
   "rows": [
     {
       "title": "copilot-2026-01",
@@ -29,6 +29,10 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.55,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8435783906369939,
+      "bodyFineDetail": 0.07117,
+      "captionFineDetail": 0.04579,
       "findings": [
         "info:below-1080p",
         "info:dual-mono"
@@ -60,9 +64,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.557,
+      "flickerSeconds": 4.27,
+      "motionBelow2Hz": 0.8225256213698923,
+      "bodyFineDetail": 0.06303,
+      "captionFineDetail": 0.04567,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -91,9 +100,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.557,
+      "flickerSeconds": 4.27,
+      "motionBelow2Hz": 0.8225256213698923,
+      "bodyFineDetail": 0.06303,
+      "captionFineDetail": 0.04567,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -122,9 +136,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.557,
+      "flickerSeconds": 4.27,
+      "motionBelow2Hz": 0.8230497901344772,
+      "bodyFineDetail": 0.06234,
+      "captionFineDetail": 0.04567,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -153,9 +172,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.557,
+      "flickerSeconds": 4.27,
+      "motionBelow2Hz": 0.8230497901344772,
+      "bodyFineDetail": 0.06234,
+      "captionFineDetail": 0.04567,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -187,9 +211,14 @@
       "transitions": 13,
       "staticHolds": 0,
       "captionDetail": 6.557,
+      "flickerSeconds": 4.27,
+      "motionBelow2Hz": 0.8230497901344772,
+      "bodyFineDetail": 0.06234,
+      "captionFineDetail": 0.04567,
       "findings": [
         "info:below-1080p",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -222,6 +251,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362855733511813,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -257,6 +290,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.491,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9366909474778702,
+      "bodyFineDetail": 0.1933,
+      "captionFineDetail": 0.07337,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -292,6 +329,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.545,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9366232254329938,
+      "bodyFineDetail": 0.19335,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -327,6 +368,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362855733511813,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -362,6 +407,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362525804908935,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -397,6 +446,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.49,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9366414631082982,
+      "bodyFineDetail": 0.1933,
+      "captionFineDetail": 0.07337,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -432,6 +485,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.545,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9365782518905411,
+      "bodyFineDetail": 0.19335,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -467,6 +524,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362525804908935,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -502,6 +563,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362525804908935,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -537,6 +602,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.49,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9366414631082982,
+      "bodyFineDetail": 0.1933,
+      "captionFineDetail": 0.07337,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -572,6 +641,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.545,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9365782518905411,
+      "bodyFineDetail": 0.19335,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -607,6 +680,10 @@
       "transitions": 10,
       "staticHolds": 1,
       "captionDetail": 12.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.9362525804908935,
+      "bodyFineDetail": 0.19347,
+      "captionFineDetail": 0.07331,
       "findings": [
         "info:dual-mono",
         "info:static-hold"
@@ -614,7 +691,7 @@
     },
     {
       "title": "copilot-2026-10",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-10-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -642,6 +719,10 @@
       "transitions": 10,
       "staticHolds": 4,
       "captionDetail": 17.42,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8762735547715891,
+      "bodyFineDetail": 0.20315,
+      "captionFineDetail": 0.07937,
       "findings": [
         "info:dual-mono",
         "info:static-hold",
@@ -652,7 +733,7 @@
     },
     {
       "title": "copilot-2026-10",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-10-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -680,6 +761,10 @@
       "transitions": 10,
       "staticHolds": 3,
       "captionDetail": 17.336,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8761589172993891,
+      "bodyFineDetail": 0.20299,
+      "captionFineDetail": 0.07937,
       "findings": [
         "info:dual-mono",
         "info:static-hold",
@@ -689,7 +774,7 @@
     },
     {
       "title": "copilot-2026-10",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-10-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -717,6 +802,10 @@
       "transitions": 10,
       "staticHolds": 4,
       "captionDetail": 17.401,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8761173280201541,
+      "bodyFineDetail": 0.20316,
+      "captionFineDetail": 0.07937,
       "findings": [
         "info:dual-mono",
         "info:static-hold",
@@ -727,7 +816,7 @@
     },
     {
       "title": "copilot-2026-10",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "copilot-2026-10-am_michael-kokoro.mp4",
       "role": "video",
@@ -755,6 +844,177 @@
       "transitions": 10,
       "staticHolds": 4,
       "captionDetail": 17.42,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8762735547715891,
+      "bodyFineDetail": 0.20315,
+      "captionFineDetail": 0.07937,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-11",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-11-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.58,
+      "noiseFloorDbfs": -67.75,
+      "snrDb": 49.17,
+      "speechRatio": 0.7731,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 795.3,
+      "speechHf8k": 0.003092,
+      "speechFlatness": 0.0001,
+      "humProminenceDb": 8.69,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.42,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8762735547715891,
+      "bodyFineDetail": 0.20315,
+      "captionFineDetail": 0.07937,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-11",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-11-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-11/copilot-2026-11-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 59.584,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.8,
+      "speechRmsDbfs": -18.45,
+      "noiseFloorDbfs": -74.15,
+      "snrDb": 55.7,
+      "speechRatio": 0.7775,
+      "longestPauseSeconds": 1.35,
+      "speechCentroidHz": 796.7,
+      "speechHf8k": 0.021643,
+      "speechFlatness": 0.00018,
+      "humProminenceDb": 8.75,
+      "transitions": 10,
+      "staticHolds": 3,
+      "captionDetail": 17.336,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8761589172993891,
+      "bodyFineDetail": 0.20299,
+      "captionFineDetail": 0.07937,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-11",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-11-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-11/copilot-2026-11-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 62.357,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 5,
+      "speechRmsDbfs": -18.19,
+      "noiseFloorDbfs": -77.35,
+      "snrDb": 59.16,
+      "speechRatio": 0.7629,
+      "longestPauseSeconds": 1.5,
+      "speechCentroidHz": 625.8,
+      "speechHf8k": 0.020481,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 11.06,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.401,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8761173280201541,
+      "bodyFineDetail": 0.20316,
+      "captionFineDetail": 0.07937,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-2026-11",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-2026-11-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-2026-11/copilot-2026-11-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.58,
+      "noiseFloorDbfs": -67.83,
+      "snrDb": 49.25,
+      "speechRatio": 0.7731,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 796.1,
+      "speechHf8k": 0.003106,
+      "speechFlatness": 0.000099,
+      "humProminenceDb": 8.04,
+      "transitions": 10,
+      "staticHolds": 4,
+      "captionDetail": 17.42,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8762735547715891,
+      "bodyFineDetail": 0.20315,
+      "captionFineDetail": 0.07937,
       "findings": [
         "info:dual-mono",
         "info:static-hold",

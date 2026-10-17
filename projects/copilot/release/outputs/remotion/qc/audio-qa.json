@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-12",
+  "adapter": "a2swe-remotion-mp4-adapter-13",
   "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "input": "dist/render.mp4",
-  "inputSha256": "a446ad84baa6abcf20df77e6124557c825d0726c4b0d59d09bcd1f0d0c734913",
-  "sourceAudioSha256": "79d61d65fb64b96c63813fee852c77614c67185712db976ddffe7852b000650f",
+  "inputSha256": "8a9646bc2a7951c1a9c6f3a26fa77210449e99a796a67c008481cf9938652ef5",
+  "sourceAudioSha256": "97ba5d01877510da07eaed39d112a697177a9d48dca4bf9cad211d9c685e419d",
   "sampleRate": 48000,
   "durationSeconds": 65.152,
   "producer": "scripts/synthesize-audio.py",
@@ -45,17 +45,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 65.152,
-      "rmsDbfs": -19.696255,
-      "peakDbfs": -1.491509,
-      "highFrequencyRatio8k": 0.002616,
+      "rmsDbfs": -19.696727,
+      "peakDbfs": -1.486158,
+      "highFrequencyRatio8k": 0.002635,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 62.125,
-      "rmsDbfs": -19.489641,
-      "peakDbfs": -1.491509,
-      "highFrequencyRatio8k": 0.002905,
+      "rmsDbfs": -19.490113,
+      "peakDbfs": -1.486158,
+      "highFrequencyRatio8k": 0.002901,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -82,7 +82,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.510359,
+    "snrSpeechVsSilenceDb": 220.509887,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 3.2,
@@ -92,8 +92,8 @@
   "mastering": {
     "gainDb": 8.55,
     "inputLufs": -24.2,
-    "limitedSampleRatio": 0.02192,
-    "maxLimiterReductionDb": 6.29,
+    "limitedSampleRatio": 0.02143,
+    "maxLimiterReductionDb": 6.42,
     "outputLufs": -16.04,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",

@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "copilot",
   "projectId": "copilot",
-  "updatedAt": "2026-10-16T19:31:34.326Z",
+  "updatedAt": "2026-10-17T03:33:24.930Z",
   "domainDigest": "f4aa766cd23f3047709bc41a57456295d158bd73d868bdac321e685011de205d",
   "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
   "stage": "delivery",
@@ -23,25 +23,31 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "ea60532ea714494e7a842085aa6092017b6b63414ccd39d951b0396d2dca7c8d"
+      "evidenceDigest": "09ddf6e80fb6c6351751b808337fdcfb60c4ed911814cf9af810fcaf5d056360"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "2ba74df70d62f64d32733769fb501e524289f24c82006362143754861672178d"
+      "evidenceDigest": "987e22b080931d8df51dea5961b4b51a2909c3a989d50e99d94ca677e53de77b"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/copilot-2026-10/copilot-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "d92d1833925c2b0a48dc5cd760f2c97ebb47ea6e25d117973e8b10f095803846"
+      "evidencePath": "qc/analysis/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "e5e0f4697e150aa0248acbe92466424480637e8e44f8cb2a9c1bfc1d10070cec"
+    },
+    {
+      "name": "audience-alignment",
+      "status": "passed",
+      "evidencePath": "qc/alignment/alignment.json",
+      "evidenceDigest": "2fcfc6aaf7c1bbb8f95e510fcf85105ee9f7b2e39c8c3633917a256e66b99a90"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "a4b335af1e5820787aa548b5547ff7b442d5fdfc05768107481ddcb70f2a2190"
+      "evidenceDigest": "1b749de4622d807608cf1f4dfa075f0f7a26a79d843d0a00a5c1ea57d16f051a"
     }
   ],
   "stages": [
@@ -109,7 +115,8 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/copilot-2026-10/copilot-2026-10-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx/analysis.json",
+        "qc/alignment/alignment.json"
       ]
     },
     {
@@ -158,7 +165,7 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "8897ad5c934e4443e9ce61c4868ceb07fd6b4fc6178cb2f5574b4eced4e79dec",
+      "digest": "5a63e8968b7ac30428cd9addec37ecf21a68380aca0a174d3c7672cc82cd1784",
       "mediaType": "application/json",
       "stage": "content"
     },
@@ -176,7 +183,7 @@
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "6c45a4f5f05c6ef9b881cca6e3b6fd3b977cc7fab1b42d5c3b4ff2f8f2ee5b57",
+      "digest": "c3d592f6949d9324cb214bcf88705bf6bfad0cd820758b62339e0719bad61f04",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
@@ -194,49 +201,55 @@
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "bd5d4ecb5aa5e592eb710c2dfff86ba9de1ab913116d108499ba7136c6aeeb4b",
+      "digest": "bb1f4b829c179f2897dfd7670a8c4436b07d5b3f7739f71c531b9d979c424527",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "684cfbbfcc608194651b3b186678d4c4fc4679b998db96b74222c16db77fb852",
+      "digest": "e63bee08d3c9a2958d4611c8cf5043ea76866bc545215a553a000aec7d8009f5",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "a446ad84baa6abcf20df77e6124557c825d0726c4b0d59d09bcd1f0d0c734913",
+      "digest": "8a9646bc2a7951c1a9c6f3a26fa77210449e99a796a67c008481cf9938652ef5",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "ea60532ea714494e7a842085aa6092017b6b63414ccd39d951b0396d2dca7c8d",
+      "digest": "09ddf6e80fb6c6351751b808337fdcfb60c4ed911814cf9af810fcaf5d056360",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "79d2e20a64f509307f39b61e434e17a74ea3440891b0a95a4464f798e40ad8f8",
+      "digest": "ef50d60da35970859c7a5324ee0a6137891f7bbfdca8d9e093b6ed87374dd6db",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "a4b335af1e5820787aa548b5547ff7b442d5fdfc05768107481ddcb70f2a2190",
+      "digest": "1b749de4622d807608cf1f4dfa075f0f7a26a79d843d0a00a5c1ea57d16f051a",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "2ba74df70d62f64d32733769fb501e524289f24c82006362143754861672178d",
+      "digest": "987e22b080931d8df51dea5961b4b51a2909c3a989d50e99d94ca677e53de77b",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/copilot-2026-10/copilot-2026-10-am_michael-kokoro_onnx/analysis.json",
-      "digest": "d92d1833925c2b0a48dc5cd760f2c97ebb47ea6e25d117973e8b10f095803846",
+      "path": "qc/analysis/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx/analysis.json",
+      "digest": "e5e0f4697e150aa0248acbe92466424480637e8e44f8cb2a9c1bfc1d10070cec",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/alignment/alignment.json",
+      "digest": "2fcfc6aaf7c1bbb8f95e510fcf85105ee9f7b2e39c8c3633917a256e66b99a90",
       "mediaType": "application/json",
       "stage": "qc"
     },
@@ -248,7 +261,7 @@
     },
     {
       "path": "release/release-plan.json",
-      "digest": "425babd92e7842985bec5387d435ca350f87ca14b53614dd87d5cd2a9eb766b7",
+      "digest": "1dd9e9ad7390b2f9d09a7a9703940dc3034684838471718dc1b16bfd3d9df53f",
       "mediaType": "application/json",
       "stage": "delivery"
     }

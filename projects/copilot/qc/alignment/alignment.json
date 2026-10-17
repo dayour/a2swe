@@ -1,0 +1,393 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot",
+  "generatedAt": "2026-10-17T03:33:23.652Z",
+  "source": "release",
+  "contentDigest": "66c2001490af5749ad190454aa9e39a42a5148f7b4fb7403475c7a3438e85e39",
+  "domainDigest": "f4aa766cd23f3047709bc41a57456295d158bd73d868bdac321e685011de205d",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-copilot-chat",
+      "title": "Overview of Microsoft Copilot Chat",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-m365-copilot",
+      "title": "What is Microsoft Copilot?",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-github-copilot",
+      "title": "GitHub Copilot · Your AI coding agent · GitHub",
+      "host": "github.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-copilot-studio",
+      "title": "Overview - Microsoft Copilot Studio",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "choose-by-job: low relevance to internal priorities (0.148).",
+        "decision-checks: weakly grounded sentence (0.246): \"Make the decision after the fit is clear.\"",
+        "decision-checks: weakly grounded sentence (0.371): \"Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.\""
+      ],
+      "eligibleEvidence": 8,
+      "totalEvidence": 8,
+      "leadClaim": "c2",
+      "recommendedOrder": [
+        "decision-checks",
+        "govern-access",
+        "builder-routes",
+        "choose-by-job"
+      ],
+      "sections": [
+        {
+          "sectionId": "decision-checks",
+          "title": "4. Run decision checks",
+          "relevance": 0.435,
+          "intent": "decision",
+          "grounding": 0.309,
+          "decision": 0.639,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.664,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Make the decision after the fit is clear.",
+              "grounding": 0.246
+            },
+            {
+              "text": "Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+              "grounding": 0.371
+            }
+          ]
+        },
+        {
+          "sectionId": "govern-access",
+          "title": "2. Govern access",
+          "relevance": 0.3,
+          "intent": "governance",
+          "grounding": 0.616,
+          "decision": 0.383,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.651,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "builder-routes",
+          "title": "3. Separate builders",
+          "relevance": 0.248,
+          "intent": "governance",
+          "grounding": 0.849,
+          "decision": 0.292,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.564,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "choose-by-job",
+          "title": "1. Choose by job",
+          "relevance": 0.148,
+          "intent": "engagement-progress",
+          "grounding": 0.616,
+          "decision": 0.331,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.504,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c2",
+          "text": "Microsoft 365 Copilot is shaped by organizational grounding, user permissions, compliance controls, work-app access, and license level.",
+          "eligible": true,
+          "relevance": 0.301,
+          "intent": "governance",
+          "support": 0.574,
+          "decision": 0.305,
+          "score": 0.567,
+          "rank": 1
+        },
+        {
+          "claimId": "c5",
+          "text": "The executive choice is job first, then access, licensing, grounding, and output scope.",
+          "eligible": true,
+          "relevance": 0.449,
+          "intent": "decision",
+          "support": 0.113,
+          "decision": 0.629,
+          "score": 0.557,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "Copilot Studio is a low-code route for building agents and workflows connected to organizational data, systems, and channels.",
+          "eligible": true,
+          "relevance": 0.22,
+          "intent": "governance",
+          "support": 0.613,
+          "decision": 0.296,
+          "score": 0.499,
+          "rank": 3
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Chat supports research, content generation, file analysis, images, agents, and supported organizational questions.",
+          "eligible": true,
+          "relevance": 0.197,
+          "intent": "governance",
+          "support": 0.73,
+          "decision": 0.219,
+          "score": 0.444,
+          "rank": 4
+        },
+        {
+          "claimId": "c3",
+          "text": "GitHub Copilot supports coding work in editors, the command line, and GitHub, including completing code, edits, validation, and workflow support.",
+          "eligible": true,
+          "relevance": 0.11,
+          "intent": "blockers",
+          "support": 0.582,
+          "decision": 0.227,
+          "score": 0.35,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "decision-checks: weakly grounded sentence (0.246): \"Make the decision after the fit is clear.\"",
+        "decision-checks: weakly grounded sentence (0.371): \"Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.\""
+      ],
+      "eligibleEvidence": 8,
+      "totalEvidence": 8,
+      "leadClaim": "c4",
+      "recommendedOrder": [
+        "builder-routes",
+        "decision-checks",
+        "govern-access",
+        "choose-by-job"
+      ],
+      "sections": [
+        {
+          "sectionId": "builder-routes",
+          "title": "3. Separate builders",
+          "relevance": 0.381,
+          "intent": "architecture-choices",
+          "grounding": 0.849,
+          "decision": 0.292,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.671,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "decision-checks",
+          "title": "4. Run decision checks",
+          "relevance": 0.412,
+          "intent": "joint-actions",
+          "grounding": 0.309,
+          "decision": 0.639,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.646,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Make the decision after the fit is clear.",
+              "grounding": 0.246
+            },
+            {
+              "text": "Check permissions, license tier, and grounding so leaders know what each output can and cannot use in practice.",
+              "grounding": 0.371
+            }
+          ]
+        },
+        {
+          "sectionId": "govern-access",
+          "title": "2. Govern access",
+          "relevance": 0.279,
+          "intent": "assurance",
+          "grounding": 0.616,
+          "decision": 0.383,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.634,
+          "rank": 3,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "choose-by-job",
+          "title": "1. Choose by job",
+          "relevance": 0.246,
+          "intent": "architecture-choices",
+          "grounding": 0.616,
+          "decision": 0.331,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.582,
+          "rank": 4,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c4",
+          "text": "Copilot Studio is a low-code route for building agents and workflows connected to organizational data, systems, and channels.",
+          "eligible": true,
+          "relevance": 0.302,
+          "intent": "architecture-choices",
+          "support": 0.613,
+          "decision": 0.296,
+          "score": 0.581,
+          "rank": 1
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft 365 Copilot is shaped by organizational grounding, user permissions, compliance controls, work-app access, and license level.",
+          "eligible": true,
+          "relevance": 0.306,
+          "intent": "architecture-choices",
+          "support": 0.574,
+          "decision": 0.305,
+          "score": 0.573,
+          "rank": 2
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Chat supports research, content generation, file analysis, images, agents, and supported organizational questions.",
+          "eligible": true,
+          "relevance": 0.27,
+          "intent": "architecture-choices",
+          "support": 0.73,
+          "decision": 0.219,
+          "score": 0.518,
+          "rank": 3
+        },
+        {
+          "claimId": "c5",
+          "text": "The executive choice is job first, then access, licensing, grounding, and output scope.",
+          "eligible": true,
+          "relevance": 0.34,
+          "intent": "joint-actions",
+          "support": 0.113,
+          "decision": 0.629,
+          "score": 0.448,
+          "rank": 4
+        },
+        {
+          "claimId": "c3",
+          "text": "GitHub Copilot supports coding work in editors, the command line, and GitHub, including completing code, edits, validation, and workflow support.",
+          "eligible": true,
+          "relevance": 0.133,
+          "intent": "architecture-choices",
+          "support": 0.582,
+          "decision": 0.227,
+          "score": 0.373,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.521,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.591,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "choose-by-job",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.605,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "govern-access",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.354,
+        "status": "weak"
+      },
+      {
+        "sceneId": "builder-routes",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.573,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "decision-checks",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.481,
+        "status": "aligned"
+      }
+    ]
+  }
+}
