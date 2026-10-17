@@ -18,6 +18,20 @@ const LEVEL_HOP = 0.025;
 const ZONE_WIDTH = 384;
 const ZONE_HEIGHT = 216;
 const ZONE_FPS = 5;
+// Video spectrograms: per-pixel brightness at the native frame rate (temporal) and per-row luminance at 2 fps (spatial detail).
+const SPECTRUM_WIDTH = 96;
+const SPECTRUM_HEIGHT = 54;
+const TEMPORAL_WINDOW = 64;
+const TEMPORAL_HOP = 16;
+const SPATIAL_FPS = 2;
+const SPATIAL_WIDTH = 1024;
+const SPATIAL_HEIGHT = 576;
+const SPATIAL_FINE_CYCLES = 0.18;
+const ROW_BANDS = [
+  { id: 'headline', y0: 0.08, y1: 0.3 },
+  { id: 'body', y0: 0.3, y1: 0.78 },
+  { id: 'caption', y0: 0.78, y1: 0.93 }
+] as const;
 const BANDS = [['sub', 20, 80], ['low', 80, 300], ['speech', 300, 3400], ['presence', 3400, 8000], ['air', 8000, 16000], ['ultra', 16000, 24000]] as const;
 // Layout zones of a 16:9 explainer frame; activity and detail are measured per zone to separate layer behavior.
 const ZONES = [
@@ -42,7 +56,8 @@ export const ANALYSIS_THRESHOLDS = {
   maxPauseSeconds: 2.5,
   minSpeechRatio: 0.6,
   maxBlackSeconds: 0.5,
-  maxStaticHoldSeconds: 8
+  maxStaticHoldSeconds: 8,
+  maxFlickerSeconds: 1.5
 } as const;
 
 function tool(name: 'ffmpeg' | 'ffprobe'): string {
@@ -527,6 +542,245 @@ async function layerHeatmap(zones: ReturnType<typeof analyzeZones>, durationSeco
     .png().toFile(target);
 }
 
+// The video equivalent of an audio spectrogram. Every pixel's brightness over time is a signal sampled at the frame rate; short-time
+// Fourier transforms of every pixel, averaged per layout zone, show which temporal frequencies each layer carries. Transitions and caption
+// changes are broadband bursts, eased animation sits below 2 Hz, and flicker, strobing or shimmer appear as sustained narrow lines.
+function temporalSpectra(input: string, fps: number) {
+  const { stdout } = run(tool('ffmpeg'), ['-hide_banner', '-loglevel', 'error', '-i', input, '-map', '0:v:0', '-vf',
+    `scale=${SPECTRUM_WIDTH}:${SPECTRUM_HEIGHT}:flags=area,format=gray`, '-f', 'rawvideo', 'pipe:1'], 'temporal_decode');
+  const size = SPECTRUM_WIDTH * SPECTRUM_HEIGHT;
+  const frames = Math.floor(stdout.length / size);
+  const bins = TEMPORAL_WINDOW / 2 + 1;
+  const windows = frames >= TEMPORAL_WINDOW ? Math.floor((frames - TEMPORAL_WINDOW) / TEMPORAL_HOP) + 1 : 0;
+  const binHz = fps / TEMPORAL_WINDOW;
+  const zoneOf = new Int8Array(size);
+  const counts = new Array<number>(ZONES.length).fill(0);
+  for (let y = 0; y < SPECTRUM_HEIGHT; y += 1) {
+    for (let x = 0; x < SPECTRUM_WIDTH; x += 1) {
+      const fx = (x + 0.5) / SPECTRUM_WIDTH;
+      const fy = (y + 0.5) / SPECTRUM_HEIGHT;
+      const zone = Math.max(0, ZONES.findIndex((item) => fx >= item.x0 && fx < item.x1 && fy >= item.y0 && fy < item.y1));
+      zoneOf[y * SPECTRUM_WIDTH + x] = zone;
+      counts[zone] += 1;
+    }
+  }
+  const window = hann(TEMPORAL_WINDOW);
+  const energy = window.reduce((sum, value) => sum + value * value, 0);
+  const re = new Float64Array(TEMPORAL_WINDOW);
+  const im = new Float64Array(TEMPORAL_WINDOW);
+  const power = ZONES.map(() => new Float64Array(windows * bins));
+  for (let w = 0; w < windows; w += 1) {
+    const start = w * TEMPORAL_HOP;
+    for (let pixel = 0; pixel < size; pixel += 1) {
+      let mean = 0;
+      let low = 255;
+      let high = 0;
+      for (let k = 0; k < TEMPORAL_WINDOW; k += 1) {
+        const value = stdout[(start + k) * size + pixel];
+        mean += value;
+        if (value < low) low = value;
+        if (value > high) high = value;
+      }
+      // A pixel that never changes inside the window contributes no temporal energy.
+      if (high === low) continue;
+      mean /= TEMPORAL_WINDOW;
+      for (let k = 0; k < TEMPORAL_WINDOW; k += 1) {
+        re[k] = (stdout[(start + k) * size + pixel] - mean) * window[k];
+        im[k] = 0;
+      }
+      fft(re, im);
+      const target = power[zoneOf[pixel]];
+      const base = w * bins;
+      for (let bin = 0; bin < bins; bin += 1) target[base + bin] += (re[bin] * re[bin] + im[bin] * im[bin]) / energy;
+    }
+  }
+  power.forEach((series, zone) => { for (let i = 0; i < series.length; i += 1) series[i] /= Math.max(1, counts[zone]); });
+  const lowEnd = Math.max(1, Math.floor(2 / binHz));
+  const flickerStart = Math.ceil(3 / binHz);
+  const highStart = Math.ceil(6 / binHz);
+  const zones = ZONES.map((zone, index) => {
+    const series = power[index];
+    let total = 0;
+    let lowPower = 0;
+    let highPower = 0;
+    let streak = 0;
+    let longest = 0;
+    const peaks: number[] = [];
+    for (let w = 0; w < windows; w += 1) {
+      const base = w * bins;
+      let windowTotal = 0;
+      for (let bin = 1; bin < bins; bin += 1) windowTotal += series[base + bin];
+      for (let bin = 1; bin <= lowEnd; bin += 1) lowPower += series[base + bin];
+      for (let bin = highStart; bin < bins; bin += 1) highPower += series[base + bin];
+      total += windowTotal;
+      // Flicker is a narrow peak at 3 Hz or above that stands 12 dB over the rest of that band and carries a real share of the motion.
+      const band = Array.from(series.subarray(base + flickerStart, base + bins));
+      const peak = Math.max(...band);
+      const median = percentile(band, 0.5);
+      const flicker = windowTotal >= 1 && peak >= median * 10 ** 1.2 && peak >= windowTotal * 0.15;
+      if (flicker) {
+        streak += 1;
+        longest = Math.max(longest, streak);
+        peaks.push((flickerStart + band.indexOf(peak)) * binHz);
+      } else streak = 0;
+    }
+    const peakHz = peaks.length ? percentile(peaks, 0.5) : null;
+    return { id: zone.id, meanDb: round(toDb(windows ? total / windows : 0), 2), lowShare: round(total ? lowPower / total : 0, 4),
+      highShare: round(total ? highPower / total : 0, 4), flickerSeconds: round(longest * TEMPORAL_HOP / fps, 2),
+      flickerPeakHz: peakHz === null ? null : round(peakHz, 2) };
+  });
+  return { sampleFps: fps, frames, windows, bins, binHz, windowSeconds: TEMPORAL_WINDOW / fps, hopSeconds: TEMPORAL_HOP / fps, power, zones };
+}
+
+// Spatial detail over time: horizontal luminance spectra per content band. Text strokes and fine edges carry high spatial frequencies,
+// so the fine-detail share tracks legibility and text density from frame to frame and from revision to revision.
+function spatialSpectra(input: string) {
+  const { stdout } = run(tool('ffmpeg'), ['-hide_banner', '-loglevel', 'error', '-i', input, '-map', '0:v:0', '-vf',
+    `fps=${SPATIAL_FPS},scale=${SPATIAL_WIDTH}:${SPATIAL_HEIGHT}:flags=area,format=gray`, '-f', 'rawvideo', 'pipe:1'], 'spatial_decode');
+  const size = SPATIAL_WIDTH * SPATIAL_HEIGHT;
+  const frames = Math.floor(stdout.length / size);
+  const bins = SPATIAL_WIDTH / 2 + 1;
+  const fineStart = Math.ceil(SPATIAL_FINE_CYCLES * SPATIAL_WIDTH);
+  const window = hann(SPATIAL_WIDTH);
+  const re = new Float64Array(SPATIAL_WIDTH);
+  const im = new Float64Array(SPATIAL_WIDTH);
+  const spectra = ROW_BANDS.map(() => new Float64Array(frames * bins));
+  const fine = ROW_BANDS.map(() => new Array<number>(frames).fill(0));
+  ROW_BANDS.forEach((band, index) => {
+    const y0 = Math.round(band.y0 * SPATIAL_HEIGHT);
+    const y1 = Math.round(band.y1 * SPATIAL_HEIGHT);
+    const rows = Math.ceil((y1 - y0) / 2);
+    for (let frame = 0; frame < frames; frame += 1) {
+      const base = frame * bins;
+      for (let y = y0; y < y1; y += 2) {
+        const offset = frame * size + y * SPATIAL_WIDTH;
+        let mean = 0;
+        for (let x = 0; x < SPATIAL_WIDTH; x += 1) mean += stdout[offset + x];
+        mean /= SPATIAL_WIDTH;
+        for (let x = 0; x < SPATIAL_WIDTH; x += 1) { re[x] = (stdout[offset + x] - mean) * window[x]; im[x] = 0; }
+        fft(re, im);
+        for (let bin = 0; bin < bins; bin += 1) spectra[index][base + bin] += (re[bin] * re[bin] + im[bin] * im[bin]) / rows;
+      }
+      let total = 0;
+      let detail = 0;
+      for (let bin = 1; bin < bins; bin += 1) {
+        total += spectra[index][base + bin];
+        if (bin >= fineStart) detail += spectra[index][base + bin];
+      }
+      fine[index][frame] = total > 0 ? detail / total : 0;
+    }
+  });
+  const bands = ROW_BANDS.map((band, index) => ({ id: band.id, medianFineShare: round(percentile(fine[index], 0.5), 5),
+    p10FineShare: round(percentile(fine[index], 0.1), 5), p90FineShare: round(percentile(fine[index], 0.9), 5) }));
+  return { sampleFps: SPATIAL_FPS, frames, bins, fineCyclesPerPixel: SPATIAL_FINE_CYCLES, spectra, fine, bands };
+}
+
+function spectrogramTicks(left: number, width: number, top: number, startSeconds: number, endSeconds: number): string {
+  const span = Math.max(0.001, endSeconds - startSeconds);
+  const step = span > 60 ? 10 : 5;
+  const ticks: string[] = [];
+  for (let second = Math.ceil(startSeconds / step) * step; second <= endSeconds; second += step) {
+    const x = left + ((second - startSeconds) / span) * width;
+    ticks.push(`<line x1="${x}" y1="${top}" x2="${x}" y2="${top + 8}" stroke="#cbd5e1"/><text x="${x}" y="${top + 24}" fill="#cbd5e1" font-size="15" text-anchor="middle">${second}s</text>`);
+  }
+  return ticks.join('');
+}
+
+function legend(x: number, y: number, rangeDb: number): string {
+  const stops = INFERNO.map(([position, r, g, b]) => `<stop offset="${position}" stop-color="rgb(${r},${g},${b})"/>`).join('');
+  return `<defs><linearGradient id="legend" x1="0" x2="1">${stops}</linearGradient></defs><rect x="${x}" y="${y}" width="160" height="12" fill="url(#legend)"/>`
+    + `<text x="${x - 8}" y="${y + 11}" fill="#cbd5e1" font-size="13" text-anchor="end">-${rangeDb} dB</text><text x="${x + 168}" y="${y + 11}" fill="#cbd5e1" font-size="13">0 dB</text>`;
+}
+
+function maxDbOf(series: Float64Array[]): number {
+  let max = -200;
+  for (const values of series) for (const value of values) max = Math.max(max, toDb(value));
+  return max;
+}
+
+async function temporalSpectrogramImage(temporal: ReturnType<typeof temporalSpectra>, label: string, target: string): Promise<void> {
+  const left = 150;
+  const width = 1600;
+  const rowHeight = 92;
+  const gap = 8;
+  const top = 56;
+  const range = 60;
+  const shown = temporal.bins - 1;
+  const columns = Math.max(1, temporal.windows);
+  const maxDb = maxDbOf(temporal.power);
+  const panels = await Promise.all(temporal.power.map((series) => {
+    const raw = Buffer.alloc(columns * shown * 3);
+    for (let w = 0; w < temporal.windows; w += 1) {
+      for (let bin = 1; bin < temporal.bins; bin += 1) {
+        const [r, g, b] = colormap((toDb(series[w * temporal.bins + bin]) - (maxDb - range)) / range);
+        const at = ((temporal.bins - 1 - bin) * columns + w) * 3;
+        raw[at] = r; raw[at + 1] = g; raw[at + 2] = b;
+      }
+    }
+    return sharp(raw, { raw: { width: columns, height: shown, channels: 3 } }).resize(width, rowHeight, { kernel: 'nearest', fit: 'fill' }).png().toBuffer();
+  }));
+  const nyquist = temporal.binHz * (temporal.bins - 1);
+  const firstCenter = temporal.windowSeconds / 2;
+  const lastCenter = firstCenter + Math.max(0, temporal.windows - 1) * temporal.hopSeconds;
+  const height = top + ZONES.length * (rowHeight + gap) + 46;
+  const rows = ZONES.map((zone, row) => {
+    const y = top + row * (rowHeight + gap);
+    const stats = temporal.zones[row];
+    return `<text x="${left - 12}" y="${y + 24}" fill="#e2e8f0" font-size="15" font-weight="700" text-anchor="end">${zone.id}</text>`
+      + `<text x="${left - 12}" y="${y + 44}" fill="#94a3b8" font-size="12" text-anchor="end">&lt;2 Hz ${Math.round(stats.lowShare * 100)}%</text>`
+      + `<text x="${left - 12}" y="${y + 60}" fill="#94a3b8" font-size="12" text-anchor="end">&gt;6 Hz ${Math.round(stats.highShare * 100)}%</text>`
+      + `<text x="${left + width + 6}" y="${y + 12}" fill="#94a3b8" font-size="12">${Math.round(nyquist)} Hz</text>`
+      + `<text x="${left + width + 6}" y="${y + rowHeight}" fill="#94a3b8" font-size="12">0</text>`;
+  }).join('');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${left + width + 60}" height="${height}" font-family="Arial">
+    <text x="12" y="26" fill="#f8fafc" font-size="18" font-weight="700">${escapeXml(label)} | video spectrogram: temporal frequency of each layer (0-${Math.round(nyquist)} Hz, ${temporal.windowSeconds.toFixed(2)} s Hann windows)</text>
+    ${legend(left + width - 190, 36, range)}${rows}${spectrogramTicks(left, width, top + ZONES.length * (rowHeight + gap) - gap + 4, firstCenter, lastCenter)}</svg>`;
+  await sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
+    .composite([...panels.map((input, row) => ({ input, left, top: top + row * (rowHeight + gap) })), { input: Buffer.from(svg), left: 0, top: 0 }])
+    .jpeg({ quality: 86, mozjpeg: true }).toFile(target);
+}
+
+async function spatialSpectrogramImage(spatial: ReturnType<typeof spatialSpectra>, durationSeconds: number, label: string, target: string): Promise<void> {
+  const left = 150;
+  const width = 1600;
+  const rowHeight = 120;
+  const gap = 8;
+  const top = 56;
+  const range = 50;
+  const columns = Math.max(1, spatial.frames);
+  // Log-frequency rows from about 1 cycle per 512 px to Nyquist, finest detail at the top.
+  const minCycles = 2 / SPATIAL_WIDTH;
+  const binFor = (row: number) => Math.min(spatial.bins - 1, Math.max(1, Math.round(minCycles * (0.5 / minCycles) ** (row / (rowHeight - 1)) * SPATIAL_WIDTH)));
+  const maxDb = maxDbOf(spatial.spectra);
+  const panels = await Promise.all(spatial.spectra.map((series) => {
+    const raw = Buffer.alloc(columns * rowHeight * 3);
+    for (let frame = 0; frame < spatial.frames; frame += 1) {
+      for (let row = 0; row < rowHeight; row += 1) {
+        const [r, g, b] = colormap((toDb(series[frame * spatial.bins + binFor(rowHeight - 1 - row)]) - (maxDb - range)) / range);
+        const at = (row * columns + frame) * 3;
+        raw[at] = r; raw[at + 1] = g; raw[at + 2] = b;
+      }
+    }
+    return sharp(raw, { raw: { width: columns, height: rowHeight, channels: 3 } }).resize(width, rowHeight, { kernel: 'nearest', fit: 'fill' }).png().toBuffer();
+  }));
+  const fineRow = rowHeight - 1 - Math.round((Math.log(SPATIAL_FINE_CYCLES / minCycles) / Math.log(0.5 / minCycles)) * (rowHeight - 1));
+  const height = top + ROW_BANDS.length * (rowHeight + gap) + 46;
+  const rows = ROW_BANDS.map((band, row) => {
+    const y = top + row * (rowHeight + gap);
+    const stats = spatial.bands[row];
+    return `<text x="${left - 12}" y="${y + 26}" fill="#e2e8f0" font-size="15" font-weight="700" text-anchor="end">${band.id}</text>`
+      + `<text x="${left - 12}" y="${y + 46}" fill="#94a3b8" font-size="12" text-anchor="end">fine ${(stats.medianFineShare * 100).toFixed(1)}%</text>`
+      + `<line x1="${left}" y1="${y + fineRow}" x2="${left + width}" y2="${y + fineRow}" stroke="#38bdf8" stroke-dasharray="6 6" stroke-opacity="0.8"/>`
+      + `<text x="${left + width + 6}" y="${y + 12}" fill="#94a3b8" font-size="12">0.5</text><text x="${left + width + 6}" y="${y + fineRow + 4}" fill="#38bdf8" font-size="12">${SPATIAL_FINE_CYCLES}</text>`;
+  }).join('');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${left + width + 60}" height="${height}" font-family="Arial">
+    <text x="12" y="26" fill="#f8fafc" font-size="18" font-weight="700">${escapeXml(label)} | spatial spectrogram: horizontal detail per content band (log cycles/px, dashed = fine detail)</text>
+    ${legend(left + width - 190, 36, range)}${rows}${spectrogramTicks(left, width, top + ROW_BANDS.length * (rowHeight + gap) - gap + 4, 0, durationSeconds)}</svg>`;
+  await sharp({ create: { width: left + width + 60, height, channels: 3, background: '#0b1220' } })
+    .composite([...panels.map((input, row) => ({ input, left, top: top + row * (rowHeight + gap) })), { input: Buffer.from(svg), left: 0, top: 0 }])
+    .jpeg({ quality: 86, mozjpeg: true }).toFile(target);
+}
+
 function spectrogram(input: string, target: string, options: { start?: number; duration?: number; width: number; height: number; logFrequency?: boolean }): void {
   const temporary = `${target}.png`;
   const args = ['-hide_banner', '-loglevel', 'error', '-y'];
@@ -565,7 +819,7 @@ function extractFrame(input: string, timeSeconds: number, target: string): void 
     '-frames:v', '1', '-vf', 'scale=960:-2', '-q:v', '3', target], 'frame_extract');
 }
 
-function findings(report: { probe: ReturnType<typeof probeMedia>; audio: ReturnType<typeof analyzeAudio> | null; video: { black: { startSeconds: number; durationSeconds: number }[]; freezes: { startSeconds: number; durationSeconds: number }[] } | null }): AnalysisFinding[] {
+function findings(report: { probe: ReturnType<typeof probeMedia>; audio: ReturnType<typeof analyzeAudio> | null; video: { black: { startSeconds: number; durationSeconds: number }[]; freezes: { startSeconds: number; durationSeconds: number }[]; flicker?: { id: string; flickerSeconds: number; flickerPeakHz: number | null }[] } | null }): AnalysisFinding[] {
   const t = ANALYSIS_THRESHOLDS;
   const list: AnalysisFinding[] = [];
   const add = (severity: AnalysisFinding['severity'], code: string, message: string, value?: number | null, threshold?: number) =>
@@ -596,6 +850,9 @@ function findings(report: { probe: ReturnType<typeof probeMedia>; audio: ReturnT
   if (video) {
     for (const black of video.black) if (black.durationSeconds > t.maxBlackSeconds) add('warning', 'black-segment', `Black frames for ${black.durationSeconds} s at ${black.startSeconds} s.`, black.durationSeconds, t.maxBlackSeconds);
     for (const freeze of video.freezes) if (freeze.durationSeconds > t.maxStaticHoldSeconds) add('info', 'static-hold', `No visible motion for ${freeze.durationSeconds} s from ${freeze.startSeconds} s.`, freeze.durationSeconds, t.maxStaticHoldSeconds);
+    for (const zone of video.flicker ?? []) {
+      if (zone.flickerSeconds >= t.maxFlickerSeconds) add('warning', 'video-flicker', `The ${zone.id} layer flickers at about ${zone.flickerPeakHz} Hz for ${zone.flickerSeconds} s.`, zone.flickerSeconds, t.maxFlickerSeconds);
+    }
   }
   return list;
 }
@@ -613,12 +870,20 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
   const images: Record<string, string | string[]> = {};
   let videoReport: { cuts: { timeSeconds: number; score: number }[]; black: { startSeconds: number; endSeconds: number; durationSeconds: number }[]; freezes: { startSeconds: number; durationSeconds: number }[] } | null = null;
   let zones: ReturnType<typeof analyzeZones> | null = null;
+  let temporal: ReturnType<typeof temporalSpectra> | null = null;
+  let spatial: ReturnType<typeof spatialSpectra> | null = null;
   if (probe.video) {
     videoReport = parseVideoEvents(run(tool('ffmpeg'), ['-hide_banner', '-nostats', '-loglevel', 'info', '-i', input, '-map', '0:v:0', '-vf',
       'scale=640:-2,blackdetect=d=0.2:pic_th=0.98,freezedetect=n=-55dB:d=2,scdet=threshold=8', '-f', 'null', '-'], 'video_events').stderr);
     zones = analyzeZones(input);
     await layerHeatmap(zones, probe.durationSeconds, label, path.join(out, 'layers.png'));
     images.layers = 'layers.png';
+    temporal = temporalSpectra(input, probe.video.fps || 30);
+    await temporalSpectrogramImage(temporal, label, path.join(out, 'video-spectrogram.jpg'));
+    images.videoSpectrogram = 'video-spectrogram.jpg';
+    spatial = spatialSpectra(input);
+    await spatialSpectrogramImage(spatial, probe.durationSeconds, label, path.join(out, 'spatial-spectrogram.jpg'));
+    images.spatialSpectrogram = 'spatial-spectrogram.jpg';
   }
   const cuts = [...(videoReport?.cuts.map((cut) => cut.timeSeconds) ?? []), ...(zones?.transitions.map((transition) => transition.timeSeconds) ?? [])]
     .sort((a, b) => a - b).filter((time, index, all) => index === 0 || time - all[index - 1] > 0.5);
@@ -680,16 +945,22 @@ export async function analyzeMedia(inputPath: string, outputDirectory: string, o
     probe,
     audio: audioReport,
     video: videoReport && zones ? { ...videoReport, transitions: zones.transitions,
-      layers: { sampleFps: zones.sampleFps, frames: zones.frames, zones: zones.zones }, frames: frameRecords } : null,
+      layers: { sampleFps: zones.sampleFps, frames: zones.frames, zones: zones.zones },
+      temporal: temporal ? { sampleFps: temporal.sampleFps, windowSeconds: round(temporal.windowSeconds, 3), hopSeconds: round(temporal.hopSeconds, 3),
+        binHz: round(temporal.binHz, 4), windows: temporal.windows, zones: temporal.zones } : null,
+      spatial: spatial ? { sampleFps: spatial.sampleFps, frames: spatial.frames, fineCyclesPerPixel: spatial.fineCyclesPerPixel, bands: spatial.bands } : null,
+      frames: frameRecords } : null,
     images,
     thresholds: ANALYSIS_THRESHOLDS,
-    findings: findings({ probe, audio, video: videoReport }),
+    findings: findings({ probe, audio, video: videoReport ? { ...videoReport, flicker: temporal?.zones } : null }),
     method: {
       spectrogram: 'FFmpeg showspectrumpic, Hann window, logarithmic magnitude with 120 dB range, legend axes in Hz/seconds/dBFS; speech view uses 60 Hz-12 kHz log frequency.',
       spectrum: `Welch average, ${FFT_SIZE}-point Hann FFT, ${FFT_HOP}-sample hop at ${SAMPLE_RATE} Hz, split by narration activity.`,
       activity: `${LEVEL_WINDOW * 1000} ms RMS windows every ${LEVEL_HOP * 1000} ms; active above max(-55 dBFS, p95 - 28 dB); dips under 150 ms bridged.`,
       loudness: 'FFmpeg ebur128 integrated loudness, loudness range and true peak (ITU-R BS.1770).',
       layers: `${ZONE_WIDTH}x${ZONE_HEIGHT} luma at ${ZONE_FPS} fps; per-zone mean absolute frame difference (motion) and gradient magnitude (detail).`,
+      videoSpectrogram: `${SPECTRUM_WIDTH}x${SPECTRUM_HEIGHT} luma at the native frame rate; per-pixel ${TEMPORAL_WINDOW}-frame Hann STFT, ${TEMPORAL_HOP}-frame hop, power averaged per layout zone; flicker = a peak at 3 Hz or above standing 12 dB over its band and carrying 15% of the window's motion, sustained.`,
+      spatialSpectrogram: `${SPATIAL_WIDTH}x${SPATIAL_HEIGHT} luma at ${SPATIAL_FPS} fps; ${SPATIAL_WIDTH}-point Hann FFT of every second row per content band; fine-detail share above ${SPATIAL_FINE_CYCLES} cycles/px.`,
       video: 'FFmpeg scdet scene changes, blackdetect and freezedetect on a 640 px proxy.'
     }
   };

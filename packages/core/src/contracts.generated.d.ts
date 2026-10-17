@@ -20,7 +20,15 @@ export type Identifier = string;
 export type RelativePath = string;
 export type Digest = string;
 export type Date = string;
+/**
+ * Who may receive content derived from a source: public (published openly), customer (shared with or owned by the customer) or internal (CRM records, trackers, internal mail, chat and meeting transcripts). When absent it is inferred from the source host.
+ */
+export type SourceDistribution = "public" | "customer" | "internal";
 export type IsoInstant = string;
+/**
+ * The audience a ContentIR is aligned for. External content may cite only public or customer sources; internal outputs carry an Internal marking.
+ */
+export type ContentDistribution = "internal" | "external";
 export type HexColor = string;
 export type FontStack = string;
 
@@ -94,6 +102,7 @@ export interface SourceDocument {
   retrievedAt: string;
   dateEvidence: string;
   contentHash: Digest;
+  distribution?: SourceDistribution;
 }
 export interface DomainPack {
   schemaVersion: "1.0.0";
@@ -325,6 +334,7 @@ export interface ContentIR {
    */
   sections: [ContentSection, ...ContentSection[]];
   voice: VoiceSpec;
+  distribution?: ContentDistribution;
 }
 export interface ContentClaim {
   claimId: Identifier;
@@ -1243,6 +1253,7 @@ export interface GenerationRequest {
       ];
   mode: "guided" | "auto";
   brandUrl?: string;
+  distribution?: ContentDistribution;
 }
 export interface RenderRevision {
   schemaVersion: "1.0.0";

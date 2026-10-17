@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "profiles": {
+    "internal": {
+      "label": "Internal: account team and leadership",
+      "description": "Readers inside the organization that owns the engagement or the product. Internal-only sources such as CRM records, trackers, internal mail, chat and meeting transcripts may be used, and every output carries an Internal marking.",
+      "allowedDistributions": ["public", "customer", "internal"],
+      "intents": [
+        { "id": "account-risk", "text": "Account health, consumption, renewal and true-down risk that leadership must act on" },
+        { "id": "blockers", "text": "Blocked work, escalations and partner dependencies that need an internal owner" },
+        { "id": "accountability", "text": "Named owners, dates and the next internal actions to unblock progress" },
+        { "id": "engagement-progress", "text": "Engagement stage, use case status and where the account team needs help" },
+        { "id": "customer-signals", "text": "New signals from the customer this week and what they change for the account plan" },
+        { "id": "platform-strategy", "text": "Product and platform choices, their trade-offs and what they mean for our roadmap and investment" },
+        { "id": "governance", "text": "Governance, security, licensing and compliance obligations our teams must meet" },
+        { "id": "market-position", "text": "Market and competitive change that affects our strategy and priorities" },
+        { "id": "decision", "text": "The decision leadership needs to make and the evidence behind it" }
+      ],
+      "internalMarkers": []
+    },
+    "external": {
+      "label": "External: customer and partner executives",
+      "description": "Readers outside the organization, such as the customer's executives. Only public or customer-shared sources may be cited; terms, names and figures that appear only in internal sources are leakage.",
+      "allowedDistributions": ["public", "customer"],
+      "intents": [
+        { "id": "outcomes", "text": "Business outcomes and measurable value delivered for the customer" },
+        { "id": "progress", "text": "Progress toward the customer's goals, milestones and adoption" },
+        { "id": "joint-actions", "text": "Joint next steps and the decisions needed from the customer's leaders" },
+        { "id": "risk-mitigation", "text": "Risks to the customer's timeline and how they are being mitigated" },
+        { "id": "capabilities", "text": "Product capabilities and roadmap that matter to the customer's priorities" },
+        { "id": "architecture-choices", "text": "Architecture and integration choices and their trade-offs for the customer's teams" },
+        { "id": "assurance", "text": "Security, governance and compliance assurances the customer needs before adopting" },
+        { "id": "market-context", "text": "Industry and market context that affects the customer's strategy" }
+      ],
+      "internalMarkers": ["Success Hub", "CLS", "CRM", "true-down", "true down", "consumption owner", "CSU", "CAPE", "account team", "seller", "quota", "internal"]
+    }
+  }
+}

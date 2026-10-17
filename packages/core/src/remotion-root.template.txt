@@ -60,7 +60,7 @@ function HeaderBand() {
   const progress = frame / Math.max(1, timeline.durationInFrames - 1);
   return <>
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: BAND, background: brand.header, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48, padding: '0 96px', fontFamily: primaryFont, fontSize: 20, letterSpacing: 4, textTransform: 'uppercase' }}>
-      <span style={{ color: brand.onHeader, fontWeight: 700, ...clip(1) }}>{splitHeadline(content.title)[0].replace(/[:.]$/, '')}</span>
+      <span style={{ color: brand.onHeader, fontWeight: 700, ...clip(1) }}>__MARKING__{splitHeadline(content.title)[0].replace(/[:.]$/, '')}</span>
       <span style={{ color: brand.headerMuted, fontWeight: 600, flex: '0 0 auto' }}>{String(index + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}</span>
     </div>
     <div style={{ position: 'absolute', top: BAND, left: 0, right: 0, height: RULE, background: mixHex(brand.highlight, brand.header, 0.35) }} />

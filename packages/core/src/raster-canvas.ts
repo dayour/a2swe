@@ -125,8 +125,8 @@ export function renderRasterOverview(content: ContentIR, spec: RenderSpec, asset
   ctx.fillStyle = t.highlight;
   ctx.fillRect(0, 96, WIDTH, 8);
   ctx.fillStyle = t.onHeader;
-  const kicker = content.title.match(/^(.+?[.:!?])\s+(.+)$/)?.[1].replace(/[:.]$/, '') ?? content.title;
-  excerpted = block(ctx, kicker.toUpperCase(), 70, 34, 1500, 24, 1, 30, label) || excerpted;
+  const kicker = (content.title.match(/^(.+?[.:!?])\s+(.+)$/)?.[1].replace(/[:.]$/, '') ?? content.title);
+  excerpted = block(ctx, `${content.distribution === 'internal' ? 'Internal · ' : ''}${kicker}`.toUpperCase(), 70, 34, 1500, 24, 1, 30, label) || excerpted;
   ctx.fillStyle = t.headerMuted;
   setFont(ctx, 20, label);
   ctx.textAlign = 'right';

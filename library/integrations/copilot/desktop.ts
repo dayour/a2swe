@@ -577,7 +577,7 @@ class DesktopBridge {
   }
 
   private async buildGenerationRequest(params: JsonObject): Promise<GenerationRequest> {
-    const allowed = new Set(['id', 'name', 'kind', 'brief', 'audience', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode', 'brandUrl']);
+    const allowed = new Set(['id', 'name', 'kind', 'brief', 'audience', 'sources', 'libraryPaths', 'voiceProfile', 'speed', 'formats', 'mode', 'brandUrl', 'distribution']);
     for (const key of Object.keys(params)) if (!allowed.has(key)) throw new Error(`unknown_generation_option: ${key}`);
     const brief = stringParam(params, 'brief')!.trim();
     const registry: unknown = JSON.parse(await readFile(path.join(this.workspace, 'library', 'assets', 'speech', 'voice-profiles.json'), 'utf8'));
@@ -598,7 +598,8 @@ class DesktopBridge {
       speed: params.speed === undefined ? 1 : params.speed,
       formats: params.formats === undefined ? ['html', 'adaptiveDeck', 'pptx', 'docx', 'pdf', 'png', 'jpeg', 'remotion'] : params.formats,
       mode: params.mode === undefined ? 'auto' : params.mode,
-      ...(params.brandUrl === undefined || !String(params.brandUrl).trim() ? {} : { brandUrl: stringParam(params, 'brandUrl')!.trim() })
+      ...(params.brandUrl === undefined || !String(params.brandUrl).trim() ? {} : { brandUrl: stringParam(params, 'brandUrl')!.trim() }),
+      ...(params.distribution === undefined ? {} : { distribution: params.distribution })
     };
     const id = params.id === undefined ? `${slug(options.name).slice(0, 56)}-${digest(options).slice(0, 10)}` : stringParam(params, 'id')!;
     const request = validate('GenerationRequest', { ...options, id });
@@ -727,6 +728,7 @@ class DesktopBridge {
       'The coordinator has already created this project and session. Do not call project.generate or start a nested generation; execute the existing core authoring, production and verification operations for this request.',
       'Use only source-backed contracts and repository tools; do not invent facts or brand knowledge.',
       'Brand: canonical/render-theme.json is the project brand theme (colors, header band, highlight, fonts) that every output format and the video render from. Never hand-pick colors or fonts. If brandReceipt shows no installed brand and the subject has an owning organization or product with an official site, run core.command brand-theme with --url set to that official site; if it reports brand_site_insufficient_evidence, keep the installed default theme.',
+      `Audience alignment: ${request.distribution === 'external' ? 'align for EXTERNAL readers. Cite only public or customer-shared sources, never restate or name internal-only material, and set ContentIR.distribution to external.' : request.distribution === 'internal' ? 'align for INTERNAL readers. Internal-only sources may be used, ContentIR.distribution is internal and every output is marked Internal.' : 'canonical-bind derives the audience from the cited sources (internal when any internal-only evidence is cited).'} After rendering, run core.command alignment-rank for the project, read qc/alignment/report.md, and resolve every blocker for the effective audience; review weakly grounded sentences and scenes where what is shown does not match what is said.`,
       'Do not request human editorial signoff. If a gate fails, repair and rerun the relevant local validation until the selected outputs are coherent or report a hard blocker.',
       'Use the persisted GenerationRequest as the source of truth.',
       `Audience: ${request.audience ?? 'Executive decision-makers'}. Lead with the bottom line and decision, explain business impact and why it matters now, then the few facts, risks and next actions that change the decision. Avoid a feature-by-feature walkthrough.`,
@@ -742,9 +744,9 @@ class DesktopBridge {
           'Create source-backed domain/content/render/approval-ready draft artifacts for selected formats.',
           'Generate all requested output formats; the default is the agent plus all eight presentation formats including narrated 1080p video.',
           'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
-          'Run project QC and core verification gates relevant to selected formats.',
+          'Run project QC and core verification gates relevant to selected formats: revisions-analyze (audio and video spectrograms), office-render, alignment-rank and runbook-project, so every runbook gate including audience-alignment passes.',
           'Keep the final package at PROJECT/release and retain failed or superseded candidates under PROJECT/qc/revisions, not loose release-vN directories at the project root.',
-          'Review actual rendered frames, subtitles and audio/spectrogram evidence. Repair unreadable layouts, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
+          'Review actual rendered frames, subtitles, audio spectrograms and the video spectrograms (per-layer temporal frequency: flicker and shimmer appear as sustained lines). Repair unreadable layouts, flicker, stale audio, pronunciation, clipping or timing defects at their source; never lower thresholds or substitute static placeholders.',
           'Preserve citations/provenance and avoid protected/private source transfer.'
         ]
       }, null, 2)

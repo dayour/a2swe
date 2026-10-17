@@ -185,7 +185,23 @@ export function validateContentAgainstDomain(contentInput: unknown, domainInput:
       throw new Error(`release_citation_mismatch: ${citation.evidenceId}`);
     }
   }
+  if (content.distribution === 'external') {
+    const internal = content.citations.filter((citation) => sourceDistribution(sources.get(evidence.get(citation.evidenceId)!.sourceId)!) === 'internal');
+    if (internal.length) throw new Error(`content_distribution_violation: external content cites internal-only evidence ${internal.map((item) => item.evidenceId).join(', ')}`);
+  }
   return { content, domain };
+}
+
+// CRM records, Success Hub, Microsoft 365 mail, Teams chat, SharePoint, Loop and Azure DevOps hold internal working material; anything else
+// on HTTPS is published. An explicit SourceDocument.distribution always wins over this host inference.
+const INTERNAL_HOSTS = [/(^|\.)crm\d*\.dynamics\.com$/, /successhub/, /(^|\.)outlook\.(office|office365|live)\.com$/, /(^|\.)outlook\.cloud\.microsoft$/,
+  /(^|\.)teams\.(microsoft\.com|live\.com|cloud\.microsoft)$/, /\.sharepoint\.com$/, /(^|\.)loop\.(microsoft\.com|cloud\.microsoft)$/,
+  /(^|\.)dev\.azure\.com$/, /\.visualstudio\.com$/, /(^|\.)office\.com$/];
+
+export function sourceDistribution(source: Pick<DomainPack['sources'][number], 'canonicalUrl' | 'distribution'>): 'public' | 'customer' | 'internal' {
+  if (source.distribution) return source.distribution;
+  const host = new URL(source.canonicalUrl).hostname.toLowerCase();
+  return INTERNAL_HOSTS.some((pattern) => pattern.test(host)) ? 'internal' : 'public';
 }
 
 function validateRenderSpec(spec: RenderSpec): void {

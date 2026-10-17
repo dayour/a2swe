@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://a2swe.local/contracts/1.5.0",
+  "$id": "https://a2swe.local/contracts/1.6.0",
   "title": "CoreContract",
   "oneOf": [
     { "$ref": "#/$defs/LibraryEntry" },
@@ -95,7 +95,8 @@
         "formats": { "type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
           "items": { "enum": ["html", "adaptiveDeck", "pptx", "docx", "pdf", "png", "jpeg", "remotion"] } },
         "mode": { "enum": ["guided", "auto"] },
-        "brandUrl": { "type": "string", "minLength": 12, "maxLength": 2048, "pattern": "^https://" }
+        "brandUrl": { "type": "string", "minLength": 12, "maxLength": 2048, "pattern": "^https://" },
+        "distribution": { "$ref": "#/$defs/ContentDistribution" }
       }
     },
     "AssetRequest": {
@@ -317,8 +318,17 @@
         "modifiedDate": { "anyOf": [{ "$ref": "#/$defs/Date" }, { "type": "null" }] },
         "retrievedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:.]+Z$" },
         "dateEvidence": { "type": "string", "maxLength": 4000 },
-        "contentHash": { "$ref": "#/$defs/Digest" }
+        "contentHash": { "$ref": "#/$defs/Digest" },
+        "distribution": { "$ref": "#/$defs/SourceDistribution" }
       }
+    },
+    "SourceDistribution": {
+      "description": "Who may receive content derived from a source: public (published openly), customer (shared with or owned by the customer) or internal (CRM records, trackers, internal mail, chat and meeting transcripts). When absent it is inferred from the source host.",
+      "enum": ["public", "customer", "internal"]
+    },
+    "ContentDistribution": {
+      "description": "The audience a ContentIR is aligned for. External content may cite only public or customer sources; internal outputs carry an Internal marking.",
+      "enum": ["internal", "external"]
     },
     "EvidenceSpan": {
       "type": "object", "additionalProperties": false,
@@ -400,7 +410,8 @@
         "citations": { "type": "array", "minItems": 1, "maxItems": 500, "items": { "$ref": "#/$defs/ContentCitation" } },
         "assets": { "type": "array", "maxItems": 100, "items": { "$ref": "#/$defs/ContentAsset" } },
         "sections": { "type": "array", "minItems": 1, "maxItems": 80, "items": { "$ref": "#/$defs/ContentSection" } },
-        "voice": { "$ref": "#/$defs/VoiceSpec" }
+        "voice": { "$ref": "#/$defs/VoiceSpec" },
+        "distribution": { "$ref": "#/$defs/ContentDistribution" }
       }
     },
     "ContentClaim": {

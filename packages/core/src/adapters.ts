@@ -146,6 +146,12 @@ function claimFor(content: ContentIR, claimId: string): ContentIR['claims'][numb
   return claim;
 }
 
+// Content aligned for internal readers carries an Internal marking in every format; external and undeclared content is unmarked, so
+// outputs for content without a declared distribution are byte-identical to earlier releases.
+export function distributionMarking(content: Pick<ContentIR, 'distribution'>): string {
+  return content.distribution === 'internal' ? 'Internal · ' : '';
+}
+
 // AdaptiveDeck themes accept additional properties, so the full brand role set travels with the deck for renderers that use it.
 function theme(deck: RenderSpec['theme']) {
   const tokens = brandTokens(deck);
@@ -210,7 +216,7 @@ p,li,summary,a,code{overflow-wrap:anywhere;word-break:break-word}.grid{display:g
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 @media print{body{background:#fff;color:${t.printInk}}.hero,.card,.manifest{break-inside:avoid;background:#fff;color:${t.printInk};box-shadow:none}h1,h2,h3{color:${t.printInk}}a,.kicker{color:${t.printAccent}}}
 </style></head><body><a class="skip" href="#content">Skip to content</a>
-<header class="masthead"><div><strong>${text(headlineParts(content.title)[0].replace(/[:.]$/, ''))}</strong><span>${text(content.audience)}</span></div></header><main id="content">
+<header class="masthead"><div><strong>${text(headlineParts(content.title)[0].replace(/[:.]$/, ''))}</strong><span>${text(distributionMarking(content) + content.audience)}</span></div></header><main id="content">
 <article class="hero" aria-labelledby="title"><p class="kicker">${text(content.audience)}</p><h1 id="title">${text(content.title)}</h1><p>${text(content.summary)}</p><p class="decision"><strong>Decision:</strong> ${text(content.decision)}</p></article>
 <div class="grid">${sections}</div>
 <section class="manifest" aria-labelledby="asset-heading"><h2 id="asset-heading">Assets and alt text</h2><ul>${assets || '<li>No external assets selected.</li>'}</ul></section>
@@ -225,7 +231,7 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
   const tokens = brandTokens(spec.theme);
   const bandInk = tokens.onHeader === '#FFFFFF' ? 'light' : 'dark';
   const assetMap = resolveAssetEmbeds(content, options);
-  const tags = ['a2swe', 'canonical'];
+  const tags = ['a2swe', 'canonical', ...(content.distribution ? [content.distribution] : [])];
   const deck = {
     $schema: 'https://darbotlm.github.io/adaptive-slide/schemas/deck.schema.json',
     type: 'AdaptiveDeck',
@@ -248,6 +254,7 @@ function adaptiveDeck(content: ContentIR, spec: RenderSpec, options: AdapterRend
         background: { gradient: { type: 'linear', angle: 135, colors: [tokens.header, tokens.deep] } },
         layout: { mode: 'stack', horizontalAlignment: 'center', verticalAlignment: 'center', gap: 'large' },
         body: [
+          ...(distributionMarking(content) ? [{ type: 'Tile.Text', text: 'Internal: not for external distribution', style: 'caption', weight: 'bolder', color: bandInk, horizontalAlignment: 'center' }] : []),
           { type: 'Tile.Text', text: content.title, style: 'heading', size: 'extraLarge', weight: 'bolder', color: bandInk, horizontalAlignment: 'center' },
           { type: 'Tile.Text', text: content.summary, style: 'subheading', color: bandInk, horizontalAlignment: 'center' },
           { type: 'Tile.Container', style: 'accent', items: [{ type: 'Tile.Text', text: `Decision: ${content.decision}`, style: 'body', weight: 'bolder', color: bandInk }] }
@@ -622,7 +629,7 @@ function pptx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
       .flatMap((id) => claimFor(content, id).evidenceIds).map((evidenceId) => citationFor(content, evidenceId).sourceTitle) ?? [])] : [];
     const footer = slide.kind === 'section' ? `Sources: ${sectionSources.slice(0, 3).join('  ·  ')}${sectionSources.length > 3 ? `  ·  +${sectionSources.length - 3} more` : ''}` : spec.renderId;
     files.push({ name: `ppt/slides/slide${index + 1}.xml`, bytes: Buffer.from(pptSlideXml({ kind: slide.kind, title: slide.title, body: slide.body, claims: slide.claims,
-      claimSources: slide.claimSources, footer, kicker: headlineParts(content.title)[0].replace(/[:.]$/, ''), sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
+      claimSources: slide.claimSources, footer, kicker: distributionMarking(content) + headlineParts(content.title)[0].replace(/[:.]$/, ''), sources: 'sources' in slide ? slide.sources : [], decision: slide.decision, pictures: slidePictures }, spec, index + 1, slideModels.length)) });    files.push({ name: `ppt/slides/_rels/slide${index + 1}.xml.rels`, bytes: Buffer.from(rels([{ id: 'rIdLayout', type: `${OFFICE_REL}/slideLayout`, target: '../slideLayouts/slideLayout1.xml' }, { id: 'rIdNotes', type: `${OFFICE_REL}/notesSlide`, target: `../notesSlides/notesSlide${index + 1}.xml` },
       ...slidePictures.map((picture) => ({ id: picture.relId, type: `${OFFICE_REL}/image`, target: picture.target }))])) });
     const notes = [slide.notes, ...slide.claims.map((claim, claimIndex) => `Evidence: ${claim} ${slide.claimSources[claimIndex] ?? ''}`)].join('\n\n');
     files.push({ name: `ppt/notesSlides/notesSlide${index + 1}.xml`, bytes: Buffer.from(notesXml(slide.title, slide.body || content.summary, notes, citations)) });
@@ -665,6 +672,7 @@ function docxStyles(spec: RenderSpec): string {
 }
 
 function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions = {}): AdapterFile {
+  const internal = Boolean(distributionMarking(content));
   const assetMap = resolveAssetEmbeds(content, options);
   const embeddedAssets = embeddedImageAssets(assetMap);
   const sources = citationGroups(content);
@@ -701,14 +709,17 @@ function docx(content: ContentIR, spec: RenderSpec, options: AdapterRenderOption
     ]),
     wp('Citations', 'Heading1'),
     ...sources.map((citation, index) => hyperlink(`[${citation.evidenceIds.join(', ')}] ${citation.sourceTitle} (retrieved ${citation.retrievedAt})`, `rId${index + 2}`)),
-    '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>'
+    `<w:sectPr>${internal ? '<w:headerReference w:type="default" r:id="rIdMarking"/>' : ''}<w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr>`
   ].join('');
+  const marking = internal ? `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:hdr xmlns:w="${WORD_NS}"><w:p><w:pPr><w:jc w:val="right"/></w:pPr><w:r><w:rPr><w:b/><w:caps/><w:color w:val="${pptColor(brandTokens(spec.theme).printHeader)}"/><w:sz w:val="16"/></w:rPr><w:t xml:space="preserve">Internal: not for external distribution</w:t></w:r></w:p></w:hdr>` : null;
   const files: ZipFile[] = [
-    { name: '[Content_Types].xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>${embeddedAssets.some((asset) => asset.extension === 'png') ? '<Default Extension="png" ContentType="image/png"/>' : ''}${embeddedAssets.some((asset) => asset.extension === 'jpg') ? '<Default Extension="jpg" ContentType="image/jpeg"/>' : ''}<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>`) },
+    { name: '[Content_Types].xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/>${embeddedAssets.some((asset) => asset.extension === 'png') ? '<Default Extension="png" ContentType="image/png"/>' : ''}${embeddedAssets.some((asset) => asset.extension === 'jpg') ? '<Default Extension="jpg" ContentType="image/jpeg"/>' : ''}<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>${marking ? '<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>' : ''}<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>`) },
     { name: '_rels/.rels', bytes: Buffer.from(rels([{ id: 'rId1', type: `${OFFICE_REL}/officeDocument`, target: 'word/document.xml' }, { id: 'rId2', type: `${OFFICE_REL}/metadata/core-properties`, target: 'docProps/core.xml' }])) },
     { name: 'docProps/core.xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${text(content.title)}</dc:title><dc:creator>a2swe</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">2020-01-01T00:00:00Z</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">2020-01-01T00:00:00Z</dcterms:modified></cp:coreProperties>`) },
-    { name: 'word/_rels/document.xml.rels', bytes: Buffer.from(rels([{ id: 'rId1', type: `${OFFICE_REL}/styles`, target: 'styles.xml' }, ...citationRels, ...assetRels])) },
+    { name: 'word/_rels/document.xml.rels', bytes: Buffer.from(rels([{ id: 'rId1', type: `${OFFICE_REL}/styles`, target: 'styles.xml' }, ...citationRels, ...assetRels,
+      ...(marking ? [{ id: 'rIdMarking', type: `${OFFICE_REL}/header`, target: 'header1.xml' }] : [])])) },
     { name: 'word/styles.xml', bytes: Buffer.from(docxStyles(spec)) },
+    ...(marking ? [{ name: 'word/header1.xml', bytes: Buffer.from(marking) }] : []),
     { name: 'word/document.xml', bytes: Buffer.from(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="${WORD_NS}" xmlns:r="${OFFICE_REL}" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="${DRAWING_NS}" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><w:body>${body}</w:body></w:document>`) }
   ];
   for (const asset of embeddedAssets) {
@@ -1013,7 +1024,7 @@ function pdf(content: ContentIR, spec: RenderSpec, options: AdapterRenderOptions
     pushPdfBlock(lines, `[${citation.evidenceIds.join(', ')}] ${citation.sourceTitle} ${citation.canonicalUrl} retrieved ${citation.retrievedAt}`);
     for (let index = start; index < lines.length - 1; index++) lines[index].keepWithNext = true;
   });
-  const kicker = words(headlineParts(content.title)[0].replace(/[:.]$/, '').toUpperCase(), 90);
+  const kicker = words((distributionMarking(content) + headlineParts(content.title)[0].replace(/[:.]$/, '')).toUpperCase(), 90);
   const paginated = paginatePdfLines(lines);
   // Brand band, highlight rule, deck kicker and page number sit above the 54pt text margin on every page.
   const band = (page: number) => {

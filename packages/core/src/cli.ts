@@ -47,7 +47,7 @@ async function main(): Promise<void> {
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
     content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' },
     engine: { type: 'string' }, voice: { type: 'string' }, variants: { type: 'string' }, force: { type: 'boolean' }, 'keep-release': { type: 'boolean' },
-    'skip-media-probe': { type: 'boolean' }
+    'skip-media-probe': { type: 'boolean' }, install: { type: 'boolean' }, canonical: { type: 'boolean' }, audience: { type: 'string' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -78,6 +78,9 @@ async function main(): Promise<void> {
       '  account-import --source LAYERED_CARDS_CUSTOMER_DIRECTORY --root PROJECT_DIRECTORY',
       '  brand-theme --root PROJECT_DIRECTORY (--url HTTPS_BRAND_SITE | --source KIT_THEME_JSON | --file RENDER_THEME_JSON) [--name NAME]',
       '  workspace-init --root PROJECT_DIRECTORY',
+      '  semantic-model [--install]',
+      '  alignment-rank --root PROJECT_DIRECTORY [--canonical]',
+      '  alignment-apply --root PROJECT_DIRECTORY --audience internal|external',
       '  canonical-bind --root PROJECT_DIRECTORY',
       '  domain-certify --file DOMAIN --review REPORT --approvals SIGNATURES --trust POLICY [--out NEW_FILE]',
       '  job-submit --file FILE [--state DIRECTORY]',
@@ -166,6 +169,22 @@ async function main(): Promise<void> {
   if (command === 'workspace-init') {
     const { writeProjectWorkspace } = await import('./workspace.ts');
     console.log(JSON.stringify(await writeProjectWorkspace(required('root'))));
+    return;
+  }
+  if (command === 'semantic-model') {
+    const { installSemanticModel, semanticModel } = await import('./semantic.ts');
+    console.log(JSON.stringify(values.install === true ? await installSemanticModel() : await semanticModel(), null, 2));
+    return;
+  }
+  if (command === 'alignment-rank' || command === 'alignment-apply') {
+    const { applyAlignment, rankAlignment } = await import('./alignment.ts');
+    if (command === 'alignment-rank') {
+      console.log(JSON.stringify(await rankAlignment(required('root'), { canonical: values.canonical === true }), null, 2));
+      return;
+    }
+    const audience = required('audience');
+    if (audience !== 'internal' && audience !== 'external') throw new Error('invalid_audience: use internal or external');
+    console.log(JSON.stringify(await applyAlignment(required('root'), audience), null, 2));
     return;
   }
   if (command === 'canonical-bind') {

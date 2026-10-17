@@ -89,13 +89,19 @@ export async function projectRunbook(rootPath: string) {
   }
   const render = ['outputs/index.html', 'outputs/deck.deck.json', 'outputs/deck.pptx', 'outputs/document.docx', 'outputs/document.pdf',
     'outputs/raster.png', 'outputs/raster.jpg', 'outputs/remotion/dist/render.mp4'].filter((relative) => outputDigest(relative)).map((relative) => `release/${relative}`);
+  // Audience alignment passes when the ranking analyzed exactly this release and its effective audience has no blockers.
+  const alignment = exists('qc/alignment/alignment.json')
+    ? JSON.parse(await readFile(path.join(root, 'qc', 'alignment', 'alignment.json'), 'utf8')) as { contentDigest?: string; effectiveDistribution?: 'internal' | 'external'; audiences?: Record<string, { ready?: boolean }> }
+    : null;
+  const alignmentCurrent = Boolean(alignment && alignment.contentDigest === parity.contentDigest && alignment.effectiveDistribution
+    && alignment.audiences?.[alignment.effectiveDistribution]?.ready === true);
   const stages = [
     { name: 'scaffold', paths: ['agent/SWE_AGENT.md'] },
     { name: 'research', paths: ['canonical/domain-pack.json', 'release/domain-pack.json'] },
     { name: 'content', paths: ['canonical/content-ir.json', 'release/content-ir.json', 'release/render-spec.json'] },
     { name: 'render', paths: render },
     { name: 'qc', paths: ['release/outputs/remotion/qc/audio-qa.json', 'release/outputs/remotion/qc/audio-spectrogram.svg', 'release/parity-manifest.json',
-      ...(officeCurrent ? ['qc/native-office/native-render.json'] : []), ...(analysisPath ? [analysisPath] : [])] },
+      ...(officeCurrent ? ['qc/native-office/native-render.json'] : []), ...(analysisPath ? [analysisPath] : []), ...(alignmentCurrent ? ['qc/alignment/alignment.json'] : [])] },
     { name: 'delivery', paths: ['release/asset-inventory.json', 'release/release-plan.json'] }
   ].map((stage) => ({ ...stage, paths: stage.paths.filter(exists) }));
   const artifacts: Runbook['artifacts'] = [];
@@ -116,6 +122,7 @@ export async function projectRunbook(rootPath: string) {
     gate('audio', audio.valid === true, 'release/outputs/remotion/qc/audio-qa.json'),
     gate('native-office', officeCurrent, 'qc/native-office/native-render.json'),
     gate('media-analysis', Boolean(analysisPath), analysisPath ?? 'qc/analysis'),
+    gate('audience-alignment', alignmentCurrent, 'qc/alignment/alignment.json'),
     gate('release', true, 'release/parity-manifest.json')
   ];
   const blockers = gates.filter((item) => item.status !== 'passed').map((item) => `${item.name} evidence is not bound to the current release.`);

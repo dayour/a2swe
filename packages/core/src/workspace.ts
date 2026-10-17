@@ -30,8 +30,9 @@ export async function writeProjectWorkspace(projectDirectory: string): Promise<{
   const steps = [
     run('canonical-bind', 'Rebind content, render spec and approvals after editing canonical files.', ['canonical-bind', '--root', folder]),
     run('revision-produce', 'Render a new revision (all formats and narrated 1080p video) per voice variant and promote the first.', ['revision-produce', '--root', folder, '--variants', '${input:variants}']),
-    run('revisions-analyze', 'Spectrogram, loudness and frame analysis for every revision video.', ['revisions-analyze', '--root', folder]),
+    run('revisions-analyze', 'Audio and video spectrograms, loudness, flicker, detail and frame analysis for every revision video.', ['revisions-analyze', '--root', folder]),
     run('office-render', 'Native Microsoft Office QA for the release PowerPoint and Word outputs (Windows).', ['office-render', '--root', folder]),
+    run('alignment-rank', 'Semantic alignment ranking for internal and external audiences, with leakage and said-versus-shown scene checks.', ['alignment-rank', '--root', folder]),
     run('runbook-project', 'Project agent/runbook.json from the verified release and review evidence.', ['runbook-project', '--root', folder]),
     run('release-verify', 'Regenerate and digest-compare every release output.', ['release-verify', '--root', `${folder}/release`]),
     run('runbook-verify', 'Verify the project runbook against its evidence.', ['runbook-verify', '--root', folder])
@@ -48,12 +49,14 @@ export async function writeProjectWorkspace(projectDirectory: string): Promise<{
       version: '2.0.0',
       tasks: [
         run('brand-theme from site', 'Install the brand theme (colors, fonts) from an official brand site; weak evidence fails instead of misbranding.', ['brand-theme', '--root', folder, '--url', '${input:brandUrl}']),
+        run('align for audience', 'Align canonical content for internal or external readers and rebind; external refuses while internal-only material remains.', ['alignment-apply', '--root', folder, '--audience', '${input:audience}']),
         ...steps,
         { label: 'a2swe: produce, review and verify', detail: 'Full pipeline for this project in order.', dependsOrder: 'sequence',
           dependsOn: steps.map((step) => step.label), group: { kind: 'build', isDefault: true }, problemMatcher: [] }
       ],
       inputs: [
         { id: 'brandUrl', type: 'promptString', description: 'Official brand site URL (https://...)' },
+        { id: 'audience', type: 'pickString', description: 'Audience to align for', default: 'internal', options: ['internal', 'external'] },
         { id: 'variants', type: 'pickString', description: 'Voice variants (PROFILE:ENGINE, comma separated)', default: DEFAULT_VARIANTS,
           options: [DEFAULT_VARIANTS, 'am_michael:kokoro_onnx', 'af_heart:kokoro_onnx'] }
       ]

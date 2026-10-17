@@ -112,10 +112,12 @@ export async function importAccountIntake(kitCustomerDirectory: string, projectD
       if (line.endsWith(':') && narrative.some(([key]) => `${key}:` === line)) { section = line.slice(0, -1); continue; }
       quote(section, line);
     }
+    // CRM, Success Hub, Microsoft 365 and tracker records are internal working material; market, company and news facts are published.
+    const distribution = /^(public|news)-/.test(sourceId) ? 'public' as const : 'internal' as const;
     const source: Source = { schemaVersion: '1.0.0', sourceId, domainId, canonicalUrl: url, publisher, title: title.slice(0, 300),
       publicationDate: published, modifiedDate: modified, retrievedAt,
       dateEvidence: published || modified ? `Dates from the ${publisher} record fields captured in the account intake observed at ${retrievedAt}.`
-        : `The ${publisher} record exposed no publication date; captured in the account intake observed at ${retrievedAt}.`, contentHash };
+        : `The ${publisher} record exposed no publication date; captured in the account intake observed at ${retrievedAt}.`, contentHash, distribution };
     built.push({ source, text, evidence });
     return { sourceId, evidence };
   };

@@ -2,7 +2,7 @@ import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promise
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { digest, sha256 } from './canonical.ts';
-import { validate, validateContentAgainstDomain } from './contracts.ts';
+import { sourceDistribution, validate, validateContentAgainstDomain } from './contracts.ts';
 import type { ApprovalManifest, AssetInventory, ContentIR, FormatParityManifest, ReleasePlan, RenderSpec } from './contracts.ts';
 import { renderFiles } from './adapters.ts';
 import type { AdapterAssetEmbed, AdapterFile, AdapterVisualImage } from './adapters.ts';
@@ -37,6 +37,15 @@ export async function bindCanonicalInputs(directory: string) {
   const content = await read('content-ir.json');
   content.domainDigest = digest(domain);
   content.voice.narration = [content.summary, ...content.sections.map((section: { body: string }) => section.body)].join('\n\n');
+  // An undeclared audience becomes explicit: anything citing internal-only evidence is internal (and marked), otherwise external.
+  if (!content.distribution) {
+    const spans = new Map(domain.evidence.map((span) => [span.evidenceId, span]));
+    const sources = new Map(domain.sources.map((source) => [source.sourceId, source]));
+    content.distribution = (content.citations as { evidenceId: string }[]).some((citation) => {
+      const source = sources.get(spans.get(citation.evidenceId)?.sourceId ?? '');
+      return !source || sourceDistribution(source) === 'internal';
+    }) ? 'internal' : 'external';
+  }
   validateContentAgainstDomain(content, domain);
   const contentDigest = digest(content);
   const existingRender = existsSync(path.join(canonical, 'render-spec.json')) ? await read('render-spec.json') : null;

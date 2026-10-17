@@ -272,6 +272,13 @@ function fmt(value: number | null | undefined, places = 1, unit = ''): string {
   return value === null || value === undefined || !Number.isFinite(value) ? 'n/a' : `${value.toFixed(places)}${unit}`;
 }
 
+// Share of all layer motion that sits below 2 Hz, weighted by each zone's motion power; eased animation keeps this high.
+function weightedLowShare(zones: { meanDb: number; lowShare: number }[]): number {
+  const weights = zones.map((zone) => 10 ** (zone.meanDb / 10));
+  const total = weights.reduce((sum, value) => sum + value, 0);
+  return total ? zones.reduce((sum, zone, index) => sum + zone.lowShare * weights[index], 0) / total : 0;
+}
+
 async function labeledStrip(image: string, label: string, width: number, height: number): Promise<Buffer> {
   const strip = 30;
   const body = await sharp(image).resize(width, height, { fit: 'fill' }).toBuffer();
@@ -303,8 +310,9 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
       const stem = path.basename(output.path, path.extname(output.path));
       const directory = path.join(analysisRoot, revision.title, stem);
       const cached = existsSync(path.join(directory, 'analysis.json')) ? await json<MediaAnalysisReport>(path.join(directory, 'analysis.json')) : null;
-      // Reports from before frame strips were composited are re-measured so the grid never depends on raw frame files.
-      const current = cached?.input.sha256 === output.digest && (!cached.probe.video || typeof cached.images.frameStrip === 'string');
+      // Reports from before frame strips and video spectrograms existed are re-measured so the comparison never mixes methods.
+      const current = cached?.input.sha256 === output.digest && (!cached.probe.video
+        || (typeof cached.images.frameStrip === 'string' && typeof cached.images.videoSpectrogram === 'string'));
       const report = !options.force && current ? cached!
         : await analyzeMedia(path.join(project, 'renders', revision.title, output.path), directory,
           { label: `${revision.title} ${stem === revision.title ? '' : stem.slice(revision.title.length + 1)}`.trim(), scenes: output.scenes as AnalysisScene[] | undefined });
@@ -326,6 +334,10 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
       speechFlatness: report.audio?.spectrum.speech?.flatness ?? null, humProminenceDb: report.audio?.hum?.strongest.prominenceDb ?? null,
       transitions: report.video?.transitions.length ?? 0, staticHolds: report.video?.freezes.filter((freeze) => freeze.durationSeconds > 8).length ?? 0,
       captionDetail: report.video?.layers.zones.find((zone) => zone.id === 'caption')?.meanDetail ?? null,
+      flickerSeconds: report.video?.temporal ? Math.max(0, ...report.video.temporal.zones.map((zone) => zone.flickerSeconds)) : null,
+      motionBelow2Hz: report.video?.temporal ? weightedLowShare(report.video.temporal.zones) : null,
+      bodyFineDetail: report.video?.spatial?.bands.find((band) => band.id === 'body')?.medianFineShare ?? null,
+      captionFineDetail: report.video?.spatial?.bands.find((band) => band.id === 'caption')?.medianFineShare ?? null,
       findings: report.findings.map((finding) => `${finding.severity}:${finding.code}`)
     }))
   };
@@ -334,10 +346,14 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
   const spectra: Buffer[] = [];
   const grids: Buffer[] = [];
   const layers: Buffer[] = [];
+  const videoSpectra: Buffer[] = [];
+  const spatialSpectra: Buffer[] = [];
   for (const row of primary) {
     const label = `${row.report.label} | ${row.report.probe.video?.width}x${row.report.probe.video?.height} | ${fmt(row.report.audio?.loudness.integratedLufs, 1, ' LUFS')}`;
     if (typeof row.report.images.spectrogram === 'string') spectra.push(await labeledStrip(path.join(row.directory, row.report.images.spectrogram), label, 1600, 300));
     if (typeof row.report.images.layers === 'string') layers.push(await labeledStrip(path.join(row.directory, row.report.images.layers), row.report.label, 1600, 300));
+    if (typeof row.report.images.videoSpectrogram === 'string') videoSpectra.push(await labeledStrip(path.join(row.directory, row.report.images.videoSpectrogram), row.report.label, 1600, 420));
+    if (typeof row.report.images.spatialSpectrogram === 'string') spatialSpectra.push(await labeledStrip(path.join(row.directory, row.report.images.spatialSpectrogram), row.report.label, 1600, 300));
     if (typeof row.report.images.frameStrip === 'string') {
       grids.push(await labeledStrip(path.join(row.directory, row.report.images.frameStrip), `${row.report.label}  (10% / 30% / 50% / 70% / 90%)`, 1600, 180));
     }
@@ -345,23 +361,30 @@ export async function analyzeRevisions(projectDirectory: string, options: { forc
   await stackImages(spectra, path.join(analysisRoot, 'spectrogram-stack.jpg'));
   await stackImages(grids, path.join(analysisRoot, 'frames-grid.jpg'));
   await stackImages(layers, path.join(analysisRoot, 'layers-stack.jpg'));
+  await stackImages(videoSpectra, path.join(analysisRoot, 'video-spectrogram-stack.jpg'));
+  await stackImages(spatialSpectra, path.join(analysisRoot, 'spatial-spectrogram-stack.jpg'));
   const lines = [
     '---', `title: ${projectId} render analysis`, `description: Measured audio, spectrogram and video-layer comparison for every ${projectId} revision.`, '---', '',
     '## Method', '',
     'Every revision video is decoded with FFmpeg and measured with the core `media-analyze` method. Spectrograms use a Hann window, logarithmic magnitude and a 120 dB range, with frequency, time and dBFS legends. Loudness uses ITU-R BS.1770 (EBU R128). Video layers are measured per layout zone as frame-to-frame motion and edge detail.',
+    '',
+    'The video spectrogram is the visual counterpart of the audio spectrogram. Each pixel\'s brightness is a signal sampled at the frame rate, and a short-time Fourier transform of every pixel, averaged per layout zone, shows the temporal frequencies each layer carries. Scene and caption changes appear as broadband bursts, eased animation below 2 Hz, and flicker or shimmer as sustained narrow lines. The spatial spectrogram shows horizontal detail per content band over time; the fine-detail share above 0.18 cycles per pixel tracks text sharpness and density.',
     '', 'These are objective measurements. They do not replace listening and viewing.', '',
     '## Revisions', '',
-    '| Revision | Status | Output | Voice | Size | Duration | LUFS | True peak | Pause floor | Speech HF>8k | Longest pause | Findings |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
-    ...comparison.rows.map((row) => `| ${row.title} | ${row.status} | ${row.file} | ${row.voice ? [row.voice.profileId ?? row.voice.voiceName, row.voice.engine].filter(Boolean).join(' / ') : 'unrecorded'} | ${row.width}x${row.height} | ${fmt(row.durationSeconds, 1, ' s')} | ${fmt(row.integratedLufs)} | ${fmt(row.truePeakDbtp)} dBTP | ${row.noiseFloorDbfs === null ? 'digital silence' : `${fmt(row.noiseFloorDbfs)} dBFS`} | ${percent(row.speechHf8k)} | ${fmt(row.longestPauseSeconds, 2, ' s')} | ${row.findings.filter((item) => !item.startsWith('info')).join(', ') || 'none'} |`),
+    '| Revision | Status | Output | Voice | Size | Duration | LUFS | True peak | Pause floor | Speech HF>8k | Longest pause | Flicker | Motion <2 Hz | Body detail | Findings |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
+    ...comparison.rows.map((row) => `| ${row.title} | ${row.status} | ${row.file} | ${row.voice ? [row.voice.profileId ?? row.voice.voiceName, row.voice.engine].filter(Boolean).join(' / ') : 'unrecorded'} | ${row.width}x${row.height} | ${fmt(row.durationSeconds, 1, ' s')} | ${fmt(row.integratedLufs)} | ${fmt(row.truePeakDbtp)} dBTP | ${row.noiseFloorDbfs === null ? 'digital silence' : `${fmt(row.noiseFloorDbfs)} dBFS`} | ${percent(row.speechHf8k)} | ${fmt(row.longestPauseSeconds, 2, ' s')} | ${fmt(row.flickerSeconds, 2, ' s')} | ${percent(row.motionBelow2Hz, 1)} | ${percent(row.bodyFineDetail, 1)} | ${row.findings.filter((item) => !item.startsWith('info')).join(', ') || 'none'} |`),
     '', '## Findings by revision', ''
   ];
   for (const row of rows) {
     lines.push(`### ${row.revision.title} ${row.output.path}`, '');
     const list = row.report.findings.length ? row.report.findings.map((finding) => `* ${finding.severity}: ${finding.message}`) : ['* No threshold findings.'];
-    lines.push(...list, '', `Evidence: [analysis](${relative(analysisRoot, path.join(row.directory, 'analysis.json'))}), [spectrogram](${relative(analysisRoot, path.join(row.directory, 'spectrogram.jpg'))}), [speech spectrogram](${relative(analysisRoot, path.join(row.directory, 'spectrogram-speech.jpg'))}), [layers](${relative(analysisRoot, path.join(row.directory, 'layers.png'))}), [frames](${relative(analysisRoot, path.join(row.directory, 'contact-sheet.jpg'))}).`, '');
+    const evidence = (name: string, file: string) => `[${name}](${relative(analysisRoot, path.join(row.directory, file)).split(path.sep).join('/')})`;
+    lines.push(...list, '', `Evidence: ${[evidence('analysis', 'analysis.json'), evidence('spectrogram', 'spectrogram.jpg'), evidence('speech spectrogram', 'spectrogram-speech.jpg'),
+      evidence('video spectrogram', 'video-spectrogram.jpg'), evidence('spatial spectrogram', 'spatial-spectrogram.jpg'), evidence('layers', 'layers.png'), evidence('frames', 'contact-sheet.jpg')].join(', ')}.`, '');
   }
-  lines.push('## Comparison images', '', '* [Spectrogram stack](spectrogram-stack.jpg)', '* [Frame grid](frames-grid.jpg)', '* [Layer activity stack](layers-stack.jpg)', '');
+  lines.push('## Comparison images', '', '* [Spectrogram stack](spectrogram-stack.jpg)', '* [Video spectrogram stack](video-spectrogram-stack.jpg)',
+    '* [Spatial spectrogram stack](spatial-spectrogram-stack.jpg)', '* [Frame grid](frames-grid.jpg)', '* [Layer activity stack](layers-stack.jpg)', '');
   await writeFile(path.join(analysisRoot, 'report.md'), `${lines.join('\n')}`);
   await indexProjectQc(project);
   return { projectId, analyzed: rows.length, comparison: relative(project, path.join(analysisRoot, 'comparison.json')), report: relative(project, path.join(analysisRoot, 'report.md')) };

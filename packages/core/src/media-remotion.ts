@@ -1726,7 +1726,8 @@ export function remotion(content: ContentIR, spec: RenderSpec, options: AdapterR
     dependencies: { '@remotion/cli': '4.0.523', remotion: '4.0.523', react: '19.3.0', 'react-dom': '19.3.0', ...(usesVisuals ? VISUAL_DEPENDENCIES : {}) },
     devDependencies: { '@types/react': '19.3.0', '@types/react-dom': '19.3.0', typescript: '7.0.2' }
   };
-  const root = REMOTION_ROOT_TEMPLATE.replaceAll('__CONTENT_ID__', content.contentId);
+  // The marking placeholder vanishes for undeclared and external content, so their generated Root.tsx is unchanged.
+  const root = REMOTION_ROOT_TEMPLATE.replaceAll('__CONTENT_ID__', content.contentId).replaceAll('__MARKING__', content.distribution === 'internal' ? 'Internal · ' : '');
   const remotionIndex = `import { registerRoot } from 'remotion';
 import { Root } from './Root';
 
