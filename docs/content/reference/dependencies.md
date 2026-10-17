@@ -45,6 +45,13 @@ different text front ends. The shared registry is
 `library/assets/speech/models.json`; voice profiles are in
 `library/assets/speech/voice-profiles.json`.
 
+Audience alignment uses the sentence-embedding model pinned in
+`library/assets/semantic/models.json`:
+`sentence-transformers/all-MiniLM-L6-v2` (Apache-2.0) as ONNX, run with
+`onnxruntime` and `tokenizers` from the repository `.venv`. Install it once with
+`semantic-model --install`; every run verifies the file digests and uses no
+network.
+
 ## Legacy note
 
 The older template workflow remains available, but it is separate from the managed

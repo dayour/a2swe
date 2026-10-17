@@ -71,9 +71,12 @@ Use **New project** to generate from a prompt, or **New project with this** on a
 library card to start with selected context. The default UI is one prompt and
 one Generate button. It creates a domain SWE agent and all eight presentation
 formats automatically. Expand **Pro mode** for multiple source URLs, a brand
-site, library entries, voice and speed, naming, output selection, and guided
-execution. A brand site's colors and fonts become the project's brand theme
-before the agent starts; see [Render and quality control](../pipeline/render-and-quality.md#brand-themes).
+site, the audience to align for, library entries, voice and speed, naming, output
+selection, and guided execution. A brand site's colors and fonts become the
+project's brand theme before the agent starts; see
+[Render and quality control](../pipeline/render-and-quality.md#brand-themes).
+**Align for** chooses internal or external readers; see
+[Audience alignment](../pipeline/audience-alignment.md).
 Guided mode requests tool approvals; the default Generate action authorizes
 Auto generation as described beside the button. Existing projects are never
 overwritten.

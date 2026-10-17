@@ -30,7 +30,8 @@ project/
 │       └── <title>-<voice>-<engine>.vtt
 ├── qc/
 │   ├── index.json
-│   ├── analysis/             # spectrogram, loudness and video-layer evidence per revision
+│   ├── analysis/             # audio and video spectrograms, loudness and layer evidence per revision
+│   ├── alignment/            # internal and external audience alignment report and ranking
 │   ├── audio/<profile>/       # matched WAVs, metadata and comparison.json
 │   ├── brand/brand-source.json # documents, color votes and fonts behind a site-derived theme
 │   ├── native-office/        # source-bound Office renders
@@ -47,10 +48,12 @@ project root. `workspace-init --root PROJECT` regenerates it for an existing
 project. Open the file in VS Code to work on one project with these tasks:
 
 - **a2swe: brand-theme from site** prompts for an official brand URL.
+- **a2swe: align for audience** offers a choice of internal or external.
 - **a2swe: canonical-bind**
 - **a2swe: revision-produce** offers a choice of voice variants.
 - **a2swe: revisions-analyze**
 - **a2swe: office-render**
+- **a2swe: alignment-rank**
 - **a2swe: runbook-project**
 - **a2swe: release-verify**
 - **a2swe: runbook-verify**
@@ -80,8 +83,10 @@ stops the promotion before anything moves; close it and run `revision-promote`.
 revision.
 
 `revisions-analyze` measures every revision video and writes
-`qc/analysis/report.md`, `comparison.json`, stacked spectrogram, frame and layer
-images, and per-video evidence under `qc/analysis/<title>/<video>/`.
+`qc/analysis/report.md`, `comparison.json`, stacked audio spectrogram, video
+spectrogram, spatial spectrogram, frame and layer images, and per-video evidence
+under `qc/analysis/<title>/<video>/`. `alignment-rank` writes the audience
+alignment ranking to `qc/alignment/`.
 
 ## Managed release output layout
 

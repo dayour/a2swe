@@ -30,6 +30,7 @@ const sidebars: SidebarsConfig = {
         'pipeline/research-and-narration',
         'pipeline/storyboard-and-build',
         'pipeline/render-and-quality',
+        'pipeline/audience-alignment',
         'pipeline/revisions-and-follow-ups',
       ],
     },

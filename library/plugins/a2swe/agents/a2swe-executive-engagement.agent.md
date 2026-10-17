@@ -80,7 +80,17 @@ that no engagement exists.
   than guessing.
 - Review actual encoded video, subtitles, narration and spectrogram evidence.
   Use the native Studio/review tools when available, inspect transitions and
-  representative frames, and verify sources and captions remain legible.
+  representative frames, and verify sources and captions remain legible. Read
+  the video spectrograms in `qc/analysis/`: flicker or shimmer shows as a
+  sustained narrow line in a layer and must be fixed at its source.
+- Align for the audience. Run `alignment-rank` and read
+  `qc/alignment/report.md`:
+  - Resolve every blocker for the effective audience.
+  - Review weakly grounded sentences and scenes where what is shown does not
+    match what is said.
+  - For customer-facing output, use `alignment-apply --audience external`. It
+    refuses while any sentence cites, restates or names internal-only material;
+    rewrite those sentences rather than overriding the gate.
 - Fix pronunciation through speech-only overrides and model defects at the
   producer. Do not conceal broken reconstruction with post-processing, reuse
   stale WAVs, weaken QC thresholds, or call objective audio metrics a listening

@@ -31,11 +31,13 @@ video, its captions, digest, duration, voice, speech engine and release digest.
    ```powershell
    node packages/core/src/cli.ts revisions-analyze --root projects/<id>
    node packages/core/src/cli.ts office-render --root projects/<id>
+   node packages/core/src/cli.ts alignment-rank --root projects/<id>
    node packages/core/src/cli.ts runbook-project --root projects/<id>
    ```
 
-6. Read `qc/analysis/report.md`, the contact sheets and the native slide renders
-   before reporting the revision as complete.
+6. Read `qc/analysis/report.md`, the audio and video spectrograms, the contact
+   sheets, the native slide renders and `qc/alignment/report.md` before
+   reporting the revision as complete.
 
 The previous release moves to `qc/revisions/<its revision title>/`. A file held
 open by a viewer or Office stops the promotion before anything moves; close it
@@ -65,10 +67,12 @@ Customer account projects follow the `a2swe-account-weekly` agent profile in
 2. Import it with `account-import`. The importer accepts `intake.json` or a
    `card-data.json` package and rebuilds the DomainPack from verbatim source
    lines.
-3. Author the four-section overview and run `canonical-bind`.
+3. Author the four-section overview and run `canonical-bind`. Account overviews
+   cite internal CRM, Success Hub and Microsoft 365 records, so they are aligned
+   for internal readers and every output is marked Internal.
 4. Render one Michael ONNX variant with
    `revision-produce --variants am_michael:kokoro_onnx`, then analyze, render
-   native Office QA and project the runbook.
+   native Office QA, rank audience alignment and project the runbook.
 
 Customer projects contain private engagement data. Keep them in a Git-ignored
 workspace or a private repository, never in a public one.

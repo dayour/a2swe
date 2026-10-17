@@ -41,8 +41,8 @@ Node: the current runtime when it satisfies `engines`, otherwise `A2SWE_NODE`.
 | `node packages/core/src/cli.ts revision-produce --root PROJECT [--variants PROFILE:ENGINE,...] [--keep-release]` | Render one full release per voice variant into `renders/<project>-<year>-<NN>/` and promote the first |
 | `node packages/core/src/cli.ts revision-promote --root PROJECT --id TITLE [--voice PROFILE-ENGINE]` | Promote a revision variant into `release/`, or resume a promotion a locked file stopped |
 | `node packages/core/src/cli.ts revisions-organize --root PROJECT` | Import existing renders and packages into revision folders |
-| `node packages/core/src/cli.ts revisions-analyze --root PROJECT [--force]` | Measure every revision video and write `qc/analysis/report.md` |
-| `node packages/core/src/cli.ts media-analyze --file MEDIA --out DIR` | Spectrograms, loudness, pauses, scene, freeze and layer measurements for one file |
+| `node packages/core/src/cli.ts revisions-analyze --root PROJECT [--force]` | Measure every revision video (audio and video spectrograms, loudness, flicker, detail, frames) and write `qc/analysis/report.md` |
+| `node packages/core/src/cli.ts media-analyze --file MEDIA --out DIR` | Audio and video spectrograms, loudness, pauses, scene, freeze, flicker, detail and layer measurements for one file |
 | `node packages/core/src/cli.ts office-render --root PROJECT` | Render the release PPTX and DOCX with native PowerPoint and Word on Windows |
 | `node packages/core/src/cli.ts runbook-project --root PROJECT` | Project `agent/runbook.json` gates from the verified release and current evidence |
 | `node packages/core/src/cli.ts account-import --source CUSTOMER_DIR --root PROJECT` | Import a LayeredCards account intake or card-data package as a ready DomainPack, install the kit brand theme and write the project workspace |
@@ -50,6 +50,9 @@ Node: the current runtime when it satisfies `engines`, otherwise `A2SWE_NODE`.
 | `node packages/core/src/cli.ts brand-theme --root PROJECT --source KIT_THEME_JSON` | Install a LayeredCards kit theme with the same derivation as the delivered cards |
 | `node packages/core/src/cli.ts brand-theme --root PROJECT --file RENDER_THEME_JSON` | Validate and install a hand-written `RenderTheme` |
 | `node packages/core/src/cli.ts workspace-init --root PROJECT` | Write `PROJECT/<projectId>.code-workspace` with VS Code tasks for every pipeline stage |
+| `node packages/core/src/cli.ts semantic-model [--install]` | Verify, or install once, the pinned local sentence-embedding model used for alignment |
+| `node packages/core/src/cli.ts alignment-rank --root PROJECT [--canonical]` | Rank claims, sections and video scenes for internal and external audiences and write `qc/alignment/report.md` |
+| `node packages/core/src/cli.ts alignment-apply --root PROJECT --audience internal\|external` | Align canonical content for an audience and rebind; external refuses while internal-only material remains |
 
 `brand-theme` writes `canonical/render-theme.json`. It regenerates generated
 semantic diagram assets with the brand palette and updates their content and

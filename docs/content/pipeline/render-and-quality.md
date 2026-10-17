@@ -129,11 +129,42 @@ The managed MP4 QC verifies:
 - mains hum prominence and stereo correlation
 - scene cuts, black frames and frozen frames
 - per-zone layer motion and edge detail
+- per-layer temporal-frequency spectra with flicker detection, and spatial detail per content band
 
 It also writes full and speech-band spectrograms with legends, per-section
 spectrogram chunks, a contact sheet, a proportional frame strip, and a layer
 activity image. `qc/analysis/report.md` compares every revision, with stacked
 spectrogram, frame and layer images.
+
+### Video spectrograms
+
+`video-spectrogram.jpg` is the visual counterpart of the audio spectrogram. Each
+pixel's brightness is treated as a signal sampled at the frame rate. A
+short-time Fourier transform of every pixel (64-frame Hann windows), averaged
+per layout zone, shows the temporal frequencies each layer carries over time:
+header, headline, narrative, visual, caption and footer.
+
+| Pattern | Meaning |
+| --- | --- |
+| Broadband vertical burst | A scene change, cross-fade or caption change |
+| Energy below 2 Hz | Eased animation such as entrances and springs |
+| Sustained narrow horizontal line | Flicker, strobing or shimmer at that rate |
+| Dark band | A layer that does not change |
+
+A layer with a peak at 3 Hz or above that stands 12 dB over the rest of that
+band, carries 15% of the window's motion, and persists for 1.5 s or more raises
+a `video-flicker` warning. The report table records the longest flicker per
+video and the share of motion below 2 Hz.
+
+`spatial-spectrogram.jpg` shows horizontal detail per content band (headline,
+body and caption) over time, on a log cycles-per-pixel axis. The fine-detail
+share above 0.18 cycles per pixel tracks text sharpness and density; the
+report compares the body band's median share across revisions. Stacked
+comparisons of both spectrograms are written as
+`video-spectrogram-stack.jpg` and `spatial-spectrogram-stack.jpg`.
+
+Run `alignment-rank` after the analysis to compare what each scene says with
+what it shows; see [Audience alignment](./audience-alignment.md).
 
 ## Native Office QA
 

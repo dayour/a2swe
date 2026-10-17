@@ -54,7 +54,19 @@ extraction or browsing.
 - Re-run release verification, including encoded MP4 QC when the release includes
   the Remotion output
 - Render multi-voice revisions into `renders/<project>-<year>-<NN>/` and measure
-  every revision with spectrogram, loudness and video-layer analysis
+  every revision with audio spectrograms, loudness, video spectrograms
+  (per-layer temporal frequency with flicker detection), spatial detail
+  spectrograms and video-layer analysis
+- Rank claims, sections and video scenes for internal and external audiences
+  with a pinned local sentence model:
+  - relevance to each audience's priorities
+  - grounding in the cited evidence
+  - decision support
+  - said-versus-shown scene alignment
+  - external leakage
+- Align content for an audience. External content may cite only public or
+  customer sources, and internal outputs carry an Internal marking in every
+  format.
 - Style every format and the video from one brand theme (`RenderTheme`):
   - Install it from a LayeredCards kit theme or an official brand site with
     `brand-theme`; site extraction records its evidence.

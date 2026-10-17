@@ -36,14 +36,21 @@ private engagement data and must stay in a Git-ignored workspace.
    ```
 
 4. Render the weekly revision. It becomes `renders/<id>-<year>-<NN>/` and the
-   promoted `release/`:
+   promoted `release/`. Account overviews cite internal CRM, Success Hub and
+   Microsoft 365 records, so `canonical-bind` aligns them for internal readers
+   and every output is marked Internal:
 
    ```powershell
    node packages/core/src/cli.ts revision-produce --root <customer-project> --variants am_michael:kokoro_onnx
    node packages/core/src/cli.ts revisions-analyze --root <customer-project>
    node packages/core/src/cli.ts office-render --root <customer-project>
+   node packages/core/src/cli.ts alignment-rank --root <customer-project>
    node packages/core/src/cli.ts runbook-project --root <customer-project>
    ```
+
+   Never send the internal overview to the customer. A customer-facing version
+   is a separate external briefing built only from public or customer-shared
+   sources; `alignment-apply --audience external` lists what must change.
 
 ## Content contract
 
