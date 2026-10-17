@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "agent-365",
   "projectId": "agent-365",
-  "updatedAt": "2026-10-16T19:16:29.965Z",
+  "updatedAt": "2026-10-17T03:32:49.861Z",
   "domainDigest": "1ffba7ea24b83570f916e48f86838d9bbf1a712fcbc924ef98f9ff861919a54d",
   "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
   "stage": "delivery",
@@ -23,25 +23,31 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "e0fdacfd5ed030369afd9eed6c530a1d884e89bac6b95a82e835d238c7f1e67c"
+      "evidenceDigest": "e550b82237596e72b0908d7e40b8095257506bf8de8e31ada41b759e638dde0a"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "93b07497b378fc355cee7b9f0acbb29495592327f93e356038bcefe37a386cf2"
+      "evidenceDigest": "17aba2849ce7b91a0cf6792c35a0b855e3d90edee10b9351544a13cc43f63eee"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "13678b0fa0931c661c929bf807a241f9abc8cd7097fac3865c637cfae13d3e1f"
+      "evidencePath": "qc/analysis/agent-365-2026-05/agent-365-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "5de95f3ea5ffe2c33469fa03b808e784203d619aa72c8c43170b8280309b95f1"
+    },
+    {
+      "name": "audience-alignment",
+      "status": "passed",
+      "evidencePath": "qc/alignment/alignment.json",
+      "evidenceDigest": "63bc5a32ab701ccccb6378af74d21791dbed6f52a6b2d912f31dfc1163bddf30"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "a5e11571a6d292f12ab567548747ed78a9e7d756ae95b2bdb5c7d765c2e7d95c"
+      "evidenceDigest": "9b2ec0505b68e76aec38fbd12d5ebdb1ee8206a59c3d2b1c696f2c04f1753441"
     }
   ],
   "stages": [
@@ -109,7 +115,8 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/agent-365-2026-05/agent-365-2026-05-am_michael-kokoro_onnx/analysis.json",
+        "qc/alignment/alignment.json"
       ]
     },
     {
@@ -158,97 +165,103 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "91846865e2f422782396076ca3f2ae9cc7dd6f8a72af8f29118bfb7be92dc96d",
+      "digest": "2dd6399cf0c9aa348a5fd37e0ac14ad6d0645aecd1b54c7934162b3b7c00d0e3",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "5b88faa5a7163a550ca1f73663f683813e33a5649a6e0992d9dba7f86c7e4c37",
+      "digest": "fe013721737244df0eb951fe78cab9cc2b5868295674dd7d4f4ce7a5beebe87f",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "e428adf166ce8b279b29ccfd933e3673b90c8497b2b163dbb978504db4aed332",
+      "digest": "0c516c8c526ee9ea2cc2aa5593f42c42e025c765b98bb138b0e67a5fdd1c6a42",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "02f0f353245d738d337c4205dcd624799ca222290e89b3a00d1b7157a5595e75",
+      "digest": "e7ed34b8a63fd2d8056112270ae0368316d2ebb58636711701571c2bfdb54752",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "7011b799993b8cae87f65ca65116f1a4d481101eb0243a8284d6623278161264",
+      "digest": "e0eb2a3f9098b421e02ab37b248057a0ecb00daf0eca1ef4c84789fb63c16005",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "fd205003d03b8aaef3fb5cebcb5f7682c334d886a1039ec1eb0660e6d1595dcd",
+      "digest": "ccc8e2efaa3f3d1107880396a02ac06ff3268f1d1a347cd4174e5ac876e7a3e0",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "3425eb4093527606aab8d1bf266a1959f803027d92717b4a806475ef18cf692a",
+      "digest": "b54f0477f71f5e983a0cf926cdebe697cd7dbe603b1c848fda2d9579e07e6383",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "9ceff62e690777e49d3ece0861f69e12da0c9a4f8a61f9d043b33f388b12b9bc",
+      "digest": "001bc682c30020492bed1f9e91d046001f3faaf60632b63b24abed28f09c039e",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "1a993cc58748fe481d9f6ecedef53751ffaa9a62c4589f575fde03f5b1be874b",
+      "digest": "179a0a55ad26a13550d4c3422237b0475c04a532740b27f89f8e5d9f76e9980e",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "e0fdacfd5ed030369afd9eed6c530a1d884e89bac6b95a82e835d238c7f1e67c",
+      "digest": "e550b82237596e72b0908d7e40b8095257506bf8de8e31ada41b759e638dde0a",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "df9d557f2d202cf9a40255cce3b1088cfd19fbde9d03ccaf4e742e733a1b55ef",
+      "digest": "ec63018ee576c87348f05613e9875b2166ce18adf52d8d3be6c60290cbdf7aad",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "a5e11571a6d292f12ab567548747ed78a9e7d756ae95b2bdb5c7d765c2e7d95c",
+      "digest": "9b2ec0505b68e76aec38fbd12d5ebdb1ee8206a59c3d2b1c696f2c04f1753441",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "93b07497b378fc355cee7b9f0acbb29495592327f93e356038bcefe37a386cf2",
+      "digest": "17aba2849ce7b91a0cf6792c35a0b855e3d90edee10b9351544a13cc43f63eee",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/agent-365-2026-04/agent-365-2026-04-am_michael-kokoro_onnx/analysis.json",
-      "digest": "13678b0fa0931c661c929bf807a241f9abc8cd7097fac3865c637cfae13d3e1f",
+      "path": "qc/analysis/agent-365-2026-05/agent-365-2026-05-am_michael-kokoro_onnx/analysis.json",
+      "digest": "5de95f3ea5ffe2c33469fa03b808e784203d619aa72c8c43170b8280309b95f1",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/alignment/alignment.json",
+      "digest": "63bc5a32ab701ccccb6378af74d21791dbed6f52a6b2d912f31dfc1163bddf30",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "f8ca6e3304662b966826f255e652d0c28faf7806c58294a2fa29391a7a2a1fa0",
+      "digest": "0689a05c8c2649a864cde532c489bce70105910e3e5108545da556231a15d3fc",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "f24b51337cdde9093d82307680915560b232b7c12bff355e357ab4d37d619b05",
+      "digest": "d4c142e91f7f7e7706fcd3372182cecbe11a7e17da2bbf4c8340e3f714baae16",
       "mediaType": "application/json",
       "stage": "delivery"
     }

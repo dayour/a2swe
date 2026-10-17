@@ -1,0 +1,395 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "agent-365",
+  "generatedAt": "2026-10-17T03:32:48.702Z",
+  "source": "release",
+  "contentDigest": "80152cbcf5eb7e5d9452caa4ae8381f355d53c51787ade6990c4c5f20ec8d74b",
+  "domainDigest": "1ffba7ea24b83570f916e48f86838d9bbf1a712fcbc924ef98f9ff861919a54d",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-overview",
+      "title": "Microsoft Agent 365 overview",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-developer-sdk-cli",
+      "title": "Microsoft Agent 365 SDK and CLI",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-service-description",
+      "title": "Microsoft Agent 365 - Service Descriptions",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-connect-existing-agent",
+      "title": "Quickstart: Connect an Existing Agent to Agent 365",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "control-plane: weakly grounded sentence (0.229): \"Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.\"",
+        "observe-traces: weakly grounded sentence (0.445): \"Observe with a registry, activity, and health first.\""
+      ],
+      "eligibleEvidence": 12,
+      "totalEvidence": 12,
+      "leadClaim": "c3",
+      "recommendedOrder": [
+        "accountable-pilot",
+        "govern-secure",
+        "control-plane",
+        "observe-traces"
+      ],
+      "sections": [
+        {
+          "sectionId": "accountable-pilot",
+          "title": "4. Pilot before expansion",
+          "relevance": 0.322,
+          "intent": "governance",
+          "grounding": 0.686,
+          "decision": 0.555,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.755,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "govern-secure",
+          "title": "3. Govern and secure access",
+          "relevance": 0.459,
+          "intent": "governance",
+          "grounding": 0.55,
+          "decision": 0.397,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.75,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "control-plane",
+          "title": "1. Name the control plane",
+          "relevance": 0.22,
+          "intent": "accountability",
+          "grounding": 0.581,
+          "decision": 0.415,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.59,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+              "grounding": 0.229
+            }
+          ]
+        },
+        {
+          "sectionId": "observe-traces",
+          "title": "2. Observe traced work",
+          "relevance": 0.286,
+          "intent": "customer-signals",
+          "grounding": 0.448,
+          "decision": 0.128,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.406,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Observe with a registry, activity, and health first.",
+              "grounding": 0.445
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c3",
+          "text": "Governance and security connect lifecycle controls, Entra permissions, Purview protection, and Defender detection.",
+          "eligible": true,
+          "relevance": 0.469,
+          "intent": "governance",
+          "support": 0.388,
+          "decision": 0.352,
+          "score": 0.642,
+          "rank": 1
+        },
+        {
+          "claimId": "c1",
+          "text": "Agent 365 is a centralized control plane for observing, governing, and securing AI agents.",
+          "eligible": true,
+          "relevance": 0.229,
+          "intent": "governance",
+          "support": 0.801,
+          "decision": 0.416,
+          "score": 0.556,
+          "rank": 2
+        },
+        {
+          "claimId": "c4",
+          "text": "SDK integration extends existing agents with enterprise capabilities without creating or hosting the agent.",
+          "eligible": true,
+          "relevance": 0.23,
+          "intent": "governance",
+          "support": 0.624,
+          "decision": 0.368,
+          "score": 0.537,
+          "rank": 3
+        },
+        {
+          "claimId": "c2",
+          "text": "Observation should pair agent inventory with audited traces for interactions, inference events, and tool usage.",
+          "eligible": true,
+          "relevance": 0.218,
+          "intent": "governance",
+          "support": 0.547,
+          "decision": 0.282,
+          "score": 0.459,
+          "rank": 4
+        },
+        {
+          "claimId": "c5",
+          "text": "A pilot must verify prerequisites, licenses, preview limits, and telemetry before scaling.",
+          "eligible": true,
+          "relevance": 0.313,
+          "intent": "governance",
+          "support": 0.225,
+          "decision": 0.399,
+          "score": 0.408,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "control-plane: weakly grounded sentence (0.229): \"Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.\"",
+        "control-plane: low relevance to external priorities (0.163).",
+        "observe-traces: weakly grounded sentence (0.445): \"Observe with a registry, activity, and health first.\""
+      ],
+      "eligibleEvidence": 12,
+      "totalEvidence": 12,
+      "leadClaim": "c4",
+      "recommendedOrder": [
+        "accountable-pilot",
+        "govern-secure",
+        "control-plane",
+        "observe-traces"
+      ],
+      "sections": [
+        {
+          "sectionId": "accountable-pilot",
+          "title": "4. Pilot before expansion",
+          "relevance": 0.331,
+          "intent": "assurance",
+          "grounding": 0.686,
+          "decision": 0.555,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.763,
+          "rank": 1,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "govern-secure",
+          "title": "3. Govern and secure access",
+          "relevance": 0.422,
+          "intent": "assurance",
+          "grounding": 0.55,
+          "decision": 0.397,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.721,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "control-plane",
+          "title": "1. Name the control plane",
+          "relevance": 0.163,
+          "intent": "architecture-choices",
+          "grounding": 0.581,
+          "decision": 0.415,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.544,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "Ask who owns each one, where it runs, what it can reach, who it affects, and what risk needs action.",
+              "grounding": 0.229
+            }
+          ]
+        },
+        {
+          "sectionId": "observe-traces",
+          "title": "2. Observe traced work",
+          "relevance": 0.193,
+          "intent": "joint-actions",
+          "grounding": 0.448,
+          "decision": 0.128,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.332,
+          "rank": 4,
+          "weakSentences": [
+            {
+              "text": "Observe with a registry, activity, and health first.",
+              "grounding": 0.445
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c4",
+          "text": "SDK integration extends existing agents with enterprise capabilities without creating or hosting the agent.",
+          "eligible": true,
+          "relevance": 0.365,
+          "intent": "architecture-choices",
+          "support": 0.624,
+          "decision": 0.368,
+          "score": 0.673,
+          "rank": 1
+        },
+        {
+          "claimId": "c3",
+          "text": "Governance and security connect lifecycle controls, Entra permissions, Purview protection, and Defender detection.",
+          "eligible": true,
+          "relevance": 0.47,
+          "intent": "assurance",
+          "support": 0.388,
+          "decision": 0.352,
+          "score": 0.643,
+          "rank": 2
+        },
+        {
+          "claimId": "c1",
+          "text": "Agent 365 is a centralized control plane for observing, governing, and securing AI agents.",
+          "eligible": true,
+          "relevance": 0.208,
+          "intent": "architecture-choices",
+          "support": 0.801,
+          "decision": 0.416,
+          "score": 0.534,
+          "rank": 3
+        },
+        {
+          "claimId": "c2",
+          "text": "Observation should pair agent inventory with audited traces for interactions, inference events, and tool usage.",
+          "eligible": true,
+          "relevance": 0.226,
+          "intent": "joint-actions",
+          "support": 0.547,
+          "decision": 0.282,
+          "score": 0.466,
+          "rank": 4
+        },
+        {
+          "claimId": "c5",
+          "text": "A pilot must verify prerequisites, licenses, preview limits, and telemetry before scaling.",
+          "eligible": true,
+          "relevance": 0.325,
+          "intent": "assurance",
+          "support": 0.225,
+          "decision": 0.399,
+          "score": 0.42,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.575,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.784,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "control-plane",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.364,
+        "status": "weak"
+      },
+      {
+        "sceneId": "observe-traces",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.561,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "govern-secure",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.632,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "accountable-pilot",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.533,
+        "status": "aligned"
+      }
+    ]
+  }
+}

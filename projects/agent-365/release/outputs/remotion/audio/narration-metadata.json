@@ -5,16 +5,16 @@
       "speech_boundary_fade"
     ],
     "after": {
-      "dcOffset": 6.472221630166031e-12,
-      "highFrequencyRatio8k": 0.0043272079201378336,
-      "rmsDbfs": -27.912665688356434,
-      "spectralFlatness": 5.06237630159025e-07
+      "dcOffset": -5.117570429924445e-12,
+      "highFrequencyRatio8k": 0.004373122907568132,
+      "rmsDbfs": -27.90989249810666,
+      "spectralFlatness": 5.117219917062777e-07
     },
     "before": {
-      "dcOffset": 1.229864574270323e-05,
-      "highFrequencyRatio8k": 0.004326931050980452,
-      "rmsDbfs": -27.912030037095686,
-      "spectralFlatness": 4.897796021137405e-07
+      "dcOffset": 1.2336839063209482e-05,
+      "highFrequencyRatio8k": 0.00437284152979769,
+      "rmsDbfs": -27.909257854089482,
+      "spectralFlatness": 4.929861948543008e-07
     },
     "mode": "auto",
     "policy": {
@@ -23,7 +23,7 @@
     }
   },
   "audioFile": "public/assets/agent-365/audio.wav",
-  "audioSha256": "54d7b5cd31b7736c4c3108d620b6cef210e149088c8e06b50820563f1655cd05",
+  "audioSha256": "1cea83e7e6952038a9f5e86f5c977d9ceffe99fba485826ba8978946e3588872",
   "channels": 2,
   "cleanupPolicy": {
     "lowpassHz": "11500",
@@ -66,8 +66,8 @@
   "mastering": {
     "gainDb": 8.62,
     "inputLufs": -24.39,
-    "limitedSampleRatio": 0.02855,
-    "maxLimiterReductionDb": 6.52,
+    "limitedSampleRatio": 0.02805,
+    "maxLimiterReductionDb": 6.56,
     "outputLufs": -16.03,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
@@ -89,9 +89,9 @@
   "producerSha256": "9b340609806cafabe92280b3cbd57966f31c3700266f327d6e68193a185b2b4c",
   "python": "3.14.7",
   "rawAudio": {
-    "dc": 1.2298646055915832e-05,
-    "peak": 0.6499287486076355,
-    "rms": 0.0402185406041205
+    "dc": 1.2336826765524052e-05,
+    "peak": 0.6565004587173462,
+    "rms": 0.04023136712640835
   },
   "requestedDurationSeconds": 65.0,
   "requirementsLockSha256": "30248e0fcbac29821c201dd4469354f681c0cc0fb240a5485841a8f8ea790a01",
