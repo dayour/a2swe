@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-autopilot-agents",
+  "generatedAt": "2026-10-17T03:02:50.575Z",
+  "source": "release",
+  "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
+  "domainDigest": "293c06d00035e921e8f4bf84768b515d6de917530d4fdc75fa83a2fee9108601",
+  "declaredDistribution": null,
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-copilot-announcement",
+      "title": "Introducing the new Copilot with Home, Code and Autopilot",
+      "host": "blogs.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-foundry-autopilot",
+      "title": "What is an autopilot in Microsoft Foundry?",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "operating-model: weakly grounded sentence (0.244): \"The shift is from asking for an answer to assigning a standing role.\"",
+        "operating-model: weakly grounded sentence (0.144): \"Governance changes with the unit of delegation.\"",
+        "identity-boundaries: weakly grounded sentence (0.426): \"Foundry is an architectural lens, not proof of identical implementation.\"",
+        "pilot: weakly grounded sentence (0.387): \"Pilot one recurring workflow with one team and owner.\""
+      ],
+      "eligibleEvidence": 10,
+      "totalEvidence": 10,
+      "leadClaim": "c4",
+      "recommendedOrder": [
+        "pilot",
+        "identity-boundaries",
+        "operating-model"
+      ],
+      "sections": [
+        {
+          "sectionId": "pilot",
+          "title": "3. Pilot the role, not the technology",
+          "relevance": 0.3,
+          "intent": "governance",
+          "grounding": 0.583,
+          "decision": 0.437,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.667,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Pilot one recurring workflow with one team and owner.",
+              "grounding": 0.387
+            }
+          ]
+        },
+        {
+          "sectionId": "identity-boundaries",
+          "title": "2. Govern identity before capability",
+          "relevance": 0.345,
+          "intent": "governance",
+          "grounding": 0.463,
+          "decision": 0.176,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.488,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Foundry is an architectural lens, not proof of identical implementation.",
+              "grounding": 0.426
+            }
+          ]
+        },
+        {
+          "sectionId": "operating-model",
+          "title": "1. Change the unit of delegation",
+          "relevance": 0.343,
+          "intent": "decision",
+          "grounding": 0.364,
+          "decision": 0.253,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.456,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "The shift is from asking for an answer to assigning a standing role.",
+              "grounding": 0.244
+            },
+            {
+              "text": "Governance changes with the unit of delegation.",
+              "grounding": 0.144
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c4",
+          "text": "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take.",
+          "eligible": true,
+          "relevance": 0.361,
+          "intent": "blockers",
+          "support": 0.708,
+          "decision": 0.252,
+          "score": 0.622,
+          "rank": 1
+        },
+        {
+          "claimId": "c5",
+          "text": "The Foundry blueprint model separates reusable logic and infrastructure from team-specific access; each instance receives its own identity, permissions and assignment.",
+          "eligible": true,
+          "relevance": 0.336,
+          "intent": "governance",
+          "support": 0.475,
+          "decision": 0.207,
+          "score": 0.504,
+          "rank": 2
+        },
+        {
+          "claimId": "c3",
+          "text": "As an architectural lens, Microsoft Foundry defines an autopilot by its standing role, identity, security profile and accountable manager, not by a changing feature list.",
+          "eligible": true,
+          "relevance": 0.245,
+          "intent": "platform-strategy",
+          "support": 0.675,
+          "decision": 0.159,
+          "score": 0.469,
+          "rank": 3
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
+          "eligible": true,
+          "relevance": 0.203,
+          "intent": "customer-signals",
+          "support": 0.702,
+          "decision": 0.258,
+          "score": 0.466,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Autopilot, previously Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set objectives and boundaries and remain in control.",
+          "eligible": true,
+          "relevance": 0.169,
+          "intent": "blockers",
+          "support": 0.662,
+          "decision": 0.191,
+          "score": 0.406,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "operating-model: weakly grounded sentence (0.244): \"The shift is from asking for an answer to assigning a standing role.\"",
+        "operating-model: weakly grounded sentence (0.144): \"Governance changes with the unit of delegation.\"",
+        "identity-boundaries: weakly grounded sentence (0.426): \"Foundry is an architectural lens, not proof of identical implementation.\"",
+        "pilot: weakly grounded sentence (0.387): \"Pilot one recurring workflow with one team and owner.\""
+      ],
+      "eligibleEvidence": 10,
+      "totalEvidence": 10,
+      "leadClaim": "c4",
+      "recommendedOrder": [
+        "pilot",
+        "identity-boundaries",
+        "operating-model"
+      ],
+      "sections": [
+        {
+          "sectionId": "pilot",
+          "title": "3. Pilot the role, not the technology",
+          "relevance": 0.312,
+          "intent": "architecture-choices",
+          "grounding": 0.583,
+          "decision": 0.437,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.676,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Pilot one recurring workflow with one team and owner.",
+              "grounding": 0.387
+            }
+          ]
+        },
+        {
+          "sectionId": "identity-boundaries",
+          "title": "2. Govern identity before capability",
+          "relevance": 0.321,
+          "intent": "assurance",
+          "grounding": 0.463,
+          "decision": 0.176,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.468,
+          "rank": 2,
+          "weakSentences": [
+            {
+              "text": "Foundry is an architectural lens, not proof of identical implementation.",
+              "grounding": 0.426
+            }
+          ]
+        },
+        {
+          "sectionId": "operating-model",
+          "title": "1. Change the unit of delegation",
+          "relevance": 0.299,
+          "intent": "joint-actions",
+          "grounding": 0.364,
+          "decision": 0.253,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.421,
+          "rank": 3,
+          "weakSentences": [
+            {
+              "text": "The shift is from asking for an answer to assigning a standing role.",
+              "grounding": 0.244
+            },
+            {
+              "text": "Governance changes with the unit of delegation.",
+              "grounding": 0.144
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c4",
+          "text": "In the Foundry model, autonomy remains bounded: the organization controls when an autopilot responds, who it interacts with, what it accesses and which actions it can take.",
+          "eligible": true,
+          "relevance": 0.276,
+          "intent": "capabilities",
+          "support": 0.708,
+          "decision": 0.252,
+          "score": 0.537,
+          "rank": 1
+        },
+        {
+          "claimId": "c5",
+          "text": "The Foundry blueprint model separates reusable logic and infrastructure from team-specific access; each instance receives its own identity, permissions and assignment.",
+          "eligible": true,
+          "relevance": 0.361,
+          "intent": "architecture-choices",
+          "support": 0.475,
+          "decision": 0.207,
+          "score": 0.528,
+          "rank": 2
+        },
+        {
+          "claimId": "c3",
+          "text": "As an architectural lens, Microsoft Foundry defines an autopilot by its standing role, identity, security profile and accountable manager, not by a changing feature list.",
+          "eligible": true,
+          "relevance": 0.279,
+          "intent": "capabilities",
+          "support": 0.675,
+          "decision": 0.159,
+          "score": 0.503,
+          "rank": 3
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Autopilot, previously Scout, was announced as a persistent digital teammate with its own identity, memory, computer and workspace; people set objectives and boundaries and remain in control.",
+          "eligible": true,
+          "relevance": 0.2,
+          "intent": "architecture-choices",
+          "support": 0.662,
+          "decision": 0.191,
+          "score": 0.436,
+          "rank": 4
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft said Copilot Autopilot was expanding to private preview at the end of September 2026; the announcement does not establish general availability.",
+          "eligible": true,
+          "relevance": 0.138,
+          "intent": "capabilities",
+          "support": 0.702,
+          "decision": 0.258,
+          "score": 0.402,
+          "rank": 5
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.557,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.536,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "operating-model",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.538,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "identity-boundaries",
+        "kind": "section",
+        "visual": "excalidraw",
+        "similarity": 0.604,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "pilot",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.55,
+        "status": "aligned"
+      }
+    ]
+  }
+}

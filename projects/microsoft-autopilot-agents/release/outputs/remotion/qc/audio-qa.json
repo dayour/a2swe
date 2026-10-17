@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "adapter": "a2swe-remotion-mp4-adapter-12",
+  "adapter": "a2swe-remotion-mp4-adapter-13",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "input": "dist/render.mp4",
-  "inputSha256": "601474e19d4bd03caf985d5565eab91481a065a809c75c7cde4ade60e7f5bdd8",
-  "sourceAudioSha256": "d69c5c4b7bd2f7b2d5258bb10f3f78be6486091b677b49bfd4eda44e0133db54",
+  "inputSha256": "fceb17d57bedc5bde9be62d71cf864b09b6ac5f3668cfe675e16d5b57a74c9b6",
+  "sourceAudioSha256": "684b359130766dc9b28e0fa96486f93616fcc21930b80701035e56516e56d0a8",
   "sampleRate": 48000,
   "durationSeconds": 61.589333,
   "producer": "scripts/synthesize-audio.py",
@@ -41,17 +41,17 @@
     "overall": {
       "label": "overall",
       "durationSeconds": 61.589333,
-      "rmsDbfs": -19.6563,
-      "peakDbfs": -1.484818,
-      "highFrequencyRatio8k": 0.002713,
+      "rmsDbfs": -19.659341,
+      "peakDbfs": -1.485135,
+      "highFrequencyRatio8k": 0.002714,
       "spectralFlatness": 0.000001
     },
     "speech": {
       "label": "speech",
       "durationSeconds": 59.125,
-      "rmsDbfs": -19.478957,
-      "peakDbfs": -1.484818,
-      "highFrequencyRatio8k": 0.002241,
+      "rmsDbfs": -19.481997,
+      "peakDbfs": -1.485135,
+      "highFrequencyRatio8k": 0.002218,
       "spectralFlatness": 0.000001
     },
     "silence": {
@@ -78,7 +78,7 @@
       "maxTailRmsDbfs": -240,
       "maxJumpDbfs": -240
     },
-    "snrSpeechVsSilenceDb": 220.521043,
+    "snrSpeechVsSilenceDb": 220.518003,
     "loudness": {
       "integratedLufs": -16.1,
       "loudnessRangeLu": 2.7,
@@ -87,10 +87,10 @@
   },
   "mastering": {
     "gainDb": 8.52,
-    "inputLufs": -24.14,
-    "limitedSampleRatio": 0.03071,
-    "maxLimiterReductionDb": 7.51,
-    "outputLufs": -16.05,
+    "inputLufs": -24.12,
+    "limitedSampleRatio": 0.03046,
+    "maxLimiterReductionDb": 7.21,
+    "outputLufs": -16.06,
     "outputTruePeakDbtp": -1.5,
     "standard": "ITU-R BS.1770-4 gated integrated loudness; 4x oversampled true peak",
     "targetLufs": -16,

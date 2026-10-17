@@ -6,7 +6,7 @@
   "number": 7,
   "createdAt": "2026-10-16T19:51:50.357Z",
   "pipeline": "core-release",
-  "status": "current",
+  "status": "superseded",
   "source": "qc/revisions/microsoft-autopilot-agents-2026-07",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "outputs": [
@@ -32,7 +32,7 @@
         "voiceName": "Michael"
       },
       "releaseDigest": "8e5b5b2f333a04e4bb136c36898c5769a24306686b9a6c2c430bccf4c1681b0f",
-      "package": "release",
+      "package": "qc/revisions/microsoft-autopilot-agents-2026-07/am_michael-kokoro_onnx",
       "scenes": [
         {
           "id": "title",

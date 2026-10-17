@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "runbookId": "microsoft-autopilot-agents",
   "projectId": "microsoft-autopilot-agents",
-  "updatedAt": "2026-10-16T20:09:04.593Z",
+  "updatedAt": "2026-10-17T03:02:51.709Z",
   "domainDigest": "293c06d00035e921e8f4bf84768b515d6de917530d4fdc75fa83a2fee9108601",
   "contentDigest": "306c89ce3a1bfa4fa255f59549901bd018346769b8c3b168f18d977c536e3902",
   "stage": "delivery",
@@ -23,25 +23,31 @@
       "name": "audio",
       "status": "passed",
       "evidencePath": "release/outputs/remotion/qc/audio-qa.json",
-      "evidenceDigest": "66fa3f64d5753a2e086b306aadcdb5146001e1de86d28136ecd19d3da2b53f02"
+      "evidenceDigest": "23c883b1ae46bd5db9379a22bbcbccae50c83e1b1160c442848719cf0689a1a6"
     },
     {
       "name": "native-office",
       "status": "passed",
       "evidencePath": "qc/native-office/native-render.json",
-      "evidenceDigest": "679b84f1515043b3e5c4c48079775b68ff691480a9a06c311b7666956eceff0a"
+      "evidenceDigest": "a5fa3c58820237a5ac5d389762201bf97bb379962004b2a49d1f9923d59622f9"
     },
     {
       "name": "media-analysis",
       "status": "passed",
-      "evidencePath": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx/analysis.json",
-      "evidenceDigest": "67435aade960f5599f8547e2b35fae2c925e33a95e84c6c6b2dffc28f0c7d1e0"
+      "evidencePath": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx/analysis.json",
+      "evidenceDigest": "febad5576ad565e10f9ee061b30eb75177c4032e6111a26166d58f99de51cf4d"
+    },
+    {
+      "name": "audience-alignment",
+      "status": "passed",
+      "evidencePath": "qc/alignment/alignment.json",
+      "evidenceDigest": "fba56e47eed1ec707d8df30ed7c61bf6f61d7ea6391366123a903cad6698988b"
     },
     {
       "name": "release",
       "status": "passed",
       "evidencePath": "release/parity-manifest.json",
-      "evidenceDigest": "d52b41fdb92e426586758bf260eb89501d18745da4cb2cb20e8f3bb41c4dcb5e"
+      "evidenceDigest": "27e1e56036d8a1fa43d6bb24b721515847f9e3730ad41322200be22a341e53ff"
     }
   ],
   "stages": [
@@ -109,7 +115,8 @@
         "release/outputs/remotion/qc/audio-spectrogram.svg",
         "release/parity-manifest.json",
         "qc/native-office/native-render.json",
-        "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx/analysis.json"
+        "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx/analysis.json",
+        "qc/alignment/alignment.json"
       ]
     },
     {
@@ -158,97 +165,103 @@
     },
     {
       "path": "release/render-spec.json",
-      "digest": "c67fe66b998559d797e0c4b875212fd3037c00d66fdad5a13f04f8c352e902cc",
+      "digest": "76684ae30f157afc54b7060fb92ab730f47216ce37f55754228cd8886ff465f6",
       "mediaType": "application/json",
       "stage": "content"
     },
     {
       "path": "release/outputs/index.html",
-      "digest": "68bc79bb9373653f09d8858624db9b60bd503c7ee4302314d08cc54e2e39fd4b",
+      "digest": "4721e9d5b61832f146d2ab65d17e4df87ff7c06b3bace72ae0eff7b7b4b5ca3a",
       "mediaType": "text/html",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.deck.json",
-      "digest": "15107d948052b37bd34c520e8b9e6c4ef7d211c8505eb77cc7785c5b05c4dad3",
+      "digest": "020d16423688b2e065215d1e59967070fa92f44ae74560d97ade32746ce2a750",
       "mediaType": "application/json",
       "stage": "render"
     },
     {
       "path": "release/outputs/deck.pptx",
-      "digest": "01c8d970ad6ad4f4296bb9859713bbe38246bb164c2300e9ce5269e1ccf13e19",
+      "digest": "a1f210a06f48a6ebd3d2292fe29ac154dc416866811524ffa0aa8d11000ef665",
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.docx",
-      "digest": "051571afee0570f94aa9188bba3257f585c54d1938a0054dbc515628836f194d",
+      "digest": "cd105215d4435f8994b72575c9628af2cd025d34f67b8f047a59edb309d7dfbc",
       "mediaType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "stage": "render"
     },
     {
       "path": "release/outputs/document.pdf",
-      "digest": "2c298cbfe4de25dc4175fe7a0387168396362e0f265c97e14d33f6d0c33285a4",
+      "digest": "7627817c69518c84a325bd18c2a39d21de75decc2713b273ec082e625ba3e218",
       "mediaType": "application/pdf",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.png",
-      "digest": "3e4b1928623f18ceae81be561d5da417c9709b07df134e5b9adec3c40c8c1a7e",
+      "digest": "8dc21d66c584596f1ec4c64fb632a2acf29427d93804e517cd2e050c846d38f8",
       "mediaType": "image/png",
       "stage": "render"
     },
     {
       "path": "release/outputs/raster.jpg",
-      "digest": "6a243ca7b0ea156302cae060dd4da6605ee161c722b0567216b82878730e335c",
+      "digest": "b16acd5c7947de3b2756509f51297183e07cc279ed1f9fb3568969c24f50f554",
       "mediaType": "image/jpeg",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/dist/render.mp4",
-      "digest": "601474e19d4bd03caf985d5565eab91481a065a809c75c7cde4ade60e7f5bdd8",
+      "digest": "fceb17d57bedc5bde9be62d71cf864b09b6ac5f3668cfe675e16d5b57a74c9b6",
       "mediaType": "video/mp4",
       "stage": "render"
     },
     {
       "path": "release/outputs/remotion/qc/audio-qa.json",
-      "digest": "66fa3f64d5753a2e086b306aadcdb5146001e1de86d28136ecd19d3da2b53f02",
+      "digest": "23c883b1ae46bd5db9379a22bbcbccae50c83e1b1160c442848719cf0689a1a6",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/outputs/remotion/qc/audio-spectrogram.svg",
-      "digest": "83a3ca272ce22578e1e2e8b444e845b65873337deab133b05faad76dd081c3d0",
+      "digest": "c9aed13db1b7f10fdf3f9430c2b09c99e112b258e0769f6abf6382cb8b0b91cc",
       "mediaType": "image/svg+xml",
       "stage": "qc"
     },
     {
       "path": "release/parity-manifest.json",
-      "digest": "d52b41fdb92e426586758bf260eb89501d18745da4cb2cb20e8f3bb41c4dcb5e",
+      "digest": "27e1e56036d8a1fa43d6bb24b721515847f9e3730ad41322200be22a341e53ff",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "qc/native-office/native-render.json",
-      "digest": "679b84f1515043b3e5c4c48079775b68ff691480a9a06c311b7666956eceff0a",
+      "digest": "a5fa3c58820237a5ac5d389762201bf97bb379962004b2a49d1f9923d59622f9",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
-      "path": "qc/analysis/microsoft-autopilot-agents-2026-07/microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx/analysis.json",
-      "digest": "67435aade960f5599f8547e2b35fae2c925e33a95e84c6c6b2dffc28f0c7d1e0",
+      "path": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx/analysis.json",
+      "digest": "febad5576ad565e10f9ee061b30eb75177c4032e6111a26166d58f99de51cf4d",
+      "mediaType": "application/json",
+      "stage": "qc"
+    },
+    {
+      "path": "qc/alignment/alignment.json",
+      "digest": "fba56e47eed1ec707d8df30ed7c61bf6f61d7ea6391366123a903cad6698988b",
       "mediaType": "application/json",
       "stage": "qc"
     },
     {
       "path": "release/asset-inventory.json",
-      "digest": "0399f910ecdcce410e756b6f2b750644347733c067fded8bb711404568e3fe99",
+      "digest": "e6d7007705f054d8bdd485f6ddd4ca27472454ab5d9a8699132286bb1b3bcbed",
       "mediaType": "application/json",
       "stage": "delivery"
     },
     {
       "path": "release/release-plan.json",
-      "digest": "3a74715a767667f9a2d850687d7be115def037b98f043853268559b3bf4e4151",
+      "digest": "b762df375e02e041fa33ce6c47e03edb3c5388fbe892f33cac467aeba488237b",
       "mediaType": "application/json",
       "stage": "delivery"
     }

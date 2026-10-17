@@ -1,0 +1,595 @@
+{
+  "schemaVersion": "1.0.0",
+  "label": "microsoft-autopilot-agents-2026-08 am_michael-kokoro_onnx",
+  "analyzedAt": "2026-10-17T03:01:15.391Z",
+  "input": {
+    "file": "microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx.mp4",
+    "sha256": "fceb17d57bedc5bde9be62d71cf864b09b6ac5f3668cfe675e16d5b57a74c9b6",
+    "byteSize": 8823119
+  },
+  "probe": {
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "durationSeconds": 61.589,
+    "bitRate": 1146058,
+    "video": {
+      "codec": "h264",
+      "profile": "High",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "pixelFormat": "yuv420p",
+      "bitRate": 820506,
+      "frames": 1846
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": 48000,
+      "channels": 2,
+      "bitRate": 317374
+    }
+  },
+  "audio": {
+    "samples": 2956288,
+    "overall": {
+      "rmsDbfs": -19.66,
+      "peakDbfs": -1.49,
+      "dcOffset": 0.0000016,
+      "clippedSamples": 0
+    },
+    "loudness": {
+      "integratedLufs": -16.1,
+      "loudnessRangeLu": 2.7,
+      "truePeakDbtp": -1.5
+    },
+    "activity": {
+      "thresholdDbfs": -41.8,
+      "speechRmsDbfs": -18.56,
+      "speechRatio": 0.7774,
+      "pauses": {
+        "count": 17,
+        "longestSeconds": 1.6,
+        "meanSeconds": 0.675
+      },
+      "noiseFloorDbfs": -61.66,
+      "digitalSilenceRatio": 0.2573,
+      "snrDb": 43.1
+    },
+    "spectrum": {
+      "speech": {
+        "frames": 1121,
+        "centroidHz": 822.1,
+        "rolloff95Hz": 4347.7,
+        "flatness": 0.000104,
+        "highFrequencyRatio8k": 0.003184,
+        "bandShare": {
+          "sub": 0.001245,
+          "low": 0.432633,
+          "speech": 0.496036,
+          "presence": 0.066902,
+          "air": 0.003184,
+          "ultra": 0
+        }
+      },
+      "pauses": {
+        "frames": 240,
+        "centroidHz": 1924.5,
+        "rolloff95Hz": 6234.4,
+        "flatness": 0.001749,
+        "highFrequencyRatio8k": 0.019156,
+        "bandShare": {
+          "sub": 0.037173,
+          "low": 0.27643,
+          "speech": 0.443935,
+          "presence": 0.223306,
+          "air": 0.019155,
+          "ultra": 0.000001
+        }
+      }
+    },
+    "hum": {
+      "basis": "whole-track",
+      "windows": 40,
+      "strongest": {
+        "frequencyHz": 50,
+        "prominenceDb": 6.78
+      },
+      "peaks": [
+        {
+          "frequencyHz": 50,
+          "prominenceDb": 6.78
+        },
+        {
+          "frequencyHz": 60,
+          "prominenceDb": 3.7
+        },
+        {
+          "frequencyHz": 100,
+          "prominenceDb": 5.27
+        },
+        {
+          "frequencyHz": 120,
+          "prominenceDb": 0.01
+        },
+        {
+          "frequencyHz": 150,
+          "prominenceDb": 0.77
+        },
+        {
+          "frequencyHz": 180,
+          "prominenceDb": 2.64
+        }
+      ]
+    },
+    "stereo": {
+      "balanceDb": 0,
+      "correlation": 1
+    },
+    "chunks": [
+      {
+        "id": "title",
+        "startSeconds": 0,
+        "endSeconds": 11.767,
+        "rmsDbfs": -19.75,
+        "peakDbfs": -1.5,
+        "speechRatio": 0.7601,
+        "pauses": {
+          "count": 2,
+          "longestSeconds": 0.6,
+          "meanSeconds": 0.525
+        },
+        "noiseFloorDbfs": -64.67,
+        "digitalSilenceRatio": 0.292,
+        "speechCentroidHz": 811.8,
+        "speechHighFrequencyRatio8k": 0.002952,
+        "speechFlatness": 0.000099
+      },
+      {
+        "id": "operating-model",
+        "startSeconds": 11.767,
+        "endSeconds": 27.5,
+        "rmsDbfs": -19.6,
+        "peakDbfs": -1.49,
+        "speechRatio": 0.7825,
+        "pauses": {
+          "count": 4,
+          "longestSeconds": 0.6,
+          "meanSeconds": 0.45
+        },
+        "noiseFloorDbfs": -61.07,
+        "digitalSilenceRatio": 0.2482,
+        "speechCentroidHz": 876,
+        "speechHighFrequencyRatio8k": 0.003424,
+        "speechFlatness": 0.000105
+      },
+      {
+        "id": "identity-boundaries",
+        "startSeconds": 27.5,
+        "endSeconds": 44.1,
+        "rmsDbfs": -19.75,
+        "peakDbfs": -1.5,
+        "speechRatio": 0.7756,
+        "pauses": {
+          "count": 5,
+          "longestSeconds": 0.725,
+          "meanSeconds": 0.43
+        },
+        "noiseFloorDbfs": -59.5,
+        "digitalSilenceRatio": 0.2215,
+        "speechCentroidHz": 760.4,
+        "speechHighFrequencyRatio8k": 0.002968,
+        "speechFlatness": 0.0001
+      },
+      {
+        "id": "pilot",
+        "startSeconds": 44.1,
+        "endSeconds": 61.533,
+        "rmsDbfs": -19.55,
+        "peakDbfs": -1.5,
+        "speechRatio": 0.7851,
+        "pauses": {
+          "count": 3,
+          "longestSeconds": 0.7,
+          "meanSeconds": 0.583
+        },
+        "noiseFloorDbfs": -63.27,
+        "digitalSilenceRatio": 0.28,
+        "speechCentroidHz": 836.6,
+        "speechHighFrequencyRatio8k": 0.003315,
+        "speechFlatness": 0.000103
+      }
+    ]
+  },
+  "video": {
+    "cuts": [],
+    "black": [],
+    "freezes": [
+      {
+        "startSeconds": 1.2,
+        "durationSeconds": 3.167
+      },
+      {
+        "startSeconds": 5.867,
+        "durationSeconds": 5.567
+      },
+      {
+        "startSeconds": 12.967,
+        "durationSeconds": 3.967
+      },
+      {
+        "startSeconds": 16.933,
+        "durationSeconds": 6.867
+      },
+      {
+        "startSeconds": 23.8,
+        "durationSeconds": 3.367
+      },
+      {
+        "startSeconds": 29,
+        "durationSeconds": 2.967
+      },
+      {
+        "startSeconds": 33.2,
+        "durationSeconds": 10.567
+      },
+      {
+        "startSeconds": 45.2,
+        "durationSeconds": 2.633
+      },
+      {
+        "startSeconds": 48.267,
+        "durationSeconds": 6.233
+      },
+      {
+        "startSeconds": 54.5,
+        "durationSeconds": 6.533
+      }
+    ],
+    "transitions": [
+      {
+        "timeSeconds": 0.2,
+        "magnitude": 13.93
+      },
+      {
+        "timeSeconds": 11.4,
+        "magnitude": 14.58
+      },
+      {
+        "timeSeconds": 17,
+        "magnitude": 9.23
+      },
+      {
+        "timeSeconds": 23.8,
+        "magnitude": 8.83
+      },
+      {
+        "timeSeconds": 27.2,
+        "magnitude": 16.7
+      },
+      {
+        "timeSeconds": 33.2,
+        "magnitude": 9.16
+      },
+      {
+        "timeSeconds": 43.8,
+        "magnitude": 22.86
+      },
+      {
+        "timeSeconds": 48.2,
+        "magnitude": 8.98
+      },
+      {
+        "timeSeconds": 61,
+        "magnitude": 20.1
+      }
+    ],
+    "layers": {
+      "sampleFps": 5,
+      "frames": 308,
+      "zones": [
+        {
+          "id": "header",
+          "meanActivity": 0.005,
+          "activeRatio": 0,
+          "transitionEvents": 0,
+          "meanDetail": 5.257,
+          "maxDetail": 6.781,
+          "lumaMean": 25.46
+        },
+        {
+          "id": "headline",
+          "meanActivity": 0.474,
+          "activeRatio": 0.0747,
+          "transitionEvents": 2,
+          "meanDetail": 7.456,
+          "maxDetail": 10.387,
+          "lumaMean": 228.31
+        },
+        {
+          "id": "narrative",
+          "meanActivity": 0.509,
+          "activeRatio": 0.0877,
+          "transitionEvents": 0,
+          "meanDetail": 11.734,
+          "maxDetail": 12.979,
+          "lumaMean": 233.78
+        },
+        {
+          "id": "visual",
+          "meanActivity": 0.381,
+          "activeRatio": 0.0812,
+          "transitionEvents": 0,
+          "meanDetail": 4.806,
+          "maxDetail": 7.475,
+          "lumaMean": 242.84
+        },
+        {
+          "id": "caption",
+          "meanActivity": 3.297,
+          "activeRatio": 0.0455,
+          "transitionEvents": 13,
+          "meanDetail": 15.553,
+          "maxDetail": 22.075,
+          "lumaMean": 143.4
+        },
+        {
+          "id": "footer",
+          "meanActivity": 0.049,
+          "activeRatio": 0.0097,
+          "transitionEvents": 0,
+          "meanDetail": 1.59,
+          "maxDetail": 2.179,
+          "lumaMean": 243.21
+        }
+      ]
+    },
+    "temporal": {
+      "sampleFps": 30,
+      "windowSeconds": 2.133,
+      "hopSeconds": 0.533,
+      "binHz": 0.4688,
+      "windows": 112,
+      "zones": [
+        {
+          "id": "header",
+          "meanDb": -16.73,
+          "lowShare": 0.8876,
+          "highShare": 0.0364,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "headline",
+          "meanDb": 27.34,
+          "lowShare": 0.9908,
+          "highShare": 0.0009,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "narrative",
+          "meanDb": 25.51,
+          "lowShare": 0.9881,
+          "highShare": 0.001,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "visual",
+          "meanDb": 24.11,
+          "lowShare": 0.9874,
+          "highShare": 0.0017,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "caption",
+          "meanDb": 41.42,
+          "lowShare": 0.8692,
+          "highShare": 0.0412,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "footer",
+          "meanDb": 8.73,
+          "lowShare": 0.99,
+          "highShare": 0.0023,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        }
+      ]
+    },
+    "spatial": {
+      "sampleFps": 2,
+      "frames": 123,
+      "fineCyclesPerPixel": 0.18,
+      "bands": [
+        {
+          "id": "headline",
+          "medianFineShare": 0.04886,
+          "p10FineShare": 0.04283,
+          "p90FineShare": 0.05194
+        },
+        {
+          "id": "body",
+          "medianFineShare": 0.18929,
+          "p10FineShare": 0.13736,
+          "p90FineShare": 0.24952
+        },
+        {
+          "id": "caption",
+          "medianFineShare": 0.07551,
+          "p10FineShare": 0.0724,
+          "p90FineShare": 0.08669
+        }
+      ]
+    },
+    "frames": [
+      {
+        "kind": "mid title",
+        "timeSeconds": 5.883
+      },
+      {
+        "kind": "mid operating-model",
+        "timeSeconds": 19.633
+      },
+      {
+        "kind": "mid identity-boundaries",
+        "timeSeconds": 35.8
+      },
+      {
+        "kind": "mid pilot",
+        "timeSeconds": 52.817
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 0
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 0.2
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 1
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 10.8
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 11.4
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 12.2
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 16.4
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 17
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 17.8
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 23.2
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 23.8
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 24.6
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 26.6
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 27.2
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 28
+      },
+      {
+        "kind": "before transition",
+        "timeSeconds": 32.6
+      },
+      {
+        "kind": "during transition",
+        "timeSeconds": 33.2
+      },
+      {
+        "kind": "after transition",
+        "timeSeconds": 34
+      },
+      {
+        "kind": "p10",
+        "timeSeconds": 6.159
+      },
+      {
+        "kind": "p30",
+        "timeSeconds": 18.477
+      },
+      {
+        "kind": "p50",
+        "timeSeconds": 30.794
+      },
+      {
+        "kind": "p70",
+        "timeSeconds": 43.112
+      },
+      {
+        "kind": "p90",
+        "timeSeconds": 55.43
+      }
+    ]
+  },
+  "images": {
+    "layers": "layers.png",
+    "videoSpectrogram": "video-spectrogram.jpg",
+    "spatialSpectrogram": "spatial-spectrogram.jpg",
+    "spectrogram": "spectrogram.jpg",
+    "spectrogramSpeech": "spectrogram-speech.jpg",
+    "waveform": "waveform.png",
+    "chunks": [
+      "chunks/01-title.jpg",
+      "chunks/02-operating-model.jpg",
+      "chunks/03-identity-boundaries.jpg",
+      "chunks/04-pilot.jpg"
+    ],
+    "contactSheet": "contact-sheet.jpg",
+    "frameStrip": "frame-strip.jpg"
+  },
+  "thresholds": {
+    "loudnessTargetLufs": -16,
+    "loudnessToleranceLu": 4,
+    "maxTruePeakDbtp": -1,
+    "maxPauseNoiseFloorDbfs": -55,
+    "minPauseSnrDb": 40,
+    "maxPauseHissShare": 0.3,
+    "maxHumProminenceDb": 12,
+    "maxDcOffset": 0.002,
+    "maxSpeechHighFrequencyRatio8k": 0.03,
+    "maxSpeechFlatness": 0.02,
+    "maxPauseSeconds": 2.5,
+    "minSpeechRatio": 0.6,
+    "maxBlackSeconds": 0.5,
+    "maxStaticHoldSeconds": 8,
+    "maxFlickerSeconds": 1.5
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "dual-mono",
+      "message": "Left and right channels carry identical mono narration."
+    },
+    {
+      "severity": "info",
+      "code": "static-hold",
+      "message": "No visible motion for 10.567 s from 33.2 s.",
+      "value": 10.567,
+      "threshold": 8
+    }
+  ],
+  "method": {
+    "spectrogram": "FFmpeg showspectrumpic, Hann window, logarithmic magnitude with 120 dB range, legend axes in Hz/seconds/dBFS; speech view uses 60 Hz-12 kHz log frequency.",
+    "spectrum": "Welch average, 4096-point Hann FFT, 2048-sample hop at 48000 Hz, split by narration activity.",
+    "activity": "50 ms RMS windows every 25 ms; active above max(-55 dBFS, p95 - 28 dB); dips under 150 ms bridged.",
+    "loudness": "FFmpeg ebur128 integrated loudness, loudness range and true peak (ITU-R BS.1770).",
+    "layers": "384x216 luma at 5 fps; per-zone mean absolute frame difference (motion) and gradient magnitude (detail).",
+    "videoSpectrogram": "96x54 luma at the native frame rate; per-pixel 64-frame Hann STFT, 16-frame hop, power averaged per layout zone; flicker = a peak at 3 Hz or above standing 12 dB over its band and carrying 15% of the window's motion, sustained.",
+    "spatialSpectrogram": "1024x576 luma at 2 fps; 1024-point Hann FFT of every second row per content band; fine-detail share above 0.18 cycles/px.",
+    "video": "FFmpeg scdet scene changes, blackdetect and freezedetect on a 640 px proxy."
+  }
+}

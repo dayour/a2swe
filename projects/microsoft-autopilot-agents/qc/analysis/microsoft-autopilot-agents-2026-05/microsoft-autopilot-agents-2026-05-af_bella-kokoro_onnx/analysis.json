@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "label": "microsoft-autopilot-agents-2026-05 af_bella-kokoro_onnx",
-  "analyzedAt": "2026-10-07T00:50:22.027Z",
+  "analyzedAt": "2026-10-17T01:19:35.376Z",
   "input": {
     "file": "microsoft-autopilot-agents-2026-05-af_bella-kokoro_onnx.mp4",
     "sha256": "addaeb3be4edfaeed73fd618fdfbc58f9870cda77cb057b5c7a15e6ecbac648f",
@@ -354,6 +354,88 @@
         }
       ]
     },
+    "temporal": {
+      "sampleFps": 30,
+      "windowSeconds": 2.133,
+      "hopSeconds": 0.533,
+      "binHz": 0.4688,
+      "windows": 106,
+      "zones": [
+        {
+          "id": "header",
+          "meanDb": 15.04,
+          "lowShare": 0.9715,
+          "highShare": 0.0126,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "headline",
+          "meanDb": 26.8,
+          "lowShare": 0.9893,
+          "highShare": 0.0011,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "narrative",
+          "meanDb": 28.36,
+          "lowShare": 0.9897,
+          "highShare": 0.0008,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "visual",
+          "meanDb": 24.98,
+          "lowShare": 0.9655,
+          "highShare": 0.0194,
+          "flickerSeconds": 12.27,
+          "flickerPeakHz": 3.75
+        },
+        {
+          "id": "caption",
+          "meanDb": 31.18,
+          "lowShare": 0.8743,
+          "highShare": 0.0399,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        },
+        {
+          "id": "footer",
+          "meanDb": 13.72,
+          "lowShare": 0.9889,
+          "highShare": 0.001,
+          "flickerSeconds": 0,
+          "flickerPeakHz": null
+        }
+      ]
+    },
+    "spatial": {
+      "sampleFps": 2,
+      "frames": 117,
+      "fineCyclesPerPixel": 0.18,
+      "bands": [
+        {
+          "id": "headline",
+          "medianFineShare": 0.03501,
+          "p10FineShare": 0.02767,
+          "p90FineShare": 0.03874
+        },
+        {
+          "id": "body",
+          "medianFineShare": 0.20855,
+          "p10FineShare": 0.17747,
+          "p90FineShare": 0.24599
+        },
+        {
+          "id": "caption",
+          "medianFineShare": 0.08361,
+          "p10FineShare": 0.06833,
+          "p90FineShare": 0.08609
+        }
+      ]
+    },
     "frames": [
       {
         "kind": "mid title",
@@ -467,6 +549,8 @@
   },
   "images": {
     "layers": "layers.png",
+    "videoSpectrogram": "video-spectrogram.jpg",
+    "spatialSpectrogram": "spatial-spectrogram.jpg",
     "spectrogram": "spectrogram.jpg",
     "spectrogramSpeech": "spectrogram-speech.jpg",
     "waveform": "waveform.png",
@@ -493,13 +577,21 @@
     "maxPauseSeconds": 2.5,
     "minSpeechRatio": 0.6,
     "maxBlackSeconds": 0.5,
-    "maxStaticHoldSeconds": 8
+    "maxStaticHoldSeconds": 8,
+    "maxFlickerSeconds": 1.5
   },
   "findings": [
     {
       "severity": "info",
       "code": "dual-mono",
       "message": "Left and right channels carry identical mono narration."
+    },
+    {
+      "severity": "warning",
+      "code": "video-flicker",
+      "message": "The visual layer flickers at about 3.75 Hz for 12.27 s.",
+      "value": 12.27,
+      "threshold": 1.5
     }
   ],
   "method": {
@@ -508,6 +600,8 @@
     "activity": "50 ms RMS windows every 25 ms; active above max(-55 dBFS, p95 - 28 dB); dips under 150 ms bridged.",
     "loudness": "FFmpeg ebur128 integrated loudness, loudness range and true peak (ITU-R BS.1770).",
     "layers": "384x216 luma at 5 fps; per-zone mean absolute frame difference (motion) and gradient magnitude (detail).",
+    "videoSpectrogram": "96x54 luma at the native frame rate; per-pixel 64-frame Hann STFT, 16-frame hop, power averaged per layout zone; flicker = a peak at 3 Hz or above standing 12 dB over its band and carrying 15% of the window's motion, sustained.",
+    "spatialSpectrogram": "1024x576 luma at 2 fps; 1024-point Hann FFT of every second row per content band; fine-detail share above 0.18 cycles/px.",
     "video": "FFmpeg scdet scene changes, blackdetect and freezedetect on a 640 px proxy."
   }
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "projectId": "microsoft-autopilot-agents",
-  "generatedAt": "2026-10-16T20:08:18.928Z",
+  "generatedAt": "2026-10-17T03:02:01.869Z",
   "rows": [
     {
       "title": "microsoft-autopilot-agents-2026-01",
@@ -33,9 +33,14 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 12.451,
+      "flickerSeconds": 16,
+      "motionBelow2Hz": 0.9321305643725869,
+      "bodyFineDetail": 0.20259,
+      "captionFineDetail": 0.08132,
       "findings": [
         "warning:loudness-off-target",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -68,9 +73,14 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.912,
+      "flickerSeconds": 13.33,
+      "motionBelow2Hz": 0.9326180467228352,
+      "bodyFineDetail": 0.20894,
+      "captionFineDetail": 0.07857,
       "findings": [
         "warning:loudness-off-target",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -103,9 +113,14 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.431,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.9336556266444491,
+      "bodyFineDetail": 0.20879,
+      "captionFineDetail": 0.08356,
       "findings": [
         "warning:loudness-off-target",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -138,9 +153,14 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.43,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.9327031851962527,
+      "bodyFineDetail": 0.20879,
+      "captionFineDetail": 0.08361,
       "findings": [
         "warning:loudness-off-target",
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -173,8 +193,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.432,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.9329463037696519,
+      "bodyFineDetail": 0.2087,
+      "captionFineDetail": 0.08355,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -207,8 +232,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.461,
+      "flickerSeconds": 11.73,
+      "motionBelow2Hz": 0.9328286375441952,
+      "bodyFineDetail": 0.2086,
+      "captionFineDetail": 0.07873,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -241,8 +271,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.439,
+      "flickerSeconds": 12.27,
+      "motionBelow2Hz": 0.933549196153515,
+      "bodyFineDetail": 0.20855,
+      "captionFineDetail": 0.08361,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -275,8 +310,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.432,
+      "flickerSeconds": 13.33,
+      "motionBelow2Hz": 0.9330368269074468,
+      "bodyFineDetail": 0.2087,
+      "captionFineDetail": 0.08355,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -309,8 +349,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.434,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.9331919055422394,
+      "bodyFineDetail": 0.2087,
+      "captionFineDetail": 0.08355,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -343,8 +388,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.463,
+      "flickerSeconds": 11.73,
+      "motionBelow2Hz": 0.9337702884305507,
+      "bodyFineDetail": 0.2086,
+      "captionFineDetail": 0.07873,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -377,8 +427,13 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.437,
+      "flickerSeconds": 12.27,
+      "motionBelow2Hz": 0.9330468095991714,
+      "bodyFineDetail": 0.20855,
+      "captionFineDetail": 0.08357,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
@@ -411,13 +466,18 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 10.431,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.9332461684721182,
+      "bodyFineDetail": 0.2087,
+      "captionFineDetail": 0.08355,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
       "title": "microsoft-autopilot-agents-2026-07",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-07-am_michael-kokoro_onnx.mp4",
       "role": "video",
@@ -445,13 +505,18 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 15.554,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.8776623967059204,
+      "bodyFineDetail": 0.18851,
+      "captionFineDetail": 0.07551,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
       "title": "microsoft-autopilot-agents-2026-07",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-07-af_heart-kokoro_onnx.mp4",
       "role": "video",
@@ -479,13 +544,18 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 15.602,
+      "flickerSeconds": 11.73,
+      "motionBelow2Hz": 0.8781912340894561,
+      "bodyFineDetail": 0.18968,
+      "captionFineDetail": 0.07547,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
       "title": "microsoft-autopilot-agents-2026-07",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-07-af_bella-kokoro_onnx.mp4",
       "role": "video",
@@ -513,13 +583,18 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 15.579,
+      "flickerSeconds": 12.27,
+      "motionBelow2Hz": 0.8775452229669087,
+      "bodyFineDetail": 0.19127,
+      "captionFineDetail": 0.07552,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
       ]
     },
     {
       "title": "microsoft-autopilot-agents-2026-07",
-      "status": "current",
+      "status": "superseded",
       "pipeline": "core-release",
       "file": "microsoft-autopilot-agents-2026-07-am_michael-kokoro.mp4",
       "role": "video",
@@ -547,8 +622,169 @@
       "transitions": 9,
       "staticHolds": 0,
       "captionDetail": 15.554,
+      "flickerSeconds": 12.8,
+      "motionBelow2Hz": 0.8778705525675122,
+      "bodyFineDetail": 0.1892,
+      "captionFineDetail": 0.07551,
       "findings": [
-        "info:dual-mono"
+        "info:dual-mono",
+        "warning:video-flicker"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-08",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.7,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -61.66,
+      "snrDb": 43.1,
+      "speechRatio": 0.7774,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 822.1,
+      "speechHf8k": 0.003184,
+      "speechFlatness": 0.000104,
+      "humProminenceDb": 6.78,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 15.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8784843131230604,
+      "bodyFineDetail": 0.18929,
+      "captionFineDetail": 0.07551,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-08",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-08-af_heart-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-af_heart-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_heart",
+        "voiceName": "Heart"
+      },
+      "durationSeconds": 56.448,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.8,
+      "speechRmsDbfs": -18.53,
+      "noiseFloorDbfs": -69.37,
+      "snrDb": 50.84,
+      "speechRatio": 0.7855,
+      "longestPauseSeconds": 1.375,
+      "speechCentroidHz": 845.4,
+      "speechHf8k": 0.02616,
+      "speechFlatness": 0.000195,
+      "humProminenceDb": 6.27,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 15.6,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8788297669356862,
+      "bodyFineDetail": 0.18928,
+      "captionFineDetail": 0.07547,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-08",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-08-af_bella-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-af_bella-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "af_bella",
+        "voiceName": "Bella"
+      },
+      "durationSeconds": 58.517,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.34,
+      "noiseFloorDbfs": -77.05,
+      "snrDb": 58.71,
+      "speechRatio": 0.7777,
+      "longestPauseSeconds": 1.525,
+      "speechCentroidHz": 657.6,
+      "speechHf8k": 0.022576,
+      "speechFlatness": 0.000131,
+      "humProminenceDb": 5.52,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 15.58,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8781679005164506,
+      "bodyFineDetail": 0.18928,
+      "captionFineDetail": 0.07552,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "microsoft-autopilot-agents-2026-08",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "microsoft-autopilot-agents-2026-08-am_michael-kokoro.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/microsoft-autopilot-agents-2026-08/microsoft-autopilot-agents-2026-08-am_michael-kokoro/analysis.json",
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 2.7,
+      "speechRmsDbfs": -18.56,
+      "noiseFloorDbfs": -61.7,
+      "snrDb": 43.14,
+      "speechRatio": 0.7774,
+      "longestPauseSeconds": 1.6,
+      "speechCentroidHz": 821.3,
+      "speechHf8k": 0.003181,
+      "speechFlatness": 0.000105,
+      "humProminenceDb": 5.99,
+      "transitions": 9,
+      "staticHolds": 1,
+      "captionDetail": 15.553,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8784843131230604,
+      "bodyFineDetail": 0.18929,
+      "captionFineDetail": 0.07551,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold"
       ]
     }
   ]
