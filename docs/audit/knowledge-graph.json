@@ -3,15 +3,15 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 4583,
+    "trackedFiles": 5576,
     "nodes": {
       "adapter": 8,
       "agent": 9,
-      "atom": 41,
+      "atom": 43,
       "env": 30,
       "file": 19,
       "format": 8,
-      "module": 132,
+      "module": 135,
       "package": 20,
       "plugin": 1,
       "project": 9,
@@ -23,21 +23,21 @@
     },
     "edges": {
       "binds_digest_of": 22,
-      "branches_on": 57,
-      "composes": 82,
+      "branches_on": 60,
+      "composes": 85,
       "contains": 3,
-      "depends_on": 83,
+      "depends_on": 84,
       "hands_off_to": 4,
-      "imports": 223,
+      "imports": 237,
       "mirrors": 6,
       "produces": 8,
       "reads": 23,
-      "reads_env": 37,
+      "reads_env": 38,
       "shipped_by": 72,
       "speaks_with": 9,
       "synthesizes_with": 2,
       "tests": 31,
-      "uses_contract": 92,
+      "uses_contract": 97,
       "uses_visual": 25
     },
     "gaps": {
@@ -105,7 +105,7 @@
       }
     },
     {
-      "id": "adapter:a2swe-remotion-mp4-adapter-12",
+      "id": "adapter:a2swe-remotion-mp4-adapter-13",
       "type": "adapter",
       "path": "packages/core/src/adapters.ts",
       "attributes": {
@@ -184,7 +184,7 @@
             "pointer": "ApprovalManifest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -198,14 +198,14 @@
             "pointer": "ApprovalManifest.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
             "pointer": "ApprovalManifest.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -250,7 +250,7 @@
             "pointer": "ArtifactRef.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 18,
             "validated": true
           },
           {
@@ -282,21 +282,21 @@
             "pointer": "AssetInventory.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "AssetInventory.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
             "pointer": "AssetInventory.entries",
             "type": "array<AssetInventoryEntry>",
             "required": true,
-            "consumers": 11,
+            "consumers": 12,
             "validated": true
           }
         ],
@@ -328,21 +328,21 @@
             "pointer": "AssetInventoryEntry.kind",
             "type": "enum(selected|generated_visual)",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.role",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
             "pointer": "AssetInventoryEntry.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 24,
+            "consumers": 26,
             "validated": true
           },
           {
@@ -363,7 +363,7 @@
             "pointer": "AssetInventoryEntry.sectionId",
             "type": "oneOf(Identifier|null)",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
@@ -388,7 +388,7 @@
             "pointer": "AssetRecord.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -402,7 +402,7 @@
             "pointer": "AssetRecord.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -444,7 +444,7 @@
             "pointer": "AssetRecord.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -574,7 +574,7 @@
             "pointer": "AssetRequest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -588,7 +588,7 @@
             "pointer": "AssetRequest.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -609,7 +609,7 @@
             "pointer": "AssetRequest.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -623,7 +623,7 @@
             "pointer": "AssetRequest.title",
             "type": "string",
             "required": false,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -704,7 +704,7 @@
             "pointer": "Claim.claimId",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -718,7 +718,7 @@
             "pointer": "Claim.evidenceIds",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -729,7 +729,7 @@
             "validated": true
           }
         ],
-        "typeConsumers": 2
+        "typeConsumers": 3
       }
     },
     {
@@ -763,7 +763,7 @@
             "pointer": "ContentAsset.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 18,
             "validated": true
           },
           {
@@ -777,7 +777,7 @@
             "pointer": "ContentAsset.role",
             "type": "enum(illustration|diagram|photograph|official_mark)",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           }
         ],
@@ -801,7 +801,7 @@
             "pointer": "ContentCitation.evidenceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
@@ -815,7 +815,7 @@
             "pointer": "ContentCitation.canonicalUrl",
             "type": "string",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -846,24 +846,38 @@
             "pointer": "ContentClaim.claimId",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
             "pointer": "ContentClaim.text",
             "type": "string",
             "required": true,
-            "consumers": 20,
+            "consumers": 21,
             "validated": true
           },
           {
             "pointer": "ContentClaim.evidenceIds",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           }
         ],
+        "typeConsumers": 0
+      }
+    },
+    {
+      "id": "atom:ContentDistribution",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/ContentDistribution",
+      "attributes": {
+        "patterns": [
+          "primitive"
+        ],
+        "shapeId": "75fbc3c8a3414e88",
+        "shape": "enum(internal|external)",
+        "fields": [],
         "typeConsumers": 0
       }
     },
@@ -879,14 +893,14 @@
           "digest-bound",
           "evidence-bearing"
         ],
-        "shapeId": "5dd565f0cd8024e9",
-        "shape": "assets:array<ContentAsset>;audience:string;citations:array<ContentCitation>;claims:array<ContentClaim>;contentId:Identifier;decision:string;domainDigest:Digest;language:const(\"en\");schemaVersion:const(\"1.0.0\");sections:array<ContentSection>;summary:string;title:string;voice:VoiceSpec",
+        "shapeId": "59b30ab361766a42",
+        "shape": "assets:array<ContentAsset>;audience:string;citations:array<ContentCitation>;claims:array<ContentClaim>;contentId:Identifier;decision:string;distribution?:ContentDistribution;domainDigest:Digest;language:const(\"en\");schemaVersion:const(\"1.0.0\");sections:array<ContentSection>;summary:string;title:string;voice:VoiceSpec",
         "fields": [
           {
             "pointer": "ContentIR.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -900,28 +914,28 @@
             "pointer": "ContentIR.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
             "pointer": "ContentIR.title",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
             "pointer": "ContentIR.audience",
             "type": "string",
             "required": true,
-            "consumers": 5,
+            "consumers": 7,
             "validated": true
           },
           {
             "pointer": "ContentIR.decision",
             "type": "string",
             "required": true,
-            "consumers": 5,
+            "consumers": 6,
             "validated": false
           },
           {
@@ -935,21 +949,21 @@
             "pointer": "ContentIR.summary",
             "type": "string",
             "required": true,
-            "consumers": 10,
+            "consumers": 11,
             "validated": false
           },
           {
             "pointer": "ContentIR.claims",
             "type": "array<ContentClaim>",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
             "pointer": "ContentIR.citations",
             "type": "array<ContentCitation>",
             "required": true,
-            "consumers": 3,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -963,7 +977,7 @@
             "pointer": "ContentIR.sections",
             "type": "array<ContentSection>",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -972,9 +986,16 @@
             "required": true,
             "consumers": 7,
             "validated": false
+          },
+          {
+            "pointer": "ContentIR.distribution",
+            "type": "ContentDistribution",
+            "required": false,
+            "consumers": 9,
+            "validated": true
           }
         ],
-        "typeConsumers": 8
+        "typeConsumers": 10
       }
     },
     {
@@ -993,28 +1014,28 @@
             "pointer": "ContentSection.sectionId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
             "pointer": "ContentSection.title",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
             "pointer": "ContentSection.body",
             "type": "string",
             "required": true,
-            "consumers": 7,
+            "consumers": 8,
             "validated": false
           },
           {
             "pointer": "ContentSection.claimIds",
             "type": "array<Identifier>",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -1028,14 +1049,14 @@
             "pointer": "ContentSection.speakerNotes",
             "type": "string",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
             "pointer": "ContentSection.visual",
             "type": "SectionVisual",
             "required": false,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
@@ -1053,7 +1074,7 @@
         "shapeId": "473287f8298dba71",
         "shape": "string",
         "fields": [],
-        "typeConsumers": 18
+        "typeConsumers": 19
       }
     },
     {
@@ -1089,7 +1110,7 @@
             "pointer": "DomainPack.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -1103,7 +1124,7 @@
             "pointer": "DomainPack.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
@@ -1145,21 +1166,21 @@
             "pointer": "DomainPack.sources",
             "type": "array<SourceDocument>",
             "required": true,
-            "consumers": 9,
+            "consumers": 11,
             "validated": true
           },
           {
             "pointer": "DomainPack.evidence",
             "type": "array<EvidenceSpan>",
             "required": true,
-            "consumers": 6,
+            "consumers": 13,
             "validated": true
           },
           {
             "pointer": "DomainPack.claims",
             "type": "array<Claim>",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -1170,7 +1191,7 @@
             "validated": false
           }
         ],
-        "typeConsumers": 8
+        "typeConsumers": 9
       }
     },
     {
@@ -1191,14 +1212,14 @@
             "pointer": "EvidenceSpan.evidenceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 4,
+            "consumers": 6,
             "validated": true
           },
           {
             "pointer": "EvidenceSpan.sourceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -1219,7 +1240,7 @@
             "pointer": "EvidenceSpan.quote",
             "type": "string",
             "required": true,
-            "consumers": 2,
+            "consumers": 3,
             "validated": true
           },
           {
@@ -1272,7 +1293,7 @@
             "pointer": "FormatOutput.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 24,
+            "consumers": 26,
             "validated": true
           },
           {
@@ -1286,7 +1307,7 @@
             "pointer": "FormatOutput.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 18,
             "validated": true
           },
           {
@@ -1300,7 +1321,7 @@
             "pointer": "FormatOutput.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -1332,14 +1353,14 @@
             "pointer": "FormatParityManifest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "FormatParityManifest.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -1353,7 +1374,7 @@
             "pointer": "FormatParityManifest.releaseDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -1384,21 +1405,21 @@
           "closed",
           "versioned"
         ],
-        "shapeId": "60e3eaae5bb64d63",
-        "shape": "audience?:string;brandUrl?:string;brief:string;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;id:string;kind:enum(company|customer|topic|framework|repository|tool);libraryPaths:array<string>;mode:enum(guided|auto);name:string;schemaVersion:const(\"1.0.0\");sources:array<string>;speed:number;voiceProfile:string",
+        "shapeId": "9fded2f791db9d7b",
+        "shape": "audience?:string;brandUrl?:string;brief:string;distribution?:ContentDistribution;formats:array<enum(html|adaptiveDeck|pptx|docx|pdf|png|jpeg|remotion)>;id:string;kind:enum(company|customer|topic|framework|repository|tool);libraryPaths:array<string>;mode:enum(guided|auto);name:string;schemaVersion:const(\"1.0.0\");sources:array<string>;speed:number;voiceProfile:string",
         "fields": [
           {
             "pointer": "GenerationRequest.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.id",
             "type": "string",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
@@ -1412,7 +1433,7 @@
             "pointer": "GenerationRequest.kind",
             "type": "enum(company|customer|topic|framework|repository|tool)",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
@@ -1426,14 +1447,14 @@
             "pointer": "GenerationRequest.audience",
             "type": "string",
             "required": false,
-            "consumers": 5,
+            "consumers": 7,
             "validated": true
           },
           {
             "pointer": "GenerationRequest.sources",
             "type": "array<string>",
             "required": true,
-            "consumers": 9,
+            "consumers": 11,
             "validated": true
           },
           {
@@ -1477,6 +1498,13 @@
             "required": false,
             "consumers": 3,
             "validated": false
+          },
+          {
+            "pointer": "GenerationRequest.distribution",
+            "type": "ContentDistribution",
+            "required": false,
+            "consumers": 9,
+            "validated": true
           }
         ],
         "typeConsumers": 3
@@ -1543,21 +1571,21 @@
             "pointer": "LibraryEntry.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.id",
             "type": "Identifier",
             "required": true,
-            "consumers": 20,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "LibraryEntry.kind",
             "type": "enum(agent|skill|plugin|asset|template|automation|archive)",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
@@ -1673,14 +1701,14 @@
             "pointer": "ReleasePlan.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "ReleasePlan.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -1701,7 +1729,7 @@
             "pointer": "ReleasePlan.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -1722,7 +1750,7 @@
             "pointer": "ReleasePlan.releaseDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -1756,21 +1784,21 @@
             "pointer": "RenderRevision.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "RenderRevision.projectId",
             "type": "string",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
             "pointer": "RenderRevision.title",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -1805,21 +1833,21 @@
             "pointer": "RenderRevision.status",
             "type": "enum(current|superseded|rejected)",
             "required": true,
-            "consumers": 26,
+            "consumers": 28,
             "validated": true
           },
           {
             "pointer": "RenderRevision.source",
             "type": "RelativePath",
             "required": true,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "RenderRevision.contentDigest",
             "type": "Digest",
             "required": false,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -1858,7 +1886,7 @@
             "pointer": "RenderSpec.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -1872,7 +1900,7 @@
             "pointer": "RenderSpec.contentDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -2059,7 +2087,7 @@
             "pointer": "RenderTheme.source",
             "type": "object",
             "required": false,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
@@ -2104,14 +2132,14 @@
             "pointer": "RevisionOutput.path",
             "type": "string",
             "required": true,
-            "consumers": 24,
+            "consumers": 26,
             "validated": true
           },
           {
             "pointer": "RevisionOutput.role",
             "type": "enum(video|video-raw|captions|presentation|metadata)",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -2132,7 +2160,7 @@
             "pointer": "RevisionOutput.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 18,
             "validated": true
           },
           {
@@ -2174,7 +2202,7 @@
             "pointer": "RevisionOutput.releaseDigest",
             "type": "Digest",
             "required": false,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -2188,7 +2216,7 @@
             "pointer": "RevisionOutput.scenes",
             "type": "array<object>",
             "required": false,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2264,7 +2292,7 @@
             "pointer": "Runbook.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -2278,7 +2306,7 @@
             "pointer": "Runbook.projectId",
             "type": "Identifier",
             "required": true,
-            "consumers": 15,
+            "consumers": 16,
             "validated": true
           },
           {
@@ -2292,14 +2320,14 @@
             "pointer": "Runbook.domainDigest",
             "type": "oneOf(Digest|null)",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
             "pointer": "Runbook.contentDigest",
             "type": "oneOf(Digest|null)",
             "required": true,
-            "consumers": 6,
+            "consumers": 7,
             "validated": true
           },
           {
@@ -2334,7 +2362,7 @@
             "pointer": "Runbook.blockers",
             "type": "array<string>",
             "required": true,
-            "consumers": 1,
+            "consumers": 2,
             "validated": false
           },
           {
@@ -2366,7 +2394,7 @@
             "pointer": "RunbookArtifact.path",
             "type": "RelativePath",
             "required": true,
-            "consumers": 24,
+            "consumers": 26,
             "validated": true
           },
           {
@@ -2380,7 +2408,7 @@
             "pointer": "RunbookArtifact.mediaType",
             "type": "string",
             "required": true,
-            "consumers": 17,
+            "consumers": 18,
             "validated": true
           },
           {
@@ -2419,7 +2447,7 @@
             "pointer": "RunbookGate.status",
             "type": "enum(pending|blocked|passed)",
             "required": true,
-            "consumers": 26,
+            "consumers": 28,
             "validated": true
           },
           {
@@ -2465,7 +2493,7 @@
             "pointer": "RunbookStage.status",
             "type": "enum(not_started|in_progress|blocked|complete)",
             "required": true,
-            "consumers": 26,
+            "consumers": 28,
             "validated": true
           },
           {
@@ -2509,21 +2537,21 @@
             "pointer": "SectionVisual.kind",
             "type": "enum(mermaid|excalidraw|marp)",
             "required": true,
-            "consumers": 21,
+            "consumers": 22,
             "validated": true
           },
           {
             "pointer": "SectionVisual.source",
             "type": "string",
             "required": true,
-            "consumers": 12,
+            "consumers": 14,
             "validated": true
           },
           {
             "pointer": "SectionVisual.caption",
             "type": "string",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           }
         ],
@@ -2563,7 +2591,7 @@
             "pointer": "SelectedAssetApproval.basis",
             "type": "string",
             "required": true,
-            "consumers": 3,
+            "consumers": 4,
             "validated": true
           },
           {
@@ -2584,10 +2612,24 @@
             "pointer": "SelectedAssetApproval.status",
             "type": "enum(pending|approved|rejected)",
             "required": true,
-            "consumers": 26,
+            "consumers": 28,
             "validated": true
           }
         ],
+        "typeConsumers": 0
+      }
+    },
+    {
+      "id": "atom:SourceDistribution",
+      "type": "atom",
+      "path": "packages/core/schemas/contracts.schema.json#/$defs/SourceDistribution",
+      "attributes": {
+        "patterns": [
+          "primitive"
+        ],
+        "shapeId": "8cc2fc38e756ba57",
+        "shape": "enum(public|customer|internal)",
+        "fields": [],
         "typeConsumers": 0
       }
     },
@@ -2603,21 +2645,21 @@
           "digest-bound",
           "evidence-bearing"
         ],
-        "shapeId": "e616ba43c423ab44",
-        "shape": "canonicalUrl:string;contentHash:Digest;dateEvidence:string;domainId:Identifier;modifiedDate:oneOf(Date|null);publicationDate:oneOf(Date|null);publisher:string;retrievedAt:string;schemaVersion:const(\"1.0.0\");sourceId:Identifier;title:string",
+        "shapeId": "7648a7490f8e644c",
+        "shape": "canonicalUrl:string;contentHash:Digest;dateEvidence:string;distribution?:SourceDistribution;domainId:Identifier;modifiedDate:oneOf(Date|null);publicationDate:oneOf(Date|null);publisher:string;retrievedAt:string;schemaVersion:const(\"1.0.0\");sourceId:Identifier;title:string",
         "fields": [
           {
             "pointer": "SourceDocument.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
             "pointer": "SourceDocument.sourceId",
             "type": "Identifier",
             "required": true,
-            "consumers": 3,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2631,7 +2673,7 @@
             "pointer": "SourceDocument.canonicalUrl",
             "type": "string",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": true
           },
           {
@@ -2645,7 +2687,7 @@
             "pointer": "SourceDocument.title",
             "type": "string",
             "required": true,
-            "consumers": 14,
+            "consumers": 15,
             "validated": true
           },
           {
@@ -2682,6 +2724,13 @@
             "required": true,
             "consumers": 3,
             "validated": true
+          },
+          {
+            "pointer": "SourceDocument.distribution",
+            "type": "SourceDistribution",
+            "required": false,
+            "consumers": 9,
+            "validated": true
           }
         ],
         "typeConsumers": 2
@@ -2706,7 +2755,7 @@
             "pointer": "TaskResult.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -2727,7 +2776,7 @@
             "pointer": "TaskResult.status",
             "type": "enum(succeeded|failed|blocked|cancelled|outcome_unknown)",
             "required": true,
-            "consumers": 26,
+            "consumers": 28,
             "validated": true
           },
           {
@@ -2758,7 +2807,7 @@
             "pointer": "TaskResult.summary",
             "type": "string",
             "required": true,
-            "consumers": 10,
+            "consumers": 11,
             "validated": false
           }
         ],
@@ -2809,7 +2858,7 @@
             "pointer": "VoiceSpec.narration",
             "type": "string",
             "required": true,
-            "consumers": 4,
+            "consumers": 5,
             "validated": false
           },
           {
@@ -2841,7 +2890,7 @@
             "pointer": "WorkItem.schemaVersion",
             "type": "const(\"1.0.0\")",
             "required": true,
-            "consumers": 16,
+            "consumers": 17,
             "validated": true
           },
           {
@@ -2869,7 +2918,7 @@
             "pointer": "WorkItem.domainDigest",
             "type": "Digest",
             "required": true,
-            "consumers": 8,
+            "consumers": 9,
             "validated": true
           },
           {
@@ -3293,8 +3342,8 @@
       "attributes": {
         "role": "desktop-ui",
         "language": "typescript",
-        "lines": 217,
-        "sha256": "285b12b23144f59a09504ada6ca740e3a5f054686e6d63d755045cd13e13a6ad",
+        "lines": 227,
+        "sha256": "7ab34f1f357f81b23f78f7ec8a3b49e6e2066a693a2e4cdb31f4bfd8ba7e13e4",
         "exports": [
           "MediaWorkspace",
           "StudioWorkspace"
@@ -3309,8 +3358,8 @@
       "attributes": {
         "role": "desktop-ui",
         "language": "typescript",
-        "lines": 137,
-        "sha256": "246da9295c2a67d1388742c5e89a0e9a86af6a091de63961de1d87206271aa09",
+        "lines": 144,
+        "sha256": "63b627dc66642da2aa9f4a1590e9a6b7d039a7c9f245f28142e2100737f852f2",
         "exports": [
           "GenerationLaunch",
           "NewProject"
@@ -3409,8 +3458,8 @@
       "attributes": {
         "role": "docs-script",
         "language": "javascript",
-        "lines": 209,
-        "sha256": "dbded7f6f912124e2e99c0363e9a8d25cc32a779a56526f863e854f29e5a0b96"
+        "lines": 211,
+        "sha256": "4b0fed4dab3d8c10c3b6cfa02c3ae27d8927c3cd5d8ff20d57471f7c2646df38"
       }
     },
     {
@@ -3560,8 +3609,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 1088,
-        "sha256": "1de3a5fc9d82648b17de54b225457b96c0499048c03e83504aa3263b9de841e8",
+        "lines": 1090,
+        "sha256": "55075efa89d0408c12793837c8526e54eb3ec747fd5992b275ee03b9900a44de",
         "testCoverage": "none"
       }
     },
@@ -3572,8 +3621,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 827,
-        "sha256": "ea617712b3514ca554f4076f58adcce2c45805d6944fb683fb8bea90f98b09c3",
+        "lines": 835,
+        "sha256": "61c59c0d9c252edf9644d24aa46acd39c625f35dd988ca2785c93b0b53249924",
         "exports": [
           "BRIDGE_METHOD_SCHEMAS",
           "CALLABLE_TOOL_NAMES",
@@ -3622,8 +3671,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 267,
-        "sha256": "d42fab5f017d5ae8ae96b073141160a17b2f6f12f10c5d25fd45444b15cff1c0",
+        "lines": 281,
+        "sha256": "7667f57bf7fe74ff4e791af8eedc5571ff7d06cb224f3dc2384d0eb393098a3f",
         "exports": [
           "LOCAL_TOOL_NAMES",
           "callLocalTool",
@@ -3639,8 +3688,8 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 735,
-        "sha256": "5712e1ed8e2726820c5aa34aa5b87fa5694a5a5ae1e1d170304e1e24be89ef82",
+        "lines": 769,
+        "sha256": "f316e6abb344b300d2a26257cd46d58f4021e7c49395dc08405dccb94def8724",
         "exports": [
           "MediaReviewClient",
           "MediaReviewService",
@@ -3656,10 +3705,13 @@
       "attributes": {
         "role": "integration",
         "language": "typescript",
-        "lines": 47,
-        "sha256": "e6b8ddc8263606dfa85b36fcf5d4786493f35bcd5d986e440ee3eae764a99e79",
+        "lines": 65,
+        "sha256": "921dd358b17778e71145b052e50bc9c9274ef02d844775b7604a3e97ef7181a3",
         "exports": [
           "ReviewControlAction",
+          "ReviewEvidence",
+          "ReviewEvidenceKind",
+          "ReviewFinding",
           "ReviewKind",
           "ReviewListItem",
           "ReviewMedia",
@@ -3839,8 +3891,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 229,
-        "sha256": "deae67ea508644749b76cca877a145f6b5fe5f308dad2f923323683a52c17ce1",
+        "lines": 228,
+        "sha256": "c4eeeb3b1a3fa0782b6dac4d1b2be50dfdcded8e3b49635dfb3f306e03b780e8",
         "exports": [
           "importAccountIntake"
         ],
@@ -3854,17 +3906,38 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1099,
-        "sha256": "0196ba3c8abbbabc51d3de24ff805075f56d8902d14657d36084e1824f093bc0",
+        "lines": 1110,
+        "sha256": "4e6ecc5fa466960d2bb8e31e87542baada1fda304e2c276c741953014f640dd4",
         "exports": [
           "AdapterAssetEmbed",
           "AdapterFile",
           "AdapterRenderOptions",
           "AdapterVisualImage",
           "OutputFormat",
+          "distributionMarking",
           "renderFiles"
         ],
         "testCoverage": "direct"
+      }
+    },
+    {
+      "id": "module:packages/core/src/alignment.ts",
+      "type": "module",
+      "path": "packages/core/src/alignment.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 348,
+        "sha256": "1e6addd6cfc1a95883b2cb2096557db30a1381dbcd42b25933938c971bbbae91",
+        "exports": [
+          "ALIGNMENT_THRESHOLDS",
+          "AlignmentOptions",
+          "Audience",
+          "applyAlignment",
+          "rankAlignment",
+          "visualText"
+        ],
+        "testCoverage": "none"
       }
     },
     {
@@ -3976,15 +4049,17 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 60,
-        "sha256": "d0cf5070187addb96181febb91eff350b96e3760dde4f5f2fc9b0e916e780394",
+        "lines": 71,
+        "sha256": "561b8d49b2edaeee54c1951ea636c1dcf2d08edfe8dba8b6e4f28fc93ddb4b19",
         "exports": [
           "canonicalJson",
           "digest",
           "freshness",
           "parseDate",
+          "round",
           "safeRelativePath",
           "sha256",
+          "sha256File",
           "windowStart"
         ],
         "testCoverage": "direct"
@@ -3997,8 +4072,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 381,
-        "sha256": "abb04f27826a5263b754d7baa50f52b3330324dce085a49370dc9eb0a22cf7c5",
+        "lines": 400,
+        "sha256": "a7813327a4d99cc6219f45eed3002962fdb33b7c059429679c42abc64de1d3c4",
         "testCoverage": "none"
       }
     },
@@ -4009,8 +4084,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 1295,
-        "sha256": "39fc89a0d44cbb7278dcaed4ea7d18a6596c4a8580bf2cd994e894fa8975d575",
+        "lines": 1306,
+        "sha256": "ecd7625d06c5ebbef8610866720ed6703affd3e038e8657ac22c693138dfba36",
         "generated": true,
         "exports": [
           "ApprovalManifest",
@@ -4023,6 +4098,7 @@
           "ContentAsset",
           "ContentCitation",
           "ContentClaim",
+          "ContentDistribution",
           "ContentIR",
           "ContentSection",
           "CoreContract",
@@ -4051,6 +4127,7 @@
           "RunbookStage",
           "SectionVisual",
           "SelectedAssetApproval",
+          "SourceDistribution",
           "SourceDocument",
           "TaskResult",
           "VoiceSpec",
@@ -4065,11 +4142,12 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 302,
-        "sha256": "81d508f321c638e513ba80cfb4c53f026bc04a6d1e188d9fd68c5c7420e4051d",
+        "lines": 318,
+        "sha256": "3d97f3503d36f038df88d8da4b224b519de7ea8ef8cb266d3aa4f675e4779659",
         "exports": [
           "isContractName",
           "revisionTitle",
+          "sourceDistribution",
           "validate",
           "validateContentAgainstDomain"
         ],
@@ -4112,14 +4190,30 @@
       }
     },
     {
+      "id": "module:packages/core/src/image-io.ts",
+      "type": "module",
+      "path": "packages/core/src/image-io.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 14,
+        "sha256": "41278727475fb9ee5b56ad8502021d0533e13e229b0c0d261c028a65d9edf383",
+        "exports": [
+          "readImage",
+          "writeImage"
+        ],
+        "testCoverage": "none"
+      }
+    },
+    {
       "id": "module:packages/core/src/knowledge-graph.ts",
       "type": "module",
       "path": "packages/core/src/knowledge-graph.ts",
       "attributes": {
         "role": "analyzer",
         "language": "typescript",
-        "lines": 848,
-        "sha256": "07eb8045f61ff1b67c8a64cc9f1b397bdf9f2faf336ff6950e69a63cafbd832f",
+        "lines": 879,
+        "sha256": "1b8a00da71f51aac0908b0d3a2505509d133bfd1e374f7a79f9498a07597a931",
         "exports": [
           "GapSeverity",
           "GraphEdge",
@@ -4137,8 +4231,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 701,
-        "sha256": "dbb18e2ad46c2d0b59f409b551cc75a6d2ef3bcb4541ca78d35e86bfa3df2bb0",
+        "lines": 970,
+        "sha256": "da3ee5e8c5ba635315e1e00a1330d0a6bd25c901538c6ae28fa6bfaada7741d5",
         "exports": [
           "ANALYSIS_THRESHOLDS",
           "AnalysisFinding",
@@ -4158,8 +4252,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 2042,
-        "sha256": "08e3d4758b4409eef8ad7e8107fd0dc7629b412199257031b9287202714be1f3",
+        "lines": 2043,
+        "sha256": "64d4f6dbda552c455024105a14c84e364f0458b809a87f8556400a8721878171",
         "exports": [
           "MP4_ADAPTER",
           "remotion",
@@ -4212,15 +4306,15 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 115,
-        "sha256": "60e863cb00074c8bf0e23681e803c3116a689b2be51a3007d3cfa19c4f19cd13",
+        "lines": 116,
+        "sha256": "63f2c6428665b38e13cc0487f8420100e80e19cdeb818548bff6cd17ad396e9c",
         "exports": [
           "renderNativeOffice"
         ],
         "embeddedScripts": [
           {
             "owner": "OFFICE_SCRIPT",
-            "line": 14,
+            "line": 15,
             "lines": 29,
             "language": "text"
           }
@@ -4256,7 +4350,7 @@
         "role": "core",
         "language": "typescript",
         "lines": 206,
-        "sha256": "36a5d30ae8706b0cf68be21c7520ebe64f1b42261addfae9b868e48a6235256c",
+        "sha256": "b4fedd437349e9f170c30f5f2336c00827a83ab280cb9349a4c44beacdee1016",
         "exports": [
           "renderRasterOverview"
         ],
@@ -4289,8 +4383,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 308,
-        "sha256": "bd96a5576ecc18e6101c91c283f2aa717994d1b2ac5618e3d642cc098bda8b3f",
+        "lines": 317,
+        "sha256": "e889bceba065fc0e3aee91635b30472cc530af08bdb38c7701493a173c733255",
         "exports": [
           "MUTABLE_MEDIA_PATHS",
           "bindCanonicalInputs",
@@ -4310,8 +4404,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 554,
-        "sha256": "75f1afc400dff85dbbc6762fd1a4d80578a37e0246b3b7f3edf786c250afa5b8",
+        "lines": 578,
+        "sha256": "fd0b0051107c167cbfe82c712642bf71ace8005e0368cf2a3920dbac2c2b2574",
         "exports": [
           "RevisionVariant",
           "analyzeRevisions",
@@ -4331,11 +4425,30 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 142,
-        "sha256": "e97f6f6aa132c6d51a0cafa63d1778cf593600a7c5676ecf8ed41dbffe0d4a81",
+        "lines": 149,
+        "sha256": "722ca6079462b02177ea5fea475224059419ccf7c7c0bec68eee665daef2fe30",
         "exports": [
           "projectRunbook",
           "verifyRunbook"
+        ],
+        "testCoverage": "none"
+      }
+    },
+    {
+      "id": "module:packages/core/src/semantic.ts",
+      "type": "module",
+      "path": "packages/core/src/semantic.ts",
+      "attributes": {
+        "role": "core",
+        "language": "typescript",
+        "lines": 78,
+        "sha256": "6f69c6c62b2fb8fcf35d7882d5499f5ddad703f4a4cab1a35cc0f9d0a7aaad20",
+        "exports": [
+          "SEMANTIC_MODEL_ID",
+          "cosine",
+          "embedTexts",
+          "installSemanticModel",
+          "semanticModel"
         ],
         "testCoverage": "none"
       }
@@ -4364,8 +4477,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 71,
-        "sha256": "d973694d915738fde836fe099958fdc64dd8e4bad040e7666cd9d09342d9621d",
+        "lines": 74,
+        "sha256": "edeb914927b4c107e7365bc66cbb413037916aeae252202e783e953793a19723",
         "exports": [
           "writeProjectWorkspace"
         ],
@@ -4401,8 +4514,8 @@
       "attributes": {
         "role": "script",
         "language": "javascript",
-        "lines": 56,
-        "sha256": "3ce322c3ccb30f51fdd3a9d81dc364f030fcec1c27af0f7e9bdd0c0788ae4d58"
+        "lines": 57,
+        "sha256": "8725a1d1ebddba02b421d88dbd4727b7adb0d7bf2cba128222573d2eab1b9c42"
       }
     },
     {
@@ -5617,7 +5730,7 @@
       "path": "projects/agent-365",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 307,
+        "trackedFiles": 402,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5629,12 +5742,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 187,
+          "entries": 273,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5668,7 +5782,7 @@
       "path": "projects/copilot",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 435,
+        "trackedFiles": 548,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5680,12 +5794,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 307,
+          "entries": 411,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5719,7 +5834,7 @@
       "path": "projects/copilot-studio-2026",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 472,
+        "trackedFiles": 587,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5731,12 +5846,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 335,
+          "entries": 441,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5770,7 +5886,7 @@
       "path": "projects/datadog-cowork-plugin",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 369,
+        "trackedFiles": 476,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5782,12 +5898,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 252,
+          "entries": 350,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5823,7 +5940,7 @@
       "path": "projects/microsoft",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 329,
+        "trackedFiles": 428,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5835,12 +5952,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 217,
+          "entries": 307,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5874,7 +5992,7 @@
       "path": "projects/microsoft-autopilot-agents",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 328,
+        "trackedFiles": 425,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5886,12 +6004,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 212,
+          "entries": 300,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5924,7 +6043,7 @@
       "path": "projects/microsoft-plugin-architecture",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 343,
+        "trackedFiles": 442,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -5936,12 +6055,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 228,
+          "entries": 318,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -5975,7 +6095,7 @@
       "path": "projects/power-platform-2026",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 448,
+        "trackedFiles": 561,
         "runbook": true,
         "generationRequest": false,
         "qcIndex": true,
@@ -5987,12 +6107,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 316,
+          "entries": 420,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -6026,7 +6147,7 @@
       "path": "projects/power-platform-community-conference",
       "attributes": {
         "lineage": "core-managed",
-        "trackedFiles": 401,
+        "trackedFiles": 512,
         "runbook": true,
         "generationRequest": true,
         "qcIndex": true,
@@ -6038,12 +6159,13 @@
             "audio": "passed",
             "native-office": "passed",
             "media-analysis": "passed",
+            "audience-alignment": "passed",
             "release": "passed"
           }
         },
         "runbookVerification": "artifact_digests_verified",
         "qcIndexEvidence": {
-          "entries": 290,
+          "entries": 392,
           "stale": 0,
           "crlfDigests": 0,
           "missing": 0,
@@ -7336,7 +7458,7 @@
       "to": "format:pptx"
     },
     {
-      "from": "adapter:a2swe-remotion-mp4-adapter-12",
+      "from": "adapter:a2swe-remotion-mp4-adapter-13",
       "relation": "produces",
       "to": "format:remotion"
     },
@@ -7518,6 +7640,11 @@
     {
       "from": "atom:ContentIR",
       "relation": "composes",
+      "to": "atom:ContentDistribution"
+    },
+    {
+      "from": "atom:ContentIR",
+      "relation": "composes",
       "to": "atom:ContentSection"
     },
     {
@@ -7624,6 +7751,11 @@
       "from": "atom:FormatParityManifest",
       "relation": "composes",
       "to": "atom:FormatOutput"
+    },
+    {
+      "from": "atom:GenerationRequest",
+      "relation": "composes",
+      "to": "atom:ContentDistribution"
     },
     {
       "from": "atom:LibraryEntry",
@@ -7859,6 +7991,11 @@
       "from": "atom:SourceDocument",
       "relation": "composes",
       "to": "atom:Identifier"
+    },
+    {
+      "from": "atom:SourceDocument",
+      "relation": "composes",
+      "to": "atom:SourceDistribution"
     },
     {
       "from": "atom:TaskResult",
@@ -8348,6 +8485,11 @@
     {
       "from": "module:library/integrations/copilot/desktop.ts",
       "relation": "uses_contract",
+      "to": "atom:ContentIR"
+    },
+    {
+      "from": "module:library/integrations/copilot/desktop.ts",
+      "relation": "uses_contract",
       "to": "atom:Date"
     },
     {
@@ -8502,6 +8644,11 @@
     },
     {
       "from": "module:library/integrations/copilot/mcp-server.ts",
+      "relation": "imports",
+      "to": "module:library/integrations/copilot/media-review.types.ts"
+    },
+    {
+      "from": "module:library/integrations/copilot/mcp-server.ts",
       "relation": "uses_contract",
       "to": "atom:Date"
     },
@@ -8524,6 +8671,11 @@
       "from": "module:library/integrations/copilot/media-review.ts",
       "relation": "imports",
       "to": "module:library/integrations/copilot/media-review.types.ts"
+    },
+    {
+      "from": "module:library/integrations/copilot/media-review.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
     },
     {
       "from": "module:library/integrations/copilot/media-review.ts",
@@ -8726,6 +8878,61 @@
       "to": "atom:RenderSpec"
     },
     {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "branches_on",
+      "to": "format:remotion"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "branches_on",
+      "to": "visual:excalidraw"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "branches_on",
+      "to": "visual:mermaid"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/contracts.ts"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/release.ts"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/semantic.ts"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "uses_contract",
+      "to": "atom:Claim"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "uses_contract",
+      "to": "atom:ContentIR"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "uses_contract",
+      "to": "atom:Date"
+    },
+    {
+      "from": "module:packages/core/src/alignment.ts",
+      "relation": "uses_contract",
+      "to": "atom:DomainPack"
+    },
+    {
       "from": "module:packages/core/src/approvals.ts",
       "relation": "depends_on",
       "to": "package:ajv"
@@ -8883,6 +9090,11 @@
     {
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/alignment.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/approvals.ts"
     },
     {
@@ -8959,6 +9171,11 @@
       "from": "module:packages/core/src/cli.ts",
       "relation": "imports",
       "to": "module:packages/core/src/runbook.ts"
+    },
+    {
+      "from": "module:packages/core/src/cli.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/semantic.ts"
     },
     {
       "from": "module:packages/core/src/cli.ts",
@@ -9136,6 +9353,11 @@
       "to": "atom:DomainPack"
     },
     {
+      "from": "module:packages/core/src/image-io.ts",
+      "relation": "depends_on",
+      "to": "package:sharp"
+    },
+    {
       "from": "module:packages/core/src/knowledge-graph.ts",
       "relation": "depends_on",
       "to": "package:yaml"
@@ -9174,6 +9396,16 @@
       "from": "module:packages/core/src/media-analysis.ts",
       "relation": "depends_on",
       "to": "package:sharp"
+    },
+    {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/media-analysis.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/image-io.ts"
     },
     {
       "from": "module:packages/core/src/media-analysis.ts",
@@ -9369,6 +9601,11 @@
       "from": "module:packages/core/src/office.ts",
       "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/office.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/image-io.ts"
     },
     {
       "from": "module:packages/core/src/office.ts",
@@ -9608,6 +9845,11 @@
     {
       "from": "module:packages/core/src/revisions.ts",
       "relation": "imports",
+      "to": "module:packages/core/src/image-io.ts"
+    },
+    {
+      "from": "module:packages/core/src/revisions.ts",
+      "relation": "imports",
       "to": "module:packages/core/src/media-analysis.ts"
     },
     {
@@ -9679,6 +9921,16 @@
       "from": "module:packages/core/src/runbook.ts",
       "relation": "uses_contract",
       "to": "atom:Runbook"
+    },
+    {
+      "from": "module:packages/core/src/semantic.ts",
+      "relation": "imports",
+      "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:packages/core/src/semantic.ts",
+      "relation": "reads_env",
+      "to": "env:A2SWE_PYTHON"
     },
     {
       "from": "module:packages/core/src/store.ts",
@@ -9764,6 +10016,11 @@
       "from": "module:scripts/asset-proof.mjs",
       "relation": "imports",
       "to": "module:packages/core/src/canonical.ts"
+    },
+    {
+      "from": "module:scripts/asset-proof.mjs",
+      "relation": "imports",
+      "to": "module:packages/core/src/image-io.ts"
     },
     {
       "from": "module:scripts/generate-contracts.mjs",
@@ -10703,7 +10960,7 @@
     {
       "from": "project:agent-365",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:agent-365",
@@ -10763,7 +11020,7 @@
     {
       "from": "project:copilot",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:copilot",
@@ -10823,7 +11080,7 @@
     {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:copilot-studio-2026",
@@ -10883,7 +11140,7 @@
     {
       "from": "project:datadog-cowork-plugin",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:datadog-cowork-plugin",
@@ -10943,7 +11200,7 @@
     {
       "from": "project:microsoft",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:microsoft",
@@ -11003,7 +11260,7 @@
     {
       "from": "project:microsoft-autopilot-agents",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:microsoft-autopilot-agents",
@@ -11063,7 +11320,7 @@
     {
       "from": "project:microsoft-plugin-architecture",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:microsoft-plugin-architecture",
@@ -11123,7 +11380,7 @@
     {
       "from": "project:power-platform-2026",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:power-platform-2026",
@@ -11183,7 +11440,7 @@
     {
       "from": "project:power-platform-community-conference",
       "relation": "shipped_by",
-      "to": "adapter:a2swe-remotion-mp4-adapter-12"
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
     },
     {
       "from": "project:power-platform-community-conference",
@@ -11203,13 +11460,13 @@
       "category": "extensibility",
       "summary": "renderFiles dispatches 7 format branches in a fixed if/else chain; adding a format or swapping an adapter requires editing core, the schema enum, desktop UI and release verification.",
       "evidence": [
-        "packages/core/src/adapters.ts:1088",
-        "packages/core/src/adapters.ts:1089",
-        "packages/core/src/adapters.ts:1090",
-        "packages/core/src/adapters.ts:1091",
-        "packages/core/src/adapters.ts:1092",
-        "packages/core/src/adapters.ts:1093",
-        "packages/core/src/adapters.ts:1094"
+        "packages/core/src/adapters.ts:1099",
+        "packages/core/src/adapters.ts:1100",
+        "packages/core/src/adapters.ts:1101",
+        "packages/core/src/adapters.ts:1102",
+        "packages/core/src/adapters.ts:1103",
+        "packages/core/src/adapters.ts:1104",
+        "packages/core/src/adapters.ts:1105"
       ]
     },
     {
@@ -11223,7 +11480,7 @@
         "packages/core/src/media-remotion.ts:910 audioQaScript (javascript, 379 lines)",
         "packages/core/src/media-remotion.ts:1292 renderScript (javascript, 284 lines)",
         "packages/core/src/media-remotion.ts:1579 verifyScript (javascript, 92 lines)",
-        "packages/core/src/office.ts:14 OFFICE_SCRIPT (text, 29 lines)"
+        "packages/core/src/office.ts:15 OFFICE_SCRIPT (text, 29 lines)"
       ]
     },
     {
@@ -11232,11 +11489,11 @@
       "category": "composability",
       "summary": "Core runtime loads fonts, lockfiles or node_modules from the legacy template tree; the managed pipeline cannot run without template/.",
       "evidence": [
-        "library/integrations/copilot/media-review.ts:409 -> template/ (path.join)",
+        "library/integrations/copilot/media-review.ts:425 -> template/ (path.join)",
         "packages/core/src/assets.ts:13 -> template/public/fonts/NotoSansSC.ttf",
         "packages/core/src/media-remotion.ts:65 -> template/requirements.lock.txt",
-        "packages/core/src/media-remotion.ts:1793 -> template/ (path.join)",
-        "packages/core/src/media-remotion.ts:1834 -> template/ (path.join)",
+        "packages/core/src/media-remotion.ts:1794 -> template/ (path.join)",
+        "packages/core/src/media-remotion.ts:1835 -> template/ (path.join)",
         "packages/core/src/raster-canvas.ts:13 -> template/public/fonts/NotoSansSC.ttf"
       ]
     },
@@ -11246,7 +11503,7 @@
       "category": "composability",
       "summary": "Mermaid, Excalidraw and Marp visuals are rasterised only inside the Remotion path; HTML, Office, PDF and raster outputs lose diagrams unless video is also requested.",
       "evidence": [
-        "packages/core/src/release.ts:196"
+        "packages/core/src/release.ts:205"
       ]
     },
     {
@@ -11255,7 +11512,7 @@
       "category": "ui-composition",
       "summary": "ContentIR/RenderSpec have no layer, tile, grid or live-state atoms; visuals are one optional diagram per section and every adapter hard-codes its own layout.",
       "evidence": [
-        "packages/core/schemas/contracts.schema.json:449"
+        "packages/core/schemas/contracts.schema.json:460"
       ]
     },
     {
@@ -11281,10 +11538,10 @@
         "packages/core/src/media-remotion.ts:1215",
         "packages/core/src/media-remotion.ts:1309",
         "packages/core/src/media-remotion.ts:1595",
-        "packages/core/src/media-remotion.ts:1848",
-        "packages/core/src/media-remotion.ts:1963",
-        "packages/core/src/media-remotion.ts:2005",
-        "packages/core/src/media-remotion.ts:2035"
+        "packages/core/src/media-remotion.ts:1849",
+        "packages/core/src/media-remotion.ts:1964",
+        "packages/core/src/media-remotion.ts:2006",
+        "packages/core/src/media-remotion.ts:2036"
       ]
     },
     {
@@ -11293,16 +11550,19 @@
       "category": "quality",
       "summary": "Core modules no test imports directly; transitive coverage only exercises happy paths of callers.",
       "evidence": [
-        "packages/core/src/account-intake.ts (none, 229 lines)",
+        "packages/core/src/account-intake.ts (none, 228 lines)",
+        "packages/core/src/alignment.ts (none, 348 lines)",
         "packages/core/src/brand.ts (transitive, 505 lines)",
-        "packages/core/src/cli.ts (none, 381 lines)",
-        "packages/core/src/media-analysis.ts (none, 701 lines)",
-        "packages/core/src/media-remotion.ts (transitive, 2042 lines)",
-        "packages/core/src/office.ts (none, 115 lines)",
+        "packages/core/src/cli.ts (none, 400 lines)",
+        "packages/core/src/image-io.ts (none, 14 lines)",
+        "packages/core/src/media-analysis.ts (none, 970 lines)",
+        "packages/core/src/media-remotion.ts (transitive, 2043 lines)",
+        "packages/core/src/office.ts (none, 116 lines)",
         "packages/core/src/raster-canvas.ts (transitive, 206 lines)",
-        "packages/core/src/revisions.ts (none, 554 lines)",
-        "packages/core/src/runbook.ts (none, 142 lines)",
-        "packages/core/src/workspace.ts (none, 71 lines)"
+        "packages/core/src/revisions.ts (none, 578 lines)",
+        "packages/core/src/runbook.ts (none, 149 lines)",
+        "packages/core/src/semantic.ts (none, 78 lines)",
+        "packages/core/src/workspace.ts (none, 74 lines)"
       ]
     },
     {
@@ -11313,10 +11573,10 @@
       "evidence": [
         "README.md:37 -> library/assets/product_knowledgebase (gitignored)",
         "README.md:39 -> library/assets/knowledge/catalog.json (gitignored)",
-        "docs/content/platform/desktop.md:89 -> projects/executive_status_updates/Customers (gitignored)",
-        "docs/content/platform/desktop.md:103 -> template/build_production (gitignored)",
-        "docs/content/platform/desktop.md:134 -> library/assets/product_knowledgebase (gitignored)",
-        "docs/content/platform/desktop.md:136 -> library/assets/knowledge (gitignored)"
+        "docs/content/platform/desktop.md:92 -> projects/executive_status_updates/Customers (gitignored)",
+        "docs/content/platform/desktop.md:106 -> template/build_production (gitignored)",
+        "docs/content/platform/desktop.md:144 -> library/assets/product_knowledgebase (gitignored)",
+        "docs/content/platform/desktop.md:146 -> library/assets/knowledge (gitignored)"
       ]
     },
     {
@@ -11390,7 +11650,7 @@
         "A2SWE_MEDIA_REVIEW_TOKEN: library/integrations/copilot/media-review.ts",
         "A2SWE_MEDIA_REVIEW_URL: library/integrations/copilot/media-review.ts",
         "A2SWE_OVERWRITE_MP4: packages/core/src/media-remotion.ts",
-        "A2SWE_PYTHON: packages/core/src/media-remotion.ts",
+        "A2SWE_PYTHON: packages/core/src/media-remotion.ts, packages/core/src/semantic.ts",
         "A2SWE_REMOTION_PORT: packages/core/src/media-remotion.ts",
         "A2SWE_TTS_ENGINE: packages/core/src/media-remotion.ts, packages/core/src/revisions.ts",
         "FFMPEG_PATH: library/integrations/copilot/media-review.ts, packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
