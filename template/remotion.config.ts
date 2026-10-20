@@ -1,4 +1,7 @@
 import {Config} from '@remotion/cli/config';
+import {existsSync, readdirSync} from 'node:fs';
+import {homedir} from 'node:os';
+import {join} from 'node:path';
 
 if (process.env.REMOTION_CACHE === '0') {
   Config.setCachingEnabled(false);
@@ -14,7 +17,38 @@ const GL_RENDERERS = ['swangle', 'angle', 'egl', 'swiftshader', 'vulkan', 'angle
 type GlRenderer = (typeof GL_RENDERERS)[number];
 const isGlRenderer = (v: string | undefined): v is GlRenderer => (GL_RENDERERS as readonly string[]).includes(v ?? '');
 
-const browser = process.env.REMOTION_BROWSER_EXECUTABLE;
+// Default browser backend: Playwright's chromium headless shell (`npx playwright install chromium-headless-shell`).
+// Override with REMOTION_BROWSER_EXECUTABLE; set REMOTION_BROWSER=remotion to use Remotion's own Chrome-for-Testing.
+const findPlaywrightHeadlessShell = (): string | undefined => {
+  const root =
+    process.env.PLAYWRIGHT_BROWSERS_PATH && process.env.PLAYWRIGHT_BROWSERS_PATH !== '0'
+      ? process.env.PLAYWRIGHT_BROWSERS_PATH
+      : process.platform === 'win32'
+        ? join(process.env.LOCALAPPDATA ?? '', 'ms-playwright')
+        : process.platform === 'darwin'
+          ? join(homedir(), 'Library', 'Caches', 'ms-playwright')
+          : join(homedir(), '.cache', 'ms-playwright');
+  if (!existsSync(root)) return undefined;
+  const exeParts: Record<string, string[]> = {
+    win32: ['chrome-win', 'headless_shell.exe'],
+    darwin: ['chrome-headless-shell-mac-' + (process.arch === 'arm64' ? 'arm64' : 'x64'), 'chrome-headless-shell'],
+    linux: ['chrome-linux', 'headless_shell'],
+  };
+  const parts = exeParts[process.platform];
+  if (!parts) return undefined;
+  const revisions = readdirSync(root)
+    .filter((d) => /^chromium_headless_shell-\d+$/.test(d))
+    .sort((a, b) => Number(b.split('-')[1]) - Number(a.split('-')[1]));
+  for (const rev of revisions) {
+    const candidate = join(root, rev, ...parts);
+    if (existsSync(candidate)) return candidate;
+  }
+  return undefined;
+};
+
+const browser =
+  process.env.REMOTION_BROWSER_EXECUTABLE ||
+  (process.env.REMOTION_BROWSER === 'remotion' ? undefined : findPlaywrightHeadlessShell());
 if (browser) {
   Config.setBrowserExecutable(browser);
   const gl = process.env.REMOTION_GL;
