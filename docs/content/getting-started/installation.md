@@ -47,6 +47,12 @@ npm --prefix template ci
 npm --prefix template run build
 ```
 
+`ci` also runs the template's `postinstall` patch, so Remotion reuses a
+persistent browser profile in `template/.remotion/chrome-profile` instead of
+creating a temporary `puppeteer_dev_chrome_profile-*` folder for every browser
+launch. If you install with `--ignore-scripts`, apply the patch afterwards with
+`npm --prefix template run postinstall`.
+
 ## Optional documentation site install
 
 ```powershell

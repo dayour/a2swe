@@ -7,12 +7,19 @@ if (process.env.REMOTION_CACHE === '0') {
   Config.setCachingEnabled(false);
 }
 
+// Persistent browser profile: renders reuse <project>/.remotion/chrome-profile instead of creating (and, on Windows,
+// leaking) a temp puppeteer_dev_chrome_profile-* folder per launch; concurrent renders claim chrome-profile-1, -2, ….
+// Profiles are never deleted, only their caches are trimmed. Override with REMOTION_USER_DATA_DIR.
+// Applied by the postinstall patch (scripts/patch_remotion_profile.cjs): after an `--ignore-scripts` install run
+// `npm run postinstall`; `node scripts/patch_remotion_profile.cjs --check` reports whether it is in place.
+process.env.REMOTION_USER_DATA_DIR ||= join(process.cwd(), '.remotion', 'chrome-profile');
+
 // Linux / ARM (e.g. Raspberry Pi) support.
 // Chrome-for-Testing has no linux-arm64 build, so Remotion can't download a browser there.
 // Point it at a system Chromium via env, e.g.:
 //   export REMOTION_BROWSER_EXECUTABLE=/usr/bin/chromium
 // On a GPU-less headless box also set software GL (default 'swangle'); override with REMOTION_GL.
-// Both are unset on macOS / x86 → this file is a no-op and Remotion uses its own browser.
+// When REMOTION_BROWSER_EXECUTABLE is unset, the Playwright headless shell below is used, falling back to Remotion's own browser.
 const GL_RENDERERS = ['swangle', 'angle', 'egl', 'swiftshader', 'vulkan', 'angle-egl'] as const;
 type GlRenderer = (typeof GL_RENDERERS)[number];
 const isGlRenderer = (v: string | undefined): v is GlRenderer => (GL_RENDERERS as readonly string[]).includes(v ?? '');

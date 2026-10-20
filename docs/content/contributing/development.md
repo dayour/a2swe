@@ -13,7 +13,10 @@ Reusable runtime and pipeline improvements belong in `template/`. Preserve compo
 ```powershell
 npm --prefix template run typecheck
 npm --prefix template run build
+node template\scripts\patch_remotion_profile.cjs --check
 ```
+
+Rerun the `--check` command after upgrading any `@remotion/*` package. The persistent browser profile patch is verified against Remotion 4.0.523; when an upgrade moves its anchors, the patch writes nothing and renders fall back to temporary `puppeteer_dev_chrome_profile-*` folders until `template/scripts/patch_remotion_profile.cjs` is updated.
 
 ## Validate Python changes
 

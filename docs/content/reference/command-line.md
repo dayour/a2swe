@@ -98,6 +98,18 @@ commands maintain it; project rendering goes through the core commands above.
 npm --prefix template ci
 npm --prefix template run build
 npm --prefix template run studio
+npm --prefix template run postinstall
+node template\scripts\patch_remotion_profile.cjs --check
 node template\scripts\new_project.cjs <destination> <slug>
 python template\scripts\test_pipeline.py -v
 ```
+
+`postinstall`, which `ci` runs automatically, patches the installed Remotion
+renderer so renders reuse a persistent browser profile at
+`<project>/.remotion/chrome-profile` instead of a new temporary
+`puppeteer_dev_chrome_profile-*` folder per launch. Concurrent renders claim
+`chrome-profile-1`, `chrome-profile-2`, and so on. Set `REMOTION_USER_DATA_DIR`
+to use another location. Profiles are never deleted automatically; only their
+browser caches are trimmed, so delete `.remotion/` to reset them. `--check`
+exits with status 1 when the patch is missing, for example after an
+`--ignore-scripts` install or a Remotion upgrade.
