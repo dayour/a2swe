@@ -110,14 +110,27 @@ reset them. A `REMOTION_USER_DATA_DIR` override must resolve outside the
 release, and the render stops with `remotion_profile_inside_release` otherwise,
 so browser state never reaches verified outputs.
 
+Managed renders launch Playwright's Chromium headless shell: the newest
+completed `chromium_headless_shell-*` revision in Playwright's browser cache
+(`%LOCALAPPDATA%\ms-playwright` on Windows, or `PLAYWRIGHT_BROWSERS_PATH`).
+Without one they fall back to the Chrome for Testing shell that Remotion
+downloads for the template. `A2SWE_BROWSER_EXECUTABLE`, then
+`REMOTION_BROWSER_EXECUTABLE`, pins another browser, and
+`REMOTION_BROWSER=remotion` skips Playwright. Release configs always render with
+ANGLE. The browser is chosen at render time and is not recorded in release
+files or render receipts; receipts bind the rendered output by its digest. A
+project keeps the same profile across browser versions.
+
 A release's own `npm install --ignore-scripts` keeps the stock renderer, which
 still creates a temporary profile per launch. Before running `npm run render`
-inside a release by hand, patch its renderer and point the profile outside the
-release:
+inside a release by hand, patch its renderer, point the profile outside the
+release, and pin the headless shell the managed render used, since the
+release's own render script otherwise launches Remotion's browser:
 
 ```powershell
 node template\scripts\patch_remotion_profile.cjs <release>\outputs\remotion
 $env:REMOTION_USER_DATA_DIR = '<repo>\.a2swe\remotion-profiles\<contentId>\chrome-profile'
+$env:A2SWE_BROWSER_EXECUTABLE = '<path to the headless shell executable>'
 ```
 
 ## Audio mastering

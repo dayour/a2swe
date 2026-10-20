@@ -53,6 +53,18 @@ instead of creating a temporary `puppeteer_dev_chrome_profile-*` folder for
 every browser launch. If you install with `--ignore-scripts`, apply the patch
 afterwards with `npm --prefix template run postinstall`.
 
+## Optional Playwright headless shell
+
+Managed and template renders prefer Playwright's Chromium headless shell:
+
+```powershell
+npx playwright install chromium-headless-shell
+```
+
+They use the newest completed revision in Playwright's browser cache. Without
+one, they fall back to Remotion's Chrome for Testing headless shell, which
+Remotion downloads on first use.
+
 ## Optional documentation site install
 
 ```powershell

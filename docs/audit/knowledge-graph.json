@@ -8,7 +8,7 @@
       "adapter": 8,
       "agent": 9,
       "atom": 43,
-      "env": 31,
+      "env": 37,
       "file": 19,
       "format": 8,
       "module": 137,
@@ -32,7 +32,7 @@
       "mirrors": 6,
       "produces": 8,
       "reads": 24,
-      "reads_env": 39,
+      "reads_env": 45,
       "shipped_by": 72,
       "speaks_with": 9,
       "synthesizes_with": 2,
@@ -3088,6 +3088,12 @@
       "attributes": {}
     },
     {
+      "id": "env:INIT_CWD",
+      "type": "env",
+      "path": "INIT_CWD",
+      "attributes": {}
+    },
+    {
       "id": "env:KOKORO_LANG",
       "type": "env",
       "path": "KOKORO_LANG",
@@ -3118,6 +3124,12 @@
       "attributes": {}
     },
     {
+      "id": "env:LOCALAPPDATA",
+      "type": "env",
+      "path": "LOCALAPPDATA",
+      "attributes": {}
+    },
+    {
       "id": "env:ONNX_PROVIDER",
       "type": "env",
       "path": "ONNX_PROVIDER",
@@ -3130,9 +3142,27 @@
       "attributes": {}
     },
     {
+      "id": "env:PLAYWRIGHT_BROWSERS_PATH",
+      "type": "env",
+      "path": "PLAYWRIGHT_BROWSERS_PATH",
+      "attributes": {}
+    },
+    {
       "id": "env:RATE",
       "type": "env",
       "path": "RATE",
+      "attributes": {}
+    },
+    {
+      "id": "env:REMOTION_BROWSER",
+      "type": "env",
+      "path": "REMOTION_BROWSER",
+      "attributes": {}
+    },
+    {
+      "id": "env:REMOTION_BROWSER_EXECUTABLE",
+      "type": "env",
+      "path": "REMOTION_BROWSER_EXECUTABLE",
       "attributes": {}
     },
     {
@@ -3151,6 +3181,12 @@
       "id": "env:VOICE",
       "type": "env",
       "path": "VOICE",
+      "attributes": {}
+    },
+    {
+      "id": "env:XDG_CACHE_HOME",
+      "type": "env",
+      "path": "XDG_CACHE_HOME",
       "attributes": {}
     },
     {
@@ -4258,8 +4294,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 2066,
-        "sha256": "41974cf8b9f3f6e35a14419b2233013d38bf85459740c2d5222d3e7dbc6af0a6",
+        "lines": 2100,
+        "sha256": "1959b326daff0cab9bfc337c94d93b42a1b11ee683b8a308cc8227a9e6947cf5",
         "exports": [
           "MP4_ADAPTER",
           "remotion",
@@ -9599,6 +9635,11 @@
     {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
+      "to": "env:INIT_CWD"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
       "to": "env:KOKORO_ONNX_MODEL"
     },
     {
@@ -9609,12 +9650,37 @@
     {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
+      "to": "env:LOCALAPPDATA"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
+      "to": "env:PLAYWRIGHT_BROWSERS_PATH"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
+      "to": "env:REMOTION_BROWSER"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
+      "to": "env:REMOTION_BROWSER_EXECUTABLE"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
       "to": "env:REMOTION_USER_DATA_DIR"
     },
     {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
       "to": "env:TTS_ENGINE"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
+      "to": "env:XDG_CACHE_HOME"
     },
     {
       "from": "module:packages/core/src/media-remotion.ts",
@@ -11592,10 +11658,10 @@
         "packages/core/src/media-remotion.ts:1215",
         "packages/core/src/media-remotion.ts:1309",
         "packages/core/src/media-remotion.ts:1595",
-        "packages/core/src/media-remotion.ts:1869",
-        "packages/core/src/media-remotion.ts:1985",
-        "packages/core/src/media-remotion.ts:2029",
-        "packages/core/src/media-remotion.ts:2059"
+        "packages/core/src/media-remotion.ts:1903",
+        "packages/core/src/media-remotion.ts:2019",
+        "packages/core/src/media-remotion.ts:2063",
+        "packages/core/src/media-remotion.ts:2093"
       ]
     },
     {
@@ -11610,7 +11676,7 @@
         "packages/core/src/cli.ts (none, 400 lines)",
         "packages/core/src/image-io.ts (none, 14 lines)",
         "packages/core/src/media-analysis.ts (none, 970 lines)",
-        "packages/core/src/media-remotion.ts (transitive, 2066 lines)",
+        "packages/core/src/media-remotion.ts (transitive, 2100 lines)",
         "packages/core/src/office.ts (none, 116 lines)",
         "packages/core/src/raster-canvas.ts (transitive, 206 lines)",
         "packages/core/src/revisions.ts (none, 578 lines)",
@@ -11711,10 +11777,16 @@
         "A2SWE_TTS_ENGINE: packages/core/src/media-remotion.ts, packages/core/src/revisions.ts",
         "FFMPEG_PATH: library/integrations/copilot/media-review.ts, packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
         "FFPROBE_PATH: packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
+        "INIT_CWD: packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_MODEL: packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_VOICES: packages/core/src/media-remotion.ts",
+        "LOCALAPPDATA: packages/core/src/media-remotion.ts",
+        "PLAYWRIGHT_BROWSERS_PATH: packages/core/src/media-remotion.ts",
+        "REMOTION_BROWSER: packages/core/src/media-remotion.ts",
+        "REMOTION_BROWSER_EXECUTABLE: packages/core/src/media-remotion.ts",
         "REMOTION_USER_DATA_DIR: packages/core/src/media-remotion.ts",
-        "TTS_ENGINE: packages/core/src/media-remotion.ts"
+        "TTS_ENGINE: packages/core/src/media-remotion.ts",
+        "XDG_CACHE_HOME: packages/core/src/media-remotion.ts"
       ]
     },
     {

@@ -1844,6 +1844,40 @@ function sharedBrowserExecutable(): string | undefined {
   return undefined;
 }
 
+// Searches Playwright's browser cache as Playwright resolves it, newest completed revision first, in both the chrome-win/headless_shell
+// layout of older Playwright releases and the chrome-headless-shell-<platform> layout of newer ones.
+function playwrightHeadlessShell(): string | undefined {
+  const configured = process.env.PLAYWRIGHT_BROWSERS_PATH;
+  const root = configured && configured !== '0' ? path.resolve(process.env.INIT_CWD || process.cwd(), configured)
+    : process.platform === 'win32' ? path.join(process.env.LOCALAPPDATA || path.join(homedir(), 'AppData', 'Local'), 'ms-playwright')
+    : process.platform === 'darwin' ? path.join(homedir(), 'Library', 'Caches', 'ms-playwright')
+    : path.join(process.env.XDG_CACHE_HOME || path.join(homedir(), '.cache'), 'ms-playwright');
+  if (!existsSync(root)) return undefined;
+  const arch = process.arch === 'arm64' ? 'arm64' : 'x64';
+  const layouts = process.platform === 'win32' ? [['chrome-win', 'headless_shell.exe'], ['chrome-headless-shell-win64', 'chrome-headless-shell.exe']]
+    : process.platform === 'darwin' ? [['chrome-mac', 'headless_shell'], [`chrome-headless-shell-mac-${arch}`, 'chrome-headless-shell']]
+    : [['chrome-linux', 'headless_shell'], ['chrome-headless-shell-linux64', 'chrome-headless-shell']];
+  const revisions = readdirSync(root).map((name) => /^chromium_headless_shell-(\d+)$/.exec(name))
+    .filter((match): match is RegExpExecArray => match !== null).sort((left, right) => Number(right[1]) - Number(left[1]));
+  for (const [revision] of revisions) {
+    if (!existsSync(path.join(root, revision, 'INSTALLATION_COMPLETE'))) continue;
+    for (const layout of layouts) {
+      const candidate = path.join(root, revision, ...layout);
+      if (existsSync(candidate)) return candidate;
+    }
+  }
+  return undefined;
+}
+
+// Release renders launch Playwright's chromium headless shell (`npx playwright install chromium-headless-shell`), as the template does.
+// A2SWE_BROWSER_EXECUTABLE or REMOTION_BROWSER_EXECUTABLE pins a binary; REMOTION_BROWSER=remotion selects Remotion's Chrome-for-Testing
+// shell, which is also the fallback when Playwright has no completed headless shell installed.
+function releaseBrowser(): string | undefined {
+  const pinned = process.env.A2SWE_BROWSER_EXECUTABLE || process.env.REMOTION_BROWSER_EXECUTABLE;
+  if (pinned) return pinned;
+  return (process.env.REMOTION_BROWSER === 'remotion' ? undefined : playwrightHeadlessShell()) ?? sharedBrowserExecutable();
+}
+
 // The template postinstall (scripts/patch_remotion_profile.cjs) makes Remotion reuse REMOTION_USER_DATA_DIR instead of leaving a new temp
 // profile behind on every browser launch. Each content ID keeps one absolute profile outside the release, so browser state never reaches
 // verified outputs; the renderer would otherwise resolve a relative or missing value inside the release it renders from. Concurrent renders
@@ -1865,7 +1899,7 @@ function remotionProfile(releaseRoot: string, content: ContentIR): string {
 }
 
 function remotionCli(root: string, args: string[], label: string, timeout: number, profile: string, port?: number): void {
-  const browser = sharedBrowserExecutable();
+  const browser = releaseBrowser();
   const result = spawnSync(process.execPath, [path.join('node_modules', '@remotion', 'cli', 'remotion-cli.js'), ...args,
     ...(browser ? [`--browser-executable=${browser}`] : []), ...(port ? [`--port=${port}`] : [])], {
     cwd: root, env: { ...process.env, REMOTION_USER_DATA_DIR: profile }, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout, windowsHide: true
@@ -2022,7 +2056,7 @@ export async function renderEncodedMp4(releaseRoot: string, content: ContentIR):
   const profile = remotionProfile(releaseRoot, content);
   const cleanup = await prepareRuntime(root, content);  try {
     const env = await speechEnvironment(process.env.A2SWE_TTS_ENGINE ?? process.env.TTS_ENGINE ?? 'auto');
-    const browser = sharedBrowserExecutable();
+    const browser = releaseBrowser();
     if (browser && !env.A2SWE_BROWSER_EXECUTABLE) env.A2SWE_BROWSER_EXECUTABLE = browser;
     env.A2SWE_REMOTION_PORT = String(await freePort());
     env.REMOTION_USER_DATA_DIR = profile;

@@ -1,7 +1,7 @@
 import {Config} from '@remotion/cli/config';
 import {existsSync, readdirSync} from 'node:fs';
 import {homedir} from 'node:os';
-import {join} from 'node:path';
+import {join, resolve} from 'node:path';
 
 if (process.env.REMOTION_CACHE === '0') {
   Config.setCachingEnabled(false);
@@ -26,29 +26,35 @@ const isGlRenderer = (v: string | undefined): v is GlRenderer => (GL_RENDERERS a
 
 // Default browser backend: Playwright's chromium headless shell (`npx playwright install chromium-headless-shell`).
 // Override with REMOTION_BROWSER_EXECUTABLE; set REMOTION_BROWSER=remotion to use Remotion's own Chrome-for-Testing.
+// Searched as Playwright resolves its cache, newest completed revision first, in the chrome-win/headless_shell layout of older
+// Playwright releases and the chrome-headless-shell-<platform> layout of newer ones.
 const findPlaywrightHeadlessShell = (): string | undefined => {
   const root =
     process.env.PLAYWRIGHT_BROWSERS_PATH && process.env.PLAYWRIGHT_BROWSERS_PATH !== '0'
-      ? process.env.PLAYWRIGHT_BROWSERS_PATH
+      ? resolve(process.env.INIT_CWD || process.cwd(), process.env.PLAYWRIGHT_BROWSERS_PATH)
       : process.platform === 'win32'
-        ? join(process.env.LOCALAPPDATA ?? '', 'ms-playwright')
+        ? join(process.env.LOCALAPPDATA || join(homedir(), 'AppData', 'Local'), 'ms-playwright')
         : process.platform === 'darwin'
           ? join(homedir(), 'Library', 'Caches', 'ms-playwright')
-          : join(homedir(), '.cache', 'ms-playwright');
+          : join(process.env.XDG_CACHE_HOME || join(homedir(), '.cache'), 'ms-playwright');
   if (!existsSync(root)) return undefined;
-  const exeParts: Record<string, string[]> = {
-    win32: ['chrome-win', 'headless_shell.exe'],
-    darwin: ['chrome-headless-shell-mac-' + (process.arch === 'arm64' ? 'arm64' : 'x64'), 'chrome-headless-shell'],
-    linux: ['chrome-linux', 'headless_shell'],
+  const arch = process.arch === 'arm64' ? 'arm64' : 'x64';
+  const layouts: Record<string, string[][]> = {
+    win32: [['chrome-win', 'headless_shell.exe'], ['chrome-headless-shell-win64', 'chrome-headless-shell.exe']],
+    darwin: [['chrome-mac', 'headless_shell'], ['chrome-headless-shell-mac-' + arch, 'chrome-headless-shell']],
+    linux: [['chrome-linux', 'headless_shell'], ['chrome-headless-shell-linux64', 'chrome-headless-shell']],
   };
-  const parts = exeParts[process.platform];
-  if (!parts) return undefined;
+  const candidates = layouts[process.platform];
+  if (!candidates) return undefined;
   const revisions = readdirSync(root)
     .filter((d) => /^chromium_headless_shell-\d+$/.test(d))
     .sort((a, b) => Number(b.split('-')[1]) - Number(a.split('-')[1]));
   for (const rev of revisions) {
-    const candidate = join(root, rev, ...parts);
-    if (existsSync(candidate)) return candidate;
+    if (!existsSync(join(root, rev, 'INSTALLATION_COMPLETE'))) continue;
+    for (const parts of candidates) {
+      const candidate = join(root, rev, ...parts);
+      if (existsSync(candidate)) return candidate;
+    }
   }
   return undefined;
 };

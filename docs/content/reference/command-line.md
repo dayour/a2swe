@@ -115,3 +115,13 @@ never deleted automatically; only their browser caches are trimmed, so delete
 `.remotion/` or `.a2swe/remotion-profiles/` to reset them. `--check` exits with
 status 1 when the patch is missing, for example after an `--ignore-scripts`
 install or a Remotion upgrade.
+
+Template renders launch Playwright's Chromium headless shell when one is
+installed (`npx playwright install chromium-headless-shell`), using the newest
+completed revision in Playwright's browser cache (`%LOCALAPPDATA%\ms-playwright`
+on Windows, or `PLAYWRIGHT_BROWSERS_PATH`) with software OpenGL (`swangle`)
+unless `REMOTION_GL` names another renderer. `REMOTION_BROWSER_EXECUTABLE` pins
+a browser, and `REMOTION_BROWSER=remotion` uses Remotion's own Chrome for
+Testing download, which is also the fallback without Playwright. Managed
+release renders follow the same order after `A2SWE_BROWSER_EXECUTABLE` and
+always render with ANGLE.
