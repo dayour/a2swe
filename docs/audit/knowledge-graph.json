@@ -3,12 +3,12 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 5578,
+    "trackedFiles": 5580,
     "nodes": {
       "adapter": 8,
       "agent": 9,
       "atom": 43,
-      "env": 30,
+      "env": 31,
       "file": 19,
       "format": 8,
       "module": 137,
@@ -32,7 +32,7 @@
       "mirrors": 6,
       "produces": 8,
       "reads": 24,
-      "reads_env": 38,
+      "reads_env": 39,
       "shipped_by": 72,
       "speaks_with": 9,
       "synthesizes_with": 2,
@@ -3136,6 +3136,12 @@
       "attributes": {}
     },
     {
+      "id": "env:REMOTION_USER_DATA_DIR",
+      "type": "env",
+      "path": "REMOTION_USER_DATA_DIR",
+      "attributes": {}
+    },
+    {
       "id": "env:TTS_ENGINE",
       "type": "env",
       "path": "TTS_ENGINE",
@@ -4252,8 +4258,8 @@
       "attributes": {
         "role": "core",
         "language": "typescript",
-        "lines": 2043,
-        "sha256": "64d4f6dbda552c455024105a14c84e364f0458b809a87f8556400a8721878171",
+        "lines": 2066,
+        "sha256": "41974cf8b9f3f6e35a14419b2233013d38bf85459740c2d5222d3e7dbc6af0a6",
         "exports": [
           "MP4_ADAPTER",
           "remotion",
@@ -4365,7 +4371,7 @@
         "role": "core",
         "language": "typescript",
         "lines": 193,
-        "sha256": "d133f57719b4c6c7188454e2866131ff10d1866ae23091445e4e15e6027a5594",
+        "sha256": "e8091659d9934ae3665036a3086a8e0e3644b457cae2c896f5047dda52ffb3f3",
         "exports": [
           "FileRecord",
           "Inventory",
@@ -9603,6 +9609,11 @@
     {
       "from": "module:packages/core/src/media-remotion.ts",
       "relation": "reads_env",
+      "to": "env:REMOTION_USER_DATA_DIR"
+    },
+    {
+      "from": "module:packages/core/src/media-remotion.ts",
+      "relation": "reads_env",
       "to": "env:TTS_ENGINE"
     },
     {
@@ -11581,10 +11592,10 @@
         "packages/core/src/media-remotion.ts:1215",
         "packages/core/src/media-remotion.ts:1309",
         "packages/core/src/media-remotion.ts:1595",
-        "packages/core/src/media-remotion.ts:1849",
-        "packages/core/src/media-remotion.ts:1964",
-        "packages/core/src/media-remotion.ts:2006",
-        "packages/core/src/media-remotion.ts:2036"
+        "packages/core/src/media-remotion.ts:1869",
+        "packages/core/src/media-remotion.ts:1985",
+        "packages/core/src/media-remotion.ts:2029",
+        "packages/core/src/media-remotion.ts:2059"
       ]
     },
     {
@@ -11599,7 +11610,7 @@
         "packages/core/src/cli.ts (none, 400 lines)",
         "packages/core/src/image-io.ts (none, 14 lines)",
         "packages/core/src/media-analysis.ts (none, 970 lines)",
-        "packages/core/src/media-remotion.ts (transitive, 2043 lines)",
+        "packages/core/src/media-remotion.ts (transitive, 2066 lines)",
         "packages/core/src/office.ts (none, 116 lines)",
         "packages/core/src/raster-canvas.ts (transitive, 206 lines)",
         "packages/core/src/revisions.ts (none, 578 lines)",
@@ -11702,6 +11713,7 @@
         "FFPROBE_PATH: packages/core/src/media-analysis.ts, packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_MODEL: packages/core/src/media-remotion.ts",
         "KOKORO_ONNX_VOICES: packages/core/src/media-remotion.ts",
+        "REMOTION_USER_DATA_DIR: packages/core/src/media-remotion.ts",
         "TTS_ENGINE: packages/core/src/media-remotion.ts"
       ]
     },
