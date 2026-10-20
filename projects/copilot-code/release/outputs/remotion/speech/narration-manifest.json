@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentId": "copilot-code",
+  "contentDigest": "b4f303db39ee9c7d42a831d1c058586880f0b84acd7ebc11dcce1ee993d332f9",
+  "text": "Bottom line: pilot Copilot Code for one small purpose-built solution, with IT policy set first, a named owner, scoped data, a spend limit and an explicit stop-or-expand review.\n\nCode is for outcome-led builders, not a replacement for developer tools. Describe a dashboard, team tool, site, transform, automation or script; Code builds a live preview, keeps revertible versions and can publish cloud apps to Copilot Managed Runtime for your organization.\n\nLocal mode works inside a chosen folder and asks approval by default for network, extensions or MCP, shell commands and outside-folder access. Cloud mode is isolated. Microsoft says existing Microsoft 365 governance applies, with audit visibility into code, commands and file activity.\n\nIT must confirm license and enablement, then set auto-approve, execution location, GitHub, organizational data and spend policies. Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+  "segments": [
+    {
+      "text": "Bottom line: pilot Copilot Code for one small purpose-built solution, with IT policy set first, a named owner, scoped data, a spend limit and an explicit stop-or-expand review.",
+      "sceneId": "title"
+    },
+    {
+      "text": "Code is for outcome-led builders, not a replacement for developer tools. Describe a dashboard, team tool, site, transform, automation or script; Code builds a live preview, keeps revertible versions and can publish cloud apps to Copilot Managed Runtime for your organization.",
+      "sceneId": "what-code-is"
+    },
+    {
+      "text": "Local mode works inside a chosen folder and asks approval by default for network, extensions or MCP, shell commands and outside-folder access. Cloud mode is isolated. Microsoft says existing Microsoft 365 governance applies, with audit visibility into code, commands and file activity.",
+      "sceneId": "safe-operation"
+    },
+    {
+      "text": "IT must confirm license and enablement, then set auto-approve, execution location, GitHub, organizational data and spend policies. Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+      "sceneId": "pilot-gate"
+    }
+  ],
+  "narrationSha256": "d6577a4770ba6c32dca97e18c5240992e39e053f76927ab5a79887d185331f3a",
+  "language": "en",
+  "externalTransfer": false,
+  "voiceProfile": {
+    "id": "am_michael",
+    "name": "Michael",
+    "language": "a",
+    "speed": 1,
+    "pronunciations": {
+      "Cowork": "co-work",
+      "Microsoft 365": "Microsoft three sixty five"
+    }
+  },
+  "outputWav": "public/assets/copilot-code/audio.wav",
+  "metadataPath": "audio/narration-metadata.json",
+  "sampleRate": 48000,
+  "channels": 2,
+  "expectedDurationSeconds": 62,
+  "maxDurationDriftSeconds": 0.06666666666666667,
+  "allowedEngines": [
+    "kokoro",
+    "kokoro_onnx"
+  ],
+  "modelPathContract": {
+    "kokoro": [
+      "A2SWE_KOKORO_CONFIG",
+      "A2SWE_KOKORO_WEIGHTS",
+      "KOKORO_ONNX_VOICES"
+    ],
+    "kokoro_onnx": [
+      "KOKORO_ONNX_MODEL",
+      "KOKORO_ONNX_VOICES"
+    ]
+  }
+}

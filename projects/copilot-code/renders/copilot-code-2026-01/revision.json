@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-code",
+  "title": "copilot-code-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-10-20T23:02:29.978Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "release",
+  "contentDigest": "e750fd312f2890375d62c65698a52ddc5b8f03ac262d4737a65b663d03a874fe",
+  "outputs": [
+    {
+      "path": "copilot-code-2026-01.mp4",
+      "role": "video",
+      "digest": "bec8b4040eac6b3b0855a72dae3c523006dd5aa69fd8f7c64e0f61e399841b44",
+      "byteSize": 10876978,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.68,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-code-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.033
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.033,
+          "endSeconds": 34.933
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.933,
+          "endSeconds": 58.533
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.533,
+          "endSeconds": 79.633
+        }
+      ],
+      "releaseDigest": "2f7a951b235993c3d2c13d7ba2d9a34378f736b36e5642b0f47445d0f2064e75",
+      "package": "release"
+    },
+    {
+      "path": "copilot-code-2026-01.vtt",
+      "role": "captions",
+      "digest": "7374cfede82c4c3f54096f115ff486e6fe6dba1f63b97f1fa77294dabfd3d0af",
+      "byteSize": 1267,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from release."
+  ]
+}

@@ -3,7 +3,7 @@
   "kind": "a2swe.knowledge-graph",
   "evidencePolicy": "Derived from tracked file bytes, executable verifiers and lexical code queries. Markdown, runbook status and QC labels are recorded as claims, never as evidence. Gaps disappear when their predicate stops matching.",
   "summary": {
-    "trackedFiles": 5580,
+    "trackedFiles": 5718,
     "nodes": {
       "adapter": 8,
       "agent": 9,
@@ -14,7 +14,7 @@
       "module": 137,
       "package": 20,
       "plugin": 1,
-      "project": 9,
+      "project": 10,
       "skill": 92,
       "visual": 3,
       "voice": 3,
@@ -33,12 +33,12 @@
       "produces": 8,
       "reads": 24,
       "reads_env": 45,
-      "shipped_by": 72,
-      "speaks_with": 9,
+      "shipped_by": 80,
+      "speaks_with": 10,
       "synthesizes_with": 2,
       "tests": 31,
       "uses_contract": 97,
-      "uses_visual": 25
+      "uses_visual": 27
     },
     "gaps": {
       "critical": 0,
@@ -5899,6 +5899,57 @@
       }
     },
     {
+      "id": "project:copilot-code",
+      "type": "project",
+      "path": "projects/copilot-code",
+      "attributes": {
+        "lineage": "core-managed",
+        "trackedFiles": 134,
+        "runbook": true,
+        "generationRequest": true,
+        "qcIndex": true,
+        "runbookClaims": {
+          "stage": "delivery",
+          "gates": {
+            "domain": "passed",
+            "content": "passed",
+            "audio": "passed",
+            "native-office": "passed",
+            "media-analysis": "passed",
+            "audience-alignment": "passed",
+            "release": "passed"
+          }
+        },
+        "runbookVerification": "artifact_digests_verified",
+        "qcIndexEvidence": {
+          "entries": 76,
+          "stale": 0,
+          "crlfDigests": 0,
+          "missing": 0,
+          "unindexed": 0
+        },
+        "canonicalReleaseCopies": {
+          "domain-pack": "same_digest_different_bytes",
+          "content-ir": "identical",
+          "render-spec": "identical",
+          "approval-manifest": "identical",
+          "release-plan": "identical"
+        },
+        "content": {
+          "sections": 3,
+          "assets": 0,
+          "audience": "Executive and IT decision-makers",
+          "visuals": [
+            "mermaid",
+            "mermaid",
+            "marp"
+          ]
+        },
+        "releaseVerification": "verified_without_media_probe",
+        "adapterDrift": []
+      }
+    },
+    {
       "id": "project:copilot-studio-2026",
       "type": "project",
       "path": "projects/copilot-studio-2026",
@@ -11163,6 +11214,61 @@
       "to": "visual:mermaid"
     },
     {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-adaptive-deck-schema-3"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-docx-ooxml-5"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-html-accessible-3"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-jpeg-raster-1080p-3"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pdf-searchable-5"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-png-raster-1080p-3"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-pptx-ooxml-8"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "shipped_by",
+      "to": "adapter:a2swe-remotion-mp4-adapter-13"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "speaks_with",
+      "to": "voice:am_michael"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "uses_visual",
+      "to": "visual:marp"
+    },
+    {
+      "from": "project:copilot-code",
+      "relation": "uses_visual",
+      "to": "visual:mermaid"
+    },
+    {
       "from": "project:copilot-studio-2026",
       "relation": "shipped_by",
       "to": "adapter:a2swe-adaptive-deck-schema-3"
@@ -11806,6 +11912,7 @@
       "evidence": [
         ".vscode/settings.json:3",
         "projects/agent-365/release/outputs/remotion/audio/narration-metadata.json:65",
+        "projects/copilot-code/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/copilot-studio-2026/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/copilot/release/outputs/remotion/audio/narration-metadata.json:65",
         "projects/datadog-cowork-plugin/qc/audio/am_michael/kokoro.json:45",

@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "1.0.0",
+  "domainId": "copilot-code",
+  "kind": "tool",
+  "canonicalName": "Copilot Code",
+  "asOf": "2026-10-20",
+  "windowStart": "2026-01-20",
+  "timezone": "UTC",
+  "state": "ready",
+  "sources": [
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-announcement",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+      "publisher": "Microsoft",
+      "title": "Introducing the new Copilot with Home, Code and Autopilot",
+      "publicationDate": "2026-09-25",
+      "modifiedDate": "2026-10-02",
+      "retrievedAt": "2026-10-20T22:53:14.262Z",
+      "dateEvidence": "The article URL and page identify publication on 2026-09-25; page metadata records modification on 2026-10-02.",
+      "contentHash": "9dbdc4cb303524f3bae451aca180a6c32acebd8fc907ff1dc1dbf7380d45a524"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-overview",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview",
+      "publisher": "Microsoft Learn",
+      "title": "Copilot Code overview (Frontier)",
+      "publicationDate": "2026-10-01",
+      "modifiedDate": "2026-10-14",
+      "retrievedAt": "2026-10-20T22:53:14.682Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-01 and updated_at 2026-10-14T15:03:00Z.",
+      "contentHash": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-get-started",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/get-started",
+      "publisher": "Microsoft Learn",
+      "title": "Get started with Copilot Code (Frontier)",
+      "publicationDate": "2026-10-01",
+      "modifiedDate": "2026-10-06",
+      "retrievedAt": "2026-10-20T22:53:14.800Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-01 and updated_at 2026-10-06T19:04:00Z.",
+      "contentHash": "913c590cb901268f1e5fb3f874fdd853aac096df322a82853f3376d4dd08b38d"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-requirements",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-requirements",
+      "publisher": "Microsoft Learn",
+      "title": "Copilot Code (Frontier) requirements",
+      "publicationDate": "2026-10-01",
+      "modifiedDate": "2026-10-06",
+      "retrievedAt": "2026-10-20T22:53:14.896Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-01 and updated_at 2026-10-06T19:04:00Z.",
+      "contentHash": "9feb06bb37b521bb5879db2c2bb7015c6dcd2eec5f95e0b0ef2d0946f17fda95"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-admin",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin",
+      "publisher": "Microsoft Learn",
+      "title": "Manage Copilot Code for your organization (Frontier)",
+      "publicationDate": "2026-10-15",
+      "modifiedDate": "2026-10-15",
+      "retrievedAt": "2026-10-20T22:53:15.003Z",
+      "dateEvidence": "Page metadata records ms.date 2026-10-15 and updated_at 2026-10-15T19:07:00Z.",
+      "contentHash": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7"
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "sourceId": "src-emea",
+      "domainId": "copilot-code",
+      "canonicalUrl": "https://news.microsoft.com/source/emea/2026/09/new-microsoft-copilot-brings-home-code-and-autopilot-together/",
+      "publisher": "Microsoft Source EMEA",
+      "title": "New Microsoft Copilot brings Home, Code and Autopilot together",
+      "publicationDate": "2026-09-25",
+      "modifiedDate": null,
+      "retrievedAt": "2026-10-20T22:53:15.111Z",
+      "dateEvidence": "The source URL places the article in September 2026 and links to the 2026-09-25 original Microsoft announcement.",
+      "contentHash": "f989b61706fdbd8078e67b4c85e7fa22343b21f2320e7883b6f5fa3ff874b062"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev-preview",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Important preview notice",
+      "quote": "This is a preview feature provided under Microsoft Product Terms.",
+      "quoteDigest": "316748f55c8ffb71e23c6d7539e47b44c8de7ea42820da489caec9c6caa5bc8d"
+    },
+    {
+      "evidenceId": "ev-frontier",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Important preview notice",
+      "quote": "You need to be part of the Frontier preview program to get early access.",
+      "quoteDigest": "166341eb000fb3399487e93acce0d7e600b3b7a416d4c497483bbb5cf1a0f7f8"
+    },
+    {
+      "evidenceId": "ev-fourth-unit",
+      "sourceId": "src-announcement",
+      "sourceDigest": "9dbdc4cb303524f3bae451aca180a6c32acebd8fc907ff1dc1dbf7380d45a524",
+      "locator": "Code section, knowledge-work framing",
+      "quote": "Code adds a fourth: small, purpose-built solutions anyone can create to get a job done.",
+      "quoteDigest": "d156be5d0b90fcb505a52bbf3b0bc0ab3d5e693ff235282f3b28204ddb66cf83"
+    },
+    {
+      "evidenceId": "ev-build",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Opening definition",
+      "quote": "The Code tab in Microsoft Copilot turns what you describe into working software.",
+      "quoteDigest": "b03bba5bbc5b85040407c7391e7b5c7fb3848c5f9ab4704c5c9714627d92e9e6"
+    },
+    {
+      "evidenceId": "ev-versions",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "What is Copilot Code, iteration bullet",
+      "quote": "You give feedback in plain language, and Copilot Code refines the result. You can revert to an earlier version at any time.",
+      "quoteDigest": "4d135b857950e5de6bb6a6f4a65b8ef19f566647e4807eecc99641a8de50bb8d"
+    },
+    {
+      "evidenceId": "ev-publish",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Share section",
+      "quote": "Build interactive apps and publish them to Copilot Managed Runtime that people in your organization can open and use.",
+      "quoteDigest": "e31394a5f86826842d51a24fe6d23ff3ab5a1648e6b1c53eb3297841943728fb"
+    },
+    {
+      "evidenceId": "ev-local",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Build locally or in the cloud",
+      "quote": "When you build locally, Copilot Code works inside a project folder on your computer.",
+      "quoteDigest": "f1536b75de7055535d1869b1800de5b60950359e724755b6e6da248d183ba07f"
+    },
+    {
+      "evidenceId": "ev-cloud",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Build locally or in the cloud table, Cloud row",
+      "quote": "Cloud | In a secure, isolated environment in the cloud. | Use the cloud when you want to share projects with your coworkers.",
+      "quoteDigest": "b915e1c64f5ca5fbcc6d6d809f10e66ca9764c9ad0b93b7443620c69391da4e7"
+    },
+    {
+      "evidenceId": "ev-approval-default",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Stay in control, default permissions list",
+      "quote": "By default, Copilot Code asks for permission to:",
+      "quoteDigest": "f58410b1448130bdf44b52707332b0123cfe8099429f932536ec6d8873f17987"
+    },
+    {
+      "evidenceId": "ev-governance",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Data protection and privacy",
+      "quote": "Copilot Code works within your Microsoft 365 environment and follows your organization's existing governance, security, and compliance controls.",
+      "quoteDigest": "747311d75c380d153d2a0c98f4fc7a3f619a29c29c9e509b1807b2aa32bbba7e"
+    },
+    {
+      "evidenceId": "ev-audit",
+      "sourceId": "src-overview",
+      "sourceDigest": "dcbc09eb8f3c9be0fd28493e143c2cd1f5417d5909220acb430a44a9888dc057",
+      "locator": "Data protection and privacy",
+      "quote": "Administrators can audit the actions Copilot Code takes, including code generated, commands run, and files read or written.",
+      "quoteDigest": "144db8ee23e8a908d6f40c01bae3228e78bb8618a8537250a48f170c2ddb947d"
+    },
+    {
+      "evidenceId": "ev-license-enable",
+      "sourceId": "src-admin",
+      "sourceDigest": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7",
+      "locator": "Enable or disable Copilot Code",
+      "quote": "Copilot Code is gated by license and by an organization-level setting, so it appears in the app only after both are in place.",
+      "quoteDigest": "971a611bde1c50572fbe374ee4891bb954ab4a07a7fafa7d34b271542a228860"
+    },
+    {
+      "evidenceId": "ev-spend",
+      "sourceId": "src-requirements",
+      "sourceDigest": "9feb06bb37b521bb5879db2c2bb7015c6dcd2eec5f95e0b0ef2d0946f17fda95",
+      "locator": "Licensing and accounts",
+      "quote": "Your organization's admin controls whether Copilot Code is available and can set spend limits.",
+      "quoteDigest": "1f1229a2546426b17d248b347116218873a9c6b8a266ebd05d24775286c500bd"
+    },
+    {
+      "evidenceId": "ev-auto-approve",
+      "sourceId": "src-admin",
+      "sourceDigest": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7",
+      "locator": "Control table, Auto-approve setting",
+      "quote": "Auto-approve setting | On | This policy setting controls whether users can let Copilot auto-approve permissions in Copilot Code instead of confirming each action.",
+      "quoteDigest": "85d7e889c3cf4a08b7dcf306ca2816ca743e674cd1f382cf35cd4763dc1de9a7"
+    },
+    {
+      "evidenceId": "ev-execution",
+      "sourceId": "src-admin",
+      "sourceDigest": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7",
+      "locator": "Control table, execution location",
+      "quote": "Copilot Code execution location | On (cloud only) | This policy setting controls where Copilot Code can run agent sessions: on the user's device, in the cloud, or both.",
+      "quoteDigest": "0630f3cbddc774909b7885999c173aab522c0d1a97994607181474df9a39cde7"
+    },
+    {
+      "evidenceId": "ev-github",
+      "sourceId": "src-admin",
+      "sourceDigest": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7",
+      "locator": "Control table, GitHub connection",
+      "quote": "GitHub connection | Off | This policy setting controls whether users can connect a GitHub account in Copilot Code.",
+      "quoteDigest": "2a37ae470d873e3279228f147f888cf599a4c434b7c6ae2677d8f2b4a124e367"
+    },
+    {
+      "evidenceId": "ev-org-data",
+      "sourceId": "src-admin",
+      "sourceDigest": "cde46671463539e854f97b1bacd4baa2576b2d3bbbadfe0bea1dfc3fb52f72e7",
+      "locator": "Control table, organizational data",
+      "quote": "Organizational Data in Copilot Code | On for cloud; Off for local | This policy setting controls whether Copilot Code can use Microsoft Graph / WorkIQ data (teams, documents, emails, calendar) and plugins as context for building artifacts.",
+      "quoteDigest": "3ed493aa510b7b8546f666fe29a95c381849c6304542b7c93347cc8f0280a93b"
+    },
+    {
+      "evidenceId": "ev-corroboration",
+      "sourceId": "src-emea",
+      "sourceDigest": "f989b61706fdbd8078e67b4c85e7fa22343b21f2320e7883b6f5fa3ff874b062",
+      "locator": "Key points, Code bullet",
+      "quote": "Code enables users to build applications and automations using natural language.",
+      "quoteDigest": "b5a9d5b736b591153101f446d08f576f7d9445406b426ecec40a08160fcaf108"
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "c1",
+      "wording": "Copilot Code is a preview build experience in the Microsoft Copilot app that requires Frontier access; the selected sources do not establish general availability.",
+      "evidenceIds": [
+        "ev-preview",
+        "ev-frontier"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c2",
+      "wording": "Microsoft frames Code as a shift from files alone toward small purpose-built solutions: users describe software in natural language, see a live result, iterate, and can revert to an earlier version.",
+      "evidenceIds": [
+        "ev-fourth-unit",
+        "ev-build",
+        "ev-versions",
+        "ev-corroboration"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c3",
+      "wording": "Cloud projects can publish interactive apps to Copilot Managed Runtime for people in the organization, while local projects work inside a chosen project folder.",
+      "evidenceIds": [
+        "ev-publish",
+        "ev-local"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c4",
+      "wording": "Local mode asks for approval by default before network calls, extensions or MCP use, shell commands, or file access outside active projects; cloud mode runs in a secure isolated environment.",
+      "evidenceIds": [
+        "ev-approval-default",
+        "ev-cloud"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c5",
+      "wording": "Copilot Code follows Microsoft 365 governance, security and compliance controls, and administrators can audit generated code, commands run, and files read or written.",
+      "evidenceIds": [
+        "ev-governance",
+        "ev-audit"
+      ],
+      "disposition": "supported"
+    },
+    {
+      "claimId": "c6",
+      "wording": "For work accounts, IT must provide a Copilot license and organization-level enablement, and can configure auto-approve, execution location, GitHub connections, organizational data access and spend limits; documented defaults can change during preview.",
+      "evidenceIds": [
+        "ev-license-enable",
+        "ev-spend",
+        "ev-auto-approve",
+        "ev-execution",
+        "ev-github",
+        "ev-org-data",
+        "ev-preview"
+      ],
+      "disposition": "supported"
+    }
+  ],
+  "knownGaps": [
+    "The selected sources do not establish general availability.",
+    "Rollout timing, sign-in URLs, supported platforms and model lists differ across pages or can change during preview, so the package omits them from decision claims.",
+    "The sources provide no customer outcomes, savings estimates, adoption figures or pricing.",
+    "The package does not treat Copilot Code as GitHub Copilot, GitHub Copilot coding agent, Visual Studio Code, Copilot Studio or Copilot Pages."
+  ]
+}

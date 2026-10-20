@@ -1,0 +1,7 @@
+flowchart TB
+  choose["CHOOSE BOUNDARY"] --> local["LOCAL\nChosen folder"]
+  choose --> cloud["CLOUD\nIsolated runtime"]
+  local --> approve["APPROVE\nExternal actions"]
+  cloud --> govern["GOVERN\nPolicy + audit"]
+  approve --> audit["AUDIT\nCode • commands • files"]
+  govern --> audit

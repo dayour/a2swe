@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-code",
+  "generatedAt": "2026-10-20T23:14:40.418Z",
+  "rows": [
+    {
+      "title": "copilot-code-2026-01",
+      "status": "superseded",
+      "pipeline": "core-release",
+      "file": "copilot-code-2026-01.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-code-2026-01/copilot-code-2026-01/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 79.68,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16.1,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.2,
+      "speechRmsDbfs": -18.63,
+      "noiseFloorDbfs": -63.27,
+      "snrDb": 44.64,
+      "speechRatio": 0.8082,
+      "longestPauseSeconds": 1.625,
+      "speechCentroidHz": 814.5,
+      "speechHf8k": 0.003448,
+      "speechFlatness": 0.000107,
+      "humProminenceDb": 6.71,
+      "transitions": 9,
+      "staticHolds": 6,
+      "captionDetail": 20.988,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8774013274998071,
+      "bodyFineDetail": 0.21545,
+      "captionFineDetail": 0.07862,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    },
+    {
+      "title": "copilot-code-2026-02",
+      "status": "current",
+      "pipeline": "core-release",
+      "file": "copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "analysis": "qc/analysis/copilot-code-2026-02/copilot-code-2026-02-am_michael-kokoro_onnx/analysis.json",
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "durationSeconds": 79.424,
+      "width": 1920,
+      "height": 1080,
+      "integratedLufs": -16,
+      "truePeakDbtp": -1.5,
+      "loudnessRangeLu": 3.3,
+      "speechRmsDbfs": -18.6,
+      "noiseFloorDbfs": -62.2,
+      "snrDb": 43.6,
+      "speechRatio": 0.8054,
+      "longestPauseSeconds": 1.625,
+      "speechCentroidHz": 808.8,
+      "speechHf8k": 0.003386,
+      "speechFlatness": 0.000105,
+      "humProminenceDb": 7.19,
+      "transitions": 9,
+      "staticHolds": 4,
+      "captionDetail": 21.059,
+      "flickerSeconds": 0,
+      "motionBelow2Hz": 0.8769349104987894,
+      "bodyFineDetail": 0.21544,
+      "captionFineDetail": 0.07858,
+      "findings": [
+        "info:dual-mono",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold",
+        "info:static-hold"
+      ]
+    }
+  ]
+}

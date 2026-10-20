@@ -983,6 +983,69 @@
       "state": "Generated"
     },
     {
+      "id": "copilot-code",
+      "title": "Copilot Code",
+      "description": "A decision-first executive briefing on Copilot Code, the Frontier preview build experience in the Microsoft Copilot app, and one bounded pilot gated on IT execution, permission, data, GitHub and spend policies. Copilot Code is kept distinct from GitHub Copilot and Copilot Studio.",
+      "note": "1080p executive briefing with all eight output formats, generated from one desktop-bridge request with no repair prompts. The newest revision renders Michael on Kokoro ONNX mastered to -16 LUFS, every render reused one persistent Remotion browser profile, and qc/analysis/report.md compares both revisions.",
+      "evidence": [
+        "projects/copilot-code/canonical/generation-request.json",
+        "projects/copilot-code/canonical/domain-pack.json",
+        "projects/copilot-code/agent/runbook.json",
+        "projects/copilot-code/canonical/content-ir.json",
+        "projects/copilot-code/release/parity-manifest.json",
+        "projects/copilot-code/qc/index.json",
+        "projects/copilot-code/qc/analysis/report.md"
+      ],
+      "blockers": [],
+      "revisions": [
+        {
+          "id": "copilot-code/copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+          "projectId": "copilot-code",
+          "title": "Copilot Code copilot-code-2026-02 (Michael / kokoro_onnx)",
+          "revision": "copilot-code-2026-02-am_michael-kokoro_onnx",
+          "revisionTitle": "copilot-code-2026-02",
+          "voice": "Michael / kokoro_onnx",
+          "source": "projects/copilot-code/renders/copilot-code-2026-02/copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+          "movie": "library/videos/copilot-code/copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+          "poster": "library/posters/copilot-code-copilot-code-2026-02-am_michael-kokoro_onnx.mp4.jpg",
+          "captions": "library/captions/copilot-code/copilot-code-2026-02-am_michael-kokoro_onnx.vtt",
+          "digest": "e3d2534a7ede3f0705256a1ffb782c73826fb583c014a98ce91cf77e8e78dce0",
+          "bytes": 10830934,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 79.366667,
+          "codec": "h264",
+          "latest": true,
+          "qc": "projects/copilot-code/qc/analysis/copilot-code-2026-02/copilot-code-2026-02-am_michael-kokoro_onnx/analysis.json",
+          "state": "Current revision"
+        },
+        {
+          "id": "copilot-code/copilot-code-2026-01.mp4",
+          "projectId": "copilot-code",
+          "title": "Copilot Code copilot-code-2026-01 (Michael / kokoro_onnx)",
+          "revision": "copilot-code-2026-01",
+          "revisionTitle": "copilot-code-2026-01",
+          "voice": "Michael / kokoro_onnx",
+          "source": "projects/copilot-code/renders/copilot-code-2026-01/copilot-code-2026-01.mp4",
+          "movie": "library/videos/copilot-code/copilot-code-2026-01.mp4",
+          "poster": "library/posters/copilot-code-copilot-code-2026-01.mp4.jpg",
+          "captions": "library/captions/copilot-code/copilot-code-2026-01.vtt",
+          "digest": "bec8b4040eac6b3b0855a72dae3c523006dd5aa69fd8f7c64e0f61e399841b44",
+          "bytes": 10876978,
+          "width": 1920,
+          "height": 1080,
+          "fps": 30,
+          "duration": 79.633333,
+          "codec": "h264",
+          "latest": false,
+          "qc": "projects/copilot-code/qc/analysis/copilot-code-2026-01/copilot-code-2026-01/analysis.json",
+          "state": "Historical revision"
+        }
+      ],
+      "state": "Generated"
+    },
+    {
       "id": "copilot-studio-2026",
       "title": "Copilot Studio 2026",
       "description": "An executive briefing on Copilot Studio agents: generative orchestration, tools, and security and governance controls, grounded in Microsoft Learn sources.",
@@ -4518,6 +4581,21 @@
       "digest": "83c78c1c7592cb6a08a20e737678de64c3bd56858b1d1ea76481a6547769fc25"
     },
     {
+      "id": "projects/copilot-code/agent/SWE_AGENT.md",
+      "title": "Copilot Code companion",
+      "category": "Agents",
+      "description": "Project companion instructions and production state. Check the recorded evidence before reuse.",
+      "preview": "agent",
+      "source": "projects/copilot-code/agent/SWE_AGENT.md",
+      "symbol": null,
+      "tags": [
+        "copilot-code"
+      ],
+      "recipe": null,
+      "image": null,
+      "digest": "02bbc812f33b042de0d9d077c4448f8d00ee7c01af4151ef5fb10e5633875cc2"
+    },
+    {
       "id": "projects/copilot/agent/SWE_AGENT.md",
       "title": "Copilot companion",
       "category": "Agents",
@@ -7978,6 +8056,21 @@
       "recipe": null,
       "image": null,
       "digest": "859fc9bfe48e0531cbc3ffa90a3e3a0f2a9bedc41c1d9cc55a3e95e6f3b099c0"
+    },
+    {
+      "id": "projects/copilot-code/canonical/content-ir.json",
+      "title": "Copilot Code storyline",
+      "category": "Storylines",
+      "description": "Adapt the scene sequence and narrative structure. Re-research claims before reuse.",
+      "preview": "storyline",
+      "source": "projects/copilot-code/canonical/content-ir.json",
+      "symbol": null,
+      "tags": [
+        "copilot-code"
+      ],
+      "recipe": null,
+      "image": null,
+      "digest": "de4889cf6f3723a79f92ea077d42cef3744b9bcd6f92353a0e444e880b3d65c8"
     },
     {
       "id": "projects/copilot/canonical/content-ir.json",

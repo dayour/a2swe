@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Copilot Code",
+  "kind": "tool",
+  "brief": "Create a polished executive engagement package about Copilot Code as of 2026-10-20. Scope it to Code, the build experience in the new Microsoft Copilot app announced on 2026-09-25 alongside Home and Autopilot and documented as a preview that requires the Microsoft Frontier program; never claim general availability, and attribute or omit rollout timing, sign-in URLs, platform lists and model lists wherever the listed sources differ or are likely to change. Do not confuse it with GitHub Copilot, GitHub Copilot coding agent or Visual Studio Code, which remain developer tools; with Copilot Studio, the maker platform whose apps share Copilot Managed Runtime; with Copilot Pages; or with the existing projects/copilot family package, which may be cited only as context. Explain the shift from asking Copilot for answers to describing a small purpose-built solution (an app, dashboard, internal tool, static site, data transform, automation or script) that Code builds with a live preview, keeps as revertible versions and, from cloud mode, can publish to Copilot Managed Runtime behind an organization-scoped link; treat the fourth-unit-of-knowledge-work idea as attributed Microsoft framing. Lead with the pilot decision, then three substantive points: what Code is and who it is for; how it runs safely (local mode works inside a chosen folder and by default asks approval for network calls, extensions or MCP servers and shell commands; cloud mode is isolated; work follows Microsoft 365 governance and admins can audit generated code, commands run and files read or written); and what IT must configure (Copilot license plus organizational enablement, preview setup, auto-approve, execution location, GitHub connection and organizational data policies, and spend limits, stating defaults only as documented). Close with a narrow accountable pilot recommendation whose guardrails are framed as recommendations, not product guarantees. No invented savings, adoption figures, pricing, customer results or unlimited permissions. Use only the listed public official sources and their public references, not private enterprise messages or local files. Create the project-specific domain SWE agent and all eight outputs using existing a2swe core. Use the installed render-theme.json from the brand receipt and never hand-pick colors or fonts. Target a concise 60-90 second video with 120-160 words and meaningful original diagrams using short large labels, not tiny verbose horizontal boxes. Narration should equal the title summary followed by each section body, separated by blank lines, to preserve measured scene alignment. Set speech-only pronunciation for Microsoft 365 to Microsoft three sixty five if used; preserve written captions. Keep executive claims concise with full provenance in notes. Review encoded video, subtitles, spectrogram, assets and editable presentations through review.evidence and core QC rather than ad hoc browser automation, and do not create temporary browser profiles. Repair defects without weakening gates or adding test/render scripts. Preserve failed or intermediate releases only under qc/revisions and keep the shipped release at release. Keep raw fetched pages local and commit concise evidence/provenance. Run release-verify and runbook-verify before completion.",
+  "audience": "Executive and IT decision-makers",
+  "sources": [
+    "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/",
+    "https://learn.microsoft.com/en-us/copilot/code/overview",
+    "https://learn.microsoft.com/en-us/copilot/code/get-started",
+    "https://learn.microsoft.com/en-us/copilot/code/code-requirements",
+    "https://learn.microsoft.com/en-us/copilot/code/code-admin",
+    "https://news.microsoft.com/source/emea/2026/09/new-microsoft-copilot-brings-home-code-and-autopilot-together/"
+  ],
+  "libraryPaths": [],
+  "voiceProfile": "am_michael",
+  "speed": 1,
+  "formats": [
+    "html",
+    "adaptiveDeck",
+    "pptx",
+    "docx",
+    "pdf",
+    "png",
+    "jpeg",
+    "remotion"
+  ],
+  "mode": "auto",
+  "brandUrl": "https://www.microsoft.com/en-us/",
+  "id": "copilot-code"
+}

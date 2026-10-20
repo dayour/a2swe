@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-code",
+  "generatedAt": "2026-10-20T23:08:32.389Z",
+  "source": "release",
+  "contentDigest": "b4f303db39ee9c7d42a831d1c058586880f0b84acd7ebc11dcce1ee993d332f9",
+  "domainDigest": "44c3607b63d919a0e19714eadb83729854cb3e31adadc252c28929b07221af1d",
+  "declaredDistribution": "external",
+  "derivedDistribution": "external",
+  "effectiveDistribution": "external",
+  "model": {
+    "id": "a2swe-sentence-embedding",
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384
+  },
+  "profiles": {
+    "path": "library/assets/alignment/audience-profiles.json",
+    "digest": "cb096e2fb4d0569fce00b636ad65ff5a443f1213c60793605f6fa171d354933b"
+  },
+  "thresholds": {
+    "weakGrounding": 0.45,
+    "leakSimilarity": 0.6,
+    "leakMargin": 0.08,
+    "visualAligned": 0.45,
+    "visualWeak": 0.3,
+    "lowRelevance": 0.18
+  },
+  "sources": [
+    {
+      "sourceId": "src-announcement",
+      "title": "Introducing the new Copilot with Home, Code and Autopilot",
+      "host": "blogs.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-overview",
+      "title": "Copilot Code overview (Frontier)",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-get-started",
+      "title": "Get started with Copilot Code (Frontier)",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-requirements",
+      "title": "Copilot Code (Frontier) requirements",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-admin",
+      "title": "Manage Copilot Code for your organization (Frontier)",
+      "host": "learn.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    },
+    {
+      "sourceId": "src-emea",
+      "title": "New Microsoft Copilot brings Home, Code and Autopilot together",
+      "host": "news.microsoft.com",
+      "distribution": "public",
+      "basis": "inferred-from-host"
+    }
+  ],
+  "audiences": {
+    "internal": {
+      "audience": "internal",
+      "label": "Internal: account team and leadership",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "what-code-is: low relevance to internal priorities (0.147).",
+        "pilot-gate: weakly grounded sentence (0.303): \"Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.\""
+      ],
+      "eligibleEvidence": 18,
+      "totalEvidence": 18,
+      "leadClaim": "c6",
+      "recommendedOrder": [
+        "pilot-gate",
+        "safe-operation",
+        "what-code-is"
+      ],
+      "sections": [
+        {
+          "sectionId": "pilot-gate",
+          "title": "3. Configure first, then pilot narrowly",
+          "relevance": 0.426,
+          "intent": "governance",
+          "grounding": 0.494,
+          "decision": 0.627,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.787,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+              "grounding": 0.303
+            }
+          ]
+        },
+        {
+          "sectionId": "safe-operation",
+          "title": "2. Choose the execution boundary deliberately",
+          "relevance": 0.254,
+          "intent": "governance",
+          "grounding": 0.646,
+          "decision": 0.27,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.558,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "what-code-is",
+          "title": "1. Shift from answers to small solutions",
+          "relevance": 0.147,
+          "intent": "platform-strategy",
+          "grounding": 0.569,
+          "decision": 0.121,
+          "eligibleClaims": 3,
+          "claims": 3,
+          "leakage": 0,
+          "score": 0.376,
+          "rank": 3,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c6",
+          "text": "For work accounts, IT must provide a Copilot license and organization-level enablement, and can configure auto-approve, execution location, GitHub connections, organizational data access and spend limits; documented defaults can change during preview.",
+          "eligible": true,
+          "relevance": 0.382,
+          "intent": "governance",
+          "support": 0.451,
+          "decision": 0.513,
+          "score": 0.658,
+          "rank": 1
+        },
+        {
+          "claimId": "c5",
+          "text": "Copilot Code follows Microsoft 365 governance, security and compliance controls, and administrators can audit generated code, commands run, and files read or written.",
+          "eligible": true,
+          "relevance": 0.323,
+          "intent": "governance",
+          "support": 0.836,
+          "decision": 0.266,
+          "score": 0.59,
+          "rank": 2
+        },
+        {
+          "claimId": "c3",
+          "text": "Cloud projects can publish interactive apps to Copilot Managed Runtime for people in the organization, while local projects work inside a chosen project folder.",
+          "eligible": true,
+          "relevance": 0.251,
+          "intent": "platform-strategy",
+          "support": 0.625,
+          "decision": 0.201,
+          "score": 0.492,
+          "rank": 3
+        },
+        {
+          "claimId": "c4",
+          "text": "Local mode asks for approval by default before network calls, extensions or MCP use, shell commands, or file access outside active projects; cloud mode runs in a secure isolated environment.",
+          "eligible": true,
+          "relevance": 0.189,
+          "intent": "blockers",
+          "support": 0.339,
+          "decision": 0.221,
+          "score": 0.281,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Code is a preview build experience in the Microsoft Copilot app that requires Frontier access; the selected sources do not establish general availability.",
+          "eligible": true,
+          "relevance": 0.126,
+          "intent": "customer-signals",
+          "support": 0.343,
+          "decision": 0.273,
+          "score": 0.241,
+          "rank": 5
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft frames Code as a shift from files alone toward small purpose-built solutions: users describe software in natural language, see a live result, iterate, and can revert to an earlier version.",
+          "eligible": true,
+          "relevance": 0.114,
+          "intent": "accountability",
+          "support": 0.414,
+          "decision": 0.043,
+          "score": 0.203,
+          "rank": 6
+        }
+      ],
+      "leakage": []
+    },
+    "external": {
+      "audience": "external",
+      "label": "External: customer and partner executives",
+      "ready": true,
+      "readiness": 1,
+      "blockers": [],
+      "warnings": [
+        "pilot-gate: weakly grounded sentence (0.303): \"Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.\""
+      ],
+      "eligibleEvidence": 18,
+      "totalEvidence": 18,
+      "leadClaim": "c6",
+      "recommendedOrder": [
+        "pilot-gate",
+        "safe-operation",
+        "what-code-is"
+      ],
+      "sections": [
+        {
+          "sectionId": "pilot-gate",
+          "title": "3. Configure first, then pilot narrowly",
+          "relevance": 0.437,
+          "intent": "assurance",
+          "grounding": 0.494,
+          "decision": 0.627,
+          "eligibleClaims": 1,
+          "claims": 1,
+          "leakage": 0,
+          "score": 0.795,
+          "rank": 1,
+          "weakSentences": [
+            {
+              "text": "Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+              "grounding": 0.303
+            }
+          ]
+        },
+        {
+          "sectionId": "safe-operation",
+          "title": "2. Choose the execution boundary deliberately",
+          "relevance": 0.238,
+          "intent": "assurance",
+          "grounding": 0.646,
+          "decision": 0.27,
+          "eligibleClaims": 2,
+          "claims": 2,
+          "leakage": 0,
+          "score": 0.546,
+          "rank": 2,
+          "weakSentences": []
+        },
+        {
+          "sectionId": "what-code-is",
+          "title": "1. Shift from answers to small solutions",
+          "relevance": 0.276,
+          "intent": "architecture-choices",
+          "grounding": 0.569,
+          "decision": 0.121,
+          "eligibleClaims": 3,
+          "claims": 3,
+          "leakage": 0,
+          "score": 0.479,
+          "rank": 3,
+          "weakSentences": []
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "c6",
+          "text": "For work accounts, IT must provide a Copilot license and organization-level enablement, and can configure auto-approve, execution location, GitHub connections, organizational data access and spend limits; documented defaults can change during preview.",
+          "eligible": true,
+          "relevance": 0.367,
+          "intent": "assurance",
+          "support": 0.451,
+          "decision": 0.513,
+          "score": 0.643,
+          "rank": 1
+        },
+        {
+          "claimId": "c5",
+          "text": "Copilot Code follows Microsoft 365 governance, security and compliance controls, and administrators can audit generated code, commands run, and files read or written.",
+          "eligible": true,
+          "relevance": 0.301,
+          "intent": "assurance",
+          "support": 0.836,
+          "decision": 0.266,
+          "score": 0.568,
+          "rank": 2
+        },
+        {
+          "claimId": "c3",
+          "text": "Cloud projects can publish interactive apps to Copilot Managed Runtime for people in the organization, while local projects work inside a chosen project folder.",
+          "eligible": true,
+          "relevance": 0.295,
+          "intent": "architecture-choices",
+          "support": 0.625,
+          "decision": 0.201,
+          "score": 0.536,
+          "rank": 3
+        },
+        {
+          "claimId": "c4",
+          "text": "Local mode asks for approval by default before network calls, extensions or MCP use, shell commands, or file access outside active projects; cloud mode runs in a secure isolated environment.",
+          "eligible": true,
+          "relevance": 0.209,
+          "intent": "assurance",
+          "support": 0.339,
+          "decision": 0.221,
+          "score": 0.301,
+          "rank": 4
+        },
+        {
+          "claimId": "c1",
+          "text": "Copilot Code is a preview build experience in the Microsoft Copilot app that requires Frontier access; the selected sources do not establish general availability.",
+          "eligible": true,
+          "relevance": 0.112,
+          "intent": "assurance",
+          "support": 0.343,
+          "decision": 0.273,
+          "score": 0.227,
+          "rank": 5
+        },
+        {
+          "claimId": "c2",
+          "text": "Microsoft frames Code as a shift from files alone toward small purpose-built solutions: users describe software in natural language, see a live result, iterate, and can revert to an earlier version.",
+          "eligible": true,
+          "relevance": 0.07,
+          "intent": "architecture-choices",
+          "support": 0.414,
+          "decision": 0.043,
+          "score": 0.188,
+          "rank": 6
+        }
+      ],
+      "leakage": []
+    }
+  },
+  "audiovisual": {
+    "status": "measured",
+    "meanSimilarity": 0.588,
+    "scenes": [
+      {
+        "sceneId": "title",
+        "kind": "title",
+        "visual": null,
+        "similarity": 0.796,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "what-code-is",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.49,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "safe-operation",
+        "kind": "section",
+        "visual": "mermaid",
+        "similarity": 0.658,
+        "status": "aligned"
+      },
+      {
+        "sceneId": "pilot-gate",
+        "kind": "section",
+        "visual": "marp",
+        "similarity": 0.406,
+        "status": "weak"
+      }
+    ]
+  }
+}

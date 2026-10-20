@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "1.0.0",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "sampleRate": 48000,
+  "durationInFrames": 2381,
+  "scenes": [
+    {
+      "id": "title",
+      "kind": "title",
+      "title": "Copilot Code: approve a narrow, governed preview pilot",
+      "body": "Bottom line: pilot Copilot Code for one small purpose-built solution, with IT policy set first, a named owner, scoped data, a spend limit and an explicit stop-or-expand review.",
+      "narration": "Bottom line: pilot Copilot Code for one small purpose-built solution, with IT policy set first, a named owner, scoped data, a spend limit and an explicit stop-or-expand review.",
+      "claims": [
+        "Copilot Code is a preview build experience in the Microsoft Copilot app that requires Frontier access; the selected sources do not establish general availability.",
+        "Microsoft frames Code as a shift from files alone toward small purpose-built solutions: users describe software in natural language, see a live result, iterate, and can revert to an earlier version.",
+        "Cloud projects can publish interactive apps to Copilot Managed Runtime for people in the organization, while local projects work inside a chosen project folder.",
+        "Local mode asks for approval by default before network calls, extensions or MCP use, shell commands, or file access outside active projects; cloud mode runs in a secure isolated environment.",
+        "Copilot Code follows Microsoft 365 governance, security and compliance controls, and administrators can audit generated code, commands run, and files read or written.",
+        "For work accounts, IT must provide a Copilot license and organization-level enablement, and can configure auto-approve, execution location, GitHub connections, organizational data access and spend limits; documented defaults can change during preview."
+      ],
+      "claimSources": [
+        "Copilot Code overview (Frontier)",
+        "Introducing the new Copilot with Home, Code and Autopilot",
+        "Copilot Code overview (Frontier)",
+        "Copilot Code overview (Frontier)",
+        "Copilot Code overview (Frontier)",
+        "Manage Copilot Code for your organization (Frontier)"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-preview",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-frontier",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-fourth-unit",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-build",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-versions",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-publish",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-local",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-cloud",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-approval-default",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-governance",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-audit",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-license-enable",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-spend",
+          "sourceTitle": "Copilot Code (Frontier) requirements",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-requirements"
+        },
+        {
+          "evidenceId": "ev-auto-approve",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-execution",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-github",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-org-data",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-corroboration",
+          "sourceTitle": "New Microsoft Copilot brings Home, Code and Autopilot together",
+          "canonicalUrl": "https://news.microsoft.com/source/emea/2026/09/new-microsoft-copilot-brings-home-code-and-autopilot-together/"
+        }
+      ],
+      "assetIds": [],
+      "visual": null,
+      "visualId": null,
+      "decision": "Approve one bounded Frontier pilot only after IT sets the execution, permission, data, GitHub and spend policies and names an accountable business owner.",
+      "startFrame": 0,
+      "durationInFrames": 426,
+      "endFrame": 426,
+      "speechStartFrame": 8,
+      "speechEndFrame": 418
+    },
+    {
+      "id": "what-code-is",
+      "kind": "section",
+      "title": "1. Shift from answers to small solutions",
+      "body": "Code is for outcome-led builders, not a replacement for developer tools. Describe a dashboard, team tool, site, transform, automation or script; Code builds a live preview, keeps revertible versions and can publish cloud apps to Copilot Managed Runtime for your organization.",
+      "narration": "Code is for outcome-led builders, not a replacement for developer tools. Describe a dashboard, team tool, site, transform, automation or script; Code builds a live preview, keeps revertible versions and can publish cloud apps to Copilot Managed Runtime for your organization.",
+      "claims": [
+        "Copilot Code is a preview build experience in the Microsoft Copilot app that requires Frontier access; the selected sources do not establish general availability.",
+        "Microsoft frames Code as a shift from files alone toward small purpose-built solutions: users describe software in natural language, see a live result, iterate, and can revert to an earlier version.",
+        "Cloud projects can publish interactive apps to Copilot Managed Runtime for people in the organization, while local projects work inside a chosen project folder."
+      ],
+      "claimSources": [
+        "Copilot Code overview (Frontier)",
+        "Introducing the new Copilot with Home, Code and Autopilot",
+        "Copilot Code overview (Frontier)"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-preview",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-frontier",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-fourth-unit",
+          "sourceTitle": "Introducing the new Copilot with Home, Code and Autopilot",
+          "canonicalUrl": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+        },
+        {
+          "evidenceId": "ev-build",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-versions",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-corroboration",
+          "sourceTitle": "New Microsoft Copilot brings Home, Code and Autopilot together",
+          "canonicalUrl": "https://news.microsoft.com/source/emea/2026/09/new-microsoft-copilot-brings-home-code-and-autopilot-together/"
+        },
+        {
+          "evidenceId": "ev-publish",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-local",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart LR\n  intent[\"DESCRIBE\\nOutcome\"] --> build[\"BUILD\\nWorking solution\"]\n  build --> preview[\"PREVIEW\\nSee and refine\"]\n  preview --> version[\"REVERT\\nKeep versions\"]\n  version --> share[\"SHARE\\nOrganization\"]",
+        "caption": "From an outcome description to a previewed, versioned and organization-scoped solution."
+      },
+      "visualId": "01-what-code-is",
+      "decision": "Approve one bounded Frontier pilot only after IT sets the execution, permission, data, GitHub and spend policies and names an accountable business owner.",
+      "startFrame": 426,
+      "durationInFrames": 620,
+      "endFrame": 1046,
+      "speechStartFrame": 434,
+      "speechEndFrame": 1037
+    },
+    {
+      "id": "safe-operation",
+      "kind": "section",
+      "title": "2. Choose the execution boundary deliberately",
+      "body": "Local mode works inside a chosen folder and asks approval by default for network, extensions or MCP, shell commands and outside-folder access. Cloud mode is isolated. Microsoft says existing Microsoft 365 governance applies, with audit visibility into code, commands and file activity.",
+      "narration": "Local mode works inside a chosen folder and asks approval by default for network, extensions or MCP, shell commands and outside-folder access. Cloud mode is isolated. Microsoft says existing Microsoft 365 governance applies, with audit visibility into code, commands and file activity.",
+      "claims": [
+        "Local mode asks for approval by default before network calls, extensions or MCP use, shell commands, or file access outside active projects; cloud mode runs in a secure isolated environment.",
+        "Copilot Code follows Microsoft 365 governance, security and compliance controls, and administrators can audit generated code, commands run, and files read or written."
+      ],
+      "claimSources": [
+        "Copilot Code overview (Frontier)",
+        "Copilot Code overview (Frontier)"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-approval-default",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-cloud",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-governance",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        },
+        {
+          "evidenceId": "ev-audit",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "mermaid",
+        "source": "flowchart TB\n  choose[\"CHOOSE BOUNDARY\"] --> local[\"LOCAL\\nChosen folder\"]\n  choose --> cloud[\"CLOUD\\nIsolated runtime\"]\n  local --> approve[\"APPROVE\\nExternal actions\"]\n  cloud --> govern[\"GOVERN\\nPolicy + audit\"]\n  approve --> audit[\"AUDIT\\nCode • commands • files\"]\n  govern --> audit",
+        "caption": "Local and cloud have different execution boundaries, joined by governance and audit."
+      },
+      "visualId": "02-safe-operation",
+      "decision": "Approve one bounded Frontier pilot only after IT sets the execution, permission, data, GitHub and spend policies and names an accountable business owner.",
+      "startFrame": 1046,
+      "durationInFrames": 708,
+      "endFrame": 1754,
+      "speechStartFrame": 1054,
+      "speechEndFrame": 1745
+    },
+    {
+      "id": "pilot-gate",
+      "kind": "section",
+      "title": "3. Configure first, then pilot narrowly",
+      "body": "IT must confirm license and enablement, then set auto-approve, execution location, GitHub, organizational data and spend policies. Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+      "narration": "IT must confirm license and enablement, then set auto-approve, execution location, GitHub, organizational data and spend policies. Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+      "claims": [
+        "For work accounts, IT must provide a Copilot license and organization-level enablement, and can configure auto-approve, execution location, GitHub connections, organizational data access and spend limits; documented defaults can change during preview."
+      ],
+      "claimSources": [
+        "Manage Copilot Code for your organization (Frontier)"
+      ],
+      "citations": [
+        {
+          "evidenceId": "ev-license-enable",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-spend",
+          "sourceTitle": "Copilot Code (Frontier) requirements",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-requirements"
+        },
+        {
+          "evidenceId": "ev-auto-approve",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-execution",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-github",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-org-data",
+          "sourceTitle": "Manage Copilot Code for your organization (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/code-admin"
+        },
+        {
+          "evidenceId": "ev-preview",
+          "sourceTitle": "Copilot Code overview (Frontier)",
+          "canonicalUrl": "https://learn.microsoft.com/en-us/copilot/code/overview"
+        }
+      ],
+      "assetIds": [],
+      "visual": {
+        "kind": "marp",
+        "source": "# PILOT GATE\n\n| LICENSE + ENABLE | POLICY | OWNER + BUDGET |\n|---|---|---|\n| One use case | Least data | Stop or expand |\n\n## REVIEW BEFORE BROADER ACCESS",
+        "caption": "A narrow pilot starts with policy and ends with an accountable review."
+      },
+      "visualId": "03-pilot-gate",
+      "decision": "Approve one bounded Frontier pilot only after IT sets the execution, permission, data, GitHub and spend policies and names an accountable business owner.",
+      "startFrame": 1754,
+      "durationInFrames": 627,
+      "endFrame": 2381,
+      "speechStartFrame": 1762,
+      "speechEndFrame": 2366
+    }
+  ],
+  "subtitleCues": [
+    {
+      "text": "Bottom line: pilot Copilot Code for one small purpose-built solution, with IT policy set first, a named owner, scoped data, a spend limit and an explicit stop-or-expand review.",
+      "startFrame": 8,
+      "endFrame": 418,
+      "sourceSegmentIndex": 0,
+      "sceneId": "title"
+    },
+    {
+      "text": "Code is for outcome-led builders, not a replacement for developer tools.",
+      "startFrame": 434,
+      "endFrame": 592,
+      "sourceSegmentIndex": 1,
+      "sceneId": "what-code-is"
+    },
+    {
+      "text": "Describe a dashboard, team tool, site, transform, automation or script; Code builds a live preview, keeps revertible versions and can publish cloud apps to Copilot Managed Runtime for your organization.",
+      "startFrame": 592,
+      "endFrame": 1037,
+      "sourceSegmentIndex": 1,
+      "sceneId": "what-code-is"
+    },
+    {
+      "text": "Local mode works inside a chosen folder and asks approval by default for network, extensions or MCP, shell commands and outside-folder access.",
+      "startFrame": 1054,
+      "endFrame": 1401,
+      "sourceSegmentIndex": 2,
+      "sceneId": "safe-operation"
+    },
+    {
+      "text": "Cloud mode is isolated.",
+      "startFrame": 1401,
+      "endFrame": 1457,
+      "sourceSegmentIndex": 2,
+      "sceneId": "safe-operation"
+    },
+    {
+      "text": "Microsoft says existing Microsoft 365 governance applies, with audit visibility into code, commands and file activity.",
+      "startFrame": 1457,
+      "endFrame": 1745,
+      "sourceSegmentIndex": 2,
+      "sceneId": "safe-operation"
+    },
+    {
+      "text": "IT must confirm license and enablement, then set auto-approve, execution location, GitHub, organizational data and spend policies.",
+      "startFrame": 1762,
+      "endFrame": 2051,
+      "sourceSegmentIndex": 3,
+      "sceneId": "pilot-gate"
+    },
+    {
+      "text": "Recommendation: one low-risk business use case, one owner, least data needed, a budget cap, and a stop-or-expand review before broader access.",
+      "startFrame": 2051,
+      "endFrame": 2366,
+      "sourceSegmentIndex": 3,
+      "sceneId": "pilot-gate"
+    }
+  ],
+  "narrationTimingProvenance": {
+    "source": "audio/narration-metadata.json",
+    "cueSource": "narration-metadata.segments",
+    "cueMode": "global-subtitle-cues",
+    "sceneTimingMode": "metadata-scene-id-ranges",
+    "sceneIdsPresent": true,
+    "segmentCount": 4,
+    "cueCount": 8
+  }
+}
