@@ -98,6 +98,28 @@ Webpack cache isolated. Concurrent releases do not clear another render's cache,
 and each render binds its own bundle-server port from 20000-29999 after checking
 it on every loopback host, so parallel renders never load each other's chunks.
 
+Managed renders also keep one persistent browser profile per content ID at
+`.a2swe/remotion-profiles/<contentId>/chrome-profile` in the repository instead
+of leaving a temporary `puppeteer_dev_chrome_profile-*` folder behind on every
+browser launch. Content IDs longer than 48 characters, IDs containing `.`, `:`,
+or `/`, and reserved Windows device names use a sanitized folder name with a
+12-character hash suffix. Concurrent renders of one project claim numbered
+siblings such as `chrome-profile-1`. Profiles are never deleted automatically;
+only their browser caches are trimmed, so delete `.a2swe/remotion-profiles/` to
+reset them. A `REMOTION_USER_DATA_DIR` override must resolve outside the
+release, and the render stops with `remotion_profile_inside_release` otherwise,
+so browser state never reaches verified outputs.
+
+A release's own `npm install --ignore-scripts` keeps the stock renderer, which
+still creates a temporary profile per launch. Before running `npm run render`
+inside a release by hand, patch its renderer and point the profile outside the
+release:
+
+```powershell
+node template\scripts\patch_remotion_profile.cjs <release>\outputs\remotion
+$env:REMOTION_USER_DATA_DIR = '<repo>\.a2swe\remotion-profiles\<contentId>\chrome-profile'
+```
+
 ## Audio mastering
 
 Kokoro produces 24 kHz speech. The producer resamples it to 48 kHz with a steep

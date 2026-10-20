@@ -1844,11 +1844,31 @@ function sharedBrowserExecutable(): string | undefined {
   return undefined;
 }
 
-function remotionCli(root: string, args: string[], label: string, timeout: number, port?: number): void {
+// The template postinstall (scripts/patch_remotion_profile.cjs) makes Remotion reuse REMOTION_USER_DATA_DIR instead of leaving a new temp
+// profile behind on every browser launch. Each content ID keeps one absolute profile outside the release, so browser state never reaches
+// verified outputs; the renderer would otherwise resolve a relative or missing value inside the release it renders from. Concurrent renders
+// claim numbered siblings (chrome-profile-1, -2, ...), so every content ID owns its own parent folder.
+function remotionProfile(releaseRoot: string, content: ContentIR): string {
+  const override = process.env.REMOTION_USER_DATA_DIR;
+  if (override) {
+    const profile = path.resolve(override);
+    const relative = path.relative(path.resolve(releaseRoot), profile);
+    if (!(relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative))) {
+      throw new Error(`remotion_profile_inside_release: ${profile}`);
+    }
+    return profile;
+  }
+  const id = content.contentId;
+  const plain = /^[a-z0-9][a-z0-9_-]{0,47}$/.test(id) && !/^(?:con|prn|aux|nul|com\d|lpt\d)$/.test(id);
+  const name = plain ? id : `${id.replace(/[^a-z0-9_-]/g, '_').slice(0, 32)}-${sha256(id).slice(0, 12)}`;
+  return path.join(REPOSITORY_ROOT, '.a2swe', 'remotion-profiles', name, 'chrome-profile');
+}
+
+function remotionCli(root: string, args: string[], label: string, timeout: number, profile: string, port?: number): void {
   const browser = sharedBrowserExecutable();
   const result = spawnSync(process.execPath, [path.join('node_modules', '@remotion', 'cli', 'remotion-cli.js'), ...args,
     ...(browser ? [`--browser-executable=${browser}`] : []), ...(port ? [`--port=${port}`] : [])], {
-    cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout, windowsHide: true
+    cwd: root, env: { ...process.env, REMOTION_USER_DATA_DIR: profile }, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout, windowsHide: true
   });
   if (result.error || result.status !== 0) {
     throw new Error(`${label}: ${result.error?.message ?? (result.stderr || result.stdout).trim().slice(-4000)}`);
@@ -1878,12 +1898,13 @@ export async function renderVisualStills(releaseRoot: string, content: ContentIR
   const root = path.join(path.resolve(releaseRoot), 'outputs', 'remotion');
   const visuals = content.sections.filter((section) => section.visual);
   if (!visuals.length) return [];
+  const profile = remotionProfile(releaseRoot, content);
   const cleanup = await prepareRuntime(root, content);
   try {
     const port = await freePort();
     for (const section of visuals) {
       const stem = visualStem(content, section.sectionId);
-      remotionCli(root, ['still', 'src/index.tsx', `visual-${stem}`, `visuals/${stem}.png`, '--log=error', '--timeout=120000'], `visual_render_failed(${section.sectionId})`, 10 * 60 * 1000, port);
+      remotionCli(root, ['still', 'src/index.tsx', `visual-${stem}`, `visuals/${stem}.png`, '--log=error', '--timeout=120000'], `visual_render_failed(${section.sectionId})`, 10 * 60 * 1000, profile, port);
     }
   } finally { await cleanup(); }
   const files: AdapterFile[] = [];
@@ -1998,11 +2019,13 @@ export async function renderProjectAudio(projectDirectory: string, engine: strin
 export async function renderEncodedMp4(releaseRoot: string, content: ContentIR): Promise<AdapterFile[]> {
   const contentId = content.contentId;
   const root = path.join(path.resolve(releaseRoot), 'outputs', 'remotion');
+  const profile = remotionProfile(releaseRoot, content);
   const cleanup = await prepareRuntime(root, content);  try {
     const env = await speechEnvironment(process.env.A2SWE_TTS_ENGINE ?? process.env.TTS_ENGINE ?? 'auto');
     const browser = sharedBrowserExecutable();
     if (browser && !env.A2SWE_BROWSER_EXECUTABLE) env.A2SWE_BROWSER_EXECUTABLE = browser;
     env.A2SWE_REMOTION_PORT = String(await freePort());
+    env.REMOTION_USER_DATA_DIR = profile;
     const result = spawnSync(process.execPath, ['scripts/render-mp4.mjs'], {
       cwd: root, env, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, timeout: 30 * 60 * 1000, windowsHide: true
     });

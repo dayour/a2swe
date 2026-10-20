@@ -26,7 +26,7 @@ export interface Inventory {
   digest: string;
 }
 
-const excludedDirectories = new Set(['.git', 'node_modules', '.venv', '__pycache__', '.a2swe', '.docusaurus', 'build', 'build_production', 'build_test', 'renders', 'fin_frames', '.cache']);
+const excludedDirectories = new Set(['.git', 'node_modules', '.venv', '__pycache__', '.a2swe', '.remotion', '.docusaurus', 'build', 'build_production', 'build_test', 'renders', 'fin_frames', '.cache']);
 const textExtensions = new Set(['.md', '.txt', '.json', '.yaml', '.yml', '.ts', '.tsx', '.js', '.cjs', '.mjs', '.py', '.sh', '.css', '.html', '.toml', '.cff', '.xml', '.xsd']);
 const secretName = /^(?:\.env(?:\..*)?|.*\.(?:pem|key|pfx|p12)|credentials(?:\..*)?|secrets?(?:\..*)?|mcp-config\.json|auth\.json)$/i;
 
