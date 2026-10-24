@@ -534,7 +534,7 @@ export async function promoteRevision(projectDirectory: string, title: string, v
   const revisions = await listRevisions(project);
   const target = revisions.find((revision) => revision.title === title);
   if (!target) throw new Error(`unknown_revision: ${title}`);
-  const videos = target.outputs.filter((output) => output.role === 'video' && output.voice && output.package);
+  const videos = target.outputs.filter((output) => output.role === 'video' && !output.visualRegeneration && output.voice && output.package);
   const chosen = variant ? videos.find((output) => voiceSlug(output.voice!) === variant) : videos[0];
   if (!chosen) throw new Error(`unknown_revision_variant: ${variant ?? title}`);
   const slug = voiceSlug(chosen.voice!);

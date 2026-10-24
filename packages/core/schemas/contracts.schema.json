@@ -56,6 +56,18 @@
         "captions": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,159}$" },
         "releaseDigest": { "$ref": "#/$defs/Digest" },
         "package": { "$ref": "#/$defs/RelativePath" },
+        "visualRegeneration": {
+          "type": "object", "additionalProperties": false,
+          "required": ["variant", "sourcePath", "sourceDigest", "designDigest", "method"],
+          "properties": {
+            "variant": { "enum": [1, 2] },
+            "sourcePath": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,159}$" },
+            "sourceDigest": { "$ref": "#/$defs/Digest" },
+            "designDigest": { "$ref": "#/$defs/Digest" },
+            "method": { "const": "reference-recomposition" },
+            "evidencePath": { "$ref": "#/$defs/RelativePath" }
+          }
+        },
         "scenes": { "type": "array", "maxItems": 80, "items": {
           "type": "object", "additionalProperties": false,
           "required": ["id", "startSeconds", "endSeconds"],

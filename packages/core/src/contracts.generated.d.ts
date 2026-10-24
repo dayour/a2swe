@@ -1289,6 +1289,14 @@ export interface RevisionOutput {
   captions?: string;
   releaseDigest?: Digest;
   package?: RelativePath;
+  visualRegeneration?: {
+    variant: 1 | 2;
+    sourcePath: string;
+    sourceDigest: Digest;
+    designDigest: Digest;
+    method: "reference-recomposition";
+    evidencePath?: RelativePath;
+  };
   /**
    * @maxItems 80
    */

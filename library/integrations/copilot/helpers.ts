@@ -361,7 +361,7 @@ export async function workspaceList(workspace: string, repoPath = '.', depth = 2
 
 export const CORE_COMMANDS = [
   'capabilities', 'inventory', 'snapshot', 'validate', 'runbook-verify', 'domain-init', 'project-init',
-  'voice-profiles', 'audio-render', 'qc-index', 'media-analyze', 'revisions-organize', 'revisions-analyze', 'revision-produce',
+  'voice-profiles', 'audio-render', 'qc-index', 'media-analyze', 'revisions-organize', 'revisions-analyze', 'revisions-regenerate', 'revision-produce',
   'revision-promote', 'office-render', 'runbook-project', 'account-import', 'brand-theme', 'workspace-init', 'semantic-model', 'alignment-rank', 'alignment-apply', 'canonical-bind', 'domain-certify', 'job-submit', 'job-status', 'job-events',
   'asset-generate', 'asset-import', 'asset-fetch', 'asset-verify', 'release-plan', 'release-produce',
   'release-verify', 'asset-job-submit', 'asset-job-run', 'asset-job-export', 'asset-diffusion-submit',
@@ -382,6 +382,7 @@ const CORE_PATH_OPTIONS_BY_COMMAND: Partial<Record<(typeof CORE_COMMANDS)[number
   'media-analyze': ['file', 'out'],
   'revisions-organize': ['root'],
   'revisions-analyze': ['root'],
+  'revisions-regenerate': ['root'],
   'revision-produce': ['root'],
   'revision-promote': ['root'],
   'office-render': ['root'],
@@ -426,6 +427,7 @@ const CORE_COMMAND_TIMEOUTS: Partial<Record<(typeof CORE_COMMANDS)[number], numb
   'media-analyze': 15 * 60_000,
   'revisions-organize': 10 * 60_000,
   'revisions-analyze': 60 * 60_000,
+  'revisions-regenerate': 120 * 60_000,
   'revision-produce': 120 * 60_000,
   'revision-promote': 15 * 60_000,
   'office-render': 15 * 60_000,
@@ -489,6 +491,7 @@ export const CORE_COMMAND_SCHEMAS: Record<(typeof CORE_COMMANDS)[number], { desc
   'revisions-organize': { description: 'Import existing renders and release packages into renders/<project>-<year>-<NN>/ with RenderRevision manifests.', required: ['root'], options: { root: 'Project directory' } },
   'revisions-analyze': { description: 'Analyze every revision video and write qc/analysis comparison evidence and report: audio spectrograms and loudness, video spectrograms (per-layer temporal frequency and flicker), spatial detail spectrograms, layer activity and frames.', required: ['root'], options: { root: 'Project directory', force: 'true to re-analyze cached digests' } },
   'revision-produce': { description: 'Render a new revision with one full core release per voice/engine variant and promote the first variant to release/.', required: ['root'], options: { root: 'Project directory with canonical inputs', variants: 'Comma list of PROFILE:ENGINE (kokoro_onnx|kokoro)', 'keep-release': 'true to skip promotion' } },
+  'revisions-regenerate': { description: 'Retain archived original videos and add Editorial and Studio brand recompositions with original audio, visual fingerprints and independent machine review. Does not promote or rewrite release packages.', required: ['root'], options: { root: 'Project, projects collection or repository directory', id: 'Optional existing revision title', scope: 'primary (default): two per revision; all: two per original voice video' } },
   'revision-promote': { description: 'Promote one rendered revision variant into release/, archiving the previous release; resumes a promotion blocked by a locked file.', required: ['root', 'id'], options: { root: 'Project directory', id: 'Revision title, for example project-2026-04', voice: 'Variant PROFILE-ENGINE, for example af_heart-kokoro_onnx (default: first variant)' } },
   'account-import': { description: 'Import a LayeredCards customer intake into canonical sources, a ready DomainPack with verbatim evidence, the kit brand render theme and the project VS Code workspace.', required: ['source', 'root'], options: { source: 'LayeredCards customer directory', root: 'Project directory to create or refresh' } },
   'brand-theme': { description: 'Install canonical/render-theme.json from exactly one of an official brand site (colors and fonts extracted from its stylesheets, evidence in qc/brand), a LayeredCards kit theme, or a manual RenderTheme file; rebinds canonical inputs when content exists. Weak site evidence fails instead of misbranding.', required: ['root'], options: { root: 'Project directory', url: 'Official HTTPS brand site', source: 'Kit theme JSON file', file: 'RenderTheme JSON file', name: 'Optional brand display name' } },

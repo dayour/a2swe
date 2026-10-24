@@ -18,6 +18,24 @@ prove that a project is complete or cleared for sharing.
 
 Matching QC is shown only when the report digest matches the selected media file.
 
+## Visual comparisons
+
+An archived video can retain its **Original** alongside two visual variations:
+**Editorial** and **Studio**. The Visual version filter selects these separately
+from narration voice and engine. Each variation points to the original filename
+and SHA-256, its design digest, and optional project-relative design evidence.
+The original video and revision status remain unchanged.
+
+These variations use `reference-recomposition`: a new visual composition with
+the original narration. They are not historical release-package rebuilds. Older
+revisions often retain the movie without the authoring package needed for an
+exact rebuild. Visual comparisons do not inherit a package or release digest.
+
+The catalog indexes all recorded videos. The site copies only the current and
+previous superseded revisions for playback; other revisions link to retained
+repository sources. Comparing a playable variation opens its original alongside
+it when that original is also available for playback.
+
 ## Recommended states
 
 | State | Meaning |

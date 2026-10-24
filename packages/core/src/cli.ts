@@ -47,7 +47,7 @@ async function main(): Promise<void> {
     review: { type: 'string' }, approvals: { type: 'string' }, trust: { type: 'string' },
     content: { type: 'string' }, render: { type: 'string' }, approval: { type: 'string' }, assets: { type: 'string' },
     engine: { type: 'string' }, voice: { type: 'string' }, variants: { type: 'string' }, force: { type: 'boolean' }, 'keep-release': { type: 'boolean' },
-    'skip-media-probe': { type: 'boolean' }, install: { type: 'boolean' }, canonical: { type: 'boolean' }, audience: { type: 'string' }
+    'skip-media-probe': { type: 'boolean' }, install: { type: 'boolean' }, canonical: { type: 'boolean' }, audience: { type: 'string' }, scope: { type: 'string' }
   } });
   const command = positionals[0];
   function required(name: keyof typeof values): string {
@@ -71,6 +71,7 @@ async function main(): Promise<void> {
       '  media-analyze --file MEDIA --out NEW_DIRECTORY',
       '  revisions-organize --root PROJECT_DIRECTORY',
       '  revisions-analyze --root PROJECT_DIRECTORY [--force]',
+      '  revisions-regenerate --root PROJECT_OR_REPOSITORY [--id REVISION_TITLE] [--scope primary|all]',
       '  revision-produce --root PROJECT_DIRECTORY [--variants am_michael:kokoro_onnx,af_heart:kokoro_onnx,af_bella:kokoro_onnx,am_michael:kokoro] [--keep-release]',
       '  revision-promote --root PROJECT_DIRECTORY --id REVISION_TITLE [--voice PROFILE-ENGINE]',
       '  office-render --root PROJECT_DIRECTORY',
@@ -106,6 +107,15 @@ async function main(): Promise<void> {
     return;
   }
   if (positionals.length !== 1) throw new Error('unexpected_positional_argument');
+  if (command === 'revisions-regenerate') {
+    const { regenerateRevisions } = await import('./regenerations.ts');
+    const scope = values.scope ?? 'primary';
+    if (scope !== 'primary' && scope !== 'all') throw new Error('invalid_regeneration_scope');
+    const result = await regenerateRevisions(required('root'), { id: values.id, scope, onProgress: (message) => console.error(message) });
+    console.log(JSON.stringify(result));
+    if (result.failures.length) process.exitCode = 1;
+    return;
+  }
   if (command === 'voice-profiles' || command === 'audio-render') {
     const { voiceProfiles, renderProjectAudio } = await import('./media-remotion.ts');
     const result = command === 'voice-profiles' ? voiceProfiles()

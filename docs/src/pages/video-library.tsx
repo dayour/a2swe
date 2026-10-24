@@ -3,22 +3,25 @@ import Link from '@docusaurus/Link';
 import {catalog, LibraryShell, Modal, Player, Poster, SourceLink, Stats, videos, type Project, type Video} from '../components/library/shared';
 
 function RevisionViewer({video, onClose}: {video: Video; onClose: () => void}) {
-  const [compare, setCompare] = useState('');
-  const other = videos.find((item) => item.id === compare);
   const project = catalog.projects.find((item) => item.id === video.projectId)!;
+  const [compare, setCompare] = useState(video.visualRegeneration
+    ? project.revisions.find((item) => item.visualGroupId === video.visualGroupId && !item.visualRegeneration && item.movie)?.id ?? '' : '');
+  const other = videos.find((item) => item.id === compare);
   return <Modal title={video.title} onClose={onClose}>
     <p className="library-notice">{project.note}</p>
     <div className={other ? 'library-comparison' : ''}>
       <section><h3>{video.title}</h3><Player key={video.id} video={video} /></section>
       {other && <section><h3>{other.title}</h3><Player key={other.id} video={other} /></section>}
     </div>
-    <label className="library-field">Compare another revision
+    <label className="library-field">Compare another render
       <select value={compare} onChange={(event) => setCompare(event.target.value)}>
         <option value="">No comparison</option>
         {project.revisions.filter((item) => item.id !== video.id && item.movie).map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
       </select>
     </label>
-    <p className="library-meta">Independent playback controls let you pause and seek each revision. The current revision includes one full render per narration voice and engine, with English captions.</p>
+    <p className="library-meta">Independent playback controls let you pause and seek each revision. Original, Editorial and Studio identify visual comparisons; narration voice and engine remain separate.</p>
+    {video.visualRegeneration && <p className="library-notice">This is a reference recomposition with the original narration, not a regenerated historical release package. <SourceLink source={video.originalSource ?? video.source}>Original video</SourceLink>
+      {video.visualRegeneration.evidencePath && <> / <SourceLink source={`projects/${video.projectId}/${video.visualRegeneration.evidencePath}`}>Design evidence</SourceLink></>}</p>}
     {other?.digest === video.digest && <p className="library-notice">These revisions contain identical movie bytes (matching SHA-256).</p>}
     <details><summary>File integrity and evidence</summary>
       <p>SHA-256 <code className="library-digest">{video.digest}</code></p>
@@ -33,18 +36,19 @@ function RevisionViewer({video, onClose}: {video: Video; onClose: () => void}) {
 
 function ProjectCard({project, video, onPlay}: {project: Project; video?: Video; onPlay: (video: Video) => void}) {
   const [revisionId, setRevisionId] = useState(video?.id ?? project.revisions[0]?.id ?? '');
-  const selected = video ?? project.revisions.find((item) => item.id === revisionId);
+  const selected = video ?? project.revisions.find((item) => item.id === revisionId) ?? project.revisions[0];
   return <article className="library-card">
     {selected ? <button className="library-play" onClick={() => onPlay(selected)} aria-label={`Play ${selected.title}`}>
       <Poster video={selected} /><span className="library-play-icon" aria-hidden="true">&#9654;</span>
     </button> : <div className="library-unrendered"><span aria-hidden="true">&#9719;</span><strong>No video rendered</strong><p>Evidence and next steps below</p></div>}
     <div className="library-card-body">
       <div className="library-meta"><span className={`library-badge ${selected ? '' : 'library-badge--warning'}`}>{selected?.state ?? 'Not rendered'}</span>
-        <span>{project.revisions.length} revisions</span></div>
+        {selected && <span className="library-badge">{selected.visualLabel ?? 'Original'}</span>}
+        <span>{project.revisions.length} renders</span></div>
       <h2>{video ? video.title : project.title}</h2><p>{project.description}</p>
       {selected && !video && <label className="library-field">Revision
-        <select value={revisionId} onChange={(event) => setRevisionId(event.target.value)}>
-          {project.revisions.map((item) => <option key={item.id} value={item.id}>{item.revision}{item.voice ? ` / ${item.voice}` : ''}{item.latest ? ' / current' : item.movie ? ' / previous' : ' / repository only'}</option>)}
+        <select value={selected.id} onChange={(event) => setRevisionId(event.target.value)}>
+          {project.revisions.map((item) => <option key={item.id} value={item.id}>{item.revision}{item.voice ? ` / ${item.voice}` : ''} / {item.visualLabel ?? 'Original'}{item.latest ? ' / current' : item.movie ? ' / previous' : ' / repository only'}</option>)}
         </select>
       </label>}
       {selected ? <div className="library-actions">
@@ -60,9 +64,12 @@ function ProjectCard({project, video, onPlay}: {project: Project; video?: Video;
 export default function VideoLibrary() {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  const [visualFilter, setVisualFilter] = useState('all');
   const [allRevisions, setAllRevisions] = useState(false);
   const [selected, setSelected] = useState<Video | null>(null);
-  const projects = catalog.projects.filter((project) =>
+  const projects = catalog.projects.map((project) => ({...project, revisions: project.revisions.filter((video) =>
+    visualFilter === 'all' || (video.visualLabel ?? 'Original') === visualFilter)})).filter((project) =>
+    (visualFilter === 'all' || project.revisions.length > 0) &&
     (filter === 'all' || (filter === 'rendered' ? project.revisions.length > 0 : project.revisions.length === 0)) &&
     `${project.title} ${project.description} ${project.revisions.map((v) => v.title).join(' ')}`.toLowerCase().includes(query.toLowerCase()));
   const count = projects.reduce((total, project) => total + (allRevisions ? Math.max(1, project.revisions.length) : 1), 0);
@@ -72,7 +79,8 @@ export default function VideoLibrary() {
     <div className="library-toolbar">
       <label className="library-field library-search">Search projects<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Copilot, Datadog, Microsoft..." /></label>
       <label className="library-field">Production state<select value={filter} onChange={(event) => setFilter(event.target.value)}><option value="all">All projects</option><option value="rendered">Has video</option><option value="blocked">Not rendered</option></select></label>
-      <label className="library-checkbox"><input type="checkbox" checked={allRevisions} onChange={(event) => setAllRevisions(event.target.checked)} />Show every revision</label>
+      <label className="library-field">Visual version<select value={visualFilter} onChange={(event) => setVisualFilter(event.target.value)}><option value="all">All visuals</option>{['Original', 'Editorial', 'Studio'].map((label) => <option key={label}>{label}</option>)}</select></label>
+      <label className="library-checkbox"><input type="checkbox" checked={allRevisions} onChange={(event) => setAllRevisions(event.target.checked)} />Show every render</label>
     </div>
     <p role="status">{count} {allRevisions ? 'items' : 'projects'} shown</p>
     <div className="library-grid">{projects.flatMap((project) => allRevisions && project.revisions.length

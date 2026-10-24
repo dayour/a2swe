@@ -4,6 +4,7 @@ import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateSlideRecipe} from '../../template/scripts/brand-plan.ts';
+import {visualCatalogFields} from './regeneration-catalog.mjs';
 
 const docs = fileURLToPath(new URL('../', import.meta.url));
 const root = path.resolve(docs, '..');
@@ -99,6 +100,7 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       copyFileSync(file, destination);
     }
     const voice = output.voice ? [output.voice.voiceName ?? output.voice.profileId, output.voice.engine].filter(Boolean).join(' / ') : null;
+    const visual = visualCatalogFields(id, manifest, output);
     const revision = name.slice(0, -path.extname(name).length);
     const stem = revision;
     const reportPath = `${prefix}/qc/analysis/${manifest.title}/${stem}/analysis.json`;
@@ -109,8 +111,8 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       captions = `library/captions/${id}/${output.captions}`;
       write(path.join(docs, 'static', captions), readFileSync(path.join(renderDir, manifest.title, output.captions), 'utf8'));
     }
-    return {id: revisionId, projectId: id, title: `${notes.title} ${manifest.title}${voice ? ` (${voice})` : ''}`, revision, revisionTitle: manifest.title,
-      voice, source, movie, poster, captions, ...data, latest: manifest === current, qc: reportMatches ? reportPath : null,
+    return {id: revisionId, projectId: id, title: `${notes.title} ${manifest.title}${voice ? ` (${voice})` : ''} / ${visual.visualLabel}`, revision, revisionTitle: manifest.title,
+      voice, source, movie, poster, captions, ...data, ...visual, latest: manifest === current, qc: reportMatches ? reportPath : null,
       state: manifest === current ? 'Current revision' : manifest.status === 'rejected' ? 'Rejected candidate' : 'Historical revision'};
   });
   const evidence = notes.evidence.map((p) => `${prefix}/${p}`);

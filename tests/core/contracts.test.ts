@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { sha256 } from '../../packages/core/src/canonical.ts';
 import { validate } from '../../packages/core/src/contracts.ts';
+import type { RenderRevision } from '../../packages/core/src/contracts.ts';
 
 test('asset requests enforce evaluation scope, bounded dimensions and authentic marks', () => {
   const request = { schemaVersion: '1.0.0', assetId: 'flow', domainDigest: sha256('fixture'), purpose: 'evaluation',
@@ -56,4 +57,48 @@ test('domain references, date window, quote hashes and readiness fail closed', (
   assert.equal(validate('DomainPack', { ...fixture, state: 'ready' }).state, 'ready');
   fixture.sources[0].publicationDate = '2026-02-30';
   assert.throws(() => validate('DomainPack', fixture), /invalid_date/);
+});
+
+function visualRevision(): RenderRevision {
+  const original = {path: 'fixture-original.mp4', role: 'video' as const, digest: sha256('original'), byteSize: 100, mediaType: 'video/mp4',
+    package: 'release', releaseDigest: sha256('original release')};
+  const regenerated = (variant: 1 | 2) => ({path: `fixture-visual-${variant}.mp4`, role: 'video' as const, digest: sha256(`video ${variant}`),
+    byteSize: 120, mediaType: 'video/mp4', visualRegeneration: {variant, sourcePath: original.path, sourceDigest: original.digest,
+      designDigest: sha256(`design ${variant}`), method: 'reference-recomposition' as const,
+      evidencePath: `qc/regenerations/fixture-2026-01/visual-${variant}.json`}});
+  return {schemaVersion: '1.0.0', projectId: 'fixture', title: 'fixture-2026-01', year: 2026, number: 1,
+    createdAt: '2026-10-24T00:00:00Z', pipeline: 'core-release', status: 'superseded', source: 'release',
+    outputs: [original, regenerated(1), regenerated(2)], notes: ['Synthetic visual comparison fixture']};
+}
+
+test('visual regenerations retain an original release and distinguish two source-bound designs', () => {
+  const fixture = visualRevision();
+  const snapshot = structuredClone(fixture);
+  assert.equal(validate('RenderRevision', fixture), fixture);
+  assert.deepEqual(fixture, snapshot);
+  assert.equal(validate('RenderRevision', {...fixture, outputs: fixture.outputs.slice(0, 1)}).outputs.length, 1);
+  assert.equal(validate('RenderRevision', {...fixture, outputs: fixture.outputs.slice(0, 2)}).outputs.length, 2);
+});
+
+test('visual regeneration provenance rejects invalid sources, duplicate designs and inherited release authority', () => {
+  const rejects = (change: (revision: RenderRevision) => void, message: RegExp) => {
+    const fixture = visualRevision(); change(fixture); assert.throws(() => validate('RenderRevision', fixture), message);
+  };
+  rejects((r) => { r.outputs[1].visualRegeneration!.sourcePath = 'missing.mp4'; }, /invalid_regeneration_source/);
+  rejects((r) => { r.outputs[1].visualRegeneration!.sourceDigest = sha256('changed'); }, /invalid_regeneration_source/);
+  rejects((r) => { r.outputs[2].visualRegeneration!.sourcePath = r.outputs[1].path;
+    r.outputs[2].visualRegeneration!.sourceDigest = r.outputs[1].digest; }, /invalid_regeneration_source/);
+  rejects((r) => { r.outputs[1].visualRegeneration!.sourcePath = r.outputs[1].path; }, /invalid_regeneration_source/);
+  rejects((r) => { r.outputs[1].role = 'metadata'; }, /invalid_regeneration_source/);
+  rejects((r) => { r.outputs[1].package = 'release'; }, /regeneration_is_not_release_package/);
+  rejects((r) => { r.outputs[1].releaseDigest = sha256('release'); }, /regeneration_is_not_release_package/);
+  rejects((r) => { r.outputs[1].visualRegeneration!.evidencePath = '../outside.json'; }, /invalid_contract/);
+  rejects((r) => { r.outputs[1].visualRegeneration!.evidencePath = 'qc/con/evidence.json'; }, /unsafe_regeneration_evidence/);
+  rejects((r) => { r.outputs[2].visualRegeneration!.variant = 1; }, /duplicate_regeneration_variant/);
+  rejects((r) => { r.outputs[1].digest = r.outputs[0].digest; }, /regeneration_variants_not_distinct/);
+  rejects((r) => { r.outputs[2].digest = r.outputs[1].digest; }, /regeneration_variants_not_distinct/);
+  rejects((r) => { r.outputs[2].visualRegeneration!.designDigest = r.outputs[1].visualRegeneration!.designDigest; }, /regeneration_variants_not_distinct/);
+  const fixture = visualRevision();
+  assert.throws(() => validate('RenderRevision', {...fixture, outputs: [fixture.outputs[0], {...fixture.outputs[1],
+    visualRegeneration: {...fixture.outputs[1].visualRegeneration, variant: 3}}]}), /invalid_contract/);
 });
