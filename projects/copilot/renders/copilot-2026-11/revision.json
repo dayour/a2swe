@@ -217,6 +217,108 @@
         }
       ],
       "captions": "copilot-2026-11-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "copilot-2026-11-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "ffe29000c8259be01f8dc001610f466034b957b93975e9841ebfc01b371ea2b4",
+      "byteSize": 5374120,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-2026-11-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.3
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 13.3,
+          "endSeconds": 26.7
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 26.7,
+          "endSeconds": 40.3
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 40.3,
+          "endSeconds": 53.8
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 53.8,
+          "endSeconds": 65.1
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-2026-11-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "8a9646bc2a7951c1a9c6f3a26fa77210449e99a796a67c008481cf9938652ef5",
+        "designDigest": "5e6bc797b2bc0f2f718dcee61472f40490a7b6b1e09f8d1c37b5edc657802a61",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx-8a9646bc/editorial"
+      }
+    },
+    {
+      "path": "copilot-2026-11-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "e8859fa6fae88dcc087c00fcfc76b7cc329ef487be228d91ba3577da60220625",
+      "byteSize": 4879395,
+      "mediaType": "video/mp4",
+      "durationSeconds": 65.152,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-2026-11-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.3
+        },
+        {
+          "id": "choose-by-job",
+          "startSeconds": 13.3,
+          "endSeconds": 26.7
+        },
+        {
+          "id": "govern-access",
+          "startSeconds": 26.7,
+          "endSeconds": 40.3
+        },
+        {
+          "id": "builder-routes",
+          "startSeconds": 40.3,
+          "endSeconds": 53.8
+        },
+        {
+          "id": "decision-checks",
+          "startSeconds": 53.8,
+          "endSeconds": 65.1
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-2026-11-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "8a9646bc2a7951c1a9c6f3a26fa77210449e99a796a67c008481cf9938652ef5",
+        "designDigest": "164d13881ac038a685fd8e0213e11e6c39d5deeaa7878a6b157856a48dd4eae2",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-2026-11/copilot-2026-11-am_michael-kokoro_onnx-8a9646bc/studio"
+      }
     }
   ],
   "notes": [

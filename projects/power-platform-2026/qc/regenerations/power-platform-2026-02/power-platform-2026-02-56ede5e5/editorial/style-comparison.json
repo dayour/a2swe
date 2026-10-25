@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "a2swe-visual-fingerprint-v1:lab-wasserstein80-layout20",
+  "visualSimilarity": 26.69,
+  "paletteSimilarity": 19.79,
+  "layoutSimilarity": 54.32,
+  "labDistance": {
+    "L": 18.4997,
+    "a": 0.2139,
+    "b": 0.5712
+  },
+  "findings": [
+    {
+      "component": "palette",
+      "severity": "warning",
+      "message": "Sampled frames are brighter than the original (Lab lightness distance 18.5)."
+    },
+    {
+      "component": "layout",
+      "severity": "info",
+      "message": "Sampled light/color placement differs from the original (8 by 4 Lab grid RMSE 0.153). This measures color placement, not text readability."
+    }
+  ]
+}

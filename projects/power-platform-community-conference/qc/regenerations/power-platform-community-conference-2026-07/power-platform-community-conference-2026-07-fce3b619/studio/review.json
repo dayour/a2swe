@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-25T00:02:31.983Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/power-platform-community-conference/renders/power-platform-community-conference-2026-07/power-platform-community-conference-2026-07.mp4",
+    "sha256": "fce3b619218c24036eb277ef6381ed7511e3085a30b432ee803f28be314da282",
+    "byteSize": 11223527,
+    "probe": {
+      "durationSeconds": 71.7,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2151
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/power-platform-community-conference/qc/regenerations/power-platform-community-conference-2026-07/power-platform-community-conference-2026-07-fce3b619/studio/candidate.mp4",
+    "sha256": "95caa8456a46ba997ea1f2cab9e02a1975ce8c6c2cc0ed71d43e30fad27a1ee7",
+    "byteSize": 5872055,
+    "probe": {
+      "durationSeconds": 71.7,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2151
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "940ba0737b7212cf2b33dc9711070525a362228f4576cd16a4676b2f16ed16d0",
+    "variantDecodedSha256": "940ba0737b7212cf2b33dc9711070525a362228f4576cd16a4676b2f16ed16d0",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 5.975,
+      "sourcePngSha256": "cdd27964b18da868472a1e3dd9b44be396b5bd37c48a5ba179fb5e70d9571183",
+      "variantPngSha256": "33ea921aa2a5677dea8d612e50742331224387a52bfca3e9e88503e860eaf349",
+      "meanPixelDifference": 25.126541
+    },
+    {
+      "timeSeconds": 17.925,
+      "sourcePngSha256": "59e556ed8ba53fc5707122894cc84a17fa1c093634fd4a3147fca43a18826940",
+      "variantPngSha256": "5b32d629af250fe43db41443395f2516a7d609e86f19bcebe5fcc1bb5db48bda",
+      "meanPixelDifference": 22.476515
+    },
+    {
+      "timeSeconds": 29.875,
+      "sourcePngSha256": "960dd62a18ee13f0a95813fd5b0d2d78279bd3e3c707c9110b6a08a0ed263654",
+      "variantPngSha256": "e659b7e6383ed20bc6d2474137db8d2b581c4dde02fd7ca4659cad1c4e631960",
+      "meanPixelDifference": 23.318953
+    },
+    {
+      "timeSeconds": 41.825,
+      "sourcePngSha256": "307b7726950f97b58367e6ae8950298887609d117d74a69eefef67b0104c49ac",
+      "variantPngSha256": "07f0f7bda4e6b4c76bcfb82196991a1c7633500cbaacce906fb124b4ec9a3b5e",
+      "meanPixelDifference": 20.562924
+    },
+    {
+      "timeSeconds": 53.775,
+      "sourcePngSha256": "b94a909fa83f44b0c798c73bed749bcec794ec3caca8c4b18fb8535f3044cc77",
+      "variantPngSha256": "ba5315d0eaefbc6c6517381e65a0117dd21dfafff66c60169fd07cf0a1afe9b5",
+      "meanPixelDifference": 26.802261
+    },
+    {
+      "timeSeconds": 65.725,
+      "sourcePngSha256": "025574b77d22918db3d6b630936ca2f1993abb2b231cb4a1c0fb0baff9808488",
+      "variantPngSha256": "7dbf3c474c52b9ae374726d845b483238e4c60da0d9af4a5f11d89f00c444dd2",
+      "meanPixelDifference": 29.130867
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "57bfc72ec99157231d8bf3dc0a5a960440a54588d85c1478093d058ad638c68e"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

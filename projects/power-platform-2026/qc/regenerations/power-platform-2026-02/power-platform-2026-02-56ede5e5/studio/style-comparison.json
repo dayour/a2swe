@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "a2swe-visual-fingerprint-v1:lab-wasserstein80-layout20",
+  "visualSimilarity": 32.32,
+  "paletteSimilarity": 20.78,
+  "layoutSimilarity": 78.51,
+  "labDistance": {
+    "L": 5.2064,
+    "a": 3.3045,
+    "b": 8.0706
+  },
+  "findings": [
+    {
+      "component": "palette",
+      "severity": "info",
+      "message": "Sampled color distribution is cooler than the original (Lab chroma distance 11.38); a brand change can be intentional."
+    }
+  ]
+}

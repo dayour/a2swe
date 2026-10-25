@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:44:50.348Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/power-platform-2026/renders/power-platform-2026-01/power-platform-2026-01.mp4",
+    "sha256": "13da6cafdd6bc17b8afd1ecd4f3601a679c0143900c3c87c150ac1b88eeb2e62",
+    "byteSize": 11136575,
+    "probe": {
+      "durationSeconds": 42.133333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 1264
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/power-platform-2026/qc/regenerations/power-platform-2026-01/power-platform-2026-01-13da6caf/editorial/candidate.mp4",
+    "sha256": "c04a4a1dbeee746f8c5c095687ce80a985fe5ea9b2520faedb0e78148848f0db",
+    "byteSize": 4857808,
+    "probe": {
+      "durationSeconds": 42.133333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 1264
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "a64d99b5b0eae5b309605ab75f633275074c546ff76aaffc7827cb0f4d634908",
+    "variantDecodedSha256": "a64d99b5b0eae5b309605ab75f633275074c546ff76aaffc7827cb0f4d634908",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 3.511111,
+      "sourcePngSha256": "29b605452462c45e1e784d310b50b8adce48ffc27a2bd3c152e0efb677b5827a",
+      "variantPngSha256": "6ab6620f0d3e9051fa9bdb34a1d8fbd91bf0f77366b698d9e658ed83bc15b273",
+      "meanPixelDifference": 62.973845
+    },
+    {
+      "timeSeconds": 10.533333,
+      "sourcePngSha256": "42ba6c7b2bc638ab7838e87233131b72fd049a347ac0f330e2b923f7ad62474c",
+      "variantPngSha256": "3a0d596fb066dae2db34c40a74b56ade3978402d06961aa537cc8083cd2dec38",
+      "meanPixelDifference": 56.437683
+    },
+    {
+      "timeSeconds": 17.555555,
+      "sourcePngSha256": "4ee75335f2f6b34064d6cb404b3af91e10ef66dddb4da8f49492f595292637ac",
+      "variantPngSha256": "dc615787dd1c165cb7053ed46dc0b05f9a5150aac4fa3ebd8eef42789881eb0d",
+      "meanPixelDifference": 59.028917
+    },
+    {
+      "timeSeconds": 24.577778,
+      "sourcePngSha256": "32822f9f6e13688287d1dde47137062a280350aaddb6461570f7dd18df9a83d9",
+      "variantPngSha256": "fb570504253d3c33db6d2cb95521ab62dc5f815c41595256a995c6bb384f4b36",
+      "meanPixelDifference": 55.548565
+    },
+    {
+      "timeSeconds": 31.6,
+      "sourcePngSha256": "56b294940ff80819e2a52af78e8cd4c768d512763f81df909360d9104dfaf2ea",
+      "variantPngSha256": "2c8c1c9261aad8058aa63516b72353bc13cb5eb318353b2080025f90d0a56f6d",
+      "meanPixelDifference": 59.862847
+    },
+    {
+      "timeSeconds": 38.622222,
+      "sourcePngSha256": "f882a2c7a4d071e01536fa1f2dd48b17e67f7289edf9d24917a4ec2ed4c22caa",
+      "variantPngSha256": "a4970a9d6890871aff57205a1aeba5cf52c7ae77405659c924efbbc163248823",
+      "meanPixelDifference": 60.083194
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "3022babb9c505e0350228b5ff6805d341c71451a9bca0763c8983beb8c3804af"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

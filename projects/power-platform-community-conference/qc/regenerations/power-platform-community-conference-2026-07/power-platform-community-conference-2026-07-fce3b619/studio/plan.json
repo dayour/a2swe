@@ -1,0 +1,76 @@
+{
+  "design": {
+    "schemaVersion": "1.0.0",
+    "method": "reference-recomposition",
+    "style": "studio",
+    "sourceDigest": "fce3b619218c24036eb277ef6381ed7511e3085a30b432ee803f28be314da282",
+    "title": "Power Platform Community Conference",
+    "revision": "power-platform-community-conference-2026-07",
+    "palette": {
+      "primary": "#17796A",
+      "header": "#0D433A",
+      "deep": "#082C26",
+      "accent": "#2FFFE0",
+      "paper": "#FFFFFF",
+      "canvas": "#F5F9F8",
+      "line": "#C8D8D5",
+      "text": "#0A362E",
+      "muted": "#5B716E",
+      "soft": "#E8F2F0",
+      "danger": "#B42318"
+    },
+    "geometry": {
+      "x": 400,
+      "y": 160,
+      "width": 1456,
+      "height": 820
+    },
+    "frame": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 71.7
+    },
+    "preservation": {
+      "originalPicture": "contained-without-crop",
+      "audio": "codec-copy",
+      "timing": "unchanged"
+    },
+    "engine": {
+      "name": "ffmpeg-canvas-recomposition",
+      "version": "1",
+      "preset": "veryfast",
+      "crf": 21,
+      "fontDigest": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    }
+  },
+  "brandEvidence": {
+    "basis": "installed-project-theme",
+    "path": "canonical/render-theme.json",
+    "sha256": "ac9390b57fe60209c43174b2a1b5b5129accee169b08fc0fd453b2b10ed86b72",
+    "source": {
+      "kind": "site",
+      "reference": "https://powerplatformconf.com/",
+      "retrievedAt": "2026-10-16T18:21:25.111Z",
+      "basis": "Derived from 5 documents on powerplatformconf.com: primary #2FFFE0, secondary #3A7BFF, accent #2FFFE0, dark #0A172A, light #F4F3F5; fonts Montserrat. Inspired by the site; not an official brand asset."
+    },
+    "applicability": "Shared project brand context; historical picture and audio stay intact."
+  },
+  "generator": {
+    "regenerations.ts": "1a3ae3a44011a2a087db73dca02eecb698dcd0940c4ed9e8c8bfa8ad32006339",
+    "regeneration-render.ts": "d1ed34bc94c87ad3ec48db3d2362244856617e815cca67148fc264f888e7a91e",
+    "regeneration-review.ts": "f5cbf33e3d8de8794547227447e538ddbf4f2b2919a0b40a9c1bc61a22a9df74",
+    "visual-fingerprint.ts": "2bd5db8e135d3b8ebf495b71c57b4d59a7fb08637599d85e753d93216bf22478"
+  },
+  "referenceMethods": {
+    "repository": "https://github.com/edenfunf/reelmimic",
+    "commit": "d445b23f404dc6f577b8fdff50255fdbf85d1e97",
+    "adopted": [
+      "reference appearance measurement",
+      "explicit versioned design plan",
+      "render-then-measure comparison",
+      "same-time before/after evidence"
+    ],
+    "scope": "Reference recomposition; no Motion Score/CMA-ES or learned critic is used."
+  }
+}

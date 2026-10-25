@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft-plugin-architecture",
+  "title": "microsoft-plugin-architecture-2026-02",
+  "year": 2026,
+  "number": 2,
+  "createdAt": "2026-10-06T01:04:34.607Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/microsoft-plugin-architecture-2026-02",
+  "contentDigest": "ae83efea40638da36c84bdc8568b95681d7e7e3602b90a30a684d7346ff40fe1",
+  "outputs": [
+    {
+      "path": "microsoft-plugin-architecture-2026-02.mp4",
+      "role": "video",
+      "digest": "9bddba8c00492faa4ac8326bbd07926b16534daede2e7bb3973a6c38b9c4a212",
+      "byteSize": 10539225,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-02.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "releaseDigest": "8c12ba1698e11186956285bb7412c5f6ab3ba4fa73851d20dfa1b106285c0a8d",
+      "package": "qc/revisions/microsoft-plugin-architecture-2026-02"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-02.vtt",
+      "role": "captions",
+      "digest": "d1298fae09807725c767dd4bb4f2658125141c0f9334ad114c0ab77dcbba3f0a",
+      "byteSize": 1069,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/readability-r1."
+  ]
+}

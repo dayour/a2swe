@@ -56,6 +56,98 @@
         }
       ],
       "captions": "copilot-code-2026-02-am_michael-kokoro_onnx.vtt"
+    },
+    {
+      "path": "copilot-code-2026-02-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "a1889023f636ed9efa0466c63f7c60fdfc9dd106c9ffdbab9c6c6a4a8674018e",
+      "byteSize": 6604792,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.424,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-code-2026-02-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.2
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.2,
+          "endSeconds": 34.867
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.867,
+          "endSeconds": 58.467
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.467,
+          "endSeconds": 79.367
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "e3d2534a7ede3f0705256a1ffb782c73826fb583c014a98ce91cf77e8e78dce0",
+        "designDigest": "c75ac57dc62c0c533ddd025587aa6ba79368f2c1cd1ef3dcf5a9b0a9f12cbeef",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-code-2026-02/copilot-code-2026-02-am_michael-kokoro_onnx-e3d2534a/editorial"
+      }
+    },
+    {
+      "path": "copilot-code-2026-02-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "98d5b35fb5ab613228aec772eee2999e5ab6fcccafbfe32f1d6759f9a1d83741",
+      "byteSize": 5997161,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.424,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-code-2026-02-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.2
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.2,
+          "endSeconds": 34.867
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.867,
+          "endSeconds": 58.467
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.467,
+          "endSeconds": 79.367
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "e3d2534a7ede3f0705256a1ffb782c73826fb583c014a98ce91cf77e8e78dce0",
+        "designDigest": "4a38fa9917236986be84614c0a7529eeb67a141a73a10334975fc29e58bbfced",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-code-2026-02/copilot-code-2026-02-am_michael-kokoro_onnx-e3d2534a/studio"
+      }
     }
   ],
   "notes": [

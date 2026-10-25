@@ -18,6 +18,42 @@
       "durationSeconds": 40.576,
       "width": 1920,
       "height": 1080
+    },
+    {
+      "path": "copilot-studio-2026-01-regen-1.mp4",
+      "role": "video",
+      "digest": "7a846f803d59f9723f4bd6933640f7a3fc9961e708c87b444b1447829a274db2",
+      "byteSize": 3552756,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.576,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-studio-2026-01.mp4",
+        "sourceDigest": "8b218655072b9f9041d1028801a0f53de6ed36a8617e0f4454d2e19c9a48ebef",
+        "designDigest": "8db0bb204539e65cbf9e869f1e7fd4385e5fd429646915f3f98831cbb0af115d",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-studio-2026-01/copilot-studio-2026-01-8b218655/editorial"
+      }
+    },
+    {
+      "path": "copilot-studio-2026-01-regen-2.mp4",
+      "role": "video",
+      "digest": "0cf6f7105ab107ccccd791e07e4c9f8c001f54534fd50e7505d24e76a342066b",
+      "byteSize": 2930245,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.576,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-studio-2026-01.mp4",
+        "sourceDigest": "8b218655072b9f9041d1028801a0f53de6ed36a8617e0f4454d2e19c9a48ebef",
+        "designDigest": "4ad85402652b934ea975c0439f8ec3346b3d47a2729762a64dca9f351c938883",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-studio-2026-01/copilot-studio-2026-01-8b218655/studio"
+      }
     }
   ],
   "notes": []

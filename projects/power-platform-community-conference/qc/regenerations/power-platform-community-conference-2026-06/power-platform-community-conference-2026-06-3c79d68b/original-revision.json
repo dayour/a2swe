@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "title": "power-platform-community-conference-2026-06",
+  "year": 2026,
+  "number": 6,
+  "createdAt": "2026-10-06T00:10:07.213Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/power-platform-community-conference-2026-06",
+  "contentDigest": "9b822149e074f85bdf7b31494fd2cab10b7044b38b1ab0279f95944a13b34350",
+  "outputs": [
+    {
+      "path": "power-platform-community-conference-2026-06.mp4",
+      "role": "video",
+      "digest": "3c79d68b5012a5650f5d40ef81379f595a6f997d95e00b00b6bf01603a1d5613",
+      "byteSize": 11219649,
+      "mediaType": "video/mp4",
+      "durationSeconds": 71.744,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-06.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.633
+        },
+        {
+          "id": "decision",
+          "startSeconds": 14.633,
+          "endSeconds": 29.733
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 29.733,
+          "endSeconds": 42.2
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 42.2,
+          "endSeconds": 55.1
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 55.1,
+          "endSeconds": 71.7
+        }
+      ],
+      "releaseDigest": "cb9220305f6294940a72d7f635de45ed9b53a24ea41c6562436abacaa80a16ec",
+      "package": "qc/revisions/power-platform-community-conference-2026-06"
+    },
+    {
+      "path": "power-platform-community-conference-2026-06.vtt",
+      "role": "captions",
+      "digest": "0a267f1665929f1f07289e27a2743eb86010c59cf5e0fc0d473e7fad631f7943",
+      "byteSize": 1177,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/r5-timeline-overflow."
+  ]
+}

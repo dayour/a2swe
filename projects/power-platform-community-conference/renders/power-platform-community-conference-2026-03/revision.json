@@ -61,6 +61,108 @@
       "digest": "435c88a4711068c83434248eb5db93e2fc07f0a64004b4f493cdd1c6c3341c50",
       "byteSize": 1343,
       "mediaType": "text/vtt"
+    },
+    {
+      "path": "power-platform-community-conference-2026-03-regen-1.mp4",
+      "role": "video",
+      "digest": "4c27728e9ca248b290ea39c4dce3bd0ea07edf2bae25de8f4d197059e16eccb9",
+      "byteSize": 7484889,
+      "mediaType": "video/mp4",
+      "durationSeconds": 80.085,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-03.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15
+        },
+        {
+          "id": "decision",
+          "startSeconds": 15,
+          "endSeconds": 33.567
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 33.567,
+          "endSeconds": 46.3
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 46.3,
+          "endSeconds": 63.033
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 63.033,
+          "endSeconds": 80.033
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "power-platform-community-conference-2026-03.mp4",
+        "sourceDigest": "6f0060e5d310d387c180ba74dafbab492a05e2e634ceee1427187e046faaa871",
+        "designDigest": "79c8f61e066482fd4d954d1217940328223162e0d8d3500faf042ac2fef34a17",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-community-conference-2026-03/power-platform-community-conference-2026-03-6f0060e5/editorial"
+      }
+    },
+    {
+      "path": "power-platform-community-conference-2026-03-regen-2.mp4",
+      "role": "video",
+      "digest": "d5f4ead7b935898498fcd56fbcc49181835eddeb2b2ede9acadccc93169af0b8",
+      "byteSize": 6778719,
+      "mediaType": "video/mp4",
+      "durationSeconds": 80.085,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-03.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15
+        },
+        {
+          "id": "decision",
+          "startSeconds": 15,
+          "endSeconds": 33.567
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 33.567,
+          "endSeconds": 46.3
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 46.3,
+          "endSeconds": 63.033
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 63.033,
+          "endSeconds": 80.033
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "power-platform-community-conference-2026-03.mp4",
+        "sourceDigest": "6f0060e5d310d387c180ba74dafbab492a05e2e634ceee1427187e046faaa871",
+        "designDigest": "0aee371d44eb4c4e2df417fd6b03882693e3e4df00922f7cb3f6f6acbaefd36e",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-community-conference-2026-03/power-platform-community-conference-2026-03-6f0060e5/studio"
+      }
     }
   ],
   "notes": [

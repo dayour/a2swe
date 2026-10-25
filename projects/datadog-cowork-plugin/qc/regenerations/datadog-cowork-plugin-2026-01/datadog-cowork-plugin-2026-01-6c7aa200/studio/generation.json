@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "datadog-cowork-plugin-2026-01.mp4",
+  "sourceDigest": "6c7aa200daad147284bdfb8037077746a2553c70407bbc2787a616cd7ab18747",
+  "designDigest": "ada70690731a08713874017d0bedf602bf9d6269158deb25c3b81cdc41e807e2",
+  "outputPath": "datadog-cowork-plugin-2026-01-regen-2.mp4",
+  "outputDigest": "92e98006a184a9d45bf03b3a5027f15bf4d96c6a1d35d2b0fa201da2d52b4d92",
+  "recipeDigest": "cdbfed3732a2f284e6e39a596d12d02f1cb1bc32fc170659822542f28737d35a",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

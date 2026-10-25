@@ -29,6 +29,50 @@
         "engine": "kokoro",
         "profileId": "am_liam"
       }
+    },
+    {
+      "path": "power-platform-2026-06-regen-1.mp4",
+      "role": "video",
+      "digest": "e3179ed9a9cf898e96ad193495abc91ebdba0748e64ac74c64bf51d75f31b103",
+      "byteSize": 6119822,
+      "mediaType": "video/mp4",
+      "durationSeconds": 36.352,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      },
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "power-platform-2026-06.mp4",
+        "sourceDigest": "f2d09f4cdcd308d788bb3d11012f5a889ab295f8b5365322426f948233a900de",
+        "designDigest": "2527908a801a8409643b3efd70fed357366dd7be102935eca9d42c77944769f6",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-06/power-platform-2026-06-f2d09f4c/editorial"
+      }
+    },
+    {
+      "path": "power-platform-2026-06-regen-2.mp4",
+      "role": "video",
+      "digest": "71a78f7136551249944b32fd6f70a928f39a8f3d4d4b6fcb027ef10d85f464b0",
+      "byteSize": 4929717,
+      "mediaType": "video/mp4",
+      "durationSeconds": 36.352,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      },
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "power-platform-2026-06.mp4",
+        "sourceDigest": "f2d09f4cdcd308d788bb3d11012f5a889ab295f8b5365322426f948233a900de",
+        "designDigest": "30b71cd00743974e57bf9d8aece1c4549dc3772ce2dfab6c754341430c278033",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-06/power-platform-2026-06-f2d09f4c/studio"
+      }
     }
   ],
   "notes": [

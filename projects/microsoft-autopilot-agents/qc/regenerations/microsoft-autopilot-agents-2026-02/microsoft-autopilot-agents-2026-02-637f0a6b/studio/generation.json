@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "microsoft-autopilot-agents-2026-02.mp4",
+  "sourceDigest": "637f0a6b276142be4de9fba209cede80eb1b14ddc58323044a23c974694a6338",
+  "designDigest": "f9aa3e451566fe353ce39f991eb4b44784c798913f4bcef80b4aba1a71e501ed",
+  "outputPath": "microsoft-autopilot-agents-2026-02-regen-2.mp4",
+  "outputDigest": "7b7418ce2c3451de10288f56efb036288732f77300821d79fc64753f597ec4d9",
+  "recipeDigest": "b79f657f8217abac380784f92d50e3db83ba08256cfd25adffb1acd88a924af0",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

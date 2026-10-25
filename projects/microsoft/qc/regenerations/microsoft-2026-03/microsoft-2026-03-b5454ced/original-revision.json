@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "microsoft",
+  "title": "microsoft-2026-03",
+  "year": 2026,
+  "number": 3,
+  "createdAt": "2026-09-16T02:21:14.774Z",
+  "pipeline": "legacy-template",
+  "status": "superseded",
+  "source": "renders/microsoft-v3.mp4",
+  "outputs": [
+    {
+      "path": "microsoft-2026-03.mp4",
+      "role": "video",
+      "digest": "b5454ced9636c2912c4564a95ffd52c28c909ef508ecbbd39bf3a1407c8ba850",
+      "byteSize": 5573168,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.016,
+      "width": 1280,
+      "height": 720,
+      "voice": {
+        "engine": "edge-neural",
+        "voiceName": "en-US-AndrewNeural"
+      }
+    }
+  ],
+  "notes": [
+    "Narration voice recorded by script/timeline.json for microsoft's latest legacy timeline."
+  ]
+}

@@ -257,6 +257,128 @@
         }
       ],
       "captions": "datadog-cowork-plugin-2026-04-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "53fc21c343c1491770a13f10878a332b276d9c27cebe8cf732640fa30a9e873f",
+      "byteSize": 8654002,
+      "mediaType": "video/mp4",
+      "durationSeconds": 91.755,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15.2
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 15.2,
+          "endSeconds": 29.267
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 29.267,
+          "endSeconds": 42.267
+        },
+        {
+          "id": "setup",
+          "startSeconds": 42.267,
+          "endSeconds": 55.467
+        },
+        {
+          "id": "access",
+          "startSeconds": 55.467,
+          "endSeconds": 67.533
+        },
+        {
+          "id": "control",
+          "startSeconds": 67.533,
+          "endSeconds": 77.5
+        },
+        {
+          "id": "risk",
+          "startSeconds": 77.5,
+          "endSeconds": 91.7
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "0c76479156215faf370f89a76e6dc2b4bbaa406fa5c19af83a4e59df1d23f258",
+        "designDigest": "f335fda3cc2d3cd4549ef5fb4d98c0877f7795be28059243a8808ebdaef53b35",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx-0c764791/editorial"
+      }
+    },
+    {
+      "path": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "364eee9f8de9428b836b5b7fd61605138245b85526a943bf34b4cbd62d787c5a",
+      "byteSize": 7826967,
+      "mediaType": "video/mp4",
+      "durationSeconds": 91.755,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15.2
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 15.2,
+          "endSeconds": 29.267
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 29.267,
+          "endSeconds": 42.267
+        },
+        {
+          "id": "setup",
+          "startSeconds": 42.267,
+          "endSeconds": 55.467
+        },
+        {
+          "id": "access",
+          "startSeconds": 55.467,
+          "endSeconds": 67.533
+        },
+        {
+          "id": "control",
+          "startSeconds": 67.533,
+          "endSeconds": 77.5
+        },
+        {
+          "id": "risk",
+          "startSeconds": 77.5,
+          "endSeconds": 91.7
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "0c76479156215faf370f89a76e6dc2b4bbaa406fa5c19af83a4e59df1d23f258",
+        "designDigest": "114f7aaa838a1cc7b2c4470340714fe537d13e8da2ef06286c9e3f015cd28840",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/datadog-cowork-plugin-2026-04/datadog-cowork-plugin-2026-04-am_michael-kokoro_onnx-0c764791/studio"
+      }
     }
   ],
   "notes": [

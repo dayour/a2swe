@@ -56,6 +56,98 @@
       "digest": "13679470a2d1001872671f6d759d11fbcde4c369941b460758ecc8903dfa1392",
       "byteSize": 1122,
       "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-03-regen-1.mp4",
+      "role": "video",
+      "digest": "0eae305ccdd769feb341a58995bdcd448e7aa5a82fe470d3d5ee0bb01bd7f9de",
+      "byteSize": 6532883,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-autopilot-agents-2026-03.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-autopilot-agents-2026-03.mp4",
+        "sourceDigest": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+        "designDigest": "535ba6678ad211bab32e3d8585075dd9e76d9e7415fec2645450904ea3373e8a",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-autopilot-agents-2026-03/microsoft-autopilot-agents-2026-03-bdeb3a40/editorial"
+      }
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-03-regen-2.mp4",
+      "role": "video",
+      "digest": "bc383d074897e8421bd2fd8ed0d002539bee686c18f7b475fc222931d577a4ea",
+      "byteSize": 5831471,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-autopilot-agents-2026-03.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-autopilot-agents-2026-03.mp4",
+        "sourceDigest": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+        "designDigest": "fef934f9b3bb3ed24edf7453f3ea978b2ebee57289bcaeecbc73e8e234130256",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-autopilot-agents-2026-03/microsoft-autopilot-agents-2026-03-bdeb3a40/studio"
+      }
     }
   ],
   "notes": [

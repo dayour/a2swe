@@ -217,6 +217,108 @@
         }
       ],
       "captions": "microsoft-plugin-architecture-2026-07-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "7d4811f5956f55c8e537f137faacc8236ee089e0929558f4611223d6a37d85ca",
+      "byteSize": 5293289,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "91a17fe194514e59a1c16436f3198892e662cae5ed52ec7ea7540425ac2300b5",
+        "designDigest": "efa54350ab4a000390fc56b4ed8fd21177cffd361c0562c8cd8854b18e4fa7ef",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx-91a17fe1/editorial"
+      }
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "356bba457d011717185b474928a323fed3b8d08b66498635c445ecbe3aaaf1e9",
+      "byteSize": 4820884,
+      "mediaType": "video/mp4",
+      "durationSeconds": 63.552,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 8.567
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 8.567,
+          "endSeconds": 24.2
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 24.2,
+          "endSeconds": 37.1
+        },
+        {
+          "id": "supported-paths",
+          "startSeconds": 37.1,
+          "endSeconds": 49.9
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 49.9,
+          "endSeconds": 63.5
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "91a17fe194514e59a1c16436f3198892e662cae5ed52ec7ea7540425ac2300b5",
+        "designDigest": "5d7b56edeaacf8597a13fab4402de46181a031f1187d23279e4ceaa295722289",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-plugin-architecture-2026-07/microsoft-plugin-architecture-2026-07-am_michael-kokoro_onnx-91a17fe1/studio"
+      }
     }
   ],
   "notes": [

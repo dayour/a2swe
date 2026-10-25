@@ -217,6 +217,108 @@
         }
       ],
       "captions": "microsoft-2026-06-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "microsoft-2026-06-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "35b807ff4e802387c818820ff56acf9adcb0db72db8b8f2c447bed02b6dded11",
+      "byteSize": 5527209,
+      "mediaType": "video/mp4",
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-2026-06-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.467
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 13.467,
+          "endSeconds": 26.767
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 26.767,
+          "endSeconds": 40.9
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 40.9,
+          "endSeconds": 53.733
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 53.733,
+          "endSeconds": 67.733
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-2026-06-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "96cc1b2d8935c69d6c920199c2f05840af4507c7962b0113c4bae7bf4ba078a5",
+        "designDigest": "e246bc5afd3ef4bce094b624000744f8474847efcb7ef0f3523d0cf009b089e1",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx-96cc1b2d/editorial"
+      }
+    },
+    {
+      "path": "microsoft-2026-06-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "f3cfad9424fec7f6d196a219ab9974121e17e51a097eb85ed713955b5e5c83fc",
+      "byteSize": 5106569,
+      "mediaType": "video/mp4",
+      "durationSeconds": 67.776,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-2026-06-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 13.467
+        },
+        {
+          "id": "windows-layer",
+          "startSeconds": 13.467,
+          "endSeconds": 26.767
+        },
+        {
+          "id": "work-layer",
+          "startSeconds": 26.767,
+          "endSeconds": 40.9
+        },
+        {
+          "id": "azure-layer",
+          "startSeconds": 40.9,
+          "endSeconds": 53.733
+        },
+        {
+          "id": "copilot-layer",
+          "startSeconds": 53.733,
+          "endSeconds": 67.733
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-2026-06-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "96cc1b2d8935c69d6c920199c2f05840af4507c7962b0113c4bae7bf4ba078a5",
+        "designDigest": "cf5e19b6352327eb4b27daa51d2ed8434fa1e3d865000aafe1765632f1688e18",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-2026-06/microsoft-2026-06-am_michael-kokoro_onnx-96cc1b2d/studio"
+      }
     }
   ],
   "notes": [

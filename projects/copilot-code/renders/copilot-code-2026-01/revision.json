@@ -56,6 +56,98 @@
       "digest": "7374cfede82c4c3f54096f115ff486e6fe6dba1f63b97f1fa77294dabfd3d0af",
       "byteSize": 1267,
       "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-code-2026-01-regen-1.mp4",
+      "role": "video",
+      "digest": "fe11e7a1ef34a8700929fb52158110a01fb343a5294f4a6d3e6ad326fa83b5f7",
+      "byteSize": 6604216,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.68,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-code-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.033
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.033,
+          "endSeconds": 34.933
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.933,
+          "endSeconds": 58.533
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.533,
+          "endSeconds": 79.633
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-code-2026-01.mp4",
+        "sourceDigest": "bec8b4040eac6b3b0855a72dae3c523006dd5aa69fd8f7c64e0f61e399841b44",
+        "designDigest": "f3de986b71365f75df9744710cc0fec0797844a0429715276eb37f5d7edb9ea7",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-code-2026-01/copilot-code-2026-01-bec8b404/editorial"
+      }
+    },
+    {
+      "path": "copilot-code-2026-01-regen-2.mp4",
+      "role": "video",
+      "digest": "1bf9db5c999a42875dbc611a31ca25a043e4101755c14ae5d5d6b4e0fe3853f3",
+      "byteSize": 5997703,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.68,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "copilot-code-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.033
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.033,
+          "endSeconds": 34.933
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.933,
+          "endSeconds": 58.533
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.533,
+          "endSeconds": 79.633
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-code-2026-01.mp4",
+        "sourceDigest": "bec8b4040eac6b3b0855a72dae3c523006dd5aa69fd8f7c64e0f61e399841b44",
+        "designDigest": "037f12686444e5a20d88539049f4b34b14ab92a8d92891704c814de020384a54",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-code-2026-01/copilot-code-2026-01-bec8b404/studio"
+      }
     }
   ],
   "notes": [

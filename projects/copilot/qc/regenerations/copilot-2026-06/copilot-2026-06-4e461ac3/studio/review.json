@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:33:19.994Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/copilot/renders/copilot-2026-06/copilot-2026-06.mp4",
+    "sha256": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+    "byteSize": 5563277,
+    "probe": {
+      "durationSeconds": 30,
+      "video": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "frameCount": 900
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/copilot/qc/regenerations/copilot-2026-06/copilot-2026-06-4e461ac3/studio/candidate.mp4",
+    "sha256": "35d1907a4f8a63805a4838cf7fae4b4912c96e76b5bd176ed016161aee71ce54",
+    "byteSize": 3986841,
+    "probe": {
+      "durationSeconds": 30,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 900
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "86c316cf0a490c63d71d5a560c98bed9503234e12d9da4eab855e3bf871c525e",
+    "variantDecodedSha256": "86c316cf0a490c63d71d5a560c98bed9503234e12d9da4eab855e3bf871c525e",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 2.5,
+      "sourcePngSha256": "106362bb5fa2ca73ce6c21f72a357b1ddfc07539ddb318a53976d320f2be8bb1",
+      "variantPngSha256": "7c0b8c0cc206252c4b2695cb77e866a8976518f07a280f7deb672a0420014b4c",
+      "meanPixelDifference": 34.484997
+    },
+    {
+      "timeSeconds": 7.5,
+      "sourcePngSha256": "3365b080503bd3d6192f3db6782478a06ede3387fa3587536bb30d49f5e7dd94",
+      "variantPngSha256": "ba48e6e0e0a7f12af6902a053201a5b413ccf693f193f93405b12dbb9edf900f",
+      "meanPixelDifference": 39.623621
+    },
+    {
+      "timeSeconds": 12.5,
+      "sourcePngSha256": "8a23fc31a576985bb404808cbb5aed9f8b7ddbb290bd95d767dc327defe87cd5",
+      "variantPngSha256": "977290780c14226094300ea2099c6785b1d3e75c9c2cdb63a5171feace85e7d2",
+      "meanPixelDifference": 36.048467
+    },
+    {
+      "timeSeconds": 17.5,
+      "sourcePngSha256": "5485395cc42478901d6bbb4494563e9bdb5b928e381757fbd848079f323aa3e7",
+      "variantPngSha256": "7e3cf98a136915fecb60d3a4ec737926ecbb3043905356b4b64f38172c0c30d2",
+      "meanPixelDifference": 36.909231
+    },
+    {
+      "timeSeconds": 22.5,
+      "sourcePngSha256": "3854844805d61c89c03a53e1ad5375d384f553354ed9b49b0f2312f0dfdbe099",
+      "variantPngSha256": "91801ca414bcc9ae4bfd9855fe2ebce23b297ab3c117ae62c52a40350ce14dff",
+      "meanPixelDifference": 35.360031
+    },
+    {
+      "timeSeconds": 27.5,
+      "sourcePngSha256": "1999e2a0658371b86c69debe513194e47dd83d32cc2dc99a542e1d4110efb672",
+      "variantPngSha256": "b1478455b00924b9ab12f5a92a5a5a4e762b1e6c0501f259f5f9efb6c79c83db",
+      "meanPixelDifference": 35.019812
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "556845cd842ba80597a081f1c5259f65fc940aa27847f0bd424ed6ff15f59563"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

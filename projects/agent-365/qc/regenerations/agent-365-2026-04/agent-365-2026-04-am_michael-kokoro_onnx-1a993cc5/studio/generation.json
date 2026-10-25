@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "agent-365-2026-04-am_michael-kokoro_onnx.mp4",
+  "sourceDigest": "1a993cc58748fe481d9f6ecedef53751ffaa9a62c4589f575fde03f5b1be874b",
+  "designDigest": "899fbe6d5852743483fd3aa75ef723914ef2cb350b01615d7553b847871ae789",
+  "outputPath": "agent-365-2026-04-am_michael-kokoro_onnx-regen-2.mp4",
+  "outputDigest": "15d5345a5fcc33a1644ba83c54f463cbe550accfdb7f5b11925a49e79e0d33a7",
+  "recipeDigest": "bf131ed6e71694fff9902c70bcf0b723880ce4f30e18e067e2ae81e892c332b0",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

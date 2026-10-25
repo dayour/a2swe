@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-studio-2026",
+  "title": "copilot-studio-2026-03",
+  "year": 2026,
+  "number": 3,
+  "createdAt": "2026-09-21T18:39:44.942Z",
+  "pipeline": "legacy-template",
+  "status": "superseded",
+  "source": "renders/copilot-studio-2026-v3.mp4",
+  "outputs": [
+    {
+      "path": "copilot-studio-2026-03-raw.mp4",
+      "role": "video-raw",
+      "digest": "fe8eae6c6dd1cfad1413f22efd982ba612502bc23339a86646129df00d32a296",
+      "byteSize": 14963819,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.576,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "copilot-studio-2026-03.alignment.json",
+      "role": "metadata",
+      "digest": "3146fb510828af0cdfcd506ac0737c6800118d4b912d9dc22d3d45fc585adaa2",
+      "byteSize": 340,
+      "mediaType": "application/json"
+    },
+    {
+      "path": "copilot-studio-2026-03.mp4",
+      "role": "video",
+      "digest": "8eb021c0d2d447d43645d488691a9c44f5c26f7a7bdb514fc3fe03b15bb62f9c",
+      "byteSize": 14963835,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.533,
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "notes": [
+    "Audio/video alignment remux of copilot-studio-2026-v3-raw.mp4 with -0.0427 s offset."
+  ]
+}

@@ -56,6 +56,98 @@
       "digest": "ed38aa299ce2cb113f1a52580407d8c70745c392122281982d1a5a61e8d927cb",
       "byteSize": 1413,
       "mediaType": "text/vtt"
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-01-regen-1.mp4",
+      "role": "video",
+      "digest": "6623401e4a46b2bb3b7b960cc671b27686cfb806ec29a6e1745c326d8974526d",
+      "byteSize": 7372387,
+      "mediaType": "video/mp4",
+      "durationSeconds": 82.325,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 14,
+          "endSeconds": 36.367
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 36.367,
+          "endSeconds": 60.033
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 60.033,
+          "endSeconds": 82.267
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-plugin-architecture-2026-01.mp4",
+        "sourceDigest": "f538487cfea555b8527485653d1871aa67b5cf429ec5e6435c79e561b373a9e0",
+        "designDigest": "84b7df53137c85f72a7ba0511ba3bda6e699fa716ab53d332bdd3263910fe64f",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-plugin-architecture-2026-01/microsoft-plugin-architecture-2026-01-f538487c/editorial"
+      }
+    },
+    {
+      "path": "microsoft-plugin-architecture-2026-01-regen-2.mp4",
+      "role": "video",
+      "digest": "5d5f18e50ca46e0bc9a240a17b72171a299869182733cbc860bb7fc9329d03be",
+      "byteSize": 6685218,
+      "mediaType": "video/mp4",
+      "durationSeconds": 82.325,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-plugin-architecture-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14
+        },
+        {
+          "id": "three-routes",
+          "startSeconds": 14,
+          "endSeconds": 36.367
+        },
+        {
+          "id": "reuse-boundary",
+          "startSeconds": 36.367,
+          "endSeconds": 60.033
+        },
+        {
+          "id": "portfolio",
+          "startSeconds": 60.033,
+          "endSeconds": 82.267
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-plugin-architecture-2026-01.mp4",
+        "sourceDigest": "f538487cfea555b8527485653d1871aa67b5cf429ec5e6435c79e561b373a9e0",
+        "designDigest": "0248c3ef2d0fc44924dfd1991d7aaba1600c7fc13ae9a146852ca131c688591f",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-plugin-architecture-2026-01/microsoft-plugin-architecture-2026-01-f538487c/studio"
+      }
     }
   ],
   "notes": [

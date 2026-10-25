@@ -61,6 +61,122 @@
       ],
       "releaseDigest": "7f847a3121e4799421d3c2a5123045a6b9cc912fffb090f2d7f9652e218b30bc",
       "package": "qc/revisions/datadog-cowork-plugin-2026-02"
+    },
+    {
+      "path": "datadog-cowork-plugin-2026-02-regen-1.mp4",
+      "role": "video",
+      "digest": "4bc034d1e442012a1657cd3342cafc5a3b04bce49ed920701fbb6f392be24584",
+      "byteSize": 8809273,
+      "mediaType": "video/mp4",
+      "durationSeconds": 88.96,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx"
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 10.2
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 10.2,
+          "endSeconds": 23.833
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 23.833,
+          "endSeconds": 38
+        },
+        {
+          "id": "setup",
+          "startSeconds": 38,
+          "endSeconds": 51.433
+        },
+        {
+          "id": "access",
+          "startSeconds": 51.433,
+          "endSeconds": 63.267
+        },
+        {
+          "id": "control",
+          "startSeconds": 63.267,
+          "endSeconds": 71.967
+        },
+        {
+          "id": "risk",
+          "startSeconds": 71.967,
+          "endSeconds": 88.9
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "datadog-cowork-plugin-2026-02.mp4",
+        "sourceDigest": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
+        "designDigest": "5b5b6afaed3a70905c729990b1f7a5b2697495ed6dd1581c6829b007198bb7ec",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02-48370e63/editorial"
+      }
+    },
+    {
+      "path": "datadog-cowork-plugin-2026-02-regen-2.mp4",
+      "role": "video",
+      "digest": "dc620886f844293f0579f37c281fcef57746a055ddd7badb65ff9aa0e571d378",
+      "byteSize": 7878564,
+      "mediaType": "video/mp4",
+      "durationSeconds": 88.96,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx"
+      },
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 10.2
+        },
+        {
+          "id": "what-it-is",
+          "startSeconds": 10.2,
+          "endSeconds": 23.833
+        },
+        {
+          "id": "where-it-runs",
+          "startSeconds": 23.833,
+          "endSeconds": 38
+        },
+        {
+          "id": "setup",
+          "startSeconds": 38,
+          "endSeconds": 51.433
+        },
+        {
+          "id": "access",
+          "startSeconds": 51.433,
+          "endSeconds": 63.267
+        },
+        {
+          "id": "control",
+          "startSeconds": 63.267,
+          "endSeconds": 71.967
+        },
+        {
+          "id": "risk",
+          "startSeconds": 71.967,
+          "endSeconds": 88.9
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "datadog-cowork-plugin-2026-02.mp4",
+        "sourceDigest": "48370e6353aac353e41b57602fddcfa172360128f123b8e8122ee71f9179ec0f",
+        "designDigest": "8b39e227071b0447afd77b8340f071b8c7f7123c7ea68f5b59fac45e67c456af",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/datadog-cowork-plugin-2026-02/datadog-cowork-plugin-2026-02-48370e63/studio"
+      }
     }
   ],
   "notes": [

@@ -43,6 +43,50 @@
         "engine": "unknown",
         "voiceName": "Microsoft Mark"
       }
+    },
+    {
+      "path": "copilot-studio-2026-04-regen-1.mp4",
+      "role": "video",
+      "digest": "fa53b00350be66543b5fe49a6bc3150012f001a1a6b42a53d7f5e0111623cd09",
+      "byteSize": 6523414,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.533,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "unknown",
+        "voiceName": "Microsoft Mark"
+      },
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-studio-2026-04.mp4",
+        "sourceDigest": "2cfa39441a8f4240efe3f42420c35229e54c4ea3faae2b4ec88611a7c2220544",
+        "designDigest": "0acf7e2a71e9f2c65af6ee50a1a15d24b2191ea3116f93687aaeedd5e7acdb9c",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-studio-2026-04/copilot-studio-2026-04-2cfa3944/editorial"
+      }
+    },
+    {
+      "path": "copilot-studio-2026-04-regen-2.mp4",
+      "role": "video",
+      "digest": "45498bed62b9b2e4d37d82bdad644249b3e2c26d8aa7a058a9bcdbe4c1df92a7",
+      "byteSize": 5015324,
+      "mediaType": "video/mp4",
+      "durationSeconds": 40.533,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "unknown",
+        "voiceName": "Microsoft Mark"
+      },
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-studio-2026-04.mp4",
+        "sourceDigest": "2cfa39441a8f4240efe3f42420c35229e54c4ea3faae2b4ec88611a7c2220544",
+        "designDigest": "e9ac10b0e17facbd89626f364dac9af719f471ba9168b6bd5c3cdb8f56e24dd7",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-studio-2026-04/copilot-studio-2026-04-2cfa3944/studio"
+      }
     }
   ],
   "notes": [
