@@ -18,6 +18,42 @@
       "durationSeconds": 42.176,
       "width": 1920,
       "height": 1080
+    },
+    {
+      "path": "power-platform-2026-02-regen-1.mp4",
+      "role": "video",
+      "digest": "0ef31ab673444fab6d9289fc9063b26932ae47f412e6c34dc8265cb5b01586e5",
+      "byteSize": 6414441,
+      "mediaType": "video/mp4",
+      "durationSeconds": 42.176,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "power-platform-2026-02.mp4",
+        "sourceDigest": "56ede5e58c67124ae4a26856e1895557437d6c6fa11358e0297c9c3b1cb4067f",
+        "designDigest": "a734fd2c04a8ce804086ace75cef6cc84a0c7d48182cf1582bdb6d746f03f5ff",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-02/power-platform-2026-02-56ede5e5/editorial"
+      }
+    },
+    {
+      "path": "power-platform-2026-02-regen-2.mp4",
+      "role": "video",
+      "digest": "3df8e2b98d446e29287b96a4dc31e6a8e1c0235428630a16ce920f02deaf33ce",
+      "byteSize": 5222449,
+      "mediaType": "video/mp4",
+      "durationSeconds": 42.176,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "power-platform-2026-02.mp4",
+        "sourceDigest": "56ede5e58c67124ae4a26856e1895557437d6c6fa11358e0297c9c3b1cb4067f",
+        "designDigest": "c5a4ca15d75b4a2ee62c9a175aa043c795ec0e305930d944c938a1822b3e7208",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-02/power-platform-2026-02-56ede5e5/studio"
+      }
     }
   ],
   "notes": []

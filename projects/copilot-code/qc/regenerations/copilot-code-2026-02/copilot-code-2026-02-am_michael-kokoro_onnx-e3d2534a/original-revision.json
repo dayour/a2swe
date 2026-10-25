@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "copilot-code",
+  "title": "copilot-code-2026-02",
+  "year": 2026,
+  "number": 2,
+  "createdAt": "2026-10-20T23:10:14.684Z",
+  "pipeline": "core-release",
+  "status": "current",
+  "source": "qc/revisions/copilot-code-2026-02",
+  "contentDigest": "b4f303db39ee9c7d42a831d1c058586880f0b84acd7ebc11dcce1ee993d332f9",
+  "outputs": [
+    {
+      "path": "copilot-code-2026-02-am_michael-kokoro_onnx.vtt",
+      "role": "captions",
+      "digest": "7a65c15e9e909d4ddc0b148b0da683051a829b5d98b5f2a3a426f722a4fdb95f",
+      "byteSize": 1268,
+      "mediaType": "text/vtt"
+    },
+    {
+      "path": "copilot-code-2026-02-am_michael-kokoro_onnx.mp4",
+      "role": "video",
+      "digest": "e3d2534a7ede3f0705256a1ffb782c73826fb583c014a98ce91cf77e8e78dce0",
+      "byteSize": 10830934,
+      "mediaType": "video/mp4",
+      "durationSeconds": 79.424,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "releaseDigest": "76c1a04ef7bf362a163a3a58ccfffc80a190ff1f0c509935d24d8cef83842bde",
+      "package": "qc/revisions/copilot-code-2026-02/am_michael-kokoro_onnx",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.2
+        },
+        {
+          "id": "what-code-is",
+          "startSeconds": 14.2,
+          "endSeconds": 34.867
+        },
+        {
+          "id": "safe-operation",
+          "startSeconds": 34.867,
+          "endSeconds": 58.467
+        },
+        {
+          "id": "pilot-gate",
+          "startSeconds": 58.467,
+          "endSeconds": 79.367
+        }
+      ],
+      "captions": "copilot-code-2026-02-am_michael-kokoro_onnx.vtt"
+    }
+  ],
+  "notes": [
+    "Rendered 1 complete core releases from canonical inputs; each variant changes only the narration voice profile and speech engine."
+  ]
+}

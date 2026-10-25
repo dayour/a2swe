@@ -49,6 +49,12 @@ jobs:
           node-version: '24.8.0'
           cache: npm
       - run: npm ci --ignore-scripts
+      - name: Install FFmpeg for media integration tests (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install FFmpeg for media integration tests (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg --no-progress -y
       - run: npm run contracts:check
       - run: npm run build
       - run: npm test

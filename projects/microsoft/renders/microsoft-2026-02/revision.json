@@ -18,6 +18,42 @@
       "durationSeconds": 30.059,
       "width": 1280,
       "height": 720
+    },
+    {
+      "path": "microsoft-2026-02-regen-1.mp4",
+      "role": "video",
+      "digest": "58fc8f30c5deb21ed38ee6273f22f2868df66e04f70998ae54f8dc72dcc2e319",
+      "byteSize": 4425230,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.059,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-2026-02.mp4",
+        "sourceDigest": "4a55bc2c2403598d7ada480eb5e03d59e16cf037f0448d2e63bc1bdf43ed2afe",
+        "designDigest": "d14de249785a66f98f73454256432797adb6f0b130129dd34fdbd9c06e69193d",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-2026-02/microsoft-2026-02-4a55bc2c/editorial"
+      }
+    },
+    {
+      "path": "microsoft-2026-02-regen-2.mp4",
+      "role": "video",
+      "digest": "77aeb46aa8e45a9089808362b58287ebead9da958fc0513cd6d5aac75b84172e",
+      "byteSize": 3946646,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.059,
+      "width": 1920,
+      "height": 1080,
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-2026-02.mp4",
+        "sourceDigest": "4a55bc2c2403598d7ada480eb5e03d59e16cf037f0448d2e63bc1bdf43ed2afe",
+        "designDigest": "1a45b23a2c50625dd3085b1c99c8a6606e1b8f4f2399220fffcd9be3ba3f1556",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-2026-02/microsoft-2026-02-4a55bc2c/studio"
+      }
     }
   ],
   "notes": []

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "title": "power-platform-community-conference-2026-01",
+  "year": 2026,
+  "number": 1,
+  "createdAt": "2026-10-05T23:31:11.964Z",
+  "pipeline": "core-release",
+  "status": "rejected",
+  "source": "qc/revisions/power-platform-community-conference-2026-01",
+  "contentDigest": "4303239f4a395e8eddce91b756f0f103bbee7d7c87185d44118e5eb71d3c2751",
+  "outputs": [
+    {
+      "path": "power-platform-community-conference-2026-01.mp4",
+      "role": "video",
+      "digest": "b2f9d7ab9e97c2ece568fd95ce39a01ed4d98b6ad4f2c1382585e064f5af4f17",
+      "byteSize": 13114549,
+      "mediaType": "video/mp4",
+      "durationSeconds": 80.085,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-01.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 15
+        },
+        {
+          "id": "decision",
+          "startSeconds": 15,
+          "endSeconds": 33.567
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 33.567,
+          "endSeconds": 46.3
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 46.3,
+          "endSeconds": 63.033
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 63.033,
+          "endSeconds": 80.033
+        }
+      ],
+      "releaseDigest": "127b14c57237242d35fbb4cd94e4aa20d20206465748b0bb2d16322af149f88e",
+      "package": "qc/revisions/power-platform-community-conference-2026-01"
+    },
+    {
+      "path": "power-platform-community-conference-2026-01.vtt",
+      "role": "captions",
+      "digest": "435c88a4711068c83434248eb5db93e2fc07f0a64004b4f493cdd1c6c3341c50",
+      "byteSize": 1343,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/r1-failed-inventory; the package was rejected during release verification."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "a2swe-visual-fingerprint-v1:lab-wasserstein80-layout20",
+  "visualSimilarity": 27.06,
+  "paletteSimilarity": 19.58,
+  "layoutSimilarity": 56.98,
+  "labDistance": {
+    "L": 16.8193,
+    "a": 0.4241,
+    "b": 1.8678
+  },
+  "findings": [
+    {
+      "component": "palette",
+      "severity": "warning",
+      "message": "Sampled frames are brighter than the original (Lab lightness distance 16.82)."
+    }
+  ]
+}

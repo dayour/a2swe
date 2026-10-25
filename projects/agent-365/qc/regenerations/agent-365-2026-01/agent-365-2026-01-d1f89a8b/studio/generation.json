@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "agent-365-2026-01.mp4",
+  "sourceDigest": "d1f89a8ba22103e6963734a3421c3deacbec6a55dabef98bb4adafbd2a9b5203",
+  "designDigest": "5c13db78ace7fb8d21b287d3d1c09d46dd8083f1f4605ab8c738f6dee24ba212",
+  "outputPath": "agent-365-2026-01-regen-2.mp4",
+  "outputDigest": "555bcfb39f9e661a47fe13587eb91d68f69b445adfa1d6e3ef4c6bab4cd05802",
+  "recipeDigest": "ce625e743e248c3f636b2deed0f4a2999eb492e3e73328988cefa6732751434a",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

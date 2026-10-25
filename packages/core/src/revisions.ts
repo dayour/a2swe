@@ -483,9 +483,16 @@ export async function produceRevision(projectDirectory: string, options: { varia
     pipeline: 'core-release', status: 'current', source: relative(project, staging), ...(contentDigest ? { contentDigest } : {}), outputs, notes });
   await saveRevision(project, revision);
   for (const previous of existing) if (previous.status === 'current') await saveRevision(project, { ...previous, status: 'superseded' });
-  if (options.promote !== false) return promoteRevision(project, title, `${options.variants[0].voice}-${options.variants[0].engine}`);
+  const result = options.promote !== false
+    ? await promoteRevision(project, title, `${options.variants[0].voice}-${options.variants[0].engine}`)
+    : { projectId, title, outputs: videoSummary(revision), runbook: null };
+  const { regenerateRevisions } = await import('./regenerations.ts');
+  const visualRegenerations = await regenerateRevisions(project, { id: title });
+  if (visualRegenerations.failures.length) {
+    throw new Error(`revision_visual_regeneration_failed: original ${title} is retained; resume with revisions-regenerate --root ${project} --id ${title}; ${visualRegenerations.failures.map((failure) => failure.message).join('; ')}`);
+  }
   await indexProjectQc(project);
-  return { projectId, title, outputs: videoSummary(revision), runbook: null };
+  return { ...result, visualRegenerations };
 }
 
 const voiceSlug = (voice: RevisionVoice) => `${voice.profileId}-${voice.engine}`;
@@ -534,7 +541,7 @@ export async function promoteRevision(projectDirectory: string, title: string, v
   const revisions = await listRevisions(project);
   const target = revisions.find((revision) => revision.title === title);
   if (!target) throw new Error(`unknown_revision: ${title}`);
-  const videos = target.outputs.filter((output) => output.role === 'video' && output.voice && output.package);
+  const videos = target.outputs.filter((output) => output.role === 'video' && !output.visualRegeneration && output.voice && output.package);
   const chosen = variant ? videos.find((output) => voiceSlug(output.voice!) === variant) : videos[0];
   if (!chosen) throw new Error(`unknown_revision_variant: ${variant ?? title}`);
   const slug = voiceSlug(chosen.voice!);

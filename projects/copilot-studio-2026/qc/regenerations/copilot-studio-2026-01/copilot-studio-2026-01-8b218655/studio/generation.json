@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "copilot-studio-2026-01.mp4",
+  "sourceDigest": "8b218655072b9f9041d1028801a0f53de6ed36a8617e0f4454d2e19c9a48ebef",
+  "designDigest": "4ad85402652b934ea975c0439f8ec3346b3d47a2729762a64dca9f351c938883",
+  "outputPath": "copilot-studio-2026-01-regen-2.mp4",
+  "outputDigest": "0cf6f7105ab107ccccd791e07e4c9f8c001f54534fd50e7505d24e76a342066b",
+  "recipeDigest": "f2e2cf70ff9d86a5e46ab6d74a597e76456726e4fc4a11d751019c3b099313de",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-community-conference",
+  "title": "power-platform-community-conference-2026-05",
+  "year": 2026,
+  "number": 5,
+  "createdAt": "2026-10-05T23:47:53.391Z",
+  "pipeline": "core-release",
+  "status": "superseded",
+  "source": "qc/revisions/power-platform-community-conference-2026-05",
+  "contentDigest": "4223193a721c76f4d9aae1ab521ed516fad18319310e04f8485d3ccb8fbdd541",
+  "outputs": [
+    {
+      "path": "power-platform-community-conference-2026-05.mp4",
+      "role": "video",
+      "digest": "0272aac280de38d35e534fd3d11cc1f01976f919a5b3f62df3483a1d7441ebeb",
+      "byteSize": 12513841,
+      "mediaType": "video/mp4",
+      "durationSeconds": 75.413,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-community-conference-2026-05.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "decision",
+          "startSeconds": 14.1,
+          "endSeconds": 31.6
+        },
+        {
+          "id": "conference-week",
+          "startSeconds": 31.6,
+          "endSeconds": 43.6
+        },
+        {
+          "id": "execution-value",
+          "startSeconds": 43.6,
+          "endSeconds": 59.333
+        },
+        {
+          "id": "next-action",
+          "startSeconds": 59.333,
+          "endSeconds": 75.367
+        }
+      ],
+      "releaseDigest": "fca3db988b4b939b8ef19661b5739a4f811f4e7e648d15c17eb72858655155fa",
+      "package": "qc/revisions/power-platform-community-conference-2026-05"
+    },
+    {
+      "path": "power-platform-community-conference-2026-05.vtt",
+      "role": "captions",
+      "digest": "b2414fa95beeecb2d3a6c1898bed0636cd6f85973204cf3c8c692bc8ee87ef87",
+      "byteSize": 1202,
+      "mediaType": "text/vtt"
+    }
+  ],
+  "notes": [
+    "Imported from qc/revisions/r1-verified."
+  ]
+}

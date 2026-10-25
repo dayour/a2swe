@@ -271,10 +271,28 @@ function validateRenderRevision(revision: RenderRevision): void {
   if (!safeRelativePath(revision.source)) throw new Error('unsafe_revision_source');
   const outputs = uniqueBy(revision.outputs, (output) => output.path);
   if (!revision.outputs.some((output) => output.role === 'video')) throw new Error('revision_requires_video');
+  const regenerations = new Map<string, { variants: Set<number>; digests: Set<string>; designs: Set<string> }>();
   for (const output of revision.outputs) {
     if (output.captions && outputs.get(output.captions)?.role !== 'captions') throw new Error('invalid_revision_captions');
     if (output.package && !safeRelativePath(output.package)) throw new Error('unsafe_revision_package');
     for (const scene of output.scenes ?? []) if (scene.endSeconds <= scene.startSeconds) throw new Error('invalid_revision_scene');
+    if (output.visualRegeneration) {
+      const provenance = output.visualRegeneration;
+      const original = outputs.get(provenance.sourcePath);
+      if (output.role !== 'video' || !original || original.role !== 'video' || original.visualRegeneration
+        || original.path === output.path || original.digest !== provenance.sourceDigest) throw new Error('invalid_regeneration_source');
+      if (output.package !== undefined || output.releaseDigest !== undefined) throw new Error('regeneration_is_not_release_package');
+      if (provenance.evidencePath && !safeRelativePath(provenance.evidencePath)) throw new Error('unsafe_regeneration_evidence');
+      const group = regenerations.get(original.path) ?? { variants: new Set<number>(), digests: new Set<string>(), designs: new Set<string>() };
+      if (group.variants.has(provenance.variant)) throw new Error('duplicate_regeneration_variant');
+      if (output.digest === original.digest || group.digests.has(output.digest) || group.designs.has(provenance.designDigest)) {
+        throw new Error('regeneration_variants_not_distinct');
+      }
+      group.variants.add(provenance.variant);
+      group.digests.add(output.digest);
+      group.designs.add(provenance.designDigest);
+      regenerations.set(original.path, group);
+    }
   }
 }
 

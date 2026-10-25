@@ -4,6 +4,7 @@ import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateSlideRecipe} from '../../template/scripts/brand-plan.ts';
+import {visualCatalogFields} from './regeneration-catalog.mjs';
 
 const docs = fileURLToPath(new URL('../', import.meta.url));
 const root = path.resolve(docs, '..');
@@ -33,8 +34,10 @@ if (!refresh) {
   }
 }
 const mediaOut = path.join(docs, 'static', 'library');
-const ffmpeg = process.env.FFMPEG ?? path.join(root, 'template', 'node_modules', '@remotion', 'compositor-win32-x64-msvc', 'ffmpeg.exe');
-const ffprobe = process.env.FFPROBE ?? path.join(path.dirname(ffmpeg), 'ffprobe.exe');
+const compositorFfmpeg = path.join(root, 'template', 'node_modules', '@remotion', 'compositor-win32-x64-msvc', 'ffmpeg.exe');
+const ffmpeg = process.env.FFMPEG ?? process.env.FFMPEG_PATH ?? (process.platform === 'win32' && existsSync(compositorFfmpeg) ? compositorFfmpeg : 'ffmpeg');
+const siblingProbe = path.join(path.dirname(ffmpeg), process.platform === 'win32' ? 'ffprobe.exe' : 'ffprobe');
+const ffprobe = process.env.FFPROBE ?? process.env.FFPROBE_PATH ?? (path.isAbsolute(ffmpeg) && existsSync(siblingProbe) ? siblingProbe : 'ffprobe');
 const projects = [];
 const discoveredMovies = new Set();
 const templates = [];
@@ -73,6 +76,7 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
     const bytes = statSync(file).size;
     if (digest !== output.digest) throw new Error(`Revision manifest digest mismatch: ${source}`);
     const poster = `library/posters/${id}-${name}.jpg`;
+    const posterFile = path.join(docs, 'static', poster);
     if (refresh && (metadata[source]?.digest !== digest || metadata[source]?.bytes !== bytes
       || !existsSync(path.join(docs, 'static', poster)))) {
       const probe = JSON.parse(execFileSync(ffprobe, ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', file], {encoding: 'utf8'}));
@@ -81,9 +85,13 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       const [n, d] = stream.avg_frame_rate.split('/').map(Number);
       metadata[source] = {digest, bytes, width: stream.width, height: stream.height,
         fps: n / d, duration: Number(stream.duration ?? probe.format.duration), codec: stream.codec_name};
-      const posterFile = path.join(docs, 'static', poster);
       mkdirSync(path.dirname(posterFile), {recursive: true});
-      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', '2', '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
+      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', String(Math.min(2, (metadata[source]?.duration ?? output.durationSeconds ?? 4) / 2)), '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
+    }
+    // Regeneration thumbnails are derived from the retained movie; rebuild them on a clean checkout.
+    if (output.visualRegeneration && !existsSync(posterFile)) {
+      mkdirSync(path.dirname(posterFile), {recursive: true});
+      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', String(Math.min(2, (metadata[source]?.duration ?? output.durationSeconds ?? 4) / 2)), '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
     }
     const data = metadata[source];
     if (!data || data.digest !== digest || data.bytes !== bytes) {
@@ -99,6 +107,7 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       copyFileSync(file, destination);
     }
     const voice = output.voice ? [output.voice.voiceName ?? output.voice.profileId, output.voice.engine].filter(Boolean).join(' / ') : null;
+    const visual = visualCatalogFields(id, manifest, output);
     const revision = name.slice(0, -path.extname(name).length);
     const stem = revision;
     const reportPath = `${prefix}/qc/analysis/${manifest.title}/${stem}/analysis.json`;
@@ -109,8 +118,8 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       captions = `library/captions/${id}/${output.captions}`;
       write(path.join(docs, 'static', captions), readFileSync(path.join(renderDir, manifest.title, output.captions), 'utf8'));
     }
-    return {id: revisionId, projectId: id, title: `${notes.title} ${manifest.title}${voice ? ` (${voice})` : ''}`, revision, revisionTitle: manifest.title,
-      voice, source, movie, poster, captions, ...data, latest: manifest === current, qc: reportMatches ? reportPath : null,
+    return {id: revisionId, projectId: id, title: `${notes.title} ${manifest.title}${voice ? ` (${voice})` : ''} / ${visual.visualLabel}`, revision, revisionTitle: manifest.title,
+      voice, source, movie, poster, captions, ...data, ...visual, latest: manifest === current, qc: reportMatches ? reportPath : null,
       state: manifest === current ? 'Current revision' : manifest.status === 'rejected' ? 'Rejected candidate' : 'Historical revision'};
   });
   const evidence = notes.evidence.map((p) => `${prefix}/${p}`);

@@ -197,6 +197,98 @@
         }
       ],
       "captions": "microsoft-autopilot-agents-2026-06-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "58cba514829f9680676e9961813d5feb1dcd3d3813cafd4981a4df014fa31daa",
+      "byteSize": 6350477,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "03b20a40a6301ece4a48cc7f082075fe97872eef8db44a485dee3f8c732e24cc",
+        "designDigest": "29e86ab97c727c85ec76fdd0f510d1f8d2ac8a2e91c413d0135324cbd20cfb80",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx-03b20a40/editorial"
+      }
+    },
+    {
+      "path": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "9c40510290dd0fe3c5e3647f73e582e803ca646386dae72661bd1fbbe24fe62f",
+      "byteSize": 5701358,
+      "mediaType": "video/mp4",
+      "durationSeconds": 61.589,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 11.767
+        },
+        {
+          "id": "operating-model",
+          "startSeconds": 11.767,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "identity-boundaries",
+          "startSeconds": 27.5,
+          "endSeconds": 44.1
+        },
+        {
+          "id": "pilot",
+          "startSeconds": 44.1,
+          "endSeconds": 61.533
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "03b20a40a6301ece4a48cc7f082075fe97872eef8db44a485dee3f8c732e24cc",
+        "designDigest": "a1e2eb2c98f4f2e0ac6083635a8ccfdadc4dbd7a25d28b5ee628d99d4f776a4e",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/microsoft-autopilot-agents-2026-06/microsoft-autopilot-agents-2026-06-am_michael-kokoro_onnx-03b20a40/studio"
+      }
     }
   ],
   "notes": [

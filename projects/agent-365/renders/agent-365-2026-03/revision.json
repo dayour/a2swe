@@ -217,6 +217,108 @@
         }
       ],
       "captions": "agent-365-2026-03-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "agent-365-2026-03-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "628a253f9e565c2ac18336a453a2bb47d3a5c1529c7dccde611a996d1f8b6da8",
+      "byteSize": 5840442,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "agent-365-2026-03-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.5
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 14.5,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 27.5,
+          "endSeconds": 40.067
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 40.067,
+          "endSeconds": 52.567
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 52.567,
+          "endSeconds": 66
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "agent-365-2026-03-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "452aead9f876b57e8163964626ecb8aeaf6c57cedd9791bce96f39153b3e0fdd",
+        "designDigest": "6013ab45ecfc50b37885378e8fd47fec29c41db5d650fb90d220068833591293",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx-452aead9/editorial"
+      }
+    },
+    {
+      "path": "agent-365-2026-03-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "bb9b8db8ae02a5d929ac20be5d211744f533c7bab4a1833801bccd4030ff70d9",
+      "byteSize": 5329879,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.048,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "agent-365-2026-03-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.5
+        },
+        {
+          "id": "control-plane",
+          "startSeconds": 14.5,
+          "endSeconds": 27.5
+        },
+        {
+          "id": "observe-traces",
+          "startSeconds": 27.5,
+          "endSeconds": 40.067
+        },
+        {
+          "id": "govern-secure",
+          "startSeconds": 40.067,
+          "endSeconds": 52.567
+        },
+        {
+          "id": "accountable-pilot",
+          "startSeconds": 52.567,
+          "endSeconds": 66
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "agent-365-2026-03-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "452aead9f876b57e8163964626ecb8aeaf6c57cedd9791bce96f39153b3e0fdd",
+        "designDigest": "697263587abfc47dea1ef51c02ddd001f5cf1ce1f1f711914fff077c14546487",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/agent-365-2026-03/agent-365-2026-03-am_michael-kokoro_onnx-452aead9/studio"
+      }
     }
   ],
   "notes": [

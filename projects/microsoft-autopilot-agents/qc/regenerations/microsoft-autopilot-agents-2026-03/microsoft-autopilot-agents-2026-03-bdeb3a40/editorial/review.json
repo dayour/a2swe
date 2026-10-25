@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:48:12.444Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/microsoft-autopilot-agents/renders/microsoft-autopilot-agents-2026-03/microsoft-autopilot-agents-2026-03.mp4",
+    "sha256": "bdeb3a40b3a2e6c49550c4da1479f266e4b6e8b92980dcb817672e65937f3c57",
+    "byteSize": 11291663,
+    "probe": {
+      "durationSeconds": 61.533333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 1846
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/microsoft-autopilot-agents/qc/regenerations/microsoft-autopilot-agents-2026-03/microsoft-autopilot-agents-2026-03-bdeb3a40/editorial/candidate.mp4",
+    "sha256": "0eae305ccdd769feb341a58995bdcd448e7aa5a82fe470d3d5ee0bb01bd7f9de",
+    "byteSize": 6532883,
+    "probe": {
+      "durationSeconds": 61.533333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 1846
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "bbdddf5ebe151886e5c44d845b2effb912dd834274bb2a0fd47883cba3cf977d",
+    "variantDecodedSha256": "bbdddf5ebe151886e5c44d845b2effb912dd834274bb2a0fd47883cba3cf977d",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 5.127778,
+      "sourcePngSha256": "61320f5289fbd79f9a91bc9f44ea4629797769494866ce166c14945b85e4fc1f",
+      "variantPngSha256": "b58924d1175844b6bf1a37a989010bea1c2a3fc274402858973ddc48e26036fb",
+      "meanPixelDifference": 64.250833
+    },
+    {
+      "timeSeconds": 15.383333,
+      "sourcePngSha256": "0bd7d9bf8308a61450a67926b68434aa7ab10425fe87ca2f6a1ea328802b537c",
+      "variantPngSha256": "39bf5b8ed4f32a5de4bbc6b2bcc3da0e2b97485c9c9d51a3c3df361cff4d6e59",
+      "meanPixelDifference": 60.0649
+    },
+    {
+      "timeSeconds": 25.638889,
+      "sourcePngSha256": "01995dcbe59f9219236bc3501c6da325d43c70ded7777df2e755d0572cb59361",
+      "variantPngSha256": "47e950fde365f634c2cf4dbed43899a7a73266b27e8f2d37f1910016e313cde0",
+      "meanPixelDifference": 59.679853
+    },
+    {
+      "timeSeconds": 35.894444,
+      "sourcePngSha256": "d536888680a3e3b358030e17695e87658a51f311f47310ab90b0e04de819995b",
+      "variantPngSha256": "37f795e01e2e126c1cc0518502be2a5db022806dda7ea178e95c98b1f6c4d60c",
+      "meanPixelDifference": 62.50278
+    },
+    {
+      "timeSeconds": 46.15,
+      "sourcePngSha256": "0be3d525f5f6f13ac6e925235067a8b8a695dfbf2ee8fec3e687f7e2094e093c",
+      "variantPngSha256": "4d04b48f33af0621116f119144f1738b824109c04745992e7270c9f1715af80b",
+      "meanPixelDifference": 60.079432
+    },
+    {
+      "timeSeconds": 56.405555,
+      "sourcePngSha256": "6bd61eaec34b7722e2a5e5e45ae3ce1d049092be5c873c97f94ced38939cd37b",
+      "variantPngSha256": "160f1ecf2f91d44c43673673c27850561e2cec677e8b75fe49bcf158faf61615",
+      "meanPixelDifference": 61.152199
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "1573d9f912fe1ecc56394303a40a402b6069ca77734b92157381f73507e89e55"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

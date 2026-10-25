@@ -217,6 +217,108 @@
         }
       ],
       "captions": "power-platform-2026-08-am_michael-kokoro.vtt"
+    },
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro_onnx-regen-1.mp4",
+      "role": "video",
+      "digest": "1695f947d8252962c4e456d566f40c93fa60801be5467b5644ed957f5c9797ed",
+      "byteSize": 5943316,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-2026-08-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 14.1,
+          "endSeconds": 26.867
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 26.867,
+          "endSeconds": 39.467
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 39.467,
+          "endSeconds": 53
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 53,
+          "endSeconds": 66.733
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "power-platform-2026-08-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
+        "designDigest": "754329651a8635374f2fade0552dd363a1dbe80293284c91ddec37431436934d",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx-b726759a/editorial"
+      }
+    },
+    {
+      "path": "power-platform-2026-08-am_michael-kokoro_onnx-regen-2.mp4",
+      "role": "video",
+      "digest": "2d1fa3858f39b8b46837e90e71df26fb937d44a94cf18b60345cf09aabcfa549",
+      "byteSize": 5435629,
+      "mediaType": "video/mp4",
+      "durationSeconds": 66.795,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro_onnx",
+        "profileId": "am_michael",
+        "voiceName": "Michael"
+      },
+      "captions": "power-platform-2026-08-am_michael-kokoro_onnx.vtt",
+      "scenes": [
+        {
+          "id": "title",
+          "startSeconds": 0,
+          "endSeconds": 14.1
+        },
+        {
+          "id": "one-platform",
+          "startSeconds": 14.1,
+          "endSeconds": 26.867
+        },
+        {
+          "id": "managed-artifact",
+          "startSeconds": 26.867,
+          "endSeconds": 39.467
+        },
+        {
+          "id": "config-and-data",
+          "startSeconds": 39.467,
+          "endSeconds": 53
+        },
+        {
+          "id": "release-gate",
+          "startSeconds": 53,
+          "endSeconds": 66.733
+        }
+      ],
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "power-platform-2026-08-am_michael-kokoro_onnx.mp4",
+        "sourceDigest": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
+        "designDigest": "0b00861941875823e1de43107c4d130df92c6354815a72b2f558e4cb22db3c4f",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx-b726759a/studio"
+      }
     }
   ],
   "notes": [

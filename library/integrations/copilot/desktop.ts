@@ -743,6 +743,7 @@ class DesktopBridge {
           'Create a project-specific domain SWE agent at agent/SWE_AGENT.md and maintain the evidence-bound agent/runbook.json.',
           'Create source-backed domain/content/render/approval-ready draft artifacts for selected formats.',
           'Generate all requested output formats; the default is the agent plus all eight presentation formats including narrated 1080p video.',
+           'Each retained video revision must keep its original video plus Editorial and Studio reference recompositions. revision-produce creates both for the primary original; use revisions-regenerate to resume or backfill a retained revision. These preserve the archived picture/audio and are not historical release-package rebuilds.',
           'Use existing shared voice profiles, editable document layouts, real embedded assets and the core Remotion adapter. Do not build a parallel renderer or substitute placeholder output.',
           'Run project QC and core verification gates relevant to selected formats: revisions-analyze (audio and video spectrograms), office-render, alignment-rank and runbook-project, so every runbook gate including audience-alignment passes.',
           'Keep the final package at PROJECT/release and retain failed or superseded candidates under PROJECT/qc/revisions, not loose release-vN directories at the project root.',

@@ -29,6 +29,50 @@
       "digest": "9ec6aef7230372ac1132b895407dec8674063ddaef8bde40b039108996e46a50",
       "byteSize": 144838,
       "mediaType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    },
+    {
+      "path": "agent-365-2026-01-regen-1.mp4",
+      "role": "video",
+      "digest": "f67fcff4c7c7f576199928da2651d4b69646c28a356e4701577d03bb2fb55f86",
+      "byteSize": 3665928,
+      "mediaType": "video/mp4",
+      "durationSeconds": 62.677,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      },
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "agent-365-2026-01.mp4",
+        "sourceDigest": "d1f89a8ba22103e6963734a3421c3deacbec6a55dabef98bb4adafbd2a9b5203",
+        "designDigest": "20ce0b83eae0c9c2a568291ffb88e7a61c9f37466f35cad4ce6da074b0e2f67e",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/agent-365-2026-01/agent-365-2026-01-d1f89a8b/editorial"
+      }
+    },
+    {
+      "path": "agent-365-2026-01-regen-2.mp4",
+      "role": "video",
+      "digest": "555bcfb39f9e661a47fe13587eb91d68f69b445adfa1d6e3ef4c6bab4cd05802",
+      "byteSize": 3563299,
+      "mediaType": "video/mp4",
+      "durationSeconds": 62.677,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      },
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "agent-365-2026-01.mp4",
+        "sourceDigest": "d1f89a8ba22103e6963734a3421c3deacbec6a55dabef98bb4adafbd2a9b5203",
+        "designDigest": "5c13db78ace7fb8d21b287d3d1c09d46dd8083f1f4605ab8c738f6dee24ba212",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/agent-365-2026-01/agent-365-2026-01-d1f89a8b/studio"
+      }
     }
   ],
   "notes": [

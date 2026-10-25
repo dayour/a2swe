@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "microsoft-2026-01.mp4",
+  "sourceDigest": "bdfa6c6ce647de2cabc42b14c332941b96fecbb797b45f169d16186cd3e9e148",
+  "designDigest": "b380264a46c1d00e7d34d26497c2ccbe4dac8ec22faf56615f12f935b40c03a5",
+  "outputPath": "microsoft-2026-01-regen-2.mp4",
+  "outputDigest": "343fcf76782f1b0fbe6ccfad2c361feeb11ce31971c76bc101dbad43f8a4d673",
+  "recipeDigest": "223263c52b426b92ee149834fe5dc3dfa71f2a404f69182d242b9584081ebae2",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

@@ -2,12 +2,21 @@ import {useEffect, useRef, useState, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
-import catalog from '../../data/library.json';
+import generatedCatalog from '../../data/library.json';
 import './library.css';
 
-export {catalog};
-export type Project = (typeof catalog.projects)[number];
-export type Video = Project['revisions'][number];
+type CatalogProject = (typeof generatedCatalog.projects)[number];
+export type Video = CatalogProject['revisions'][number] & {
+  visualLabel?: string;
+  visualGroupId?: string;
+  originalSource?: string;
+  visualRegeneration?: {
+    variant: number; sourcePath: string; sourceDigest: string; designDigest: string;
+    method: string; evidencePath?: string;
+  } | null;
+};
+export type Project = Omit<CatalogProject, 'revisions'> & {revisions: Video[]};
+export const catalog: Omit<typeof generatedCatalog, 'projects'> & {projects: Project[]} = generatedCatalog;
 export type Template = Omit<(typeof catalog.templates)[number], 'image'> & {
   image?: {path: string; width: number; height: number; source: string; page: number} | null;
 };

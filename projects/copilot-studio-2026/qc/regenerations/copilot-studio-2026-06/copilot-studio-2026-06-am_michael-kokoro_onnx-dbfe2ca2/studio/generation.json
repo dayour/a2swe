@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "method": "reference-recomposition",
+  "sourcePath": "copilot-studio-2026-06-am_michael-kokoro_onnx.mp4",
+  "sourceDigest": "dbfe2ca2dab073abf4aad16ec3afa206a3db324a9c344de2da26b36679ebb628",
+  "designDigest": "d5a086115416312348c041971fcf206e825854eeeccf7c68460f867db1610c60",
+  "outputPath": "copilot-studio-2026-06-am_michael-kokoro_onnx-regen-2.mp4",
+  "outputDigest": "b84e22ead563cc5e10a08d10c2a1069b1f9f612f9a1c5734f015dc49b1b555cf",
+  "recipeDigest": "ffe60756a8dee774631fccb1ec2f0f0441e76377141123eb7ba5493b3ff839fd",
+  "reviewStatus": "passed",
+  "editorialReview": "pending",
+  "preserved": [
+    "original source bytes",
+    "decoded narration audio",
+    "timing",
+    "burned captions and source picture"
+  ],
+  "evidence": [
+    "plan.json",
+    "review.json",
+    "comparison.jpg",
+    "fingerprint.json",
+    "style-comparison.json"
+  ]
+}

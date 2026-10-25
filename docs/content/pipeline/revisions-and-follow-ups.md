@@ -2,7 +2,6 @@
 title: Revisions and follow-ups
 description: Render, compare, promote and refresh project revisions, including recurring weekly account overviews.
 ---
-
 # Revisions and follow-ups
 
 A revision is one render round of a project. Every revision lives in
@@ -87,3 +86,47 @@ original provenance and licensing.
 
 The canonical inputs, revision manifests, release packages and runbook are the
 durable state. Chat history alone is not a valid production record.
+
+## Reference-based visual regenerations
+
+Keep an archived original and add two different brand compositions without
+rebuilding its historical facts or changing its narration:
+
+```sh
+node packages/core/src/cli.ts revisions-regenerate --root projects/copilot-code
+node packages/core/src/cli.ts revisions-regenerate --root projects/copilot-code --id copilot-code-2026-02
+node scripts/regenerate-archive.mjs --root . --jobs 4 --scope primary
+```
+
+`primary` adds Editorial and Studio versions of the first original video in each
+revision. `--scope all` adds both versions for every original voice/engine video.
+New `revision-produce` runs automatically create the two primary visual versions
+after retaining the original releases. A failed visual pass keeps those originals
+and reports the `revisions-regenerate` command needed to resume.
+Regenerated outputs never become regeneration inputs, and this operation never
+promotes, supersedes, or replaces an existing release package.
+
+The reference process follows ReelMimic's measured-reference/design/render/review
+approach. It records deterministic Lab color histograms, palette and coarse
+layout measurements from the exact archived video. An installed project theme
+supplies shared brand context when available; otherwise the reference palette
+supplies appearance evidence with official-brand identity explicitly unverified.
+Each composition has a versioned design plan and source/code/font digests.
+
+The picture is contained without cropping, including burned captions. Audio is
+copied, then independently decoded and compared with the original. Technical
+review checks dimensions, frame count/rate, duration, changed visuals and new
+interior black segments, and saves six same-time comparison frames. Visual
+similarity scores describe appearance; they do not establish aesthetic quality.
+Editorial review remains `pending` until inspection is recorded separately.
+
+Most historical `qc/revisions/` authoring packages are not tracked. These outputs
+are therefore labelled `reference-recomposition`, rather than claiming an exact
+historical release rebuild. Their evidence lives in
+`qc/regenerations/<revision>/<source>/`; lineage is attached to the new video
+records in the existing `revision.json`. Original records and bytes stay intact.
+
+Successful candidates are reused after integrity checks. Failed candidates keep
+their evidence and do not register an incomplete pair in the revision manifest.
+Refresh the media catalog after generation with
+`npm --prefix docs run library:refresh`.

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:59:48.605Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/power-platform-2026/renders/power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx.mp4",
+    "sha256": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
+    "byteSize": 10366432,
+    "probe": {
+      "durationSeconds": 66.733333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2002
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/power-platform-2026/qc/regenerations/power-platform-2026-08/power-platform-2026-08-am_michael-kokoro_onnx-b726759a/studio/candidate.mp4",
+    "sha256": "2d1fa3858f39b8b46837e90e71df26fb937d44a94cf18b60345cf09aabcfa549",
+    "byteSize": 5435629,
+    "probe": {
+      "durationSeconds": 66.733333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2002
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "7c932a45e9ea3fac849421d250f7c41ad630d8beb236a29d973b9ef002afded6",
+    "variantDecodedSha256": "7c932a45e9ea3fac849421d250f7c41ad630d8beb236a29d973b9ef002afded6",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 5.561111,
+      "sourcePngSha256": "ffe2e4b5aceffa3105fedaca9d6ffb80ac596a2b86c9e99b554269c567f6613c",
+      "variantPngSha256": "f911840f681dc783f2658d8675c8532baee81ba9832908f96ab2bc917d18b962",
+      "meanPixelDifference": 38.413737
+    },
+    {
+      "timeSeconds": 16.683333,
+      "sourcePngSha256": "97f048176a65ad90115acb9a31460fdac8307f8aacb07ee547ab617cf2a4701d",
+      "variantPngSha256": "38aea85c31e4c06d45f04c58172e1643db94d1808891b6421b1617f3c9156c82",
+      "meanPixelDifference": 31.828526
+    },
+    {
+      "timeSeconds": 27.805555,
+      "sourcePngSha256": "262f856877101d3b36ffd5fac8c7bccd04d93d3932e76c6e664e84d60e332d78",
+      "variantPngSha256": "a20e474d84f5a110894c5a31f7bd6a18b447ebcc773c6832de7fc1131dd94337",
+      "meanPixelDifference": 30.844434
+    },
+    {
+      "timeSeconds": 38.927778,
+      "sourcePngSha256": "8c8c8e44a1e741e2b584e47b9adc5b8d028f3d53dad1d8457a8f5e5d558dc77f",
+      "variantPngSha256": "4a083cf1ec3d699978831786137a8449c6b32619f2aaddfd3a6e4fb61bc4fbc4",
+      "meanPixelDifference": 31.819313
+    },
+    {
+      "timeSeconds": 50.05,
+      "sourcePngSha256": "4c77081cd58816322e4ce92218e99e344e36c90497fc983dcff111d0e9a30455",
+      "variantPngSha256": "7cc0686da3878c1a62cadbc68d6362cfda4dc096afb45705532d5581ab4ec26b",
+      "meanPixelDifference": 33.844851
+    },
+    {
+      "timeSeconds": 61.172222,
+      "sourcePngSha256": "78c1c1027d0149643b8ab8c628f4f1dfffedbe92d8ee0c9c7172960abea3701c",
+      "variantPngSha256": "328d4ba1ba31f17f2e78bd35cb5fb3d6bf186090f0e539d6455fa39cb49bdf52",
+      "meanPixelDifference": 33.920576
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "4e10c4fafda856acd1ff1d7a4d2a8c1ff7959e0296ca689452c1326338b220d1"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

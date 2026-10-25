@@ -1,0 +1,76 @@
+{
+  "design": {
+    "schemaVersion": "1.0.0",
+    "method": "reference-recomposition",
+    "style": "editorial",
+    "sourceDigest": "b726759a6c49c18ce769ff642c90c2075b03c8a76d6668fcbcb2411c5f67ac7e",
+    "title": "Power Platform ALM 2026",
+    "revision": "power-platform-2026-08",
+    "palette": {
+      "primary": "#006EC3",
+      "header": "#003D6B",
+      "deep": "#002846",
+      "accent": "#B3DAF0",
+      "paper": "#FFFFFF",
+      "canvas": "#F4F8FC",
+      "line": "#C4D6E4",
+      "text": "#003156",
+      "muted": "#566F83",
+      "soft": "#E6F1F9",
+      "danger": "#B42318"
+    },
+    "geometry": {
+      "x": 112,
+      "y": 112,
+      "width": 1696,
+      "height": 954
+    },
+    "frame": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 66.733333
+    },
+    "preservation": {
+      "originalPicture": "contained-without-crop",
+      "audio": "codec-copy",
+      "timing": "unchanged"
+    },
+    "engine": {
+      "name": "ffmpeg-canvas-recomposition",
+      "version": "1",
+      "preset": "veryfast",
+      "crf": 21,
+      "fontDigest": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    }
+  },
+  "brandEvidence": {
+    "basis": "installed-project-theme",
+    "path": "canonical/render-theme.json",
+    "sha256": "df19feb89a8d2cd2799a616a90fb1207db7725ea2a18b688466a61af694873af",
+    "source": {
+      "kind": "site",
+      "reference": "https://www.microsoft.com/en-us/power-platform",
+      "retrievedAt": "2026-10-16T18:26:04.228Z",
+      "basis": "Derived from 11 documents on www.microsoft.com: primary #0078D4, secondary #861E2A, accent #B3DAF0, dark #0E1726, light #DCEEF8; fonts Segoe UI Variable Text / Segoe UI Variable Display. Inspired by the site; not an official brand asset."
+    },
+    "applicability": "Shared project brand context; historical picture and audio stay intact."
+  },
+  "generator": {
+    "regenerations.ts": "1a3ae3a44011a2a087db73dca02eecb698dcd0940c4ed9e8c8bfa8ad32006339",
+    "regeneration-render.ts": "d1ed34bc94c87ad3ec48db3d2362244856617e815cca67148fc264f888e7a91e",
+    "regeneration-review.ts": "f5cbf33e3d8de8794547227447e538ddbf4f2b2919a0b40a9c1bc61a22a9df74",
+    "visual-fingerprint.ts": "2bd5db8e135d3b8ebf495b71c57b4d59a7fb08637599d85e753d93216bf22478"
+  },
+  "referenceMethods": {
+    "repository": "https://github.com/edenfunf/reelmimic",
+    "commit": "d445b23f404dc6f577b8fdff50255fdbf85d1e97",
+    "adopted": [
+      "reference appearance measurement",
+      "explicit versioned design plan",
+      "render-then-measure comparison",
+      "same-time before/after evidence"
+    ],
+    "scope": "Reference recomposition; no Motion Score/CMA-ES or learned critic is used."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "design": {
+    "schemaVersion": "1.0.0",
+    "method": "reference-recomposition",
+    "style": "studio",
+    "sourceDigest": "24a73ea5e246c39ed4ae8c8fc9bc4dc2761b8b51e89274df9a670352b4c81228",
+    "title": "Datadog Cowork plugin",
+    "revision": "datadog-cowork-plugin-2026-05",
+    "palette": {
+      "primary": "#632CA6",
+      "header": "#36185B",
+      "deep": "#23103B",
+      "accent": "#BEAAFF",
+      "paper": "#FFFFFF",
+      "canvas": "#F8F6FB",
+      "line": "#D4CBDF",
+      "text": "#2B1349",
+      "muted": "#766886",
+      "soft": "#EFEAF6",
+      "danger": "#B42318"
+    },
+    "geometry": {
+      "x": 400,
+      "y": 160,
+      "width": 1456,
+      "height": 820
+    },
+    "frame": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 91.7
+    },
+    "preservation": {
+      "originalPicture": "contained-without-crop",
+      "audio": "codec-copy",
+      "timing": "unchanged"
+    },
+    "engine": {
+      "name": "ffmpeg-canvas-recomposition",
+      "version": "1",
+      "preset": "veryfast",
+      "crf": 21,
+      "fontDigest": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    }
+  },
+  "brandEvidence": {
+    "basis": "installed-project-theme",
+    "path": "canonical/render-theme.json",
+    "sha256": "23626c6d06ba5781ba6dba241c4e07b6c555e40b528cdfb42f8ba985133931b5",
+    "source": {
+      "kind": "site",
+      "reference": "https://www.datadoghq.com/",
+      "retrievedAt": "2026-10-16T18:25:52.900Z",
+      "basis": "Derived from 4 documents on www.datadoghq.com (theme-color #FFFFFF): primary #632CA6, secondary #FF0078, accent #BEAAFF, dark #000000, light #EEEEEE; fonts nationalweb / Noto Sans JP. Inspired by the site; not an official brand asset."
+    },
+    "applicability": "Shared project brand context; historical picture and audio stay intact."
+  },
+  "generator": {
+    "regenerations.ts": "1a3ae3a44011a2a087db73dca02eecb698dcd0940c4ed9e8c8bfa8ad32006339",
+    "regeneration-render.ts": "d1ed34bc94c87ad3ec48db3d2362244856617e815cca67148fc264f888e7a91e",
+    "regeneration-review.ts": "f5cbf33e3d8de8794547227447e538ddbf4f2b2919a0b40a9c1bc61a22a9df74",
+    "visual-fingerprint.ts": "2bd5db8e135d3b8ebf495b71c57b4d59a7fb08637599d85e753d93216bf22478"
+  },
+  "referenceMethods": {
+    "repository": "https://github.com/edenfunf/reelmimic",
+    "commit": "d445b23f404dc6f577b8fdff50255fdbf85d1e97",
+    "adopted": [
+      "reference appearance measurement",
+      "explicit versioned design plan",
+      "render-then-measure comparison",
+      "same-time before/after evidence"
+    ],
+    "scope": "Reference recomposition; no Motion Score/CMA-ES or learned critic is used."
+  }
+}

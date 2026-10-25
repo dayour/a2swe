@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:33:00.413Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/datadog-cowork-plugin/renders/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03.mp4",
+    "sha256": "6ae265094e1a0647784c0d71ae488408f1428ebe3b5972465b92427a24fb41d2",
+    "byteSize": 14637035,
+    "probe": {
+      "durationSeconds": 89,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2670
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/datadog-cowork-plugin/qc/regenerations/datadog-cowork-plugin-2026-03/datadog-cowork-plugin-2026-03-6ae26509/studio/candidate.mp4",
+    "sha256": "0adcdc02588b6e2cf458d9e9c9930a3723c2fc97885a299feda789face133474",
+    "byteSize": 7489686,
+    "probe": {
+      "durationSeconds": 89,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2670
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "e6cf90e2fb2379337433fc8690bee2248008e01abf67b253f3b4be39893ba483",
+    "variantDecodedSha256": "e6cf90e2fb2379337433fc8690bee2248008e01abf67b253f3b4be39893ba483",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 7.416667,
+      "sourcePngSha256": "a2726ca1e7c5e59b15c6d97cfcc92674bdbbf7748e4d99871fd4c6433a3a07ac",
+      "variantPngSha256": "457327ab65a6f4d4c0d92b686fa5479d8fef1425222fcc71bb241d220f8539de",
+      "meanPixelDifference": 30.158372
+    },
+    {
+      "timeSeconds": 22.25,
+      "sourcePngSha256": "a72cc13dd18d5b10f3abf4b9c4269b2739c6d99126cdbf36754b1fd26a432604",
+      "variantPngSha256": "ad278a717ac4c28924c500168bf1a521389a95a27832b521a2180838172f1465",
+      "meanPixelDifference": 26.706307
+    },
+    {
+      "timeSeconds": 37.083333,
+      "sourcePngSha256": "41adc2349b8749ef6c0c821cad26c64a0dae4599b3e915ce6c4112195f305f46",
+      "variantPngSha256": "4d5a7c07fb2bf42a3566d4a11b7b6c3851d4585ca67b4220800d779e120fc4b4",
+      "meanPixelDifference": 29.256579
+    },
+    {
+      "timeSeconds": 51.916667,
+      "sourcePngSha256": "94b9774a64de3cb3cf5ef7510647c9b6a02e16086b6b3c39ac474aff46721d5e",
+      "variantPngSha256": "16ecdf767a0df1f2ca8164ed729f411256745374e7cb424ba5cfd252494d5594",
+      "meanPixelDifference": 19.673555
+    },
+    {
+      "timeSeconds": 66.75,
+      "sourcePngSha256": "4eae6a6ac617491cf54832a72714395a32c6043ce4f22644f162d050937c26bc",
+      "variantPngSha256": "c78cf168cbee69949589d18e612dc1ab0b1be6737f5754ff972603b99e625432",
+      "meanPixelDifference": 25.217816
+    },
+    {
+      "timeSeconds": 81.583333,
+      "sourcePngSha256": "9701da6ce142660efc3ee0bedf56423ef00d9eca2a2a1c05dbf66bb77c818c3c",
+      "variantPngSha256": "6c48a796bbe36ae9b52913778dcd7f658f0b49f48264db2101eb530e29a15a3e",
+      "meanPixelDifference": 28.795656
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "6cf4006d2eba19fbfb51fc4b73bc3b0dd68677bedf27da5f4c66cf829443b32f"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

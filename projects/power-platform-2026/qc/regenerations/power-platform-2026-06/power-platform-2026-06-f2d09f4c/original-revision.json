@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectId": "power-platform-2026",
+  "title": "power-platform-2026-06",
+  "year": 2026,
+  "number": 6,
+  "createdAt": "2026-09-21T21:46:57.123Z",
+  "pipeline": "legacy-template",
+  "status": "superseded",
+  "source": "renders/power-platform-2026-v6.mp4",
+  "outputs": [
+    {
+      "path": "power-platform-2026-06.alignment.json",
+      "role": "metadata",
+      "digest": "7ff2a083fc9e27fd5b1402116a3dc87ff724fd742af364685940c9129c0452d2",
+      "byteSize": 344,
+      "mediaType": "application/json"
+    },
+    {
+      "path": "power-platform-2026-06.mp4",
+      "role": "video",
+      "digest": "f2d09f4cdcd308d788bb3d11012f5a889ab295f8b5365322426f948233a900de",
+      "byteSize": 14614439,
+      "mediaType": "video/mp4",
+      "durationSeconds": 36.352,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "kokoro",
+        "profileId": "am_liam"
+      }
+    }
+  ],
+  "notes": [
+    "Audio/video alignment remux of power-platform-2026-v6-encoded.mp4 with -0.0427 s offset.",
+    "Narration voice recorded by script/timeline.json for power-platform-2026's latest legacy timeline."
+  ]
+}

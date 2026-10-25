@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-24T23:47:31.759Z",
+  "method": "independent-local-media-comparison",
+  "source": {
+    "path": "/workspace/a2swe/projects/microsoft/renders/microsoft-2026-07/microsoft-2026-07-am_michael-kokoro_onnx.mp4",
+    "sha256": "74a8863e0bbfd422e154867b3879ab9222f8ca6f039125e270730b2aa26ce12e",
+    "byteSize": 9297585,
+    "probe": {
+      "durationSeconds": 67.733333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2032
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "variant": {
+    "path": "/workspace/a2swe/projects/microsoft/qc/regenerations/microsoft-2026-07/microsoft-2026-07-am_michael-kokoro_onnx-74a8863e/editorial/candidate.mp4",
+    "sha256": "169ff9406353a56dbb70eee2aefa70c53d04be2d33a833d79d071cc0c72fb7d8",
+    "byteSize": 5526866,
+    "probe": {
+      "durationSeconds": 67.733333,
+      "video": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "frameCount": 2032
+      },
+      "audio": {
+        "sampleRate": 48000,
+        "channels": 2
+      }
+    }
+  },
+  "audio": {
+    "sourceDecodedSha256": "037fe70e724fb1fdf12af33162db92f3d31e94100e03c52b79b3c08a629972e6",
+    "variantDecodedSha256": "037fe70e724fb1fdf12af33162db92f3d31e94100e03c52b79b3c08a629972e6",
+    "encoding": "pcm_f32le"
+  },
+  "checks": {
+    "audioParity": true,
+    "durationParity": true,
+    "frameRateParity": true,
+    "frameCountParity": true,
+    "resolution": true,
+    "visualChanged": true,
+    "newInteriorBlack": true
+  },
+  "thresholds": {
+    "durationToleranceSeconds": 0.05,
+    "frameRateTolerance": 0.001,
+    "maxNewInteriorBlackSeconds": 0.5,
+    "minMeanPixelDifference": 1
+  },
+  "frames": [
+    {
+      "timeSeconds": 5.644444,
+      "sourcePngSha256": "9f6acd4ea95aa7d666f71db2ebdcee691118848fed28f54dbe8730e4de6ae957",
+      "variantPngSha256": "2a065afd05c6d2a4179b6e1dbeaf7b6074c70449b45f5b1ced41c980ddeb8138",
+      "meanPixelDifference": 53.007695
+    },
+    {
+      "timeSeconds": 16.933333,
+      "sourcePngSha256": "b152ff336447789583bfe216e48381cf937d78882434124af2d29e2f3e81c3b7",
+      "variantPngSha256": "76c63c5f3068b2d3b8db61ae2b26e194be14ab50cb83e1c222c470a32d6c514e",
+      "meanPixelDifference": 50.908619
+    },
+    {
+      "timeSeconds": 28.222222,
+      "sourcePngSha256": "646e079d1809d848d1419f47dccfc5aa1ce8b9bee51e9355a63aa41dc72381c5",
+      "variantPngSha256": "1339f0d93b2bb58592537279a31b634c8bc602cd2dde6edc89fd095c4dcffcb2",
+      "meanPixelDifference": 50.951019
+    },
+    {
+      "timeSeconds": 39.511111,
+      "sourcePngSha256": "549e4b64e09c3660b4a0930fb3ac1c5af8873ab115206cc1215ec709f756c385",
+      "variantPngSha256": "e1ff343beada7e6859f6da8d981d6ae7cd8e0a68814ab60a1af3222316419f6f",
+      "meanPixelDifference": 47.404753
+    },
+    {
+      "timeSeconds": 50.8,
+      "sourcePngSha256": "85d90ae30e0b74e9cd65e34fe949fd7186b590d2be5e857dd6d85b4411ee042c",
+      "variantPngSha256": "4fbd7f1256d7be20e50429b4a7313a422ef3a0c7c18b2ba61581579aad9f65ed",
+      "meanPixelDifference": 46.168233
+    },
+    {
+      "timeSeconds": 62.088889,
+      "sourcePngSha256": "6e61cf7acf0a9679980b52e8231932fa86409cf78353d882ed61b1b598dbdd73",
+      "variantPngSha256": "34f59802fc6b9f2cc5d266e154dd33c912dcad676d0e25bdfc6912bd985f2255",
+      "meanPixelDifference": 48.458681
+    }
+  ],
+  "blackSegments": {
+    "source": [],
+    "variant": [],
+    "newInterior": []
+  },
+  "evidence": {
+    "comparison": {
+      "path": "comparison.jpg",
+      "sha256": "12d97b091d4f819b7d2ffd7b66783f24dd4a42c98cad6e216aeeb900ab3535c6"
+    },
+    "sampleSize": {
+      "width": 480,
+      "height": 270
+    }
+  },
+  "findings": [],
+  "status": "passed",
+  "editorialReview": "pending"
+}

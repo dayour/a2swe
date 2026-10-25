@@ -29,6 +29,50 @@
         "engine": "edge-neural",
         "voiceName": "en-US-AndrewNeural"
       }
+    },
+    {
+      "path": "copilot-2026-06-regen-1.mp4",
+      "role": "video",
+      "digest": "eafa1a888303dfe595a0608e39d85cbccf981711dc7a20e49ab7f133f6c903f9",
+      "byteSize": 4451744,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.016,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "edge-neural",
+        "voiceName": "en-US-AndrewNeural"
+      },
+      "visualRegeneration": {
+        "variant": 1,
+        "sourcePath": "copilot-2026-06.mp4",
+        "sourceDigest": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+        "designDigest": "569f85bb5b2c15070ecfbaaf65e0d5fd11c2954dc0e2e92845b7026e2fc71f19",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-2026-06/copilot-2026-06-4e461ac3/editorial"
+      }
+    },
+    {
+      "path": "copilot-2026-06-regen-2.mp4",
+      "role": "video",
+      "digest": "35d1907a4f8a63805a4838cf7fae4b4912c96e76b5bd176ed016161aee71ce54",
+      "byteSize": 3986841,
+      "mediaType": "video/mp4",
+      "durationSeconds": 30.016,
+      "width": 1920,
+      "height": 1080,
+      "voice": {
+        "engine": "edge-neural",
+        "voiceName": "en-US-AndrewNeural"
+      },
+      "visualRegeneration": {
+        "variant": 2,
+        "sourcePath": "copilot-2026-06.mp4",
+        "sourceDigest": "4e461ac36975765317968916bdee37e2854184c2234dc324c654b511cac14ecc",
+        "designDigest": "9f3d37ce32a0a39e4b2f7286cc6c356794be96571eeb66306dc4840b7f5a08fb",
+        "method": "reference-recomposition",
+        "evidencePath": "qc/regenerations/copilot-2026-06/copilot-2026-06-4e461ac3/studio"
+      }
     }
   ],
   "notes": [
