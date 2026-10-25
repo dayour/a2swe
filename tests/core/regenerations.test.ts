@@ -36,6 +36,7 @@ test('archived generation preserves the original, appends two distinct reviewed 
     assert.equal(regenerationSources(updated).length, 1);
     for (const output of updated.outputs.slice(1)) {
       assert.equal(output.visualRegeneration?.sourceDigest, original.digest);
+      assert.match(path.basename(path.dirname(output.visualRegeneration!.evidencePath!)), /^[a-f0-9]{12}-[a-f0-9]{12}$/);
       const evidence = path.join(project, output.visualRegeneration!.evidencePath!, 'review.json');
       const review = JSON.parse(await readFile(evidence, 'utf8'));
       assert.equal(review.status, 'passed');

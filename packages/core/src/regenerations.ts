@@ -1,18 +1,24 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { lstat, mkdir, readFile, readdir, rename, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { digest, sha256File } from './canonical.ts';
+import { digest, sha256, sha256File } from './canonical.ts';
 import { validate } from './contracts.ts';
 import type { RenderRevision, RenderTheme } from './contracts.ts';
 import { fingerprintVideo, compareFingerprints } from './visual-fingerprint.ts';
+import type { VisualFingerprint } from './visual-fingerprint.ts';
 import { reviewRegeneration } from './regeneration-review.ts';
+import type { RegenerationReview } from './regeneration-review.ts';
 import { designDigest, recompositionDesign, renderRecomposition, writeRecompositionStage } from './regeneration-render.ts';
 import type { RegenerationStyle } from './regeneration-render.ts';
 
 type Output = RenderRevision['outputs'][number];
 export interface RegenerationOptions { id?: string; scope?: 'primary' | 'all'; onProgress?: (message: string) => void }
 const ROOT = fileURLToPath(new URL('../../../', import.meta.url));
+// Long-running processes keep the source identity captured when this module was
+// loaded. Later disk edits must not be attributed to already-loaded generators.
+const GENERATOR_SOURCES = ['regenerations.ts', 'regeneration-render.ts', 'regeneration-review.ts', 'visual-fingerprint.ts']
+  .map(file => ({ file, bytes: readFileSync(path.join(ROOT, 'packages/core/src', file)) }));
 const relative = (root: string, file: string) => path.relative(root, file).split(path.sep).join('/');
 const json = async <T>(file: string): Promise<T> => JSON.parse(await readFile(file, 'utf8'));
 async function writeJson(file: string, value: unknown) {
@@ -61,9 +67,105 @@ async function brandEvidence(project: string, palette: string[]) {
     evidence: { basis: 'measured-reference-palette', applicability: 'Appearance extracted from this video; official brand identity is unverified.' } };
 }
 
-async function generatorIdentity() {
-  const files = ['regenerations.ts', 'regeneration-render.ts', 'regeneration-review.ts', 'visual-fingerprint.ts'];
-  return Object.fromEntries(await Promise.all(files.map(async (file) => [file, await sha256File(path.join(ROOT, 'packages/core/src', file))])));
+async function generatorIdentity(project: string) {
+  return Object.fromEntries(await Promise.all(GENERATOR_SOURCES.map(async ({ file, bytes }) => {
+    const sha = sha256(bytes);
+    const archived = path.join(project, 'qc', 'regenerations', 'runtime', sha, file);
+    await mkdir(path.dirname(archived), { recursive: true });
+    try { await writeFile(archived, bytes, { flag: 'wx', mode: 0o600 }); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; }
+    if (await sha256File(archived) !== sha) throw new Error(`regeneration_runtime_archive_changed: ${file}`);
+    return [file, sha];
+  })));
+}
+
+const CACHE_EVIDENCE = ['plan.json', 'review.json', 'comparison.jpg', 'fingerprint.json', 'style-comparison.json'] as const;
+interface GenerationReceipt {
+  schemaVersion: string; method: string; sourcePath: string; sourceDigest: string;
+  outputPath: string; outputDigest: string; designDigest: string; recipeDigest: string; reviewStatus: string;
+  evidence: string[]; evidenceDigests?: Record<string, string>;
+}
+
+function cacheEvidenceFiles(folder: string) {
+  return [...CACHE_EVIDENCE.map(name => [name, path.join(folder, name)] as const),
+    ['reference-fingerprint.json', path.join(path.dirname(folder), 'reference-fingerprint.json')] as const];
+}
+
+async function cachedJson<Value>(file: string): Promise<Value> {
+  try { return await json<Value>(file); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') throw new Error(`regeneration_cached_evidence_missing: ${path.basename(file)}`);
+    throw new Error(`regeneration_cached_evidence_invalid: ${path.basename(file)}`);
+  }
+}
+
+async function cachedHash(file: string): Promise<string> {
+  try { return await sha256File(file); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') throw new Error(`regeneration_cached_evidence_missing: ${path.basename(file)}`);
+    throw error;
+  }
+}
+
+/** Both completed and interrupted runs must retain the same verifiable evidence. */
+async function verifyCachedRegeneration(project: string, renderDirectory: string, source: Output, output: Output): Promise<void> {
+  const provenance = output.visualRegeneration;
+  if (!provenance?.evidencePath) throw new Error('regeneration_cached_evidence_missing: evidencePath');
+  const folder = path.join(project, provenance.evidencePath);
+  const [receipt, plan, review, reference, variant, comparison] = await Promise.all([
+    cachedJson<GenerationReceipt>(path.join(folder, 'generation.json')),
+    cachedJson<{ design?: { sourceDigest?: string; method?: string; style?: string } }>(path.join(folder, 'plan.json')),
+    cachedJson<RegenerationReview>(path.join(folder, 'review.json')),
+    cachedJson<VisualFingerprint>(path.join(path.dirname(folder), 'reference-fingerprint.json')),
+    cachedJson<VisualFingerprint>(path.join(folder, 'fingerprint.json')),
+    cachedJson<unknown>(path.join(folder, 'style-comparison.json'))
+  ]);
+  const changed = (part: string): never => { throw new Error(`regeneration_cached_evidence_changed: ${part}`); };
+  const outputFile = path.join(renderDirectory, output.path);
+  const [sourceInfo, outputInfo, outputDigest] = await Promise.all([
+    stat(path.join(renderDirectory, source.path)), stat(outputFile), cachedHash(outputFile)
+  ]);
+  if (outputDigest !== output.digest || outputInfo.size !== output.byteSize || sourceInfo.size !== source.byteSize) changed('media');
+  const planDigest = digest(plan);
+  if (receipt?.schemaVersion !== '1.0.0' || receipt.method !== 'reference-recomposition'
+    || receipt.sourcePath !== source.path || receipt.sourceDigest !== source.digest
+    || receipt.outputPath !== output.path || receipt.outputDigest !== output.digest
+    || receipt.designDigest !== planDigest || receipt.designDigest !== provenance.designDigest
+    || !plan?.design || plan.design.sourceDigest !== source.digest || plan.design.method !== 'reference-recomposition'
+    || plan.design.style !== (provenance.variant === 1 ? 'editorial' : 'studio')
+    || receipt.recipeDigest !== digest(plan.design) || receipt.reviewStatus !== 'passed' || !Array.isArray(receipt.evidence)
+    || digest(receipt.evidence) !== digest(CACHE_EVIDENCE)) changed('generation receipt or plan');
+  const checks = review?.checks;
+  const requiredChecks = ['audioParity', 'durationParity', 'frameRateParity', 'resolution', 'visualChanged', 'newInteriorBlack'] as const;
+  if (review?.schemaVersion !== '1.0.0' || review.method !== 'independent-local-media-comparison' || review.status !== 'passed'
+    || review.source?.sha256 !== source.digest || review.variant?.sha256 !== output.digest
+    || review.source.byteSize !== source.byteSize || review.variant.byteSize !== output.byteSize
+    || !checks || requiredChecks.some(check => checks[check] !== true)
+    || ![true, null].includes(checks.frameCountParity)
+    || !Array.isArray(review.findings) || review.findings.some(finding => finding.severity === 'error')
+    || review.audio?.encoding !== 'pcm_f32le'
+    || !/^[a-f0-9]{64}$/.test(review.audio.sourceDecodedSha256 ?? '')
+    || review.audio.sourceDecodedSha256 !== review.audio.variantDecodedSha256) changed('technical review');
+  if (review.evidence?.comparison?.path !== 'comparison.jpg'
+    || review.evidence.comparison.sha256 !== await cachedHash(path.join(folder, 'comparison.jpg'))) changed('comparison image');
+  if (reference?.schemaVersion !== '1.0.0' || variant?.schemaVersion !== '1.0.0'
+    || reference.input?.sha256 !== source.digest || reference.input.bytes !== source.byteSize
+    || variant.input?.sha256 !== output.digest || variant.input.bytes !== output.byteSize
+    || reference.width !== review.source.probe?.video?.width || reference.height !== review.source.probe?.video?.height
+    || variant.width !== review.variant.probe?.video?.width || variant.height !== review.variant.probe?.video?.height) changed('fingerprint inputs');
+  try {
+    if (digest(compareFingerprints(reference, variant)) !== digest(comparison)) changed('style comparison');
+  } catch (error) {
+    if (error instanceof Error && error.message.startsWith('regeneration_cached_')) throw error;
+    changed('fingerprint measurements');
+  }
+  // The original archive receipts predate evidenceDigests. Their explicit
+  // cross-checks above remain supported; new receipts also bind exact file bytes.
+  if (receipt.evidenceDigests !== undefined) {
+    for (const [name, file] of cacheEvidenceFiles(folder)) {
+      if (receipt.evidenceDigests?.[name] !== await cachedHash(file)) changed(`evidence digest: ${name}`);
+    }
+  }
 }
 
 async function regenerateSource(project: string, manifestFile: string, source: Output, options: RegenerationOptions) {
@@ -74,22 +176,14 @@ async function regenerateSource(project: string, manifestFile: string, source: O
   if (await sha256File(input) !== source.digest) throw new Error(`regeneration_source_digest_mismatch: ${input}`);
   const retained = revision.outputs.filter((output) => output.visualRegeneration?.sourcePath === source.path);
   if (retained.length === 2) {
-    for (const output of retained) {
-      if (await sha256File(path.join(renderDirectory, output.path)) !== output.digest) throw new Error('regeneration_cached_output_changed');
-      const directory = path.join(project, output.visualRegeneration!.evidencePath!);
-      const receipt = await json<{ sourceDigest: string; outputDigest: string; designDigest: string; reviewStatus: string }>(path.join(directory, 'generation.json'));
-      const plan = await json(path.join(directory, 'plan.json'));
-      const review = await json<{ status: string; variant: { sha256: string } }>(path.join(directory, 'review.json'));
-      if (receipt.sourceDigest !== source.digest || receipt.outputDigest !== output.digest || receipt.designDigest !== digest(plan)
-        || receipt.designDigest !== output.visualRegeneration!.designDigest || receipt.reviewStatus !== 'passed'
-        || review.status !== 'passed' || review.variant.sha256 !== output.digest) throw new Error('regeneration_cached_evidence_changed');
-    }
+    for (const output of retained) await verifyCachedRegeneration(project, renderDirectory, source, output);
     options.onProgress?.(`${revision.title}: verified original + two retained variations`);
     return { projectId: revision.projectId, revision: revision.title, source: source.path, outputs: retained.map((output) => output.path), generated: 0,
       evidence: relative(project, path.dirname(path.join(project, retained[0].visualRegeneration!.evidencePath!))), editorialReview: 'pending' };
   }
   const sourceStem = path.parse(source.path).name;
-  const key = `${sourceStem.slice(0, 64)}-${source.digest.slice(0, 8)}`;
+  // Keep external FFmpeg paths short on Windows; source names remain in the plan and manifest.
+  const key = `${sha256(source.path).slice(0, 12)}-${source.digest.slice(0, 12)}`;
   const evidence = path.join(project, 'qc', 'regenerations', revision.title, key);
   await mkdir(evidence, { recursive: true });
   const originalRecord = path.join(evidence, 'original-revision.json');
@@ -100,7 +194,7 @@ async function regenerateSource(project: string, manifestFile: string, source: O
   const brand = await brandEvidence(project, original.summary.palette);
   const titleFile = path.join(project, 'canonical', 'domain-pack.json');
   const title = existsSync(titleFile) ? (await json<{ canonicalName: string }>(titleFile)).canonicalName : revision.projectId.replaceAll('-', ' ');
-  const generator = await generatorIdentity();
+  const generator = await generatorIdentity(project);
   const outputs: Output[] = [];
   const generatedFiles: string[] = [];
   for (const [index, style] of (['editorial', 'studio'] as RegenerationStyle[]).entries()) {
@@ -119,8 +213,14 @@ async function regenerateSource(project: string, manifestFile: string, source: O
     const recipeDigest = digest(recipe);
     const setPath = path.join(folder, 'generation.json');
     const previous = existsSync(setPath) ? await json<{ designDigest: string; outputDigest: string; reviewStatus: string }>(setPath) : null;
-    const reusable = previous?.designDigest === recipeDigest && previous.reviewStatus === 'passed'
-      && existsSync(outputFile) && await sha256File(outputFile) === previous.outputDigest;
+    const reusable = previous?.designDigest === recipeDigest && existsSync(outputFile);
+    if (reusable) {
+      await verifyCachedRegeneration(project, renderDirectory, source, {
+        path: name, role: 'video', digest: previous.outputDigest, byteSize: (await stat(outputFile)).size, mediaType: 'video/mp4',
+        visualRegeneration: { variant, sourcePath: source.path, sourceDigest: source.digest, designDigest: recipeDigest,
+          method: 'reference-recomposition', evidencePath: relative(project, folder) }
+      });
+    }
     if (!reusable) {
       if (existsSync(outputFile)) throw new Error(`regeneration_output_conflict: ${outputFile}; existing output/recipe must be reviewed before replacement`);
       await writeJson(path.join(folder, 'plan.json'), recipe);
@@ -136,10 +236,11 @@ async function regenerateSource(project: string, manifestFile: string, source: O
       await writeJson(path.join(folder, 'style-comparison.json'), comparison);
       const outputDigest = await sha256File(pending);
       if (outputDigest === source.digest) throw new Error('regeneration_unchanged_video');
+      const evidenceDigests = Object.fromEntries(await Promise.all(cacheEvidenceFiles(folder).map(async ([name, file]) => [name, await sha256File(file)])));
       await writeJson(setPath, { schemaVersion: '1.0.0', method: 'reference-recomposition', sourcePath: source.path, sourceDigest: source.digest,
         designDigest: recipeDigest, outputPath: name, outputDigest, recipeDigest: designDigest(design), reviewStatus: review.status,
         editorialReview: 'pending', preserved: ['original source bytes', 'decoded narration audio', 'timing', 'burned captions and source picture'],
-        evidence: ['plan.json', 'review.json', 'comparison.jpg', 'fingerprint.json', 'style-comparison.json'] });
+        evidence: CACHE_EVIDENCE, evidenceDigests });
       await rename(pending, outputFile);
       generatedFiles.push(outputFile);
     } else options.onProgress?.(`${revision.title}: verified cached ${style}`);

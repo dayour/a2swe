@@ -36,6 +36,10 @@ previous superseded revisions for playback; other revisions link to retained
 repository sources. Comparing a playable variation opens its original alongside
 it when that original is also available for playback.
 
+Visual-variation posters are derived from the retained MP4 during a clean build,
+so documentation builds need FFmpeg. The media catalog, movie digests and review
+contact sheets remain versioned; generated variation thumbnails stay local.
+
 ## Recommended states
 
 | State | Meaning |

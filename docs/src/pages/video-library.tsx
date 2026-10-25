@@ -20,12 +20,14 @@ function RevisionViewer({video, onClose}: {video: Video; onClose: () => void}) {
       </select>
     </label>
     <p className="library-meta">Independent playback controls let you pause and seek each revision. Original, Editorial and Studio identify visual comparisons; narration voice and engine remain separate.</p>
-    {video.visualRegeneration && <p className="library-notice">This is a reference recomposition with the original narration, not a regenerated historical release package. <SourceLink source={video.originalSource ?? video.source}>Original video</SourceLink>
+    {video.visualRegeneration && <p className="library-notice">Visual review is pending. This reference recomposition preserves the original narration and picture. <SourceLink source={video.originalSource ?? video.source}>Original video</SourceLink>
       {video.visualRegeneration.evidencePath && <> / <SourceLink source={`projects/${video.projectId}/${video.visualRegeneration.evidencePath}`}>Design evidence</SourceLink></>}</p>}
     {other?.digest === video.digest && <p className="library-notice">These revisions contain identical movie bytes (matching SHA-256).</p>}
     <details><summary>File integrity and evidence</summary>
       <p>SHA-256 <code className="library-digest">{video.digest}</code></p>
       <div className="library-actions"><SourceLink source={video.source}>Source movie</SourceLink>
+        {video.visualRegeneration?.evidencePath && <><SourceLink source={`projects/${video.projectId}/${video.visualRegeneration.evidencePath}/review.json`}>Technical comparison</SourceLink>
+          <SourceLink source={`projects/${video.projectId}/${video.visualRegeneration.evidencePath}/comparison.jpg`}>Before and after frames</SourceLink></>}
         {video.qc ? <SourceLink source={video.qc}>Matching media analysis</SourceLink> : <span>No matching media analysis recorded.</span>}
         {project.evidence.map((source) => <SourceLink key={source} source={source} />)}
       </div>
@@ -44,6 +46,7 @@ function ProjectCard({project, video, onPlay}: {project: Project; video?: Video;
     <div className="library-card-body">
       <div className="library-meta"><span className={`library-badge ${selected ? '' : 'library-badge--warning'}`}>{selected?.state ?? 'Not rendered'}</span>
         {selected && <span className="library-badge">{selected.visualLabel ?? 'Original'}</span>}
+        {selected?.visualRegeneration && <span className="library-badge library-badge--warning">Visual review pending</span>}
         <span>{project.revisions.length} renders</span></div>
       <h2>{video ? video.title : project.title}</h2><p>{project.description}</p>
       {selected && !video && <label className="library-field">Revision

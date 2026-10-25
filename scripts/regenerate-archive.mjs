@@ -12,6 +12,7 @@ if (!['primary', 'all'].includes(values.scope)) throw new Error('scope must be p
 const projects = (await readdir(path.join(root, 'projects'), { withFileTypes: true }))
   .filter((entry) => entry.isDirectory() && !entry.isSymbolicLink() && existsSync(path.join(root, 'projects', entry.name, 'renders')))
   .map((entry) => path.join(root, 'projects', entry.name)).sort();
+if (!projects.length) throw new Error('no_matching_regeneration_projects');
 let next = 0;
 const results = [];
 await Promise.all(Array.from({ length: Math.min(jobs, projects.length) }, async () => {

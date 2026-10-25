@@ -1,11 +1,13 @@
 // Artifact audit only: rehash files and validate persisted measurement/lineage bindings.
 // This does not decode media, rerun measurements, or grant editorial approval.
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { createReadStream } from 'node:fs';
 import { lstat, mkdir, readFile, realpath, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 import sharp from 'sharp';
-import { canonicalJson, digest, sha256File } from '../packages/core/src/canonical.ts';
+import { canonicalJson, digest } from '../packages/core/src/canonical.ts';
 import { validate } from '../packages/core/src/contracts.ts';
 import { compareFingerprints } from '../packages/core/src/visual-fingerprint.ts';
 
@@ -22,8 +24,12 @@ const output = path.resolve(values.out ?? (values.project ? path.join(root, 'doc
 if (values.project && (!/^[a-z0-9][a-z0-9-]*$/.test(values.project) || output === canonicalOutput)) throw new Error('Filtered audits require a valid project ID and a separate report path.');
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
 const base = git('rev-parse', '--verify', '--end-of-options', `${values.base}^{commit}`).trim();
-const allManifests = git('ls-tree', '-r', '--name-only', base, '--', 'projects').split('\n')
-  .filter((file) => /^projects\/[^/]+\/renders\/[^/]+\/revision\.json$/.test(file)).sort();
+if (git('rev-parse', '--show-object-format').trim() !== 'sha1') throw new Error('Baseline preservation proof currently requires a SHA-1 Git object repository.');
+const baseBlobs = new Map(git('ls-tree', '-r', '-z', base, '--', 'projects').split('\0').filter(Boolean).flatMap((entry) => {
+  const match = /^\d+ blob ([a-f0-9]{40})\t([\s\S]+)$/.exec(entry);
+  return match ? [[match[2], match[1]]] : [];
+}));
+const allManifests = [...baseBlobs.keys()].filter((file) => /^projects\/[^/]+\/renders\/[^/]+\/revision\.json$/.test(file)).sort();
 const manifests = allManifests.filter((file) => !values.project || file.split('/')[1] === values.project);
 if (!manifests.length) throw new Error('No immutable baseline revision manifests matched.');
 const same = (a, b) => a === undefined || b === undefined ? a === b : canonicalJson(a) === canonicalJson(b);
@@ -32,11 +38,13 @@ const json = async (file) => JSON.parse(await readFile(file, 'utf8'));
 const relative = (file) => path.relative(root, file).split(path.sep).join('/');
 const within = (parent, file) => { const rel = path.relative(parent, file); return !rel.startsWith(`..${path.sep}`) && rel !== '..' && !path.isAbsolute(rel); };
 const errors = [];
+const preExistingIntegrityFindings = [];
 const rows = [];
 const fileCache = new Map();
 const generatorVersions = new Map();
 const generatorFiles = ['regenerations.ts', 'regeneration-render.ts', 'regeneration-review.ts', 'visual-fingerprint.ts'];
 const counts = { baselineRevisions: manifests.length, baselineOutputRecords: 0, originalOutputRecordsHashed: 0,
+  originalOutputRecordsGitVerified: 0, originalVideoRecordsGitVerified: 0, preExistingIntegrityFindingCount: 0,
   expectedRegenerations: manifests.length * 2, auditedRegenerations: 0, technicalPassed: 0, pendingEditorialReview: 0 };
 
 async function inspectFile(file) {
@@ -45,10 +53,14 @@ async function inspectFile(file) {
   if (fileCache.has(resolved)) return fileCache.get(resolved);
   const before = await lstat(resolved);
   if (!before.isFile() || before.isSymbolicLink() || !within(root, await realpath(resolved))) throw new Error(`regular_workspace_file_required: ${file}`);
-  const sha256 = await sha256File(resolved);
+  const contentHash = createHash('sha256');
+  const blobHash = createHash('sha1').update(`blob ${before.size}\0`);
+  for await (const chunk of createReadStream(resolved)) { contentHash.update(chunk); blobHash.update(chunk); }
+  const sha256 = contentHash.digest('hex');
+  const gitBlobSha1 = blobHash.digest('hex');
   const after = await lstat(resolved);
   if (before.size !== after.size || before.mtimeMs !== after.mtimeMs) throw new Error(`artifact_changed_during_audit: ${file}`);
-  const result = { path: relative(resolved), sha256, byteSize: after.size };
+  const result = { path: relative(resolved), sha256, gitBlobSha1, byteSize: after.size };
   fileCache.set(resolved, result);
   return result;
 }
@@ -79,9 +91,26 @@ for (const manifest of manifests) {
     expect(same(originals, baseOutputs), 'original-records-changed', 'Original output records, ordering or metadata differ from the immutable baseline.');
     for (const original of baseOutputs) {
       const info = await inspectFile(child(renderDirectory, original.path));
-      row.sources.push({ ...info, role: original.role });
+      const baseGitBlobSha1 = baseBlobs.get(info.path);
+      const matchesBaselineGitBlob = Boolean(baseGitBlobSha1 && info.gitBlobSha1 === baseGitBlobSha1);
+      const declaredDigestMatches = info.sha256 === original.digest && info.byteSize === original.byteSize;
+      row.sources.push({ ...info, role: original.role, baseGitBlobSha1: baseGitBlobSha1 ?? null, matchesBaselineGitBlob, declaredDigestMatches });
       counts.originalOutputRecordsHashed++;
-      expect(info.sha256 === original.digest && info.byteSize === original.byteSize, 'original-bytes-changed', original.path);
+      expect(matchesBaselineGitBlob, 'original-bytes-changed', `${original.path}: raw Git blob ${info.gitBlobSha1} differs from immutable baseline ${baseGitBlobSha1 ?? '(file not tracked)'}.`);
+      if (matchesBaselineGitBlob) {
+        counts.originalOutputRecordsGitVerified++;
+        if (original.role === 'video') counts.originalVideoRecordsGitVerified++;
+        // Preserve historical records as well as their bytes. A stale declaration that already
+        // exists in Git is reported, never repaired or treated as a change introduced by this task.
+        if (!declaredDigestMatches) {
+          preExistingIntegrityFindings.push({ severity: 'warning', code: 'baseline-declared-digest-mismatch', manifest,
+            path: info.path, role: original.role, recordedSha256: original.digest, actualSha256: info.sha256,
+            recordedByteSize: original.byteSize, actualByteSize: info.byteSize, baseGitBlobSha1, actualGitBlobSha1: info.gitBlobSha1,
+            preservationProof: 'raw-bytes-match-immutable-git-baseline',
+            message: 'The immutable baseline output declaration disagrees with its own tracked file. Original bytes and historical metadata remain unchanged.' });
+          counts.preExistingIntegrityFindingCount++;
+        }
+      }
     }
     const primary = baseOutputs.find((item) => item.role === 'video');
     if (!primary) throw new Error('baseline_primary_video_missing');
@@ -137,8 +166,20 @@ for (const manifest of manifests) {
           if (!hashString(recordedSha256)) continue;
           const currentIdentity = await inspectFile(path.join(root, 'packages/core/src', generator));
           const basis = currentIdentity.sha256 === recordedSha256 ? 'current' : 'archived';
-          const identity = basis === 'current' ? currentIdentity : await inspectFile(path.join(root,
-            'library/integrations/regeneration-runtime/sources', recordedSha256, generator));
+          let identity = basis === 'current' ? currentIdentity : undefined;
+          if (!identity) {
+            for (const archivedFile of [
+              path.join(root, 'library/integrations/regeneration-runtime/sources', recordedSha256, generator),
+              path.join(project, 'qc/regenerations/runtime', recordedSha256, generator)
+            ]) {
+              const archived = await inspectFile(archivedFile).catch((error) => {
+                if (error.code === 'ENOENT') return undefined;
+                throw error;
+              });
+              if (archived?.sha256 === recordedSha256) { identity = archived; break; }
+            }
+          }
+          if (!identity) throw new Error(`recorded_generator_source_unavailable: ${generator}:${recordedSha256}`);
           expect(recordedSha256 === identity.sha256, 'generator-source-binding', generator);
           generatorProvenance[generator] = { basis, ...identity };
           generatorVersions.set(`${generator}:${recordedSha256}`, { filename: generator, recordedSha256, basis, ...identity });
@@ -209,7 +250,8 @@ for (const manifest of manifests) {
   errors.push(...row.errors.map((error) => ({ manifest, ...error })));
 }
 
-const complete = errors.length === 0 && counts.auditedRegenerations === counts.expectedRegenerations
+const complete = errors.length === 0 && counts.originalOutputRecordsGitVerified === counts.baselineOutputRecords
+  && counts.auditedRegenerations === counts.expectedRegenerations
   && counts.technicalPassed === counts.expectedRegenerations;
 const report = {
   schemaVersion: '1.0.0', auditedAt: new Date().toISOString(), method: 'immutable-baseline-regeneration-artifact-audit', baseCommit: base,
@@ -224,11 +266,12 @@ const report = {
   technicalStatus: complete ? 'rehashed-artifacts-and-bound-stored-checks-passed' : 'incomplete-or-failed-bindings', editorialReview: 'pending',
   limitations: [
     'Artifact audit only: media bytes are rehashed, but decoded audio, frame extraction, black detection and probes are not remeasured.',
+    'Every original output is proven byte-identical to its immutable Git blob without text filters. Baseline declarations already inconsistent with those same bytes are warnings, not waived byte changes.',
     'Decoded-audio parity is verified from stored equal hashes in review receipts bound to the rehashed source and variant MP4 bytes.',
     'This report seals current stage, plan, fingerprint, comparison, generation and review evidence digests; available internal bindings are checked.',
-    'Recorded generator source versions match current source or hash-verified archived copies. Archived sources are read as provenance data and are not executed.',
+    'Recorded generator source versions match current source or hash-verified global/project archived copies. Archived sources are read as provenance data and are not executed.',
     'Similarity is descriptive, not an aesthetic score. Technical passage does not approve editorial quality, readability or whole-film playback.'
-  ], revisions: rows, errors
+  ], revisions: rows, preExistingIntegrityFindings, errors
 };
 const destination = complete ? output : output.replace(/(?:\.json)?$/, '.incomplete.json');
 await mkdir(path.dirname(destination), { recursive: true });

@@ -100,6 +100,9 @@ node scripts/regenerate-archive.mjs --root . --jobs 4 --scope primary
 
 `primary` adds Editorial and Studio versions of the first original video in each
 revision. `--scope all` adds both versions for every original voice/engine video.
+New `revision-produce` runs automatically create the two primary visual versions
+after retaining the original releases. A failed visual pass keeps those originals
+and reports the `revisions-regenerate` command needed to resume.
 Regenerated outputs never become regeneration inputs, and this operation never
 promotes, supersedes, or replaces an existing release package.
 

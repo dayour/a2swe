@@ -34,8 +34,10 @@ if (!refresh) {
   }
 }
 const mediaOut = path.join(docs, 'static', 'library');
-const ffmpeg = process.env.FFMPEG ?? path.join(root, 'template', 'node_modules', '@remotion', 'compositor-win32-x64-msvc', 'ffmpeg.exe');
-const ffprobe = process.env.FFPROBE ?? path.join(path.dirname(ffmpeg), 'ffprobe.exe');
+const compositorFfmpeg = path.join(root, 'template', 'node_modules', '@remotion', 'compositor-win32-x64-msvc', 'ffmpeg.exe');
+const ffmpeg = process.env.FFMPEG ?? process.env.FFMPEG_PATH ?? (process.platform === 'win32' && existsSync(compositorFfmpeg) ? compositorFfmpeg : 'ffmpeg');
+const siblingProbe = path.join(path.dirname(ffmpeg), process.platform === 'win32' ? 'ffprobe.exe' : 'ffprobe');
+const ffprobe = process.env.FFPROBE ?? process.env.FFPROBE_PATH ?? (path.isAbsolute(ffmpeg) && existsSync(siblingProbe) ? siblingProbe : 'ffprobe');
 const projects = [];
 const discoveredMovies = new Set();
 const templates = [];
@@ -74,6 +76,7 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
     const bytes = statSync(file).size;
     if (digest !== output.digest) throw new Error(`Revision manifest digest mismatch: ${source}`);
     const poster = `library/posters/${id}-${name}.jpg`;
+    const posterFile = path.join(docs, 'static', poster);
     if (refresh && (metadata[source]?.digest !== digest || metadata[source]?.bytes !== bytes
       || !existsSync(path.join(docs, 'static', poster)))) {
       const probe = JSON.parse(execFileSync(ffprobe, ['-v', 'error', '-show_streams', '-show_format', '-of', 'json', file], {encoding: 'utf8'}));
@@ -82,9 +85,13 @@ for (const dir of readdirSync(path.join(root, 'projects'), {withFileTypes: true}
       const [n, d] = stream.avg_frame_rate.split('/').map(Number);
       metadata[source] = {digest, bytes, width: stream.width, height: stream.height,
         fps: n / d, duration: Number(stream.duration ?? probe.format.duration), codec: stream.codec_name};
-      const posterFile = path.join(docs, 'static', poster);
       mkdirSync(path.dirname(posterFile), {recursive: true});
-      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', '2', '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
+      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', String(Math.min(2, (metadata[source]?.duration ?? output.durationSeconds ?? 4) / 2)), '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
+    }
+    // Regeneration thumbnails are derived from the retained movie; rebuild them on a clean checkout.
+    if (output.visualRegeneration && !existsSync(posterFile)) {
+      mkdirSync(path.dirname(posterFile), {recursive: true});
+      execFileSync(ffmpeg, ['-y', '-v', 'error', '-ss', String(Math.min(2, (metadata[source]?.duration ?? output.durationSeconds ?? 4) / 2)), '-i', file, '-frames:v', '1', '-vf', 'scale=640:-2', '-update', '1', posterFile]);
     }
     const data = metadata[source];
     if (!data || data.digest !== digest || data.bytes !== bytes) {

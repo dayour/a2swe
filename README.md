@@ -340,7 +340,16 @@ invented. Freshness for recent claims uses a trailing nine-calendar-month window
 ## Revisions and media analysis
 
 Each render round is a revision. `revision-produce` renders one full release per
-voice and engine variant and promotes the first variant to `release/`:
+voice and engine variant and promotes the first variant to `release/`.
+
+Every new revision also retains **Editorial** and **Studio** brand compositions
+of its primary original video. They preserve its picture, captions and narration,
+with measured visual fingerprints and same-time technical review evidence.
+Backfill archived revisions with
+`npm run regen:archive -- --jobs 4 --scope primary`; use `--scope all` for two
+versions of every original voice/engine video. These are reference recompositions,
+so missing historical authoring packages do not cause current facts to replace
+the archived content. The Video Library groups all three visual versions.
 
 ```powershell
 npm run a2swe -- revision-produce --root projects\microsoft-plugin-architecture
